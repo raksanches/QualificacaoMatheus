@@ -1,0 +1,70 @@
+% Introdução
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+	
+\chapter{Metodologia e cronograma}
+
+
+\section{Metodologia}
+
+\begin{itemize}
+	\item Estudar dinâmica das estruturas computacional para problemas com grandes deslocamentos;
+	
+	\item Estudar técnicas de detecção de contato e auto-contato e técnicas de imposição de condição de não penetração;
+	
+	\item Estudar dinâmica dos fluidos computacional para escoamentos incomprassíveis com contornos móveis;
+	
+	\item Estudar técnicas de acoplamento fluido-estrutura particionadas e monolíticas;
+	
+	\item Desenvolver código para dinâmica não linear de sólidos bidimensionais em formulação posicional;
+	
+	\item Implementar modelo de contato estrutural do tipo nó-a-superfície;
+	
+	\item Desenvolver e implementar modelo de contato do tipo superfície-a-superfície;
+	
+	\item Implementar alterações no programa de mecânica dos fluidos baseado no PFEM em formulação posicional para tornar possível o acoplamento;
+	
+	\item Acoplar os programas de sólido e de fluido, utilizando o método $\alpha$-\textit{shape} para permitir contato entre estruturas;
+
+\end{itemize}
+
+
+\section{Cronograma}
+
+De acordo com o desenvolvimento da metodologia, o cronograma das atividades a serem desenvolvidas obedece às seguintes etapas:
+\begin{enumerate}[label=\Roman*.]
+	\item\label{Rev} Revisão bibliográfica sobre o Método dos Elementos Finitos de Partículas (MEFP), métodos de acoplamento fluido-estrutura e modelos numéricos de interação fluido-estrutura com presença de contato;
+	\item\label{prog} Desenvolvimento de programa para análise da interação fluido-estrutura com contato, utilizando a abordagem do MEFP;
+	\item\label{model} Desenvolvimento de um modelo \dots
+	\item\label{Qual} Qualificação;
+	\item\label{valid} Validação dos resultados e modelagem de exemplos;
+	\item\label{red} Redação da dissertação e elaboração artigos.	
+\end{enumerate}
+
+O cronograma segue conforme a seguinte tabela:
+\begin{table}[H]
+	\fontsize{10}{14}\selectfont
+	\centering	
+	
+	\definecolor{ativ}{rgb}{0.4,0.5,0.7}
+	\begin{tabular}{c|cc|cccccccccccc|cc}
+		\hline
+		   \multirow{2}{*}{Item} & \multicolumn{2}{c|}{2019} & \multicolumn{12}{c|}{2020} & \multicolumn{2}{c}{2021} \\ \cline{2-17}
+		    & Nov & Dez & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez & Jan & Fev \\ \hline
+		 \ref{Rev} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ}& \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & & & & \\ \hline
+		 \ref{prog} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & & & & & & & & & & & & \\ \hline
+		 \ref{model} & & & & & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & & & & & \\ \hline
+		 \ref{Qual} & & & & & & & & & & \cellcolor{ativ} & & & & & & \\ \hline
+		 \ref{valid} & & & & & & & & & & & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} \\ \hline
+		 \ref{red} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} & \cellcolor{ativ} \\ \hline
+	\end{tabular}
+	\caption{Cronograma de atividades}
+\end{table}
+
+
+	
+\end{document}
+	
+	

@@ -1,0 +1,22 @@
+% Resumo
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo		
+	\begin{resumo}
+		\begin{flushleft} 
+			\setlength{\absparsep}{0pt} % ajusta o espaçamento da referência	
+			\SingleSpacing 
+			\imprimirautorabr~ ~\textbf{\imprimirtitulo}.	\imprimirdata. \pageref{LastPage}p. 
+			%Substitua p. por f. quando utilizar oneside em \documentclass
+			%\pageref{LastPage}f.
+			\imprimirtipotrabalho~-~\imprimirinstituicao, \imprimirlocal, \imprimirdata. 
+		\end{flushleft}
+		\OnehalfSpacing 	
+		
+		Resumo do trabalho do Matheus....
+		
+		\textbf{Palavras-chave:} Departamento de Estruturas. Universidade de São Paulo. LaTeX.
+	\end{resumo}
+\end{document}

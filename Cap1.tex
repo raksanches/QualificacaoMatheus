@@ -1,0 +1,63 @@
+% Introdução
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+	
+\chapter{Introdução}
+
+%- Descrever o problema físico e onde se encontra;
+%%Como colocar parágrafo
+    
+    O estudo da interação fluido-estrutura (IFE) tem sido bastante relevante na engenharia, com aplicações bastante conhecidas nas áreas aeroespaciais, hidrodinâmica e problemas estruturais dinâmicos decorrentes da ação do vento.
+    
+    Quando se trata da IFE com contato entre estruturas, ou mesmo auto-contato em algum elemento estrutural, observam-se aplicações importantes na medicina, como o estudo e simulações de próteses de válvulas cardíacas e arteriais, análise computacional do fluxo cardiovascular \cite{Takizawa2019}, tratamento de aneurismas cerebrais \cite{Takizawa2013} e conexão total calvopulmonar \cite{Bazilevs2009}, mostrando-se uma ferramenta para o desenvolvimento de técnicas melhoradas de diagnósticos e tratamentos.
+
+    Os problemas de contato entre estruturas imersas em meio fluido envolvem geometrias irregulares, incluem contornos móveis para o fluido, e ainda, o contato tanto entre as estruturas existentes quanto entre o fluido e a estrutura, de forma que pode-se subdividir o tema em 4 sub-problemas: dinâmica das estruturas, dinâmica dos fluidos, acoplamento fluido-estrutura e problemas de contato estrutural.
+    
+    Em se tratando do problema de dinâmica das estruturas, nota-se que, para os problemas de IFE em geral é importante uma análise não linear geométrica, uma vez que tais problemas apresentam frequentemente grandes deslocamentos ou possuem efeito de membrana que não pode ser desprezado durante processos de flexão \cite{SanchesC:2013,SanchesC:2014}. Além disso, os problemas de contato são por natureza não lineares.
+
+    Em se tratando da simulação de escoamentos com contornos móveis, a depender da natureza do problema proposto, há duas classes principais de métodos para análise numérica de escoamentos com contorno e interface móveis. Os métodos do tipo \textit{interface-tracking} consistem em admitir um domínio espacial deformável através do emprego de uma descrição Lagrangiana Euleriana Arbitrária (ALE) \cite{doneaALE}, ou da discretização espaço-tempo (SST), em que a malha se move acompanhando a interface. Nesses métodos a malha do fluido é deformada dinamicamente, seguindo a movimentação da estrutura ou superfície móvel. Já a técnica \textit{interface-capturing} se limita a domínios espaciais fixos, com malhas imóveis, onde as condições de interface são aplicadas com o uso de técnicas de contorno imerso \cite{Tezduyar2006, Mittal2005239}. 
+
+    Uma abordagem alternativa começou a ser utilizada por \citeonline{Gingold1977}, considerando o fluido como um conjunto de partículas que interagem entre si. O método que utiliza esse conceito é o \textit{smoothed particle hydrodynamics} (SPH), que é um método sem malhas e baseado em descrição Lagrangiana. Seguindo idéia semelhante, \cite{Idelsohn2003} propuseram o Método dos Elementos Finitos e Partículas (PFEM), que também utiliza uma descrição Lagrangiana para o fluido. O PFEM consiste basicamente em espalhar partículas (pontos materiais que carregam as propriedades do escoamento) sobre o domínio, gerando uma malha de elementos finitos para determinar as forças de interação entre essas partículas e determinar seu movimento. A cada iteração a malha é reconstruída.
+
+    Quanto aos problemas de contato estrutural, uma das maiores dificuldades é a implementação de um método que respeite a condição de não penetração na interface de contato entre os corpos, sendo que muitas das técnicas empregadas embora apresentem resultados satisfatórios do ponto de vista prático, não garantem a não penetrabilidade em todos os pontos do domínio. A condição de contato, que consiste em uma não linearidade forte,pode levar a oscilações numéricas espúrias dependendo das técnicas de discretização temporal e espacial empregadas, gerando resultados não satisfatórios ou até mesmo impedindo a convergência. 
+    
+    \textcolor{red}{Aqui você precisa colocar a sua proposta em um parágrafo: O que você vai estudar, e qual(is) método(s) você vai empregar para abordar cada um dos 4 problemas}Este projeto propõe...
+
+
+
+
+    %%Descrever melhor
+
+%%-Descrever sucintamente métodos numéricos para: dinâmica das estruturas incluindo contato; Mecânica dos fluidos incluindo contornos móveis e mudanças topológicas, interação fluido-estrutura com contato.
+
+%%-Propor o que vamos fazer.
+
+
+
+\section{Objetivos}
+
+    O objetivo material deste trabalho consiste no desenvolvimento de um código computacional para análise bidimensional de problemas de interação fluido-estrutura com contato estrutural, capaz de ser aplicado para problemas como fechamento/abertura de válvulas ou comportas, colisão de sólidos imersos em meios fluidos e válvulas cardíacas. 
+    
+    Para que tal objetivo seja acançado, destacam-se alguns objetivos específicos:
+
+    \begin{itemize}
+        \item Estudo da dinâmica das estruturas computacional para problemas com grandes deslocamentos e desenvolvimento de código para dinâmica não linear de sólidos bidimensionais em formulação posicional;
+        
+        \item Estudo e implementação de modelos de contato estrutural do tipo nó-a-superfície e superfície-a-superfície;
+        
+        \item Estudo dos programas de dinâmica dos fluidos disponíveis e implementação das alterações necessárias para o acoplamento permitindo contato entre estruturas;
+        
+        \item Estudo e implementação de técnicas de acoplamento fluido-estrutura particionada e monolítica, utilizando o método $\alpha$-\textit{shape} para permitir contato entre estruturas com mudança topológica do domínio;
+    \end{itemize}
+    
+
+\section{Justificativa}
+
+\textcolor{red}{Acho que você já consegue compor uma justificativa... dê uma olhada nas justificativas das dissertações do Jéferson, do Giovane e do Péricles que elas vão te ajudar bastante.}
+
+	
+\end{document}
+	
+	

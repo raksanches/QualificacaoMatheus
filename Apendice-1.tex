@@ -1,0 +1,144 @@
+% Introdução
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Álgebra tensorial}\label{ch:algebra}
+
+\section{Contrações}
+
+Quando a forma indicial utiliza apenas um índice mudo, a operação é chamada de {contração simples} (denotada por $\cdot$). Quando utilizam-se dois índices mudos, essa é chamada de {contração dupla} (denotada por $:$). Alguns exemplos de contrações são
+
+\begin{align}
+a = \mathbf{b}\cdot\mathbf{c} &\iff 
+a=b_{i}c_i  ,\\
+\mathbf{C}=\mathbf{A}\cdot\mathbf{B} &\iff 
+{C}_{ij}={A}_{ik}{B}_{kj} , \label{eq:cont2x2} \\
+a=\mathbf{B}:\mathbf{C} &\iff 
+a=\mathbf{B}_{ij}\mathbf{C}_{ij} , \\
+\mathbf{a}=\mathbf{B}\cdot\mathbf{c} &\iff 
+a_i=B_{ij}c_j ,\\
+\mathbf{A} = \boldsymbol{\mathfrak{B}}:\mathbf{C} &\iff 
+A_{ij}=\mathfrak{B}_{ijkl}C_{kl} , \\
+a = \mathbf{B}:\boldsymbol{\mathfrak{C}}:\mathbf{D} &\iff  a = B_{ij}:{\mathfrak{C}}_{ijkl}:{D}_{kl} \text{ e}\\
+\mathfrak{C}=\mathfrak{A}:\mathfrak{B} &\iff  \mathfrak{C}_{ijkl}=\mathfrak{A}_{ijmn}\mathfrak{B}_{mnkl} .\label{eq:cont4x4} % \\
+%\mathbf{A}=\mathbf{B}:\mathfrak{C} &\iff \mathbf{A}_{ij}=\mathbf{B}_{kl}\mathfrak{C}_{klij}
+\end{align}
+
+\section{Produtos tensoriais}
+
+A operação de produto tensorial (denotada por $\otimes$), em geral, não utiliza índices mudos. Alguns exemplos são
+
+\begin{align}
+\mathbf{C}=\mathbf{a}\otimes\mathbf{b} &\iff {C}_{ij}={a}_{i}{b}_{j} \text{  e} \\
+\boldsymbol{\mathfrak{C}}=\mathbf{A}\otimes \mathbf{B} &\iff \mathfrak{C}_{ijkl}={A}_{ij}{B}_{kl} \text{.}
+\end{align}
+
+\section{Tensores identidade}
+
+Define-se os tensores identidade de segunda e quarta ordem, respectivamente, por
+
+\begin{gather}
+I_{ij}=\delta_{ij} \text{ e} \label{eq:Id2} \\
+II_{ijkl}=\delta_{ik}\delta_{jl} \text{,}\label{eq:Id4}
+\end{gather}
+
+\noindent onde $\delta_{ij}$ é a função delta de Kronecker, definida por
+
+\begin{equation}\label{eq:kronecker}
+\delta_{ij}=\begin{cases}
+1\text{, se } i=j \\ 0\text{, se } i\ne j \text{.}
+\end{cases}
+\end{equation}
+
+\section{Derivadas tensoriais}
+
+Nesta seção são enumeradas algumas derivadas de tensores recorrentes ao longo do texto, onde $\mathbf{T}$ é um tensor genérico de segunda ordem.
+\begin{itemize}[leftmargin=\parindent,labelwidth=\parindent,labelsep=0.3cm]
+	\item Derivada do quadrado de um tensor:
+	
+	\begin{equation}
+	\dfrac{\partial (\mathbf{T}^2)_{ij}}{\partial {T}_{kl}}=\delta_{ik}{T}_{lj}+{T}_{ik}\delta_{jl} \text{.} \label{eq:dT2}
+	\end{equation}
+	
+	\item Derivada da inversa de um tensor assimétrico:
+	
+	\begin{equation}\label{eq:dinv}
+	\dfrac{\partial {T}^{-1}_{ij}}{\partial {T}_{kl}} = -{T}^{-1}_{ik}{T}^{-1}_{lj} \text{.}%=-\dfrac{1}{2}(\mathbf{T}^{-1}_{il} \mathbf{T}^{-1}_{kj}+\mathbf{T}^{-1}_{ik}\mathbf{T}^{-1}_{lj})   <= CASO SIMETRICO
+	\end{equation}
+	
+	\item Derivada da inversa de um tensor simétrico \footnote{Essa expressão deve ser aplicada caso $\mathbf{T}$ seja representado apenas pela sua parte simétrica.}:
+	
+	\begin{equation}\label{eq:dinvsim}
+	\dfrac{\partial {T}^{-1}_{ij}}{\partial {T}_{kl}} = -\dfrac{1}{2}\left({T}^{-1}_{ik}{T}^{-1}_{jl} + {T}^{-1}_{il}{T}^{-1}_{jk}\right) \text{.}%=-\dfrac{1}{2}(\mathbf{T}^{-1}_{il} \mathbf{T}^{-1}_{kj}+\mathbf{T}^{-1}_{ik}\mathbf{T}^{-1}_{lj})   <= CASO SIMETRICO
+	\end{equation}
+	
+	
+	\item Traço de um tensor:
+	
+	\begin{equation}
+	\text{tr}(\mathbf{T})={T}_{ii} \text{,}
+	\end{equation}
+	
+	\begin{equation}
+	\dfrac{\partial\, \text{tr}(\mathbf{T})}{\partial \mathbf{T}}=\mathbf{I} \text{.} \label{eq:dtraco}
+	\end{equation}
+	
+	\item Tensor desviador:
+	
+	\begin{equation}
+	\mathbf{T}^D = \mathbf{T} - \dfrac{1}{3}\text{tr}(\mathbf{T})\mathbf{I} \text{,} \label{eq:dev}
+	\end{equation}
+	
+	\begin{equation}
+	\dfrac{\partial \mathbf{T}^D}{\partial \mathbf{T}} = \mathbf{II} - \dfrac{1}{3} \mathbf{I}\otimes\mathbf{I} \text{.} \label{eq:ddev}
+	\end{equation}
+	
+	\item Derivada do determinante de um tensor:
+	
+	\begin{equation}
+	\dfrac{\partial \det(\mathbf{T})}{\partial \mathbf{T}} = \det(\mathbf{T})\cdot\mathbf{T}^{-T} \text{,} \label{eq:ddet}
+	\end{equation}
+	
+	\begin{equation}
+	\dfrac{\partial \sqrt{\det(\mathbf{T})}}{\partial \mathbf{T}} = \dfrac{1}{2}\sqrt{\det(\mathbf{T})}\cdot\mathbf{T}^{-T} \text{.} \label{eq:dsqrtdet}
+	\end{equation}
+	
+	\item Parcela simétrica de um tensor:
+	
+	\begin{equation}
+	\text{sim}(\mathbf{T}) = \dfrac{1}{2}(\mathbf{T} + \mathbf{T}^T) \text{,} \label{eq:sim}
+	\end{equation}
+	
+	\begin{equation}
+	\dfrac{\partial\, \text{sim}(\mathbf{T})}{\partial \mathbf{T}} = \dfrac{1}{2}(\mathbf{II} + \mathbf{II}^T) \text{.}\label{eq:dsim}
+	\end{equation}
+	
+	\item Parcela antissimétrica de um tensor:
+	
+	\begin{equation}
+	\text{ant}(\mathbf{T}) = \dfrac{1}{2}(\mathbf{T} - \mathbf{T}^T) \text{,} \label{eq:ant}
+	\end{equation}
+	
+	\begin{equation}
+	\dfrac{\partial\, \text{ant}(\mathbf{T})}{\partial \mathbf{T}} = \dfrac{1}{2}(\mathbf{II} - \mathbf{II}^T) \text{.}\label{eq:dant}
+	\end{equation}
+	
+	\item Norma de um tensor:
+	
+	\begin{equation}\label{eq:dnorm}
+	\|\mathbf{T}\|=\sqrt{\mathbf{T}:\mathbf{T}} ,
+	\end{equation}
+	
+	\begin{equation}
+	\dfrac{\partial\| \mathbf{T} \|}{\partial \mathbf{T}} = \dfrac{\mathbf{T}}{\| \mathbf{T} \|} .
+	\end{equation}
+	
+\end{itemize}
+
+%Onde a derivada apresentada em \eqref{eq:dinv} é válida apenas para tensores $\mathbf{T}$ simétricos.
+
+\end{document}
+	
+	
