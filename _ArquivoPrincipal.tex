@@ -1,16 +1,16 @@
 \documentclass[12pt,
-openright,	% capítulos começam em pág ímpar (insere página vazia caso preciso)
-twoside,    % para impressão em anverso (frente) e verso. Oposto a oneside - Nota: utilizar \imprimirfolhaderosto*
-%oneside,   % para impressão em páginas separadas (somente anverso) -  Nota: utilizar \imprimirfolhaderosto
-a4paper,			% tamanho do papel. 
-sumario=tradicional,
-% -- opções da classe abntex2 --
-% -- opções do pacote babel --
-english,			% idioma adicional para hifenização
-french,				% idioma adicional para hifenização
-%spanish,			% idioma adicional para hifenização
-brazil				% o último idioma é o principal do documento
-% {USPSC} configura o cabeçalho contendo apenas o número da página
+	openright,	% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,    % para impressão em anverso (frente) e verso. Oposto a oneside - Nota: utilizar \imprimirfolhaderosto*
+	%oneside,   % para impressão em páginas separadas (somente anverso) -  Nota: utilizar \imprimirfolhaderosto
+	a4paper,			% tamanho do papel. 
+	sumario=tradicional,
+	% -- opções da classe abntex2 --
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french, 			% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	% {USPSC} configura o cabeçalho contendo apenas o número da página
 ]{USPSC}
 %]{USPSC1} para utilizar o cabeçalho diferenciado para as páginas pares e ímpares como indicado abaixo:
 %- páginas ímpares: cabeçalho com seções ou subseções e o número da página
@@ -28,22 +28,22 @@ brazil				% o último idioma é o principal do documento
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 
 % Para utilizar a fonte Times New Roman, inclua uma % no início do comando acima  "\usepackage{lmodern}"
-\usepackage{times}		    	% Usa a fonte Times New Roman	
+\usepackage{times}			% Usa a fonte Times New Roman	
 % Lembre-se de alterar a fonte no comando que imprime o preâmbulo no arquivo da Classe USPSC.cls	
 
 %Chamada de pacotes para tratamento de termos matemáticos
 %\usepackage{mtpro2}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsfonts}			
+\usepackage{amsfonts}
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 %\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 %\usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{microtype}			% para melhorias de justificação
 \usepackage{pdfpages}
-\usepackage{makeidx}            % para gerar índice remissimo
-\usepackage{subfiles}           % para controlar subarquivos
+\usepackage{makeidx}		% para gerar índice remissimo
+\usepackage{subfiles}		% para controlar subarquivos
 \usepackage[ampersand]{easylist} % para defininar listas
 \usepackage{titlesec, blindtext}
 %\usepackage{mathptmx}
@@ -65,16 +65,20 @@ brazil				% o último idioma é o principal do documento
 \usepackage{verbatim}
 \usepackage[percent]{overpic}
 \usepackage{makecell} %\multirowcell
-\usepackage{vwcol}  
+\usepackage{vwcol}
 \usepackage{arydshln} % dashed line on matrix
 \usepackage[portuguese,onelanguage,ruled,linesnumbered]{algorithm2e}
 \usepackage{hhline}
 \usepackage{dblfloatfix}    % To enable figures at the bottom of page
 \usepackage[section]{placeins} % make floating elements don't switch from sections
 
-
 % Pacotes de citações - Citações padrão ABNT - Sistema autor-data
-\usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both, abnt-repeated-author-omit=yes, abnt-last-names=abnt, abnt-etal-cite,abnt-etal-list=3, abnt-etal-text=default, abnt-and-type=e, abnt-doi=doi, abnt-url-package=none, abnt-verbatim-entry=no]{abntex2cite}
+\usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both,
+	abnt-repeated-author-omit=yes, abnt-last-names=abnt,
+	abnt-etal-cite,abnt-etal-list=3, abnt-etal-text=default,
+	abnt-and-type=e,
+	abnt-doi=doi, abnt-url-package=none,
+	abnt-verbatim-entry=no]{abntex2cite}
 
 % Pacotes de Nota de rodape
 % O presente modelo adota o formato numérico para as notas de rodapés quando utiliza o sistema de chamada autor-data para citações e referências.
@@ -84,7 +88,7 @@ brazil				% o último idioma é o principal do documento
 \usepackage{multicol}	% Suporte a mesclagens em colunas
 \usepackage{multirow}	% Suporte a mesclagens em linhas
 \usepackage{longtable}	% Tabelas com várias páginas
-\usepackage{threeparttablex}    % notas no longtable
+\usepackage{threeparttablex}	% notas no longtable
 \usepackage{array}
 
 \definecolor{LightGray}{gray}{0.9}
@@ -100,16 +104,16 @@ brazil				% o último idioma é o principal do documento
 \makeatletter
 \hypersetup{
 	%pagebackref=true,
-	pdftitle={\@title}, 
+	pdftitle={\@title},
 	pdfauthor={\@author},
 	pdfsubject={\imprimirpreambulo},
 	pdfcreator={LaTeX with abnTeX2},
-	pdfkeywords={abnt}{latex}{abntex}{USPSC}{trabalho acadêmico}, 
-	colorlinks=true,       		% false: boxed links; true: colored links
+	pdfkeywords={abnt}{latex}{abntex}{USPSC}{trabalho acadêmico},
+	colorlinks=true,		% false: boxed links; true: colored links
 	linkcolor=blue,        % BLUE  	  % color of internal links 
 	citecolor=blue,        % BLUE	  % color of links to bibliography
 	filecolor=magenta,     % MAGENTA  % color of file links
-	urlcolor=blue,         % BLUE
+	urlcolor=blue,	       % BLUE
 	bookmarksdepth=4
 }
 \makeatother
@@ -131,119 +135,119 @@ brazil				% o último idioma é o principal do documento
 \titleformat*{\subparagraph}{\bfseries}
 
 % Início do documento
-\begin{document}	
-	
-	% ----------------------------------------------------------
-	% CONFIGURAÇÕES INICIAS
-	% ----------------------------------------------------------
-	% Espaços antes e depois das equações
-	\setlength{\abovedisplayskip}{0pt}
-	\setlength{\belowdisplayskip}{0pt}
-	% ----------------------------------------------------------	
-	\selectlanguage{brazil} % Seleciona o idioma do documento (conforme pacotes do babel)
-	\frenchspacing % Retira espaço extra obsoleto entre as frases. 
-	% Formatação dos Títulos
-	
-	% ----------------------------------------------------------
-	% ELEMENTOS PRÉ-TEXTUAIS
-	% ----------------------------------------------------------
-	% Capa
-	\imprimircapa
-	% Folha de rosto
-	\imprimirfolhaderosto % (o * indica impressão em anverso (frente) e verso )
-	
-	% Resumo	
-	\subfile{Resumo}
-	
-	% Abstract
-	\subfile{Abstract}
-	
-	% inserir lista de figurass
-	\pdfbookmark[0]{\listfigurename}{lof}
-	\listoffigures*
-	\cleardoublepage
-	% inserir lista de tabelas
-	\pdfbookmark[0]{\listtablename}{lot}
-	\listoftables*
-	\cleardoublepage
-	% inserir lista de quadros
-	%\pdfbookmark[0]{\listofquadroname}{loq}
-	%\listofquadro*
-	%\cleardoublepage
-	% inserir lista de abreviaturas e siglas
-	\begin{siglas}
-		\item[IFE] Interação fluido-estrutura
-		\item[MEF] Método dos elementos finitos
-		\item[MEFP] Método dos elementos finitos de partículas
-		\item[ALE] Lagrangeana-Euleriana arbitrária
-		\item[SPH] \textit{Smoothed Particle Hidrodynamics}    
-		%\item[EESC] Escola de Engenharia de São Carlos
-		%\item[IAU] Instituto de Arquitetura e Urbanismo
-		%\item[IBGE] Instituto Brasileiro de Geografia e Estatística
-		%\item[ICMC] Instituto de Ciências Matemáticas e de Computação
-		%\item[IFSC] Instituto de Física de São Carlos
-		%\item[IQSC] Instituto de Química de São Carlos
-		%\item[PDF] Portable Document Format
-		%\item[TCC] Trabalho de Conclusão de Curso
-		%\item[USP] Universidade de São Paulo
-		%\item[USPSC] Campus USP de São Carlos
-	\end{siglas}
-	% inserir lista de símbolos
-	\begin{simbolos}
-		\item[$ \Gamma $] Letra grega Gama
-		\item[$ \Lambda $] Lambda
-		\item[$ \zeta $] Letra grega minúscula zeta
-		\item[$ \in $] Pertence
-	\end{simbolos}
+\begin{document}
 
-	% inserir o sumario
-	\pdfbookmark[0]{\contentsname}{toc}
-	\tableofcontents*
-	\cleardoublepage
-	
-	% ----------------------------------------------------------
-	% ELEMENTOS TEXTUAIS
-	% ----------------------------------------------------------
-	\textual
-	
-	\renewcommand\chaptername{}
-		
-	% Capítulo 1
-	\subfile{Cap1}
-	
-	% Capítulo 2
-	\subfile{Cap2}
+% ----------------------------------------------------------
+% CONFIGURAÇÕES INICIAS
+% ----------------------------------------------------------
+% Espaços antes e depois das equações
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+% ----------------------------------------------------------	
+\selectlanguage{brazil} % Seleciona o idioma do documento (conforme pacotes do babel)
+\frenchspacing % Retira espaço extra obsoleto entre as frases. 
+% Formatação dos Títulos
 
-	% Capítulo 2
-	\subfile{Cap3}
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% Capa
+\imprimircapa
+% Folha de rosto
+\imprimirfolhaderosto % (o * indica impressão em anverso (frente) e verso )
 
-	
-	% ----------------------------------------------------------
-	% ELEMENTOS PÓS-TEXTUAIS
-	% ----------------------------------------------------------
-	\postextual
-	
-	% REFERÊNCIAS BIBLIOGRÁFICAS
-	\bibliography{Referencias}
-	
-	% APÊNDICES
-	\begin{apendicesenv}
+% Resumo
+\subfile{Resumo}
+
+% Abstract
+\subfile{Abstract}
+
+\begin{comment} %REMOVIDO - PROJETO DE PESQUISA
+
+% inserir lista de figurass
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% inserir lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% inserir lista de quadros
+%\pdfbookmark[0]{\listofquadroname}{loq}
+%\listofquadro*
+%\cleardoublepage
+% inserir lista de abreviaturas e siglas
+\begin{siglas}
+	\item[IFE] Interação Fluido-Estrutura
+	\item[MEF] Método dos Elementos Finitos
+	\item[MEFP] Método dos Elementos Finitos de Partículas
+	\item[ALE] Lagrangeana-Euleriana Arbitrária
+	\item[SPH] \textit{Smoothed Particle Hidrodynamics}
+	%\item[EESC] Escola de Engenharia de São Carlos
+	%\item[IAU] Instituto de Arquitetura e Urbanismo
+	%\item[IBGE] Instituto Brasileiro de Geografia e Estatística
+	%\item[ICMC] Instituto de Ciências Matemáticas e de Computação
+	%\item[IFSC] Instituto de Física de São Carlos
+	%\item[IQSC] Instituto de Química de São Carlos
+	%\item[PDF] Portable Document Format
+	%\item[TCC] Trabalho de Conclusão de Curso
+	%\item[USP] Universidade de São Paulo
+	%\item[USPSC] Campus USP de São Carlos
+\end{siglas}
+% inserir lista de símbolos
+\begin{simbolos}
+	\item[$ \Gamma $] Letra grega Gama
+	\item[$ \Lambda $] Lambda
+	\item[$ \zeta $] Letra grega minúscula zeta
+	\item[$ \in $] Pertence
+\end{simbolos}
+
+% inserir o sumario
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\end{comment}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+\renewcommand\chaptername{}
+
+% Capítulo 1
+\subfile{Cap1}
+
+% Capítulo 2
+\subfile{Cap2}
+
+% Capítulo 2
+\subfile{Cap3}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% REFERÊNCIAS BIBLIOGRÁFICAS
+\bibliography{Referencias}
+
+% APÊNDICES
+\begin{apendicesenv}
 	\renewcommand\chaptertitlename{Apêndice~}
-	
+
 	\subfile{Apendice-1}
-	
-	\end{apendicesenv}
-	
-	% ANEXOS
-	\begin{anexosenv}
-		
+
+\end{apendicesenv}
+
+% ANEXOS
+\begin{anexosenv}
+
 	\renewcommand\chaptertitlename{Anexo~}
-	
+
 	\subfile{Anexo-1}
-		
-	\end{anexosenv}
-		
-	
-	
-	
+
+\end{anexosenv}
+
 \end{document}

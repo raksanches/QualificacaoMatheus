@@ -3,120 +3,39 @@
 \documentclass[_ArquivoPrincipal.tex]{subfiles}
 
 \begin{document}
-
-
-
-
-
-
-    
     
 % As condições de não penetrabilidade podem ser impostas considerando-se o contato apenas nos nós (métodos nó-a-nó), contato apenas entre nós de um corpo e superfície de outro corpo (nó-a-superfície) e contato em qualquer região do corpo (superfície-a-superfície). 
 
-
-
-
-
-
 % Um dos métodos de integração temporal mais utilizados na dinâmica das estruturas, é o algoritmo de  Newmark, sendo que, para evitar problemas de estabilidade em situações de contato dinâmico, \citeonline{KANE19991}  sugere uma estabilização através da modificação das constantes do método.
 
-
-
-
-
-
-\chapter{Estado da Arte}
-	Neste capítulo são discorridos os principais temas quando se trata da interação fluido-estrutura com contato estrutural: a dinâmica das estruturas com grandes deslocamentos e os problemas de contato associados, a mecânica dos fluidos computacional e os principais problemas com contorno móveis, e por fim, o acoplamento fluido-estrutura.
-
-\section{Dinâmica das estruturas em grandes deslocamentos}
-
-\textcolor{red}{Adaptar esse texto e corrigir as citações}
-Atualmente, o método dos elementos finitos é a ferramenta mais geral para análises em mecânica das estruturas. Este trabalho concentra-se em elementos estruturais de pórtico bidimensional.
-
-Em muitos problemas de interação fluido estrutura é mandatória uma análise não linear geométrica devido a grandes deslocamentos ou ao acoplamento entre efeitos de membrana e flexão (exemplo: \textit{flutter} em grandes amplitudes, sistemas de desaceleração (paraquedas), estruturas infláveis, problemas biomecânicos) \cite{SanchesC:2014}.
-
-Com relação ao método dos elementos finitos para análise não linear geométrica de estruturas, há muitos trabalhos importantes, podendo-se destacar alguns como: \cite{HughesC:1983, HughesL:1981a,BrendelR:1980}.
-
-Buscando a representação cinemática adequada de algumas estruturas, \cite{Truesdell:1955} propôs a for\-mu\-la\-ção co-rotacional, descrevendo a deformação da estrutura em termos de deslocamentos nodais e rotações. Essa formulação tem sido aplicada para pórticos, treliças e cascas por muitos autores, tais como \cite{HughesL:1981a,SimoF:1989,Ibrahimbegovic:2002,Argyris:1982,BattiniP:2006}.
-
-Como as rotações são consideradas parâmetros nodais, para problemas com grandes deslocamentos é necessário utilizar aproximações para grandes rotações, uma vez que não é possível aplicar comutatividade em rotações, levando ao uso das formulações linearizadas de Euler-Rodrigues \cite{CodaP:2010}.
-
-Ainda, a conservação da energia é um dos mais controversos assuntos relacionados à di\-nâ\-mi\-ca não linear de cascas e barras. Essa controvérsia ocorre em parte porque a formulação mais empregada (co-rotacional) usa rotações finitas como parâmetros nodais. Rotações finitas são objetivas apenas quando pequenos incrementos são adotadas e a formulação co-rotacional resulta em uma matriz de massa variável, o que proíbe o uso de alguns processos de integração temporal bem estabelecidos para análise não linear \cite{SanchesC:2013}.
-
-Motivado pelo trabalho de Bonet (2000) \cite{Bonet:2000}, Coda (2003) \cite{Coda:2003} introduz uma formulação baseada em posições, livres de rotação como graus de liberdade, para elementos finitos de pórtico. Tal formulação tem sido aplicada com sucesso para elementos de pórtico e cascas em diversas aplicações, como pode ser observado nos trabalhos \cite{CodaandGreco2004,CodaP:2010,Coda2011319,Carrazedo20101008,SanchesC:2017}, tendo já sido aplicada para problemas de interação fluido-estrutura \cite{SanchesC:2014,SanchesC:2013, FernandesCS:2018}.
-
-Em \cite{SanchesC:2013} os autores mostram que essa formulação permite o uso do integrador temporal de Newmark para problemas dinâmicos não lineares (aplicados à IFE) que apresentam grandes deslocamentos e movimentos de rotação de corpo rígido. Os autores também mostram uma prova de conservação da quantidade de movimento linear e angular e testam a estabilidade e conservação da energia para casos de pequenas deformações.
-
-\citeonline{PasconDoutoradoOuArtigos} aplica a formulação posicional para problemas estáticos com grandes deformações, com leis constitutivas visco-elásticas e plásticas. \citeonline{Pericles2018} estende a aplicação da formulação posicional para problemas dinâmicos com modelo constitutivo visco-elástico visco-plástico, empregando elementos finitos bidimensionais em estado plano de tensão ou de deformação, incluindo problemas de contato, mostrando que a formulação é bastante robusta para esses problemas.
-
-Dada a robustez e simplicidade da formulação baseada em posições, essa é adotada para essa pesquisa.
-
-
-\section{Dinâmica dos fluidos computacional }
-
-\subsection{Problemas com contornos móveis}
-
-\subsection{Formulação estabilizada do MEF para escoamentos incomrpessíveis}
-
-\section{Interação fluido-estrutura computacional}
-
-Fluidos e sólidos compartilham muitas características, seguindo os mesmos princípios fí\-si\-cos, entretanto, fluidos em geral não são capazes de resistir a tensões de cisalhamento, de forma que podem deformar-se indefinidamente sob tais tensões. Assim, uma descrição matemática Euleriana, com velocidades como variáveis principais é ideal para a grande maioria dos problemas de dinâmica dos fluidos, enquanto a descrição matemática Lagrangeana é ideal para sólidos, com deformações finitas.
-
-Assim, a primeira dificuldade a ser superada na análise computacional de interação fluido-estrutura é como combinar duas diferentes descrições matemáticas. A maioria das estratégias de acoplamento encontradas na literatura podem ser classificadas em dois diferentes grupos \cite{Tezduyar:1997,Tezduyar:1998,Houetal:2012,BazilevsTT:2013a}:
-i.) métodos de rastreamento de interface (\textit{interface tracking}), ou métodos de malhas adaptadas e ii). métodos de captura de interface (\textit{interface capturing}, ou métodos de malhas não adaptadas.
-
-No primeiro grupo, a malha do fluido é adaptada à forma da interface sólido-fluido e acompanha seu movimento, requerendo procedimentos de atualização da malha do fluido. Esses métodos são geralmente construídos com o uso de uma descrição Lagrangeana-Euleriana arbitrária (ALE) para o fluido \cite{HUGHES1981329,doneaALE,SanchesC:2014,KanchiM:2007,Rifai1999393} ou formulações estabilizadas espaço-tempo (\textit{Stabilized Space-Time} - DSD/SST) \cite{TezduyarBL:1992,TezduyarBML:1992, BazilevsTT:2013FSIBook}. Os métodos no segundo grupo tratam a localização da interface e a transmissão de forças como restrições introduzidas às equações governantes, usualmente com o uso de técnicas de contorno imerso \cite{Peskin:1977,Mittal2005239}.
-
-% \textcolor{red}{No entanto, os métodos do primeiro grupo, sem a adição de técnicas especiais e computacionalmente custosas, esses métodos ficam limitados a problemas onde os deslocamentos são suaves o suficiente para que a malha do fluido possa ser deformada sem distorção excessiva ou inversão de elementos, sendo totalmente inadequados para problemas com mudanças topológicas.}
-
-% \textcolor{red}{Os métodos do segundo grupo trazem dificuldades numéricas inerentes à imposição de condições de contorno imersas, além de demandar a solução de uma equação extra para identificar a fronteira imersa, geralmente identificada por funções level-set. Um grande problema dos métodos de malha fixa no entanto, está na impossibilidade de se realizar um refino adaptativo da malha de modo a capturar os efeitos de camada limite na vizinhança da estrutura.}
-
-No contexto dos métodos \textit{ interface-tracking} a malha do fluido precisa ser dinamicamente adaptada para adaptar-se aos movimentos da estrutura, garantindo conformidade do contorno do fluido com a configuração atual da estrutura. Para manter a compatibilidade da malha do fluido com a estrutura, pode-se simplesmente deformar a malha do fluido da forma necessária \cite{TezduyarABJM:1993,JohnsonT:1994,FarhatLL:1998,deBoerZB:2007} ou remalhar o domínio. O remalhamento pode ser necessário em casos com escalas muito grandes de deslocamentos e sempre é sempre obrigatório em casos com mudanças topológicas. Entretanto, recriar a malha a cada passo de tempo aumenta drasticamente o custo computacional, especialmente para problemas tridimensionais, além de introduzir erros de projeção. Assim, a reconstrução da malha é usualmente evitada \cite{CoulierD:2016}.
-
-Um algoritmo ideal para movimentação da malha para problemas de interação fluido-estrutura deve adaptar a malha do fluido ao movimento do sólido com mínima distorção e mínima alteração no volume do elemento. A malha do fluido usualmente é mais refinada próximo da estrutura para capturar ondas de choque, desprendimento de vórtices, camada limite ou qualquer outro fenômeno localizado do escoamento. Entretanto, os movimentos estruturais são com frequência muito mais suaves do que as situações mencionadas, dificilmente apresentando descontinuidades \cite{FernandesCS:2018}.
-
-De forma geral, os métodos de movimentação de malha desenvolvidos para acoplamento fluido-estrutura podem ser divididos em 3 categorias: i) Métodos que aproximam os deslocamentos da malha por operadores diferenciais que podem fazer analogia com um conjunto de molas, com um corpo elástico ou que consistem em usa suavização Laplaceana dos deslocamentos do contorno \cite{TezduyarABJM:1993,JohnsonT:1994,SteinTB:1998,BottassoDS:2005,MasudH:1997,KanchiM:2007};
-ii) Métodos ponto a ponto, onde a deformação da malha é diretamente interpolada dos deslocamentos impostos na interface fluido-estrutura \cite{doneaALE,MittalT:1991,TezduyarBML:1992,SanchesC:2014,CoulierD:2016};
-e iii) Métodos híbridos, que combinam as vantagens dos dois anteriores \cite{MartineauG2004,Bartels:2005,LiuQX:2006,Lefrancois:2008}.
-
-No contexto \textit{interface-capturing}, vários métodos de contorno imerso têm sido desenvolvidos \cite{FLD:FLD2556}, sempre requerendo que as posições da estrutura sejam identificadas dentro da malha do fluido a cada passo de tempo, o que pode ser feito pela convecção de uma função binária \cite{ HIRT1981201, CERRONI2018646} ou, como em muitos trabalhos, pela convecção de uma função distância assinalada cuja superfície de nível zero coincide com o contorno da estrutura (método \textit{level-set}), ou ainda recalculando a função distância assinalada a cada passo ne tempo \cite{cirakrad2005,SanchesC:2014, AkkermanBBFK:2011}. 
-
-Os métodos de contorno imerso em geral são capazes de lidar com mudanças topológicas do domínio do fluido, entretanto, a principal desvantagem desses métodos em geral é a dificuldade de refinamento local na vizinhança da estrutura, e consequentemente, não é possível controlar a resolução da solução dentro da camada limite. Além disso, há a necessidade de se resolver um sistema adicional para a atualização da função que define a interface immersa (\textit{level-set}), a qual também está acoplada às equações do fluido.
-
-Uma alternativa é o uso dos métodos de partícula. \textcolor{blue}{The particle methods consider the fluid domain to be a cloud of
-particles with interaction forces defined according to some specific
-model. As the particles positions are tracked, most of particle methods
-employ a Lagrangian description of motion equations. One of the first
-methods to successfully apply this approach in fluid mechanics is the
-Smooth Particle Hydrodynamics (SPH) Method
-\cite{GingoldM:1977,RandlesL:1996,Monaghan:1994,LiuLLZ:2003}. Due to its
-simplicity, SPH inspired other researchers to develop numerical methods
-based on a Lagrangian description, like the Moving Particle
-Semi-Implicit Method (MPS) \cite{KoshizukaO:1996} among others.}
-
-\textcolor{blue}{More
-recently, Oñate and co-workers proposed an innovative numerical method
-known as the Particle Finite Element Method (PFEM)
-\cite{IdelsohnOP:2004, IdelsohnOPC:2006, FranciOC:2016}. Such method
-basically consists of discretizing the domain through a set of particles
-that carry the physical properties of the fluid, e.g. viscosity,
-density, etc. and building a finite element mesh over such particles in
-order to evaluate its interaction forces. For this purpose, a new mesh
-of finite elements is created at each time step.} Essa formulação tem sido aplicada com sucesso a problemas de interação fluido-estrutura com superfície livre e mudanças topológicas no domínio do fluido.
-
-\cite{Giovane} Introduz uma formulação do PFEM baseada em posições atuais das partículas, a qual dispensa a etapa de atualização das coordenadas após a determinação das velocidades como é feito no PFEM tradicional, e tem a vantagem de facilitar o acoplamento monolítico com a estrutura modelada pelo método dos elementos finitos posicional. 
-
-\textcolor{red}{FOCAR NA FORMULAÇÃO ALE}
-
-%->Descrever
-
-%->Métodos de acoplamento
-
-\section{Modelos de turbulência para problemas de IFE}
-%-Buscar exemplos na literatura
-
- 
+\chapter{Estado Da Arte}
 	
+No presente capítulo serão abordados os principais temas relacionados à problemas de Interação Fluido-Estrutura (IFE), tendo como ênfase os modos de turbulência. Serão destacados os principais métodos de cálculos envolvendo a dinâmica das estruturas computacional (\ref{DEC}), a dinâmica dos fluidos computacional (\ref{DFC}), modo de acoplamento Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) (\ref{ALE}) e alguns modelos de turbulências (\ref{MT}).
+
+\section{Dinâmica Das Estruturas Computacional} \label{DEC}
+
+A mecânica dos sólidos visa a determinação de parâmetros referentes à elementos estruturais sujeitos a solicitações externas, tais como tensões e deformações, ou forças e deslocamentos de determinados pontos dos mesmos. Para isso são desenvolvidos diversos métodos com a finalidade de melhor descrever o comportamento das estruturas, como o Método dos Elementos Finitos (MEF), que se apresenta como a ferramenta computacional mais amplamente utilizada para esse fim.
+
+Nesse sentido vale ressaltar os trabalhos de \citeonline{hughes1981nonlinear, argyris1982excursion, ibrahimbegovic2002role, pimenta2004fully, battini2006choice} e \citeonline{pimenta2008exact}, que realizaram análises através do MEF Corrotacional, que se trata de uma formulação onde os deslocamentos e rotações dos elementos são os parâmetros principais da análise.
+
+Ainda vale ressaltar os trabalhos de \citeonline{coda2004simple, coda2007alternative, coda2010improved, coda2009two, coda2009unconstrained} e \citeonline{carrazedo2010alternative} que utilizam de forma bem-sucedida o MEF Posicional para análise de estruturas reticuladas e de cascas aplicadas à grandes deslocamentos. Este método se diferencia dos demais ao considerar as posições nodais como parâmetros de análise, facilitando o cálculo de efeitos de não-linearidade geométrica.
+
+No âmbito da IFE, destaca-se a necessidade dessa consideração, uma vez que são observadas aplicações como, por exemplo, grandes amplitudes de deslocamentos, como \textit{flutter} \textcolor{red}{(REFERÊNCIAS)}, aplicações biomecânicas \textcolor{red}{(REFERÊNCIAS)}, estruturas infláveis \cite{karagiozis2011computational}, simulações de turbinas \cite{bazilevs20113d}, dentre outras.
+
+\section{Dinâmica Dos Fluidos Computacional} \label{DFC}
+
+\section{Acomplamento ALE} \label{ALE}
+
+\section{Modelo De Turbulência} \label{MT}
+
+\subsection{\textit{Variational Multiscale Methods}} \label{VMS}
+
+\subsection{\textit{Large Eddy Simulation}} \label{LES}
+
+\subsection{\textit{Averaged Navier-Stokes}} \label{ANS}
+
+\subsection{\textit{Remeshing} e enriquecimento} \label{ReE}
+
 \end{document}
 	
 	
