@@ -3,10 +3,6 @@
 \documentclass[_ArquivoPrincipal.tex]{subfiles}
 
 \begin{document}
-    
-% As condições de não penetrabilidade podem ser impostas considerando-se o contato apenas nos nós (métodos nó-a-nó), contato apenas entre nós de um corpo e superfície de outro corpo (nó-a-superfície) e contato em qualquer região do corpo (superfície-a-superfície). 
-
-% Um dos métodos de integração temporal mais utilizados na dinâmica das estruturas, é o algoritmo de  Newmark, sendo que, para evitar problemas de estabilidade em situações de contato dinâmico, \citeonline{KANE19991}  sugere uma estabilização através da modificação das constantes do método.
 
 \chapter{Estado Da Arte}
 	
@@ -18,7 +14,9 @@ A mecânica dos sólidos visa a determinação de parâmetros referentes à elem
 
 Nesse sentido vale ressaltar os trabalhos de \citeonline{hughes1981nonlinear, argyris1982excursion, ibrahimbegovic2002role, pimenta2004fully, battini2006choice} e \citeonline{pimenta2008exact}, que realizaram análises através do MEF Corrotacional, que se trata de uma formulação onde os deslocamentos e rotações dos elementos são os parâmetros principais da análise.
 
-Ainda vale ressaltar os trabalhos de \citeonline{coda2004simple, coda2007alternative, coda2010improved, coda2009two, coda2009unconstrained} e \citeonline{carrazedo2010alternative} que utilizam de forma bem-sucedida o MEF Posicional para análise de estruturas reticuladas e de cascas aplicadas à grandes deslocamentos. Este método se diferencia dos demais ao considerar as posições nodais como parâmetros de análise, facilitando o cálculo de efeitos de não-linearidade geométrica.
+No entanto a utilização de uma análise que considera tais parâmetros nodais só se mostra eficiente ao se estudar estruturas que desenvolvem pequenos deslocamentos e deformações, uma vez que não há comutatividade de rotações \textcolor{red}{(REFERÊNCIAS)}. Ainda observa-se a avaliação dinâmica de estruturas reticuladas se torna problemática, do ponto de vista da conservação de energia \textcolor{red}{(COMENTAR MAIS) (REFERÊNCIAS)}, além da matriz de massa ser variável, tornando o processo de integração temporal muito complexo.
+
+Com isso, vale ressaltar os trabalhos de \citeonline{coda2004simple, coda2007alternative, coda2010improved, coda2009two, coda2009unconstrained} e \citeonline{carrazedo2010alternative} que utilizam de forma bem-sucedida o MEF Posicional para análise de estruturas reticuladas e de cascas aplicadas à grandes deslocamentos. Este método se diferencia dos demais ao considerar as posições nodais como parâmetros de análise, facilitando o cálculo de efeitos de não-linearidade geométrica.
 
 No âmbito da IFE, destaca-se a necessidade dessa consideração, uma vez que são observadas aplicações como, por exemplo, grandes amplitudes de deslocamentos, como \textit{flutter} \textcolor{red}{(REFERÊNCIAS)}, aplicações biomecânicas \textcolor{red}{(REFERÊNCIAS)}, estruturas infláveis \cite{karagiozis2011computational}, simulações de turbinas \cite{bazilevs20113d}, dentre outras.
 
