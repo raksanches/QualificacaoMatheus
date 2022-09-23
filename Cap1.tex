@@ -4,7 +4,9 @@
 
 \begin{document}
 
+%==================================================================================================
 \chapter{Introdução}
+%==================================================================================================
 
 Visto o constante avanço da engenharia em poder se dimensionar estruturas cada vez mais leves e esbeltas, observa-se a necessidade de uma determinação cada vez mais precisa de todos os parâmetros que podem influenciar na resistência e estabilidade da estrutura. Nesse contexto torna-se de grande importância a verificação dos efeitos da interação entre os fluidos e a estrutura, uma vez que esses fenômenos podem comprometer a segurança estrutural. Exemplos de problemas envolvendo Interação Fluido-Estrutura (IFE) podem ser notados em ações do vento sobre estruturas de grandes altitudes, ação de marés sobre estruturas de barragens e estruturas \textit{offshore}, dentre outros. Além disso, também percebe-se a aplicação desse tipo de análise em demais áreas, como, por exemplo, no estudo de escoamento do sangue em vasos sanguíneos, ou em problemas envolvendo aerodinâmica \cite{sanches2014fluid, fernandes2020tecnica}.
 
@@ -26,7 +28,24 @@ Na descrição Lagrangiana a referência adotada é a configuração inicial do 
 
 Já a descrição Euleriana toma como referência a configuração atual dos elementos, sendo bem utilizada para a descrição de fluidos newtonianos, pois estes não apresentam resistência à esforços de cisalhamento, distorcendo-se indefinidamente quando submetidos à tais esforços. Nesse tipo de descrição é comum a utilização para determinação de velocidades, diferentemente dos deslocamentos \cite{sanches2014fluid, fernandes2019ale}.
 
+%==================================================================================================
+\section{Acomplamento ALE} \label{ALE}
+%==================================================================================================
+
+A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE), é uma forma de analisar os pontos de um contínuo em termos de uma região arbitrária do espaço. Esse estudo foi introduzido inicialmente por \citeonline{donea1982arbitrary} e busca descrever a movimentação do contínuo a partir de uma generalização das descrições Lagrangiana e Euleriana. Na descrição Lagrangiana, a análise é realizada tomando-se como referência a posição inicial do contínuo, podendo ser atualizada para acompanhar esse movimento, enquanto a descrição Euleriana a análise é feita tomando-se como referência a posição atual do contínuo, sendo, então, uma posição fixa no espaço. Assim, a descrição ALE, ao contrário da Lagrangiana e Euleriana, busca analisar esse movimento a partir de uma região do espaço que pode se movimentar independentemente das configurações do contínuo.
+
+A Figura \ref{fig:ALE} apresenta um desenho esquemático das regiões ocupadas pelo contínuo na sua configuração inicial, atual e a região de referência.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figuras/ALE1.png}
+    \caption{Representação esquemática da descrição ALE.}
+    \label{fig:ALE}
+\end{figure}
+
+%==================================================================================================
 \section{Objetivos}
+%==================================================================================================
 
 \textcolor{red}{OBJETIVOS}
 
@@ -40,7 +59,9 @@ Já a descrição Euleriana toma como referência a configuração atual dos ele
     \item ITEM 4.
 \end{itemize}
 
+%==================================================================================================
 \section{Justificativa}
+%==================================================================================================
 
 \textcolor{red}{JUSTIFICATIVA}
 

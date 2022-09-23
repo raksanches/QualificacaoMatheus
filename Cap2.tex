@@ -4,11 +4,15 @@
 
 \begin{document}
 
+%==================================================================================================
 \chapter{Estado Da Arte}
+%==================================================================================================
 	
 No presente capítulo serão abordados os principais temas relacionados à problemas de Interação Fluido-Estrutura (IFE), tendo como ênfase os modos de turbulência. Serão destacados os principais métodos de cálculos envolvendo a dinâmica das estruturas computacional (\ref{CSD}), a dinâmica dos fluidos computacional (\ref{CFD}), modo de acoplamento Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) (\ref{ALE}) e alguns modelos de turbulências (\ref{MT}).
 
+%==================================================================================================
 \section{Dinâmica Das Estruturas Computacional} \label{CSD}
+%==================================================================================================
 
 A mecânica dos sólidos visa a determinação de parâmetros referentes à elementos estruturais sujeitos a solicitações externas, tais como tensões e deformações, ou forças e deslocamentos de determinados pontos dos mesmos. Para isso são desenvolvidos diversos métodos com a finalidade de melhor descrever o comportamento das estruturas, como o Método dos Elementos Finitos (MEF), que se apresenta como a ferramenta computacional mais amplamente utilizada para esse fim.
 
@@ -22,7 +26,9 @@ Com isso, vale ressaltar os trabalhos de \citeonline{coda2004simple, coda2007alt
 
 No âmbito da IFE, destaca-se a necessidade dessa consideração, uma vez que são observadas aplicações como, por exemplo, grandes amplitudes de deslocamentos, como \textit{flutter} \textcolor{red}{(REFERÊNCIAS)}, aplicações biomecânicas \textcolor{red}{(REFERÊNCIAS)}, estruturas infláveis \cite{karagiozis2011computational}, simulações de turbinas \cite{bazilevs20113d}, dentre outras.
 
+%==================================================================================================
 \section{Dinâmica Dos Fluidos Computacional} \label{CFD}
+%==================================================================================================
 
 Ao contrário de problemas envolvendo elementos sólidos, que possuem um estado inicial bem definido, os fluidos, em especial os Newtonianos, não o possuem, uma vez que não incapazes de resistir à tensões desviadoras, deformando-se, assim, indefinidamente quando sujeitos à essas tensões. Dessa forma, torna-se apropriada a utilização de uma descrição Euleriana para descrever os fluidos, em que os parâmetros nodais são principalmente as velocidades do mesmo \textcolor{red}{(REFERÊNCIAS)}.
 
@@ -32,18 +38,32 @@ Nesse sentido, são desenvolvidos novos métodos, em busca de uma solução mais
 
 Um campo que vale destacar na CFD é o que estuda os fenômenos de turbulência, uma vez que esses fenômenos podem se apresentar nas mais variadas escalas, sendo necessário a geração de uma malha muito refinada para detectar a formação dos vórtices, o que ocasiona um aumento radical no custo computacional da análise. Assim, são desenvolvidas novas técnicas afim de se obter melhores resultados, sem que haja um grande aumento no volume de cálculos. Dentre esses métodos destacam-se os métodos multiescala (\textit{Variational Multiscale Methods} - VMS), as simulações de grandes vórtices (\textit{Large Eddy Simulation} - LES) \textcolor{red}{(REFERÊNCIAS)}, os métodos de atualização de malha (\textit{Remeshing}) \textcolor{red}{(REFERÊNCIAS)} e aproximações de \textit{Reynolds-Averaged Navier-Stokes} \textcolor{red}{(REFERÊNCIAS)}. O item \ref{MT} descreve de forma mais detalhada cada um desses métodos.
 
-\section{Acomplamento ALE} \label{ALE}
-
+%==================================================================================================
 \section{Modelo De Turbulência} \label{MT}
+%==================================================================================================
 
-\subsection{\textit{Variational Multiscale Methods}} \label{VMS}
-
+%==================================================================================================
 \subsection{\textit{Large Eddy Simulation}} \label{LES}
+%==================================================================================================
 
+%==================================================================================================
+\subsection{\textit{Variational Multiscale Methods}} \label{VMS}
+%==================================================================================================
+
+O Método Multiescala (VMS) foi introduzido por Hughes e colaboradores \cite{hughes1995multiscale, hughes1996space, hughes1998variational}, onde foi proposta a separação de um problema em dois campos: o campo próximo (\textit{near-field}) e o campo distante (\textit{far-field}). Nesse sentido, o primeiro encontra-se envolto à uma superfície e apresenta escalas pequenas, utilizando-se de uma malha mais refinada para obtenção de resultados, enquanto o segundo apresenta escalas maiores com uma malha mais grosseira.
+
+Esse tipo de análise se mostra promissora ao se estudar problemas em que há a presença de efeitos em diversas escalas, como a formação de camada limite ou de turbulências \cite{fernandes2020tecnica}.
+
+Este método foi utilizado também em problemas envolvendo modelagem em grandes vórtices (VMS-LES) \cite{hughes2000large, bazilevs2007variational}, onde os autores analisaram aproximações a partir das equações de Navier-Stokes incompressíveis, obtendo, assim, resultados favoráveis sobre modelos clássicos de análise LES.
+
+%==================================================================================================
 \subsection{\textit{Remeshing} e enriquecimento} \label{ReE}
+%==================================================================================================
 
+%==================================================================================================
 \subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
+%==================================================================================================
+
+Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Segundo \citeonline{alfonsi2009reynolds}, problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência.
 
 \end{document}
-	
-	
