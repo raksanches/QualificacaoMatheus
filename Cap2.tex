@@ -54,7 +54,7 @@ O Método Multiescala (VMS) foi introduzido por Hughes e colaboradores \cite{hug
 
 Esse tipo de análise se mostra promissora ao se estudar problemas em que há a presença de efeitos em diversas escalas, como a formação de camada limite ou de turbulências \cite{fernandes2020tecnica}.
 
-Este método foi utilizado também em problemas envolvendo modelagem em grandes vórtices (VMS-LES) \cite{hughes2000large, bazilevs2007variational}, onde os autores analisaram aproximações a partir das equações de Navier-Stokes incompressíveis, obtendo, assim, resultados favoráveis sobre modelos clássicos de análise LES.
+Este método foi utilizado também em problemas envolvendo modelagem em grandes vórtices (VMS-LES) \cite{hughes2000large, bazilevs2007variational}, onde os autores analisaram aproximações a partir das equações de Navier-Stokes incompressíveis, obtendo, assim, resultados favoráveis sobre modelos clássicos de análise LES. Já estudos acerca de escoamentos turbulentos em canais apresentaram bons resultados ao se aplicar essa modelagem \cite{hughes2002variational}.
 
 %==================================================================================================
 \subsection{\textit{Remeshing} e enriquecimento} \label{ReE}
@@ -64,6 +64,6 @@ Este método foi utilizado também em problemas envolvendo modelagem em grandes 
 \subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
 %==================================================================================================
 
-Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Segundo \citeonline{alfonsi2009reynolds}, problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência.
+Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuirem uma implmentação mais facilitada \cite{alfonsi2009reynolds, ling2015evaluation}. Ainda segundo \citeonline{alfonsi2009reynolds}, problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência.
 
 \end{document}
