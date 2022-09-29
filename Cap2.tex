@@ -43,8 +43,55 @@ Um campo que vale destacar na CFD é o que estuda os fenômenos de turbulência,
 %==================================================================================================
 
 %==================================================================================================
+\subsection{Equações Governantes da Dinâmica dos Fluidos} \label{EqGov}
+%==================================================================================================
+
+As equações de Navier-Stokes são equações diferenciais parciais, que sua resolução resulta na obtenção de campos de velocidade e de pressões. Essas equações levam em consideração os princípios da conservação da massa, que em descrição Euleriana pode ser escrita de acordo com a Equação \ref{ConMas1}, ou Equação \ref{ConMas2}:
+
+\begin{equation}
+    \left.\frac{\partial\rho}{\partial t}\right|_{\mathbf{y}}+\mathbf{\nabla}_\mathbf{y}\cdot(\rho\mathbf{u})=0\text{, ou}
+    \label{ConMas1}
+\end{equation}
+\begin{equation}
+    \frac{D\rho}{Dt}+\rho\mathbf{\nabla}_\mathbf{y}\cdot\mathbf{u}=0\text{,}
+    \label{ConMas2}
+\end{equation}
+
+\noindent em que $D\rho/Dt$ representa a derivada material, dada por:
+
+\begin{equation}
+    \frac{D\rho}{Dt}=\left.\frac{\partial\rho}{\partial t}\right|_\mathbf{y}+\mathbf{u}\cdot\mathbf{\nabla}_\mathbf{y}\rho\text{,}
+    \label{DerMat}
+\end{equation}
+
+\noindent da conservação da quantidade de movimento, dada por \ref{ConQuantMov}:
+
+\begin{equation}
+    \left.\frac{\partial(\rho\mathbf{u})}{\partial t}\right|_\mathbf{y}+\mathbf{\nabla}_\mathbf{y}\cdot(\rho\mathbf{u}\otimes\mathbf{u})-\mathbf{\nabla}_\mathbf{y}\cdot\mathbf{\sigma}-\mathbf{b}=\mathbf{0}\text{,}
+    \label{ConQuantMov}
+\end{equation}
+
+\noindent e da conservação da energia, dada por \ref{ConEn}:
+
+\begin{equation}
+    \left.\frac{\partial(\rho(e+k))}{\partial t}\right|_\mathbf{y}+\mathbf{\nabla}_\mathbf{y}\cdot(\mathbf{u}\rho(e+k))-\mathbf{\nabla}_\mathbf{y}\cdot(k_t\mathbf{\nabla}_\mathbf{y}T)-\mathbf{\nabla}_\mathbf{y}\cdot(\mathbf{\sigma\cdot\mathbf{u}})-\mathbf{u}\cdot\mathbf{b}=0\text{,}
+    \label{ConEn}
+\end{equation}
+
+\noindent em que $\mathbf{\sigma}$ representa o tensor de tensões viscosas, que segue o modelo constitutivo para fluidos como \ref{ConstLaw1}:
+
+\begin{equation}
+    \mathbf{\sigma}=\mathbf{\tau}-p\mathbf{I}\text{,}
+    \label{ConstLaw1}
+\end{equation}
+
+\noindent na qual $\mathbf{I}$ é o tensor identidade, $p$ é a pressão atuante no fluido e $\mathbf{\tau}$ é o tensor de tensões desviadoras.
+
+%==================================================================================================
 \subsection{\textit{Large Eddy Simulation}} \label{LES}
 %==================================================================================================
+
+A simulação de grandes vórtices (LES) foi proposta como um modelo matemático que busca eliminar os efeitos de pequenas escalas e analisar vórtices em grandes escalas. Isso é feito tomando-se um filtro $\phi$, que é capaz de separar adequadamente as grandes escalas, consideradas solucionável, das pequenas escalas, ou escalas insolúveis \cite{hughes2000large}.
 
 %==================================================================================================
 \subsection{\textit{Variational Multiscale Methods}} \label{VMS}
