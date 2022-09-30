@@ -197,7 +197,28 @@ Sendo assim, a equação \ref{SistFilt1} pode ser escrita como:
     \label{EqFiltrada}
 \end{equation}
 
-Assim, torna-se necessário definir como é realizada a filtragem. Isso é feito tomando-se um filtro $g$, que é capaz de separar adequadamente as grandes escalas das pequenas escalas \cite{hughes2000large}.
+Assim, torna-se necessário definir como é realizada a filtragem. Isso é feito tomando-se um filtro $g$, que é capaz de separar adequadamente as grandes escalas das pequenas escalas \cite{hughes2000large}, da seguinte forma:
+
+\begin{equation}
+    \bar{\mathbf{u}}(\mathbf{x},t)=\int_{D_\Delta(\mathbf{x})}{g(\mathbf{x},\mathbf{y})\mathbf{u}(\mathbf{y},t)d\mathbf{y}}\text{,}
+    \label{Filtro1}
+\end{equation}
+
+\noindent no qual $g(\mathbf{x},\mathbf{y})=g(\mathbf{x}-\mathbf{y})$ e:
+
+\begin{equation}
+    \int_{D_\Delta(\mathbf{x})}{g(\mathbf{x},\mathbf{y})d\mathbf{y}}=1\text{,}
+    \label{Filtro2}
+\end{equation}
+
+\noindent e $D_\Delta(\mathbf{x})\subset\Omega$ é a vizinhança de $\mathbf{x}\in\Omega$. Assim é possível realizar a separação das pequenas escalas das grandes escalas. A Figura \ref{fig:Filtragem} apresenta esquematicamente o efeito da filtragem sobre o campo de velocidades.
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.5\linewidth]{Figuras/Filtragem.png}
+%    \caption{Representação esquemática do efeito da filtragem.\\Fonte: \cite{hughes2000large} - Adaptado.}
+%    \label{fig:Filtragem}
+%\end{figure}
 
 \textcolor{red}{(EM PROCESSO DE ESCRITA)}
 %==================================================================================================
