@@ -136,7 +136,7 @@ Com isso pode-se definir o domínio de tempo-espaço como $\mathrm{Q}=\Omega\tim
     \label{Sist4}
 \end{equation}
 
-\noindent em que $\mathbf{u}(0^-)$ representa a velocidade inicial.
+\noindent em que funções escritas em termos somente de um argumento estão se referindo ao tempo como variável independente, ou seja, $\mathbf{u}(t)=\mathbf{u}(\cdot,t)$ e que $\mathbf{u}(t^\pm)=\lim_{\varepsilon\downarrow0}{\mathbf{u}(t+\varepsilon)\forall t\in(0,T)}$ e $\mathbf{u}(0^-)$ representa a velocidade inicial. Portanto, essas equações contém a conservação de momento, incompressibilidade, assim como as condições iniciais e de contorno do problema.
 
 %==================================================================================================
 \subsection{\textit{Large Eddy Simulation}} \label{LES}
@@ -204,23 +204,33 @@ Assim, torna-se necessário definir como é realizada a filtragem. Isso é feito
     \label{Filtro1}
 \end{equation}
 
-\noindent no qual $g(\mathbf{x},\mathbf{y})=g(\mathbf{x}-\mathbf{y})$ e:
+\noindent no qual o filtro $g$ deve ser homogêneo, ou seja, $g(\mathbf{x},\mathbf{y})=g(\mathbf{x}-\mathbf{y})$ e:
 
 \begin{equation}
     \int_{D_\Delta(\mathbf{x})}{g(\mathbf{x},\mathbf{y})d\mathbf{y}}=1\text{,}
     \label{Filtro2}
 \end{equation}
 
-\noindent e $D_\Delta(\mathbf{x})\subset\Omega$ é a vizinhança de $\mathbf{x}\in\Omega$. Assim é possível realizar a separação das pequenas escalas das grandes escalas. A Figura \ref{fig:Filtragem} apresenta esquematicamente o efeito da filtragem sobre o campo de velocidades.
+\noindent e $D_\Delta(\mathbf{x})\subset\Omega$ é a vizinhança de $\mathbf{x}\in\Omega$, sendo $\Delta$ o tamanho do intervalo do filtro. Assim é possível realizar a separação das pequenas escalas das grandes escalas. A Figura \ref{fig:Filtragem} apresenta esquematicamente o efeito da filtragem sobre o campo de velocidades.
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.5\linewidth]{Figuras/Filtragem.png}
-%    \caption{Representação esquemática do efeito da filtragem.\\Fonte: \cite{hughes2000large} - Adaptado.}
-%    \label{fig:Filtragem}
-%\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figuras/Filtragem.png}
+    \caption{Representação esquemática do efeito da filtragem.}
+    Fonte: Adaptado de \citeonline{hughes2000large}.
+    \label{fig:Filtragem}
+\end{figure}
 
-\textcolor{red}{(EM PROCESSO DE ESCRITA)}
+Por fim, o filtro deve ser aplicado sobre todo o domínio, $\mathbf{x}\in\Omega$. No entanto a aplicação desse filtro próximo à fronteira de $\Omega$ pode causar complicações matemáticas, uma vez que pode abranger pontos fora do domínio, como pode-se observar na Figura \ref{fig:AbrFiltro}. Uma alternativa para mitigar esse problema é a utilização de um filtro com intervalo de atuação menor, porém ainda não é uma solução definitiva para o problema.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figuras/AbrFiltro.pdf}
+    \caption{Abrangência do filtro $g$.}
+    Fonte: Adaptado de \citeonline{hughes2000large}.
+    \label{fig:AbrFiltro}
+\end{figure}
+
 %==================================================================================================
 \subsection{\textit{Variational Multiscale Methods}} \label{VMS}
 %==================================================================================================
@@ -231,6 +241,124 @@ Esse tipo de análise se mostra promissora ao se estudar problemas em que há a 
 
 Este método foi utilizado também em problemas envolvendo modelagem em grandes vórtices (VMS-LES) \cite{hughes2000large, bazilevs2007variational}, onde os autores analisaram aproximações a partir das equações de Navier-Stokes incompressíveis, obtendo, assim, resultados favoráveis sobre modelos clássicos de análise LES. Já estudos acerca de escoamentos turbulentos em canais apresentaram bons resultados ao se aplicar essa modelagem \cite{hughes2002variational}.
 
+O VMS consiste na consideração de uma solução tentativa e uma função peso dadas por $\mathcal{V}=\mathcal{V}(\mathrm{Q})$, consideradas idênticas. Com isso, assume-se que existe um $\mathbf{U}=\{\mathbf{u},p\}\in\mathcal{V}$, tal que $\mathbf{u}=\mathbf{0}$ e $\int_{\Omega}{p(t)d\Omega}=0\forall t\in(0,T)$. Assim, deve-se determinar $\mathbf{U}\in\mathcal{V}$ de forma que $\mathbf{W}=\{\mathbf{w},q\}\in\mathcal{V}$. Com isso, aplica-se o método de Galerkin, impondo as condições iniciais de forma a se obter \cite{hughes2002variational}:
+
+\begin{equation}
+    B(\mathbf{W},\mathbf{U})=(\mathbf{W},\mathbf{F})\text{,}
+    \label{B}
+\end{equation}
+
+\noindent em que
+
+\[
+B(\mathbf{W},\mathbf{U})=(\mathbf{w}(T^-),\mathbf{u}(T^-))_\Omega
+-\left(\frac{\partial\mathbf{w}}{\partial t},\mathbf{u}\right)_\mathrm{Q}
+-\left(\mathbf{\nabla}\mathbf{w},\mathbf{u}\otimes\mathbf{u}\right)_\mathrm{Q}\]
+\begin{equation}
+    +\left(q,\mathbf{\nabla}\cdot\mathbf{u}\right)_\mathrm{Q}
+    -\left(\mathbf{\nabla}\cdot w,p\right)_\mathrm{Q}
+    +\left(\mathbf{\nabla}^s\mathbf{w},2\nu\mathbf{\nabla}^s\mathbf{u}\right)_\mathrm{Q}\text{, e}
+    \label{B-2}
+\end{equation}
+
+\begin{equation}
+    (\mathbf{W},\mathbf{F})=(\mathbf{w},\mathbf{f})_\mathrm{Q}+(\mathbf{w}(0^+),\mathbf{u}(0^-))_\Omega\text{,}
+    \label{WF}
+\end{equation}
+
+\noindent sendo o operador $(\cdot,\cdot)_\mathcal{D}$ o produto interno $L_2(\mathcal{D})$, dado por:
+
+\begin{equation}
+    (f,g)_\mathcal{D}=\int_\mathcal{D}{fgd\mathcal{D}}\text{,}
+    \label{L2}
+\end{equation}
+
+\noindent no qual $\mathcal{D}$ pode ser igual a $\Omega$ ou $Q$ e \cite{bazilevs2010large}
+
+\begin{equation}
+    \mathbf{\nabla}^s(\mathbf{\cdot})=\frac{1}{2}(\mathbf{\nabla}(\mathbf{\cdot})+\mathbf{\nabla}(\mathbf{\cdot})^T)
+    \label{nablas}
+\end{equation}
+
+\noindent é o gradiente simétrico de um vetor, que pode ser $\mathbf{u}$ ou $\mathbf{w}$.
+
+A separação das escalas é feita como:
+
+\begin{equation}
+    \mathcal{V}=\bar{\mathcal{V}}\oplus\mathcal{V}'\text{,}
+    \label{SepV}
+\end{equation}
+
+\noindent em que $\bar{\mathcal{V}}$ representa um espaço de grandes escalas e de dimensões finitas, enquanto $\mathcal{V}'$ representa um espaço de pequenas escalas de infinitas dimensões, as quais podem ser substituídas por um espaço de dimensões finitas em um modelo discreto. Nesse sentido, pode-se considerar que $\mathcal{V}'$ é um enriquecimento de $\bar{\mathcal{V}}$.
+
+Assim, a partir das equações \ref{SepV} e \ref{B-2} obtém-se que:
+
+\begin{equation}
+    B(\bar{\mathbf{W}},\bar{\mathbf{U}}+\mathbf{U}')=(\bar{\mathbf{W}},\mathbf{F})\text{, e}
+    \label{B-3}
+\end{equation}
+
+\begin{equation}
+    B(\mathbf{W}',\bar{\mathbf{U}}+\mathbf{U}')=(\mathbf{W}',\mathbf{F})\text{,}
+    \label{B-4}
+\end{equation}
+
+\noindent em que
+
+\begin{equation}
+    \mathbf{U}=\bar{\mathbf{U}}+\mathbf{U}'\text{, e}
+    \label{U}
+\end{equation}
+
+\begin{equation}
+    \mathbf{W}=\bar{\mathbf{W}}+\mathbf{W}'\text{,}
+    \label{W}
+\end{equation}
+
+\noindent tais que $\bar{\mathbf{U}},\bar{\mathbf{W}}\in\bar{\mathcal{V}}$ e $\mathbf{U}',\mathbf{W}'\in\mathcal{V}'$.
+
+Dessa forma, toma-se $B_1$ como o operador linearizado de Navier-Stokes, dado por:
+
+\[B_1(\mathbf{W},\bar{\mathbf{U}},\mathbf{U}')=\left.\frac{d}{d\varepsilon}B(\mathbf{W},\bar{\mathbf{U}}+\varepsilon\mathbf{U}')\right|_{\varepsilon=0}
+=(\mathbf{w}(T^-),\mathbf{u}'(T^-))_\Omega
+-\left(\frac{\partial\mathbf{w}}{\partial t},\mathbf{u}'\right)_\mathrm{Q}\]
+\begin{equation}
+    -(\mathbf{\nabla}\mathbf{w},\bar{\mathbf{u}}\otimes\mathbf{u}'+\mathbf{u}'\otimes\bar{\mathbf{u}})_\mathrm{Q}
+    +(q,\mathbf{\nabla}\cdot\mathbf{u}')_\mathrm{Q}
+    -(\mathbf{\nabla}\cdot\mathbf{w},p')_\mathrm{Q}
+    +(\mathbf{\nabla}^s\mathbf{w},2\nu\mathbf{\nabla}^s\mathbf{u}')_\mathrm{Q}
+    \text{.}
+    \label{B_1}
+\end{equation}
+
+Com isso, pode-se escrever $B(\mathbf{W},\bar{\mathbf{U}}+\mathbf{U}')$ como:
+
+\begin{equation}
+    B(\mathbf{W},\bar{\mathbf{U}}+\mathbf{U}')=B(\mathbf{W},\bar{\mathbf{U}})+B_1(\mathbf{W},\bar{\mathbf{U}},\mathbf{U}')+\frac{1}{2}B_2(\mathbf{W},\bar{\mathbf{U}},\mathbf{U}')\text{,}
+    \label{B-5}
+\end{equation}
+
+\noindent sendo:
+
+\begin{equation}
+    \frac{1}{2}B_2(\mathbf{W},\bar{\mathbf{U}},\mathbf{U}')=\left.\frac{d^2}{d\varepsilon^2}B(\mathbf{W},\bar{\mathbf{U}}+\varepsilon\mathbf{U}')\right|_{\varepsilon=0}=-(\mathbf{\nabla}\mathbf{w},\mathbf{u}'\otimes\mathbf{u}')_\mathrm{Q}\text{.}
+    \label{B_2}
+\end{equation}
+
+Assim, é possível reescrever as equações \ref{B-3} e \ref{B-4} como:
+
+\begin{equation}
+    B(\bar{\mathbf{W}},\bar{\mathbf{U}})+B_1(\bar{\mathbf{W}},\bar{\mathbf{U}},\mathbf{U}')=(\mathbf{\nabla}\bar{\mathbf{w}},\mathbf{u}'\otimes\mathbf{u}')_\mathrm{Q}+(\bar{\mathbf{W}},\mathbf{F})\text{, e}
+    \label{B-6}
+\end{equation}
+
+\begin{equation}
+    B_1(\bar{\mathbf{W}},\bar{\mathbf{U}},\mathbf{U}')-(\mathbf{\nabla}\mathbf{w},\mathbf{u}'\otimes\mathbf{u}')_\mathrm{Q}=-[B(\mathbf{W}',\bar{\mathbf{U}})-(\mathbf{W}',\mathbf{F})]\text{,}
+    \label{B-7}
+\end{equation}
+
+\noindent que equivalem a duas equações não-lineares que, ao se conhecer os valores referentes às pequenas escalas, é possível determinar os valores referentes às grandes escalas \cite{hughes2002variational}.
+
 %==================================================================================================
 \subsection{\textit{Remeshing} e enriquecimento} \label{ReE}
 %==================================================================================================
@@ -240,5 +368,63 @@ Este método foi utilizado também em problemas envolvendo modelagem em grandes 
 %==================================================================================================
 
 Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuirem uma implmentação mais facilitada \cite{alfonsi2009reynolds, ling2015evaluation}. Ainda segundo \citeonline{alfonsi2009reynolds}, problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência.
+
+Sua obtenção parte da equação \ref{Sist1} e considera-se que a velocidade $\mathbf{u}$ pode ser decomposto em duas parcelas: uma devida à velocidade média $\bar{\mathbf{u}}$ e uma devida à flutuações de velocidade $\mathbf{u}'$, ou seja, $\mathbf{u}=\bar{\mathbf{u}}+\mathbf{u}'$. Sendo assim, a velocidade média é obtida como:
+
+\begin{equation}
+    \bar{\mathbf{u}}=\lim_{T\to\infty}{\frac{1}{T}\int_{t_0}^{t_0+T}{\mathbf{u}dt}}\text{.}
+    \label{umed}
+\end{equation}
+
+\noindent Também vale ressaltar que, dessa forma, a média das flutuações de velocidades deve ser nula.
+
+Assim, reescrevendo a equação \ref{Sist1} em termos de parcelas médias e flutuações e utilizando a notação indicial, tem-se que:
+
+\begin{equation}
+    \frac{\partial(\bar{u}_i+u_i')}{\partial t}+\frac{\partial((\bar{u}_i+u_i')(\bar{u}_j+u_j'))}{\partial y_j}+\frac{1}{\rho}\frac{\partial(\bar{p}+p')}{\partial y_i}=\nu\frac{\partial^2(\bar{u}_j+u_j')}{\partial y_j\partial y_i}+\frac{\bar{b}_i+b'_i}{\rho}\text{.}
+    \label{RANS1}
+\end{equation}
+
+Aplicando uma variação média em cada termo da equação \ref{RANS1} obtém-se:
+
+\begin{equation}
+    \overline{\frac{\partial(\bar{u}_i+u_i')}{\partial t}}+\overline{\frac{\partial((\bar{u}_i+u_i')(\bar{u}_j+u_j'))}{\partial y_j}}+\overline{\frac{1}{\rho}\frac{\partial(\bar{p}+p')}{\partial y_i}}=\overline{\nu\frac{\partial^2(\bar{u}_j+u_j')}{\partial y_j\partial y_i}}+\overline{\frac{\bar{b}_i+b'_i}{\rho}}\text{.}
+    \label{RANS2}
+\end{equation}
+
+Já que a aplicação de variações média envolve integração temporal, a derivada em realação a $t$ pode ser eliminada. Assim, sabendo-se que:
+
+\begin{equation}
+    \frac{\bar{u}_i}{\partial x_i}=0\text{,}
+    \label{dudxi}
+\end{equation}
+
+\noindent é possível realizar algumas simplificações na equação \ref{RANS2}, o que resulta em:
+
+\begin{equation}
+    \bar{u}_j\frac{\partial\bar{u}_i}{\partial y_j}+\frac{\partial\overline{u_i'u_j'}}{\partial y_j}+\frac{1}{\rho}\frac{\partial\bar{p}}{\partial y_i}=\nu\frac{\partial^2\bar{u}_j}{\partial y_j\partial y_i}+\frac{\bar{b}_i}{\rho}\text{, ou}
+    \label{RANS3}
+\end{equation}
+
+\begin{equation}
+    \bar{u}_j\frac{\partial\bar{u}_i}{\partial y_j}=\frac{\bar{b}_i}{\rho}+\frac{\partial}{\partial y_j}\left[\nu\frac{\partial\bar{u}_j}{\partial y_i}-\frac{\bar{p}}{\rho}\delta_{ij}-\overline{u_i'u_j'}\right]\text{.}
+    \label{RANS4}
+\end{equation}
+
+Já, de forma mais genérica, a equação \ref{RANS4} pode ser escrita de forma a descrever a evolução temporal:
+
+\[
+    \frac{\partial\overline{u_i'u_j'}}{\partial t}
+    +\bar{u}_k\frac{\partial{\overline{u_i'u_j'}}}{\partial y_k}
+    =-\overline{u_i'u_k'}\frac{\partial\bar{u}_i}{\partial y_k}
+    -\overline{u_j'u_k'}\frac{\partial\bar{u}_i}{\partial y_k}
+    +\overline{\frac{p'}{\rho}\left(\frac{\partial u_i'}{\partial y_j}+\frac{\partial u_j'}{\partial y_i}\right)}
+    \]
+\begin{equation}
+    -\frac{\partial}{\partial y_k}\left(\overline{u_i'u_j'u_k'}+\frac{\overline{p'u_i'}}{\rho}\delta_{jk}+\frac{\overline{p'u_j'}}{\rho}\delta_{ik}-\nu\frac{\partial\overline{u_i'u_j'}}{\partial y_k}\right)
+    -2\nu\overline{\frac{\partial u_i'}{\partial y_k}\frac{\partial u_j'}{\partial y_k}}
+    \text{.}
+    \label{RANS5}
+\end{equation}
 
 \end{document}
