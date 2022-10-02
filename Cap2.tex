@@ -42,6 +42,25 @@ Um campo que vale destacar na CFD é o que estuda os fenômenos de turbulência,
 \section{Modelo De Turbulência} \label{MT}
 %==================================================================================================
 
+Um fluido pode apresentar um escoamento de duas formas distintas, a depender do número de Reynolds que este apresenta (conforme ilustrado na Figura \ref{fig:Escoamentos}). Em casos cujo número de Reynolds é baixo, o escoamento é considerado laminar, ou seja, o escoamento se dá de forma semelhante ao movimento de lâminas independentes, não havendo mistura mascroscópica entre as mesmas. Já em casos cujo número de Reynolds é muito elevado, o escoamento é considerado turbulento. Nesse cenário há a formação de vórtices sobre o escoamento, que podem ocorrer de forma instável e em várias escalas diferentes. Esse fenômeno pode ser descrito de acordo com as equações de Navier-Stokes, no entanto sua resolução se apresenta com um alto grau de complexidade, uma vez que possui termos não lineares em sua composição. Assim são necessárias técnicas de solução, para que se possa obter uma solução de forma aproximada à essas equações. Os itens que seguem apresentam algumas técnicas utilizadas para esse fim.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/EscLaminar.pdf}
+        \caption{Escoamento laminar.}
+        \label{fig:EscLaminar}
+      \end{subfigure}
+      \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/EscTurbulento.pdf}
+        \caption{Escoamento turbulento.}
+        \label{fig:EscTurbulento}
+      \end{subfigure}
+    \caption{Esquema de escoamentos.\label{fig:Escoamentos}}
+\end{figure}
+
 %==================================================================================================
 \subsection{Equações Governantes da Dinâmica dos Fluidos} \label{EqGov}
 %==================================================================================================
@@ -215,7 +234,7 @@ Assim, torna-se necessário definir como é realizada a filtragem. Isso é feito
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.65\linewidth]{Figuras/Filtragem.png}
+    \includegraphics[width=0.75\linewidth]{Figuras/Filtragem.pdf}
     \caption{Representação esquemática do efeito da filtragem.}
     Fonte: Adaptado de \citeonline{hughes2000large}.
     \label{fig:Filtragem}
@@ -341,7 +360,7 @@ Com isso, pode-se escrever $B(\mathbf{W},\bar{\mathbf{U}}+\mathbf{U}')$ como:
 \noindent sendo:
 
 \begin{equation}
-    \frac{1}{2}B_2(\mathbf{W},\bar{\mathbf{U}},\mathbf{U}')=\left.\frac{d^2}{d\varepsilon^2}B(\mathbf{W},\bar{\mathbf{U}}+\varepsilon\mathbf{U}')\right|_{\varepsilon=0}=-(\mathbf{\nabla}\mathbf{w},\mathbf{u}'\otimes\mathbf{u}')_\mathrm{Q}\text{.}
+    \frac{1}{2}B_2(\mathbf{W},\bar{\mathbf{U}},\mathbf{U}')=\frac{1}{2}\left.\frac{d^2}{d\varepsilon^2}B(\mathbf{W},\bar{\mathbf{U}}+\varepsilon\mathbf{U}')\right|_{\varepsilon=0}=-(\mathbf{\nabla}\mathbf{w},\mathbf{u}'\otimes\mathbf{u}')_\mathrm{Q}\text{.}
     \label{B_2}
 \end{equation}
 
