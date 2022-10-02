@@ -146,7 +146,7 @@ Com isso pode-se definir o domínio de tempo-espaço como $\mathrm{Q}=\Omega\tim
 \end{equation}
 
 \begin{equation}
-    \mathbf{u}=0\text{, em }\mathrm{P}\text{, e}
+    \mathbf{u}=\mathbf{0}\text{, em }\mathrm{P}\text{, e}
     \label{Sist3}
 \end{equation}
 
@@ -260,7 +260,7 @@ Esse tipo de análise se mostra promissora ao se estudar problemas em que há a 
 
 Este método foi utilizado também em problemas envolvendo modelagem em grandes vórtices (VMS-LES) \cite{hughes2000large, bazilevs2007variational}, onde os autores analisaram aproximações a partir das equações de Navier-Stokes incompressíveis, obtendo, assim, resultados favoráveis sobre modelos clássicos de análise LES. Já estudos acerca de escoamentos turbulentos em canais apresentaram bons resultados ao se aplicar essa modelagem \cite{hughes2002variational}.
 
-O VMS consiste na consideração de uma solução tentativa e uma função peso dadas por $\mathcal{V}=\mathcal{V}(\mathrm{Q})$, consideradas idênticas. Com isso, assume-se que existe um $\mathbf{U}=\{\mathbf{u},p\}\in\mathcal{V}$, tal que $\mathbf{u}=\mathbf{0}$ e $\int_{\Omega}{p(t)d\Omega}=0\forall t\in(0,T)$. Assim, deve-se determinar $\mathbf{U}\in\mathcal{V}$ de forma que $\mathbf{W}=\{\mathbf{w},q\}\in\mathcal{V}$. Com isso, aplica-se o método de Galerkin, impondo as condições iniciais de forma a se obter \cite{hughes2002variational}:
+O VMS consiste na consideração de uma solução tentativa e uma função peso dadas por $\mathcal{V}=\mathcal{V}(\mathrm{Q})$, consideradas idênticas. Com isso, assume-se que existe um $\mathbf{U}=\{\mathbf{u},p\}\in\mathcal{V}$, tal que $\mathbf{u}=\mathbf{0}$ em $\mathrm{P}$ e $\int_{\Omega}{p(t)d\Omega}=0\forall t\in(0,T)$. Assim, deve-se determinar $\mathbf{U}\in\mathcal{V}$ de forma que $\mathbf{W}=\{\mathbf{w},q\}\in\mathcal{V}$. Com isso, aplica-se o método de Galerkin, impondo as condições iniciais de forma a se obter \cite{hughes2002variational}:
 
 \begin{equation}
     B(\mathbf{W},\mathbf{U})=(\mathbf{W},\mathbf{F})\text{,}
@@ -414,7 +414,7 @@ Aplicando uma variação média em cada termo da equação \ref{RANS1} obtém-se
 Já que a aplicação de variações média envolve integração temporal, a derivada em realação a $t$ pode ser eliminada. Assim, sabendo-se que:
 
 \begin{equation}
-    \frac{\bar{u}_i}{\partial x_i}=0\text{,}
+    \frac{\partial\bar{u}_i}{\partial x_i}=0\text{,}
     \label{dudxi}
 \end{equation}
 
