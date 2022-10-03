@@ -120,14 +120,19 @@ Já a conservação da quantidade de movimento pode ser escrita como:
     \label{TaxaDef}
 \end{equation}
 
-Dessa forma, substituindo-se as equações \ref{Divu0}, \ref{ConstLaw1}, \ref{TensDesv} e \ref{TaxaDef} em \ref{ConQuantMov} e fazendo as devidas simplificações, obtém-se a Equação \ref{NavierStokes}:
+Dessa forma, substituindo-se as equações \ref{Divu0}, \ref{ConstLaw1}, \ref{TensDesv} e \ref{TaxaDef} em \ref{ConQuantMov} e fazendo as devidas simplificações, obtém-se a Equação \ref{NavierStokes} (ou \ref{NavierStokes2}):
 
 \begin{equation}
-    \frac{\partial\mathbf{u}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot(\mathbf{u}\otimes\mathbf{u})+\mathbf{\nabla}_\mathbf{y}\tilde{p}=\nu\mathbf{\nabla}^2_\mathbf{y}\mathbf{u}+\tilde{\mathbf{b}}\text{,}
+    \frac{\partial\mathbf{u}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot(\mathbf{u}\otimes\mathbf{u})+\frac{1}{\rho}\mathbf{\nabla}_\mathbf{y}p=\nu\mathbf{\nabla}^2_\mathbf{y}\mathbf{u}+\frac{\mathbf{b}}{\rho}\text{, ou}
     \label{NavierStokes}
 \end{equation}
 
-\noindent na qual $\nu$ é a viscosidade dinâmica do fluido, $\tilde{p}$ é a pressão dividida pela massa específica do fluido e $\tilde{\mathbf{b}}$ é a força de volume dividida pela massa específica do fluido.
+\begin{equation}
+    \frac{\partial\mathbf{u}}{\partial t}+\mathbf{u}\cdot\mathbf{\nabla}_\mathbf{y}\mathbf{u}+\frac{1}{\rho}\mathbf{\nabla}_\mathbf{y}p=\nu\mathbf{\nabla}^2_\mathbf{y}\mathbf{u}+\frac{\mathbf{b}}{\rho}\text{,}
+    \label{NavierStokes2}
+\end{equation}
+
+\noindent na qual $\nu$ é a viscosidade dinâmica do fluido, dada pela razão entre a viscosidade cinemática e a massa específica, ou seja, $\nu=\mu/\rho$.
 
 Para $\mu>0$, as equações \ref{Divu0} e \ref{NavierStokes} são denominadas como Equações de Navier-Stokes para escoamento incompressível, enquanto para $\mu=0$ as equações são denominadas de Equações de Euler.
 
@@ -136,7 +141,7 @@ Nesse sentido, considere um subconjunto aberto $\Omega\in\mathbb{R}^d$, o qual r
 Com isso pode-se definir o domínio de tempo-espaço como $\mathrm{Q}=\Omega\times(0,T)$ e $\mathrm{P}=\Gamma\times(0,T)$ como a fronteira do domínio. Assim, o problema pode ser descrito em termos da velocidade $\mathbf{u}:\bar{\mathrm{Q}}\to\mathbb{R}^d$ e da pressão $\bar{p}:\mathrm{Q}\to\mathbb{R}$ como \cite{hughes2000large}:
 
 \begin{equation}
-    \frac{\partial\mathbf{u}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot(\mathbf{u}\otimes\mathbf{u})+\mathbf{\nabla}_\mathbf{y}\tilde{p}=\nu\mathbf{\nabla}^2_\mathbf{y}\mathbf{u}+\tilde{\mathbf{b}}\text{, em }\mathrm{Q}\text{,}
+    \frac{\partial\mathbf{u}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot(\mathbf{u}\otimes\mathbf{u})+\frac{1}{\rho}\mathbf{\nabla}_\mathbf{y}p=\nu\mathbf{\nabla}^2_\mathbf{y}\mathbf{u}+\frac{\mathbf{b}}{\rho}\text{, em }\mathrm{Q}\text{,}
     \label{Sist1}
 \end{equation}
 
@@ -168,10 +173,10 @@ A simulação de grandes vórtices (LES) foi proposta como um modelo matemático
     \label{Sep}
 \end{equation}
 
-Dessa forma, as equações de Navier-Stokes podem ser escritas em termos de $\bar{\mathbf{u}}$ e $\bar{\tilde{p}}$ como:
+Dessa forma, as equações de Navier-Stokes podem ser escritas em termos de $\bar{\mathbf{u}}$ e $\bar{p}$ como:
 
 \begin{equation}
-    \frac{\partial\bar{\mathbf{u}}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot\overline{(\mathbf{u}\otimes\mathbf{u})}+\mathbf{\nabla}_\mathbf{y}\bar{\tilde{p}}=\nu\mathbf{\nabla}^2_\mathbf{y}\bar{\mathbf{u}}+\tilde{\mathbf{b}}\text{, em }\mathrm{Q}\text{,}
+    \frac{\partial\bar{\mathbf{u}}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot\overline{(\mathbf{u}\otimes\mathbf{u})}+\frac{1}{\rho}\mathbf{\nabla}_\mathbf{y}\bar{p}=\nu\mathbf{\nabla}^2_\mathbf{y}\bar{\mathbf{u}}+\frac{\mathbf{b}}{\rho}\text{, em }\mathrm{Q}\text{,}
     \label{SistFilt1}
 \end{equation}
 
@@ -212,7 +217,7 @@ No entanto, a parcela convectiva ($\mathbf{\nabla}_\mathbf{y}\cdot\overline{(\ma
 Sendo assim, a equação \ref{SistFilt1} pode ser escrita como:
 
 \begin{equation}
-    \frac{\partial\bar{\mathbf{u}}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot{(\bar{\mathbf{u}}\otimes\bar{\mathbf{u}})}+\mathbf{\nabla}_\mathbf{y}\bar{\tilde{p}}=\nu\mathbf{\nabla}^2_\mathbf{y}\bar{\mathbf{u}}+\tilde{\mathbf{b}}-\mathbf{\nabla}_\mathbf{y}\cdot\tau\text{.}
+    \frac{\partial\bar{\mathbf{u}}}{\partial t}+\mathbf{\nabla}_\mathbf{y}\cdot{(\bar{\mathbf{u}}\otimes\bar{\mathbf{u}})}+\frac{1}{\rho}\mathbf{\nabla}_\mathbf{y}\bar{p}=\nu\mathbf{\nabla}^2_\mathbf{y}\bar{\mathbf{u}}+\frac{\mathbf{b}}{\rho}-\mathbf{\nabla}_\mathbf{y}\cdot\tau\text{.}
     \label{EqFiltrada}
 \end{equation}
 
@@ -379,8 +384,170 @@ Assim, é possível reescrever as equações \ref{B-3} e \ref{B-4} como:
 \noindent que equivalem a duas equações não-lineares que, ao se conhecer os valores referentes às pequenas escalas, é possível determinar os valores referentes às grandes escalas \cite{hughes2002variational}.
 
 %==================================================================================================
-\subsection{\textit{Remeshing} e enriquecimento} \label{ReE}
+\subsection{Método de Petrov-Galerkin} \label{MPG}
 %==================================================================================================
+
+A partir das equações \ref{NavierStokes2} e \ref{Sist2}, pode-se propor uma aproximação no tempo em termos de diferenças centrais como:
+
+\begin{equation}
+    \mathbf{F}^{n+1/2}-\mathbf{b}^{n+1/2}=\mathbf{0}\text{.}
+    \label{TimeApprox}
+\end{equation}
+
+\noindent na qual $n$ representa um passo de tempo discretizado e $n+1/2$ é a média entre os passos de tempo $n$ e $n+1$, ou seja,
+
+\begin{equation}
+    \phi^{n+1/2}=\frac{\phi^{n+1}+\phi^n}{2}\text{,}
+    \label{MedTempo}
+\end{equation}
+
+\noindent e
+
+\begin{equation}
+    \mathbf{F}^{n+1/2}=\rho\frac{\mathbf{u}^{n+1}-\mathbf{u}^n}{\Delta t}+\rho\mathbf{u}^n\cdot\mathbf{\nabla}_\mathbf{y}\mathbf{u}^{n+1/2}-\mu\mathbf{\nabla}_\mathbf{y}^2\mathbf{u}^{n+1/2}+\mathbf{\nabla}_\mathbf{y}p^{n+1/2}\text{.}
+    \label{FTimeApprox}
+\end{equation}
+
+Assim, realiza-se uma aproximação dos campos de velocidade ($\tilde{\mathbf{u}}$) e de pressões ($\tilde{p}$) como:
+
+\begin{equation}
+    \tilde{\mathbf{u}}^{n+1}=N_k\mathbf{u}_k^{n+1}\text{, e}
+    \label{uApprox}
+\end{equation}
+
+\begin{equation}
+    \tilde{p}^{n+1}=N_kp_k^{n+1}\text{,}
+    \label{pApprox}
+\end{equation}
+
+sendo $N_k$ funções de forma associadas às propriedades $\phi_k$ (que podem ser velocidades ou pressões). Nota-se que as funções de forma utilizadas para aproximar ambos os campos são tomadas como sendo iguais.
+
+Com isso pode-se obter um valor aproximado de $F$ como:
+
+\begin{equation}
+    \tilde{\mathbf{F}}^{n+1/2}=\rho\frac{\tilde{\mathbf{u}}^{n+1}-\tilde{\mathbf{u}}^n}{\Delta t}+\rho\tilde{\mathbf{u}}^n\cdot\mathbf{\nabla}_\mathbf{y}\tilde{\mathbf{u}}^{n+1/2}-\mu\mathbf{\nabla}_\mathbf{y}^2\tilde{\mathbf{u}}^{n+1/2}+\mathbf{\nabla}_\mathbf{y}\tilde{p}^{n+1/2}\text{.}
+    \label{FApproxTimeApprox}
+\end{equation}
+
+Dessa forma é possível calcular o resíduo ($g$) devido à essa aproximação de acordo com a equação \ref{res}:
+
+\begin{equation}
+    \mathbf{g}^{n+1/2}=\tilde{\mathbf{F}}^{n+1/2}-\mathbf{b}^{n+1/2}\text{.}
+    \label{res}
+\end{equation}
+
+\noindent Assim, para se encontrar o melhor ajuste, será minimizado o somatório dos quadrados dos resíduos ($S$), que pode ser escrito como:
+
+\begin{equation}
+    S=\sum_{i=1}^{\mathrm{nel}}{\int_{\Omega_e}{\mathbf{g}\cdot\mathbf{g}}d\Omega}\text{,}
+    \label{SQR}
+\end{equation}
+
+\noindent em que $\Omega_e$ é o subdomínio compreendido pelo elemento $i$. Portanto, derivando $S$ em relação aos parâmetros nodais $k$ e minimizando-o, tem-se que:
+
+\begin{equation}
+    \frac{\partial S}{\partial\mathbf{u}_k^{n+1}}=\sum_{i=1}^{\mathrm{nel}}{\int_{\Omega_e}{2\left(\tilde{\mathbf{F}}^{n+1/2}-\tilde{\mathbf{b}}^{n+1/2}\right)\frac{\partial\tilde{\mathbf{F}}^{n+1/2}}{\partial\mathbf{u}^{n+1}_k}d\Omega}}=0\text{, e}
+    \label{dSdu}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial S}{\partial p_k^{n+1}}=\sum_{i=1}^{\mathrm{nel}}{\int_{\Omega_e}{2\left(\tilde{\mathbf{F}}^{n+1/2}-\tilde{\mathbf{b}}^{n+1/2}\right)\frac{\partial\tilde{\mathbf{F}}^{n+1/2}}{\partial p^{n+1}_k}d\Omega}}=0\text{,}
+    \label{dSdp}
+\end{equation}
+
+\noindent que, após algumas manipulações em \ref{dSdu}, obtém-se:
+
+\begin{equation}
+    \sum_{i=1}^{\mathrm{nel}}{\int_{\Omega_e}{(N_k+W_k)\left((\tilde{F}_d)^{n+1/2}-(\tilde{b}_d)^{n+1/2}\right)d\Omega}}=0\text{.}
+    \label{dSdu-2}
+\end{equation}
+
+\noindent em que $d$ é a direção analisada e
+
+\begin{equation}
+    W_k=\frac{\Delta t}{2}\left(\mathbf{u}\cdot\mathbf{\nabla}_\mathbf{y}N_k-\nu\mathbf{\nabla}_\mathbf{y}^2N_k\right)\text{.}
+    \label{Wk}
+\end{equation}
+%/\/\/\/\/\/\/\/\/\/\/\/\/\ EM PROCESSO DE ESCRITA %/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+%==================================================================================================
+\subsubsection{\textit{Remeshing}} \label{ReE}
+%==================================================================================================
+
+Modelos para formação de novas malhas de forma adaptativas podem levar em consideração diversas variáveis para melhor discretização dos campos de velocidades ou de pressões. Na sequência será apresentado um modelo de \textit{remeshing} baseado em minimização do erro do gradiente da velocidade.
+%/\/\/\/\/\/\/\/\/\/\/\/\/\ FAZER UMA REVISÃO BIBLIOGRÁFICA MELHOR POSTERIORMENTE /\/\/\/\/\/\/\/\/\/\/\/\/\
+
+O erro utilizado para analisar a qualidade da discretização da malha é dado pela equação \ref{errorel}:
+
+\begin{equation}
+    \eta=\frac{\left\lVert e\right\lVert}{\left\lVert\mathbf{\nabla}a\right\lVert}\text{,}
+    \label{errorel}
+\end{equation}
+
+\noindent em que $\eta$ é o erro relativo, $\left\lVert e\right\lVert$ é a norma do desvio entre o gradiente da velocidade aproximada e do gradiente da velocidade exata (Equação \ref{norme}) e $\left\lVert\mathbf{\nabla}a\right\lVert$ é a norma do gradiente da velocidade exata (Equação \ref{normu}):
+
+\begin{equation}
+    \left\lVert e\right\lVert=\int_{\Omega}{\mathbf{\nabla_y u}\cdot\mathbf{\nabla_y u}d\Omega}\text{,}
+    \label{norme}
+\end{equation}
+
+\begin{equation}
+    \left\lVert\mathbf{\nabla}a\right\lVert=\int_{\Omega}{(\mathbf{\nabla_y u}-\mathbf{\nabla_y\tilde{u}})\cdot(\mathbf{\nabla_y u}-\mathbf{\nabla_y\tilde{u}})d\Omega}\text{.}
+    \label{normu}
+\end{equation}
+
+No entanto, o valor de $\mathbf{\nabla_y u}$ não é conhecido, o que leva a necessidade de estimá-lo. Dessa forma toma-se como estimativa um valor $\mathbf{\nabla_y u}^*$ para se calcular o erro, que resulta em: \textcolor{red}{(REFERÊNCIA: ZIENKIEWICZ E ZHU)}
+
+\begin{equation}
+    \eta=\frac{\left\lVert e^*\right\lVert}{\left\lVert\mathbf{\nabla}a^*\right\lVert}\text{,}
+    \label{errorelest}
+\end{equation}
+
+\noindent o qual deve ser calculado para cada elemento em seu respectivo domínio $\Omega_e$, e:
+
+\begin{equation}
+    \left\lVert e^*\right\lVert^2=\sum_{i=1}^{m}{\left\lVert e_i^*\right\lVert^2}\text{,}
+    \label{norme-2}
+\end{equation}
+
+\noindent em que $e^i_m$ é o desvio relativo ao elemento $i$ e $m$ é o número de elementos na malha.
+
+Com isso, pode-se calcular qual o desvio médio como:
+
+\begin{equation}
+    me^2_m=\left\lVert e^*\right\lVert^2\text{,}
+    \label{emed}
+\end{equation}
+
+\noindent portanto
+
+\begin{equation}
+    e_m=\eta\frac{\left\lVert\mathbf{\nabla}a^*\right\lVert}{\sqrt{m}}\text{.}
+    \label{emed-2}
+\end{equation}
+
+Nesse cenário, observa-se que uma malha é considerada boa quando o desvio de todos os elementos flutuam em torno de um valor médio, ou seja, não há grandes discrepâncias entre os desvios dos elementos. Dessa maneira, considere que para a formação da malha seja admissível um erro máximo de $\bar{\eta}$, o qual não é atendido para um determinado elemento $i$. Assim, é determinado um valor de desvio médio objetivo, o qual todos os elementos devem estar próximos, segundo a equação \ref{desvobj}:
+
+\begin{equation}
+    \bar{e}_m=\bar{\eta}\frac{\left\lVert\mathbf{\nabla}a^*\right\lVert}{\sqrt{m}}\text{.}
+    \label{desvobj}
+\end{equation}
+
+Uma alternativa para descrever a nova malha é considerar que o desvio é diretamente proporcional ao tamanho do elemento, ou seja:
+
+\begin{equation}
+    \left\lVert e_i^*\right\lVert\propto h_i^l\text{,}
+    \label{e-h}
+\end{equation}
+
+\noindent onde $h_i$ representa o menor comprimento do elemento e $l$ representa a malha atual utilizada.
+
+Com isso é possível determinar o novo comprimento dos elementos como:
+
+\begin{equation}
+    h_i^{l+1}=h_i^l\frac{\bar{e}_m}{\left\lVert e_i^*\right\lVert^l}\text{.}
+    \label{hl1}
+\end{equation}
 
 %==================================================================================================
 \subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
