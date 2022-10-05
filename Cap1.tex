@@ -14,8 +14,6 @@ Desse modo, é possível realizar a análise de IFE de duas formas principais: a
 
 Já a modelagem matemática de problemas se mostra como uma opção mais viável para análise de problemas de IFE, uma vez que dispensa grandes investimentos e possui grande flexibilidade de aplicações, podendo ser utilizado em diversos tipos de análises. Porém, em muitos casos, o estudo matemático de IFE leva a modelagem de problemas muito complexos, com alto custo computacional, exigindo, assim, formulações mais robustas para sua aplicação.
 
-\textcolor{red}{COMENTAR SOBRE TURBULÊNCIA}
-
 Para se realizar o estudo, tanto da mecânica dos elementos sólidos, quanto para a meĉanica dos fluidos, é necessário o estabelecimento de algumas simplificações. Uma das principais simplificações utilizada para esses problemas é a que considera os objetos de análise como meios contínuos, desprezando-se, dessa forma, os efeitos advindos da microestrutura da matéria \cite{lai2009introduction, mase2009continuum}.
 
 Sabe-se que toda a matéria é composta por átomos e partículas subatômicas, no entanto a mecânica do contínuo desconsidera os efeitos dessas partículas e aponta que todo material pode ser subdividido em elementos cada vez menores sem que haja mudanças em suas propriedades físicas, independentemente do quão pequena seja essa divisão. Assim, faz-se possível a modelagem de elementos com volume infinitesimal, permitindo a utilização de artifícios matemáticos, como o cálculo diferencial e integral. Dessa forma, teorias baseadas na elasticidade e plasticidade podem ser empregadas utilizando funções contínuas, facilitando a determinação de parâmetros de interesse da análise \cite{irgens2008continuum, lai2009introduction, malvern1969introduction}.
@@ -47,22 +45,24 @@ A Figura \ref{fig:ALE} apresenta um desenho esquemático das regiões ocupadas p
 \section{Objetivos}
 %==================================================================================================
 
-\textcolor{red}{OBJETIVOS}
+O presente trabalho visa o estudo e implementação na linguagem de programação C++ de modelos de turbulência para análise de problemas de interação fluido-estrutura com elevados números de Reynolds. Com isso, traça-se os seguintes objetivos específicos:
 
 \begin{itemize}
-    \item ITEM 1;
+    \item Estudo e implementação de técnicas de \textit{Large Eddy Simulation};
 
-    \item ITEM 2;
+    \item Estudo e implementação de técnicas de \textit{Variational Multiscale Methods};
 
-    \item ITEM 3;
+    \item Estudo e implementação de técnicas de \textit{Reynolds-Averaged Navier-Stokes};
 
-    \item ITEM 4.
+    \item Estudo comparativo das características numéricas dos métodos \textit{Large Eddy Simulation}, \textit{Variational Multiscale Methods} e \textit{Reynolds-Averaged Navier-Stokes} em problemas de interação fluido-estrutura.
 \end{itemize}
 
 %==================================================================================================
 \section{Justificativa}
 %==================================================================================================
 
-\textcolor{red}{JUSTIFICATIVA}
+Observa-se os efeitos da interação fluido-estrutura em diversas estruturas, em especial os efeitos devido à escoamentos turbulentos em estruturas flexíveis, por exemplo, a atuação de ventos em edifícios. Nesse sentido, se faz necessário o estudo de técnicas eficazes para determinação dos impactos desses escoamentos sobre as mais diversas estruturas. Duas formas possíveis de se obter esses resultados são: pela construção de modelos reais em escala, observando-se na prática o comportamento estrutural e do escoamento; ou pela modelagem matemática do problema. O primeiro cenário apresenta algumas desvantagens, pois os parâmetros que são obtidos nesse tipo de análise podem ser dependentes da escala da amostra, impactando diretamente na qualidade dos resultados, além de demandar uma infraestrutura muito robusta para se obter valores coerentes. Assim, o modelo matemático se mostra como uma solução mais eficiente, uma vez que não demanda um grande investimento em infraestrutura. No entanto muitos tipos de análise envolvendo escoamentos turbulentos recaem em problema com um alto grau de complexidade, ocasionando, consequentemente, um custo computacional muito alto. Dessa maneira, o presente trabalho busca analisar entre as técnicas matemáticas qual se mostra mais eficiente para essas análises.
+
+Além dos métodos para determinação de parâmetros referentes ao escoamento, também é necessário se obter aqueles referentes à resposta da estrutura frente à esse escoamento. Assim, nota-se a presença de diversos métodos para a determinação de parâmetros relativos à estruturas flexíveis, em que se percebe o Método dos Elementos Finitos Posicional como uma alternativa interesante para tal análise. Esse método se destaca pela consideração das posições nodais como parâmetros de análise, evitando problemas devido à falta de comutatividade de rotações, que é observado, por exemplo, no Método dos Elementos Finitos Corrotacional, que, além de deslocamentos, também considera rotações nodais como parâmetros de análise. Além disso, também vale destacar que a matriz de massa em problemas dinâmicos permanece constante ao longo do tempo, possibilitando a implementação facilitada de métodos de integração temporal.
 
 \end{document}
