@@ -1,7 +1,7 @@
 \documentclass[12pt,
 	openright,	% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	%twoside,    % para impressão em anverso (frente) e verso. Oposto a oneside - Nota: utilizar \imprimirfolhaderosto*
-	oneside,   % para impressão em páginas separadas (somente anverso) -  Nota: utilizar \imprimirfolhaderosto
+	twoside,    % para impressão em anverso (frente) e verso. Oposto a oneside - Nota: utilizar \imprimirfolhaderosto*
+	%oneside,   % para impressão em páginas separadas (somente anverso) -  Nota: utilizar \imprimirfolhaderosto
 	a4paper,			% tamanho do papel. 
 	sumario=tradicional,
 	% -- opções da classe abntex2 --
@@ -134,6 +134,30 @@
 \titleformat*{\paragraph}{\bfseries}
 \titleformat*{\subparagraph}{\bfseries}
 
+\newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
+\newcommand{\dev}[1]{\mathop{\mathrm{dev}}\nolimits{#1}}
+\newcommand{\NN}{\mathbf{\nabla_y}}
+\newcommand{\NNx}{\mathbf{\nabla_x}}
+\newcommand{\Lapl}{\mathbf{\nabla}^2_\mathbf{y}}
+\newcommand{\apder}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{y}}}
+\newcommand{\apderx}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{x}}}
+\newcommand{\apderxh}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\bhat{x}}}
+\newcommand{\der}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\BB}[1]{\mathbf{#1}}
+\newcommand{\BBB}[1]{\overline{\mathbf{#1}}}
+\newcommand{\uhat}{\hat{\mathbf{u}}}
+\newcommand{\bhat}[1]{\hat{\mathbf{#1}}}
+\newcommand{\that}[1]{\tilde{\mathbf{#1}}}
+\newcommand{\deftax}{\dot{\mathbf{\varepsilon}}}
+\newcommand{\tens}{\mathbf{\sigma}}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\lVert}
+\newcommand{\bigpar}[1]{\left({#1}\right)}
+%LARGE EDDY SIMULATION:
+\newcommand{\Dfil}{D_\Delta(\BB{y})}
+\newcommand{\yfil}{\BB{y}_\Delta}
+\newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
+
 % Início do documento
 \begin{document}
 
@@ -162,8 +186,6 @@
 % Abstract
 \subfile{Abstract}
 
-\begin{comment} %REMOVIDO - PROJETO DE PESQUISA
-
 % inserir lista de figurass
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
@@ -178,36 +200,110 @@
 %\cleardoublepage
 % inserir lista de abreviaturas e siglas
 \begin{siglas}
+	\item[ALE] Lagrangiana-Euleriana Arbitrária - \textit{Arbitrary Lagrangian-Eulerian}
+	\item[CFD] Dinâmica dos Fluidos Computacional - \textit{Computational Fluid Dynamics}
+	\item[CSD] Dinâmica dos Sólidos Computacional - \textit{Computational Solid Dynamics}
+    \item[GLS] Galerkin Least-Squares
 	\item[IFE] Interação Fluido-Estrutura
+	\item[LES] Simulação de Grandes Vórtices - \textit{Large Eddy Simulation}
 	\item[MEF] Método dos Elementos Finitos
-	\item[MEFP] Método dos Elementos Finitos de Partículas
-	\item[ALE] Lagrangeana-Euleriana Arbitrária
-	\item[SPH] \textit{Smoothed Particle Hidrodynamics}
-	%\item[EESC] Escola de Engenharia de São Carlos
-	%\item[IAU] Instituto de Arquitetura e Urbanismo
-	%\item[IBGE] Instituto Brasileiro de Geografia e Estatística
-	%\item[ICMC] Instituto de Ciências Matemáticas e de Computação
-	%\item[IFSC] Instituto de Física de São Carlos
-	%\item[IQSC] Instituto de Química de São Carlos
-	%\item[PDF] Portable Document Format
-	%\item[TCC] Trabalho de Conclusão de Curso
-	%\item[USP] Universidade de São Paulo
-	%\item[USPSC] Campus USP de São Carlos
+	\item[RANS] \textit{Reynolds-Averaged Navier-Stokes}
+    \item[SGS] Subgrid-Scales
+    \item[SUPG] \textit{Streamline-Upwind/Petrov-Galerkin}
+	\item[VMS] Métodos Variacionais Multiescala - \textit{Variational Multiscale Methods}
 \end{siglas}
 % inserir lista de símbolos
 \begin{simbolos}
-	\item[$ \Gamma $] Letra grega Gama
-	\item[$ \Lambda $] Lambda
-	\item[$ \zeta $] Letra grega minúscula zeta
-	\item[$ \in $] Pertence
+    \item[Operadores]
+    \item[$\dev(\cdot)$] Parte desviadora do tensor
+    \item[$\tr(\cdot)$] Traço de um tensor
+    \item[$\mathbf{\nabla}(\cdot)$] Gradiente
+    \item[$\mathbf{\nabla}\cdot(\cdot)$] Divergente
+    \item[$\mathbf{\nabla}^2(\cdot)$] Laplaciano
+    
+    \item[Parâmetros Gerais]
+    \item[$\hat{\mathbf{e}}_i$] Vetor versor na direção $i$
+    \item[$\mathbb{I}$] Tensor identidade de quarta ordem
+    \item[$\mathbf{I}$] Tensor identidade de segunda ordem
+    \item[$m$] Massa
+    \item[$n_{sd}$] Número de dimensões espaciais do problema
+    \item[$t$] Tempo
+    \item[$V$] Volume
+    \item[$\Delta t$] Intervalo discreto de tempo
+    \item[$\rho$] Massa específica
+    \item[$\mathbf{\sigma}$] Tensor de tensões de Cauchy
+    \item[$\phi$] Propriedade qualquer
+    
+    \item[Configurações do Contínuo]
+    \item[$\mathbf{x}$] Posição inicial (ou posição material)
+    \item[$\mathbf{\hat{x}}$] Posição de referência
+    \item[$\mathbf{y}$] Posição atual (ou posição espacial)
+    \item[$\Gamma_D$] Fronteira de Dirichlet
+    \item[$\Gamma_N$] Fronteira de Neumann
+    \item[$\Omega$] Domínio de análise na configuração atual
+    \item[$\Omega_0$] Domínio de análise na configuração inicial
+    \item[$\hat{\Omega}$] Domínio de análise na configuração de referência
+    
+    \item[Dinâmica dos Sólidos Computacional]
+    \item[$\mathbb{A}$] Medida de deformação de Almansi
+    \item[$\mathbf{A}$] Gradiente da função de mudança de configuração
+    \item[$\mathbb{E}$] Medida de deformação de Green-Lagrange
+    \item[$\mathbf{f}$] Função de mudança de configuração
+    \item[$\mathbb{H}$] Medida de deformação de Hencky
+    \item[$J$] Jacobiano da mudança de configuração
+    \item[$\mathbb{K}$] Energia cinética
+    \item[$n$] Vetor normal à superfície na configuração atual
+    \item[$N$] Vetor normal à superfície na configuração inicial
+    \item[$\mathbb{P}$] Energia das Forças Externas
+    \item[$\mathbf{P}$] Tensor de tensões de Piola-Kirchhoff de primeira espécie
+    \item[$u_e$] Energia específica de deformação
+    \item[$\mathbb{U}$] Energia de deformação
+    \item[$\mathbf{\varepsilon}$] Tensor de deformação linear
+    \item[$\varepsilon_V$] Deformação volumétrica
+    \item[$\Pi$] Energia total
+    
+    \item[Dinâmica dos Fluidos Computacional]
+    \item[$\mathbf{A}$] Gradiente da função de mudança de configuração
+    \item[$\mathbf{c}$] Força de corpo
+    \item[$\script{D}$] Tensor constitutivo de quarta ordem
+    \item[$\mathbf{f}$] Força por unidade de massa
+    \item[$\mathbf{f}$] Função mudança de configuração
+    \item[$\mathbf{F}$] Resultante das forças externas
+    \item[$\mathbf{g}$] Velocidades prescritas na fronteira de Dirichlet
+    \item[$\mathbf{h}$] Forças de superfícies prescritas na fronteira de Neumann
+    \item[$n$] Vetor normal à superfície
+    \item[$p$] Campo de pressões
+    \item[$\mathbf{q}$] Resultante das forças externas por unidade de volume
+    \item[$\script{S}_u$] Espaço de funções tentativas para o campo de velocidades
+    \item[$\script{S}_p$] Espaço de funções tentativas para o campo de pressões
+    \item[$\mathbf{u}$] Campo de velocidades
+    \item[$\script{V}_u$] Espaço de funções teste para o campo de velocidades
+    \item[$\script{V}_p$] Espaço de funções teste para o campo de pressões
+    \item[$\mathbf{\hat{u}}$] Campo de velocidades da malha
+    \item[$\mathbf{\dot{\varepsilon}}$] Tensor de taxa de deformação
+    \item[$\mu$] Viscosidade cinemática
+    \item[$\nu$] Viscosidade dinâmica
+    \item[$\tau$] Tensor desviador
+
+    \item[\textit{Large Eddy Simulation}]
+    \item[$C_S$] Constante de Smagorinsky
+    \item[$\Dfil$] Domínio de abrangência do filtro
+    \item[$g$] Filtro
+    \item[$\BB{T}$] Tensor de subescala
+    \item[$\BB{T}_S$] Tensor de subescala de Smagorinsky
+    \item[$\yfil$] Ponto na vizinhança de $\BB{y}$ interno à $\Dfil$
+    \item[$\bar{\phi}$] Propriedade filtrada
+    \item[$\phi'$] Propriedade não filtrada
+    
+    \item[\textit{Variational Multiscale Methods}]
+    
+    \item[\textit{Reynolds-Averaged Navier-Stokes}]
 \end{simbolos}
 
 % inserir o sumario
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
-
-\end{comment}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -216,14 +312,10 @@
 
 \renewcommand\chaptername{}
 
-% Capítulo 1
-\subfile{Cap1}
-
-% Capítulo 2
-\subfile{Cap2}
-
-% Capítulo 2
-\subfile{Cap3}
+\subfile{Capitulos/Cap1}
+\subfile{Capitulos/Cap2}
+\subfile{Capitulos/Cap3}
+\subfile{Capitulos/Cap5}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS

@@ -1,0 +1,187 @@
+% Introdução
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+
+%==================================================================================================
+\section{Modelos de Turbulência} \label{MdT}
+%==================================================================================================
+
+A presente seção apresentará a fundamentação teórica dos modelos de turbulência baseado em grandes vórtices (LES) no item \ref{LES}, métodos variacionais multiescala (VMS) no item \ref{VMS} e \textit{Reynolds-Averaged Navier-Stokes} (RANS) no item \ref{RANS}.
+
+%==================================================================================================
+\subsection{\textit{Large Eddy Simulation}} \label{LES}
+%==================================================================================================
+
+A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, que irá reescrever as equações de Navier-Stokes em termos de parcelas filtradas (ou de grandes escalas), denotadas para uma propriedade qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large}. Para isso, considera-se uma filtragem dada por:
+
+\begin{equation}
+    \bar{\phi}=\int_{\Dfil}{g(\BB{y},\yfil)\phi(\yfil,t)d\yfil}\text{,}
+\end{equation}
+
+\noindent em que $\Dfil$ é um subconjunto de $\Omega$ que determina a abrangência do filtro, $\yfil$ é um ponto na vizinhança de $\BB{y}$ e $g$ é o filtro, que deve possuir a propriedade de homogeneidade, $g(\BB{y},\yfil)=g(\BB{y}-\yfil)$.
+
+\citeonline{hughes2000large} apresentam ainda uma possibilidade de abrangência de filtro dada por:
+
+\begin{equation}
+    \Dfil=\left\{\yfil\in\mathbb{R}^{n_{sd}}|\rho(\BB{y},\yfil)<\Delta/2\right\}\text{,}
+\end{equation}
+
+\noindent na qual $\Delta/2$ é o raio de abrangência do filtro centrado em $\BB{y}$ e $\rho$ é a distância Euclidiana de $\yfil$ à $\BB{y}$. A Figura \ref{fig:Filtro} apresenta esquematicamente o filtro considerado, assim como seu domínio de abrangência.
+
+\begin{figure}[h]
+    \centering
+    \caption{Desenho esquemático do filtro considerado.}
+    \includegraphics[width=0.5\linewidth]{Figuras/filtro.pdf}
+    \\Fonte: \citeonline{hughes2000large} - Adaptado.
+    \label{fig:Filtro}
+\end{figure}
+
+Dessa maneira, é possível separar os efeitos das grandes escalas e das pequenas escalas, o que pode ser observado esquematicamente na Figura \ref{fig:EfeitoFiltragem}, a qual apresenta o efeito da filtragem sobre um campo de velocidades $\BB{u}$.
+
+\begin{figure}[h]
+    \centering
+    \caption{Efeito da filtragem sobre um campo de velocidades $\BB{u}$.}
+    \includegraphics[width=.75\linewidth]{Figuras/efeito_filtragem.pdf}
+    \\Fonte: \citeonline{hughes2000large} - Adaptado.
+    \label{fig:EfeitoFiltragem}
+\end{figure}
+
+\textcolor{red}{Depois pesquisar sobre o problema do domínio $\Omega/\Omega_\Delta$}
+
+Assim, em uma descrição Euleriana, pode-se obter as equações de Navier-Stokes filtradas:
+
+\begin{equation}
+    \left\{
+   \begin{array}{ll}
+        \rho\left(\apder{\BBB{u}}{t}+\NN\overline{(\BB{u}\otimes\BB{u})}-\BBB{f}\right)-\NN\cdot\overline{\tens}^T=\BB{0}&\text{ em }\Omega\text{,}\\
+        \NN\cdot\BBB{u}=0&\text{ em }\Omega\text{.}
+    \end{array}
+    \right.\label{eq:NS-Euler}
+\end{equation}
+
+\textcolor{red}{As condições de contorno são as mesmas, considerando c.c. filtradas?}
+
+Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Logo, sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação de movimento como:
+
+\begin{equation}
+    \rho\bigpar{\apder{\BBB{u}}{t}+\NN\overline{((\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}'))}-\BBB{f}}-\NN\cdot\overline{\tens}^T=\BB{0}
+\end{equation}
+
+Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, o que serão condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
+
+\begin{equation}
+    \BB{T}=\BBB{u}\otimes\BBB{u}-\overline{\BB{u}\otimes\BB{u}}=-\bigpar{\BB{L}+\BB{C}+\BB{R}}\text{,}
+\end{equation}
+
+\noindent no qual $L_{ij}=\overline{\bar{u}_i\bar{u}_j}-\bar{u}_i\bar{u}_j$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente utilizado para análise de erros, $C_{ij}=\overline{\bar{u}_iu'_j}+\overline{u'_i\bar{u}_j}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $R_{ij}=\overline{u'_iu'_j}$ é o tensor de tensões SGS de Reynolds, que rerepsenta a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever que:
+
+\begin{equation}
+    \rho\bigpar{\apder{\BBB{u}}{t}+\NN\cdot(\BBB{u}\otimes\BBB{u})-\NN\cdot\BB{T}-\BBB{f}}-\NN\cdot\overline{\tens}^T=\BB{0}\text{.}
+\end{equation}
+
+Aplicando a incompressibilidade e substituindo-se $\tens$ pelo modelo constitutivo \ref{eq:ModConst}, sabendo que se trata de um tensor simétrico, tem-se que:
+
+\begin{equation}
+    \rho\bigpar{\apder{\BBB{u}}{t}+\BBB{u}\cdot\NN\BBB{u}-\NN\cdot\BB{T}-\BBB{f}}-2\mu\NN\cdot\deffil+\NN \bar{p}=\BB{0}\text{,}\label{eq:ConMasLES}
+\end{equation}
+
+\noindent sendo $\deffil=(\NN\BBB{u}+\NN^T\BBB{u})/2$. Assim, dividindo-se a Equação \ref{eq:ConMasLES} por $\rho$, substituindo $\deffil$ por \ref{eq:deftax1} e fazendo algumas manipulações tem-se que:
+
+\begin{equation}
+    \apder{\BBB{u}}{t}+\BBB{u}\cdot\NN\BBB{u}+\frac{\NN \bar{p}}{\rho}=2\nu\Lapl\BBB{u}+\NN\cdot\BB{T}+\BBB{f}\text{,}
+\end{equation}
+
+\noindent em que $\Lapl\BBB{u}$ é o Laplaciano de $\BBB{u}$ e $\nu$ é a viscosidade dinâmica, dada por $\nu=\mu/\rho$.
+
+Portanto, o problema se ser resolvido será:
+
+\begin{equation}
+    \left\{
+   \begin{array}{ll}
+        \apder{\BBB{u}}{t}+\BBB{u}\cdot\NN\BBB{u}+\frac{\NN \bar{p}}{\rho}=2\nu\Lapl\BBB{u}+\NN\cdot\BB{T}+\BBB{f}&\text{ em }\Omega\text{,}\\
+        \NN\cdot\BBB{u}=0&\text{ em }\Omega\text{,}
+    \end{array}
+    \right.\label{eq:NS-Euler}
+\end{equation}
+
+\noindent o que revela a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
+
+\begin{equation}
+    \dev{\BB{T}}=\BB{T}-\frac{1}{3}\BB{I}\tr{\BB{T}}\text{,}
+\end{equation}
+
+\noindent que descreva adequadamente as interações entre diferentes escalas. Isso pode se tornar problemático uma vez que não se possui solução para as pequenas escalas. Dessa forma, considera-se um modelo capaz de fazer essa descrição, sendo observado, por exemplo, o modelo de viscosidade de vórtice de Smagorinsky, desenvolvido por \citeonline{smagorinsky1963general}. Nesse cenário faz-se que:
+
+\begin{equation}
+    \BB{T}_S=2\nu_T\deffil\text{,}
+\end{equation}
+
+\noindent sendo $\nu_T$ a viscosidade de vórtice SGS, dada por \cite{germano1991dynamic,piomelli1999large,hughes2000large}:
+
+\begin{equation}
+    \nu_T=(C_S\Delta)^2\norm{\deffil}\text{,}
+\end{equation}
+
+\noindent em que $C_S$ é a constante de Smagorinsky e $\norm{\deffil}$ é a magnitude do tensor de taxa de deformação em grandes escalas, dada por:
+
+\begin{equation}
+    \norm{\deffil}=(2\deffil\cdot\deffil)^{1/2}\text{.}
+\end{equation}
+
+Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB{T}_S}$.
+
+\citeonline{germano1991dynamic,hughes2000large} ainda apontam alguns pontos sobre o modelo de Smagorinsky, os quais destacam-se o fato de $\BB{T}_S$ não possuir um comportamento assintótico próximo às paredes, o que se esperaria de $\BB{T}$, os valores de $C_S$ na presença de cisalhamento médio causaram amortecimentos excessivos e o tensor $\BB{T}_S$ impede a energia de fluir entre diferentes escalas, podendo ser significante em alguns casos.
+
+Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, premitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
+
+Com isso, e considerando que a dissipação de energia cinática é igual àquela produzida, pode-se obter a amplitude espectral da energia cinética ($E(k)$) como \cite{hughes2000large}:
+
+\begin{equation}
+    E(k)=\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
+\end{equation}
+
+\noindent em que $\alpha$ é a constante de Kolmogoroff, $\varepsilon$ é a dissipação turbulenta.
+
+\textcolor{red}{descrever melhor o que é $k$, segundo \citeonline{hughes2000large}: $E(k)$ é a amplitude espectral da energia cinética, definida como a integral sobre a superfície de esferas parametrizadas com raio $k$ (?)}
+
+Assim pode-se determinar o valor de $\norm{\deffil}$ como:
+
+\begin{equation}
+    \frac{1}{2}\norm{\deffil}=\int_0^{\bar{k}}{k^2E(k)dk}\text{,}\label{eq:ndeffil1}
+\end{equation}
+
+\noindent no qual $\bar{k}$ é o limite de resolução.
+
+Substituindo \ref{eq:Ek1} em \ref{eq:ndeffil1}, resolvendo a integral e fazendo algumas manipulações algébricas, tem-se que:
+
+\begin{equation}
+    \norm{\deffil}^3=\bigpar{\frac{3\alpha}{2}}^{3/2}\bar{k}^2\varepsilon\text{.}
+\end{equation}
+
+Dessa forma, realiza-se o balanço da energia cinética turbulenta dissipada com a produzida, obtendo-se:
+
+\begin{equation}
+    \varepsilon=\BB{T}_S\cdot\deffil\text{,}
+\end{equation}
+
+\noindent que, após seu desenvolvimento, tem-se uma expressão que relaciona os valores de $C_S$, $\Delta$ e $\nu_T$ com $\bar{k}$:
+
+\begin{equation}
+    C_S\Delta=\bigpar{\frac{2}{3\alpha}}^{3/4}\bar{k}^{-1}\text{ e}
+\end{equation}
+
+\begin{equation}
+    \nu_T=\bigpar{\frac{2}{3\alpha}}\varepsilon^{1/3}\bar{k}^{-4/3}\text{.}
+\end{equation}
+
+%==================================================================================================
+\subsection{\textit{Variational Multiscale Methods}} \label{VMS}
+%==================================================================================================
+
+%==================================================================================================
+\subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
+%==================================================================================================
+
+\end{document}

@@ -1,0 +1,12 @@
+Rever Seção Estado da Arte - Modelo de Turbulência
+Escrever sobre a dinâmica dos sólidos
+Escrever sobre a equação de transporte difusivo-convectivo
+Colocar referência no modelo constitutivo
+Procurar sobre remeshing
+- possivelmente algumas definições irão ficar repetidas em CSD e CFD, depois que escrever os dois, releia -
+Talvez escrever um tópico para definir alguns operadores, relacionando a notação simbólica com a indicial
+Qual a tradução correta para Traction (Na fronteira de Neumann)?
+Comentar sobre estabilidade dos integradores temporais
+
+Referência em princípios variacionais?
+Dúvida: as c.c. em deslocamentos em sólidos também são denominadas de Dirichlet?

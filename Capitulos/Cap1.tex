@@ -10,7 +10,7 @@
 
 Visto o constante avanço da engenharia em poder se dimensionar estruturas cada vez mais leves e esbeltas, observa-se a necessidade de uma determinação cada vez mais precisa de todos os parâmetros que podem influenciar na resistência e estabilidade da estrutura. Nesse contexto torna-se de grande importância a verificação dos efeitos da interação entre os fluidos e a estrutura, uma vez que esses fenômenos podem comprometer a segurança estrutural. Exemplos de problemas envolvendo Interação Fluido-Estrutura (IFE) podem ser notados em ações do vento sobre estruturas de grandes altitudes, ação de marés sobre estruturas de barragens e estruturas \textit{offshore}, dentre outros. Além disso, também percebe-se a aplicação desse tipo de análise em demais áreas, como, por exemplo, no estudo de escoamento do sangue em vasos sanguíneos, ou em problemas envolvendo aerodinâmica \cite{sanches2014fluid, fernandes2020tecnica}.
 
-Desse modo, é possível realizar a análise de IFE de duas formas principais: a construção de amostras em escala; ou a modelagem matemática do problema em questão. No primeiro caso há a verificação real do comportamento da estrutura e do fluido à um determinado problema. No entanto, dependendo da natureza do problema, esse comportamento pode variar de acordo com a escala, o que pode não apresentar resultados representativos. Também ressalta-se o fato de a contrução das amostras demandar uma infraestrutura robusta para se analisar apenas alguns problemas específicos \cite{fernandes2020tecnica}.
+Desse modo, é possível realizar a análise de IFE de duas formas principais: a construção de amostras em escala; ou a modelagem matemática do problema em questão. No primeiro caso há a verificação real do comportamento da estrutura e do fluido à um determinado problema. No entanto, dependendo da natureza do problema, esse comportamento pode variar de acordo com a escala, o que pode não apresentar resultados representativos. Também ressalta-se o fato de a construção das amostras demandar uma infraestrutura robusta para se analisar apenas alguns problemas específicos \cite{fernandes2020tecnica}.
 
 Já a modelagem matemática de problemas se mostra como uma opção mais viável para análise de problemas de IFE, uma vez que dispensa grandes investimentos e possui grande flexibilidade de aplicações, podendo ser utilizado em diversos tipos de análises. Porém, em muitos casos, o estudo matemático de IFE leva a modelagem de problemas muito complexos, com alto custo computacional, exigindo, assim, formulações mais robustas para sua aplicação.
 
@@ -25,21 +25,6 @@ Ainda existem diferentes formas de descrever matematicamente um problema mecâni
 Na descrição Lagrangiana a referência adotada é a configuração inicial do contínuo (denotada por $\mathbf{x}$). Essa descrição apresenta boa representatividade quando aplicada em modelos sólidos, uma vez que a configuração inicial dos elementos é bem definida, tendo como variáveis principais os deslocamentos do elemento \cite{sanches2014fluid, fernandes2019ale}.
 
 Já a descrição Euleriana toma como referência a configuração atual do contínuo (denotada por $\mathbf{y}$), sendo bem utilizada para a descrição de fluidos newtonianos, pois estes não apresentam resistência à esforços de cisalhamento, distorcendo-se indefinidamente quando submetidos à tais esforços. Nesse tipo de descrição é comum a utilização para determinação de velocidades, diferentemente dos deslocamentos \cite{sanches2014fluid, fernandes2019ale}.
-
-%==================================================================================================
-\section{Acomplamento ALE} \label{ALE}
-%==================================================================================================
-
-A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE), é uma forma de analisar os pontos de um contínuo em termos de uma região arbitrária do espaço. Esse estudo foi introduzido inicialmente por \citeonline{donea1982arbitrary} e busca descrever a movimentação do contínuo a partir de uma generalização das descrições Lagrangiana e Euleriana. Na descrição Lagrangiana, a análise é realizada tomando-se como referência a posição inicial do contínuo, podendo ser atualizada para acompanhar esse movimento, enquanto a descrição Euleriana a análise é feita tomando-se como referência a posição atual do contínuo, sendo, então, uma posição fixa no espaço. Assim, a descrição ALE, ao contrário da Lagrangiana e Euleriana, busca analisar esse movimento a partir de uma região do espaço que pode se movimentar independentemente das configurações do contínuo.
-
-A Figura \ref{fig:ALE} apresenta um desenho esquemático das regiões ocupadas pelo contínuo na sua configuração inicial, atual e a região de referência.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\linewidth]{Figuras/ALE1.pdf}
-    \caption{Representação esquemática da descrição ALE.}
-    \label{fig:ALE}
-\end{figure}
 
 %==================================================================================================
 \section{Objetivos}
@@ -67,6 +52,6 @@ Duas formas possíveis de se obter esses resultados são: pela construção de m
 
 No entanto muitos tipos de análise envolvendo escoamentos turbulentos recaem em problema com um alto grau de complexidade, ocasionando, consequentemente, um custo computacional muito alto. Dessa maneira, o presente trabalho busca analisar entre as técnicas matemáticas qual se mostra mais eficiente para essas análises, dando continuidade aos trabalhos que já foram realizados pelo grupo de pesquisa.
 
-Além dos métodos para determinação de parâmetros referentes ao escoamento, também é necessário se obter aqueles referentes à resposta da estrutura frente à esse escoamento. Assim, nota-se a presença de diversos métodos para a determinação de parâmetros relativos à estruturas flexíveis, em que se percebe o Método dos Elementos Finitos Posicional como uma alternativa interesante para tal análise. Esse método se destaca pela consideração das posições nodais como parâmetros de análise, evitando problemas devido à falta de comutatividade de rotações, que é observado, por exemplo, no Método dos Elementos Finitos Corrotacional, que, além de deslocamentos, também considera rotações nodais como parâmetros de análise. Além disso, também vale destacar que a matriz de massa em problemas dinâmicos permanece constante ao longo do tempo, possibilitando a implementação facilitada de métodos de integração temporal.
+Além dos métodos para determinação de parâmetros referentes ao escoamento, também é necessário se obter aqueles referentes à resposta da estrutura frente à esse escoamento. Assim, nota-se a presença de diversos métodos para a determinação de parâmetros relativos à estruturas flexíveis, em que se percebe o Método dos Elementos Finitos Posicional como uma alternativa interessante para tal análise. Esse método se destaca pela consideração das posições nodais como parâmetros de análise, evitando problemas devido à falta de comutatividade de rotações, que é observado, por exemplo, no Método dos Elementos Finitos Corrotacional, que, além de deslocamentos, também considera rotações nodais como parâmetros de análise. Além disso, também vale destacar que a matriz de massa em problemas dinâmicos permanece constante ao longo do tempo, possibilitando a implementação facilitada de métodos de integração temporal.
 
 \end{document}
