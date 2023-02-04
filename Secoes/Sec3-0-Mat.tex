@@ -46,10 +46,10 @@ Já nas diferenças atrasadas procede-se de forma semelhante, no entanto utiliza
 
 \begin{equation}
     \dot{\phi}_n=\frac{\phi_n-\phi_{n-1}}{\Delta t}\therefore
-    \phi_n=\phi_{n-1}+\dot{\phi}_n\Delta t\text{,}
+    \phi_n=\phi_{n-1}+\dot{\phi}_n\Delta t\text{.}
 \end{equation}
 
-\noindent que, ajustando os índices para um passo de tempo posterior, obtém-se:
+\noindent Ajustando os índices para um passo de tempo posterior, obtém-se:
 
 \begin{equation}
     \phi_{n+1}=\phi_n+\dot{\phi}_{n+1}\Delta t\text{.}
@@ -108,27 +108,271 @@ Essa solução pode ser entendida como a média entre as soluções das diferen�
     \label{fig:DifFin}
 \end{figure}
 
-\textcolor{red}{Talvez comentar também sobre o $\alpha$-generalizado \cite{chung1993time}}
+Com isso, foi proposto um integrador temporal por \cite{chung1993time}, denominado de $\alpha$-generalizado. Nesse integrador, considere uma propriedade $\phi_{n+\alpha}$ de um ponto distante $\alpha\Delta t$ de $\phi_n$, sendo $0\leq\alpha\leq1$, conforme ilustrado na Figura \ref{fig:alpha-gen}.
 
-Por fim, o método de Newmark apresenta-se como uma generalização do método das diferenças finitas centrais, inserindo dois parâmetros livres ($\beta$ e $\gamma$) que podem ser calibrados em função do problema estudado. Nesse sentido pode-se obter valores como posições ($\mathbf{y}$) e velocidades ($\dot{\mathbf{y}}$) como \textcolor{red}{(REFERÊNCIAS)}:
+\begin{figure}[h]
+    \centering
+    \caption{Esquema de uma propriedade $\phi_{n+\alpha}$.}
+    \includegraphics[width=.4\linewidth]{Figuras/alpha-gen.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:alpha-gen}
+\end{figure}
+
+Assim, pode-se realizar uma expansão em séries de Taylor:
+
+\begin{equation}
+    \phi_{n+\alpha}=\phi_n+\left.\der{\phi}{t}\right|_{n}(\alpha\Delta t)+\frac{1}{2}\left.\dder{\phi}{t}\right|_{n}(\alpha\Delta t)^2+\hdots\text{,}
+    \label{eq:Taylor-alpha-gen}
+\end{equation}
+
+\noindent que, ao truncar no termo de primeira ordem pode-se obter que:
+
+\begin{equation}
+    \dot{\phi}_n=\frac{\phi_{n+\alpha}-\phi_n}{\alpha\Delta t}\text{.}
+    \label{eq:der-alpha-gen}
+\end{equation}
+
+Além disso, é possível somar à Equação \ref{eq:Taylor-alpha-gen} a Equação \ref{eq:TaylorAd} e truncar no termo de primeira ordem, resultando em:
+
+\begin{equation}
+    \phi_{n+\alpha}+\phi_{n+1}=2\phi_n+(\alpha+1)\dot{\phi}_n\Delta t\text{,}
+\end{equation}
+
+\noindent que, ao substituir \ref{eq:der-alpha-gen} tem-se:
+
+\begin{equation}
+    \phi_{n+\alpha}=(1-\alpha)\phi_n+\alpha\phi_{n+1}\text{,}
+\end{equation}
+
+\noindent a qual representa uma aproximação de primeira ordem de um parâmetro $\phi_{n+\alpha}$. Em caso de uma aproximação de segunda ordem pode-se partir do truncamento a esse nível nas equações \ref{eq:TaylorAd} e \ref{eq:Taylor-alpha-gen} e seguir o procedimento análogo ao apresentado anteriormente, obtendo-se a seguinte aproximação:
+
+\begin{equation}
+    \phi_{n+\alpha}=(1-\alpha^2)\phi_n+\alpha^2\phi_{n+1}+\alpha(1-\alpha)\dot{\phi}_n\Delta t\text{.}
+\end{equation}
+
+A partir de ambas as aproximações, é possível apresentar a aproximação de Newmark, a qual aproxima valores do campo de posições ($\BB{y}$), por uma aproximação de segunda ordem, e de velocidades ($\dBB{y}$), por aproximações de primeira ordem. Para isso também descreve-se esses campos como:
 
 \begin{subequations}
     \begin{equation}
-        \mathbf{y}_{n+1}=\mathbf{y}_n+\dot{\mathbf{y}}_n\Delta t+\left(\left(\frac{1}{2}-\beta\right)\Ddot{\mathbf{y}}_n+\beta\Ddot{\mathbf{y}}_{n+1}\right)\Delta t^2\text{,}
+        \BB{y}_{n+\alpha_1}=\BB{y}_n+\alpha_1\dBB{y}_n\Delta t+\frac{\alpha_1^2\ddBB{y}_{n+2\beta}\Delta t^2}{2}\text{ e}
+        \label{eq:approx-pos}
     \end{equation}
     \begin{equation}
-        \dot{\mathbf{y}}_{n+1}=\dot{\mathbf{y}}_n+\left((1-\gamma)\Ddot{\mathbf{y}}_n+\gamma\Ddot{\mathbf{y}}_{n+1}\right)\Delta t\text{.}
+        \dBB{y}_{n+\alpha_2}=\dBB{y}_n+\alpha_2\ddBB{y}_{n+\gamma}\Delta t\text{,}
     \end{equation}
 \end{subequations}
 
+\noindent nas quais $\gamma$ e $\beta$ são parâmetros livres que podem ser calibrados em função do problema estudado e sendo a aproximação do campo de acelerações ($\ddBB{y}_{n+\gamma}$) dado por:
+
+\begin{equation}
+    \ddBB{y}_{n+\gamma}=(1-\gamma)\ddBB{y}_n+\gamma\ddBB{y}_{n+1}\text{.}
+\end{equation}
+
+Assim, realizando a simplificação do campo de velocidades tem-se:
+
+\[
+    \dBB{y}_{n+\alpha_2}=\dBB{y}_n+\alpha_2\ddBB{y}_{n+\gamma}\Delta t=\alpha_2\dBB{y}_{n+1}+(1-\alpha_2)\dBB{y}_n\text{,}
+\]
+
+\noindent que resulta em:
+
+\begin{equation}
+    \dBB{y}_{n+1}=\dBB{y}_n+\bigpar{(1-\gamma)\ddBB{y}_n+\gamma\ddBB{y}_{n+1}}\Delta t\text{.}
+\end{equation}
+
+De forma análoga tem-se, a partir da Equação \ref{eq:approx-pos} e da aproximação de segunda ordem, para o campo de posições:
+
+\begin{equation}
+    \BB{y}_{n+1}=\BB{y}+\dBB{y}_n\Delta t+\bigpar{\bigpar{\frac{1}{2}-\beta}\ddBB{y}_n+\beta\ddBB{y}_{n+1}}\Delta t^2\text{.}
+\end{equation}
+
 Verifica-se que caso $\beta=1/4$ e $\gamma=1/2$ a aproximação de Newmark recai em um caso específico igual ao das diferenças centrais.
 
-\textcolor{red}{(Comentar sobre estabilidade dos integradores)}
+Segundo \citeonline{fernandes2020tecnica}, o método do $\alpha$-generalizado apresenta uma boa representatividade em problemas de escoamentos incompressíveis, podendo-se introduzir uma difusão numérica à marcha no tempo. Contudo, deve-se atentar-se quanto à estabilidade do integrador ao utilizá-lo em problemas dessa natureza. Para isso, considere, portanto, uma aproximação do tipo:
+
+\begin{subequations}
+    \begin{equation}
+        \dot{\phi}_{n+\alpha_m}=(1-\alpha_m)\dot{\phi}_n+\alpha_m\dot{\phi}_{n+1}\text{,}
+    \end{equation}
+    \begin{equation}
+        \phi_{n+\alpha_f}=(1-\alpha_f)\phi_n+\alpha_f\phi_{n+1}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \phi_{n+1}=\phi_n+\Delta t\bigpar{(1-\gamma)\dot{\phi}_n+\gamma\dot{\phi}_{n+1}}\text{,}
+    \end{equation}
+\end{subequations}
+
+\noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores reais arbitrários. De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013computational}, a precisão de segunda ordem dessa aproximação pode ser atingida uma vez que:
+
+\begin{equation}
+    \gamma=\frac{1}{2}+\alpha_m-\alpha_f\text{,}
+\end{equation}
+
+\noindent assim como a estabilidade incondicional pode ser obtida uma vez que:
+
+\begin{equation}
+    \alpha_m\geq\alpha_f\geq\frac{1}{2}\text{.}
+\end{equation}
+
+Ainda é possível escrever, a partir da Equação \ref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral de amplificação da matriz para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
+
+\begin{subequations}
+    \begin{equation}
+        \alpha_m=\frac{1}{2}\bigpar{\frac{3-\rho_\infty}{1+\rho_\infty}}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \alpha_f=\frac{1}{1+\rho_\infty}\text{.}
+    \end{equation}
+    \label{eq:one-par-stable}
+\end{subequations}
+
+Para o caso de $\rho_\infty=1$ não ocorre a introdução de difusão numérica, enquanto para $\rho_\infty=0$ se tem a máxima dissipação de altas frequências \cite{fernandes2020tecnica}.
+
+\textcolor{red}{Comentar sobre a estabilidade das diferenças finitas adiantadas, atrasadas e centrais}
+
+%==================================================================================================
+\subsection{Funções de Forma} \label{Mat-FF}
+%==================================================================================================
+
+Uma estratégia comumente utilizada para se resolver problemas onde não se conhece uma expressão para descrever o comportamento de uma função é aproximá-la por meio da combinação linear de outras funções conhecidas, denominadas como funções de forma $N_a(\BB{\xi})$, onde $a=1,\hdots,n_{en}$, $n_{en}$ é o número de nós do elemento e $\BB{\xi}\in\mathbb{R}^{n_{sd}}$ são as variáveis independentes da função avaliada, denominadas nesse contexto como coordenadas paramétricas do elemento $e$ no espaço paramétrico $\hat{\Omega}^e$. Para se entender melhor essa aproximação, considere uma propriedade $\phi$ que varia em função de $\BB{\xi}$, ou seja, $\phi=\phi(\BB{\xi})$, portanto, pode-se dizer que:
+
+\begin{equation}
+    \phi(\BB{\xi})=\sum_{a=1}^{n_{en}}{\phi_aN_a(\BB{\xi})}\text{,}
+\end{equation}
+
+\noindent sendo $\phi_a=\phi(\BB{\xi}_a)$. Algumas propriedades interessantes das funções de forma é a propriedade de interpolação, dada por $N_a(\BB{\xi}_b)=\delta_{ab}$, em que $\delta_{ab}$ é o delta de Kronecker, dado por:
+
+\begin{equation}
+    \delta_{ab}=\left\{
+    \begin{array}{ll}
+         1&\text{ se }a=b\\
+         0&\text{ se }a\neq b 
+    \end{array}
+    \right.\text{,}
+\end{equation}
+
+\noindent e a partição da unidade, dada por:
+
+\begin{equation}
+    \sum_{a=1}^{n_{en}}{N_a(\BB{\xi})}=1\forall\BB{\xi}\in\hat{\Omega}^e\text{.}
+\end{equation}
+
+Em geral opta-se por funções de forma do tipo polinomiais, uma vez que se adéquam mais facilmente às mais variadas funções, além de ser uma classe de função simples de ser trabalhada. Nesse sentido destacam-se os polinômios de Lagrange, que para um polinômio de grau $p$ em caso unidimensional pode ser escrito como \cite{bazilevs2013computational}:
+
+\begin{equation}
+    l_i^p(\xi)=\prod_{j=1,j\neq i}^{p+1}{\frac{\xi-\xi_j}{\xi_i-\xi_j}}\text{, para }i=1,2,\hdots,p+1\text{.}
+\end{equation}
+
+A Figura \ref{fig:funcaoforma} apresenta graficamente a mudança de coordenada de um espaço paramétrico para um plano $x_1x_2$, de forma que $\BB{x}=\BB{x}(\xi)$.
+
+\begin{figure}[h]
+    \centering
+    \caption{Mudança de espaço paramétrico para um plano $x_1x_2$.}
+    \includegraphics[width=.4\linewidth]{Figuras/funcaoforma.pdf}
+    \\Fonte:Autoria Própria (\the\year).
+    \label{fig:funcaoforma}
+\end{figure}
 
 %==================================================================================================
 \subsection{Integração numérica} \label{MEFP-IntNum}
 %==================================================================================================
 
-\textcolor{red}{Comentar sobre a integração por quadratura de Gauss e de Hammer}
+Em diversos casos pode ocorrer do surgimento de integrais cuja determinação da primitiva é inviável, ou impossível. Para isso recorre-se para métodos de aproximação numérica, que sejam capazes de estimar com boa precisão os valores das mesmas. Uma boa alternativa é a aproximação por quadratura de Gauss ou a de Hammer.
+
+A quadratura de Gauss mais comum busca aproximar uma função $f(x)$ em um intervalo $[-1,1]$ por meio da multiplicação de $f$ em pontos estratégicos ($x_i$) com um peso associado $w_i$, ou seja:
+
+\begin{equation}
+    \int_{-1}^1{f(x)dx}\approx\sum_{i=1}^n{w_if(x_i)}\text{,}
+\end{equation}
+
+\noindent na qual $n$ é o número de pontos da quadratura.
+
+De forma simplista, pode-se realizar uma aproximação da função $f(x)$ por meio de um polinômio $P_m(x)=\sum_{k=0}^m{a_kx^k}$, no qual $a_k$ são coeficientes constantes a cada $x^k$. Assim tem-se que:
+
+\begin{equation}
+    \int_{-1}^1{\sum_{k=0}^m{a_kx^k}dx}\approx\sum_{i=1}^n{w_i\sum_{k=0}^m{a_kx_i^k}}\text{,}
+\end{equation}
+
+\noindent o que leva a:
+
+\begin{equation}
+    \sum_{k=0}^m{a_k\frac{1-(-1)^{k+1}}{k+1}}\approx\sum_{k=0}^m{a_k\sum_{i=1}^n{w_ix_i^k}}\text{.}
+\end{equation}
+
+Assim, obtem-se o seguinte sistema de equações:
+
+\begin{equation}
+    \sum_{i=1}^n{w_ix_i^k}=\frac{1-(-1)^{k+1}}{k+1}\text{,}
+\end{equation}
+
+\noindent que, ao ser resolvida, retorna os pontos de quadratura e os pesos. A Tabela \ref{tab:QGauss} apresenta os pontos de quadratura e seus respectivos pesos para polinômios de até quarto grau.
+
+\begin{table}[h]
+    \centering
+    \caption{Pontos da quadratura de Gauss e seus respectivos pesos.}
+    \begin{tabular}{ccc}
+    \hline
+    $n$ & $x_i$ & $w_i$ \\ \hline
+    2 & $\pm\frac{1}{\sqrt{3}}$ & 1 \\ \hline
+    \multirow{2}{*}{3} & $0$ & $\frac{8}{9}$ \\
+     & $\pm\sqrt{\frac{3}{5}}$ & $\frac{5}{9}$ \\ \hline
+    \multirow{2}{*}{4} & $\pm\sqrt{\frac{3}{7}-\frac{2}{7}\sqrt{\frac{6}{5}}}$ & $\frac{18+\sqrt{30}}{36}$ \\
+     & $\pm\sqrt{\frac{3}{7}+\frac{2}{7}\sqrt{\frac{6}{5}}}$ & $\frac{18-\sqrt{30}}{36}$ \\ \hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:QGauss}
+\end{table}
+
+De forma similar, a quadratura de Hammer mais comum busca aproximar a integral dentro de um domínio triangular, compreendido pelos pontos $(0,0)$, $(1,0)$ e $(0,1)$, como:
+
+\begin{equation}
+    \int_0^1\int_0^{1-x}{f(x,y)dydx}\approx\sum_{k=1}^n{w_kf(x_k,y_k)}\text{.}
+\end{equation}
+
+Fazendo uma aproximação por polinômio tem-se:
+
+\begin{equation}
+    \int_0^1\int_0^{1-x}{\sum_{i=0}^{n_x}{\sum_{j=0}^{n_y}{a_{ij}x^iy^j}}dydx}\approx\sum_{k=1}^n{w_k\sum_{i=0}^{n_x}{\sum_{j=0}^{n_y}{a_{ij}x_k^iy_k^j}}}\text{,}
+\end{equation}
+
+\noindent o que leva ao seguinte sistema de equações:
+
+\begin{equation}
+    \sum_{k=1}^n{w_kx_k^iy_k^j}=\frac{i!j!}{(i+j+2)!}\text{.}
+\end{equation}
+
+A Tabela \ref{tab:QHammer} apresenta os pontos da quadratura de Hammer para aproximação de 1 a 7 pontos.
+
+\begin{table}[h]
+    \centering
+    \caption{Pontos da quadratura de Hammer e seus respectivos pesos para aproximação de 1 a 7 pontos.}
+    \begin{tabular}{cccc}
+    \hline
+        $n$ & $x_k$ & $y_k$ & $w_k$ \\ \hline
+        1 & 0,33333333333333 & 0,33333333333333 & 0,50000000000000 \\ \hline
+        \multirow{3}{*}{3} & 0,16666666666667 & 0,16666666666667 & 0,16666666666667 \\
+        & 0,16666666666667 & 0,66666666666667 & 0,16666666666667 \\
+        & 0,66666666666667 & 0,16666666666667 & 0,16666666666667 \\ \hline
+        \multirow{4}{*}{4} & 0,33333333333333 & 0,33333333333333 & -0,28125000000000 \\
+        & 0,20000000000000 & 0,20000000000000 & 0,26041666666667 \\
+        & 0,20000000000000 & 0,60000000000000 & 0,26041666666667 \\
+        & 0,60000000000000 & 0,20000000000000 & 0,26041666666667 \\ \hline
+        \multirow{6}{*}{6} & 0,44594849091597 & 0,44594849091597 & 0,11169079483901 \\
+        & 0,44594849091597 & 0,10810301816807 & 0,11169079483901 \\
+        & 0,10810301816807 & 0,44594849091597 & 0,11169079483901 \\
+        & 0,09157621350977 & 0,09157621350977 & 0,05497587182766 \\
+        & 0,09157621350977 & 0,81684757298046 & 0,05497587182766 \\
+         & 0,81684757298046 & 0,09157621350977 & 0,05497587182766 \\ \hline
+        \multirow{7}{*}{7} & 0,33333333333333 & 0,33333333333333 & 0,11250000000000 \\
+        & 0,47014206410511 & 0,47014206410511 & 0,06619707639426 \\
+        & 0,47014206410511 & 0,05971587178977 & 0,06619707639426 \\
+        & 0,05971587178977 & 0,47014206410511 & 0,06619707639426 \\
+        & 0,10128650732346 & 0,10128650732346 & 0,06296959027242 \\
+        & 0,10128650732346 & 0,79742698535309 & 0,06296959027242 \\
+        & 0,79742698535309 & 0,10128650732346 & 0,06296959027242 \\ \hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:QHammer}
+\end{table}
 
 \end{document}

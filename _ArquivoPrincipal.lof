@@ -2,16 +2,18 @@
 \babel@toc {brazil}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Esquema de escoamentos.\relax }}{25}{figure.caption.11}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Interpretação gráfica das diferenças finitas:\relax }}{29}{figure.caption.12}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Desenho esquemático de uma barra submetida a tração.\relax }}{31}{figure.caption.13}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Esquema de diagrama de tensão $\times $ deformação.\relax }}{32}{figure.caption.14}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Configurações inicial e atual de um corpo deformável.\relax }}{32}{figure.caption.15}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Mudança de volume de um elemento infinitesimal.\relax }}{34}{figure.caption.16}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Mudança de configuração em um cilindro infinitesimal.\relax }}{34}{figure.caption.17}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Forças atuantes em um elemento infinitesimal na direção $\hat {\mathbf {e}}_1$.\relax }}{35}{figure.caption.18}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Taxa de fluxo de massa em um elemento infinitesimal permeável.\relax }}{37}{figure.caption.19}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Taxa de fluxo de quantidade de movimento em um elemento infinitesimal permeável.\relax }}{38}{figure.caption.20}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Componentes de forças atuantes no elemento infinitesimal na direção $\hat {\mathbf {e}}_1$.\relax }}{39}{figure.caption.21}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Domínio de análise e fronteiras consideradas para problemas de mecânica dos fluidos.\relax }}{40}{figure.caption.22}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Descrição Lagrangiana-Euleriana Arbitrária.\relax }}{41}{figure.caption.23}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Desenho esquemático do filtro considerado.\relax }}{46}{figure.caption.24}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Efeito da filtragem sobre um campo de velocidades $\mathbf {u}$.\relax }}{46}{figure.caption.25}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Esquema de uma propriedade $\phi _{n+\alpha }$.\relax }}{29}{figure.caption.13}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Mudança de espaço paramétrico para um plano $x_1x_2$.\relax }}{32}{figure.caption.14}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Desenho esquemático de uma barra submetida a tração.\relax }}{35}{figure.caption.17}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Esquema de diagrama de tensão $\times $ deformação.\relax }}{36}{figure.caption.18}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Configurações inicial e atual de um corpo deformável.\relax }}{37}{figure.caption.19}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Mudança de volume de um elemento infinitesimal.\relax }}{38}{figure.caption.20}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Mudança de configuração em um cilindro infinitesimal.\relax }}{39}{figure.caption.21}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Forças atuantes em um elemento infinitesimal na direção $\hat {\mathbf {e}}_1$.\relax }}{39}{figure.caption.22}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Taxa de fluxo de massa em um elemento infinitesimal permeável.\relax }}{41}{figure.caption.23}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Taxa de fluxo de quantidade de movimento em um elemento infinitesimal permeável.\relax }}{43}{figure.caption.24}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Componentes de forças atuantes no elemento infinitesimal na direção $\hat {\mathbf {e}}_1$.\relax }}{44}{figure.caption.25}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Domínio de análise e fronteiras consideradas para problemas de mecânica dos fluidos.\relax }}{45}{figure.caption.26}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Descrição Lagrangiana-Euleriana Arbitrária.\relax }}{46}{figure.caption.27}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Desenho esquemático do filtro considerado.\relax }}{50}{figure.caption.28}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Efeito da filtragem sobre um campo de velocidades $\mathbf {u}$.\relax }}{50}{figure.caption.29}%

@@ -345,7 +345,7 @@ O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos
     \BB{I}\equiv\delta_{ij}\text{,}
 \end{equation}
 
-\noindent tal que $\delta_{ij}$ é o chamado delta de Kronecker, que possui valor unitário caso $i=j$ e nulo caso contrário, e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
+\noindent tal que $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
 
 \begin{equation}
     \BB{\tau}=\script{D}:\deftax\text{,}
@@ -424,13 +424,13 @@ Também define-se os conjuntos de funções testes para a conservação de massa
 Dessa forma, multiplica-se as equações de conservação da massa e de quantidade de movimento pelas suas respectivas funções testes e integra-se dentro do domínio $\Omega$, obtendo-se:
 
 \begin{equation}
-    \int_\Omega{\BB{w}\cdot\left(\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T\right)d\Omega}+\int_\Omega{q\NN\BB{u}d\Omega}=0\text{.}
+    \int_\Omega{\BB{w}\cdot\left(\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T\right)d\Omega}+\int_\Omega{q\NN\cdot\BB{u}d\Omega}=0\text{.}
 \end{equation}
 
 Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira integral, tem-se que:
 
 \begin{equation}
-    \int_\Omega{\BB{w}\cdot\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)d\Omega}-\int_\Omega{\BB{w}\cdot\NN\cdot\tens^Td\Omega}+\int_\Omega{q\NN\BB{u}d\Omega}=0\text{.}
+    \int_\Omega{\BB{w}\cdot\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)d\Omega}-\int_\Omega{\BB{w}\cdot\NN\cdot\tens^Td\Omega}+\int_\Omega{q\NN\cdot\BB{u}d\Omega}=0\text{.}
     \label{eq:WeakForm1}
 \end{equation}
 
@@ -468,7 +468,7 @@ Dessa maneira, pode-se substituir \ref{eq:IntDiv1} em \ref{eq:WeakForm1}, obtend
 \begin{equation}
     \begin{split}
         &\int_\Omega{\BB{w}\cdot\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)d\Omega}-\int_{\Gamma_N}{\BB{w}\cdot\BB{h}d\Gamma_N}+\\
-        &\int_\Omega{\tens^T:\NN\BB{w}d\Omega}+\int_\Omega{q\NN\BB{u}d\Omega}=0\text{.}
+        &\int_\Omega{\BB{\varepsilon(w)}:\tens d\Omega}+\int_\Omega{q\NN\cdot\BB{u}d\Omega}=0\text{.}
     \end{split}
     \label{eq:WeakForm2}
 \end{equation}

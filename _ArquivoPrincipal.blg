@@ -13,6 +13,10 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: Referencias.bib
+Repeated entry---line 432 of file Referencias.bib
+ : @article{hughes2000large
+ :                         ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "abnt-etal-cite"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -23,45 +27,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 55 entries,
+You've used 56 entries,
             6714 wiz_defined-function locations,
-            1466 strings with 17912 characters,
-and the built_in function-call counts, 42475 in all, are:
-= -- 3252
-> -- 1519
-< -- 133
-+ -- 622
-- -- 452
-* -- 3136
-:= -- 5481
-add.period$ -- 136
-call.type$ -- 57
-change.case$ -- 530
-chr.to.int$ -- 154
-cite$ -- 44
-duplicate$ -- 2147
-empty$ -- 3162
-format.name$ -- 2146
-if$ -- 10145
+            1472 strings with 18135 characters,
+and the built_in function-call counts, 43551 in all, are:
+= -- 3332
+> -- 1571
+< -- 137
++ -- 642
+- -- 467
+* -- 3227
+:= -- 5615
+add.period$ -- 139
+call.type$ -- 58
+change.case$ -- 545
+chr.to.int$ -- 158
+cite$ -- 45
+duplicate$ -- 2200
+empty$ -- 3225
+format.name$ -- 2216
+if$ -- 10396
 int.to.chr$ -- 10
 int.to.str$ -- 1
-missing$ -- 908
-newline$ -- 222
-num.names$ -- 220
-pop$ -- 1040
+missing$ -- 927
+newline$ -- 227
+num.names$ -- 225
+pop$ -- 1065
 preamble$ -- 1
-purify$ -- 216
+purify$ -- 221
 quote$ -- 0
-skip$ -- 2485
+skip$ -- 2534
 stack$ -- 1
-substring$ -- 1964
-swap$ -- 1076
-text.length$ -- 97
+substring$ -- 2015
+swap$ -- 1106
+text.length$ -- 100
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 3
 warning$ -- 0
-while$ -- 361
+while$ -- 370
 width$ -- 0
-write$ -- 754
-(There was 1 warning)
+write$ -- 772
+(There was 1 error message)

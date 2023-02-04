@@ -135,8 +135,10 @@
 \titleformat*{\subparagraph}{\bfseries}
 
 \newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left|{#1}\right|}
 \newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
 \newcommand{\dev}[1]{\mathop{\mathrm{dev}}\nolimits{#1}}
+\newcommand{\Rey}{\mathrm{Re}}
 \newcommand{\NN}{\mathbf{\nabla_y}}
 \newcommand{\NNx}{\mathbf{\nabla_x}}
 \newcommand{\Lapl}{\mathbf{\nabla}^2_\mathbf{y}}
@@ -144,11 +146,15 @@
 \newcommand{\apderx}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{x}}}
 \newcommand{\apderxh}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\bhat{x}}}
 \newcommand{\der}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\dder}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
 \newcommand{\BB}[1]{\mathbf{#1}}
 \newcommand{\BBB}[1]{\overline{\mathbf{#1}}}
+\newcommand{\dBB}[1]{\dot{\mathbf{#1}}}
+\newcommand{\ddBB}[1]{\Ddot{\mathbf{#1}}}
 \newcommand{\uhat}{\hat{\mathbf{u}}}
 \newcommand{\bhat}[1]{\hat{\mathbf{#1}}}
 \newcommand{\that}[1]{\tilde{\mathbf{#1}}}
+\newcommand{\Def}{\BB{\varepsilon}}
 \newcommand{\deftax}{\dot{\mathbf{\varepsilon}}}
 \newcommand{\tens}{\mathbf{\sigma}}
 \newcommand{\norm}[1]{\left\lVert{#1}\right\lVert}
@@ -157,6 +163,16 @@
 \newcommand{\Dfil}{D_\Delta(\BB{y})}
 \newcommand{\yfil}{\BB{y}_\Delta}
 \newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
+%VARIATIONAL MULTISCALE METHOD
+\newcommand{\supg}{\mathrm{SUPG}}
+\newcommand{\lsic}{\mathrm{LSIC}}
+\newcommand{\sups}{\mathrm{SUPS}}
+\newcommand{\sugn}{\mathrm{SUGN}}
+\newcommand{\rgn}{\mathrm{RGN}}
+\newcommand{\rM}{\BB{r}_\mathrm{M}(\BBB{u},\bar{p})}
+\newcommand{\rC}{r_\mathrm{C}(\BBB{u})}
+\newcommand{\NM}{\BB{N}_\mathrm{M}}
+\newcommand{\NC}{\BB{N}_\mathrm{C}}
 
 % Início do documento
 \begin{document}
@@ -201,12 +217,15 @@
 % inserir lista de abreviaturas e siglas
 \begin{siglas}
 	\item[ALE] Lagrangiana-Euleriana Arbitrária - \textit{Arbitrary Lagrangian-Eulerian}
+    \item[LBB] Ladyzhenskaya-Babuška-Brezzi
 	\item[CFD] Dinâmica dos Fluidos Computacional - \textit{Computational Fluid Dynamics}
 	\item[CSD] Dinâmica dos Sólidos Computacional - \textit{Computational Solid Dynamics}
     \item[GLS] Galerkin Least-Squares
 	\item[IFE] Interação Fluido-Estrutura
 	\item[LES] Simulação de Grandes Vórtices - \textit{Large Eddy Simulation}
+    \item[LSIC] \textit{Least-Squares on Incompressibility Constraint}
 	\item[MEF] Método dos Elementos Finitos
+    \item[PSPG] \textit{Pressure-Stabilizating/Petrov-Galerkin}
 	\item[RANS] \textit{Reynolds-Averaged Navier-Stokes}
     \item[SGS] Subgrid-Scales
     \item[SUPG] \textit{Streamline-Upwind/Petrov-Galerkin}
@@ -216,10 +235,18 @@
 \begin{simbolos}
     \item[Operadores]
     \item[$\dev(\cdot)$] Parte desviadora do tensor
+    \item[$H^1$] Espaço de Sobolev de ordem 1
+    \item[$L^2$] Espaço das funções de quadrado integrável
     \item[$\tr(\cdot)$] Traço de um tensor
     \item[$\mathbf{\nabla}(\cdot)$] Gradiente
     \item[$\mathbf{\nabla}\cdot(\cdot)$] Divergente
     \item[$\mathbf{\nabla}^2(\cdot)$] Laplaciano
+    \item[$\cdot$] Produto interno
+    \item[$:$] Contração dupla
+    \item[$\times$] Produto vetorial
+    \item[$\otimes$] Produto tensorial
+    \item[$\sum$] Somatório
+    \item[$\prod$] Produtório
     
     \item[Parâmetros Gerais]
     \item[$\hat{\mathbf{e}}_i$] Vetor versor na direção $i$
@@ -227,8 +254,10 @@
     \item[$\mathbf{I}$] Tensor identidade de segunda ordem
     \item[$m$] Massa
     \item[$n_{sd}$] Número de dimensões espaciais do problema
+    \item[$\Rey$] Número de Reynolds
     \item[$t$] Tempo
     \item[$V$] Volume
+    \item[$\delta_{ij}$] Delta de Kronecker
     \item[$\Delta t$] Intervalo discreto de tempo
     \item[$\rho$] Massa específica
     \item[$\mathbf{\sigma}$] Tensor de tensões de Cauchy
@@ -286,12 +315,18 @@
     \item[$\tau$] Tensor desviador
 
     \item[\textit{Large Eddy Simulation}]
+    \item[$\mathbf{C}$] Tensor de termos cruzados
     \item[$C_S$] Constante de Smagorinsky
     \item[$\Dfil$] Domínio de abrangência do filtro
     \item[$g$] Filtro
-    \item[$\BB{T}$] Tensor de subescala
-    \item[$\BB{T}_S$] Tensor de subescala de Smagorinsky
+    \item[$\mathbf{L}$] Tensor de Leonard
+    \item[$\mathbf{R}$] Tensor SGS de Reynolds
+    \item[$\BB{T}$] Tensor SGS
+    \item[$\BB{T}_S$] Tensor SGS de Smagorinsky
     \item[$\yfil$] Ponto na vizinhança de $\BB{y}$ interno à $\Dfil$
+    \item[$\Delta$] Tamanho da malha
+    \item[$\deffil$] Taxa de deformação em grandes escalas
+    \item[$\nu_T$] Viscosidade de vórtice
     \item[$\bar{\phi}$] Propriedade filtrada
     \item[$\phi'$] Propriedade não filtrada
     

@@ -203,6 +203,14 @@
 {IRGENS, F. \textbf{Continuum mechanics}. [S.l.]: Springer Science \& Business
   Media, 2008.}
 
+\bibitem[Jansen, Whiting e Hulbert 2000]{jansen2000generalized}
+\abntrefinfo{Jansen, Whiting e Hulbert}{JANSEN; WHITING; HULBERT}{2000}
+{JANSEN, K.~E.; WHITING, C.~H.; HULBERT, G.~M. A generalized-$\alpha$ method
+  for integrating the filtered navier--stokes equations with a stabilized
+  finite element method.
+\textbf{Computer methods in applied mechanics and engineering}, Elsevier,
+  v.~190, n.~3-4, p. 305--319, 2000.}
+
 \bibitem[Karagiozis et al. 2011]{karagiozis2011computational}
 \abntrefinfo{Karagiozis et al.}{KARAGIOZIS et al.}{2011}
 {KARAGIOZIS, K. et al. A computational study of supersonic disk-gap-band

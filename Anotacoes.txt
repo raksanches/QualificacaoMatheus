@@ -10,3 +10,7 @@ Comentar sobre estabilidade dos integradores temporais
 
 Referência em princípios variacionais?
 Dúvida: as c.c. em deslocamentos em sólidos também são denominadas de Dirichlet?
+---------------------------------------------------------------------------------------------------------
+No livro Bazilevs - 2013: Gamma_h é a fronteira de Newmann e Gamma_g é a fronteira de Dirichlet (pág 20)
+
+Seção 4.6.2 - VMS para domínio móvel
