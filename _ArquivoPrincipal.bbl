@@ -74,6 +74,12 @@
 \textbf{Finite Elements in Analysis and Design}, Elsevier, v.~46, n.~11, p.
   1008--1016, 2010.}
 
+\bibitem[Chou 1945]{chou1945velocity}
+\abntrefinfo{Chou}{CHOU}{1945}
+{CHOU, P.~Y. On velocity correlations and the solutions of the equations of
+  turbulent fluctuation.
+\textbf{Quarterly of applied mathematics}, v.~3, n.~1, p. 38--54, 1945.}
+
 \bibitem[Chung e Hulbert 1993]{chung1993time}
 \abntrefinfo{Chung e Hulbert}{CHUNG; HULBERT}{1993}
 {CHUNG, J.; HULBERT, G. A time integration algorithm for structural dynamics
@@ -223,6 +229,12 @@
 {LAI, W.~M. et al. \textbf{Introduction to continuum mechanics}. [S.l.]:
   Butterworth-Heinemann, 2009.}
 
+\bibitem[Ling e Templeton 2015]{ling2015evaluation}
+\abntrefinfo{Ling e Templeton}{LING; TEMPLETON}{2015}
+{LING, J.; TEMPLETON, J. Evaluation of machine learning algorithms for
+  prediction of regions of high reynolds averaged navier stokes uncertainty.
+\textbf{Physics of Fluids}, AIP Publishing LLC, v.~27, n.~8, p. 085103, 2015.}
+
 \bibitem[Malvern 1969]{malvern1969introduction}
 \abntrefinfo{Malvern}{MALVERN}{1969}
 {MALVERN, L.~E. \textbf{Introduction to the Mechanics of a Continuous Medium}.
@@ -298,6 +310,18 @@
   I. the basic experiment.
 \textbf{Monthly weather review}, American Meteorological Society, v.~91, n.~3,
   p. 99--164, 1963.}
+
+\bibitem[Speziale 1991]{speziale1991analytical}
+\abntrefinfo{Speziale}{SPEZIALE}{1991}
+{SPEZIALE, C.~G. Analytical methods for the development of reynolds-stress
+  closures in turbulence.
+\textbf{Annual review of fluid mechanics}, Annual Reviews 4139 El Camino Way,
+  PO Box 10139, Palo Alto, CA 94303-0139, USA, v.~23, n.~1, p. 107--157, 1991.}
+
+\bibitem[Tennekes et al. 1972]{tennekes1972first}
+\abntrefinfo{Tennekes et al.}{TENNEKES et al.}{1972}
+{TENNEKES, H. et al. \textbf{A first course in turbulence}. [S.l.]: MIT press,
+  1972.}
 
 \bibitem[Tezduyar 1991]{tezduyar1991stabilized}
 \abntrefinfo{Tezduyar}{TEZDUYAR}{1991}

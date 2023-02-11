@@ -134,6 +134,8 @@
 \titleformat*{\paragraph}{\bfseries}
 \titleformat*{\subparagraph}{\bfseries}
 
+\renewcommand{\bar}[1]{\overline{#1}}
+
 \newcommand{\script}[1]{\mathcal{#1}}
 \newcommand{\abs}[1]{\left|{#1}\right|}
 \newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
@@ -165,6 +167,7 @@
 \newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
 %VARIATIONAL MULTISCALE METHOD
 \newcommand{\supg}{\mathrm{SUPG}}
+\newcommand{\pspg}{\mathrm{PSPG}}
 \newcommand{\lsic}{\mathrm{LSIC}}
 \newcommand{\sups}{\mathrm{SUPS}}
 \newcommand{\sugn}{\mathrm{SUGN}}
@@ -173,6 +176,10 @@
 \newcommand{\rC}{r_\mathrm{C}(\BBB{u})}
 \newcommand{\NM}{\BB{N}_\mathrm{M}}
 \newcommand{\NC}{\BB{N}_\mathrm{C}}
+%REYNOLDS-AVERAGED NAVIER-STOKES
+\newcommand{\umed}{\bar{\BB{u}}}
+\newcommand{\ufl}{\BB{u}'}
+\newcommand{\epmean}{\dot{\bar{\varepsilon}}}
 
 % Início do documento
 \begin{document}

@@ -1,10 +1,10 @@
-PWD /home/matheus/Matheus/ATUALIZACOES-QUALIFICACAO/Qualificacao_04-02-2023/Secoes
+PWD /home/matheus/Matheus/ATUALIZACOES-QUALIFICACAO/Q-2023-02-11/Secoes
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/matheus/Matheus/ATUALIZACOES-QUALIFICACAO/Qualificacao_04-02-2023/Secoes/Sec3-0-Mat.tex
-OUTPUT Sec3-0-Mat.log
+INPUT /home/matheus/Matheus/ATUALIZACOES-QUALIFICACAO/Q-2023-02-11/Secoes/Sec3-3-MT.tex
+OUTPUT Sec3-3-MT.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
