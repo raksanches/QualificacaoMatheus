@@ -33,9 +33,9 @@ Assim, pode-se tomar a média das Equações de Navier-Stokes, obtendo-se:
 
 \begin{equation}
     \left\{
-   \begin{array}{ll}
-        \rho\bigpar{\bar{\apder{\BB{u}}{t}}+\bar{\BB{u}\cdot\NN\BB{u}}-\bar{\BB{f}}}-\bar{\NN\cdot\tens^T}=\BB{0}&\text{ em }\Omega\text{,}\\
-        \bar{\NN\cdot\BB{u}}=0&\text{ em }\Omega\text{.}
+    \begin{array}{ll}
+        \rho\bigpar{\bar{\dot{u}_i}+\bar{(u_ju_i)_{,j}}-\bar{f_i}}-\bar{\sigma_{ji,j}}=0 & \text{ em }\Omega\text{,} \\
+        \bar{u_{i,i}}=0                                                                  & \text{ em }\Omega\text{.}
     \end{array}
     \right.
 \end{equation}
@@ -44,9 +44,9 @@ Note que, ao tomar a média temporal, o problema se torna independente do tempo.
 
 \begin{equation}
     \left\{
-   \begin{array}{ll}
-        \rho\bigpar{\bar{\BB{u}\cdot\NN\BB{u}}-\bar{\BB{f}}}-\NN\cdot\bar{(2\mu\deftax)}+\NN\bar{p}=\BB{0}&\text{ em }\Omega\text{,}\\
-        \NN\cdot\bar{\BB{u}}=0&\text{ em }\Omega\text{.}
+    \begin{array}{ll}
+        \rho\bigpar{(\bar{u_ju_i})_{,j}-\bar{f}_i}-\mu(\bar{u_{i,j}+u_{j,i}})_{,j}+\bar{p}_{,i}=0 & \text{ em }\Omega\text{,} \\
+        \bar{u}_{i,i}=0                                                                           & \text{ em }\Omega\text{.}
     \end{array}
     \right.
 \end{equation}
@@ -54,61 +54,40 @@ Note que, ao tomar a média temporal, o problema se torna independente do tempo.
 Realizando a separação dos parâmetros em suas respectivas parcelas na equação da conservação de movimento, tem-se que:
 
 \begin{equation}
-    \rho\bigpar{\bar{(\bar{\BB{u}}+\BB{u}')\cdot\NN(\bar{\BB{u}}+\BB{u}')}-\bar{\BB{f}}}-
-    \mu\NN\cdot(\bar{\NN(\bar{\BB{u}}+\BB{u}')+\NNT(\bar{\BB{u}}+\BB{u}')})+\NN\bar{p}=\BB{0}\text{,}   
+    \rho\bigpar{(\bar{(\bar{u}_j+u'_j)(\bar{u}_i+u'_i)})_{,j}-\bar{f}_i}-\mu(\bar{(\bar{u}_i+u'_i)}_{,j}+\bar{(\bar{u}_j+u'_j)}_{,i})+\bar{p}_{,i}=0\text{,}
 \end{equation}
 
 \noindent que leva à seguinte expressão simplificada:
 
-\begin{subequations}
 \begin{equation}
-        \rho\bigpar{\bar{\BB{u}}\cdot\NN\bar{\BB{u}}+\NN\cdot\bar{(\BB{u}'\otimes\BB{u}')}-\bar{\BB{f}}}-
-        \mu\Lapl{\BBB{u}}+\NN\bar{p}=\BB{0}\text{, ou}
+    \rho\bigpar{\bar{u}_j\bar{u}_{i,j}+(\bar{u'_iu'_j})_{,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}+\bar{p}_{,i}=0\text{,}
+    \label{eq:RANS-estac}
 \end{equation}
-\begin{equation}
-        \rho\bigpar{\bar{u}_i\der{\bar{u}_j}{y_i}+\der{\bar{u_i'u_j'}}{y_i}-\bar{f}_j}-\mu\frac{\partial^2\bar{u}_j}{\partial y_i\partial y_i}+\der{\bar{p}}{y_j}=0\text{,}
-\end{equation}
-\label{eq:RANS-estac}
-\end{subequations}
 
 \noindent a qual representa a equação de Navier-Stokes para escoamentos incompressíveis em regime estacionário em uma formulação RANS \cite{chou1945velocity,alfonsi2009reynolds}.
 
 Além disso, é possível fazer a substituição de $\BB{u}=\umed+\BB{u}'$ e $p=\bar{p}+p'$ na equação da quantidade de movimento, o que leva a:
 
 \begin{equation}
-\begin{split}
-    &\rho\bigpar{\apder{\ufl}{t}+\umed\cdot\NN\umed+\umed\cdot\NN\ufl+\ufl\cdot\NN\umed+\ufl\cdot\NN\ufl-\bar{\BB{f}}}-\\
-    &\mu\Lapl\umed-\mu\Lapl\ufl+\NN\bar{p}+\NN p'=\BB{0}\text{.}
-\end{split}
-\label{eq:NS-RANS1}
+    \begin{split}
+        &\rho\bigpar{\dot{u}'_i+\bar{u}_j\bar{u}_{i,j}+\bar{u}_ju'_{i,j}+u'_j\bar{u}_{i,j}+u'_ju'_{i,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}-\mu u'_{i,jj}+\bar{p}_{,i}+p'_{,i}=0\text{.}
+    \end{split}
+    \label{eq:NS-RANS1}
 \end{equation}
 
 Subtraindo \ref{eq:RANS-estac} de \ref{eq:NS-RANS1} obtém-se:
 
-\begin{subequations}
 \begin{equation}
-\begin{split}
-    &\rho\bigpar{\apder{\ufl}{t}+\umed\cdot\NN\ufl+\ufl\cdot\NN\umed+\ufl\cdot\NN\ufl-\NN\cdot\bar{(\ufl\otimes\ufl)}}-\\
-    &\mu\Lapl\ufl+\NN p'=\BB{0}\text{, ou}
-\end{split}
+    \rho\bigpar{\dot{u}'_i+\bar{u}_ju'_{i,j}+u'_j\bar{u}_{i,j}+u'_ju'_{i,j}-(\bar{u'_iu'_j})_{,j}}-\mu u'_{i,jj}+p'_{,i}=0\text{.}
 \end{equation}
-\begin{equation}
-    \rho\bigpar{\apder{u'_j}{t}+\bar{u}_i\der{u'_j}{y_i}+u'_i\der{\bar{u}_j}{y_i}+u'_i\der{u'_j}{y_i}-\der{\bar{u'_iu'_j}}{y_i}}-\mu\frac{\partial^2u'_j}{\partial y_i\partial y_i}+\der{p'}{y_j}=0\text{.}
-\end{equation}
-\end{subequations}
 
 \noindent e de forma similar tem-se:
 
-\begin{subequations}
 \begin{equation}
-    \NN\cdot\ufl=0\text{, ou}
+    u'_{i,i}=0\text{.}
 \end{equation}
-\begin{equation}
-    \der{u'_i}{y_i}=0\text{.}
-\end{equation}
-\end{subequations}
 
-Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\BB{\tau}=-\bar{\BB{u}'\otimes\BB{u}'}$, que traz a interferência que os efeitos turbulentos da parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
+Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, que traz a interferência que os efeitos turbulentos da parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
 
 Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividido em uma parte isotrópica ($\tau_{ij}^I$) e outra desviadora ($\tau_{ij}^D$):
 
@@ -119,12 +98,12 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
 \noindent em que:
 
 \begin{subequations}
-\begin{equation}
-    \tau_{ij}^I=-\frac{2}{3}K\delta_{ij}\text{ e}
-\end{equation}
-\begin{equation}
-    \tau_{ij}^D=2\nu_T\epmean_{ij}\text{,}
-\end{equation}
+    \begin{equation}
+        \tau_{ij}^I=-\frac{2}{3}K\delta_{ij}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \tau_{ij}^D=2\nu_T\epmean_{ij}\text{,}
+    \end{equation}
 \end{subequations}
 
 \noindent sendo $K$ a energia cinética média gerada pelo campo de flutuações de velocidade:
@@ -136,7 +115,7 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
 \noindent $\epmean_{ij}$ é a taxa de deformação do campo de velocidades média:
 
 \begin{equation}
-    \epmean_{ij}=\frac{1}{2}\bigpar{\der{\bar{u}_i}{y_j}+\der{\bar{u}_j}{y_i}}
+    \epmean_{ij}=\frac{\bar{u}_{i,j}+\bar{u}_{j,i}}{2}
 \end{equation}
 
 \noindent e $\nu_T$ é a viscosidade de vórtice.

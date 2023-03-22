@@ -32,7 +32,7 @@ O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua 
     \end{align}
 \end{subequations}
 
-\noindent em que se adota $\BB{w}=\BBB{w}$ e $q=\bar{q}$ e as escalas finas $\BB{u}'$ e $p'$ podem ser modeladas como:
+\noindent em que se adota $w_i=\bar{w}_i$ e $q=\bar{q}$ e as escalas finas $u'_i$ e $p'$ podem ser modeladas como:
 
 \begin{subequations}
     \begin{equation}
@@ -62,7 +62,7 @@ O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua 
     \BB{G}=\frac{\partial\BB{\xi}}{\partial\BB{x}}^T\frac{\partial\BB{\xi}}{\partial\BB{x}}\text{.}
 \end{equation}
 
-Já os termos $\rM$ e $\rC$ são os resíduos associados à equação de conservação da quantidade de movimento e da continuidade, respectivamente:
+Já os termos $\rMi{i}$ e $\rCi$ são os resíduos associados à equação de conservação da quantidade de movimento e da continuidade, respectivamente:
 
 \begin{subequations}
     \begin{equation}
@@ -180,7 +180,7 @@ Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompres
     \end{split}
 \end{equation}
 
-\noindent em que os termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ são alterados das equações \ref{eq:TermEstab}, onde se considera, ao invés da velocidade do fluido $\BBB{u}$, a velocidade relativa à malha ($\BBB{u}-\uhat$), ou seja, $\BBB{u}\gets\BBB{u}-\uhat$.
+\noindent em que os termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ são alterados das equações \ref{eq:TermEstab}, onde se considera, ao invés da velocidade do fluido $\bar{u}_i$, a velocidade relativa à malha ($\bar{u}_i-\hat{u}_i$), ou seja, $\bar{u}_i\gets\bar{u}_i-\hat{u}_i$.
 
 Para o problema discretizado utiliza-se as seguintes expressões de aproximação dos espaços tentativas e testes:
 
@@ -366,7 +366,5 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \end{equation}
 
 Para uma descrição euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
-
-\textcolor{red}{Continuar escrevendo sobre ALE (?)}
 
 \end{document}

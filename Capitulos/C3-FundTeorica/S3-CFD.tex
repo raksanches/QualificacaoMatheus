@@ -119,7 +119,7 @@ Fazendo as devidas simplificações obtém-se a equação da conservação da qu
     \label{eq:ConQtdMov}
 \end{subequations}
 
-\noindent em que $\BB{q}$ representa a força resultante por unidade de volume, ou seja, $\BB{q}=d\BB{F}/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($\BB{c}$).
+\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($c_i$).
 
 \begin{figure}[h]
     \centering
@@ -141,7 +141,7 @@ Fazendo o equilíbrio de forças nessa direção, obtém-se que:
     \end{split}
 \]
 
-Após feitas as devidas simplificações, pode-se estabelecer uma relação entre $\BB{q}$ e $\tens$ como:
+Após feitas as devidas simplificações, pode-se estabelecer uma relação entre $q_i$ e $\sigma_{ij}$ como:
 
 \begin{equation}
     q_1=\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1\text{,}
@@ -156,17 +156,12 @@ Após feitas as devidas simplificações, pode-se estabelecer uma relação entr
 
 Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a incompressibilidade (apresentada na Equação \ref{eq:incomp}) obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
 
-\begin{subequations}
-    \begin{equation}
-        \rho\left(\apder{\BB{u}}{t}+\BB{u}\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T=\mathbf{0}\text{,}
-    \end{equation}
-    \begin{equation}
-        \rho\bigpar{\dot{u}_i+u_ju_{i,j}-f_i}-\sigma_{ji,j}=0\text{,}
-    \end{equation}
+\begin{equation}
+    \rho\bigpar{\dot{u}_i+u_ju_{i,j}-f_i}-\sigma_{ji,j}=0\text{,}
     \label{eq:ConQtdMov-2}
-\end{subequations}
+\end{equation}
 
-\noindent em que $\BB{c}=\rho\BB{f}$, tal que $\BB{f}$ é uma força por unidade de massa. Além disso, também é possível escrever a equação \ref{eq:ConQtdMov-2} utilizando a notação de derivada material como:
+\noindent em que $c_i=\rho f_i$, tal que $f_i$ é uma força por unidade de massa. Além disso, também é possível escrever a equação \ref{eq:ConQtdMov-2} utilizando a notação de derivada material como:
 
 \begin{subequations}
     \begin{equation}
@@ -331,52 +326,38 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é dado por:
 
 \begin{equation}
-    \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
+    \sigma_{ij}=\tau_{ij}-p\delta_{ij}\text{,}\label{eq:const1}
 \end{equation}
 
-\noindent no qual $\BB{I}$ representa o tensor identidade de segunda ordem, dado por:
+\noindent no qual $\tau_{ij}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
 
 \begin{equation}
-    \BB{I}\equiv\delta_{ij}\text{,}
+    \tau_{ij}=\script{D}_{ij\alpha\beta}\dot{\varepsilon}_{ij}\text{,}
 \end{equation}
 
-\noindent tal que $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
+\noindent em que $\script{D}_{ij\alpha\beta}$ é o tensor constitutivo de quarta ordem, dado por:
 
 \begin{equation}
-    \BB{\tau}=\script{D}:\deftax\text{,}
+    \script{D}=2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\text{,}
 \end{equation}
 
-\noindent em que $\script{D}$ é o tensor constitutivo de quarta ordem, dado por:
+\noindent sendo $\mu$ a viscosidade dinâmica do fluido e $\dot{\varepsilon}_{ij}$ é o tensor de taxa de deformação, definido como:
 
 \begin{equation}
-    \script{D}=2\mu\mathbb{I}+\lambda\BB{I}\otimes\BB{I}\text{,}
-\end{equation}
-
-\noindent sendo $\mu$ a viscosidade dinâmica do fluido e $\mathbb{I}$ o tensor identidade de quarta ordem, definido como:
-
-\begin{equation}
-    \mathbb{I}\equiv\frak{i}_{ij\alpha\beta}=\delta_{i\alpha}\delta_{j\beta}\text{,}
-\end{equation}
-
-\noindent e $\deftax$ é o tensor de taxa de deformação, definido como:
-
-\begin{equation}
-    \deftax=\frac{1}{2}\left(\NN\BB{u}+\NNT\BB{u}\right)\text{.}\label{eq:deftax1}
+    \dot{\varepsilon}_{ij}=\frac{u_{i,j}+u_{j,i}}{2}\text{.}\label{eq:deftax1}
 \end{equation}
 
 Assim, o tensor desviador pode ser escrito como:
 
-\[\tau_{ij}=(2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta})\dot{\varepsilon}_{\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}\dot{\varepsilon}_{\alpha\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\dot{\varepsilon}_{\alpha\beta}=2\mu\dot{\varepsilon}_{ij}+\lambda\delta_{ij}\dot{\varepsilon}_{\beta\beta}\]
+\[\tau_{ij}=(2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta})\dot{\varepsilon}_{\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}\dot{\varepsilon}_{\alpha\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\dot{\varepsilon}_{\alpha\beta}=2\mu\dot{\varepsilon}_{ij}+\lambda\dot{\varepsilon}_{\beta\beta}\delta_{ij}\]
 
 \noindent ou em notação simbólica como:
 
 \begin{equation}
-    \BB{\tau}=2\mu\deftax+\lambda\BB{I}\tr(\deftax)\text{,}
+    \tau_{ij}=2\mu\dot{\varepsilon}_{ij}+\lambda\dot{\varepsilon}_{\beta\beta}\delta_{ij}\text{.}
 \end{equation}
 
-\noindent no qual $\tr(\cdot)$ é o traço de um tensor.
-
-Já para o caso de escoamentos incompressíveis, observa-se que $\tr(\deftax)=0$, fazendo com que \ref{eq:const1} possa ser escrita como:
+Já para o caso de escoamentos incompressíveis, observa-se que $\dot{\varepsilon}_{\beta\beta}=0$, fazendo com que \ref{eq:const1} possa ser escrita como:
 
 \begin{equation}
     \sigma_{ij}=\mu(u_{i,j}+u_{j,i})-p\delta_{ij}\text{.}\label{eq:ModConst}
