@@ -8,13 +8,13 @@
 \section{Equações Governantes da Dinâmica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-Para a devida representação de escoamentos é possível partir de uma descrição Euleriana, em que sua formulação é apresentada na subseção \ref{CFD-E}, ou a partir de uma descrição Lagrangiana-Euleriana Arbitrária, em que sua formulação é devidamente apresentada na subseção \ref{CFD-ALE}.
+Para a devida representação de escoamentos a temperatura constante é necessária a consideração dos princípios da conservação da massa e da conservação da quantidade de movimento de um fluido. Estas podem ser realizadas a partir de uma descrição Euleriana, sendo sua formulação apresentada na subseção \ref{CFD-E}, ou a partir de uma descrição Lagrangiana-Euleriana Arbitrária, em que sua formulação é devidamente apresentada na subseção \ref{CFD-ALE}.
 
 %==================================================================================================
 \subsection{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
-Em uma descrição euleriana é possível se obter uma expressão que defina a conservação de massa (ou equação da continuidade) do fluido. Para isso, considere um elemento infinitesimal permeável, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}=\{u_1,u_2,u_3\}^T$ é o campo de velocidades do fluido na posição atual $\mathbf{y}$ do elemento, assim como $\rho$ representa a massa específica do fluido nesse ponto.
+Em uma descrição euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como equação da continuidade) do fluido. Para isso, considere um elemento infinitesimal permeável, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades do fluido na posição atual ($\mathbf{y}$) do elemento e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h]
     \centering
@@ -24,37 +24,37 @@ Em uma descrição euleriana é possível se obter uma expressão que defina a c
     \label{fig:BalMas}
 \end{figure}
 
-Assim, realiza-se o balanço de massa nesse elemento como:
+Realizando-se o balanço de massa nesse elemento tem-se:
 
 \begin{equation}
     dm=dm_0+\apder{dm}{t}dt\text{,}
 \end{equation}
 
-\noindent que pode ainda ser reescrita em termos de sua massa específica como:
+\noindent que pode ser expandida como:
 
 \[
-\begin{split}
-\rho dV+\apder{\rho}{t}dVdt=&\rho dV+\rho u_1dy_2dy_3dt+\rho u_2dy_1dy_3dt+\rho u_3dy_1dy_2dt-\\
-&\left(\rho u_1+\apder{(\rho u_1)}{y_1}dy_1\right)dy_2dy_3dt-
-\left(\rho u_2+\apder{(\rho u_2)}{y_2}dy_2\right)dy_1dy_3dt-\\
-&\left(\rho u_3+\apder{(\rho u_3)}{y_3}dy_3\right)dy_1dy_2dt\text{,}    
-\end{split}
+    \begin{split}
+        \rho dV+\apder{\rho}{t}dVdt=&\rho dV+\rho u_1dy_2dy_3dt+\rho u_2dy_1dy_3dt+\rho u_3dy_1dy_2dt-\\
+        &\left(\rho u_1+\apder{(\rho u_1)}{y_1}dy_1\right)dy_2dy_3dt-
+        \left(\rho u_2+\apder{(\rho u_2)}{y_2}dy_2\right)dy_1dy_3dt-\\
+        &\left(\rho u_3+\apder{(\rho u_3)}{y_3}dy_3\right)dy_1dy_2dt\text{.}
+    \end{split}
 \]
 
 \noindent que pode ser simplificada para:
 
 \begin{equation}
-   \apder{\rho}{t}=-\left(\apder{(\rho u_1)}{y_1}+\apder{(\rho u_2)}{y_2}+\apder{(\rho u_3)}{y_3}\right)\text{,}
+    \apder{\rho}{t}=-\left(\apder{(\rho u_1)}{y_1}+\apder{(\rho u_2)}{y_2}+\apder{(\rho u_3)}{y_3}\right)\text{,}
 \end{equation}
 
 \noindent a qual pode ser reescrita em notação simbólica de acordo com a Equação \ref{eq:BalMas1}, ou em notação indicial de acordo com a Equação \ref{eq:BalMas2}, que representam a conservação de massa em um elemento infinitesimal.
 
 \begin{subequations}
     \begin{equation}
-        \frac{D\rho}{Dt}+\rho\NN\cdot\BB{u}=\der{\rho}{t}+\NN\cdot(\rho\BB{u})=0\text{,}\label{eq:BalMas1}\\
+        \frac{D\rho}{Dt}+\rho\NN\cdot\BB{u}=\apder{\rho}{t}+\NN\cdot(\rho\BB{u})=0\text{,}\label{eq:BalMas1}\\
     \end{equation}
     \begin{equation}
-        \der{\rho}{t}+\apder{(\rho u_i)}{y_i}=0\text{,}\label{eq:BalMas2}
+        \dot{\rho}+(\rho u_i)_{,i}=0\text{,}\label{eq:BalMas2}
     \end{equation}
     \label{eq:BalMas}
 \end{subequations}
@@ -65,27 +65,27 @@ Assim, realiza-se o balanço de massa nesse elemento como:
     \frac{D\phi}{Dt}=\apder{\phi}{t}+\BB{u}\cdot\NN\phi\text{,}
 \end{equation}
 
-\noindent em que $\NN(\cdot)$ é o operador nabla, definido para uma função escalar $g$ qualquer de acordo com a Equação \ref{eq:grad1} e para uma função vetorial $\BB{g}$ qualquer de acordo com a Equação \ref{eq:grad2}:
+\noindent tal que $\NN(\cdot)$ é o operador nabla, definido para uma função escalar $g$ qualquer de acordo com a Equação \ref{eq:grad1} e para uma função vetorial $\BB{g}$ qualquer de acordo com a Equação \ref{eq:grad2}:
 
 \begin{subequations}
     \begin{equation}
-        \NN g=\der{g}{\BB{y}}\equiv\der{g}{y_i}\bhat{e}_i\text{,}\label{eq:grad1}
+        \NN g=\der{g}{\BB{y}}\equiv\der{g}{y_i}=g_{,i}\text{,}\label{eq:grad1}
     \end{equation}
     \begin{equation}
-        \NN\BB{g}=\der{\BB{g}}{\BB{y}}\equiv\der{g_i}{y_j}\bhat{e}_i\otimes\bhat{e}_j\text{,}\label{eq:grad2}
-    \end{equation}    
+        \NN\BB{g}=\der{\BB{g}}{\BB{y}}\equiv\der{g_i}{y_j}=g_{i,j}\text{,}\label{eq:grad2}
+    \end{equation}
 \end{subequations}
 
 \noindent e $\NN\cdot(\cdot)$ é o divergente, que para uma função vetorial $\BB{g}$ qualquer, é dado por:
 
 \begin{equation}
-    \NN\BB{g}\equiv\der{g_i}{y_i}\text{.}
+    \NN\BB{g}\equiv\der{g_i}{y_i}=g_{i,i}\text{.}
 \end{equation}
 
-Para escoamentos incompressíveis a equação de conservação de massa pode ser reescrita como:
+Para escoamentos incompressíveis a equação da continuidade pode ser reduzida a:
 
 \begin{equation}
-    \NN\cdot\BB{u}=0\text{.}\label{eq:incomp}
+    u_{i,i}=0\text{.}\label{eq:incomp}
 \end{equation}
 
 Já a equação que expressa a conservação da quantidade de movimento (ou de momento linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
@@ -101,10 +101,10 @@ Já a equação que expressa a conservação da quantidade de movimento (ou de m
 Assim, procede-se com o balanço da taxa de quantidade de movimento, no qual $d\BB{F}$ representa a resultante das forças externas atuante no elemento.
 
 \[
-\begin{split}
-    \apder{(\rho\BB{u})}{t}dV=&u_1\rho\BB{u}dy_2dy_3+u_2\rho\BB{u}dy_1dy_3+u_3\rho\BB{u}dy_1dy_2-\left(u_1\rho\BB{u}+\apder{u_1\rho\BB{u}}{y_1}dy_1\right)dy_2dy_3-\\
-    &\left(u_2\rho\BB{u}+\apder{u_2\rho\BB{u}}{y_2}dy_2\right)dy_1dy_3-\left(u_3\rho\BB{u}+\apder{u_3\rho\BB{u}}{y_3}dy_3\right)dy_1dy_2+d\BB{F}    
-\end{split}
+    \begin{split}
+        \apder{(\rho\BB{u})}{t}dV=&u_1\rho\BB{u}dy_2dy_3+u_2\rho\BB{u}dy_1dy_3+u_3\rho\BB{u}dy_1dy_2-\left(u_1\rho\BB{u}+\apder{u_1\rho\BB{u}}{y_1}dy_1\right)dy_2dy_3-\\
+        &\left(u_2\rho\BB{u}+\apder{u_2\rho\BB{u}}{y_2}dy_2\right)dy_1dy_3-\left(u_3\rho\BB{u}+\apder{u_3\rho\BB{u}}{y_3}dy_3\right)dy_1dy_2+d\BB{F}
+    \end{split}
 \]
 
 Fazendo as devidas simplificações obtém-se a equação da conservação da quantidade de movimento na sua forma simbólica (Equação \ref{eq:ConQtdMov1}) e na sua forma indicial (Equação \ref{eq:ConQtdMov2}):
@@ -114,12 +114,12 @@ Fazendo as devidas simplificações obtém-se a equação da conservação da qu
         \apder{(\rho\BB{u})}{t}+\NN\cdot(\BB{u}\otimes\rho\BB{u})-\BB{q}=\BB{0}\text{,}\label{eq:ConQtdMov1}
     \end{equation}
     \begin{equation}
-        \apder{(\rho u_j)}{t}+\apder{u_i\rho u_j}{y_i}-q_j=0\text{,}\label{eq:ConQtdMov2}
+        \apder{(\rho u_i)}{t}+(\rho u_ju_i)_{,j}-q_i=0\text{,}\label{eq:ConQtdMov2}
     \end{equation}
     \label{eq:ConQtdMov}
 \end{subequations}
 
-\noindent em que $\BB{q}$ representa a força resultante por unidade de volume, ou seja, $\BB{q}=d\BB{F}/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões, de forças de corpo ($\BB{c}$) e de pressões ($p$).
+\noindent em que $\BB{q}$ representa a força resultante por unidade de volume, ou seja, $\BB{q}=d\BB{F}/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($\BB{c}$).
 
 \begin{figure}[h]
     \centering
@@ -132,13 +132,13 @@ Fazendo as devidas simplificações obtém-se a equação da conservação da qu
 Fazendo o equilíbrio de forças nessa direção, obtém-se que:
 
 \[
-\begin{split}
-    &-\sigma_{11}dy_2dy_3-\sigma_{21}dy_1dy_3-\sigma_{31}dy_1dy_3
-    +\left(\sigma_{11}+\der{\sigma_{11}}{y_1}dy_1\right)dy_2dy_3\\
-    &+\left(\sigma_{21}+\der{\sigma_{21}}{y_2}dy_2\right)dy_1dy_3
-    +\left(\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3\right)dy_1dy_2+
-    c_1dy_1dy_2dy_3=dF_1
-\end{split}
+    \begin{split}
+        &-\sigma_{11}dy_2dy_3-\sigma_{21}dy_1dy_3-\sigma_{31}dy_1dy_3
+        +\left(\sigma_{11}+\der{\sigma_{11}}{y_1}dy_1\right)dy_2dy_3\\
+        &+\left(\sigma_{21}+\der{\sigma_{21}}{y_2}dy_2\right)dy_1dy_3
+        +\left(\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3\right)dy_1dy_2+
+        c_1dy_1dy_2dy_3=dF_1
+    \end{split}
 \]
 
 Após feitas as devidas simplificações, pode-se estabelecer uma relação entre $\BB{q}$ e $\tens$ como:
@@ -154,7 +154,7 @@ a qual pode ser estendida analogamente para as demais direções e reescrita em 
         \BB{q}=\NN\cdot\tens^T+\BB{c}\text{,}
     \end{equation}
     \begin{equation}
-        q_j=\der{\sigma_{ij}}{y_i}+c_j\text{.}
+        q_i=\sigma_{ji,j}+c_i\text{.}
     \end{equation}
     \label{eq:RelQSig}
 \end{subequations}
@@ -166,7 +166,7 @@ Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a incompressibil
         \rho\left(\apder{\BB{u}}{t}+\BB{u}\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T=\mathbf{0}\text{,}
     \end{equation}
     \begin{equation}
-        \rho\left(\apder{u_j}{t}+u_i\apder{u_j}{y_i}-f_j\right)-\apder{\sigma_{ij}}{y_i}=0\text{,}
+        \rho\bigpar{\dot{u}_i+u_ju_{i,j}-f_i}-\sigma_{ji,j}=0\text{,}
     \end{equation}
     \label{eq:ConQtdMov-2}
 \end{subequations}
@@ -175,10 +175,10 @@ Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a incompressibil
 
 \begin{subequations}
     \begin{equation}
-        \rho\left(\frac{D\mathbf{u}}{Dt}-\mathbf{f}\right)-\NN\cdot\tens^T=\mathbf{0}\text{,}
+        \rho\bigpar{\frac{D\mathbf{u}}{Dt}-\mathbf{f}}-\NN\cdot\tens^T=\mathbf{0}\text{,}
     \end{equation}
     \begin{equation}
-        \rho\left(\frac{Du_j}{Dt}-f_j\right)-\apder{\sigma_{ij}}{y_i}=0\text{.}
+        \rho\bigpar{\frac{Du_i}{Dt}-f_i}-\sigma_{ji,j}=0\text{.}
     \end{equation}
     \label{eq:ConQtdMov-3}
 \end{subequations}
@@ -197,11 +197,11 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
 
 \begin{equation}
     \left\{
-   \begin{array}{ll}
-        \rho\left(\apder{\BB{u}}{t}+\BB{u}\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T=\BB{0}&\text{ em }\Omega\text{,}\\
-        \NN\cdot\BB{u}=0&\text{ em }\Omega\text{,}\\
-        \tens\cdot\BB{n}=\mathbf{h}&\text{ em }\Gamma_N\text{,}\\
-        \BB{u}=\BB{g}&\text{ em }\Gamma_D\text{,}
+    \begin{array}{ll}
+        \rho\bigpar{\dot{u}_i+u_ju_{i,j}-f_i}-\sigma_{ji,j}=0 & \text{ em }\Omega\text{,}   \\
+        u_{i,i}=0                                             & \text{ em }\Omega\text{,}   \\
+        \sigma_{ij}n_i=h_j                                    & \text{ em }\Gamma_N\text{,} \\
+        u_j=g_j                                               & \text{ em }\Gamma_D\text{,}
     \end{array}
     \right.\label{eq:NS-Euler}
 \end{equation}
@@ -212,12 +212,12 @@ as quais são chamadas de equações de Navier-Stokes para escoamentos incompres
 \subsection{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
 %==================================================================================================
 
-Para definir a descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE), que foi inicialmente originado do trabalho de \citeonline{donea1982arbitrary}, considere três subconjuntos $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha, respectivamente. A Figura \ref{Fig:ALE} ilustra esquematicamente um problema em descrição ALE.
+A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}, os quais consideraram três subconjuntos $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha, respectivamente. A Figura \ref{Fig:ALE} ilustra esquematicamente um problema em descrição ALE.
 
 \begin{figure}[h]
     \centering
     \caption{Descrição Lagrangiana-Euleriana Arbitrária.}
-    \includegraphics[width=.55\linewidth]{Figuras/ALE.pdf}
+    \includegraphics[width=.45\linewidth]{Figuras/ALE.pdf}
     \label{Fig:ALE}
     \\Fonte: Autoria Própria (\the\year).
 \end{figure}
@@ -229,17 +229,17 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
 \begin{subequations}
     \begin{equation}
         \mathbf{A}=\der{(\BB{f}(\BB{x},t),t)}{(\mathbf{x},t)}=\begin{bmatrix}
-            \der{\BB{y}}{\BB{x}}&\BB{u}\\\BB{0}^T&1
+            \der{\BB{y}}{\BB{x}} & \BB{u} \\\BB{0}^T&1
         \end{bmatrix}\text{,}\label{F2}
     \end{equation}
     \begin{equation}
         \that{A}=\der{(\that{f}(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
-            \der{\bhat{x}}{\BB{x}}&\BB{w}\\\BB{0}^T&1
+            \der{\bhat{x}}{\BB{x}} & \BB{w} \\\BB{0}^T&1
         \end{bmatrix}\text{, e}\label{F1}
     \end{equation}
     \begin{equation}
         \bhat{A}=\der{(\bhat{f}(\bhat{x},t),t)}{(\bhat{x},t)}=\begin{bmatrix}
-            \der{\BB{y}}{\bhat{x}}&\uhat\\\BB{0}^T&1
+            \der{\BB{y}}{\bhat{x}} & \uhat \\\BB{0}^T&1
         \end{bmatrix}\text{,}\label{F3}
     \end{equation}
     \label{eq:GradFun}
@@ -297,7 +297,7 @@ Substituindo \ref{w1} em \ref{phi3}, obtém-se que:
 Dessa maneira, remove-se os sobrescritos * e ** e define-se a derivada material na descrição ALE como:
 
 \begin{equation}
-    \frac{D\phi}{Dt}=\apderxh{\phi}{t}=\apderxh{\phi}{t}+(\BB{u}-\uhat)\cdot\NN\phi\text{.}\label{DerMat2}
+    \frac{D\phi}{Dt}=\apderxh{\phi}{t}+(\BB{u}-\uhat)\cdot\NN\phi\text{.}\label{DerMat2}
 \end{equation}
 
 Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \ref{DerMat2} em \ref{eq:BalMas} para se obter a equação de conservação de massa na descrição ALE:
@@ -318,11 +318,11 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 
 \begin{equation}
     \left\{
-   \begin{array}{ll}
-        \rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T=\BB{0}&\text{ em }\Omega\text{,}\\
-        \NN\cdot\BB{u}=0&\text{ em }\Omega\text{,}\\
-        \tens\cdot\BB{n}=\BB{h}&\text{ em }\Gamma_N\text{,}\\
-        \BB{u}=\BB{g}&\text{ em }\Gamma_D\text{,}
+    \begin{array}{ll}
+        \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 & \text{ em }\Omega\text{,}   \\
+        u_{i,i}=0                                                         & \text{ em }\Omega\text{,}   \\
+        \sigma_{ij}n_i=h_j                                                & \text{ em }\Gamma_N\text{,} \\
+        u_j=g_j                                                           & \text{ em }\Gamma_D\text{,}
     \end{array}
     \right.\label{eq:NS-ALE}
 \end{equation}
@@ -339,7 +339,7 @@ O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos
     \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
 \end{equation}
 
-\noindent na qual $\BB{I}$ representa o tensor identidade de segunda ordem, dado por:
+\noindent no qual $\BB{I}$ representa o tensor identidade de segunda ordem, dado por:
 
 \begin{equation}
     \BB{I}\equiv\delta_{ij}\text{,}
@@ -357,7 +357,7 @@ O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos
     \script{D}=2\mu\mathbb{I}+\lambda\BB{I}\otimes\BB{I}\text{,}
 \end{equation}
 
-\noindent sendo $\mu$ a viscosidade cinemática do fluido e $\mathbb{I}$ o tensor identidade de quarta ordem, definido como:
+\noindent sendo $\mu$ a viscosidade dinâmica do fluido e $\mathbb{I}$ o tensor identidade de quarta ordem, definido como:
 
 \begin{equation}
     \mathbb{I}\equiv\frak{i}_{ij\alpha\beta}=\delta_{i\alpha}\delta_{j\beta}\text{,}
@@ -384,7 +384,7 @@ Assim, o tensor desviador pode ser escrito como:
 Já para o caso de escoamentos incompressíveis, observa-se que $\tr(\deftax)=0$, fazendo com que \ref{eq:const1} possa ser escrita como:
 
 \begin{equation}
-    \tens=2\mu\deftax-p\BB{I}\text{.}\label{eq:ModConst}
+    \sigma_{ij}=\mu(u_{i,j}+u_{j,i})-p\delta_{ij}\text{.}\label{eq:ModConst}
 \end{equation}
 
 %==================================================================================================
@@ -401,7 +401,7 @@ Para a obtenção de uma formulação na forma fraca (ou integral) das equaçõe
     \script{S}_p=\left\{p|p(\cdot)\in L^2(\Omega),\int_\Omega{pd\Omega}=0\text{ se }\Gamma=\Gamma_D\right\}\text{,}
 \end{equation}
 
-\noindent em que $H^1$ representa o espaço de valor vetorial com derivadas de quadrado integrável em $\Omega$ e $L^2$ representa o espaço de valor escalar de quadrado integrável em $\Omega$, ou seja:
+\noindent em que $H^1(\Omega)$ representa o espaço de valor vetorial com derivadas de quadrado integrável em $\Omega$ e $L^2(\Omega)$ representa o espaço de valor escalar de quadrado integrável em $\Omega$, ou seja:
 
 \begin{equation}
     H^1(\Omega)=\left\{u\in L^2(\Omega);\der{u}{x_i}\in L^2(\Omega)\text{, com }i=1,\cdots,n_{sd}\right\}\text{ e}
@@ -424,51 +424,22 @@ Também define-se os conjuntos de funções testes para a conservação de massa
 Dessa forma, multiplica-se as equações de conservação da massa e de quantidade de movimento pelas suas respectivas funções testes e integra-se dentro do domínio $\Omega$, obtendo-se:
 
 \begin{equation}
-    \int_\Omega{\BB{w}\cdot\left(\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T\right)d\Omega}+\int_\Omega{q\NN\cdot\BB{u}d\Omega}=0\text{.}
+    \intDom{w_i\bigpar{\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}}}+\intDom{qu_{i,i}}=0\text{.}
 \end{equation}
 
 Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira integral, tem-se que:
 
 \begin{equation}
-    \int_\Omega{\BB{w}\cdot\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)d\Omega}-\int_\Omega{\BB{w}\cdot\NN\cdot\tens^Td\Omega}+\int_\Omega{q\NN\cdot\BB{u}d\Omega}=0\text{.}
+    \intDom{w_i\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}}-\intDom{w_i\sigma_{ji,j}}+\intDom{qu_{i,i}}=0\text{.}
     \label{eq:WeakForm1}
 \end{equation}
 
-Para o desenvolvimento dessa integral que foi separada, vale ressaltar o desenvolvimento da seguinte derivada:
-
-\[
-\der{(\sigma_{ij}w_j)}{y_i}=w_j\der{\sigma_{ij}}{y_i}+\sigma_{ij}\der{w_j}{y_i}\therefore w_j\der{\sigma_{ij}}{y_i}=\der{(\sigma_{ij}w_j)}{y_i}-\sigma_{ij}\der{w_j}{y_i}\text{,}
-\]
-
-\noindent ou em notação simbólica:
-
-\begin{equation}
-    \BB{w}\cdot\NN\cdot\tens^T=\NN\cdot(\tens^T\cdot\BB{w})-\tens^T:\NN\BB{w}\text{.}
-\end{equation}
-
-Assim, pode-se escrever que:
-
-\begin{equation}
-     \int_\Omega{\BB{w}\cdot\NN\cdot\tens^Td\Omega}=
-     \int_\Omega{\NN\cdot(\tens^T\cdot\BB{w})d\Omega}-\int_\Omega{\tens^T:\NN\BB{w}d\Omega}\text{,}
-\end{equation}
-
-\noindent sendo possível reescrever, a partir do Teorema da Divergência:
-
-\begin{equation}
-     \int_\Omega{\BB{w}\cdot\NN\cdot\tens^Td\Omega}=
-     \int_{\Gamma_N}{\BB{w}\cdot\BB{h}d\Gamma_N}-\int_\Omega{\tens^T:\NN\BB{w}d\Omega}\text{,}
-     \label{eq:IntDiv1}
-\end{equation}
-
-\noindent em que $\BB{h}=\tens^T\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$.
-
-Dessa maneira, pode-se substituir \ref{eq:IntDiv1} em \ref{eq:WeakForm1}, obtendo-se a forma fraca, expressa como a Equação \ref{eq:WeakForm2}, onde procura-se determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ $\forall t\in(0,T)$, sendo $T$ o tempo analisado, dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\uhat$:
+Fazendo a integração por partes da parcela que foi separada e considerando o Teorema da Divergência, chega-se à forma fraca do problema, expressa como a Equação \ref{eq:WeakForm2}, onde procura-se determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ $\forall t\in(0,T)$, sendo $T$ o tempo analisado, dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\uhat$, em que $\BB{h}=\tens^T\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$:
 
 \begin{equation}
     \begin{split}
-        &\int_\Omega{\BB{w}\cdot\rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)d\Omega}-\int_{\Gamma_N}{\BB{w}\cdot\BB{h}d\Gamma_N}+\\
-        &\int_\Omega{\BB{\varepsilon(w)}:\tens d\Omega}+\int_\Omega{q\NN\cdot\BB{u}d\Omega}=0\text{.}
+        &\intDom{w_i\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}}-\intNeumann{w_ih_i}+\\
+        &\intDom{w_{i,j}\sigma_{ij}}+\intDom{qu_{i,i}}=0\text{.}
     \end{split}
     \label{eq:WeakForm2}
 \end{equation}

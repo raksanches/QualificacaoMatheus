@@ -1,0 +1,144 @@
+% Introdução
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+
+%==================================================================================================
+\subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
+%==================================================================================================
+
+Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuírem uma implementação mais facilitada \cite{alfonsi2009reynolds, ling2015evaluation}. Ainda segundo \citeonline{alfonsi2009reynolds}, problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência.
+
+Em uma descrição Euleriana, sua obtenção parte da equação \ref{eq:NS-Euler} e considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: uma referente à média temporal, denotada por uma barra ($\bar{\phi}(\BB{y})$), dada por \cite{tennekes1972first,speziale1991analytical}:
+
+\begin{equation}
+    \bar{\phi}(\BB{y})=\lim_{T\to\infty}{\frac{1}{T}\int_{t_0}^{t_0+T}{\phi(\BB{y},t)dt}}\text{,}
+\end{equation}
+
+\noindent e uma referente à flutuações no espaço-tempo, denotada por $\phi'(\BB{y},t)$, ou seja, $\phi(\BB{y},t)=\bar{\phi}(\BB{y})+\phi'(\BB{y},t)$.
+
+Vale ressaltar algumas propriedades interessantes relacionadas à média de uma propriedade ($\phi$, $\phi_1$ ou $\phi_2$ quaisquer), tais como:
+
+\begin{enumerate}[label=\alph*.]
+    \item $\bar{\phi'}(\BB{y})=0$;
+    \item $\bar{\bar{\phi}}=\bar{\phi}$;
+    \item $\bar{\phi_1+\phi_2}=\bar{\phi}_1+\bar{\phi}_2$;
+    \item $\bar{\phi_1\bar{\phi}_2}=\bar{\phi}_1\bar{\phi}_2$;
+    \item $\bar{\phi_1\phi_2}=\bar{\phi}_1\bar{\phi}_2+\bar{\phi_1'\phi_2'}$; e
+    \item $\bar{\der{\phi}{y_i}}=\der{\bar{\phi}}{y_i}$.
+\end{enumerate}
+
+Assim, pode-se tomar a média das Equações de Navier-Stokes, obtendo-se:
+
+\begin{equation}
+    \left\{
+   \begin{array}{ll}
+        \rho\bigpar{\bar{\apder{\BB{u}}{t}}+\bar{\BB{u}\cdot\NN\BB{u}}-\bar{\BB{f}}}-\bar{\NN\cdot\tens^T}=\BB{0}&\text{ em }\Omega\text{,}\\
+        \bar{\NN\cdot\BB{u}}=0&\text{ em }\Omega\text{.}
+    \end{array}
+    \right.
+\end{equation}
+
+Note que, ao tomar a média temporal, o problema se torna independente do tempo. Portanto o termo referente à derivada temporal de $\BB{u}$ desaparece. Assim, aplicando também o modelo constitutivo apresentado em \ref{MC}, o problema se torna:
+
+\begin{equation}
+    \left\{
+   \begin{array}{ll}
+        \rho\bigpar{\bar{\BB{u}\cdot\NN\BB{u}}-\bar{\BB{f}}}-\NN\cdot\bar{(2\mu\deftax)}+\NN\bar{p}=\BB{0}&\text{ em }\Omega\text{,}\\
+        \NN\cdot\bar{\BB{u}}=0&\text{ em }\Omega\text{.}
+    \end{array}
+    \right.
+\end{equation}
+
+Realizando a separação dos parâmetros em suas respectivas parcelas na equação da conservação de movimento, tem-se que:
+
+\begin{equation}
+    \rho\bigpar{\bar{(\bar{\BB{u}}+\BB{u}')\cdot\NN(\bar{\BB{u}}+\BB{u}')}-\bar{\BB{f}}}-
+    \mu\NN\cdot(\bar{\NN(\bar{\BB{u}}+\BB{u}')+\NNT(\bar{\BB{u}}+\BB{u}')})+\NN\bar{p}=\BB{0}\text{,}   
+\end{equation}
+
+\noindent que leva à seguinte expressão simplificada:
+
+\begin{subequations}
+\begin{equation}
+        \rho\bigpar{\bar{\BB{u}}\cdot\NN\bar{\BB{u}}+\NN\cdot\bar{(\BB{u}'\otimes\BB{u}')}-\bar{\BB{f}}}-
+        \mu\Lapl{\BBB{u}}+\NN\bar{p}=\BB{0}\text{, ou}
+\end{equation}
+\begin{equation}
+        \rho\bigpar{\bar{u}_i\der{\bar{u}_j}{y_i}+\der{\bar{u_i'u_j'}}{y_i}-\bar{f}_j}-\mu\frac{\partial^2\bar{u}_j}{\partial y_i\partial y_i}+\der{\bar{p}}{y_j}=0\text{,}
+\end{equation}
+\label{eq:RANS-estac}
+\end{subequations}
+
+\noindent a qual representa a equação de Navier-Stokes para escoamentos incompressíveis em regime estacionário em uma formulação RANS \cite{chou1945velocity,alfonsi2009reynolds}.
+
+Além disso, é possível fazer a substituição de $\BB{u}=\umed+\BB{u}'$ e $p=\bar{p}+p'$ na equação da quantidade de movimento, o que leva a:
+
+\begin{equation}
+\begin{split}
+    &\rho\bigpar{\apder{\ufl}{t}+\umed\cdot\NN\umed+\umed\cdot\NN\ufl+\ufl\cdot\NN\umed+\ufl\cdot\NN\ufl-\bar{\BB{f}}}-\\
+    &\mu\Lapl\umed-\mu\Lapl\ufl+\NN\bar{p}+\NN p'=\BB{0}\text{.}
+\end{split}
+\label{eq:NS-RANS1}
+\end{equation}
+
+Subtraindo \ref{eq:RANS-estac} de \ref{eq:NS-RANS1} obtém-se:
+
+\begin{subequations}
+\begin{equation}
+\begin{split}
+    &\rho\bigpar{\apder{\ufl}{t}+\umed\cdot\NN\ufl+\ufl\cdot\NN\umed+\ufl\cdot\NN\ufl-\NN\cdot\bar{(\ufl\otimes\ufl)}}-\\
+    &\mu\Lapl\ufl+\NN p'=\BB{0}\text{, ou}
+\end{split}
+\end{equation}
+\begin{equation}
+    \rho\bigpar{\apder{u'_j}{t}+\bar{u}_i\der{u'_j}{y_i}+u'_i\der{\bar{u}_j}{y_i}+u'_i\der{u'_j}{y_i}-\der{\bar{u'_iu'_j}}{y_i}}-\mu\frac{\partial^2u'_j}{\partial y_i\partial y_i}+\der{p'}{y_j}=0\text{.}
+\end{equation}
+\end{subequations}
+
+\noindent e de forma similar tem-se:
+
+\begin{subequations}
+\begin{equation}
+    \NN\cdot\ufl=0\text{, ou}
+\end{equation}
+\begin{equation}
+    \der{u'_i}{y_i}=0\text{.}
+\end{equation}
+\end{subequations}
+
+Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\BB{\tau}=-\bar{\BB{u}'\otimes\BB{u}'}$, que traz a interferência que os efeitos turbulentos da parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
+
+Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividido em uma parte isotrópica ($\tau_{ij}^I$) e outra desviadora ($\tau_{ij}^D$):
+
+\begin{equation}
+    \tau_{ij}=\tau_{ij}^I+\tau_{ij}^D\text{,}
+\end{equation}
+
+\noindent em que:
+
+\begin{subequations}
+\begin{equation}
+    \tau_{ij}^I=-\frac{2}{3}K\delta_{ij}\text{ e}
+\end{equation}
+\begin{equation}
+    \tau_{ij}^D=2\nu_T\epmean_{ij}\text{,}
+\end{equation}
+\end{subequations}
+
+\noindent sendo $K$ a energia cinética média gerada pelo campo de flutuações de velocidade:
+
+\begin{equation}
+    K=\frac{1}{2}\bar{u'_iu'_i}\text{,}
+\end{equation}
+
+\noindent $\epmean_{ij}$ é a taxa de deformação do campo de velocidades média:
+
+\begin{equation}
+    \epmean_{ij}=\frac{1}{2}\bigpar{\der{\bar{u}_i}{y_j}+\der{\bar{u}_j}{y_i}}
+\end{equation}
+
+\noindent e $\nu_T$ é a viscosidade de vórtice.
+
+\end{document}

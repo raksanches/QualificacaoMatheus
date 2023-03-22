@@ -153,7 +153,7 @@
 \newcommand{\BB}[1]{\mathbf{#1}}
 \newcommand{\BBB}[1]{\overline{\mathbf{#1}}}
 \newcommand{\dBB}[1]{\dot{\mathbf{#1}}}
-\newcommand{\ddBB}[1]{\Ddot{\mathbf{#1}}}
+\newcommand{\ddBB}[1]{\ddot{\mathbf{#1}}}
 \newcommand{\uhat}{\hat{\mathbf{u}}}
 \newcommand{\bhat}[1]{\hat{\mathbf{#1}}}
 \newcommand{\that}[1]{\tilde{\mathbf{#1}}}
@@ -166,6 +166,7 @@
 \newcommand{\Dfil}{D_\Delta(\BB{y})}
 \newcommand{\yfil}{\BB{y}_\Delta}
 \newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
+\newcommand{\deffilij}[1]{\dot{\bar{\varepsilon}}_{#1}}
 %VARIATIONAL MULTISCALE METHOD
 \newcommand{\supg}{\mathrm{SUPG}}
 \newcommand{\pspg}{\mathrm{PSPG}}
@@ -175,8 +176,15 @@
 \newcommand{\rgn}{\mathrm{RGN}}
 \newcommand{\rM}{\BB{r}_\mathrm{M}(\BBB{u},\bar{p})}
 \newcommand{\rC}{r_\mathrm{C}(\BBB{u})}
+\newcommand{\rMi}[1]{(r_\mathrm{M})_{#1}}
+\newcommand{\rCi}{r_\mathrm{C}}
 \newcommand{\NM}{\BB{N}_\mathrm{M}}
 \newcommand{\NC}{\BB{N}_\mathrm{C}}
+\newcommand{\intDom}[1]{\int_{\Omega}{#1 d\Omega}}
+\newcommand{\intFront}[1]{\int_{\Gamma}{#1 d\Gamma}}
+\newcommand{\intNeumann}[1]{\int_{\Gamma_N}{#1 d\Gamma_N}}
+\newcommand{\intDirichlet}[1]{\int_{\Gamma_D}{#1 d\Gamma_D}}
+\newcommand{\SintDom}[1]{\sum_{e=1}^{n_{el}}{\int_{\Omega^e}{#1 d\Omega^e}}}
 %REYNOLDS-AVERAGED NAVIER-STOKES
 \newcommand{\umed}{\bar{\BB{u}}}
 \newcommand{\ufl}{\BB{u}'}
@@ -355,10 +363,10 @@
 
 \renewcommand\chaptername{}
 
-\subfile{Capitulos/Cap1}
-\subfile{Capitulos/Cap2}
-\subfile{Capitulos/Cap3}
-\subfile{Capitulos/Cap5}
+\subfile{Capitulos/C1-Introducao}
+\subfile{Capitulos/C2-EstadoArte}
+\subfile{Capitulos/C3-FundTeorica/C3-FundTeorica}
+\subfile{Capitulos/C4-MetodologiaCronograma}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS

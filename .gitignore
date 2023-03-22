@@ -1,0 +1,17 @@
+Secoes/*.aux
+Secoes/*.fbd_latexmk
+Secoes/*.fls
+Secoes/*.log
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.lof
+*.log
+*.lot
+*.out.ps
+*.toc
+*.fdb_latexmk
+*.fls
+*.ind

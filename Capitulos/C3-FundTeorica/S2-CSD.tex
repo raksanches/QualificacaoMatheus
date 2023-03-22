@@ -239,32 +239,38 @@ Fazendo o equilíbrio das forças nessa direção tem-se:
         &-\sigma_{11}dy_2dy_3-\sigma_{21}dy_1dy_3-\sigma_{31}dy_1dy_2+
         \bigpar{\sigma_{11}+\der{\sigma_{11}}{y_1}dy_1}dy_2dy_3+\\
         &\bigpar{\sigma_{21}+\der{\sigma_{21}}{y_2}dy_2}dy_1dy_3+
-        \bigpar{\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3}dy_1dy_2+c_1dV=\rho\Ddot{y}_1dV    
+        \bigpar{\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3}dy_1dy_2+c_1dV=\rho\ddot{y}_1dV
     \end{split}
 \]
 
 Fazendo as devidas simplificações obtém-se:
 
-\[\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\Ddot{y}_1\text{,}\]
+\[
+    \der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}
+\]
 
 \noindent que, expandindo analogamente para as demais direções, pode escrever nas notações simbólica (Equação \ref{eq:EqLocEu1}) e indicial (Equação \ref{eq:EqLocEu2}) como:
 
 \begin{subequations}
     \begin{equation}
-        \NN\cdot\tens^T+\BB{c}=\rho\Ddot{\BB{y}}\text{,}\label{eq:EqLocEu1}
+        \NN\cdot\tens^T+\BB{c}=\rho\ddot{\BB{y}}\text{,}\label{eq:EqLocEu1}
     \end{equation}
     \begin{equation}
-        \apder{\sigma_{ij}}{y_i}+c_j=\rho\Ddot{y}_j\text{,}\label{eq:EqLocEu2}
+        \sigma_{ij,i}+c_j=\rho\ddot{y}_j\text{,}\label{eq:EqLocEu2}
     \end{equation}
     \label{eq:EqLocEu}
 \end{subequations}
 
-\noindent as quais representam as equações do equilíbrio local na descrição Euleriana.
+\noindent as quais representam as equações do equilíbrio local na descrição Euleriana e sendo a vírgula presente no subíndice a representação de derivada na direção $i$, ou seja:
+
+\begin{equation}
+    \sigma_{ij,i}=\der{\sigma_{ij}}{y_i}\text{.}
+\end{equation}
 
 Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
 
 \begin{equation}
-    \int_\Gamma{\tens^T\cdot\BB{n}d\Gamma}+\int_\Omega{\BB{c}d\Omega}=\int_\Omega{\rho\Ddot{\BB{y}}d\Omega}
+    \int_\Gamma{\tens^T\cdot\BB{n}d\Gamma}+\int_\Omega{\BB{c}d\Omega}=\int_\Omega{\rho\ddot{\BB{y}}d\Omega}
     \text{,}
     \label{eq:EqGlobEu}
 \end{equation}
@@ -274,14 +280,14 @@ Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da div
 Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \ref{eq:EqGlobEu} levando em consideração as Equações \ref{eq:RelVol} e \ref{eq:Nanson}:
 
 \begin{equation}
-    \int_{\Gamma_0}{J\tens^T\cdot\BB{A}^{-T}\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\Ddot{\BB{y}}d\Omega_0}
+    \int_{\Gamma_0}{J\tens^T\cdot\BB{A}^{-T}\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
     \text{.}
 \end{equation}
 
 \noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\BB{P}=J\BB{A}^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
 
 \begin{equation}
-    \int_{\Gamma_0}{\BB{P}^T\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\Ddot{\BB{y}}d\Omega_0}\text{,}
+    \int_{\Gamma_0}{\BB{P}^T\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
 \end{equation}
 
 \noindent que representa a equação do equilíbrio global na descrição Lagrangiana Total.
@@ -290,10 +296,10 @@ Retornando a integral sob a fronteira $\Gamma$ para $\Omega$ por meio do Teorema
 
 \begin{subequations}
     \begin{equation}
-        \NNx\cdot\BB{P}^T+\BB{c}=\rho\Ddot{\BB{y}}\text{, ou}
+        \NNx\cdot\BB{P}^T+\BB{c}=\rho\ddot{\BB{y}}\text{, ou}
     \end{equation}
     \begin{equation}
-        \apderx{P_{ij}}{x_i}+c_j=\rho\Ddot{y}_j\text{.}
+        P_{ij,i}+c_j=\rho\ddot{y}_j\text{.}
     \end{equation}
 \end{subequations}
 
@@ -304,16 +310,10 @@ Retornando a integral sob a fronteira $\Gamma$ para $\Omega$ por meio do Teorema
 \textcolor{red}{Explicar as vantagens do MEF Posicional frente ao Corrotacional, assim como a vantagem da descrição Lagrangiana Total frente à Euleriana}
 
 %==================================================================================================
-\subsubsection{Elemento de Pórtico} \label{MEFP-Por}
+\subsubsection{Elemento de Casca} \label{MEFP-Por}
 %==================================================================================================
 
-\textcolor{red}{Talvez alterar para elemento de treliça - Pode comentar sobre vibração livre}
-
-%==================================================================================================
-\subsubsection{Elemento de Sólido Bidimensional} \label{MEFP-S2D}
-%==================================================================================================
-
-\textcolor{red}{Comentar sobre polinômios aproximadores, coordenadas paramétricas, integração por quadratura de Gauss e Hammer, mudança de variáveis para espaço paramétrico, método de solução}
+\textcolor{red}{TEXTO}
 
 %==================================================================================================
 \subsubsection{Exemplos de Validação} \label{MEFP-Ex}

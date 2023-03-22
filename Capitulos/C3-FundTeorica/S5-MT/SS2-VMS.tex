@@ -1,0 +1,251 @@
+% Introdução
+
+\documentclass[_ArquivoPrincipal.tex]{subfiles}
+
+\begin{document}
+
+%==================================================================================================
+\subsection{\textit{Variational Multiscale Methods}} \label{VMS}
+%==================================================================================================
+
+O Método Variacional Multiescala foi introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, o qual faz a separação dos espaços de tentativas e de testes em subespaços que representem as escalas grosseiras, que se tratam de subespaços de dimensões finitas e denotadas por uma barra, e as escalas finas, que são subespaços de infinitas dimensões e denotadas por $'$, ou seja:
+
+\begin{subequations}
+    \begin{align}
+         & \script{S}_u=\bar{\script{S}}_u\oplus\script{S}'_u\text{,}  \\
+         & \script{S}_p=\bar{\script{S}}_p\oplus\script{S}'_p\text{,}  \\
+         & \script{V}_u=\bar{\script{V}}_u\oplus\script{V}'_u\text{ e} \\
+         & \script{V}_p=\bar{\script{V}}_p\oplus\script{V}'_p\text{.}
+    \end{align}
+\end{subequations}
+
+Inicialmente será abordado uma técnica baseada em uma descrição Euleriana com domínio fixo, para maior familiarização com o método, e na sequência será apresentada uma formulação em descrição ALE utilizando domínio móvel.
+
+O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua forma fraca se encontra em \ref{eq:WeakForm2}. Primeiramente realiza-se a separação dos membros em:
+
+\begin{subequations}
+    \begin{align}
+         & \BB{u}=\BBB{u}+\BB{u}'\text{,}  \\
+         & p=\bar{p}+p'\text{,}            \\
+         & \BB{w}=\BBB{w}+\BB{w}'\text{ e} \\
+         & q=\bar{q}+q'\text{,}
+    \end{align}
+\end{subequations}
+
+\noindent em que se adota $\BB{w}=\BBB{w}$ e $q=\bar{q}$ e as escalas finas $\BB{u}'$ e $p'$ podem ser modeladas como:
+
+\begin{subequations}
+    \begin{equation}
+        \BB{u}'=-\frac{\tau_{\sups}}{\rho}\rM\text{ e}
+    \end{equation}
+    \begin{equation}
+        p'=-\rho\nu_{\lsic}\rC\text{,}
+    \end{equation}
+\end{subequations}
+
+\noindent nas quais $\tau_{\sups}$ e $\nu_{\lsic}$ são termos estabilizadores, dados por \cite{bazilevs2013computational}:
+%página 80 do pdf de hughes2013 e 65 de fernandes2020
+
+\begin{subequations}
+    \begin{equation}
+        \tau_{\sups}=\bigpar{\frac{4}{\Delta t^2}+\BBB{u}\cdot\BB{G}\BBB{u}+C_I\nu^2\BB{G}:\BB{G}}^{-1/2}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \nu_{\lsic}=(\tr{\BB{G}}\tau_{\sups})^{-1}\text{,}
+    \end{equation}
+    \label{eq:TermEstab}
+\end{subequations}
+
+\noindent onde $C_I$ é uma constante e:
+
+\begin{equation}
+    \BB{G}=\frac{\partial\BB{\xi}}{\partial\BB{x}}^T\frac{\partial\BB{\xi}}{\partial\BB{x}}\text{.}
+\end{equation}
+
+Já os termos $\rM$ e $\rC$ são os resíduos associados à equação de conservação da quantidade de movimento e da continuidade, respectivamente:
+
+\begin{subequations}
+    \begin{equation}
+        \rMi{i}=\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}-\sigma_{ji,j}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \rCi=\bar{u}_{i,i}\text{.}
+    \end{equation}
+\end{subequations}
+
+Outra forma de se modelar os parâmetros estabilizadores pode ser dado por \cite{bazilevs2013computational}:
+
+\begin{subequations}
+    \begin{equation}
+        \tau_{\sups}=\bigpar{\frac{1}{\tau_{\sugn 1}^2}+\frac{1}{\tau_{\sugn 2}^2}+\frac{1}{\tau_{\sugn 3}^2}}^{-1/2}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \nu_{\lsic}=\tau_{\sups}\norm{\BBB{u}}^2\text{,}
+    \end{equation}
+\end{subequations}
+
+\noindent tal que:
+
+\begin{subequations}
+    \begin{align}
+         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BBB{u}\cdot\NN N_a}}}^{-1}\text{,} \\
+         & \tau_{\sugn 2}=\frac{\Delta t}{2}\text{,}                                           \\
+         & \tau_{\sugn 3}=\frac{h_{\rgn}^2}{4\nu}\text{,}                                      \\
+         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\NN N_a}}}^{-1}\text{ e}        \\
+         & \BB{r}=\frac{\NN\norm{\BBB{u}}}{\norm{\NN\norm{\BBB{u}}}}\text{.}
+    \end{align}
+\end{subequations}
+
+Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíduos (\textit{Residual-Based Variational Multiscale} - RBVMS) que busca determinar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational}:
+
+\begin{equation}
+    \begin{split}
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\sups\bigpar{\bar{u}_j\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}\rMi{i}}+\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}-\\
+        &\SintDom{\tau_\sups\bar{w}_i\rMi{j}\bar{u}_{i,j}}-\SintDom{\frac{\bar{w}_{i,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}=0
+        \text{.}
+        \label{eq:RBVMS1}
+    \end{split}
+\end{equation}
+
+Para a discretização do problema pode-se realizar a separação da dependência espacial e temporal para os espaços tentativas e testes como:
+
+\begin{subequations}
+    \begin{align}
+         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}             \\
+         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y})}\text{,}                 \\
+         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y})}\text{ e}\label{eq:w-sep} \\
+         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y})}\text{.}\label{eq:q-sep}
+    \end{align}
+\end{subequations}
+
+Substituindo \ref{eq:w-sep} e \ref{eq:q-sep} em \ref{eq:RBVMS1} obtém-se dois vetores que representam o resíduo das equações da conservação da quantidade de movimento e da continuidade, nos quais $W^a$ e $Q^a$ são arbitrários:
+
+\begin{subequations}
+    \begin{equation}
+        \NM=[(N_\mathrm{M})_i^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \NC=[(N_\mathrm{C})^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            (N_\mathrm{M})_i^a=&
+            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}+\\
+            &\SintDom{\tau_\sups N_{a,j}\bar{u}_j\rMi{i}}+\SintDom{\rho\nu_\lsic N_{a,i}\rCi}-\\
+            &\SintDom{\tau_\sups N_a\bar{u}_{i,j}\rMi{j}}-\SintDom{\frac{N_{a,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}
+            \text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}+\SintDom{\tau_\sups\frac{N_{a,i}}{\rho}\rMi{i}}
+    \end{equation}
+\end{subequations}
+
+Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os graus de liberdade em velocidades, primeira derivada temporal das velocidades e pressões nodais, então o problema a ser resolvido será dado por: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+
+\begin{subequations}
+    \begin{align}
+         & \NM(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{ e} \\
+         & \NC(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{.}
+    \end{align}
+\end{subequations}
+
+Uma formulação alternativa à apresentada é apresentada por \citeonline{bazilevs2013computational}, denominada como SUPG/PSPG, onde se omite os dois últimos termos da equação \ref{eq:RBVMS1} e se utiliza de valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, resultando em:
+
+\begin{equation}
+    \begin{split}
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\supg\bar{u}_j\bar{w}_{i,j}\rMi{i}}+\SintDom{\tau_\pspg\frac{q_{,i}}{\rho}\rMi{i}}+\\
+        &\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}=0
+        \text{,}
+        \label{eq:SUPG-PSPG}
+    \end{split}
+\end{equation}
+
+\noindent na qual, segundo os autores, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ para uma boa variedade de problemas.
+
+Por sua vez, a formulação baseada em uma descrição ALE parte das equações apresentadas em \ref{eq:NS-ALE}, cujo problema semi-discreto pode ser dado por:
+
+\begin{equation}
+    \begin{split}
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_j}}+\intDom{\bar{w}_{i,j}\sigma_{ij}}-\\
+        &\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{q\bar{u}_{i,i}d\Omega}=0
+    \end{split}
+\end{equation}
+
+Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompressíveis segundo uma descrição ALE será: encontrar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational}:
+
+\begin{equation}
+    \begin{split}
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\sups\bigpar{(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}\rMi{i}}+\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}-\\
+        &\SintDom{\tau_\sups\bar{w}_i\bar{u}_{i,j}\rMi{j}}-\SintDom{\frac{\bar{w}_{i,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}=0
+        \text{,}
+        \label{eq:RBVMS-ALE}
+    \end{split}
+\end{equation}
+
+\noindent em que os termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ são alterados das equações \ref{eq:TermEstab}, onde se considera, ao invés da velocidade do fluido $\BBB{u}$, a velocidade relativa à malha ($\BBB{u}-\uhat$), ou seja, $\BBB{u}\gets\BBB{u}-\uhat$.
+
+Para o problema discretizado utiliza-se as seguintes expressões de aproximação dos espaços tentativas e testes:
+
+\begin{subequations}
+    \begin{align}
+         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y},t)}\text{,} \\
+         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y},t)}\text{,}     \\
+         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y},t)}\text{ e}     \\
+         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y},t)}\text{,}
+    \end{align}
+\end{subequations}
+
+\noindent onde as funções de forma $N_a(\BB{y},t)$ são definidas como:
+
+\begin{equation}
+    N_a(\BB{y},t)=\hat{N}_a(\bhat{f}^{-1}(\BB{y},t))\text{,}
+\end{equation}
+
+\noindent em que $\bhat{f}(\BB{y},t)$ é a função de mudança de configuração de $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
+
+\begin{equation}
+    \bhat{f}(\bhat{x},t)=\sum_{a\in\BB{\eta}^s}{(\bhat{x}_a+\Delta\bhat{x}_a(t))\hat{N}_a(\bhat{x})}\text{,}
+\end{equation}
+
+\noindent sendo $\bhat{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\bhat{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
+
+Com isso, define-se os vetores de resíduos da conservação de quantidade de movimento de da continuidade como:
+
+\begin{subequations}
+    \begin{equation}
+        \NM=[(N_\mathrm{M})_i^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \NC=[(N_\mathrm{C})^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            (N_\mathrm{M})_i^a=&
+            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}+\\
+            &\SintDom{\tau_\sups(\bar{u}_j-\hat{u}_j)N_{a,j}\rMi{i}}+\SintDom{\rho\nu_\lsic N_{a,i}\rCi}-\\
+            &\SintDom{\tau_\sups N_a\bar{u}_{i,j}\rMi{j}}\\
+            &-\SintDom{\frac{N_{a,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}
+            \text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}+\SintDom{\tau_\sups\frac{N_{a,i}}{\rho}\rMi{i}}
+    \end{equation}
+\end{subequations}
+
+Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+
+\begin{subequations}
+    \begin{align}
+         & \NM(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{ e} \\
+         & \NC(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{.}
+    \end{align}
+\end{subequations}
+
+\textcolor{red}{Continuar escrevendo sobre ALE (?)}
+
+\end{document}
