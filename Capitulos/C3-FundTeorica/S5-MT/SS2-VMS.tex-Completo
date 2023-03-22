@@ -25,9 +25,9 @@ O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua 
 
 \begin{subequations}
     \begin{align}
-         & u_i=\bar{u}_i+u'_i\text{,}  \\
-         & p=\bar{p}+p'\text{,}        \\
-         & w_i=\bar{w}_i+w'_i\text{ e} \\
+         & \BB{u}=\BBB{u}+\BB{u}'\text{,}  \\
+         & p=\bar{p}+p'\text{,}            \\
+         & \BB{w}=\BBB{w}+\BB{w}'\text{ e} \\
          & q=\bar{q}+q'\text{,}
     \end{align}
 \end{subequations}
@@ -100,9 +100,9 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\rho\bigpar{\bar{u}_j\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}u'_i}-\SintDom{\bar{w}_{i,i}p'}+\\
-        &\SintDom{\rho\bar{w}_iu'_j\bar{u}_{i,j}}-\SintDom{\rho\bar{w}_{i,j}u'_iu'_j}=0
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\sups\bigpar{\bar{u}_j\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}\rMi{i}}+\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}-\\
+        &\SintDom{\tau_\sups\bar{w}_i\rMi{j}\bar{u}_{i,j}}-\SintDom{\frac{\bar{w}_{i,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}=0
         \text{.}
         \label{eq:RBVMS1}
     \end{split}
@@ -119,22 +119,27 @@ Para a discretização do problema pode-se realizar a separação da dependênci
     \end{align}
 \end{subequations}
 
-Substituindo \ref{eq:w-sep} e \ref{eq:q-sep} em \ref{eq:RBVMS1}, tais que $W^a$ e $Q^a$ são valores arbitrários, obtém-se dois vetores ($\NM=[(N_\mathrm{M})_i^a]$ e $\NC=[(N_\mathrm{C})^a]$) que representam resíduos a serem minimizados:
+Substituindo \ref{eq:w-sep} e \ref{eq:q-sep} em \ref{eq:RBVMS1} obtém-se dois vetores que representam o resíduo das equações da conservação da quantidade de movimento e da continuidade, nos quais $W^a$ e $Q^a$ são arbitrários:
 
 \begin{subequations}
     \begin{equation}
+        \NM=[(N_\mathrm{M})_i^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \NC=[(N_\mathrm{C})^a]\text{,}
+    \end{equation}
+    \begin{equation}
         \begin{split}
             (N_\mathrm{M})_i^a=&
-            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}-\\
-            &\SintDom{\rho N_{a,j}\bar{u}_ju'_i}-\SintDom{N_{a,i}p'}+\\
-            &\SintDom{\rho N_a\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}u'_iu'_j}
+            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}+\\
+            &\SintDom{\tau_\sups N_{a,j}\bar{u}_j\rMi{i}}+\SintDom{\rho\nu_\lsic N_{a,i}\rCi}-\\
+            &\SintDom{\tau_\sups N_a\bar{u}_{i,j}\rMi{j}}-\SintDom{\frac{N_{a,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}
             \text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}
+        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}+\SintDom{\tau_\sups\frac{N_{a,i}}{\rho}\rMi{i}}
     \end{equation}
-    \label{Eq:Residuos-Euler}
 \end{subequations}
 
 Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os graus de liberdade em velocidades, primeira derivada temporal das velocidades e pressões nodais, então o problema a ser resolvido será dado por: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
@@ -150,8 +155,9 @@ Uma formulação alternativa à apresentada é apresentada por \citeonline{bazil
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\bar{w}_{i,j}\rho\bar{u}_ju'_i}-\SintDom{q_{,i}u'_i}-\SintDom{\bar{w}_{i,i}p'}=0
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\supg\bar{u}_j\bar{w}_{i,j}\rMi{i}}+\SintDom{\tau_\pspg\frac{q_{,i}}{\rho}\rMi{i}}+\\
+        &\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}=0
         \text{,}
         \label{eq:SUPG-PSPG}
     \end{split}
@@ -172,9 +178,9 @@ Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompres
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\bigpar{\rho(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\bar{q}_{,i}}u'_i}-\SintDom{\bar{w}_{i,i}p'}+\\
-        &\SintDom{\rho\bar{w}_i\bar{u}_{i,j}u'_j}-\SintDom{\rho\bar{w}_{i,j}u'_iu'_j}=0
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\sups\bigpar{(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}\rMi{i}}+\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}-\\
+        &\SintDom{\tau_\sups\bar{w}_i\bar{u}_{i,j}\rMi{j}}-\SintDom{\frac{\bar{w}_{i,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}=0
         \text{,}
         \label{eq:RBVMS-ALE}
     \end{split}
@@ -209,6 +215,30 @@ Para o problema discretizado utiliza-se as seguintes expressões de aproximaçã
 
 Com isso, define-se os vetores de resíduos da conservação de quantidade de movimento de da continuidade como:
 
+\begin{comment} $FORMULAÇÃO COMPLETA
+\begin{subequations}
+    \begin{equation}
+        \NM=[(N_\mathrm{M})_i^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \NC=[(N_\mathrm{C})^a]\text{,}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            (N_\mathrm{M})_i^a=&
+            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}+\\
+            &\SintDom{\tau_\sups(\bar{u}_j-\hat{u}_j)N_{a,j}\rMi{i}}+\SintDom{\rho\nu_\lsic N_{a,i}\rCi}-\\
+            &\SintDom{\tau_\sups N_a\bar{u}_{i,j}\rMi{j}}-\\
+            &\SintDom{\frac{N_{a,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}
+            \text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}+\SintDom{\tau_\sups\frac{N_{a,i}}{\rho}\rMi{i}}
+    \end{equation}
+\end{subequations}
+\end{comment}
+
 \begin{subequations}
     \begin{equation}
         \NM=[(N_\mathrm{M})_i^a]\text{,}
@@ -228,7 +258,6 @@ Com isso, define-se os vetores de resíduos da conservação de quantidade de mo
     \begin{equation}
         (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}
     \end{equation}
-    \label{Eq:Residuos-ALE}
 \end{subequations}
 
 Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
@@ -240,132 +269,7 @@ Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, ta
     \end{align}
 \end{subequations}
 
-%==================================================================================================
-\subsubsection{Integração temporal} \label{IT-VMS}
-%==================================================================================================
-
-Como pôde-se verificar, em ambas as descrições, Euleriana e ALE, chega-se a um problema discreto no espaço, porém contínuo no tempo (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal dos parâmetros, que pode ocorrer de diferentes formas, como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, o surgimento de integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como em diferenças finitas atrasadas, e o denominado semi-explícito (ou da regra de trapézios). Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que: se observa a implicidade natural da pressão em escoamentos incompressíveis; deve-se ter um cuidado extra para garantir a estabilidade do integrador; apresentar problemas para a diagonalização de matrizes de massa; e perda de precisão na diagonalização.
-
-O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo \cite{fernandes2020tecnica}.
-
-Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo de tempo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dot{\BB{U}}^{n+\alpha_m}$ e $\BB{U}^{n+\alpha_f}$:
-
-\begin{subequations}
-    \begin{equation}
-        \dot{\BB{U}}^{n+\alpha_m}=\dot{\BB{U}}^n+\alpha_m(\dot{\BB{U}}^{n+1}-\dot{\BB{U}}^n)\text{ e}
-    \end{equation}
-    \begin{equation}
-        \BB{U}^{n+\alpha_f}=\BB{U}^n+\alpha_f(\BB{U}^{n+1}-\BB{U}^n)\text{.}
-    \end{equation}
-\end{subequations}
-
-Já para se relacionar a velocidade à aceleração, pode-se proceder com a aproximação de Newmark \cite{bazilevs2013computational}:
-
-\begin{equation}
-    \BB{U}^{n+1}=\BB{U}^n+\Delta t_n\bigpar{(1-\gamma)\dot{\BB{U}}^n+\gamma\dot{\BB{U}}^{n+1}}\text{,}
-\end{equation}
-
-\noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente observando as necessidades de estabilidade e precisão do método.
-
-De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013computational}, a precisão de segunda ordem dessa aproximação pode ser atingida uma vez que:
-
-\begin{equation}
-    \gamma=\frac{1}{2}+\alpha_m-\alpha_f\text{,}
-\end{equation}
-
-\noindent enquanto a estabilidade incondicional pode ser obtida caso:
-
-\begin{equation}
-    \alpha_m\geq\alpha_f\geq\frac{1}{2}\text{.}
-\end{equation}
-
-Ainda é possível escrever, a partir da Equação \ref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral de amplificação da matriz para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
-
-\begin{subequations}
-    \begin{equation}
-        \alpha_m=\frac{1}{2}\bigpar{\frac{3-\rho_\infty}{1+\rho_\infty}}\text{ e}
-    \end{equation}
-    \begin{equation}
-        \alpha_f=\frac{1}{1+\rho_\infty}\text{.}
-    \end{equation}
-    \label{eq:one-par-stable}
-\end{subequations}
-
-Para o caso de $\rho_\infty=1$ não ocorre a introdução de difusão numérica, enquanto para $\rho_\infty=0$ se tem a máxima dissipação de altas frequências \cite{fernandes2020tecnica}.
-
-Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos valores intermediários como:
-
-\begin{subequations}
-    \begin{equation}
-        \NM(\dot{\BB{U}}^{n+\alpha_m},\BB{U}^{n+\alpha_f},\BB{P}^{n+1})=0
-    \end{equation}
-    \begin{equation}
-        \NC(\dot{\BB{U}}^{n+\alpha_m},\BB{U}^{n+\alpha_f},\BB{P}^{n+1})=0
-    \end{equation}
-\end{subequations}
-
-%==================================================================================================
-\subsubsection{Procedimento iterativo} \label{Comp-VMS}
-%==================================================================================================
-
-O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os parâmetros a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção desses parâmetros é:
-
-\begin{equation}
-    \begin{bmatrix}
-        \der{(N_M)_i^a}{\dot{U}_j^{b,n+1}} & \der{(N_M)_i^a}{P^{b,n+1}} \\
-        \der{(N_C)^a}{\dot{U}_j^{b,n+1}}   & \der{(N_C)^a}{P^{b,n+1}}
-    \end{bmatrix}
-    \begin{bmatrix}
-        \Delta\dot{U}_j^{b,n+1} \\
-        \Delta P^{b,n+1}
-    \end{bmatrix}=-
-    \begin{bmatrix}
-        (N_M)_i^a \\
-        (N_C)^a
-    \end{bmatrix}\text{,}
-    \label{Eq:Newton-Raphson}
-\end{equation}
-
-\noindent em que, para uma descrição ALE:
-
-\begin{subequations}
-    \begin{equation}
-        \begin{split}
-            \der{(N_M)_i^a}{\dot{U}_j^{b,n+1}}=&\am\intDomna{\rho N_aN_b}\dij+\am\intDomna{\rho\tsups N_{a,k}N_{b}\uub{k}}\dij+\\
-            &\agdt\intDomna{\rho N_aN_{b,k}\uub{k}}\dij+\agdt\intDomna{\mu N_{a,k}N_{b,k}}\dij+\\
-            &\agdt\intDomna{\mu N_{a,j}N_{b,i}}+\agdt\intDomna{\rho\nlsic N_{a,i}N_{b,j}}+\\
-            &\agdt\intDomna{\rho\tsups N_{a,k}N_{b,m}\uub{k}\uub{m}}\dij+\\
-            &\agdt\intDomna{\rho N_aN_b\bar{u}_{i,j}}+\agdt\intDomna{\rho\tsups N_{a,k}N_b\uub{k}\bar{u}_{i,j}}-\\
-            &\am\intDomna{\rho\tsups N_aN_b\bar{u}_{i,j}}-\\
-            &\agdt\intDomna{\rho\tsups N_aN_{b,m}\uub{m}\bar{u}_{i,j}}-\\
-            &\agdt\intDomna{\rho\tsups N_aN_b\bar{u}_{i,k}\bar{u}_{k,j}}\text{,}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        \begin{split}
-            \der{(N_M)_i^a}{P^{b,n+1}}=&-\intDomna{N_{a,i}N_b}+\intDomna{\tsups N_{a,j}N_{b,i}\uub{j}}-\\
-            &\intDomna{\tsups N_aN_{b,j}\bar{u}_{i,j}}\text{,}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        \begin{split}
-            \der{(N_C)^a}{\dot{U}_j^{b,n+1}}=&\agdt\intDomna{N_aN_{b,j}}+\am\intDomna{\tsups N_{a,j}N_b}+\\
-            &\agdt\intDomna{\tsups N_{a,j}N_{b,m}\uub{m}}+\\
-            &\agdt\intDomna{\tsups N_{a,i}N_b\bar{u}_{i,j}}\text{ e}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        \der{(N_C)^a}{P^{b,n+1}}=\intDomna{\frac{\tsups}{\rho}N_{a,i}N_{b,i}}\text{,}
-    \end{equation}
-\end{subequations}
-
-\noindent em que $\agdt=\alpha_f\gamma\Delta t$ e:
-
-\begin{equation}
-    \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
-\end{equation}
-
-Para uma descrição euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
+\textcolor{red}{ESCREVER SOBRE O INTEGRADOR TEMPORAL}
 
 \textcolor{red}{Continuar escrevendo sobre ALE (?)}
 
