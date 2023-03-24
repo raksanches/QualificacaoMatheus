@@ -5,7 +5,7 @@
 \begin{document}
 
 %==================================================================================================
-\subsection{\textit{Variational Multiscale Methods}} \label{VMS}
+\subsection{\textit{Variational Multi-Scale}} \label{VMS}
 %==================================================================================================
 
 O Método Variacional Multiescala foi introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, o qual faz a separação dos espaços de tentativas e de testes em subespaços que representem as escalas grosseiras, que se tratam de subespaços de dimensões finitas e denotadas por uma barra, e as escalas finas, que são subespaços de infinitas dimensões e denotadas por $'$, ou seja:
@@ -96,7 +96,7 @@ Outra forma de se modelar os parâmetros estabilizadores pode ser dado por \cite
     \end{align}
 \end{subequations}
 
-Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíduos (\textit{Residual-Based Variational Multiscale} - RBVMS) que busca determinar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational}:
+Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíduos (\textit{Residual-Based Variational Multi-Scale} - RBVMS) que busca determinar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational}:
 
 \begin{equation}
     \begin{split}
@@ -365,6 +365,6 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
     \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
 \end{equation}
 
-Para uma descrição euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
+Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
 
 \end{document}

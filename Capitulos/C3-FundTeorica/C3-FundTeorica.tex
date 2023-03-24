@@ -8,11 +8,11 @@
 \chapter{Fundamentação Teórica} \label{FT}
 %==================================================================================================
 
-O presente capítulo apresentará inicialmente as equações governantes que descrevem o comportamento dos sólidos, focando em um método de solução baseado no Métodos dos Elementos Finitos Posicional (Seção \ref{EGDS}), seguido da apresentação das equações governantes da dinâmica dos fluidos, tendo como foco aqueles que se encontram em escoamento incompressível (Seção \ref{EGDF}), na sequência serão apresentados alguns modelos que buscam descrever os escoamentos turbulentos, sendo eles o \textit{Large Eddy Simulation} (Seção \ref{LES}), o \textit{Variational Multiscale Method} (Seção \ref{VMS}) e o \textit{Reynolds-Averaged Navier-Stokes} (Seção \ref{RANS}).
+O presente capítulo apresenta inicialmente as equações governantes que descrevem a dinâmica dos fluidos, em especial aquelas voltadas para escoamentos incompressíveis levando em consideração os princípios da conservação de massa e da quantidade de movimento, culminando na obtenção das equações de Navier-Stokes para esse tipo de escoamento em descrição Euleriana e Lagrangiana-Euleriana Arbitrária (ALE) (Seção \ref{EGDF}). Na sequência apresenta-se as equações governantes da dinâmica dos sólidos, onde se observa desde os conceitos fundamentais, como a cinemática dos corpos deformáveis, até uma descrição em Elementos Finitos baseado em Posições (Seção \ref{EGDS}), onde é detalhado o elemento finito de casca. Com isso se faz a formulação de métodos de acoplamento Fluido-Estrutura, tendo em vista métodos de acoplamento particionado (fraco e forte), assim como o método de acoplamento monolítico. Por fim detalha-se o equacionamento dos modelos de turbulência baseados em: \textit{Large Eddy Simulation} (Seção \ref{LES}); \textit{Variational Multi-Scale} (Seção \ref{VMS}); e \textit{Reynolds-Averaged Navier-Stokes} (Seção \ref{RANS}), tendo como foco métodos de solução computacional.
 
 %\subfile{S1-Conceitos}
-\subfile{S2-CSD}
 \subfile{S3-CFD}
+\subfile{S2-CSD}
 \subfile{S4-Acoplamento}
 \subfile{S5-MT/S5-MT}
 

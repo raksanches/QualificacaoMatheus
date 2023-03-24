@@ -14,7 +14,7 @@ Para a devida representação de escoamentos a temperatura constante é necessá
 \subsection{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
-Em uma descrição euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como equação da continuidade) do fluido. Para isso, considere um elemento infinitesimal permeável, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades do fluido na posição atual ($\mathbf{y}$) do elemento e $\rho$ é a massa específica do fluido nesse ponto.
+Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades do fluido na posição atual ($\mathbf{y}$) do elemento e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h]
     \centering
@@ -41,7 +41,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     \end{split}
 \]
 
-\noindent que pode ser simplificada para:
+Simplificando essa expressão, chega-se a seguinte relação em forma expandida:
 
 \begin{equation}
     \apder{\rho}{t}=-\left(\apder{(\rho u_1)}{y_1}+\apder{(\rho u_2)}{y_2}+\apder{(\rho u_3)}{y_3}\right)\text{,}
@@ -59,7 +59,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     \label{eq:BalMas}
 \end{subequations}
 
-\noindent em que $D\rho/Dt$ representa a derivada material, definida para uma propriedade $\phi$ qualquer como:
+\noindent sendo $D\rho/Dt$ a representação de derivada material, definida para uma propriedade $\phi$ qualquer como:
 
 \begin{equation}
     \frac{D\phi}{Dt}=\apder{\phi}{t}+\BB{u}\cdot\NN\phi\text{,}
@@ -79,16 +79,20 @@ Realizando-se o balanço de massa nesse elemento tem-se:
 \noindent e $\NN\cdot(\cdot)$ é o divergente, que para uma função vetorial $\BB{g}$ qualquer, é dado por:
 
 \begin{equation}
-    \NN\BB{g}\equiv\der{g_i}{y_i}=g_{i,i}\text{.}
+    \NN\BB{g}\equiv\der{g_i}{y_i}=g_{i,i}\text{,}
 \end{equation}
+
+\noindent sendo a vírgula presente no subíndice a representação de derivada para a respectiva componente.
 
 Para escoamentos incompressíveis a equação da continuidade pode ser reduzida a:
 
 \begin{equation}
-    u_{i,i}=0\text{.}\label{eq:incomp}
+    u_{i,i}=0\text{,}\label{eq:incomp}
 \end{equation}
 
-Já a equação que expressa a conservação da quantidade de movimento (ou de momento linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
+\noindent denominada como condição de incompressibilidade.
+
+Já a equação que expressa a Conservação da Quantidade de Movimento (ou de Momento Linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
 
 \begin{figure}[h]
     \centering
@@ -107,17 +111,12 @@ Assim, procede-se com o balanço da taxa de quantidade de movimento, no qual $d\
     \end{split}
 \]
 
-Fazendo as devidas simplificações obtém-se a equação da conservação da quantidade de movimento na sua forma simbólica (Equação \ref{eq:ConQtdMov1}) e na sua forma indicial (Equação \ref{eq:ConQtdMov2}):
+Fazendo as devidas simplificações obtém-se a equação da conservação da quantidade de movimento:
 
-\begin{subequations}
-    \begin{equation}
-        \apder{(\rho\BB{u})}{t}+\NN\cdot(\BB{u}\otimes\rho\BB{u})-\BB{q}=\BB{0}\text{,}\label{eq:ConQtdMov1}
-    \end{equation}
-    \begin{equation}
-        \apder{(\rho u_i)}{t}+(\rho u_ju_i)_{,j}-q_i=0\text{,}\label{eq:ConQtdMov2}
-    \end{equation}
+\begin{equation}
+    \apder{(\rho u_i)}{t}+(\rho u_ju_i)_{,j}-q_i=0\text{,}
     \label{eq:ConQtdMov}
-\end{subequations}
+\end{equation}
 
 \noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($c_i$).
 
@@ -141,7 +140,7 @@ Fazendo o equilíbrio de forças nessa direção, obtém-se que:
     \end{split}
 \]
 
-Após feitas as devidas simplificações, pode-se estabelecer uma relação entre $q_i$ e $\sigma_{ij}$ como:
+Após feitas as devidas simplificações, pode-se estabelecer uma relação entre $q_i$ e $\sigma_{ij}$:
 
 \begin{equation}
     q_1=\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1\text{,}
@@ -154,7 +153,7 @@ Após feitas as devidas simplificações, pode-se estabelecer uma relação entr
     \label{eq:RelQSig}
 \end{equation}
 
-Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a incompressibilidade (apresentada na Equação \ref{eq:incomp}) obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
+Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a condição de incompressibilidade obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
 
 \begin{equation}
     \rho\bigpar{\dot{u}_i+u_ju_{i,j}-f_i}-\sigma_{ji,j}=0\text{,}
@@ -173,7 +172,7 @@ Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a incompressibil
     \label{eq:ConQtdMov-3}
 \end{subequations}
 
-Dessa forma, define-se o domínio em que essas equações são válidas como $\Omega\subset\mathbb{R}^{n_{sd}}$, sendo $n_{sd}$ a dimensão do problema em análise, podendo ser $n_{sd}=2$ ou $3$. Assim, $\Omega$ possui uma fronteira suave $\Gamma=\partial\Omega$, em que a parte dessa fronteira onde se impõem condições cinemáticas é denominada como fronteira de Dirichlet ($\Gamma_D$) e a parte onde há prescrição de forças de superfície é denotado como fronteira de Neumann ($\Gamma_N$), conforme pode ser visualizado na Figura \ref{fig:Dom}.
+Já o domínio em que essas equações são válidas pode ser definido como $\Omega\subset\mathbb{R}^{n_{sd}}$, sendo $n_{sd}=2$ ou $3$ a dimensão do problema em análise, tal que $\Omega$ possui uma fronteira $\Gamma=\partial\Omega$, em que a parte dessa fronteira onde se impõem condições cinemáticas é denominada como fronteira de Dirichlet ($\Gamma_D$) e a parte onde há prescrição de forças de superfície é denotado como fronteira de Neumann ($\Gamma_N$), conforme pode ser visualizado na Figura \ref{fig:Dom}.
 
 \begin{figure}[h]
     \centering
@@ -196,7 +195,7 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
     \right.\label{eq:NS-Euler}
 \end{equation}
 
-as quais são chamadas de equações de Navier-Stokes para escoamentos incompressíveis em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
+\noindent as quais são chamadas de equações de Navier-Stokes para escoamentos incompressíveis em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
 
 %==================================================================================================
 \subsection{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
@@ -290,14 +289,14 @@ Dessa maneira, remove-se os sobrescritos * e ** e define-se a derivada material 
     \frac{D\phi}{Dt}=\apderxh{\phi}{t}+(\BB{u}-\uhat)\cdot\NN\phi\text{.}\label{DerMat2}
 \end{equation}
 
-Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \ref{DerMat2} em \ref{eq:BalMas} para se obter a equação de conservação de massa na descrição ALE:
+Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \ref{DerMat2} em \ref{eq:BalMas} para se obter a Equação da Continuidade na descrição ALE:
 
 \begin{equation}
     \apderxh{\rho}{t}+(\BB{u}-\uhat)\cdot\NN\rho+\rho\NN\cdot\BB{u}=0\text{,}
     \label{ConMas4}
 \end{equation}
 
-Já a equação da conservação da quantidade de movimento na descrição ALE pode ser obtida substituindo-se a Equação \ref{DerMat2} em \ref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
+Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \ref{DerMat2} em \ref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
 
 \begin{equation}
     \rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T=\BB{0}\text{.}
@@ -317,7 +316,7 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
     \right.\label{eq:NS-ALE}
 \end{equation}
 
-\noindent que são denominadas como as equações de Navier-Stokes para escoamentos incompressíveis em descrição ALE.
+\noindent que são denominadas como as equações de Navier-Stokes para escoamentos incompressíveis em descrição ALE \cite{bazilevs2013computational}.
 
 %==================================================================================================
 \subsection{Modelo Constitutivo} \label{MC}
@@ -338,7 +337,7 @@ O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos
 \noindent em que $\script{D}_{ij\alpha\beta}$ é o tensor constitutivo de quarta ordem, dado por:
 
 \begin{equation}
-    \script{D}=2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\text{,}
+    \script{D}_{ij\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\text{,}
 \end{equation}
 
 \noindent sendo $\mu$ a viscosidade dinâmica do fluido e $\dot{\varepsilon}_{ij}$ é o tensor de taxa de deformação, definido como:
@@ -410,7 +409,7 @@ Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira in
     \label{eq:WeakForm1}
 \end{equation}
 
-Fazendo a integração por partes da parcela que foi separada e considerando o Teorema da Divergência, chega-se à forma fraca do problema, expressa como a Equação \ref{eq:WeakForm2}, onde procura-se determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ $\forall t\in(0,T)$, sendo $T$ o tempo analisado, dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\uhat$, em que $\BB{h}=\tens^T\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$:
+Fazendo a integração por partes da parcela que foi separada e considerando o Teorema da Divergência, chega-se à forma fraca do problema, expressa como a Equação \ref{eq:WeakForm2}, onde define-se o problema como: determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p\forall\BB{w}\in\script{V}_u$ e $q\in\script{V}_p$ arbitrários em um intervalo $t\in(0,T)$, sendo $T$ o tempo analisado, dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\uhat$, em que $\BB{h}=\tens^T\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$:
 
 \begin{equation}
     \begin{split}
@@ -420,6 +419,30 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
     \label{eq:WeakForm2}
 \end{equation}
 
-\textcolor{red}{(Escrever sobre condição de LBB e modelos estabilizados)}
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}, principalmente em problemas de convecção dominante devido à grande não-linearidade e assimetria do sistema de equações resultante desse método. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez essa escolha possui restrições quanto à sua escolha. Essas restrições são denominadas de condições de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a impossibilidade de se aproximar o campo de velocidades e de pressões no mesmo espaço, uma vez que \cite{donea2003finite}:
+
+\begin{equation}
+    \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
+\end{equation}
+
+Assim, para se garantir a unicidade da solução, a escolha dos espaços de aproximação da velocidade e da pressão depende da seguinte condição suficiente:
+
+\begin{equation}
+    \inf_{q^h\in\script{V}_p^h}{\sup_{\BB{w}^h\in\script{V}_u^h}{\frac{(q^h,\BB{\nabla}\cdot\BB{w}^h)}{\norm{q}_0\norm{\BB{w}^h}_1}}}\geq\beta>0\text{,}
+\end{equation}
+
+\noindent em que $\beta$ é uma constante independente do tamanho da malha.
+
+Como pode-se observar, a escolha dos espaços de aproximações que atendam às condições LBB não é trivial. Sendo assim, \citeonline{donea2003finite} apresenta alguns elementos possíveis de se utilizar atendendo às condições LBB (denominados de Elementos Taylor-Hood). A Figura \ref{fig:Taylor-Hood} ilustra alguns elementos Taylor-Hood.
+
+\begin{figure}[h]
+    \centering
+    \caption{Elementos Taylor-Hood.}
+    \includegraphics[width=.75\linewidth]{../../Figuras/Taylor-Hood.pdf}
+    \\Fonte: \citeonline{fernandes2020tecnica} - Adaptado.
+    \label{fig:Taylor-Hood}
+\end{figure}
+
+Outros trabalhos foram desenvolvidos a fim de se obter formulações estabilizadas que permitam a utilização dos mesmos espaços de aproximação para ambos os espaços almejados, como a formulação SUPG/PSPG, reduzindo também problemas relacionados à convecção dominante. Essa formulação será devidamente tratada nas subseções seguintes (\ref{VMS}).
 
 \end{document}
