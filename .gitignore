@@ -15,3 +15,5 @@ Secoes/*.log
 *.fdb_latexmk
 *.fls
 *.ind
+*.gz
+.vscode
