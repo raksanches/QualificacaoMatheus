@@ -149,6 +149,7 @@
 \newcommand{\apderx}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{x}}}
 \newcommand{\apderxh}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\bhat{x}}}
 \newcommand{\der}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\Dder}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
 \newcommand{\dder}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
 \newcommand{\BB}[1]{\mathbf{#1}}
 \newcommand{\BBB}[1]{\overline{\mathbf{#1}}}
@@ -245,20 +246,20 @@
 %\cleardoublepage
 % inserir lista de abreviaturas e siglas
 \begin{siglas}
-	\item[ALE] Lagrangiana-Euleriana Arbitrária - \textit{Arbitrary Lagrangian-Eulerian}
+    \item[ALE] Lagrangiana-Euleriana Arbitrária - \textit{Arbitrary Lagrangian-Eulerian}
     \item[LBB] Ladyzhenskaya-Babuška-Brezzi
-	\item[CFD] Dinâmica dos Fluidos Computacional - \textit{Computational Fluid Dynamics}
-	\item[CSD] Dinâmica dos Sólidos Computacional - \textit{Computational Solid Dynamics}
+    \item[CFD] Dinâmica dos Fluidos Computacional - \textit{Computational Fluid Dynamics}
+    \item[CSD] Dinâmica dos Sólidos Computacional - \textit{Computational Solid Dynamics}
     \item[GLS] Galerkin Least-Squares
-	\item[IFE] Interação Fluido-Estrutura
-	\item[LES] Simulação de Grandes Vórtices - \textit{Large Eddy Simulation}
+    \item[IFE] Interação Fluido-Estrutura
+    \item[LES] Simulação de Grandes Vórtices - \textit{Large Eddy Simulation}
     \item[LSIC] \textit{Least-Squares on Incompressibility Constraint}
-	\item[MEF] Método dos Elementos Finitos
+    \item[MEF] Método dos Elementos Finitos
     \item[PSPG] \textit{Pressure-Stabilizating/Petrov-Galerkin}
-	\item[RANS] \textit{Reynolds-Averaged Navier-Stokes}
+    \item[RANS] \textit{Reynolds-Averaged Navier-Stokes}
     \item[SGS] Subgrid-Scales
     \item[SUPG] \textit{Streamline-Upwind/Petrov-Galerkin}
-	\item[VMS] Métodos Variacionais Multiescala - \textit{Variational Multi-Scale}
+    \item[VMS] Métodos Variacionais Multiescala - \textit{Variational Multi-Scale}
 \end{siglas}
 % inserir lista de símbolos
 \begin{simbolos}
@@ -276,7 +277,7 @@
     \item[$\otimes$] Produto tensorial
     \item[$\sum$] Somatório
     \item[$\prod$] Produtório
-    
+
     \item[Parâmetros Gerais]
     \item[$\hat{\mathbf{e}}_i$] Vetor versor na direção $i$
     \item[$\mathbb{I}$] Tensor identidade de quarta ordem
@@ -291,7 +292,7 @@
     \item[$\rho$] Massa específica
     \item[$\mathbf{\sigma}$] Tensor de tensões de Cauchy
     \item[$\phi$] Propriedade qualquer
-    
+
     \item[Configurações do Contínuo]
     \item[$\mathbf{x}$] Posição inicial (ou posição material)
     \item[$\mathbf{\hat{x}}$] Posição de referência
@@ -301,7 +302,7 @@
     \item[$\Omega$] Domínio de análise na configuração atual
     \item[$\Omega_0$] Domínio de análise na configuração inicial
     \item[$\hat{\Omega}$] Domínio de análise na configuração de referência
-    
+
     \item[Dinâmica dos Sólidos Computacional]
     \item[$\mathbb{A}$] Medida de deformação de Almansi
     \item[$\mathbf{A}$] Gradiente da função de mudança de configuração
@@ -319,7 +320,7 @@
     \item[$\mathbf{\varepsilon}$] Tensor de deformação linear
     \item[$\varepsilon_V$] Deformação volumétrica
     \item[$\Pi$] Energia total
-    
+
     \item[Dinâmica dos Fluidos Computacional]
     \item[$\mathbf{A}$] Gradiente da função de mudança de configuração
     \item[$\mathbf{c}$] Força de corpo
@@ -358,9 +359,9 @@
     \item[$\nu_T$] Viscosidade de vórtice
     \item[$\bar{\phi}$] Propriedade filtrada
     \item[$\phi'$] Propriedade não filtrada
-    
+
     \item[\textit{Variational Multi-Scale}]
-    
+
     \item[\textit{Reynolds-Averaged Navier-Stokes}]
 \end{simbolos}
 

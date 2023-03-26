@@ -326,13 +326,13 @@ Será exposta na presente seção a formulação para elementos de Casca baseada
 \noindent em que $\Omega_0$ é o domínio de análise em sua configuração inicial, cuja fronteira é $\Gamma_0=\partial\Omega_0$, $F_i^a$ é uma força concentrada aplicada sobre um ponto $a$ na direção $i$, cuja posição atual é $Y_i^a$, $t_i$ é uma força distribuída sobre uma superfície média da casca ($y_i$), $\rho_0$ é a massa específica inicial do contínuo e  $S_{ij}$ é o tensor de Piola-Kirchhoff de segunda espécie, escrito como:
 
 \begin{equation}
-    S_{ij}=C_{ijkl}\mathbb{E}_{kl}\text{,}
+    S_{ij}=\script{C}_{ijkl}\mathbb{E}_{kl}\text{,}
 \end{equation}
 
 \noindent sendo $C_{ijkl}$ o tensor constitutivo de quarta ordem:
 
 \begin{equation}
-    C_{ijkl}=2G\delta_{ik}\delta_{jl}+\frac{2G\nu}{1-2\nu}\delta_{ij}\delta_{kl}
+    \script{C}_{ijkl}=2G\delta_{ik}\delta_{jl}+\frac{2G\nu}{1-2\nu}\delta_{ij}\delta_{kl}
 \end{equation}
 
 \noindent no qual $\nu$ é o coeficiente de Poisson e $G$ é o módulo de elasticidade transversal, dado em função do módulo de elasticidade longitudinal (ou Módulo de Young) $E$ como:
@@ -420,15 +420,88 @@ sendo possível definir um velor $\BB{g}$, denominado como vetor de desbalanceam
 
 \begin{subequations}
     \begin{align}
-         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{Y_i^a}}\text{,}                   &  & \text{Forças internas}          \\
-         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b\text{,}         &  & \text{Forças inerciais}         \\
-         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b\text{,} &  & \text{Forças de amortecimento}  \\
-         & (F^\mathrm{c})_i^a=F_i^a+\intFronti{N_aN_b}T_i^a\text{ e}                 &  & \text{Forças conservativas}     \\
-         & (F^\mathrm{nc})_i^a=\intFronti{N_aN_b}Q_i^b\text{.}                       &  & \text{Forças não-conservativas}
+         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{Y_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{Y_i^a}}\text{,} &  & \text{Forças internas}          \\
+         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b\text{,}                                    &  & \text{Forças inerciais}         \\
+         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b\text{,}                            &  & \text{Forças de amortecimento}  \\
+         & (F^\mathrm{c})_i^a=F_i^a+\intFronti{N_aN_b}T_i^a\text{ e}                                            &  & \text{Forças conservativas}     \\
+         & (F^\mathrm{nc})_i^a=\intFronti{N_aN_b}Q_i^b\text{.}                                                  &  & \text{Forças não-conservativas}
     \end{align}
 \end{subequations}
 
 Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$ tal que $\BB{g}(\BB{Y})=\BB{0}$.
+
+Como é possível verificar, o cálculo de $\BB{g}$ é dependente não somente das posições nodais, mas também da velocidade e acelerações nodais. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrado temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
+
+A aproximação relizada pelo integrador de Newmark é dada por:
+
+\begin{subequations}
+    \begin{equation}
+        Y_i^{n+1}=Y_i^n+\dot{Y}_i^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddot{Y}_i^n+\beta\ddot{Y}_i^{n+1}}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \dot{Y}_i^{n+1}=\dot{Y}_i^n+\Delta t(1-\gamma)\ddot{Y}_i^n+\gamma\ddot{Y}_i^{n+1}\Delta t\text{,}
+    \end{equation}
+\end{subequations}
+
+\noindent sendo o superíndice $n$ e $n+1$ a indicação do passo de tempo analisado ($t_n$ e $t_{n+1}$), $\Delta t$ o intervalo de tempo discretizado e $\beta$ e $\gamma$ parâmetros livres, que devem ser escolhidos de forma a garantir a convergência do método, sendo arbitrados valores de $\beta=1/4$ e $\gamma=1/2$, garantindo a estabilidade incondicional do método \cite{LINDFIELD2019239}.
+
+Já para procurar valores de $\BB{Y}$ que anulem $\BB{g}$, utiliza-se o Método de Newton-Raphson, o qual exige o cálculo de uma matriz Hessiana ($H_{ij}^{ab}$):
+
+\begin{equation}
+    H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial Y_j^b\partial Y_i^a}=\der{g_i^a}{Y_j^b}\text{.}
+\end{equation}
+
+Isolando-se os termos incógnitos da aproximação de Newmark, substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
+
+\begin{equation}
+    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}\text{,}
+\end{equation}
+
+\noindent sendo $(H^\text{est})_{ij}^{ab}$ a matriz hessiana estática elementar, $M_{ij}^{ab}$ a matriz de massa e $C_{ij}^{ab}$ a matriz de amortecimento, dadas por:
+
+\begin{subequations}
+    \begin{align}
+         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{Y_j^b}{Y_i^a}=\intDomi{\bigpar{\der{S_{kl}}{Y_j^b}\der{\mathbb{E}_{kl}}{Y_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}}} \\
+         & M_{ij}^{ab}=\intDomi{\rho_0N_aN_b}\dij\text{ e}                                                                                                                        \\
+         & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0N_aN_b}\dij\text{.}
+    \end{align}
+\end{subequations}
+
+Fazendo as derivadas tem-se:
+
+\begin{subequations}
+    \begin{align}
+        &\der{A_{jk}}{Y_i^a}=(A^0_{lk})^{-1}N_{a,l}\dij\\
+        &\Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}=\frac{1}{2}\bigpar{\der{A_{ml}}{Y_i^a}\der{A_{mk}}{Y_j^b}+\der{A_{mk}}{Y_i^a}\der{A_{ml}}{Y_j^b}}\\
+        &\der{S_{kl}}{Y_j^b}=\script{C}_{klmn}\der{\mathbb{E}_{mn}}{Y_j^b}\\
+        &\der{\mathbb{E}_{kl}}{Y_i^a}=\frac{1}{2}\bigpar{A_{mk}\der{A_{ml}}{Y_i^a}+A_{ml}\der{A_{mk}}{Y_i^a}}\text{.}
+    \end{align}
+\end{subequations}
+
+Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{Y}$) como a solução do sistema:
+
+\begin{equation}
+    H_{ij}\Delta Y_j=-g_i\text{,}
+\end{equation}
+
+\noindent tendo como critérios de parada a medida dos erros:
+
+\begin{subequations}
+    \begin{align}
+        &\frac{\norm{\BB{g}}}{\norm{\BB{F}^\text{ext}}}\leq\text{tol e}\\
+        &\frac{\norm{\Delta\BB{T}}}{\norm{\BB{X}}}\leq\text{tol,}
+    \end{align}
+\end{subequations}
+
+\noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
+
+%==================================================================================================
+\subsubsection{Procedimento Computacional} \label{MEFP-Comp}
+%==================================================================================================
+
+\textcolor{red}{DIZER QUE ESTÁ UTILIZANDO A QUADRATURA DE HAMMER.}
+
+O algoritmo \ref{alg:teste} apresentado na forma de pseudocódigo exemplifica o código implementado.
 
 %==================================================================================================
 \subsubsection{Exemplos de Validação} \label{MEFP-Ex}
