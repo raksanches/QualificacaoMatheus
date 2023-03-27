@@ -165,6 +165,7 @@ Assim, define-se o tensor de deformações de Green-Lagrange como:
 
 \begin{equation}
     \mathbb{E}=\frac{1}{2}(\BB{C}-\BB{I})\text{,}
+    \label{eq:CSD-DefGreenLagr}
 \end{equation}
 
 \noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em movimento de corpo rígido.
@@ -327,6 +328,7 @@ Será exposta na presente seção a formulação para elementos de Casca baseada
 
 \begin{equation}
     S_{ij}=\script{C}_{ijkl}\mathbb{E}_{kl}\text{,}
+    \label{eq:CSD-S}
 \end{equation}
 
 \noindent sendo $C_{ijkl}$ o tensor constitutivo de quarta ordem:
@@ -385,6 +387,7 @@ Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível s
          & A_{i2}^1=f_{i,2}^1=Y_i^aN_{a,2}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,2}\xi_3^2+(V^1)_i^aN_{a,2}(\xi_3+A^bN_b\xi_3^2)}\text{ e} \\
          & A_{i3}^1=f_{i,3}^1=\frac{h_0}{2}(V^1)_i^aN_a\bigpar{1+2A^bN_b\xi_3}
     \end{align}
+    \label{eq:CSD-A1}
 \end{subequations}
 
 \noindent e os valores de $\BB{A}^0$ são:
@@ -395,6 +398,7 @@ Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível s
          & A_{i2}^0=f_{i,2}^0=X_i^aN_{a,2}+\frac{h_0}{2}(V^0)_i^aN_{a,2}\xi_3\text{ e} \\
          & A_{i3}^0=f_{i,3}^0=\frac{h_0}{2}(V^0)_i^aN_a\text{.}
     \end{align}
+    \label{eq:CSD-A0}
 \end{subequations}
 
 Assim, é possível calcular a derivada da energia total em termos das posições nodais como:
@@ -410,22 +414,24 @@ Assim, é possível calcular a derivada da energia total em termos das posiçõe
     \end{split}
 \end{equation}
 
-sendo possível definir um velor $\BB{g}$, denominado como vetor de desbalanceamento mecânico, como:
+\noindent sendo possível definir um velor $\BB{g}$, denominado como vetor de desbalanceamento mecânico, como:
 
 \begin{equation}
     g_i^a(\BB{Y})=(F^\mathrm{int})_i^a+(F^\mathrm{inerc})_i^a+(F^\mathrm{amort})_i^a-(F^\mathrm{c})_i^a-(F^\mathrm{nc})_i^a=0\text{,}
+    \label{eq:CSD-g}
 \end{equation}
 
 \noindent sendo $\BB{Y}$ o vetor de posições nodais e:
 
 \begin{subequations}
     \begin{align}
-         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{Y_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{Y_i^a}}\text{,} &  & \text{Forças internas}          \\
-         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b\text{,}                                    &  & \text{Forças inerciais}         \\
-         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b\text{,}                            &  & \text{Forças de amortecimento}  \\
-         & (F^\mathrm{c})_i^a=F_i^a+\intFronti{N_aN_b}T_i^a\text{ e}                                            &  & \text{Forças conservativas}     \\
-         & (F^\mathrm{nc})_i^a=\intFronti{N_aN_b}Q_i^b\text{.}                                                  &  & \text{Forças não-conservativas}
+         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{Y_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{Y_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}          \\
+         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b\text{,}\label{eq:CSD-Finerc}                                  &  & \text{Forças inerciais}         \\
+         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b\text{,}\label{eq:CSD-Famort}                          &  & \text{Forças de amortecimento}  \\
+         & (F^\mathrm{c})_i^a=F_i^a+\intFronti{N_aN_b}T_i^a\text{ e}\label{eq:CSD-Fc}                                              &  & \text{Forças conservativas}     \\
+         & (F^\mathrm{nc})_i^a=\intFronti{N_aN_b}Q_i^b\text{.}\label{eq:CSD-Fnc}                                                   &  & \text{Forças não-conservativas}
     \end{align}
+    \label{eq:CSD-F}
 \end{subequations}
 
 Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$ tal que $\BB{g}(\BB{Y})=\BB{0}$.
@@ -451,10 +457,31 @@ Já para procurar valores de $\BB{Y}$ que anulem $\BB{g}$, utiliza-se o Método 
     H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial Y_j^b\partial Y_i^a}=\der{g_i^a}{Y_j^b}\text{.}
 \end{equation}
 
-Isolando-se os termos incógnitos da aproximação de Newmark, substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
+Isolando-se as velocidades e acelerações incógnitas em termos de posições no tempo $n+1$ e de parâmetros já conhecidos tem-se:
+
+\begin{subequations}
+    \begin{align}
+         & \ddot{Y}_i^{n+1}=\frac{Y_i^{n+1}}{\beta\Delta t^2}-Q_i^n                                \\
+         & \dot{Y}_i^{n+1}=\frac{\gamma}{\beta\Delta t}Y_i^{n+1}+R_i^n-\gamma\Delta tQ_i^n\text{,}
+    \end{align}
+    \label{eq:CSD-Newmark2}
+\end{subequations}
+
+\noindent em que:
+
+\begin{subequations}
+    \begin{align}
+         & Q_i^n=\frac{Y_i^n}{\beta\Delta t^2}+\frac{\dot{Y}_i^n}{\beta\Delta t}+\bigpar{\frac{1}{2\beta}-1}\ddot{Y}_i^n \\
+         & R_i^n=\dot{Y}_i^n+\Delta t(1-\gamma)\ddot{Y}_i^n\text{.}
+    \end{align}
+    \label{eq:CSD-QnRn}
+\end{subequations}
+
+Substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
 
 \begin{equation}
     H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}\text{,}
+    \label{eq:CSD-Hijab}
 \end{equation}
 
 \noindent sendo $(H^\text{est})_{ij}^{ab}$ a matriz hessiana estática elementar, $M_{ij}^{ab}$ a matriz de massa e $C_{ij}^{ab}$ a matriz de amortecimento, dadas por:
@@ -465,17 +492,19 @@ Isolando-se os termos incógnitos da aproximação de Newmark, substituindo-os e
          & M_{ij}^{ab}=\intDomi{\rho_0N_aN_b}\dij\text{ e}                                                                                                                        \\
          & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0N_aN_b}\dij\text{.}
     \end{align}
+    \label{eq:CSD-HMC}
 \end{subequations}
 
 Fazendo as derivadas tem-se:
 
 \begin{subequations}
     \begin{align}
-        &\der{A_{jk}}{Y_i^a}=(A^0_{lk})^{-1}N_{a,l}\dij\\
-        &\Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}=\frac{1}{2}\bigpar{\der{A_{ml}}{Y_i^a}\der{A_{mk}}{Y_j^b}+\der{A_{mk}}{Y_i^a}\der{A_{ml}}{Y_j^b}}\\
-        &\der{S_{kl}}{Y_j^b}=\script{C}_{klmn}\der{\mathbb{E}_{mn}}{Y_j^b}\\
-        &\der{\mathbb{E}_{kl}}{Y_i^a}=\frac{1}{2}\bigpar{A_{mk}\der{A_{ml}}{Y_i^a}+A_{ml}\der{A_{mk}}{Y_i^a}}\text{.}
+         & \der{A_{jk}}{Y_i^a}=(A^0_{lk})^{-1}N_{a,l}\dij\text{,}\label{eq:CSD-derA}                                                                                           \\
+         & \der{\mathbb{E}_{kl}}{Y_i^a}=\frac{1}{2}\bigpar{A_{mk}\der{A_{ml}}{Y_i^a}+A_{ml}\der{A_{mk}}{Y_i^a}}\text{,}\label{eq:CSD-derE}                                     \\
+         & \Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}=\frac{1}{2}\bigpar{\der{A_{ml}}{Y_i^a}\der{A_{mk}}{Y_j^b}+\der{A_{mk}}{Y_i^a}\der{A_{ml}}{Y_j^b}}\text{ e}\label{eq:CSD-DderE} \\
+         & \der{S_{kl}}{Y_j^b}=\script{C}_{klmn}\der{\mathbb{E}_{mn}}{Y_j^b}\text{.}\label{eq:CSD-derS}                                                                        \\
     \end{align}
+    \label{eq:CSD-derAES}
 \end{subequations}
 
 Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{Y}$) como a solução do sistema:
@@ -488,9 +517,10 @@ Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{
 
 \begin{subequations}
     \begin{align}
-        &\frac{\norm{\BB{g}}}{\norm{\BB{F}^\text{ext}}}\leq\text{tol e}\\
-        &\frac{\norm{\Delta\BB{T}}}{\norm{\BB{X}}}\leq\text{tol,}
+         & \frac{\norm{\BB{g}}}{\norm{\BB{F}^\text{ext}}}\leq\text{tol e} \\
+         & \frac{\norm{\Delta\BB{T}}}{\norm{\BB{X}}}\leq\text{tol,}
     \end{align}
+    \label{eq:CSD-erro}
 \end{subequations}
 
 \noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
@@ -499,9 +529,56 @@ Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{
 \subsubsection{Procedimento Computacional} \label{MEFP-Comp}
 %==================================================================================================
 
-\textcolor{red}{DIZER QUE ESTÁ UTILIZANDO A QUADRATURA DE HAMMER.}
+Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
 
-O algoritmo \ref{alg:teste} apresentado na forma de pseudocódigo exemplifica o código implementado.
+O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplifica o código implementado.
+
+\begin{algorithm}[h]
+    \caption{Algoritmo utilizado para o cálculo das posições nodais.}
+    \label{alg:MEF-casca}
+    \KwResult{Vetor global de posições nodais}
+    $\BB{Y}\gets\BB{X}$\;
+    \For{$t_i\gets 0$ \KwTo $t_f$}{
+    Calcular $Q^n$ e $R^n$ (Eq. \ref{eq:CSD-QnRn})\;
+    \ForEach{\textnormal{passo de carga}}{
+    \tcp{Cálculo das forças externas}
+    \ForEach{\textnormal{elemento}}{
+    \ForEach{\textnormal{ponto de Hammer }$i_h$}{
+    Calcular $\BB{A}^0_{2\times 2}$ e $J_0=\det{(A^0)}$\;
+    \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
+        Calcular $\BB{F}^c$ e $\BB{F}^{nc}$ (Eq. \ref{eq:CSD-Fc} e \ref{eq:CSD-Fnc})\;
+        Somar a contribuição no vetor global: $((F^c)_i^a+(F^{nc})_i^a)\cdot J_0\cdot w_{i_h}$\;
+    }
+    }
+    }
+    Somar a contribuição das forças concentradas no vetor global\;
+    \While{erro>tol}{
+    \ForEach{\textnormal{elemento}}{
+    \ForEach{\textnormal{ponto de Hammer }$i_h$}{
+    Calcular $\BB{A}^0_{3\times 3}$ (Eq. \ref{eq:CSD-A0}), $J_0=\det{(A^0)}$, $(\BB{A}^0)^{-1}_{3\times 3}$ e $\BB{A}^1_{3\times 3}$ (Eq. \ref{eq:CSD-A1})\;
+    Calcular $\BB{A}_{3\times 3}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$\;
+    Calcular $\BB{C}_{3\times 3}=\BB{A}^T\cdot\BB{A}$ (Não precisa armazenar)\;
+    Calcular $\mathbb{E}_{3\times 3}$ (Eq. \ref{eq:CSD-DefGreenLagr})\;
+    Calcular $\BB{S}_{3\times 3}$ (Eq. \ref{eq:CSD-S})\;
+    \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
+        Calcular $g_i^a$ (Eq. \ref{eq:CSD-g} e \ref{eq:CSD-Fint} a \ref{eq:CSD-Famort}) com $\partial A_{jk}/\partial Y_i^a$ dado por \ref{eq:CSD-derA}\;
+        Somar a contribuição no vetor global: $g_i^a\cdot J_0\cdot w_{i_h}$\;
+        \ForEach{\textnormal{Nó $b$ do elemento na direção $j$}}{
+            Calcular $H_{ij}^{ab}$ (Eq. \ref{eq:CSD-Hijab}, \ref{eq:CSD-HMC} e \ref{eq:CSD-derAES})\;
+            Somar a contribuição na matriz global: $H_{ij}^{ab}\cdot J_0\cdot w_{ih}$\;
+        }
+    }
+    }
+    }
+    Resolver o sistema global: $\BB{H}\cdot\Delta\BB{Y}=-\BB{g}$\;
+    Atualizar as posições nodais: $\BB{Y}\gets\BB{Y}+\Delta\BB{Y}$\;
+    Atualizar velocidades e acelerações nodais (Eq. \ref{eq:CSD-Newmark2})\;
+    Cálculo do erro via \ref{eq:CSD-erro}\;
+    }
+    }
+    Atualização dos valores passados\;
+    }
+\end{algorithm}
 
 %==================================================================================================
 \subsubsection{Exemplos de Validação} \label{MEFP-Ex}
