@@ -14,3 +14,7 @@ Dúvida: as c.c. em deslocamentos em sólidos também são denominadas de Dirich
 No livro Bazilevs - 2013: Gamma_h é a fronteira de Newmann e Gamma_g é a fronteira de Dirichlet (pág 20)
 
 Seção 4.6.2 - VMS para domínio móvel
+
+---------------------------------------------------------------------------------------------------------
+Março - 2023
+Elemento de casca: Encontrar variações de alpha e V?
