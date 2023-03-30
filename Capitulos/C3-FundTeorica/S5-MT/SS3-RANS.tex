@@ -8,7 +8,7 @@
 \subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
 %==================================================================================================
 
-Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuírem uma implementação mais facilitada \cite{alfonsi2009reynolds, ling2015evaluation}. Ainda segundo \citeonline{alfonsi2009reynolds}, problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência.
+Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuírem uma implementação mais facilitada \cite{alfonsi2009reynolds, ling2015evaluation}.
 
 Em uma descrição Euleriana, sua obtenção parte da equação \ref{eq:NS-Euler} e considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: uma referente à média temporal, denotada por uma barra ($\bar{\phi}(\BB{y})$), dada por \cite{tennekes1972first,speziale1991analytical}:
 
@@ -99,7 +99,7 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
 
 \begin{subequations}
     \begin{equation}
-        \tau_{ij}^I=-\frac{2}{3}K\delta_{ij}\text{ e}
+        \tau_{ij}^I=-\frac{2}{3}k\delta_{ij}\text{ e}
     \end{equation}
     \begin{equation}
         \tau_{ij}^D=2\nu_T\epmean_{ij}\text{,}
@@ -109,7 +109,7 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
 \noindent sendo $K$ a energia cinética média gerada pelo campo de flutuações de velocidade:
 
 \begin{equation}
-    K=\frac{1}{2}\bar{u'_iu'_i}\text{,}
+    k=\frac{1}{2}\bar{u'_iu'_i}\text{,}
 \end{equation}
 
 \noindent $\epmean_{ij}$ é a taxa de deformação do campo de velocidades média:
@@ -118,6 +118,21 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
     \epmean_{ij}=\frac{\bar{u}_{i,j}+\bar{u}_{j,i}}{2}
 \end{equation}
 
-\noindent e $\nu_T$ é a viscosidade de vórtice.
+\noindent e $\nu_T$ é a viscosidade de vórtice, proporcional às escalas de tempo ($\tau_0$) e espaço ($l_0$) da turbulência como:
+
+\begin{equation}
+    \nu_T\propto\frac{l_0^2}{\tau_0}\text{.}
+\end{equation}
+
+\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos de turbulencia em RANS são:
+
+\begin{enumerate}[label=\alph*.]
+    \item Modelos de Zero Equações: Apenas as equações referentes ao campo médio são resolvidas, sendo $l_0$ e $\tau_0$ determinados empiricamente;
+    \item Modelos de Uma Equação: É adicionada uma equação de transporte em termos da energia cinética média $k$ para auxiliar na determinação do campo de flutuações de velocidades;
+    \item Modelos de Duas Equações: Uma segunda equação é adicionada para determinação das escalas de comprimento turbulentos;
+    \item Modelos de Tensões: A respeito aos Modelos de Zero Equações, adiciona-se duas equações de transporte referentes ao tensor de Reynolds e à $\varepsilon$.
+\end{enumerate}
+
+A respeito dos Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, em que as equações adicionais são dadas em função de $k$ e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/k$).
 
 \end{document}

@@ -170,8 +170,11 @@
 %LARGE EDDY SIMULATION:
 \newcommand{\Dfil}{D_\Delta(\BB{y})}
 \newcommand{\yfil}{\BB{y}_\Delta}
-\newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
-\newcommand{\deffilij}[1]{\dot{\bar{\varepsilon}}_{#1}}
+\newcommand{\deffil}{\bar{\mathbf{S}}}
+\newcommand{\deffilij}[1]{\bar{S}_{#1}}
+%\newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
+%\newcommand{\deffilij}[1]{\dot{\bar{\varepsilon}}_{#1}}
+
 %VARIATIONAL MULTISCALE METHOD
 \newcommand{\supg}{\mathrm{SUPG}}
 \newcommand{\pspg}{\mathrm{PSPG}}
@@ -204,7 +207,9 @@
 %REYNOLDS-AVERAGED NAVIER-STOKES
 \newcommand{\umed}{\bar{\BB{u}}}
 \newcommand{\ufl}{\BB{u}'}
-\newcommand{\epmean}{\dot{\bar{\varepsilon}}}
+\newcommand{\epmean}{\bar{S}}
+\newcommand{\ke}{k-\varepsilon}
+\newcommand{\kw}{k-\omega}
 
 \newcommand{\Alpha}{\mathrm{A}}
 

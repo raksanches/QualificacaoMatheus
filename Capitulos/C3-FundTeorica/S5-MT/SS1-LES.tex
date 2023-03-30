@@ -8,7 +8,7 @@
 \subsection{\textit{Large Eddy Simulation}} \label{LES}
 %==================================================================================================
 
-A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, que irá reescrever as equações de Navier-Stokes em termos de parcelas filtradas (ou de grandes escalas), denotadas para uma propriedade qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large}. Para isso, considera-se uma filtragem dada por:
+A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, que irá reescrever as equações de Navier-Stokes em termos de parcelas filtradas (ou de grandes escalas), denotadas para uma propriedade qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large,moeng2015large}. Para isso, considera-se uma filtragem dada por:
 
 \begin{equation}
     \bar{\phi}=\int_{\Dfil}{g(\BB{y},\yfil)\phi(\yfil,t)d\yfil}\text{,}
@@ -126,21 +126,17 @@ Portanto, o problema se ser resolvido será:
 
 Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB{T}_S}$.
 
-\textcolor{red}{REVER:}
-
 \citeonline{germano1991dynamic,hughes2000large} ainda fazem algumas constatações sobre o modelo de Smagorinsky, os quais destacam-se o fato de $\BB{T}_S$ não possuir um comportamento assintótico próximo às paredes, o que se esperaria de $\BB{T}$, os valores de $C_S$ na presença de cisalhamento médio causaram amortecimentos excessivos e o tensor $\BB{T}_S$ impede a energia de fluir entre diferentes escalas, podendo ser significante em alguns casos.
 
 Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, premitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
 
-Com isso, e considerando que a dissipação de energia cinética é igual àquela produzida, pode-se obter a amplitude espectral da energia cinética ($E(k)$) como \cite{hughes2000large}:
+Com isso, e considerando que a dissipação de energia cinética é igual àquela produzida, pode-se obter a amplitude espectral da energia cinética ($E(k)$), definida sobre uma superfície de esferas parametrizadas de raio $k$, como \cite{hughes2000large}:
 
 \begin{equation}
     E(k)=\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
 \end{equation}
 
 \noindent em que $\alpha$ é a constante de Kolmogoroff, $\varepsilon$ é a dissipação turbulenta.
-
-\textcolor{red}{descrever melhor o que é $k$, segundo \citeonline{hughes2000large}: $E(k)$ é a amplitude espectral da energia cinética, definida como a integral sobre a superfície de esferas parametrizadas com raio $k$ (?)}
 
 Assim pode-se determinar o valor de $\norm{\deffil}$ como:
 
