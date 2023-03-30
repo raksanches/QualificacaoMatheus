@@ -243,7 +243,7 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
     \label{F4}
 \end{equation}
 
-\noindent que possui, como uma de suas consequências, que:
+\noindent que possui, como uma de suas consequências:
 
 \begin{equation}
     \BB{u}=\der{\BB{y}}{\bhat{x}}\cdot\BB{w}+\uhat\text{, ou}
@@ -322,7 +322,7 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 \subsection{Modelo Constitutivo} \label{MC}
 %==================================================================================================
 
-O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é dado por:
+O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é expresso de acordo com a Equação \ref{eq:const1}:
 
 \begin{equation}
     \sigma_{ij}=\tau_{ij}-p\delta_{ij}\text{,}\label{eq:const1}
@@ -334,7 +334,7 @@ O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos
     \tau_{ij}=\script{D}_{ij\alpha\beta}\dot{\varepsilon}_{ij}\text{,}
 \end{equation}
 
-\noindent em que $\script{D}_{ij\alpha\beta}$ é o tensor constitutivo de quarta ordem, dado por:
+\noindent em que $\script{D}_{ij\alpha\beta}$ é o tensor constitutivo de quarta ordem:
 
 \begin{equation}
     \script{D}_{ij\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\text{,}
@@ -346,17 +346,17 @@ O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos
     \dot{\varepsilon}_{ij}=\frac{u_{i,j}+u_{j,i}}{2}\text{.}\label{eq:deftax1}
 \end{equation}
 
-Assim, o tensor desviador pode ser escrito como:
+Assim, o tensor desviador pode ser escrito da seguinte maneira:
 
-\[\tau_{ij}=(2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta})\dot{\varepsilon}_{\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}\dot{\varepsilon}_{\alpha\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\dot{\varepsilon}_{\alpha\beta}=2\mu\dot{\varepsilon}_{ij}+\lambda\dot{\varepsilon}_{\beta\beta}\delta_{ij}\]
+\[\tau_{ij}=(2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta})\dot{\varepsilon}_{\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}\dot{\varepsilon}_{\alpha\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\dot{\varepsilon}_{\alpha\beta}\]
 
-\noindent ou em notação simbólica como:
+\noindent resultando em:
 
 \begin{equation}
     \tau_{ij}=2\mu\dot{\varepsilon}_{ij}+\lambda\dot{\varepsilon}_{\beta\beta}\delta_{ij}\text{.}
 \end{equation}
 
-Já para o caso de escoamentos incompressíveis, observa-se que $\dot{\varepsilon}_{\beta\beta}=0$, fazendo com que \ref{eq:const1} possa ser escrita como:
+Já para o caso de escoamentos incompressíveis, verifica-se que $\dot{\varepsilon}_{\beta\beta}=0$, fazendo com que \ref{eq:const1} possa ser escrita como:
 
 \begin{equation}
     \sigma_{ij}=\mu(u_{i,j}+u_{j,i})-p\delta_{ij}\text{.}\label{eq:ModConst}
@@ -419,7 +419,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
     \label{eq:WeakForm2}
 \end{equation}
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}, principalmente em problemas de convecção dominante devido à grande não-linearidade e assimetria do sistema de equações resultante desse método. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez essa escolha possui restrições quanto à sua escolha. Essas restrições são denominadas de condições de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a impossibilidade de se aproximar o campo de velocidades e de pressões no mesmo espaço, uma vez que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}, principalmente em problemas de convecção dominante devido à grande não-linearidade e assimetria do sistema de equações resultante desse método. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez essa escolha possui restrições, as quais denominam-se condições de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a impossibilidade de se aproximar o campo de velocidades e de pressões no mesmo espaço, uma vez que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}

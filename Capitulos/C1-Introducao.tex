@@ -12,19 +12,31 @@ Visto o constante avanço da engenharia em poder se dimensionar estruturas cada 
 
 Desse modo, é possível realizar a análise de IFE de duas formas principais: a construção de amostras em escala; ou a modelagem matemática do problema em questão. No primeiro caso há a verificação real do comportamento da estrutura e do fluido à um determinado problema. No entanto, dependendo da natureza do problema, esse comportamento pode variar de acordo com a escala, o que pode não apresentar resultados representativos. Também ressalta-se o fato de a construção das amostras demandar uma infraestrutura robusta para se analisar apenas alguns problemas específicos \cite{fernandes2020tecnica}.
 
-Já a modelagem matemática de problemas se mostra como uma opção mais viável para análise de problemas de IFE, uma vez que dispensa grandes investimentos e possui grande flexibilidade de aplicações, podendo ser utilizado em diversos tipos de análises. Porém, em muitos casos, o estudo matemático de IFE leva a modelagem de problemas muito complexos, com alto custo computacional, exigindo, assim, formulações mais robustas para sua aplicação.
+Já a modelagem matemática de problemas se mostra como uma opção mais viável para análise de problemas envolvendo IFE, uma vez que dispensa grandes investimentos e possui grande flexibilidade de aplicações, podendo ser utilizado em diversos tipos de análises. Todavia, devido à alta não-linearidade de problemas da Dinâmica dos Sólidos Computacional (CSD) ligados à grandes deslocamentos e da Dinâmica dos Fluidos Computacional (CFD) ligados à problema de convecção dominante, o estudo matemático de IFE leva a modelagem de problemas muito complexos, com alto custo computacional, exigindo, assim, formulações mais robustas para sua aplicação.
 
-Para se realizar o estudo, tanto da mecânica dos elementos sólidos, quanto para a meĉanica dos fluidos, é necessário o estabelecimento de algumas simplificações. Uma das principais simplificações utilizada para esses problemas é a que considera os objetos de análise como meios contínuos, desprezando-se, dessa forma, os efeitos advindos da microestrutura da matéria \cite{lai2009introduction, mase2009continuum}.
+Para se realizar o estudo, tanto de CSD quanto CFD, é necessário o estabelecimento de algumas simplificações. Uma das principais simplificações utilizada para esses problemas é a que considera os objetos de análise como meios contínuos, desprezando-se, dessa forma, os efeitos advindos da microestrutura da matéria \cite{lai2009introduction, mase2009continuum}.
 
-Sabe-se que toda a matéria é composta por átomos e partículas subatômicas, no entanto a mecânica do contínuo desconsidera os efeitos dessas partículas e aponta que todo material pode ser subdividido em elementos cada vez menores sem que haja mudanças em suas propriedades físicas, independentemente do quão pequena seja essa divisão. Assim, faz-se possível a modelagem de elementos com volume infinitesimal, permitindo a utilização de artifícios matemáticos, como o cálculo diferencial e integral. Dessa forma, teorias baseadas na elasticidade e plasticidade podem ser empregadas utilizando funções contínuas, facilitando a determinação de parâmetros de interesse da análise \cite{irgens2008continuum, lai2009introduction, malvern1969introduction}.
+Sabe-se que toda a matéria é composta por átomos e partículas subatômicas, entretanto a mecânica do contínuo desconsidera os efeitos dessas partículas e aponta que todo material pode ser subdividido em elementos cada vez menores sem que haja mudanças em suas propriedades físicas, independentemente do quão pequena seja essa divisão. Assim, faz-se possível a modelagem de elementos com volume infinitesimal, permitindo a utilização de artifícios matemáticos, como o cálculo diferencial e integral. Dessa forma, teorias baseadas na elasticidade e plasticidade podem ser empregadas utilizando funções contínuas, facilitando a determinação de parâmetros de interesse da análise \cite{irgens2008continuum, lai2009introduction, malvern1969introduction}.
 
 Vale ressaltar que a consideração dos meios contínuos apresenta resultados muito satisfatórios nos estudos de engenharia, uma vez que os objetos de estudo possuem dimensões muito maiores que as distâncias moleculares do mesmo \cite{malvern1969introduction, mase2009continuum}.
+
+Nesse sentido, ainda necessita-se de um método que seja capaz de descrever adequadamente o comportamento de estruturas, sendo capaz de prever seus parâmetros até em condições de grandes deslocamentos. Com isso nota-se a presença do Método dos Elementos Finitos (MEF), que se apresenta como uma ferramenta eficiente na determinação de tais parâmetros, em especial o MEF baseado em posições, o qual contorna alguns problemas que são observados em outros métodos, como aquele baseado em deslocamentos e rotações, por exemplo, que possui a dificuldade da falta de comutatividade de rotações.
 
 Ainda existem diferentes formas de descrever matematicamente um problema mecânico, em termos da referência adotada para os cálculos. São estas: a descrição Lagrangiana (ou material) e a descrição Euleriana (ou espacial).
 
 Na descrição Lagrangiana a referência adotada é a configuração inicial do contínuo. Essa descrição apresenta boa representatividade quando aplicada em modelos sólidos, uma vez que a configuração inicial dos elementos é bem definida, tendo como variáveis principais os deslocamentos do elemento \cite{sanches2014fluid, fernandes2019ale}.
 
-Já a descrição Euleriana toma como referência a configuração atual do contínuo, sendo bem utilizada para a descrição de fluidos newtonianos, pois estes não apresentam resistência à esforços de cisalhamento, distorcendo-se indefinidamente quando submetidos à tais esforços. Nesse tipo de descrição é comum a utilização para determinação de velocidades, diferentemente dos deslocamentos \cite{sanches2014fluid, fernandes2019ale}.
+Já a descrição Euleriana toma como referência a configuração atual do contínuo, sendo bem utilizada para a descrição de fluidos newtonianos, pois estes não apresentam resistência à esforços de cisalhamento, distorcendo-se indefinidamente quando submetidos à tais esforços \cite{sanches2014fluid, fernandes2019ale}.
+
+Porém, uma nova descrição vêm se mostrado promissora para representação de simulações de IFE, denominada como Lagrangiana-Euleriana Arbitrária (ALE), a qual realiza a determinação dos parâmetros em função de um referencial arbitrário, que pode se mover independentemente das configurações do domínio analisado \cite{donea1982arbitrary}. Isso torna-se interessante, uma vez que facilita o processo de acoplamento entre os diferentes meios analisados (sólido e fluido).
+
+Outra dificuldade verificada em problemas de CFD está relacionada à escoamentos com alto número de Reynolds, o que o classifica como um escoamento turbulento. Esse tipo de escoamento é muito comum na natureza, principalmente em problemas envolvendo engenharia, e é caracterizado pela formação de vórtices, que são estruturas formadas de maneira instável, desordenadas e em diversas escalas diferentes. A determinação dos parâmetros desse escoamento pode ser dado através das Equações de Navier-Stokes, entretanto a obtenção de resultados a partir dessas equações pode ser uma tarefa muito desafiadora e requer diferentes estratégias para esse fim.
+
+Uma possível maneira de se obter resultados é pela simulação de \textit{Direct Numerical Simulation} (DNS), a qual é capaz de solucionar as equações de Navier-Stokes sem a utilização de modelos, descrevendo o escoamento em todas as escalas presentes no mesmo. Contudo, seu custo computacional é extremamente elevado, tornando sua utilização muito restrita a problemas de pequenas dimensões e para validação de modelos \cite{olad2022towards}.
+
+Já para simulações mais representativas, se faz necessário o uso de modelos que descrevam adequadamente o comportamento dos escoamentos turbulentos. Dentre os possíveis modelos, destacam-se os modelos de \RANS\ (RANS), \LES\ (LES) e \VMS\ (VMS). Esses modelos são caracterizados por considerar uma separação dos parâmetros de análise em duas parcelas, onde, dependendo de como essa separação é feita, pode ocorrer aprimoramentos no tempo de processamento ou na qualidade dos resultados.
+
+Nesse sentido, o presente trabalho busca avaliar os três modelos de turbulência em problemas de IFE, tendo em vista seu tempo de processamento e precisão dos resultados obtidos, os quais serão comparados com exemplos de alta fidelidade apresentados na literatura.
 
 %==================================================================================================
 \section{Objetivos}
@@ -33,13 +45,13 @@ Já a descrição Euleriana toma como referência a configuração atual do cont
 O presente trabalho visa o estudo e implementação na linguagem de programação C++ de modelos de turbulência para análise de problemas de interação fluido-estrutura com elevados números de Reynolds. Com isso, traça-se os seguintes objetivos específicos:
 
 \begin{itemize}
-    \item Estudo e implementação de técnicas de \textit{Large Eddy Simulation};
+    \item Estudo e implementação de técnicas de \RANS;
 
-    \item Estudo e implementação de técnicas de \textit{Variational Multi-Scale};
+    \item Estudo e implementação de técnicas de \LES;
 
-    \item Estudo e implementação de técnicas de \textit{Reynolds-Averaged Navier-Stokes};
+    \item Estudo e implementação de técnicas de \VMS;
 
-    \item Estudo comparativo das características numéricas dos métodos \textit{Large Eddy Simulation}, \textit{Variational Multi-Scale} e \textit{Reynolds-Averaged Navier-Stokes} em problemas de interação fluido-estrutura.
+    \item Estudo comparativo das características numéricas dos métodos \RANS, \LES, \VMS\ em problemas de Interação Fluido-Estrutura.
 \end{itemize}
 
 %==================================================================================================

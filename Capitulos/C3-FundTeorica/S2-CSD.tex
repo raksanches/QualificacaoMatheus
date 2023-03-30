@@ -311,7 +311,7 @@ Retornando a integral sob a fronteira $\Gamma$ para $\Omega$ por meio do Teorema
 Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
 
 \begin{equation}
-    \Pi=\mathbb{U}+\mathbb{P}+\mathbb{K}+\mathbb{Q}\text{,}
+    \Pi_0=\mathbb{U}+\mathbb{P}+\mathbb{K}+\mathbb{Q}\text{,}
 \end{equation}
 
 \noindent sendo:
@@ -518,7 +518,7 @@ Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{
 \begin{subequations}
     \begin{align}
          & \frac{\norm{\BB{g}}}{\norm{\BB{F}^\text{ext}}}\leq\text{tol e} \\
-         & \frac{\norm{\Delta\BB{T}}}{\norm{\BB{X}}}\leq\text{tol,}
+         & \frac{\norm{\Delta\BB{Y}}}{\norm{\BB{X}}}\leq\text{tol,}
     \end{align}
     \label{eq:CSD-erro}
 \end{subequations}
