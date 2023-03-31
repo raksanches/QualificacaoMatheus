@@ -89,7 +89,71 @@ Subtraindo \ref{eq:RANS-estac} de \ref{eq:NS-RANS1} obtém-se:
 
 Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, que traz a interferência que os efeitos turbulentos da parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
 
-Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividido em uma parte isotrópica ($\tau_{ij}^I$) e outra desviadora ($\tau_{ij}^D$):
+\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos de turbulencia em RANS são:
+
+\begin{enumerate}[label=\alph*.]
+    \item Modelos de Zero Equações: Apenas as equações referentes ao campo médio são resolvidas, sendo $l_0$ e $\tau_0$ determinados empiricamente;
+    \item Modelos de Uma Equação: É adicionada uma equação de transporte em termos da energia cinética média $k$ para auxiliar na determinação do campo de flutuações de velocidades;
+    \item Modelos de Duas Equações: Uma segunda equação é adicionada para determinação das escalas de comprimento turbulentos;
+    \item Modelos de Tensões: A respeito aos Modelos de Zero Equações, adiciona-se duas equações de transporte referentes ao tensor de Reynolds e à $\varepsilon$, tal modelo também pode ser chamado de modelo \te.
+\end{enumerate}
+
+A respeito dos Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, em que as equações adicionais são dadas em função de $k$ e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/k$).
+
+Contudo, \citeonline{alfonsi2009reynolds} aponta que o modelo $\ke$ não é naturalmente capaz de ser integrado na fronteira em o sólido, sendo necessário um tratamento adicional para que isso se torne possível, assim como o modelo $\kw$ se torna mais singular próximo à fronteira. Assim, o modelo \te\ se mostra promissor, pois, como mencionado pelo autor, é possível aplicar efeitos de relaxação, com diferentes tempos característicos e diferentes componentes do tensor de Reynolds em resposta para mudanças de geometria.
+
+Nesse cenário, apresenta-se a equação que descreve de forma exata o comportamento do tensor de Reynolds:
+
+\begin{equation}
+    \begin{split}
+        &-\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=\tau_{ik}\bar{u}_{j,k}+\tau_{jk}\bar{u}_{i,k}+\bar{p'(u'_{i,j}+u'_{j,i})}-2\nu\bar{u'_{i,k}u'_{j,k}}-\\
+        &(\bar{u'_iu'_ju'_k}+\bar{p'u'_i}\delta_{jk}+\bar{p'u'_j}\delta_{ik})_{,k}+\nu\tau_{ij,kk}\text{,}
+    \end{split}
+\end{equation}
+
+\noindent que pode ser reescrito de forma mais compacta, considerando-se o efeito de cada parcela:
+
+\begin{equation}
+    -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk}\text{,}
+\end{equation}
+
+\noindent em que $P_{ij}$ é a produção do tensor de Reynolds, a qual não precisa de modelagem, $\Pi_{ij}$ é a correlação entre a pressão e o tensor de taxa de deformação do campo de flutuações, $\varepsilon_{ij}$ é a taxa de dissipação, $C_{ijk}$ é o gradiente de difusão turbulenta e o último termo, que dispensa qualquer modelagem representa o transporte viscoso. Tais parâmetros são dados por:
+
+\begin{subequations}
+    \begin{align}
+         & P_{ij}=\tau_{ik}\bar{u}_{j,k}-\tau_{jk}\bar{u}_{i,k}                               \\
+         & \Pi_{ij}=\bar{p'(u'_{i,j}+u'_{j,i})}                                               \\
+         & \varepsilon_{ij}=2\nu\bar{u'_{i,k}u'_{j,k}}                                        \\
+         & C_{ijk}=\bar{u'_iu'_ju'_k}+\bar{p'u'_i}\delta_{jk}+\bar{p'u'_j}\delta_{ik}\text{.}
+    \end{align}
+\end{subequations}
+
+Já a equação exata do transporte que descreve a taxa de dissipação é dada por:
+
+\begin{equation}
+    \begin{split}
+        &\dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{j,i}u'_{j,k}}\bar{u}_{i,k}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,kj}-\\
+        &2\nu\bar{u'_{i,k}u'_{i,m}u'_{k,m}}-\nu(\bar{u'_ku'_{i,m}u'_{i,m}})_{,k}-2\nu(\bar{p'_{,m}u'_{k,m}})_{,k}-2\nu^2\bar{u'_{i,km}u'_{i,km}}+\nu\varepsilon_{,ii}\text{.}
+    \end{split}
+\end{equation}
+
+Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
+
+\begin{equation}
+    \dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=P_\varepsilon+D_\varepsilon-\Phi_\varepsilon+\nu\varepsilon_{,ii}\text{,}
+\end{equation}
+
+\noindent em que $P_\varepsilon$ é a produção de dissipação, $D_\varepsilon$ é a difusão turbulenta de dissipação, $\Phi_\varepsilon$ é a destruição turbulenta da dissipação e o último termo é o transporte viscoso. Essas parcelas são dadas de forma exata por:
+
+\begin{subequations}
+    \begin{align}
+        &P_\varepsilon=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{j,i}u'_{j,k}}\bar{u}_{i,k}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,kj}-2\nu\bar{u'_{i,k}u'_{i,m}u'_{k,m}}\\
+        &D_\varepsilon=-\nu(\bar{u'_ku'_{i,m}u'_{i,m}})_{,k}-2\nu(\bar{p'_{,m}u'_{k,m}})_{,k}\\
+        &\Phi_\varepsilon=2\nu^2\bar{u'_{i,km}u'_{i,km}}\text{.}
+    \end{align}
+\end{subequations}
+
+Já o tensor de Reynolds pode ser subdividido em duas parcelas: uma parte isotrópica ($\tau_{ij}^I$) e outra desviadora ($\tau_{ij}^D$), ou seja:
 
 \begin{equation}
     \tau_{ij}=\tau_{ij}^I+\tau_{ij}^D\text{,}
@@ -106,7 +170,7 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
     \end{equation}
 \end{subequations}
 
-\noindent sendo $K$ a energia cinética média gerada pelo campo de flutuações de velocidade:
+\noindent sendo $k$ a energia cinética média gerada pelo campo de flutuações de velocidade:
 
 \begin{equation}
     k=\frac{1}{2}\bar{u'_iu'_i}\text{,}
@@ -118,21 +182,19 @@ Segundo \citeonline{alfonsi2009reynolds} o tensor de Reynolds pode ser subdividi
     \epmean_{ij}=\frac{\bar{u}_{i,j}+\bar{u}_{j,i}}{2}
 \end{equation}
 
-\noindent e $\nu_T$ é a viscosidade de vórtice, proporcional às escalas de tempo ($\tau_0$) e espaço ($l_0$) da turbulência como:
+\noindent e $\nu_T$ é a viscosidade de vórtice.
 
-\begin{equation}
-    \nu_T\propto\frac{l_0^2}{\tau_0}\text{.}
-\end{equation}
+Assim, realiza-se uma modelagem sobre os termos necessários como:
 
-\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos de turbulencia em RANS são:
+\begin{subequations}
+    \begin{align}
+        &P_\ep=-C_{\ep 1}\frac{\ep}{k}\tau_{ij}\bar{u}_{i,j}\text{,}\\
+        &D_\ep=C_\ep\bigpar{\frac{k}{\ep}\tau_{ij}\ep_{,j}}_{,i}\text{,}\\
+        &\Phi_\ep=C_{\ep 2}\frac{\ep^2}{k}\text{ e}\\
+        &\nu_T=C_\mu\frac{k^2}{\ep}\text{,}
+    \end{align}
+\end{subequations}
 
-\begin{enumerate}[label=\alph*.]
-    \item Modelos de Zero Equações: Apenas as equações referentes ao campo médio são resolvidas, sendo $l_0$ e $\tau_0$ determinados empiricamente;
-    \item Modelos de Uma Equação: É adicionada uma equação de transporte em termos da energia cinética média $k$ para auxiliar na determinação do campo de flutuações de velocidades;
-    \item Modelos de Duas Equações: Uma segunda equação é adicionada para determinação das escalas de comprimento turbulentos;
-    \item Modelos de Tensões: A respeito aos Modelos de Zero Equações, adiciona-se duas equações de transporte referentes ao tensor de Reynolds e à $\varepsilon$.
-\end{enumerate}
-
-A respeito dos Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, em que as equações adicionais são dadas em função de $k$ e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/k$).
+\noindent em que $C_{\ep 1}=1,44$, $C_\ep=0,15$, $C_{\ep 1}=1,92$ e $C_\mu=0,09$ são constantes adimensionais.
 
 \end{document}
