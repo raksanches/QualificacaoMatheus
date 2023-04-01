@@ -117,7 +117,7 @@ Nesse cenário, apresenta-se a equação que descreve de forma exata o comportam
     -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk}\text{,}
 \end{equation}
 
-\noindent em que $P_{ij}$ é a produção do tensor de Reynolds, a qual não precisa de modelagem, $\Pi_{ij}$ é a correlação entre a pressão e o tensor de taxa de deformação do campo de flutuações, $\varepsilon_{ij}$ é a taxa de dissipação, $C_{ijk}$ é o gradiente de difusão turbulenta e o último termo, que dispensa qualquer modelagem representa o transporte viscoso. Tais parâmetros são dados por:
+\noindent em que $P_{ij}$ é a produção do tensor de Reynolds, a qual não precisa de modelagem, $\Pi_{ij}$ é a correlação entre a pressão e o tensor de taxa de deformação do campo de flutuações, $\varepsilon_{ij}$ é a taxa de dissipação, $C_{ijk}$ é o gradiente de difusão turbulenta e o último termo, que dispensa qualquer modelagem, representa o transporte viscoso. Tais parâmetros são dados por:
 
 \begin{subequations}
     \begin{align}
@@ -196,5 +196,19 @@ Assim, realiza-se uma modelagem sobre os termos necessários como:
 \end{subequations}
 
 \noindent em que $C_{\ep 1}=1,44$, $C_\ep=0,15$, $C_{\ep 1}=1,92$ e $C_\mu=0,09$ são constantes adimensionais.
+
+\citeonline{alfonsi2009reynolds} apresenta diferentes formas de se modelar $\Pi_{ij}$, sendo a mais comum dada por:
+
+\begin{equation}
+    \Pi_{ij}=\ep A_{ij}(\BB{b})+KM_{ijkl}(\BB{b})\bar{u}_{k,l}\text{,}
+\end{equation}
+
+\noindent sendo $\BB{b}$ o tensor de tensões anisotrópico de Reynolds:
+
+\begin{equation}
+    b_{ij}=\frac{1}{2k}\bigpar{\tau_{ij}-\frac{2}{3}k\dij}\text{.}
+\end{equation}
+
+
 
 \end{document}
