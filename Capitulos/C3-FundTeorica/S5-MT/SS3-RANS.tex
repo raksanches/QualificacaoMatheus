@@ -138,7 +138,7 @@ Sabendo-se que:
     -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk}\text{,}
 \end{equation}
 
-\noindent em que $P_{ij}$ é a produção do tensor de Reynolds, a qual não precisa de modelagem, $\Pi_{ij}$ é a correlação entre a pressão e o tensor de taxa de deformação do campo de flutuações, $\varepsilon_{ij}$ é a taxa de dissipação, $C_{ijk}$ é o gradiente de difusão turbulenta e o último termo, que dispensa qualquer modelagem, representa o transporte viscoso. Tais parâmetros são dados por:
+\noindent em que $P_{ij}$ é a produção do tensor de Reynolds, a qual não precisa de modelagem, $\Pi_{ij}$ é a correlação entre a pressão e o tensor de taxa de deformação do campo de flutuações, $\varepsilon_{ij}$ é o tensor da taxa de dissipação turbulenta da energia cinética, $C_{ijk}$ é o gradiente de difusão turbulenta e o último termo, que dispensa qualquer modelagem, representa o transporte viscoso. Tais parâmetros são dados por:
 
 \begin{subequations}
     \begin{align}
@@ -155,10 +155,16 @@ Sabendo-se que:
     \Pi_{ij}=\ep A_{ij}(\BB{b})+KM_{ijkl}(\BB{b})\bar{u}_{k,l}\text{,}
 \end{equation}
 
-\noindent sendo $\BB{b}$ o tensor de tensões anisotrópico de Reynolds:
+\noindent sendo $\ep$ a taxa de dissipação turbulenta da energia cinética:
 
 \begin{equation}
-    b_{ij}=\frac{1}{2k}\bigpar{\tau_{ij}-\frac{2}{3}k\dij}\text{.}
+    \ep=\nu\bar{u'_{i,j}u'_{i,j}}\text{,}
+\end{equation}
+
+\noindent $\BB{b}$ o tensor de tensões anisotrópico de Reynolds:
+
+\begin{equation}
+    b_{ij}=\frac{1}{2k}\bigpar{\tau_{ij}-\frac{2}{3}k\dij}
 \end{equation}
 
 \noindent e $k$ a energia cinética média gerada pelo campo de flutuações de velocidade:
@@ -167,7 +173,7 @@ Sabendo-se que:
     k=\frac{1}{2}\bar{u'_iu'_i}\text{.}
 \end{equation}
 
-Uma possibilidade de representação de $Pi_{ij}$ é dada de forma linear em termos de $b_{ij}$:
+Uma possibilidade de representação de $\Pi_{ij}$ é dada de forma linear em termos de $b_{ij}$:
 
 \begin{equation}
     \Pi_{ij}=-C_1\ep b_{ij}+C_2\bigpar{P_{ij}-\frac{1}{3}P_{kk}\dij}\text{,}
