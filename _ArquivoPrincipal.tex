@@ -262,119 +262,200 @@
     \item[LBB] Ladyzhenskaya-Babuška-Brezzi
     \item[CFD] Dinâmica dos Fluidos Computacional - \textit{Computational Fluid Dynamics}
     \item[CSD] Dinâmica dos Sólidos Computacional - \textit{Computational Solid Dynamics}
+    \item[DNS] Simulação Numérica Direta - \textit{Direct Numerical Simulation}
     \item[GLS] Galerkin Least-Squares
     \item[IFE] Interação Fluido-Estrutura
+    \item[IP] Problema de Interação - \textit{Interaction Problem}
+    \item[LBB] Condições de \textit{Ladyzhenskaya-Babuška-Brezzi}
     \item[LES] Simulação de Grandes Vórtices - \textit{Large Eddy Simulation}
     \item[LSIC] \textit{Least-Squares on Incompressibility Constraint}
     \item[MEF] Método dos Elementos Finitos
     \item[PSPG] \textit{Pressure-Stabilizating/Petrov-Galerkin}
     \item[RANS] \textit{Reynolds-Averaged Navier-Stokes}
-    \item[SGS] Subgrid-Scales
+    \item[RBVMS] \textit{Residual-Based Variational Multi-Scale}
+    \item[SGS] \textit{Subgrid-Scales}
     \item[SUPG] \textit{Streamline-Upwind/Petrov-Galerkin}
+    \item[SVK] Saint-Venant-Kirchhoff
     \item[VMS] Métodos Variacionais Multiescala - \textit{Variational Multi-Scale}
 \end{siglas}
 % inserir lista de símbolos
 \begin{simbolos}
-    \item[Operadores]
+    \item[\textbf{Operadores}]
     \item[$\dev(\cdot)$] Parte desviadora do tensor
+    \item[$\det{(\cdot)}$] Determinante
+    \item[$D(\cdot)/Dt$] Derivada material
     \item[$H^1$] Espaço de Sobolev de ordem 1
     \item[$L^2$] Espaço das funções de quadrado integrável
     \item[$\tr(\cdot)$] Traço de um tensor
-    \item[$\mathbf{\nabla}(\cdot)$] Gradiente
-    \item[$\mathbf{\nabla}\cdot(\cdot)$] Divergente
-    \item[$\mathbf{\nabla}^2(\cdot)$] Laplaciano
+    \item[$\BB{\nabla}(\cdot)$] Gradiente
+    \item[$\BB{\nabla}\cdot(\cdot)$] Divergente
+    \item[$\BB{\nabla}^2(\cdot)$] Laplaciano
     \item[$\cdot$] Produto interno
     \item[$:$] Contração dupla
     \item[$\times$] Produto vetorial
     \item[$\otimes$] Produto tensorial
     \item[$\sum$] Somatório
     \item[$\prod$] Produtório
+    \item[$\norm{(\cdot)}$] Norma
 
-    \item[Parâmetros Gerais]
-    \item[$\hat{\mathbf{e}}_i$] Vetor versor na direção $i$
+    \item[\textbf{Parâmetros Gerais}]
+    \item[$\hat{\BB{e}}_i$] Vetor versor na direção $i$
     \item[$\mathbb{I}$] Tensor identidade de quarta ordem
-    \item[$\mathbf{I}$] Tensor identidade de segunda ordem
+    \item[$\BB{I}$] Tensor identidade de segunda ordem
     \item[$m$] Massa
+    \item[$N_a$] Função de forma
     \item[$n_{sd}$] Número de dimensões espaciais do problema
-    \item[$\Rey$] Número de Reynolds
     \item[$t$] Tempo
     \item[$V$] Volume
+    \item[$V_0$] Volume inicial
     \item[$\delta_{ij}$] Delta de Kronecker
     \item[$\Delta t$] Intervalo discreto de tempo
+    \item[$\BB{\xi}$] Coordenada paramétrica
     \item[$\rho$] Massa específica
-    \item[$\mathbf{\sigma}$] Tensor de tensões de Cauchy
+    \item[$\BB{\sigma}$] Tensor de tensões de Cauchy
     \item[$\phi$] Propriedade qualquer
 
-    \item[Configurações do Contínuo]
-    \item[$\mathbf{x}$] Posição inicial (ou posição material)
-    \item[$\mathbf{\hat{x}}$] Posição de referência
-    \item[$\mathbf{y}$] Posição atual (ou posição espacial)
+    \item[\textbf{Configurações do Contínuo}]
+    \item[$\BB{x}$] Posição inicial (ou posição material)
+    \item[$\BB{\hat{x}}$] Posição de referência
+    \item[$\BB{y}$] Posição atual (ou posição espacial)
+    \item[$\Gamma$] Fronteira do domínio de análise
     \item[$\Gamma_D$] Fronteira de Dirichlet
     \item[$\Gamma_N$] Fronteira de Neumann
     \item[$\Omega$] Domínio de análise na configuração atual
     \item[$\Omega_0$] Domínio de análise na configuração inicial
+    \item[$\Omega_\xi$] Domínio de análise no espaço paramétrico
     \item[$\hat{\Omega}$] Domínio de análise na configuração de referência
 
-    \item[Dinâmica dos Sólidos Computacional]
+    \item[\textbf{Dinâmica dos Fluidos Computacional}]
+    \item[$\BB{A}$] Gradiente da função de mudança de configuração
+    \item[$\BB{c}$] Força de corpo
+    \item[$\script{D}$] Tensor constitutivo de quarta ordem
+    \item[$\BB{f}$] Força por unidade de massa
+    \item[$\BB{f}$] Função mudança de configuração
+    \item[$\BB{F}$] Resultante das forças externas
+    \item[$\BB{g}$] Velocidades prescritas na fronteira de Dirichlet
+    \item[$\BB{h}$] Forças de superfícies prescritas na fronteira de Neumann
+    \item[$n$] Vetor normal à superfície
+    \item[$p$] Campo de pressões
+    \item[$q$] Função teste relacionado à equação da continuidade
+    \item[$\BB{q}$] Resultante das forças externas por unidade de volume
+    \item[$\Rey$] Número de Reynolds
+    \item[$\script{S}_u$] Espaço de funções tentativas para o campo de velocidades
+    \item[$\script{S}_p$] Espaço de funções tentativas para o campo de pressões
+    \item[$\BB{u}$] Campo de velocidades
+    \item[$\dot{\BB{u}}$] Campo de acelerações
+    \item[$\script{V}_u$] Espaço de funções teste para o campo de velocidades
+    \item[$\script{V}_p$] Espaço de funções teste para o campo de pressões
+    \item[$\BB{w}$] Função teste relacionada à equação da conservação do momento
+    \item[$\BB{w}$] Velocidade da malha em relação à configuração inicial
+    \item[$\BB{\hat{u}}$] Campo de velocidades da malha
+    \item[$\BB{\dot{\varepsilon}}$] Tensor de taxa de deformação
+    \item[$\mu$] Viscosidade cinemática
+    \item[$\nu$] Viscosidade dinâmica
+    \item[$\tau$] Tensor de tensões desviadoras
+
+    \item[\textbf{Dinâmica dos Sólidos Computacional}]
     \item[$\mathbb{A}$] Medida de deformação de Almansi
-    \item[$\mathbf{A}$] Gradiente da função de mudança de configuração
+    \item[$\BB{A}$] Gradiente da função de mudança de configuração
+    \item[$\BB{c}$] Forças de corpo
+    \item[$\BB{c}^0$] Forças de corpo na configuração inicial
+    \item[$\BB{C}$] Tensor de alongamento à direita de Cauchy-Green
+    \item[$\script{C}$] Tensor consitutivo de quarta ordem
+    \item[$E$] Módulo de elasticidade longitudinal (ou Módulo de Young)
     \item[$\mathbb{E}$] Medida de deformação de Green-Lagrange
-    \item[$\mathbf{f}$] Função de mudança de configuração
+    \item[$\BB{F}$] Resultante das forças externas
+    \item[$\BB{f}$] Função de mudança de configuração
     \item[$\mathbb{H}$] Medida de deformação de Hencky
     \item[$J$] Jacobiano da mudança de configuração
     \item[$\mathbb{K}$] Energia cinética
     \item[$n$] Vetor normal à superfície na configuração atual
     \item[$N$] Vetor normal à superfície na configuração inicial
     \item[$\mathbb{P}$] Energia das Forças Externas
-    \item[$\mathbf{P}$] Tensor de tensões de Piola-Kirchhoff de primeira espécie
+    \item[$\BB{P}$] Tensor de tensões de Piola-Kirchhoff de primeira espécie
     \item[$u_e$] Energia específica de deformação
     \item[$\mathbb{U}$] Energia de deformação
-    \item[$\mathbf{\varepsilon}$] Tensor de deformação linear
+    \item[$\dot{\BB{y}}$] Campo de velocidades
+    \item[$\ddot{\BB{y}}$] Campo de acelearações
+    \item[$\BB{\varepsilon}$] Tensor de deformação linear
     \item[$\varepsilon_V$] Deformação volumétrica
     \item[$\Pi$] Energia total
 
-    \item[Dinâmica dos Fluidos Computacional]
-    \item[$\mathbf{A}$] Gradiente da função de mudança de configuração
-    \item[$\mathbf{c}$] Força de corpo
-    \item[$\script{D}$] Tensor constitutivo de quarta ordem
-    \item[$\mathbf{f}$] Força por unidade de massa
-    \item[$\mathbf{f}$] Função mudança de configuração
-    \item[$\mathbf{F}$] Resultante das forças externas
-    \item[$\mathbf{g}$] Velocidades prescritas na fronteira de Dirichlet
-    \item[$\mathbf{h}$] Forças de superfícies prescritas na fronteira de Neumann
-    \item[$n$] Vetor normal à superfície
-    \item[$p$] Campo de pressões
-    \item[$\mathbf{q}$] Resultante das forças externas por unidade de volume
-    \item[$\script{S}_u$] Espaço de funções tentativas para o campo de velocidades
-    \item[$\script{S}_p$] Espaço de funções tentativas para o campo de pressões
-    \item[$\mathbf{u}$] Campo de velocidades
-    \item[$\script{V}_u$] Espaço de funções teste para o campo de velocidades
-    \item[$\script{V}_p$] Espaço de funções teste para o campo de pressões
-    \item[$\mathbf{\hat{u}}$] Campo de velocidades da malha
-    \item[$\mathbf{\dot{\varepsilon}}$] Tensor de taxa de deformação
-    \item[$\mu$] Viscosidade cinemática
-    \item[$\nu$] Viscosidade dinâmica
-    \item[$\tau$] Tensor desviador
+    \item[\textbf{Método dos Elementos Finitos para Elemento de Casca}]
+    \item[$\BB{F}$] Força concentrada
+    \item[$\BB{g}$] Vetor de desbalanceamento mecânico
+    \item[$G$] Módulo de elasticidade transversal
+    \item[$h_0$] Espessura inicial da casca
+    \item[$\BB{H}$] Matriz Hessiana
+    \item[$\BB{q}$] Força não-conservativa
+    \item[$\mathbb{Q}$] Dissipação de energia
+    \item[$\BB{S}$] Tensor de tensões de Piola-Kirchhoff de segunda espécie
+    \item[$\BB{t}$] força distribuída sobre a superfície média
+    \item[$\BB{v}^0$] Vetor unitário normal è superfície média
+    \item[$\BB{v}^1$] Vetor generalizado na configuração atual
+    \item[$\BB{x}^m$] Coordenada inicial de um ponto na superfície média
+    \item[$\BB{y}^m$] Coordenada atual de um ponto na superfície média
+    \item[$\alpha$] Taxa de variação da espessura
+    \item[$\nu$] Coeficiente de Poisson
+    \item[$\lambda_m$] Constante de amortecimento
 
-    \item[\textit{Large Eddy Simulation}]
-    \item[$\mathbf{C}$] Tensor de termos cruzados
+    \item[\textbf{Acoplamento Fluido-Estrutura}]
+    \item[$\script{G}$] Soma de todas as equações diferenciais do problem
+    \item[$\BB{H}$] Matriz tangente
+    \item[$\BB{h}$] Vetor resíduo
+    \item[$\BB{\alpha}$] Vetor com parâmetros nodais
+    \item[$\BB{\beta}$] Vetor com parâmetros nodais das funções teste
+
+    \item[\textbf{\textit{Variational Multi-Scale}}]
+    \item[$\NM$] Vetor de resíduo
+    \item[$\NC$] Vetor de resíduo
+    \item[$\BB{P}$] Vetor de pressões nodais
+    \item[$\rC$] Resíduo da equação da continuidade
+    \item[$\rM$] Resíduo da equação da conservação da quantidade de movimento
+    \item[$\BB{U}$] Vetor de velocidades nodais
+    \item[$\dot{\BB{U}}$] Vetor de acelerações nodais
+    \item[$\nu_\lsic$] Estabilizador LSIC
+    \item[$\rho_\infty$] Raio espectral
+    \item[$\tau_\sups$] Estabilizador SUPS
+    \item[$\bar{\phi}$] Valor de uma propriedade no subespaço de escalas grosseiras
+    \item[$\phi'$] Valor de uma propriedade no subespaço de escalas finas
+
+    \item[\textbf{\textit{Large Eddy Simulation}}]
+    \item[$\BB{C}$] Tensor de termos cruzados
     \item[$C_S$] Constante de Smagorinsky
     \item[$\Dfil$] Domínio de abrangência do filtro
+    \item[$E(k)$] Amplitude espectral da energia cinética
     \item[$g$] Filtro
-    \item[$\mathbf{L}$] Tensor de Leonard
-    \item[$\mathbf{R}$] Tensor SGS de Reynolds
+    \item[$k$] Raio da esfera parametrizada
+    \item[$\BB{L}$] Tensor de Leonard
+    \item[$\BB{R}$] Tensor SGS de Reynolds
+    \item[$\deffil$] Taxa de deformação em grandes escalas
     \item[$\BB{T}$] Tensor SGS
     \item[$\BB{T}_S$] Tensor SGS de Smagorinsky
     \item[$\yfil$] Ponto na vizinhança de $\BB{y}$ interno à $\Dfil$
+    \item[$\alpha$] Cosntante de Kolmogoroff
     \item[$\Delta$] Tamanho da malha
-    \item[$\deffil$] Taxa de deformação em grandes escalas
+    \item[$\ep$] Dissipação turbulenta
     \item[$\nu_T$] Viscosidade de vórtice
     \item[$\bar{\phi}$] Propriedade filtrada
     \item[$\phi'$] Propriedade não filtrada
 
-    \item[\textit{Variational Multi-Scale}]
-
-    \item[\textit{Reynolds-Averaged Navier-Stokes}]
+    \item[\textbf{\textit{Reynolds-Averaged Navier-Stokes}}]
+    \item[$\BB{b}$] Tensor de tensões anisotrópico de Reynolds
+    \item[$\BB{C}$] Gradiente de difusão turbulenta
+    \item[$D_\ep$] Difusão turbulenta
+    \item[$k$] Energia cinética média gerada pelo campo de flutuações
+    \item[$\script{P}$] Pressão dividida pela massa específica
+    \item[$\BB{P}$] Produção do tensor de Reynolds
+    \item[$P_\ep$] Produção da dissipação
+    \item[$\ep$] Dissipação turbulenta da energia cinética
+    \item[$\BB{\ep}$] Tensor de taxa de dissipação turbulenta da energia cinética
+    \item[$\BB{\Pi}$] Correlação entre pressão e o tensor de taxa de deformação do campo de flutuações
+    \item[$\bar{\phi}$] Média temporal de uma propriedade
+    \item[$\phi'$] Flutuação de uma propriedade no espaço-tempo
+    \item[$\Phi_\ep$] Destruição turbulenta da dissipação
+    \item[$\BB{\tau}$] Tensor de tensões de Reynolds
+    \item[$\omega$] Escala de tempo turbulento
 \end{simbolos}
 
 % inserir o sumario

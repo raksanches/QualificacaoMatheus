@@ -77,7 +77,7 @@ Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela de
     \item Modelos de Tensões: A respeito aos Modelos de Zero Equações, adiciona-se duas equações de transporte referentes ao tensor de Reynolds e à $\varepsilon$, tal modelo também pode ser chamado de modelo \te.
 \end{enumerate}
 
-Sobre os Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, em que as equações adicionais são dadas em função de $k$ e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/k$).
+Sobre os Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, em que as equações adicionais são dadas em função da energia cinética média gerada pelo campo de flutuações ($k$) e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/k$).
 
 Contudo, \citeonline{alfonsi2009reynolds} aponta que o modelo $\ke$ não é naturalmente capaz de ser integrado na fronteira em o sólido, sendo necessário um tratamento adicional para que isso se torne possível, assim como o modelo $\kw$ se torna mais singular próximo à fronteira. Logo, o modelo \te\ se mostra promissor, pois, como mencionado pelo autor, é possível aplicar efeitos de relaxação, com diferentes tempos característicos e diferentes componentes do tensor de Reynolds em resposta para mudanças de geometria.
 
@@ -219,23 +219,23 @@ Tomando-se a média temporal dos termos e realizando as devidas simplificações
 \begin{equation}
     \begin{split}
         &\dot{\ep}+\bar{u}_k\ep_{,k}=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-\\
-        &2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}}-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{p'_{,j}u'_{i,j}})_{,i}-2\nu^2\bar{u'_{i,jk}u'_{i,jk}}+\nu\varepsilon_{,kk}\text{.}
+        &2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}}-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i}-2\nu^2\bar{u'_{i,jk}u'_{i,jk}}+\nu\varepsilon_{,kk}\text{.}
     \end{split}
 \end{equation}
 
 Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 
 \begin{equation}
-    \dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=P_\varepsilon+D_\varepsilon-\Phi_\varepsilon+\nu\varepsilon_{,ii}\text{,}
+    \dot{\ep}+\bar{u}_i\ep_{,i}=P_\ep+D_\ep-\Phi_\ep+\nu\ep_{,ii}\text{,}
 \end{equation}
 
-\noindent em que $P_\varepsilon$ é a produção de dissipação, $D_\varepsilon$ é a difusão turbulenta de dissipação, $\Phi_\varepsilon$ é a destruição turbulenta da dissipação e o último termo é o transporte viscoso. Essas parcelas são dadas de forma exata por:
+\noindent em que $P_\ep$ é a produção de dissipação, $D_\ep$ é a difusão turbulenta de dissipação, $\Phi_\ep$ é a destruição turbulenta da dissipação e o último termo é o transporte viscoso. Essas parcelas são dadas de forma exata por:
 
 \begin{subequations}
     \begin{align}
-         & P_\varepsilon=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \\
-         & D_\varepsilon=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{p'_{,j}u'_{i,j}})_{,i}                                                                                   \\
-         & \Phi_\varepsilon=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
+         & P_\ep=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \\
+         & D_\ep=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i}                                                                                   \\
+         & \Phi_\ep=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
     \end{align}
 \end{subequations}
 
@@ -282,7 +282,7 @@ Portanto o problema a ser resolvido é:
 \begin{equation}
     \left\{
     \begin{array}{l}
-        \rho\bigpar{\bar{u}_j\bar{u}_{i,j}+(\bar{u'_iu'_j})_{,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}+\bar{p}_{,i}=0 \\
+        \rho\bigpar{\bar{u}_j\bar{u}_{i,j}-\tau_{ij,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}+\bar{p}_{,i}=0 \\
         \bar{u}_{i,i}=0                                                                                      \\
         -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk}     \\
         \dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=P_\varepsilon+D_\varepsilon-\Phi_\varepsilon+\nu\varepsilon_{,ii}
