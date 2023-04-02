@@ -205,12 +205,21 @@ Por fim, o modelo para a correlação de difusão é dado por:
 
 \noindent em que $C_s\approx0,11$.
 
-Já a equação exata do transporte que descreve a taxa de dissipação é dada por:
+Já a equação exata do transporte que descreve a taxa de dissipação também é proveniente da equação \ref{eq:NS-RANS2}, fazendo a troca dos índices mudos $j\to k$, derivando ambos os lados em uma direção $j$ e multiplicando-se por $\nu u'_{i,j}/\rho$:
 
 \begin{equation}
     \begin{split}
-        &\dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{j,i}u'_{j,k}}\bar{u}_{i,k}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,kj}-\\
-        &2\nu\bar{u'_{i,k}u'_{i,m}u'_{k,m}}-\nu(\bar{u'_ku'_{i,m}u'_{i,m}})_{,k}-2\nu(\bar{p'_{,m}u'_{k,m}})_{,k}-2\nu^2\bar{u'_{i,km}u'_{i,km}}+\nu\varepsilon_{,ii}\text{.}
+        &\nu u'_{i,j}\dot{u}'_{i,j}+\nu u'_{i,j}\bigpar{\bar{u}_ku'_{i,k}}_{,j}+\nu u'_{i,j}\bigpar{u'_k\bar{u}_{i,k}}_{,j}+\nu u'_{i,j}\bigpar{u'_ku'_{i,k}}_{,j}-\\
+        &\nu u'_{i,j}(\bar{u'_iu'_k})_{,jk}-\nu^2u'_{i,j}u'_{i,jkk}+\nu u'_{i,j}\pr'_{,ij}=0\text{.}
+    \end{split}
+\end{equation}
+
+Tomando-se a média temporal dos termos e realizando as devidas simplificações tem-se a equação exata para $\ep$:
+
+\begin{equation}
+    \begin{split}
+        &\dot{\ep}+\bar{u}_k\ep_{,k}=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-\\
+        &2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}}-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{p'_{,j}u'_{i,j}})_{,i}-2\nu^2\bar{u'_{i,jk}u'_{i,jk}}+\nu\varepsilon_{,kk}\text{.}
     \end{split}
 \end{equation}
 
@@ -224,9 +233,9 @@ Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 
 \begin{subequations}
     \begin{align}
-         & P_\varepsilon=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{j,i}u'_{j,k}}\bar{u}_{i,k}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,kj}-2\nu\bar{u'_{i,k}u'_{i,m}u'_{k,m}} \\
-         & D_\varepsilon=-\nu(\bar{u'_ku'_{i,m}u'_{i,m}})_{,k}-2\nu(\bar{p'_{,m}u'_{k,m}})_{,k}                                                                                   \\
-         & \Phi_\varepsilon=2\nu^2\bar{u'_{i,km}u'_{i,km}}\text{.}
+         & P_\varepsilon=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \\
+         & D_\varepsilon=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{p'_{,j}u'_{i,j}})_{,i}                                                                                   \\
+         & \Phi_\varepsilon=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
     \end{align}
 \end{subequations}
 
