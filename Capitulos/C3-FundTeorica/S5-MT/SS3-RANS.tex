@@ -128,21 +128,21 @@ Sabendo-se que:
 \begin{equation}
     \begin{split}
         &-\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=\tau_{ik}\bar{u}_{j,k}+\tau_{jk}\bar{u}_{i,k}+\bar{\pr'(u'_{i,j}+u'_{j,i})}-2\nu\bar{u'_{i,k}u'_{j,k}}-\\
-        &(\bar{u'_iu'_ju'_k}+\bar{\pr'(u'_i\delta_{jk}+u'_j\delta_{ik})})_{,k}+\nu\tau_{ij,kk}\text{,}
+        &(\bar{u'_iu'_ju'_k}+\bar{\pr'(u'_i\delta_{jk}+u'_j\delta_{ik})})_{,k}-\nu\tau_{ij,kk}\text{,}
     \end{split}
 \end{equation}
 
 \noindent a qual pode ser reescrita de forma mais compacta, considerando-se o efeito de cada parcela:
 
 \begin{equation}
-    -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk}\text{,}
+    -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}-\nu\tau_{ij,kk}\text{,}
 \end{equation}
 
 \noindent em que $P_{ij}$ é a produção do tensor de Reynolds, a qual não precisa de modelagem, $\Pi_{ij}$ é a correlação entre a pressão e o tensor de taxa de deformação do campo de flutuações, $\varepsilon_{ij}$ é o tensor da taxa de dissipação turbulenta da energia cinética, $C_{ijk}$ é o gradiente de difusão turbulenta e o último termo, que dispensa qualquer modelagem, representa o transporte viscoso. Tais parâmetros são dados por:
 
 \begin{subequations}
     \begin{align}
-         & P_{ij}=\tau_{ik}\bar{u}_{j,k}-\tau_{jk}\bar{u}_{i,k}                           \\
+         & P_{ij}=\tau_{ik}\bar{u}_{j,k}+\tau_{jk}\bar{u}_{i,k}                           \\
          & \Pi_{ij}=\bar{\pr'(u'_{i,j}+u'_{j,i})}                                         \\
          & \varepsilon_{ij}=2\nu\bar{u'_{i,k}u'_{j,k}}                                    \\
          & C_{ijk}=\bar{u'_iu'_ju'_k}+\bar{\pr'(u'_i\delta_{jk}+u'_j\delta_{ik})}\text{.}
@@ -152,7 +152,7 @@ Sabendo-se que:
 \citeonline{alfonsi2009reynolds} apresenta diferentes formas de se modelar $\Pi_{ij}$, sendo a mais comum dada por:
 
 \begin{equation}
-    \Pi_{ij}=\ep A_{ij}(\BB{b})+KM_{ijkl}(\BB{b})\bar{u}_{k,l}\text{,}
+    \Pi_{ij}=\ep A_{ij}(\BB{b})+kM_{ijkl}(\BB{b})\bar{u}_{k,l}\text{,}
 \end{equation}
 
 \noindent sendo $\ep$ a taxa de dissipação turbulenta da energia cinética:
@@ -164,7 +164,7 @@ Sabendo-se que:
 \noindent $\BB{b}$ o tensor de tensões anisotrópico de Reynolds:
 
 \begin{equation}
-    b_{ij}=\frac{1}{2k}\bigpar{\tau_{ij}-\frac{2}{3}k\dij}
+    b_{ij}=-\frac{1}{2k}\bigpar{\tau_{ij}+\frac{2}{3}k\dij}
 \end{equation}
 
 \noindent e $k$ a energia cinética média gerada pelo campo de flutuações de velocidade:
@@ -200,7 +200,7 @@ Já o tensor de taxa de dissipação pode ser modelado como:
 Por fim, o modelo para a correlação de difusão é dado por:
 
 \begin{equation}
-    C_{ijk}=-\frac{2}{3}C_s\frac{k^2}{\ep}\bigpar{\tau_{jk,i}+\tau_{ik,j}+\tau_{ij,k}}\text{,}
+    C_{ijk}=\frac{2}{3}C_s\frac{k^2}{\ep}\bigpar{\tau_{jk,i}+\tau_{ik,j}+\tau_{ij,k}}\text{,}
 \end{equation}
 
 \noindent em que $C_s\approx0,11$.
@@ -234,7 +234,7 @@ Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 \begin{subequations}
     \begin{align}
          & P_\ep=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \\
-         & D_\ep=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i}                                                                                   \\
+         & D_\ep=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i}                                                                                 \\
          & \Phi_\ep=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
     \end{align}
 \end{subequations}
@@ -268,10 +268,10 @@ Assim, realiza-se uma modelagem sobre os termos necessários como:
 
 \begin{subequations}
     \begin{align}
-         & P_\ep=-C_{\ep 1}\frac{\ep}{k}\tau_{ij}\bar{u}_{i,j}\text{,}     \\
-         & D_\ep=C_\ep\bigpar{\frac{k}{\ep}\tau_{ij}\ep_{,j}}_{,i}\text{,} \\
-         & \Phi_\ep=C_{\ep 2}\frac{\ep^2}{k}\text{ e}                      \\
-         & \nu_T=C_\mu\frac{k^2}{\ep}\text{,}
+         & P_\ep=C_{\ep 1}\frac{\ep}{k}\tau_{ij}\bar{u}_{i,j}\text{,}       \\
+         & D_\ep=-C_\ep\bigpar{\frac{k}{\ep}\tau_{ij}\ep_{,j}}_{,i}\text{e} \\
+         & \Phi_\ep=C_{\ep 2}\frac{\ep^2}{k}\text{,}                        \\
+        % & \nu_T=C_\mu\frac{k^2}{\ep}\text{,}
     \end{align}
 \end{subequations}
 
@@ -282,9 +282,9 @@ Portanto o problema a ser resolvido é:
 \begin{equation}
     \left\{
     \begin{array}{l}
-        \rho\bigpar{\bar{u}_j\bar{u}_{i,j}-\tau_{ij,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}+\bar{p}_{,i}=0 \\
-        \bar{u}_{i,i}=0                                                                                      \\
-        -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk}     \\
+        \rho\bigpar{\bar{u}_j\bar{u}_{i,j}-\tau_{ij,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}+\bar{p}_{,i}=0       \\
+        \bar{u}_{i,i}=0                                                                                  \\
+        -\dot{\tau}_{ij}-\bar{u}_k\tau_{ij,k}=P_{ij}+\Pi_{ij}-\varepsilon_{ij}-C_{ijk,k}+\nu\tau_{ij,kk} \\
         \dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=P_\varepsilon+D_\varepsilon-\Phi_\varepsilon+\nu\varepsilon_{,ii}
     \end{array}
     \right.\text{.}
