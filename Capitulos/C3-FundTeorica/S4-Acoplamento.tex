@@ -65,9 +65,9 @@ Para aprimorar os resultados, pode-se atualizar os valores calculados em um bloc
     \label{alg:AcoplamentoParticionado}
     Resolver o sistema: $\BB{H}_{11}^k(\BB{\alpha}_1^k,\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_1^k=-\BB{h}_1^k(\BB{\alpha}_1^k,\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
     Atualizar parâmetros: $\BB{\alpha}_1^{k+1}\gets\BB{\alpha}_1^k+\Delta\BB{\alpha}_1^k$\;
-    Resolver o sistema: $\BB{H}_{22}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_1^k=-\BB{h}_2^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
+    Resolver o sistema: $\BB{H}_{22}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_2^k=-\BB{h}_2^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
     Atualizar parâmetros: $\BB{\alpha}_2^{k+1}\gets\BB{\alpha}_2^k+\Delta\BB{\alpha}_2^k$\;
-    Resolver o sistema: $\BB{H}_{33}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_1^k=-\BB{h}_3^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)$\;
+    Resolver o sistema: $\BB{H}_{33}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_3^k=-\BB{h}_3^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)$\;
     Atualizar parâmetros: $\BB{\alpha}_3^{k+1}\gets\BB{\alpha}_3^k+\Delta\BB{\alpha}_3^k$\;
 \end{algorithm}
 
