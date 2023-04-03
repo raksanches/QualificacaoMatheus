@@ -151,7 +151,8 @@ Uma formulação alternativa à apresentada é apresentada por \citeonline{bazil
 \begin{equation}
     \begin{split}
         &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\bar{w}_{i,j}\rho\bar{u}_ju'_i}-\SintDom{q_{,i}u'_i}-\SintDom{\bar{w}_{i,i}p'}=0
+        &\SintDom{\tau_\supg\bar{w}_{i,j}\bar{u}_j\rMi{i}}-\SintDom{\tau_\pspg\frac{q_{,i}}{\rho}\rMi{i}}-\\
+        &\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}=0
         \text{,}
         \label{eq:SUPG-PSPG}
     \end{split}
