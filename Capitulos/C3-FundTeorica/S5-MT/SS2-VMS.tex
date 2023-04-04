@@ -313,12 +313,12 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 
 \begin{equation}
     \begin{bmatrix}
-        \der{(N_M)_i^a}{\dot{U}_j^{b,n+1}} & \der{(N_M)_i^a}{P^{b,n+1}} \\
-        \der{(N_C)^a}{\dot{U}_j^{b,n+1}}   & \der{(N_C)^a}{P^{b,n+1}}
+        \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}} & \der{(N_M)_i^a}{(P^b)^{n+1}} \\
+        \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}   & \der{(N_C)^a}{(P^b)^{n+1}}
     \end{bmatrix}
     \begin{bmatrix}
-        \Delta\dot{U}_j^{b,n+1} \\
-        \Delta P^{b,n+1}
+        \Delta(\dot{U}_j^b)^{n+1} \\
+        \Delta (P^b)^{n+1}
     \end{bmatrix}=-
     \begin{bmatrix}
         (N_M)_i^a \\
@@ -332,7 +332,7 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \begin{subequations}
     \begin{equation}
         \begin{split}
-            \der{(N_M)_i^a}{\dot{U}_j^{b,n+1}}=&\am\intDomna{\rho N_aN_b}\dij+\am\intDomna{\rho\tsups N_{a,k}N_{b}\uub{k}}\dij+\\
+            \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}}=&\am\intDomna{\rho N_aN_b}\dij+\am\intDomna{\rho\tsups N_{a,k}N_{b}\uub{k}}\dij+\\
             &\agdt\intDomna{\rho N_aN_{b,k}\uub{k}}\dij+\agdt\intDomna{\mu N_{a,k}N_{b,k}}\dij+\\
             &\agdt\intDomna{\mu N_{a,j}N_{b,i}}+\agdt\intDomna{\rho\nlsic N_{a,i}N_{b,j}}+\\
             &\agdt\intDomna{\rho\tsups N_{a,k}N_{b,m}\uub{k}\uub{m}}\dij+\\
@@ -344,19 +344,19 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
     \end{equation}
     \begin{equation}
         \begin{split}
-            \der{(N_M)_i^a}{P^{b,n+1}}=&-\intDomna{N_{a,i}N_b}+\intDomna{\tsups N_{a,j}N_{b,i}\uub{j}}-\\
+            \der{(N_M)_i^a}{(P^b)^{n+1}}=&-\intDomna{N_{a,i}N_b}+\intDomna{\tsups N_{a,j}N_{b,i}\uub{j}}-\\
             &\intDomna{\tsups N_aN_{b,j}\bar{u}_{i,j}}\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
         \begin{split}
-            \der{(N_C)^a}{\dot{U}_j^{b,n+1}}=&\agdt\intDomna{N_aN_{b,j}}+\am\intDomna{\tsups N_{a,j}N_b}+\\
+            \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}=&\agdt\intDomna{N_aN_{b,j}}+\am\intDomna{\tsups N_{a,j}N_b}+\\
             &\agdt\intDomna{\tsups N_{a,j}N_{b,m}\uub{m}}+\\
             &\agdt\intDomna{\tsups N_{a,i}N_b\bar{u}_{i,j}}\text{ e}
         \end{split}
     \end{equation}
     \begin{equation}
-        \der{(N_C)^a}{P^{b,n+1}}=\intDomna{\frac{\tsups}{\rho}N_{a,i}N_{b,i}}\text{,}
+        \der{(N_C)^a}{(P^b)^{n+1}}=\intDomna{\frac{\tsups}{\rho}N_{a,i}N_{b,i}}\text{,}
     \end{equation}
 \end{subequations}
 
