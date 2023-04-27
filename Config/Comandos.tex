@@ -1,0 +1,82 @@
+\renewcommand{\bar}[1]{\overline{#1}}
+
+\newcommand{\DNS}{\textit{Direct Numerical Simulation}}
+\newcommand{\RANS}{\textit{Reynolds-Averaged Navier-Stokes}}
+\newcommand{\LES}{\textit{Large Eddy Simulation}}
+\newcommand{\VMS}{\textit{Variational Multi-Scale}}
+
+\newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left|{#1}\right|}
+\newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
+\newcommand{\dev}[1]{\mathop{\mathrm{dev}}\nolimits{#1}}
+\newcommand{\Rey}{\mathrm{Re}}
+\newcommand{\NN}{\mathbf{\nabla_y}}
+\newcommand{\NNx}{\mathbf{\nabla_x}}
+\newcommand{\NNT}{\mathbf{\nabla}^T_\mathbf{y}}
+\newcommand{\Lapl}{\mathbf{\nabla}^2_\mathbf{y}}
+\newcommand{\apder}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{y}}}
+\newcommand{\apderx}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{x}}}
+\newcommand{\apderxh}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\bhat{x}}}
+\newcommand{\der}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\Dder}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
+\newcommand{\dder}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
+\newcommand{\BB}[1]{\mathbf{#1}}
+\newcommand{\BBB}[1]{\overline{\mathbf{#1}}}
+\newcommand{\dBB}[1]{\dot{\mathbf{#1}}}
+\newcommand{\ddBB}[1]{\ddot{\mathbf{#1}}}
+\newcommand{\uhat}{\hat{\mathbf{u}}}
+\newcommand{\bhat}[1]{\hat{\mathbf{#1}}}
+\newcommand{\that}[1]{\tilde{\mathbf{#1}}}
+\newcommand{\Def}{\BB{\varepsilon}}
+\newcommand{\deftax}{\dot{\mathbf{\varepsilon}}}
+\newcommand{\tens}{\mathbf{\sigma}}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\lVert}
+\newcommand{\bigpar}[1]{\left({#1}\right)}
+%LARGE EDDY SIMULATION:
+\newcommand{\Dfil}{D_\Delta(\BB{y})}
+\newcommand{\yfil}{\BB{y}_\Delta}
+\newcommand{\deffil}{\bar{\mathbf{S}}}
+\newcommand{\deffilij}[1]{\bar{S}_{#1}}
+%\newcommand{\deffil}{\dot{\bar{\mathbf{\varepsilon}}}}
+%\newcommand{\deffilij}[1]{\dot{\bar{\varepsilon}}_{#1}}
+
+%VARIATIONAL MULTISCALE METHOD
+\newcommand{\supg}{\mathrm{SUPG}}
+\newcommand{\pspg}{\mathrm{PSPG}}
+\newcommand{\lsic}{\mathrm{LSIC}}
+\newcommand{\sups}{\mathrm{SUPS}}
+\newcommand{\sugn}{\mathrm{SUGN}}
+\newcommand{\rgn}{\mathrm{RGN}}
+\newcommand{\rM}{\BB{r}_\mathrm{M}(\BBB{u},\bar{p})}
+\newcommand{\rC}{r_\mathrm{C}(\BBB{u})}
+\newcommand{\rMi}[1]{(r_\mathrm{M})_{#1}}
+\newcommand{\rCi}{r_\mathrm{C}}
+\newcommand{\NM}{\BB{N}_\mathrm{M}}
+\newcommand{\NC}{\BB{N}_\mathrm{C}}
+\newcommand{\intDom}[1]{\int_{\Omega}{#1 d\Omega}}
+\newcommand{\intFront}[1]{\int_{\Gamma}{#1 d\Gamma}}
+\newcommand{\intDomi}[1]{\int_{\Omega_0}{#1 d\Omega_0}}
+\newcommand{\intFronti}[1]{\int_{\Gamma_0}{#1 d\Gamma_0}}
+\newcommand{\intNeumann}[1]{\int_{\Gamma_N}{#1 d\Gamma_N}}
+\newcommand{\intDirichlet}[1]{\int_{\Gamma_D}{#1 d\Gamma_D}}
+\newcommand{\SintDom}[1]{\sum_{e=1}^{n_{el}}{\int_{\Omega^e}{#1 d\Omega^e}}}
+
+%\newcommand{\agdt}{\alpha_f\gamma\Delta t}
+\newcommand{\agdt}{\beta_f}
+\newcommand{\am}{\alpha_m}
+\newcommand{\dij}{\delta_{ij}}
+\newcommand{\tsups}{\tau_\sups}
+\newcommand{\nlsic}{\nu_\lsic}
+\newcommand{\uub}[1]{\bigpar{\bar{u}_{#1}-\hat{u}_{#1}}}
+\newcommand{\intDomna}[1]{\int_{\Omega^{n+\alpha_f}}{#1 d\Omega}}
+%REYNOLDS-AVERAGED NAVIER-STOKES
+\newcommand{\umed}{\bar{\BB{u}}}
+\newcommand{\ufl}{\BB{u}'}
+\newcommand{\epmean}{\bar{S}}
+\newcommand{\ke}{k-\varepsilon}
+\newcommand{\kw}{k-\omega}
+\newcommand{\te}{$\tau_{ij}-\varepsilon$}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\pr}{\script{P}}
+
+\newcommand{\Alpha}{\mathrm{A}}

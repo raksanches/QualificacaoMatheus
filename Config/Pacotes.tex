@@ -1,0 +1,74 @@
+%% pacotes para tabelas
+\usepackage{booktabs}  % table
+\usepackage{float} % Fixa tabelas e figuras no local exato
+\usepackage{multirow} % múltiplas linhas
+\usepackage[table]{xcolor}
+
+% Pacotes básicos - Fundamentais 
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+
+% Para utilizar a fonte Times New Roman, inclua uma % no início do comando acima  "\usepackage{lmodern}"
+\usepackage{times}			% Usa a fonte Times New Roman	
+% Lembre-se de alterar a fonte no comando que imprime o preâmbulo no arquivo da Classe USPSC.cls	
+
+%Chamada de pacotes para tratamento de termos matemáticos
+%\usepackage{mtpro2}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+%\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+%\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype}			% para melhorias de justificação
+\usepackage{pdfpages}
+\usepackage{makeidx}		% para gerar índice remissimo
+\usepackage{subfiles}		% para controlar subarquivos
+\usepackage[ampersand]{easylist} % para defininar listas
+\usepackage{titlesec, blindtext}
+%\usepackage{mathptmx}
+%\renewcommand{\rmdefault}{ptm}
+\usepackage{nccmath}
+\usepackage{extarrows} % imply with text below
+%\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol,lipsum}
+\usepackage{fancybox}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{enumitem}  % Enumerate, Itemize
+\usepackage{tabu}  % tabela adequada a fórmulas
+\usepackage{pbox} % caixa dentro de uma célula da tabela
+\usepackage[b]{esvect} % seta de vetor sobrescrita
+\usepackage{framed} % quadro ao redor de um texto
+\usepackage{verbatim}
+\usepackage[percent]{overpic}
+\usepackage{makecell} %\multirowcell
+\usepackage{vwcol}
+\usepackage{arydshln} % dashed line on matrix
+\usepackage[portuguese,onelanguage,ruled,linesnumbered]{algorithm2e}
+\usepackage{hhline}
+\usepackage{dblfloatfix}    % To enable figures at the bottom of page
+\usepackage[section]{placeins} % make floating elements don't switch from sections
+
+% Pacotes de citações - Citações padrão ABNT - Sistema autor-data
+\usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both,
+	abnt-repeated-author-omit=yes, abnt-last-names=abnt,
+	abnt-etal-cite,abnt-etal-list=3, abnt-etal-text=default,
+	abnt-and-type=e,
+	abnt-doi=doi, abnt-url-package=none,
+	abnt-verbatim-entry=no]{abntex2cite}
+
+% Pacotes de Nota de rodape
+% O presente modelo adota o formato numérico para as notas de rodapés quando utiliza o sistema de chamada autor-data para citações e referências.
+%\renewcommand{\footnotesize}{\small} %Comando para diminuir a fonte das notas de rodapé	
+
+% pacotes de tabelas
+\usepackage{multicol}	% Suporte a mesclagens em colunas
+\usepackage{multirow}	% Suporte a mesclagens em linhas
+\usepackage{longtable}	% Tabelas com várias páginas
+\usepackage{threeparttablex}	% notas no longtable
+\usepackage{array}
