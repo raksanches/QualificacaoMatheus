@@ -1,27 +1,21 @@
-%% USPSC.cls v2.0
-%% A Classe USPSC 16/06/2016é uma derivada da abntex2.cls, v-1.9.5 para as Unidades do %% Campus USP de São Carlos:
-%% EESC - Escola de Engenharia de São Carlos
-%% IAU - Instituto de Arquitetura e Urbanismo
-%% ICMC - Instituto de Ciências Matemáticas e de Computação
-%% IFSC - Instituto de Física de São Carlos
-%% IQSC - Instituto de Química de São Carlos
+%% abntex2.cls, v-1.9.7 laurocesar
+%% Copyright 2012-2018 by abnTeX2 group at https://www.abntex.net.br/ 
 %%
-%% A classe USPSC consiste do arquivo USPSC.cls e é mantida pela seguinte equipe:
-%% Programação:
-%%   - Marilza Aparecida Rodrigues Tognetti - marilza@sc.usp.br (PUSP-SC)
-%%   - Ana Paula Aparecida Calabrez - aninha@sc.usp.br (PUSP-SC)
-%% Normalização e Padronização:
-%%   - Brianda de Oliveira Ordonho Sigolo - brianda@usp.br (IAU)
-%%   - Elena Luzia Palloni Gonçalves - elena@sc.usp.br (EESC)
-%%   - Eliana de Cássia Aquareli Cordeiro - eliana@iqsc.usp.br (IQSC)
-%%   - Flávia Helena Cassin - cassinp@sc.usp.br (EESC)
-%%   - Maria Cristina Cavarette Dziabas - mcdziaba@ifsc.usp.br (IFSC)
-%%   - Regina Célia Vidal Medeiros - rcvmat@icmc.usp.br (ICMC)
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
 %%
-%% Sobre a classe abntex2.cls:
-%% abntex2.cls, v-1.9.5 laurocesar
-%% Copyright 2012-2015 by abnTeX2 group at https://www.abntex.net.br/ 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro CÃ©sar Araujo. Further information are available on 
+%% https://www.abntex.net.br/
 %%
+%% This work consists of the file abntex2.cls.
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -29,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{USPSC}[2017/04/12 v2.0 USPSC]
+\ProvidesClass{abntex2}[2018/11/24 v-1.9.7 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
@@ -64,9 +58,9 @@
 \DeclareOption{subsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsection}{true}}
 \DeclareOption{subsubsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsubsection}{true}}
 %
-% Opções de diagramação de sumários
-% sumario=tradicional    : Sumário tradicional do LaTeX/Memoir
-% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012
+% OpÃ§Ãµes de diagramaÃ§Ã£o de sumÃ¡rios
+% sumario=tradicional    : SumÃ¡rio tradicional do LaTeX/Memoir
+% sumario=abnt-6027-2012 : SumÃ¡rio conforme recomendaÃ§Ã£o da ABNT NBR 6027:2012
 \newboolean{ABNTEXsumario-tradicional}     %true=titles of chapter/appendix in uppercase
 \newboolean{ABNTEXsumario-abnt-6027-2012} 
 \setboolean{ABNTEXsumario-tradicional}{false}
@@ -86,8 +80,8 @@
 \ProcessOptions\relax
 \LoadClass{memoir}
 
-% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
-%    só pode ser usado com memoir v3.6k ou superior
+% sumario=abnt-6027-2012 : SumÃ¡rio conforme recomendaÃ§Ã£o da ABNT NBR 6027:2012, que
+%    soh pode ser usado com memoir v3.6k ou superior
 %    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
 \ifdefined\settocpreprocessor
 \else
@@ -155,8 +149,6 @@
 \newcommand{\apendicesname}{Ap\^endices}
 \newcommand{\orientadorname}{Orientador:}
 \newcommand{\coorientadorname}{Coorientador:}
-\newcommand{\areaname}{\'Area de concentra\c{c}\~ao:}
-\newcommand{\opcaoname}{Op\c{c}\~ao:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
 \newcommand{\resumoname}{Resumo} 
 \newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
@@ -167,9 +159,8 @@
 \addto\captionsbrazil{% portugues-brasil
   %% ajusta nomes padroes do babel
   \renewcommand{\bibname}{Refer\^encias}
-  %\renewcommand{\indexname}{\'Indice}
-  \renewcommand{\indexname}{\'INDICE}
-  \renewcommand{\listfigurename}{Lista de figuras}
+  \renewcommand{\indexname}{\'Indice}
+  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
   \renewcommand{\listtablename}{Lista de tabelas}
   %% ajusta nomes usados com a macro \autoref
   \renewcommand{\pageautorefname}{p\'agina}
@@ -177,9 +168,7 @@
   \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
   \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
   \renewcommand{\paragraphautorefname}{subse{\c c}\~ao}
-	}
-
-
+}
 \addto\captionsenglish{% ingles
   %% adjusts names from abnTeX2
   \renewcommand{\folhaderostoname}{Title page}
@@ -207,47 +196,6 @@
   \renewcommand{\paragraphautorefname}{subsubsubsection}
 }
 % ---
-
-% 07/10/2015 - Comando para definição da autor abreviado
-\providecommand{\imprimirautorabr}{}
-\newcommand{\autorabr}[1]{\renewcommand{\imprimirautorabr}{#1}}
-
-% 17/05/2016 - Comando para definição da autor abreviado
-\providecommand{\imprimirautorficha}{}
-\newcommand{\autorficha}[1]{\renewcommand{\imprimirautorficha}{#1}}
-
-% 18/05/2016 - Comando para definição da autor abreviado
-\providecommand{\imprimircutter}{}
-\newcommand{\cutter}[1]{\renewcommand{\imprimircutter}{#1}}
-
-% 13/10/2015 - Comando para definição do idioma do texto
-%\providecommand{\imprimiridiomatexto}{}
-%\newcommand{\idiomatexto}[1]{\renewcommand{\imprimiridiomatexto}{#1}}
-	
-% 18/09/2015 - Comando para definição da Unidade
-\providecommand{\imprimirunidade}{}
-\newcommand{\unidade}[1]{\renewcommand{\imprimirunidade}{#1}}
-
-% 11/04/2016 - Comando para definição da Unidade
-\providecommand{\imprimirunidademin}{}
-\newcommand{\unidademin}[1]{\renewcommand{\imprimirunidademin}{#1}}
-
-% 18/09/2015 - Comando para definição da Unidade
-%\providecommand{\imprimirsiglaunidade}{}
-%\newcommand{\siglaunidade}[1]{\renewcommand{\imprimirsiglaunidade}{#1}}
-
-
-% 10/09/2015 - Comando para definição da Universidade
-\providecommand{\imprimiruniversidade}{}
-\newcommand{\universidade}[1]{\renewcommand{\imprimiruniversidade}{#1}}
-
-% 11/04/2016 - Comando para definição da Universidade
-\providecommand{\imprimiruniversidademin}{}
-\newcommand{\universidademin}[1]{\renewcommand{\imprimiruniversidademin}{#1}}
-
-% 10/09/2015 - Comando para definição da notafolharosto
-\providecommand{\imprimirnotafolharosto}{}
-\newcommand{\notafolharosto}[1]{\renewcommand{\imprimirnotafolharosto}{#1}}
 
 % ---
 % Customiza listas
@@ -291,12 +239,8 @@
 % ---
 
 % ---
-% Fontes padroes de part, chapter, section, subsection e subsubsection 
-% O padrão da rotina era: 
-%\newcommand{\ABNTEXchapterfont}{\sffamily}
-% Eu (Caio) alterei para o disposto abaixo:
-\newcommand{\ABNTEXchapterfont}{\rmfamily}
-% O Restante se manteve 
+% Fontes padroes de part, chapter, section, subsection e subsubsection
+\newcommand{\ABNTEXchapterfont}{\sffamily}
 \newcommand{\ABNTEXchapterfontsize}{\Huge}
 
 \newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
@@ -313,7 +257,7 @@
 
 \newcommand{\ABNTEXsubsubsubsectionfont}{\ABNTEXsubsectionfont}
 \newcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
-
+% ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -355,15 +299,6 @@
   }
 }  
 
-% Comandos utilizados para referenciar corpos flutuantes no texto - 21/09/2015
-\newcommand{\qref}[1]{\quadrorefname~\ref{#1}}      % Quadro X
-\newcommand{\aref}[1]{\algoritmorefname~\ref{#1}}   % Algoritmo X
-\newcommand{\cref}[1]{\codigorefname~\ref{#1}}      % Código X
-\newcommand{\ifequals}[3]{\ifthenelse{\equal{#1}{#2}}{#3}{}}
-\newcommand{\case}[2]{#1 #2} % Dummy, so \renewcommand has something to overwrite...
-\newenvironment{switch}[1]{\renewcommand{\case}{\ifequals{#1}}}{}
-
-
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Configuracoes de layout
@@ -371,20 +306,13 @@
 % ------------------------------------------------------------------------
 
 % ---
-% Notas de rodape - NBR 14724/2011 - 5.2.1 
-\makeatletter
-\renewcommand\@makefntext[1]{\hangindent=1.2em\leftskip=0.4em\hskip-0.4em\@makefnmark\hskip1.2em\relax#1}
-%\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.15cm\@makefnmark#1}
-\makeatother
-\renewcommand{\foottextfont}{\ABNTEXfontereduzida}
+% Notas de rodape - footnotes - NBR 14724/2011 - 5.2.1 
+\setlength{\footmarkwidth}{1.2em} % largura do footnotemark
+\setlength{\footmarksep}{0em}
+\footmarkstyle{\footnotesize{\textsuperscript{#1}}\hfill}
 
-% Virgula em footnote consecutiva
-\let\oldFootnote\footnote
-\newcommand\nextToken\relax
-\renewcommand\footnote[1]{%
-    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
-\newcommand\isFootnote{%
-    \ifx\footnote\nextToken\textsuperscript{,}\fi}
+% tamanho da fonte do footnote
+\renewcommand{\foottextfont}{\ABNTEXfontereduzida}
 % ---
 
 % ---
@@ -401,21 +329,22 @@
 
 % ---
 % Estilos de caption
+% ---
 \hangcaption
-\captiondelim{~\textendash~}
+\newcommand{\ABNTEXcaptiondelim}{~\textendash~}
+\newcommand{\ABNTEXcaptionfontedelim}{:~}
 %\captionnamefont{\ABNTEXfontereduzida}
 %\captiontitlefont{\ABNTEXfontereduzida}
 
-% Para uso com pacotes subfig e caption dentro do memoir se estes forem carregados ou não.
-% É necessário para que os comandos \IBGEtab e \fonte funcionem 
+% Para uso com pacotes subfig e caption dentro do memoir se estes forem carregados ou nÃ£o.
+% Ã‰ necessÃ¡rio para que os comandos \IBGEtab e \fonte funcionem 
 % independente do carregamento de pacotes externos ao memoir que tratam captions.
 \newcommand{\IBGEtabfontsize}{\ABNTEXfontereduzida}
 \AtBeginDocument{%
   % comandos auxiliares para manipular os captions dentro do comando \IBGEtab.
   \newcommand{\configurecaptions}{\captionstyle[\raggedright]{}}
-  \newcommand{\configureseparator}{\captiondelim{: }}
-
-  % Define o comando \IBGEtab{}{}{} com caption e legenda da largura do conteúdo tabular, tabular*, etc
+  \newcommand{\configureseparator}{\captiondelim{\ABNTEXcaptiondelim}}
+  % Define o comando \IBGEtab{}{}{} com caption e legenda da largura do conteÃºdo tabular, tabular*, etc
   % Parece funcionar com qualque pacote
   \newsavebox{\myptabbox}
   \newlength{\myptabboxwidth}
@@ -436,10 +365,7 @@
   \let\ibgetab\IBGEtab  
 }
 
-
-
-% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
-\makeatletter
+% Define o comando \fonte que respeita as configuraÃ§Ãµes de caption do memoir ou do caption
 \newcommand{\fonte}[2][\fontename]{%
   \M@gettitle{#2}%
   \memlegendinfo{#2}%
@@ -450,22 +376,20 @@
        \@setminipage
      \fi
      \ABNTEXfontereduzida
-     \configureseparator
+     %\configureseparator
+     \captiondelim{\ABNTEXcaptionfontedelim}
      \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
   \endgroup}
-\makeatother
 
-% Define o comando \notas que respeita as configurações de caption do memoir ou do caption
-\makeatletter
+% Define o comando \notas que respeita as configuraÃ§Ãµes de caption do memoir ou do caption
 \newcommand{\nota}[2][\notaname]{\fonte[#1]{#2}}
-\makeatother
 
 
 % Altera os comandos \configurecaptions e \configureseparator para trabalhar com 
 % o pacote caption e amigos.
 \AtEndPackage{caption}{
   \AtBeginDocument{%
-    \DeclareCaptionLabelSeparator{barr}{~\textendash~}
+    \DeclareCaptionLabelSeparator{barr}{\ABNTEXcaptiondelim}
     \DeclareCaptionFont{ABNTEXfontereduzida}{\ABNTEXfontereduzida}
       \captionsetup{format=hang,
                     labelseparator=barr,
@@ -479,6 +403,10 @@
   }
 }
 
+\AtBeginDocument{
+ \captiondelim{\ABNTEXcaptiondelim}
+}
+% ---
 
 % -----
 % Configuracoes do TOC
@@ -504,25 +432,8 @@
 \renewcommand*{\cftfigureaftersnum}{\hfill\textendash\hfill}
  
 % lista de tabelas  
-%\renewcommand{\cfttablename}{\tablename\space}
-%\renewcommand*{\cfttableaftersnum}{\hfill\textendash\hfill}	
 \renewcommand{\cfttablename}{\tablename\space}
 \renewcommand*{\cfttableaftersnum}{\hfill\textendash\hfill}	
- 
-% lista de quadros  - 23/05/2016
-\newcommand{\quadroname}{Quadro}
-\newcommand{\listofquadroname}{Lista de quadros}
- 
-\newfloat[chapter]{quadro}{loq}{\quadroname}
-\newlistof{listofquadro}{loq}{\listofquadroname}
-\newlistentry{quadro}{loq}{0}
-
-
-% configurações para atender às regras da ABNT
-\counterwithout{quadro}{chapter}
-\renewcommand{\cftquadroname}{\quadroname\space} 
-\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
-% Fim lista de quadros  - 23/05/2016
  
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
@@ -530,11 +441,11 @@
 % leaders para os capitulos
 \renewcommand*{\cftchapterdotsep}{\cftdotsep}
 
-% suprime espaço entre os itens de listings de diferentes capítulos 
+% suprime espaÃ§o entre os itens de listings de diferentes capÃ­tulos 
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand*{\insertchapterspace}{}
 
-% macros para configurar o Sumário conforme 6027-2012 ou tradicional cft
+% macros para configurar o SumÃ¡rio conforme 6027-2012 ou tradicional cft
 \cftinsertcode{A}{}
 
 \newlength{\cftlastnumwidth}
@@ -551,9 +462,9 @@
 \cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill\textendash\hfill}}
 
 % No caso de Sumario (TOC) tradicional
-\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{}{} % essa linha não faz nada,
+\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{}{} % essa linha nÃ£o faz nada,
                                                      % mas se houver necessidade de alterar o comportamento
-                                                     % do sumário tradicional altere aqui.
+                                                     % do sumÃ¡rio tradicional altere aqui.
 
 % No caso de Sumario (TOC) especifico da ABNT-6027-2012
 
@@ -602,23 +513,23 @@
   %
   \setlength{\cftbeforechapterskip}{1em}
   %
-    % Fontes das entradas do sumario
+  % Fontes das entradas do sumario
   %
-  \renewcommand{\cftpartfont}{\fontsize{12}{12}\bfseries}
+  \renewcommand{\cftpartfont}{\bfseries\large}
   %
-  \renewcommand{\cftchapterfont}{\fontsize{12}{12}\bfseries}
+  \renewcommand{\cftchapterfont}{\bfseries}
   \renewcommand{\cftchapterpagefont}{\normalsize\cftchapterfont}
   %
-  \renewcommand{\cftsectionfont}{\fontsize{12}{12}\bfseries}
+  \renewcommand{\cftsectionfont}{\bfseries}
   \renewcommand{\cftsectionpagefont}{\cftsectionfont}
   %
-  \renewcommand{\cftsubsectionfont}{\fontsize{12}{12}\normalsize}
+  \renewcommand{\cftsubsectionfont}{\normalsize}
   \renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
   %
-  \renewcommand{\cftsubsubsectionfont}{\fontsize{12}{12}\normalsize}
+  \renewcommand{\cftsubsubsectionfont}{\small}
   \renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
   %
-  \renewcommand{\cftparagraphfont}{\fontsize{12}{12}\normalsize}
+  \renewcommand{\cftparagraphfont}{\footnotesize}
   \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
   %
   % Ajusta entrada Referencias
@@ -628,7 +539,7 @@
     \bibmark
     \ifnobibintoc\else
     \phantomsection
-    \addcontentsline{toc}{chapter}{\uppercase{\bibname}}
+    \addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{\bibname}}{\bibname}}
     \fi
     \prebibhook
 }
@@ -710,7 +621,7 @@
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        \tocinnonumchapter
-       ~\textendash~%
+       \ABNTEXcaptiondelim%
      }{} % else
   }
   \renewcommand{\afterchapternum}{}
@@ -729,17 +640,6 @@
 % -----
 % Cabecalho padrao
 \makepagestyle{abntheadings}
-%Cabeçalho contendo apenas o número da página
-%\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{}
-%\makeoddhead{abntheadings}{}{}{\ABNTEXfontereduzida\thepage}
-
-%Cabeçalho com a seções ou subseções  e o número da página nas páginas ímpares
-%Cabeçalho com o o número da página e o título do capítulo e nas páginas pares
-%Tira o ponto depois do Capítulo
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter. \ #1}{}} % 
-%Tira o ponto depois da Seção
-%\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}} 
-%
 \makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit\leftmark}
 \makeoddhead{abntheadings}{\ABNTEXfontereduzida\textit\rightmark}{}{\ABNTEXfontereduzida\thepage}
 \makeheadrule{abntheadings}{\textwidth}{\normalrulethickness}
@@ -790,9 +690,17 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
+% Comando para definição da autor abreviado
+\providecommand{\imprimirautorabr}{}
+\newcommand{\autorabr}[1]{\renewcommand{\imprimirautorabr}{#1}}
+
 % Comandos de dados - titulo do documento
 \newcommand{\titulo}[1]{\title{#1}}
 \newcommand{\imprimirtitulo}{\thetitle}
+
+% Comandos de dados - titulo do documento
+\newcommand{\tituloestrangeiro}[1]{\providecommand{\theforeigntitle}{#1}}
+\newcommand{\imprimirtituloestrangeiro}{\theforeigntitle}
 
 % Comandos de dados - titulo em outra língua
 \providecommand{\imprimirtitleabstract}{}
@@ -820,49 +728,12 @@
 \providecommand{\imprimirpreambulo}{}
 \newcommand{\preambulo}[1]{\renewcommand{\imprimirpreambulo}{#1}}
 
-% Comandos de dados - areaconcentracao
-\providecommand{\imprimirareaRotulo}{}
-\providecommand{\imprimirarea}{}
-\newcommand{\area}[2][\areaname]%
-  {\renewcommand{\imprimirareaRotulo}{#1}%
-   \renewcommand{\imprimirarea}{#2}}
-
-% Comandos de dados - opção
-\providecommand{\imprimiropcaoRotulo}{}
-\providecommand{\imprimiropcao}{}
-\newcommand{\opcao}[2][\opcaoname]%
-  {\renewcommand{\imprimiropcaoRotulo}{#1}%
-   \renewcommand{\imprimiropcao}{#2}}
-	
-	
-
 % Comandos de dados - orientador
 \providecommand{\imprimirorientadorRotulo}{}
 \providecommand{\imprimirorientador}{}
 \newcommand{\orientador}[2][\orientadorname]%
   {\renewcommand{\imprimirorientadorRotulo}{#1}%
    \renewcommand{\imprimirorientador}{#2}}
-
-% Comandos de dados - orientadorficha
-\providecommand{\imprimirorientadorficha}{}
-\newcommand{\orientadorficha}[1]{\renewcommand{\imprimirorientadorficha}{#1}}
-
-% Comandos de dados - orientadorcorpoficha
-\providecommand{\imprimirorientadorcorpoficha}{}
-\newcommand{\orientadorcorpoficha}[1]{\renewcommand{\imprimirorientadorcorpoficha}{#1}}
-
-% Comandos de dados - notaautorizacao
-\providecommand{\imprimirnotaautorizacao}{}
-\newcommand{\notaautorizacao}[1]{\renewcommand{\imprimirnotaautorizacao}{#1}}
-
-% Comandos de dados - notaficha
-\providecommand{\imprimirnotaficha}{}
-\newcommand{\notaficha}[1]{\renewcommand{\imprimirnotaficha}{#1}}
-
-% Comandos de dados - notabib
-\providecommand{\imprimirnotabib}{}
-\newcommand{\notabib}[1]{\renewcommand{\imprimirnotabib}{#1}}
-
 
 % Comandos de dados - coorientador
 \providecommand{\imprimircoorientadorRotulo}{}
@@ -887,8 +758,15 @@
 % ---
 
 % ---
+% Titulos em lingua estrangeira para artigos: ABNT NBR 6022:2018
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+\renewcommand{\maketitlehookb}{\LARGE\center\textit{\theforeigntitle}}
+}{}
+% ---
+
+% ---
 % Ficha catalografica (Dados internacionais de
-% catalogação-na-publicacao)
+% catalogaÃ§Ã£o-na-publicacao)
 \newenvironment{fichacatalografica}{%
     \thispagestyle{empty}
     \begin{SingleSpacing}
@@ -942,20 +820,20 @@
 % ---
 % Resumo e abstracts em diferentes idiomas - NBR 14724/2011
 
-% altera as margens padrões do memoir para abstract caso nao seja article
+% altera as margens padrÃµes do memoir para abstract caso nao seja article
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-    % em artigos, margens e fontes são as mesmas de memoir
+    % em artigos, margens e fontes sÃ£o as mesmas de memoir
   }{ % else
   	% Ajusta as margens para serem a mesma do documento
     \setlength\absleftindent{0cm}
     \setlength\absrightindent{0cm}
-    % Garante que a fonte do texto do abstract será a mesma do documento, pois
-    % na classe memoir está \small
+    % Garante que a fonte do texto do abstract serÃ¡ a mesma do documento, pois
+    % na classe memoir estÃ¡ \small
     \renewcommand{\abstracttextfont}{\normalfont\normalsize}
   }
   
-% A norma não diz nada sobre identação e separação entre parágrafos no abstract,
-% porém o uso mostra que muitos abstracts são montados sem identação.
+% A norma nÃ£o diz nada sobre identaÃ§Ã£o e separaÃ§Ã£o entre parÃ¡grafos no abstract,
+% porÃ©m o uso mostra que muitos abstracts sÃ£o montados sem identaÃ§Ã£o.
 \AtBeginDocument{%
    \setlength{\absparindent}{0pt}
 }
@@ -996,6 +874,8 @@
   \cleardoublepage
 }
 % ---
+
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -1153,52 +1033,41 @@
   {\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
 % ---
 
-% Chamanda para dados pre-textuais
-%\include{USPSC-unidades}  
-%
-
+% ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Impressão da Capa
+% ImpressÃ£o da Capa
 \newcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-	  \ABNTEXchapterfont\bfseries\large\imprimiruniversidade \\
-		\ABNTEXchapterfont\bfseries\large\imprimirunidade
+    \ABNTEXchapterfont\large\imprimirautor
 
-    %\vfill
-    \vspace*{5,5cm}
-  	\ABNTEXchapterfont\bfseries\large\imprimirautor
-
-    %\vfill
-    \vspace*{1cm}
-		\begin{center}
-    \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
-
+    \vfill
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
     \end{center}
     \vfill
     
-    %\large\imprimirlocal
-		\imprimirlocal
+    \large\imprimirlocal
 
-    %\large\imprimirdata
-    \imprimirdata
-		
-    \vspace*{0,5cm}
+    \large\imprimirdata
+    
+    \vspace*{1cm}
   \end{capa}
 }
 % ---
 
+
 % ---
 % Folha de rosto
 %   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
-%   página no caso de estar no modo twoside. Util para imprimir a Ficha
+%   pÃ¡gina no caso de estar no modo twoside. Util para imprimir a Ficha
 %   Bibliografica. Porem, se estiver no modo oneside, a versao sem estrela
-%   é identica.
+%   Ã© identica.
 \newenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
 \newenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
 
@@ -1209,7 +1078,7 @@
   \begin{center}
 
     %\vspace*{1cm}
-    {\ABNTEXchapterfont\bfseries\large\imprimirautor}
+    {\ABNTEXchapterfont\large\imprimirautor}
 	
     \vspace*{\fill}\vspace*{\fill}
     \begin{center}
@@ -1221,34 +1090,26 @@
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
       	\SingleSpacing
-				% Se no arquivo USPSC-modelo.tex a fonte for \usepackage{lmodern}	
-        \imprimirpreambulo
-				% Se no arquivo USPSC-modelo.tex a fonte for \usepackage{times}	
-				% insira uma % no início do comando acima e tire a % do comando abaixo
-      	%\ABNTEXchapterfont\small\imprimirpreambulo
-				
-				{\vspace*{0,5cm}\imprimirareaRotulo~\imprimirarea\par}
-				\abntex@ifnotempty{\imprimiropcao}{%
-				{\imprimiropcaoRotulo~\imprimiropcao\par}
-				}%
-				{\vspace*{0,5cm}\imprimirorientadorRotulo~\imprimirorientador\par}
-				\abntex@ifnotempty{\imprimircoorientador}{%
-				{\imprimircoorientadorRotulo~\imprimircoorientador}%
-				}%
+         \imprimirpreambulo
        \end{minipage}%
        \vspace*{\fill}
     }%
-		 
-    {\ABNTEXchapterfont\bfseries\large\imprimirnotafolharosto\par\par} 
-	  \vspace*{\fill}
-		{\ABNTEXchapterfont\bfseries\large\imprimirlocal}
+
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
+    {\large\imprimirorientadorRotulo~\imprimirorientador\par}
+    \abntex@ifnotempty{\imprimircoorientador}{%
+       {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+    }%
+    \vspace*{\fill}
+
+    {\large\imprimirlocal}
     \par
-    {\ABNTEXchapterfont\bfseries\large\imprimirdata}
-    %\vspace*{0,5cm}
+    {\large\imprimirdata}
+    \vspace*{1cm}
 
   \end{center}
 }
-
 \makeatother
 
 \newcommand{\imprimirfolhaderostostar}[1]{%

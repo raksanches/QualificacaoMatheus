@@ -1,9 +1,3 @@
-% Introdução
-
-\documentclass[_ArquivoPrincipal.tex]{subfiles}
-
-\begin{document}
-
 %==================================================================================================
 \chapter{Estado Da Arte}
 %==================================================================================================
@@ -72,5 +66,3 @@ Por sua vez, o modelo de \textit{Large-Eddy Simulation} (LES), que considera tam
 \citeonline{olad2022towards} aponta que a formulação a base de LES se mostrou mais preciso na determinação dos campos de velocidades e de tensões desviadoras, porém com um custo computacional consideravelmente superior ao RANS.
 
 No entanto, as simulações baseadas em RANS e LES possuem a dificuldade de trabalharem com sistemas de equações nas quais surgem sub-blocos nulos na matriz do problema. Assim, surgem modelos como o \textit{Variational Multi-Scale} (VMS), introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}. que contornam essa dificuldade. Esse modelo faz uso dos princípios variacionais, em que tanto os espaços tentativas quanto os espaços testes são divididos em: parcela de grandes escalas; e parcela de pequenas escalas. Com isso se faz a modelagem do espaço de pequenas escalas em termos de resíduos das equações de conservação de massa e de conservação da quantidade de movimento. Tal consideração preenche os termos da diagonal principal, fazendo com que o problema se torne positivo-definido, facilitando a escolha dos espaços de aproximação de velocidades e pressões, além da resolução do problema se mostrar de forma mais estável \cite{bazilevs2013computational,sondak2015new}.
-
-\end{document}
