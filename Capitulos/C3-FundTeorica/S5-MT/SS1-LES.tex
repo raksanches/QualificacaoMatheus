@@ -47,8 +47,6 @@ Assim, em uma descrição Euleriana, pode-se obter as equações de Navier-Stoke
     \right.
 \end{equation}
 
-\textcolor{red}{As condições de contorno são as mesmas, considerando c.c. filtradas?}
-
 Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Logo, sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação de movimento como:
 
 \begin{equation}
@@ -216,6 +214,7 @@ No intuito de se obter uma solução estável, será considerado o elemento de T
     \begin{equation}
         \bigpar{N_C}^a=\intDom{N_a\ub_{i,i}}\text{.}
     \end{equation}
+    \label{eq:VetoresResiduo-LES}
 \end{subequations}
 
 Dessa forma procura-se determinar valores de $\ub$ e $\pb$ que anulem $N_M$ e $N_C$. Para esse fim utiliza-se o método de Newton-Raphson, em que os parâmetros a serem determinados são as acelerações e pressões nodais, sendo o integrador utilizado o $\alpha$-generalizado, apresentado na seção \ref{IT-VMS}. Desse modo tem-se os seguintes sub-blocos que compõem a matriz tangente:
@@ -237,6 +236,11 @@ Dessa forma procura-se determinar valores de $\ub$ e $\pb$ que anulem $N_M$ e $N
     \begin{equation}
         \der{(N_C)^a}{P^b}=0\text{.}
     \end{equation}
+    \label{eq:MatrizTangente-LES}
 \end{subequations}
 
 \noindent em que $\beta_f=\alpha_f\gamma\Delta t$.
+
+Observa-se que o sub-bloco $\partial{\NC}/\partial\BB{P}$ está presente na diagonal principal do problema, possuindo valor nulo. Isso pode ser interpretado como a consideração das pressões como multiplicadores de Lagrange nessa formulação.
+
+Para obtenção da solução aproximada, utiliza-se um procedimento similar ao apresentado no algoritmo \ref{alg:MEF-VMS}, onde o comando \ref{alg:estabilizador} é alterado para computar o valor da viscosidade de vórtice, assim como os valores das componentes da matriz tangente e dos vetores de resíduo são alterados para se adequarem ao presente modelo.

@@ -361,3 +361,58 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \end{equation}
 
 Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
+
+Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
+
+\begin{algorithm}[h]
+    \caption{Algoritmo para a solução de escoamento incompressíveis via modelo VMS.}
+    \label{alg:MEF-VMS}
+    \KwResult{Vetor de velocidades, acelerações e pressões nodais}
+    Atualização das velocidades para os valores iniciais\;
+    \For{$t_i\gets 0$ \KwTo $t_f$}{
+        Previsão dos parâmetros:
+        \begin{flalign*}
+             & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+1}^0\gets\frac{\gamma-1}{\gamma}\BB{\dot{U}}_n & \\
+             & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+1}^0\gets\BB{U}_n                                    & \\
+             & \text{Vetor de pressões nodais: }    &  & \BB{P}_{n+1}^0\gets\BB{P}_n                                    &
+        \end{flalign*}\\
+        \While{\textnormal{erro}>\textnormal{tol}}
+        {
+            \ForEach{\textnormal{elemento}}{
+                \ForEach{\textnormal{ponto de Hammer }}{
+                    Interpolação dos parâmetros:
+                    \begin{flalign*}
+                         & \text{Vetor de posições nodais:}     &  & Y_{n+\alpha_f}^k      \gets \alpha_f Y_{n+1}^{k-1}+(1-\alpha_f)Y_n             & \\
+                         & \text{Vetor de acelerações nodais:}  &  & \dot{U}_{n+\alpha_m}^k\gets \alpha_m \dot{U}_{n+1}^{k-1}+(1-\alpha_m)\dot{U}_n & \\
+                         & \text{Vetor de velocidades nodais: } &  & U_{n+\alpha_f}^k      \gets \alpha_f U_{n+1}^{k-1}+(1-\alpha_f)U_n             & \\
+                         & \text{Vetor de pressões nodais: }    &  & P_{n+1}^1             \gets P_n^{k-1}                                          &
+                    \end{flalign*}\\
+                    Cálculo dos termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ \label{alg:estabilizador}\;
+                    Cálculo das componentes da matriz tangente e dos vetores de resíduos\;
+                }
+            }
+            Montagem do sistema global\;
+            Aplicação das condições de contorno\;
+            Determinação das correções pela solução do sistema:
+            \begin{equation*}
+                \begin{bmatrix}
+                    \der{\NM^k}{\BB{\dot{U}}_{n+1}^k} & \der{\NM^k}{P_{n+1}^k} \\
+                    \der{\NC^k}{\BB{\dot{U}}_{n+1}^k} & \der{\NC^k}{P_{n+1}^k}
+                \end{bmatrix}
+                \begin{bmatrix}
+                    \Delta\BB{\dot{U}}_{n+1}^k \\\Delta P_{n+1}^k
+                \end{bmatrix}=-
+                \begin{bmatrix}
+                    \NM^k \\\NC^k
+                \end{bmatrix}
+            \end{equation*}\\
+            Correção dos parâmetros:
+            \begin{flalign*}
+                 & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+1}^{k+1}\gets\BB{\dot{U}}_{n+1}^k+\Delta\BB{\dot{U}_{n+1}^k} & \\
+                 & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+1}^{k+1}\gets\BB{U}_{n+1}^k+\gamma\Delta t\Delta\BB{U_{n+1}^k}     & \\
+                 & \text{Vetor de pressões nodais: }    &  & \BB{P}_{n+1}^{k+1}\gets\BB{P}_{n+1}^k+\Delta\BB{P}_{n+1}^k                   &
+            \end{flalign*}\\
+            Cálculo do erro: erro$=\norm{\NM^k}_{L^2}$
+        }
+    }
+\end{algorithm}
