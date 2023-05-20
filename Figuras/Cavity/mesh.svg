@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="132.74335mm"
-   height="132.74333mm"
-   viewBox="0 0 132.74335 132.74333"
+   width="132.74333mm"
+   height="132.74335mm"
+   viewBox="0 0 132.74333 132.74335"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (1:1.2.2+202305151914+b0a8486541)"
    sodipodi:docname="mesh.svg"
+   inkscape:version="1.2.2 (1:1.2.2+202305151914+b0a8486541)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.0444209"
-     inkscape:cx="193.88735"
-     inkscape:cy="236.01595"
+     inkscape:zoom="0.73851712"
+     inkscape:cx="459.70499"
+     inkscape:cy="312.11193"
      inkscape:window-width="1920"
      inkscape:window-height="970"
      inkscape:window-x="1920"
@@ -38,8 +38,8 @@
        id="grid9"
        spacingx="0.26458333"
        spacingy="0.26458333"
-       originx="-19.843749"
-       originy="-41.010415" />
+       originx="-19.843755"
+       originy="-41.010407" />
   </sodipodi:namedview>
   <defs
      id="defs2" />
@@ -47,10 +47,11 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-19.843749,-41.010416)">
+     transform="translate(-19.843756,-41.010408)">
     <g
        id="g100106"
-       style="paint-order:fill markers stroke">
+       style="paint-order:fill markers stroke"
+       transform="rotate(90,86.215421,107.38208)">
       <g
          id="g88988"
          style="paint-order:fill markers stroke">
