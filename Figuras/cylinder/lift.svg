@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="250.03125mm"
+   height="100.0125mm"
+   viewBox="0 0 250.03125 100.0125"
+   version="1.1"
+   id="svg2781"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="lift.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2783"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.087256"
+     inkscape:cx="548.16895"
+     inkscape:cy="207.86272"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2778">
+    <clipPath
+       id="clip0">
+      <rect
+         x="403"
+         y="377"
+         width="945"
+         height="378"
+         id="rect2902" />
+    </clipPath>
+    <clipPath
+       id="clip1">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2905" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2908" />
+    </clipPath>
+    <clipPath
+       id="clip3">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2911" />
+    </clipPath>
+    <clipPath
+       id="clip4">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2914" />
+    </clipPath>
+    <clipPath
+       id="clip5">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2917" />
+    </clipPath>
+    <clipPath
+       id="clip6">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2920" />
+    </clipPath>
+    <clipPath
+       id="clip7">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2923" />
+    </clipPath>
+    <clipPath
+       id="clip8">
+      <rect
+         x="442"
+         y="391"
+         width="877"
+         height="350"
+         id="rect2926" />
+    </clipPath>
+    <clipPath
+       id="clip9">
+      <rect
+         x="442"
+         y="391"
+         width="877"
+         height="350"
+         id="rect2929" />
+    </clipPath>
+    <clipPath
+       id="clip10">
+      <rect
+         x="442"
+         y="391"
+         width="877"
+         height="350"
+         id="rect2932" />
+    </clipPath>
+    <clipPath
+       id="clip11">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2935" />
+    </clipPath>
+    <clipPath
+       id="clip12">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2938" />
+    </clipPath>
+    <clipPath
+       id="clip13">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2941" />
+    </clipPath>
+    <clipPath
+       id="clip14">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2944" />
+    </clipPath>
+    <clipPath
+       id="clip15">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2947" />
+    </clipPath>
+    <clipPath
+       id="clip16">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2950" />
+    </clipPath>
+    <clipPath
+       id="clip17">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2953" />
+    </clipPath>
+    <clipPath
+       id="clip18">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2956" />
+    </clipPath>
+    <clipPath
+       id="clip19">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2959" />
+    </clipPath>
+    <clipPath
+       id="clip20">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2962" />
+    </clipPath>
+    <clipPath
+       id="clip21">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2965" />
+    </clipPath>
+    <clipPath
+       id="clip22">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2968" />
+    </clipPath>
+    <clipPath
+       id="clip23">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2971" />
+    </clipPath>
+    <clipPath
+       id="clip24">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2974" />
+    </clipPath>
+    <clipPath
+       id="clip25">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2977" />
+    </clipPath>
+    <clipPath
+       id="clip26">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2980" />
+    </clipPath>
+    <clipPath
+       id="clip27">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2983" />
+    </clipPath>
+    <clipPath
+       id="clip28">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2986" />
+    </clipPath>
+    <clipPath
+       id="clip29">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2989" />
+    </clipPath>
+    <clipPath
+       id="clip30">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2992" />
+    </clipPath>
+    <clipPath
+       id="clip31">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2995" />
+    </clipPath>
+    <clipPath
+       id="clip32">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect2998" />
+    </clipPath>
+    <clipPath
+       id="clip33">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect3001" />
+    </clipPath>
+    <clipPath
+       id="clip34">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect3004" />
+    </clipPath>
+    <clipPath
+       id="clip35">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect3007" />
+    </clipPath>
+    <clipPath
+       id="clip36">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect3010" />
+    </clipPath>
+    <clipPath
+       id="clip37">
+      <rect
+         x="403"
+         y="377"
+         width="944"
+         height="377"
+         id="rect3013" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(226.53938,-50.140911)">
+    <g
+       clip-path="url(#clip0)"
+       transform="matrix(0.26458333,0,0,0.26458333,-333.16646,-49.607004)"
+       id="g3168">
+      <rect
+         x="403"
+         y="377"
+         width="945"
+         height="378"
+         fill="#ffffff"
+         id="rect3018" />
+      <g
+         clip-path="url(#clip1)"
+         id="g3022">
+        <path
+           d="m 442.5,740.5 h 876 m -876,-44 h 876 m -876,-43 h 876 m -876,-44 h 876 m -876,-87 h 876 m -876,-44 h 876 m -876,-43 h 876 m -876,-44 h 876"
+           stroke="#d9d9d9"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3020" />
+      </g>
+      <g
+         clip-path="url(#clip2)"
+         id="g3026">
+        <path
+           d="m 530.5,391.5 v 349 m 87,-349 v 349 m 88,-349 v 349 m 87,-349 v 349 m 88,-349 v 349 m 87,-349 v 349 m 88,-349 v 349 m 88,-349 v 349 m 87,-349 v 349 m 88,-349 v 349"
+           stroke="#d9d9d9"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3024" />
+      </g>
+      <g
+         clip-path="url(#clip3)"
+         id="g3030">
+        <rect
+           x="442.5"
+           y="391.5"
+           width="876"
+           height="349"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="rect3028" />
+      </g>
+      <g
+         clip-path="url(#clip4)"
+         id="g3034">
+        <path
+           d="M 0,0 1.04987e-4,349"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           transform="matrix(1,0,0,-1,442.5,740.5)"
+           id="path3032" />
+      </g>
+      <g
+         clip-path="url(#clip5)"
+         id="g3038">
+        <path
+           d="m 442.5,740.5 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -3,-8 h 3 m -3,-9 h 3 m -3,-9 h 3 m -6,349 h 7 m -7,-44 h 7 m -7,-43 h 7 m -7,-44 h 7 m -7,-44 h 7 m -7,-43 h 7 m -7,-44 h 7 m -7,-43 h 7 m -7,-44 h 7"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3036" />
+      </g>
+      <g
+         clip-path="url(#clip6)"
+         id="g3042">
+        <path
+           d="m 442.5,565.5 h 876"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path3040" />
+      </g>
+      <g
+         clip-path="url(#clip7)"
+         id="g3046">
+        <path
+           d="m 442.5,563.5 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m 17,-2 v 2 m 18,-2 v 2 m -876,-3 v 7 m 88,-7 v 7 m 87,-7 v 7 m 88,-7 v 7 m 87,-7 v 7 m 88,-7 v 7 m 87,-7 v 7 m 88,-7 v 7 m 88,-7 v 7 m 87,-7 v 7 m 88,-7 v 7"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3044" />
+      </g>
+      <g
+         clip-path="url(#clip8)"
+         id="g3050">
+        <path
+           d="m 443,575 v -6 l 1,-1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 l 1,1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 l 1,-1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v -1 0 h 1 v 0 h 1 v 0 h 1 v -1 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v -1 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 l 1,1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 1 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v -1 h 1 v 0 0 h 1 v 0 h 1 v 0 l 1,-1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 1 h 1 v 0 h 1 v 0 h 1 v 0 1 h 1 v 0 h 1 v 0 h 1 v 1 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 1 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v -1 0 h 1 v 0 h 1 v 0 h 1 v 0 -1 h 1 v 0 h 1 v 0 l 1,-1 v 0 h 1 v 0 0 l 1,-1 v 0 h 1 v 0 l 1,-1 v 0 0 h 1 v 0 l 1,-1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 l 1,1 v 0 h 1 v 0 h 1 v 1 0 h 1 v 1 h 1 v 0 l 1,1 v 0 0 l 1,1 v 0 h 1 v 1 h 1 v 0 l 1,1 v 0 0 l 1,1 v 0 h 1 v 0 h 1 v 1 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 l 1,-1 v 0 h 1 v 0 l 1,-1 v 0 -1 h 1 v 0 l 1,-1 v 0 l 1,-1 v 0 l 1,-1 v -1 0 l 1,-1 v 0 l 1,-1 v 0 l 1,-1 v 0 -1 h 1 v -1 h 1 v -1 h 1 v -1 h 1 v 0 0 h 1 v -1 h 1 v 0 h 1 v 0 1 h 1 v 0 h 1 v 1 h 1 v 1 h 1 v 1 0 l 1,1 v 1 l 1,1 v 0 l 1,1 v 1 1 l 1,1 v 1 l 1,1 v 1 l 1,1 v 1 h 1 v 1 1 l 1,1 v 1 l 1,1 v 0 l 1,1 v 0 l 1,1 v 0 1 h 1 v 0 h 1 v 0 h 1 v 0 0 l 1,-1 v 0 l 1,-1 v 0 l 1,-1 v -1 l 1,-1 v -1 -1 l 1,-1 v -2 l 1,-1 v -1 l 1,-2 v -1 -2 l 1,-1 v -2 l 1,-1 v -2 l 1,-1 v -2 l 1,-2 v -1 -1 l 1,-2 v -1 l 1,-1 v -1 l 1,-1 v -1 -1 h 1 v -1 h 1 v 0 h 1 v 0 l 1,1 v 0 1 l 1,1 v 1 l 1,2 v 1 l 1,2 v 1 2 l 1,2 v 2 l 1,3 v 2 l 1,3 v 2 l 1,3 v 2 3 l 1,3 v 2 l 1,3 v 2 l 1,3 v 2 2 l 1,2 v 2 l 1,2 v 1 l 1,1 v 2 h 1 v 1 0 h 1 v -1 h 1 v -1 l 1,-1 v -2 -2 l 1,-2 v -3 l 1,-2 v -3 l 1,-3 v -4 l 1,-3 v -4 -4 l 1,-4 v -4 l 1,-4 v -4 l 1,-4 v -4 -4 l 1,-4 v -4 l 1,-3 v -4 l 1,-3 v -2 l 1,-2 v -2 -2 l 1,-1 v -1 h 1 v 0 l 1,1 v 1 1 l 1,2 v 3 l 1,3 v 3 l 1,4 v 4 l 1,5 v 4 6 l 1,5 v 5 l 1,6 v 6 l 1,6 v 6 6 l 1,5 v 6 l 1,5 v 5 l 1,5 v 4 l 1,4 v 4 3 l 1,2 v 2 l 1,1 v 1 h 1 v -1 -1 l 1,-2 v -3 l 1,-3 v -4 l 1,-4 v -5 l 1,-6 v -6 -6 l 1,-7 v -7 l 1,-7 v -8 l 1,-7 v -8 -7 l 1,-8 v -7 l 1,-7 v -7 l 1,-7 v -5 l 1,-6 v -5 -4 l 1,-3 v -3 l 1,-2 v -1 l 1,-1 v 1 1 l 1,2 v 3 l 1,4 v 5 l 1,5 v 6 l 1,7 v 7 8 l 1,8 v 8 l 1,9 v 9 l 1,10 v 9 9 l 1,9 v 9 l 1,9 v 8 l 1,8 v 7 l 1,6 v 6 5 l 1,4 v 3 l 1,3 v 1 h 1 v -1 -1 l 1,-3 v -4 l 1,-4 v -6 l 1,-6 v -8 l 1,-8 v -8 -10 l 1,-9 v -10 l 1,-11 v -11 l 1,-10 v -11 l 1,-11 v -10 -10 l 1,-10 v -9 l 1,-9 v -8 l 1,-7 v -6 -5 l 1,-4 v -3 l 1,-2 v -1 l 1,1 v 1 l 1,3 v 3 5 l 1,6 v 7 l 1,8 v 8 l 1,10 v 10 11 l 1,11 v 11 l 1,12 v 12 l 1,12 v 12 l 1,12 v 11 11 l 1,10 v 10 l 1,9 v 8 l 1,7 v 6 5 l 1,3 v 2 l 1,2 v -1 l 1,-1 v -3 l 1,-4 v -5 -6 l 1,-7 v -9 l 1,-9 v -10 l 1,-11 v -11 -12 l 1,-13 v -13 l 1,-13 v -12 l 1,-13 v -13 l 1,-12 v -12 -11 l 1,-11 v -9 l 1,-9 v -7 l 1,-6 v -6 -3 l 1,-3 v -1 h 1 v 1 l 1,3 v 4 l 1,6 v 7 7 l 1,9 v 10 l 1,11 v 11 l 1,12 v 13 13 l 1,14 v 14 l 1,13 v 14 l 1,13 v 13 l 1,12 v 12 11 l 1,10 v 9 l 1,7 v 7 l 1,5 v 4 3 l 1,1 v 0 l 1,-2 v -3 l 1,-5 v -6 l 1,-7 v -8 -9 l 1,-11 v -11 l 1,-12 v -13 l 1,-13 v -14 -14 l 1,-14 v -14 l 1,-14 v -14 l 1,-14 v -12 l 1,-12 v -11 -10 l 1,-9 v -8 l 1,-7 v -5 l 1,-4 v -2 -1 l 1,1 v 2 l 1,3 v 5 l 1,6 v 8 l 1,9 v 10 10 l 1,12 v 13 l 1,13 v 14 l 1,14 v 15 14 l 1,15 v 14 l 1,14 v 13 l 1,13 v 12 l 1,12 v 10 9 l 1,7 v 7 l 1,5 v 3 l 1,2 v 1 -1 l 1,-3 v -4 l 1,-5 v -7 l 1,-8 v -9 l 1,-10 v -12 -12 l 1,-13 v -14 l 1,-14 v -14 l 1,-15 v -15 -15 l 1,-14 v -14 l 1,-14 v -13 l 1,-12 v -11 l 1,-10 v -9 -7 l 1,-6 v -5 l 1,-3 v -1 l 1,-1 v 2 3 l 1,4 v 6 l 1,7 v 9 l 1,9 v 11 l 1,12 v 13 13 l 1,14 v 14 l 1,15 v 15 l 1,15 v 15 15 l 1,14 v 13 l 1,13 v 12 l 1,11 v 10 l 1,8 v 7 6 l 1,4 v 3 l 1,1 v 0 l 1,-2 v -4 l 1,-5 v -6 -8 l 1,-9 v -10 l 1,-11 v -12 l 1,-13 v -14 -14 l 1,-15 v -15 l 1,-15 v -15 l 1,-15 v -15 l 1,-14 v -13 -13 l 1,-11 v -11 l 1,-9 v -8 l 1,-7 v -5 -4 l 1,-2 v -1 l 1,1 v 2 l 1,4 v 6 l 1,7 v 8 9 l 1,11 v 11 l 1,13 v 13 l 1,14 v 15 15 l 1,15 v 15 l 1,15 v 15 l 1,14 v 14 l 1,14 v 12 11 l 1,11 v 9 l 1,7 v 7 l 1,4 v 4 1 h 1 v -1 l 1,-3 v -4 l 1,-6 v -8 l 1,-8 v -10 -11 l 1,-12 v -13 l 1,-14 v -14 l 1,-15 v -15 -15 l 1,-15 v -15 l 1,-15 v -14 l 1,-14 v -13 l 1,-12 v -11 -10 l 1,-9 v -7 l 1,-6 v -4 l 1,-3 v -1 0 l 1,2 v 4 l 1,5 v 6 l 1,8 v 9 l 1,11 v 11 12 l 1,13 v 14 l 1,15 v 15 l 1,15 v 15 15 l 1,15 v 15 l 1,14 v 14 l 1,13 v 11 l 1,11 v 10 8 l 1,7 v 5 l 1,4 v 2 h 1 v -1 -2 l 1,-4 v -6 l 1,-7 v -8 l 1,-10 v -10 l 1,-12 v -13 -13 l 1,-14 v -15 l 1,-15 v -15 l 1,-16 v -15 -15 l 1,-14 v -14 l 1,-14 v -12 l 1,-12 v -10 l 1,-9 v -8 -6 l 1,-4 v -4 l 1,-1 v 0 l 1,1 v 3 5 l 1,6 v 7 l 1,9 v 10 l 1,11 v 12 l 1,13 v 14 14 l 1,15 v 15 l 1,16 v 15 l 1,15 v 15 15 l 1,13 v 13 l 1,12 v 11 l 1,10 v 9 l 1,7 v 6 4 l 1,3 v 1 l 1,-1 v -2 l 1,-4 v -5 -6 l 1,-8 v -9 l 1,-11 v -11 l 1,-13 v -13 l 1,-14 v -15 -15 l 1,-15 v -15 l 1,-16 v -15 l 1,-15 v -14 -13 l 1,-13 v -12 l 1,-10 v -10 l 1,-8 v -6 l 1,-6 v -3 -2 l 1,-1 v 1 l 1,3 v 4 l 1,6 v 7 8 l 1,10 v 11 l 1,12 v 13 l 1,13 v 14 l 1,15 v 15 15 l 1,16 v 15 l 1,15 v 15 l 1,14 v 13 l 1,12 v 12 10 l 1,9 v 7 l 1,6 v 5 l 1,3 v 2 0 l 1,-2 v -3 l 1,-5 v -6 l 1,-8 v -9 l 1,-10 v -11 -12 l 1,-13 v -14 l 1,-15 v -15 l 1,-15 v -15 -16 l 1,-15 v -15 l 1,-14 v -14 l 1,-13 v -12 l 1,-11 v -9 -9 l 1,-7 v -5 l 1,-4 v -3 l 1,-1 v 1 2 l 1,4 v 5 l 1,7 v 8 l 1,9 v 11 l 1,11 v 13 13 l 1,14 v 15 l 1,15 v 15 l 1,16 v 15 15 l 1,15 v 14 l 1,14 v 12 l 1,12 v 10 l 1,10 v 8 6 l 1,5 v 4 l 1,1 v 1 l 1,-1 v -3 -5 l 1,-5 v -8 l 1,-8 v -10 l 1,-11 v -12 l 1,-13 v -13 -15 l 1,-15 v -15 l 1,-15 v -15 l 1,-16 v -15 -14 l 1,-14 v -13 l 1,-13 v -11 l 1,-10 v -9 l 1,-7 v -6 -5 l 1,-2 v -2 h 1 v 2 l 1,4 v 5 6 l 1,8 v 9 l 1,10 v 11 l 1,12 v 14 l 1,14 v 14 15 l 1,15 v 16 l 1,15 v 15 l 1,15 v 14 14 l 1,13 v 12 l 1,11 v 9 l 1,9 v 6 l 1,6 v 4 2 l 1,1 v -1 l 1,-2 v -4 l 1,-6 v -7 -8 l 1,-9 v -11 l 1,-12 v -12 l 1,-14 v -14 l 1,-15 v -15 -15 l 1,-15 v -16 l 1,-15 v -14 l 1,-15 v -13 -12 l 1,-12 v -10 l 1,-10 v -7 l 1,-7 v -5 l 1,-3 v -2 0 l 1,2 v 3 l 1,4 v 6 l 1,7 v 9 10 l 1,11 v 12 l 1,13 v 14 l 1,14 v 15 l 1,15 v 16 15 l 1,15 v 15 l 1,15 v 13 l 1,14 v 12 11 l 1,10 v 9 l 1,7 v 6 l 1,4 v 3 l 1,1 v -1 -2 l 1,-3 v -5 l 1,-7 v -7 l 1,-10 v -10 -11 l 1,-13 v -13 l 1,-14 v -15 l 1,-15 v -15 l 1,-15 v -16 -15 l 1,-15 v -14 l 1,-13 v -13 l 1,-12 v -11 l 1,-9 v -8 -7 l 1,-5 v -4 l 1,-2 v -1 l 1,1 v 3 4 l 1,5 v 7 l 1,9 v 9 l 1,11 v 12 l 1,13 v 13 14 l 1,15 v 15 l 1,15 v 16 l 1,15 v 15 15 l 1,14 v 13 l 1,13 v 11 l 1,10 v 9 l 1,8 v 6 5 l 1,3 v 2 h 1 v -2 l 1,-3 v -5 -6 l 1,-7 v -9 l 1,-10 v -11 l 1,-12 v -13 l 1,-14 v -15 -15 l 1,-15 v -15 l 1,-16 v -15 l 1,-15 v -14 -14 l 1,-13 v -12 l 1,-11 v -10 l 1,-8 v -7 l 1,-6 v -4 -3 l 1,-1 v 1 l 1,2 v 4 l 1,5 v 6 8 l 1,10 v 10 l 1,12 v 12 l 1,13 v 14 l 1,15 v 15 15 l 1,16 v 15 l 1,15 v 15 l 1,14 v 14 12 l 1,12 v 11 l 1,9 v 8 l 1,7 v 5 l 1,3 v 2 1 l 1,-1 v -3 l 1,-4 v -6 l 1,-7 v -9 -9 l 1,-11 v -12 l 1,-13 v -14 l 1,-14 v -15 l 1,-15 v -15 -16 l 1,-15 v -15 l 1,-14 v -14 l 1,-14 v -12 -11 l 1,-10 v -9 l 1,-8 v -6 l 1,-4 v -3 l 1,-2 v 0 2 l 1,3 v 5 l 1,6 v 8 l 1,9 v 10 11 l 1,13 v 13 l 1,14 v 14 l 1,15 v 15 l 1,16 v 15 15 l 1,15 v 15 l 1,13 v 13 l 1,12 v 11 10 l 1,8 v 7 l 1,6 v 4 l 1,2 v 1 l 1,-1 v -2 -4 l 1,-5 v -7 l 1,-8 v -10 l 1,-10 v -12 -12 l 1,-14 v -14 l 1,-15 v -15 l 1,-15 v -15 l 1,-16 v -15 -15 l 1,-14 v -13 l 1,-13 v -11 l 1,-11 v -9 -8 l 1,-6 v -5 l 1,-4 v -2 h 1 v 2 l 1,2 v 5 6 l 1,7 v 9 l 1,9 v 11 l 1,12 v 13 14 l 1,14 v 15 l 1,15 v 16 l 1,15 v 15 l 1,15 v 15 14 l 1,13 v 12 l 1,11 v 10 l 1,9 v 7 6 l 1,5 v 3 l 1,1 v 0 l 1,-2 v -4 l 1,-5 v -6 -8 l 1,-9 v -10 l 1,-12 v -12 l 1,-13 v -14 l 1,-15 v -15 -15 l 1,-15 v -16 l 1,-15 v -15 l 1,-14 v -14 -13 l 1,-11 v -11 l 1,-10 v -8 l 1,-7 v -5 l 1,-4 v -2 -1 l 1,1 v 2 l 1,5 v 5 l 1,7 v 8 10 l 1,10 v 12 l 1,13 v 13 l 1,14 v 15 l 1,15 v 16 15 l 1,15 v 15 l 1,15 v 14 l 1,13 v 13 11 l 1,11 v 9 l 1,8 v 6 l 1,5 v 3 l 1,2 v 0 -2 l 1,-3 v -4 l 1,-6 v -8 l 1,-9 v -10 -11 l 1,-12 v -13 l 1,-13 v -15 l 1,-15 v -15 l 1,-15 v -16 -15 l 1,-15 v -14 l 1,-14 v -13 l 1,-12 v -11 -10 l 1,-9 v -7 l 1,-6 v -4 l 1,-3 v -1 l 1,1 v 2 3 l 1,5 v 7 l 1,8 v 9 l 1,10 v 12 12 l 1,14 v 14 l 1,14 v 15 l 1,16 v 15 l 1,15 v 15 15 l 1,14 v 14 l 1,13 v 12 l 1,10 v 10 8 l 1,6 v 6 l 1,3 v 2 l 1,1 v -1 l 1,-3 v -4 -6 l 1,-7 v -8 l 1,-10 v -11 l 1,-11 v -13 -14 l 1,-14 v -15 l 1,-15 v -15 l 1,-16 v -15 l 1,-15 v -15 -14 l 1,-13 v -12 l 1,-12 v -10 l 1,-9 v -7 -7 l 1,-4 v -3 l 1,-2 v 0 l 1,2 v 3 l 1,5 v 6 8 l 1,9 v 10 l 1,11 v 12 l 1,13 v 14 14 l 1,15 v 16 l 1,15 v 15 l 1,15 v 15 l 1,15 v 14 13 l 1,12 v 11 l 1,9 v 9 l 1,7 v 5 4 l 1,3 v 1 l 1,-1 v -2 l 1,-4 v -5 l 1,-7 v -8 -9 l 1,-11 v -11 l 1,-13 v -13 l 1,-14 v -15 -15 l 1,-15 v -16 l 1,-15 v -15 l 1,-15 v -14 l 1,-14 v -12 -12 l 1,-10 v -10 l 1,-8 v -6 l 1,-5 v -4 -1 l 1,-1 v 1 l 1,3 v 5 l 1,5 v 8 l 1,8 v 10 11 l 1,12 v 13 l 1,13 v 15 l 1,14 v 15 16 l 1,15 v 16 l 1,14 v 15 l 1,14 v 13 l 1,12 v 12 10 l 1,9 v 7 l 1,6 v 5 l 1,3 v 1 h 1 v -2 -4 l 1,-4 v -7 l 1,-7 v -10 l 1,-10 v -11 -12 l 1,-14 v -13 l 1,-15 v -15 l 1,-15 v -16 l 1,-15 v -15 -15 l 1,-14 v -14 l 1,-13 v -12 l 1,-11 v -9 -9 l 1,-6 v -6 l 1,-4 v -2 l 1,-1 v 1 l 1,2 v 4 6 l 1,7 v 8 l 1,9 v 11 l 1,11 v 13 14 l 1,14 v 14 l 1,15 v 16 l 1,15 v 15 l 1,16 v 14 14 l 1,14 v 12 l 1,12 v 10 l 1,9 v 8 7 l 1,5 v 3 l 1,2 v 0 l 1,-2 v -3 l 1,-4 v -6 -7 l 1,-9 v -10 l 1,-11 v -12 l 1,-13 v -14 -14 l 1,-15 v -15 l 1,-16 v -15 l 1,-15 v -15 l 1,-15 v -13 -14 l 1,-12 v -11 l 1,-10 v -9 l 1,-7 v -6 -4 l 1,-3 v -1 l 1,1 v 2 l 1,3 v 5 l 1,7 v 7 10 l 1,10 v 11 l 1,13 v 13 l 1,14 v 14 15 l 1,16 v 15 l 1,15 v 16 l 1,14 v 15 l 1,13 v 13 12 l 1,11 v 9 l 1,8 v 7 l 1,5 v 4 2 l 1,1 v -1 l 1,-3 v -4 l 1,-5 v -7 l 1,-9 v -9 -11 l 1,-12 v -13 l 1,-13 v -14 l 1,-15 v -15 -15 l 1,-16 v -15 l 1,-15 v -15 l 1,-14 v -13 l 1,-13 v -11 -10 l 1,-9 v -8 l 1,-6 v -5 l 1,-3 v -2 0 l 1,2 v 3 l 1,5 v 6 l 1,7 v 9 l 1,10 v 11 12 l 1,13 v 14 l 1,15 v 14 l 1,16 v 15 15 l 1,16 v 15 l 1,14 v 14 l 1,13 v 12 l 1,11 v 10 8 l 1,7 v 6 l 1,4 v 3 l 1,1 v -1 -2 l 1,-3 v -6 l 1,-6 v -8 l 1,-10 v -10 l 1,-12 v -12 -13 l 1,-14 v -15 l 1,-15 v -15 l 1,-16 v -15 -15 l 1,-15 v -14 l 1,-14 v -12 l 1,-12 v -11 l 1,-9 v -8 -7 l 1,-5 v -3 l 1,-2 v -1 l 1,1 v 3 4 l 1,6 v 7 l 1,9 v 9 l 1,11 v 12 l 1,13 v 13 15 l 1,15 v 15 l 1,15 v 15 l 1,16 v 15 l 1,14 v 14 13 l 1,13 v 11 l 1,10 v 9 l 1,8 v 6 4 l 1,3 v 2 h 1 v -2 l 1,-3 v -5 l 1,-6 v -8 -9 l 1,-10 v -11 l 1,-13 v -13 l 1,-14 v -14 -15 l 1,-15 v -16 l 1,-15 v -15 l 1,-15 v -15 l 1,-13 v -13 -12 l 1,-11 v -10 l 1,-8 v -7 l 1,-6 v -4 -2 l 1,-1 v 1 l 1,2"
+           stroke="#4472c4"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3048" />
+      </g>
+      <g
+         clip-path="url(#clip9)"
+         id="g3054">
+        <path
+           d="m 443,574 v -5 h 1 v -1 0 h 1 v 0 h 1 v 0 l 1,-1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 l 1,-1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 1 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 l 1,1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v -1 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v -1 h 1 v 0 0 h 1 v 0 h 1 v 0 l 1,-1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 l 1,1 v 0 h 1 v 0 0 h 1 v 1 h 1 v 0 h 1 v 0 1 h 1 v 0 h 1 v 0 l 1,1 v 0 h 1 v 0 0 l 1,1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 l 1,1 v 0 h 1 v -1 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v -1 0 h 1 v 0 l 1,-1 v 0 h 1 v -1 h 1 v 0 -1 h 1 v -1 h 1 v 0 l 1,-1 v 0 h 1 v -1 0 h 1 v -1 h 1 v 0 h 1 v -1 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 1 h 1 v 0 1 h 1 v 0 l 1,1 v 0 l 1,1 v 0 l 1,1 v 1 0 l 1,1 v 0 l 1,1 v 1 h 1 v 1 1 h 1 v 1 l 1,1 v 0 l 1,1 v 0 l 1,1 v 0 0 l 1,1 v 0 h 1 v 0 l 1,1 v 0 0 h 1 v -1 h 1 v 0 h 1 v -1 h 1 v -1 -1 h 1 v -1 l 1,-1 v -1 l 1,-1 v -1 -1 l 1,-1 v -1 l 1,-1 v -1 l 1,-1 v -1 l 1,-1 v -2 -1 l 1,-1 v -1 l 1,-1 v -1 l 1,-1 v -1 0 l 1,-1 v -1 h 1 v -1 h 1 v 0 h 1 v 0 0 h 1 v 1 h 1 v 1 l 1,1 v 1 1 l 1,1 v 1 l 1,2 v 1 l 1,2 v 2 l 1,2 v 1 2 l 1,2 v 2 l 1,2 v 2 l 1,2 v 2 2 l 1,2 v 2 l 1,1 v 2 l 1,1 v 2 l 1,1 v 1 1 h 1 v 0 l 1,1 v 0 l 1,-1 v 0 -1 l 1,-1 v -1 l 1,-2 v -1 l 1,-2 v -2 l 1,-2 v -3 -2 l 1,-3 v -3 l 1,-3 v -3 l 1,-3 v -4 -3 l 1,-3 v -3 l 1,-3 v -3 l 1,-3 v -3 l 1,-2 v -3 -2 l 1,-2 v -1 l 1,-2 v 0 l 1,-1 v 0 0 h 1 v 1 l 1,1 v 2 l 1,2 v 2 l 1,3 v 3 3 l 1,3 v 4 l 1,4 v 5 l 1,4 v 5 4 l 1,5 v 5 l 1,4 v 5 l 1,4 v 5 l 1,4 v 4 3 l 1,4 v 3 l 1,2 v 2 l 1,2 v 1 0 h 1 v 0 l 1,-1 v -1 l 1,-2 v -3 l 1,-3 v -4 -4 l 1,-4 v -5 l 1,-5 v -6 l 1,-6 v -6 -6 l 1,-6 v -6 l 1,-7 v -6 l 1,-6 v -6 l 1,-6 v -5 -5 l 1,-5 v -4 l 1,-4 v -3 l 1,-2 v -2 l 1,-1 v -1 1 l 1,1 v 1 l 1,3 v 3 l 1,4 v 4 5 l 1,6 v 6 l 1,7 v 7 l 1,7 v 8 l 1,8 v 8 8 l 1,8 v 8 l 1,8 v 7 l 1,7 v 7 6 l 1,6 v 5 l 1,4 v 4 l 1,3 v 2 l 1,1 v 0 -1 l 1,-1 v -3 l 1,-3 v -4 l 1,-5 v -6 -6 l 1,-7 v -8 l 1,-8 v -9 l 1,-9 v -9 l 1,-10 v -10 -9 l 1,-10 v -9 l 1,-9 v -9 l 1,-8 v -8 -7 l 1,-6 v -5 l 1,-5 v -3 l 1,-3 v -2 h 1 v 0 2 l 1,3 v 3 l 1,5 v 6 l 1,6 v 8 8 l 1,9 v 9 l 1,10 v 11 l 1,10 v 11 l 1,11 v 11 11 l 1,11 v 10 l 1,10 v 10 l 1,8 v 8 7 l 1,6 v 5 l 1,4 v 3 l 1,2 v 0 l 1,-1 v -2 -3 l 1,-4 v -6 l 1,-6 v -7 l 1,-9 v -9 -10 l 1,-11 v -11 l 1,-12 v -12 l 1,-12 v -12 l 1,-12 v -12 -12 l 1,-11 v -11 l 1,-10 v -9 l 1,-9 v -7 -6 l 1,-5 v -4 l 1,-3 v -1 h 1 v 1 l 1,3 v 3 5 l 1,7 v 7 l 1,9 v 9 l 1,10 v 11 12 l 1,12 v 13 l 1,13 v 13 l 1,13 v 13 l 1,13 v 13 11 l 1,12 v 10 l 1,10 v 8 l 1,7 v 6 5 l 1,4 v 2 l 1,1 v -1 l 1,-2 v -3 l 1,-5 v -6 -7 l 1,-9 v -9 l 1,-11 v -11 l 1,-12 v -13 -13 l 1,-13 v -14 l 1,-14 v -14 l 1,-13 v -14 l 1,-12 v -13 -11 l 1,-10 v -10 l 1,-8 v -7 l 1,-5 v -5 -3 l 1,-1 v 0 l 1,2 v 3 l 1,4 v 6 l 1,7 v 8 9 l 1,11 v 11 l 1,13 v 12 l 1,14 v 14 14 l 1,14 v 15 l 1,14 v 14 l 1,13 v 13 l 1,12 v 11 10 l 1,9 v 8 l 1,6 v 5 l 1,4 v 2 0 l 1,-1 v -3 l 1,-4 v -5 l 1,-7 v -8 l 1,-9 v -11 -11 l 1,-12 v -13 l 1,-14 v -14 l 1,-15 v -14 l 1,-15 v -15 -14 l 1,-14 v -13 l 1,-13 v -11 l 1,-11 v -10 -8 l 1,-7 v -5 l 1,-4 v -3 l 1,-1 v 1 l 1,2 v 4 5 l 1,6 v 8 l 1,9 v 11 l 1,11 v 12 13 l 1,14 v 14 l 1,15 v 15 l 1,15 v 15 l 1,14 v 15 13 l 1,13 v 13 l 1,11 v 10 l 1,8 v 8 6 l 1,4 v 3 l 1,2 v -1 l 1,-1 v -4 l 1,-4 v -7 -7 l 1,-9 v -10 l 1,-12 v -12 l 1,-13 v -13 -15 l 1,-15 v -15 l 1,-15 v -15 l 1,-15 v -14 l 1,-14 v -14 -12 l 1,-12 v -10 l 1,-9 v -8 l 1,-7 v -4 -4 l 1,-2 v 0 l 1,2 v 2 l 1,5 v 6 l 1,7 v 9 10 l 1,11 v 12 l 1,13 v 14 l 1,14 v 15 15 l 1,15 v 15 l 1,15 v 15 l 1,15 v 13 l 1,13 v 12 11 l 1,9 v 8 l 1,7 v 5 l 1,4 v 2 1 l 1,-1 v -3 l 1,-4 v -5 l 1,-8 v -8 l 1,-10 v -11 -11 l 1,-13 v -14 l 1,-14 v -15 l 1,-15 v -15 -16 l 1,-15 v -15 l 1,-14 v -14 l 1,-13 v -13 l 1,-11 v -9 -9 l 1,-7 v -6 l 1,-4 v -3 h 1 v 0 2 l 1,4 v 6 l 1,6 v 9 l 1,9 v 11 l 1,11 v 13 14 l 1,14 v 15 l 1,15 v 15 l 1,16 v 15 15 l 1,15 v 14 l 1,13 v 12 l 1,12 v 10 l 1,9 v 7 6 l 1,5 v 3 l 1,1 v 0 l 1,-2 v -4 -5 l 1,-6 v -8 l 1,-10 v -10 l 1,-12 v -12 l 1,-13 v -15 -14 l 1,-15 v -16 l 1,-15 v -16 l 1,-15 v -15 -14 l 1,-13 v -13 l 1,-11 v -11 l 1,-9 v -8 l 1,-6 v -5 -3 l 1,-2 v 0 l 1,2 v 3 l 1,5 v 6 7 l 1,9 v 11 l 1,11 v 12 l 1,14 v 14 l 1,14 v 15 16 l 1,15 v 15 l 1,16 v 15 l 1,14 v 14 l 1,13 v 11 11 l 1,10 v 8 l 1,6 v 5 l 1,4 v 2 0 l 1,-1 v -3 l 1,-4 v -6 l 1,-7 v -9 l 1,-10 v -11 -12 l 1,-14 v -13 l 1,-15 v -15 l 1,-15 v -16 -15 l 1,-16 v -15 l 1,-14 v -14 l 1,-13 v -12 l 1,-11 v -10 -8 l 1,-7 v -6 l 1,-4 v -2 h 1 v 0 3 l 1,4 v 6 l 1,7 v 8 l 1,10 v 11 l 1,12 v 13 14 l 1,14 v 15 l 1,15 v 16 l 1,15 v 16 15 l 1,14 v 14 l 1,14 v 12 l 1,11 v 10 l 1,9 v 7 6 l 1,4 v 3 l 1,1 v -1 l 1,-2 v -4 -5 l 1,-7 v -8 l 1,-10 v -11 l 1,-11 v -13 l 1,-14 v -14 -15 l 1,-15 v -15 l 1,-16 v -15 l 1,-16 v -14 -15 l 1,-13 v -12 l 1,-12 v -10 l 1,-9 v -8 l 1,-6 v -4 -3 l 1,-2 v 1 l 1,2 v 3 l 1,5 v 7 8 l 1,9 v 10 l 1,12 v 13 l 1,13 v 14 l 1,15 v 15 15 l 1,16 v 16 l 1,15 v 15 l 1,14 v 13 13 l 1,12 v 10 l 1,10 v 7 l 1,7 v 5 l 1,3 v 2 0 l 1,-2 v -3 l 1,-5 v -6 l 1,-8 v -9 -10 l 1,-11 v -13 l 1,-13 v -14 l 1,-15 v -15 l 1,-15 v -16 -15 l 1,-16 v -15 l 1,-14 v -14 l 1,-13 v -12 -10 l 1,-10 v -8 l 1,-7 v -5 l 1,-3 v -2 l 1,-1 v 2 3 l 1,4 v 6 l 1,7 v 9 l 1,10 v 11 12 l 1,14 v 13 l 1,15 v 15 l 1,15 v 16 l 1,15 v 16 15 l 1,14 v 14 l 1,13 v 12 l 1,11 v 10 9 l 1,6 v 6 l 1,4 v 2 l 1,1 v -1 l 1,-3 v -4 -6 l 1,-7 v -8 l 1,-10 v -11 l 1,-12 v -13 -14 l 1,-14 v -15 l 1,-15 v -16 l 1,-15 v -16 l 1,-15 v -14 -14 l 1,-14 v -12 l 1,-11 v -10 l 1,-9 v -7 -6 l 1,-4 v -3 l 1,-1 v 1 l 1,2 v 4 l 1,5 v 7 8 l 1,10 v 11 l 1,11 v 13 l 1,14 v 14 l 1,15 v 15 16 l 1,15 v 16 l 1,15 v 15 l 1,14 v 13 13 l 1,11 v 10 l 1,9 v 8 l 1,6 v 5 l 1,2 v 2 -1 l 1,-2 v -3 l 1,-5 v -7 l 1,-8 v -9 -10 l 1,-12 v -13 l 1,-13 v -14 l 1,-15 v -15 l 1,-16 v -15 -16 l 1,-15 v -15 l 1,-14 v -14 l 1,-12 v -12 -10 l 1,-10 v -8 l 1,-6 v -5 l 1,-3 v -2 h 1 v 2 3 l 1,5 v 6 l 1,8 v 9 l 1,10 v 12 12 l 1,13 v 14 l 1,15 v 15 l 1,16 v 15 l 1,16 v 15 15 l 1,14 v 14 l 1,13 v 12 l 1,11 v 9 8 l 1,7 v 5 l 1,4 v 1 l 1,1 v -2 l 1,-2 v -5 -6 l 1,-7 v -9 l 1,-10 v -11 l 1,-13 v -13 -14 l 1,-14 v -15 l 1,-16 v -15 l 1,-16 v -15 l 1,-15 v -15 -13 l 1,-13 v -13 l 1,-11 v -9 l 1,-9 v -7 -5 l 1,-4 v -2 l 1,-1 v 1 l 1,3 v 4 l 1,6 v 7 8 l 1,10 v 11 l 1,12 v 13 l 1,14 v 14 15 l 1,16 v 15 l 1,16 v 15 l 1,15 v 15 l 1,14 v 13 12 l 1,12 v 10 l 1,8 v 7 l 1,6 v 4 3 l 1,1 v -1 l 1,-2 v -4 l 1,-5 v -7 l 1,-9 v -9 -11 l 1,-12 v -12 l 1,-14 v -14 l 1,-15 v -16 -15 l 1,-16 v -15 l 1,-15 v -15 l 1,-14 v -14 l 1,-12 v -11 -11 l 1,-9 v -7 l 1,-6 v -5 l 1,-2 v -2 1 l 1,2 v 3 l 1,5 v 7 l 1,8 v 9 l 1,11 v 11 13 l 1,13 v 15 l 1,14 v 16 l 1,15 v 16 15 l 1,15 v 15 l 1,15 v 13 l 1,13 v 11 l 1,11 v 9 8 l 1,6 v 5 l 1,3 v 2 h 1 v -2 -3 l 1,-5 v -6 l 1,-8 v -9 l 1,-10 v -12 l 1,-12 v -14 -14 l 1,-14 v -16 l 1,-15 v -16 l 1,-15 v -15 -15 l 1,-15 v -13 l 1,-13 v -12 l 1,-11 v -9 l 1,-8 v -7 -5 l 1,-4 v -1 l 1,-1 v 2 l 1,3 v 4 l 1,6 v 8 8 l 1,10 v 12 l 1,12 v 13 l 1,14 v 15 15 l 1,15 v 16 l 1,15 v 15 l 1,16 v 14 l 1,14 v 13 12 l 1,11 v 10 l 1,8 v 7 l 1,5 v 4 2 l 1,1 v -1 l 1,-3 v -4 l 1,-6 v -7 l 1,-9 v -9 -11 l 1,-12 v -13 l 1,-14 v -15 l 1,-15 v -15 -15 l 1,-16 v -15 l 1,-16 v -14 l 1,-14 v -13 l 1,-13 v -11 -10 l 1,-8 v -8 l 1,-5 v -4 l 1,-3 v -1 1 l 1,2 v 4 l 1,6 v 7 l 1,8 v 9 l 1,11 v 12 13 l 1,14 v 14 l 1,15 v 15 l 1,16 v 15 16 l 1,15 v 14 l 1,15 v 13 l 1,12 v 12 l 1,10 v 9 7 l 1,6 v 5 l 1,3 v 1 l 1,-1 v -2 -3 l 1,-5 v -7 l 1,-8 v -9 l 1,-11 v -12 l 1,-12 v -14 -14 l 1,-15 v -15 l 1,-15 v -16 l 1,-15 v -16 -15 l 1,-14 v -13 l 1,-13 v -12 l 1,-10 v -9 l 1,-8 v -6 -5 l 1,-3 v -2 h 1 v 2 l 1,3 v 5 7 l 1,7 v 10 l 1,10 v 11 l 1,13 v 13 l 1,14 v 15 15 l 1,15 v 16 l 1,16 v 15 l 1,15 v 14 14 l 1,13 v 11 l 1,11 v 10 l 1,8 v 6 l 1,5 v 4 2 h 1 v -2 l 1,-3 v -4 l 1,-6 v -8 -9 l 1,-10 v -11 l 1,-12 v -13 l 1,-14 v -15 l 1,-15 v -15 -16 l 1,-15 v -16 l 1,-15 v -14 l 1,-14 v -13 -12 l 1,-11 v -10 l 1,-8 v -7 l 1,-5 v -4 l 1,-2 v -1 1 l 1,3 v 4 l 1,6 v 7 l 1,9 v 10 11 l 1,12 v 13 l 1,14 v 14 l 1,15 v 15 l 1,16 v 15 16 l 1,15 v 15 l 1,14 v 13 l 1,12 v 11 10 l 1,9 v 7 l 1,5 v 4 l 1,3 v 1 l 1,-1 v -2 -4 l 1,-6 v -7 l 1,-8 v -10 l 1,-10 v -12 -13 l 1,-14 v -14 l 1,-15 v -15 l 1,-16 v -15 l 1,-16 v -15 -15 l 1,-14 v -13 l 1,-13 v -11 l 1,-10 v -9 l 1,-7 v -6 -5 l 1,-3 v -1 l 1,1 v 2 l 1,3 v 6 6 l 1,8 v 10 l 1,10 v 12 l 1,13 v 13 l 1,14 v 15 15 l 1,16 v 15 l 1,16 v 15 l 1,15 v 14 14 l 1,12 v 12 l 1,10 v 9 l 1,8 v 6 l 1,5 v 3 2 h 1 v -2 l 1,-4 v -4 l 1,-7 v -8 -9 l 1,-10 v -12 l 1,-12"
+           stroke="#ed7d31"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3052" />
+      </g>
+      <g
+         clip-path="url(#clip10)"
+         id="g3058">
+        <path
+           d="m 443,572 v -3 l 1,-1 v 0 0 h 1 v 0 h 1 v 0 h 1 v -1 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v -1 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 1 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 l 1,1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v 0 h 1 v 0 h 1 v 0 0 l 1,-1 v 0 h 1 v 0 h 1 v 0 0 h 1 v -1 h 1 v 0 h 1 v 0 h 1 v 0 -1 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v -1 h 1 v 0 h 1 v 1 0 h 1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 1 h 1 v 0 h 1 v 0 l 1,1 v 0 0 h 1 v 1 h 1 v 0 h 1 v 1 0 h 1 v 0 h 1 v 1 h 1 v 0 h 1 v 0 0 l 1,1 v 0 h 1 v 0 h 1 v 0 0 h 1 v 0 h 1 v -1 h 1 v 0 h 1 v 0 -1 h 1 v 0 h 1 v -1 h 1 v 0 -1 h 1 v -1 h 1 v 0 l 1,-1 v 0 l 1,-1 v 0 0 l 1,-1 v 0 h 1 v -1 h 1 v 0 -1 h 1 v 0 h 1 v 0 l 1,-1 v 0 h 1 v 0 0 h 1 v 1 h 1 v 0 h 1 v 0 1 h 1 v 1 h 1 v 0 l 1,1 v 0 l 1,1 v 1 0 l 1,1 v 0 l 1,1 v 1 h 1 v 1 1 h 1 v 1 l 1,1 v 0 l 1,1 v 0 l 1,1 v 0 1 h 1 v 1 h 1 v 0 h 1 v 0 1 h 1 v -1 h 1 v 0 h 1 v -1 h 1 v 0 -1 l 1,-1 v 0 l 1,-1 v -1 l 1,-1 v -1 l 1,-1 v -1 -1 l 1,-1 v -1 l 1,-1 v -1 l 1,-1 v -1 -1 l 1,-2 v -1 l 1,-1 v -1 l 1,-1 v 0 l 1,-1 v -1 -1 h 1 v -1 h 1 v 0 h 1 v -1 1 h 1 v 0 h 1 v 1 l 1,1 v 0 l 1,1 v 1 1 l 1,2 v 1 l 1,2 v 1 l 1,2 v 1 2 l 1,2 v 2 l 1,2 v 1 l 1,2 v 2 l 1,2 v 2 2 l 1,1 v 2 l 1,1 v 2 l 1,1 v 1 1 l 1,1 v 0 l 1,1 v 0 h 1 v 0 h 1 v -1 -1 l 1,-1 v -1 l 1,-1 v -2 l 1,-2 v -2 -2 l 1,-2 v -3 l 1,-2 v -3 l 1,-3 v -3 l 1,-3 v -3 -3 l 1,-3 v -3 l 1,-2 v -3 l 1,-3 v -3 -2 l 1,-2 v -2 l 1,-2 v -1 l 1,-1 v -1 l 1,-1 v 0 0 h 1 v 1 l 1,1 v 1 l 1,2 v 2 2 l 1,3 v 3 l 1,3 v 4 l 1,4 v 4 l 1,4 v 4 4 l 1,5 v 4 l 1,4 v 5 l 1,4 v 4 4 l 1,4 v 4 l 1,3 v 3 l 1,2 v 2 l 1,2 v 2 0 l 1,1 v 0 l 1,-1 v -1 l 1,-2 v -2 -2 l 1,-3 v -4 l 1,-4 v -4 l 1,-5 v -5 l 1,-5 v -6 -5 l 1,-6 v -6 l 1,-6 v -6 l 1,-6 v -6 -6 l 1,-5 v -5 l 1,-5 v -4 l 1,-4 v -3 l 1,-3 v -2 -2 l 1,-1 v 0 h 1 v 1 l 1,2 v 2 3 l 1,4 v 4 l 1,5 v 5 l 1,6 v 6 l 1,7 v 7 7 l 1,8 v 7 l 1,8 v 7 l 1,8 v 7 7 l 1,7 v 6 l 1,6 v 6 l 1,4 v 5 l 1,3 v 3 2 l 1,1 v 0 h 1 v -2 l 1,-2 v -3 -4 l 1,-4 v -5 l 1,-6 v -7 l 1,-7 v -8 l 1,-8 v -8 -9 l 1,-9 v -9 l 1,-9 v -9 l 1,-9 v -9 -8 l 1,-8 v -7 l 1,-7 v -6 l 1,-5 v -4 l 1,-4 v -3 -1 l 1,-1 v 0 l 1,1 v 3 l 1,3 v 4 l 1,5 v 6 6 l 1,8 v 8 l 1,8 v 9 l 1,10 v 10 10 l 1,11 v 10 l 1,10 v 10 l 1,10 v 10 l 1,9 v 8 8 l 1,6 v 6 l 1,6 v 4 l 1,3 v 2 1 l 1,-1 v -1 l 1,-2 v -4 l 1,-4 v -6 l 1,-6 v -8 -8 l 1,-9 v -9 l 1,-11 v -10 l 1,-11 v -12 -11 l 1,-11 v -12 l 1,-11 v -11 l 1,-10 v -10 l 1,-9 v -8 -7 l 1,-7 v -5 l 1,-4 v -4 l 1,-2 v 0 0 l 1,2 v 3 l 1,4 v 5 l 1,6 v 7 l 1,8 v 9 10 l 1,11 v 11 l 1,12 v 11 l 1,13 v 12 12 l 1,12 v 12 l 1,11 v 11 l 1,10 v 10 l 1,8 v 8 6 l 1,6 v 4 l 1,3 v 1 l 1,1 v -1 -2 l 1,-4 v -4 l 1,-6 v -7 l 1,-8 v -9 l 1,-10 v -11 -11 l 1,-12 v -13 l 1,-12 v -13 l 1,-13 v -13 -12 l 1,-12 v -12 l 1,-11 v -11 l 1,-9 v -9 l 1,-7 v -6 -5 l 1,-4 v -3 l 1,-1 v 1 l 1,1 v 3 4 l 1,6 v 6 l 1,8 v 9 l 1,10 v 11 l 1,11 v 12 13 l 1,13 v 13 l 1,13 v 13 l 1,14 v 12 13 l 1,12 v 11 l 1,10 v 9 l 1,8 v 7 l 1,6 v 5 3 l 1,2 v 0 l 1,-1 v -2 l 1,-4 v -5 -6 l 1,-8 v -8 l 1,-10 v -11 l 1,-11 v -12 l 1,-13 v -13 -13 l 1,-14 v -14 l 1,-13 v -13 l 1,-13 v -13 -11 l 1,-11 v -10 l 1,-9 v -8 l 1,-6 v -5 l 1,-4 v -3 -1 l 1,1 v 2 l 1,3 v 4 l 1,6 v 7 9 l 1,9 v 11 l 1,11 v 12 l 1,13 v 13 l 1,13 v 14 14 l 1,14 v 14 l 1,13 v 13 l 1,12 v 11 11 l 1,9 v 8 l 1,7 v 6 l 1,5 v 3 l 1,1 v 0 -1 l 1,-3 v -4 l 1,-5 v -7 l 1,-8 v -9 -10 l 1,-12 v -11 l 1,-13 v -13 l 1,-14 v -14 l 1,-14 v -14 -14 l 1,-13 v -13 l 1,-13 v -12 l 1,-11 v -10 l 1,-8 v -8 -6 l 1,-5 v -4 l 1,-2 v -1 l 1,1 v 2 4 l 1,5 v 7 l 1,7 v 9 l 1,10 v 11 l 1,11 v 13 13 l 1,14 v 14 l 1,14 v 14 l 1,14 v 14 13 l 1,13 v 12 l 1,11 v 11 l 1,9 v 8 l 1,7 v 6 4 l 1,2 v 1 h 1 v -2 l 1,-3 v -5 -6 l 1,-7 v -8 l 1,-10 v -10 l 1,-12 v -12 l 1,-13 v -14 -14 l 1,-14 v -14 l 1,-14 v -14 l 1,-14 v -13 -13 l 1,-11 v -11 l 1,-10 v -8 l 1,-7 v -6 l 1,-5 v -3 -2 h 1 v 1 l 1,3 v 4 l 1,6 v 7 8 l 1,9 v 10 l 1,12 v 12 l 1,13 v 13 l 1,14 v 14 14 l 1,15 v 14 l 1,14 v 13 l 1,13 v 12 11 l 1,10 v 9 l 1,8 v 6 l 1,5 v 4 l 1,2 v 0 0 l 1,-3 v -3 l 1,-6 v -6 l 1,-8 v -9 -10 l 1,-11 v -12 l 1,-12 v -14 l 1,-13 v -15 l 1,-14 v -14 -14 l 1,-14 v -14 l 1,-13 v -12 l 1,-12 v -10 -9 l 1,-8 v -7 l 1,-6 v -4 l 1,-3 v -1 l 1,1 v 1 4 l 1,5 v 6 l 1,7 v 9 l 1,9 v 11 12 l 1,12 v 13 l 1,14 v 14 l 1,14 v 15 l 1,14 v 14 14 l 1,13 v 12 l 1,12 v 11 l 1,10 v 8 7 l 1,6 v 5 l 1,3 v 2 h 1 v -2 l 1,-2 v -5 -5 l 1,-7 v -9 l 1,-9 v -11 l 1,-11 v -12 -13 l 1,-14 v -14 l 1,-14 v -14 l 1,-15 v -14 l 1,-14 v -13 -13 l 1,-12 v -11 l 1,-10 v -9 l 1,-8 v -6 -5 l 1,-3 v -2 l 1,-1 v 1 l 1,2 v 4 l 1,5 v 7 8 l 1,9 v 10 l 1,11 v 12 l 1,13 v 13 14 l 1,14 v 15 l 1,14 v 14 l 1,14 v 14 l 1,13 v 12 12 l 1,10 v 9 l 1,8 v 7 l 1,6 v 4 l 1,2 v 1 0 l 1,-2 v -4 l 1,-5 v -6 l 1,-7 v -9 -10 l 1,-11 v -11 l 1,-13 v -13 l 1,-14 v -14 l 1,-14 v -15 -14 l 1,-14 v -14 l 1,-13 v -13 l 1,-11 v -11 -10 l 1,-8 v -7 l 1,-6 v -5 l 1,-3 v -1 h 1 v 1 3 l 1,5 v 6 l 1,7 v 8 l 1,10 v 10 12 l 1,12 v 13 l 1,14 v 14 l 1,14 v 14 l 1,15 v 14 14 l 1,13 v 13 l 1,12 v 11 l 1,10 v 9 7 l 1,6 v 5 l 1,4 v 2 h 1 v -1 l 1,-2 v -4 -6 l 1,-6 v -8 l 1,-10 v -10 l 1,-11 v -12 -13 l 1,-13 v -14 l 1,-15 v -14 l 1,-14 v -15 l 1,-14 v -13 -13 l 1,-12 v -12 l 1,-10 v -9 l 1,-8 v -7 -5 l 1,-4 v -2 l 1,-1 v 0 l 1,2 v 4 l 1,5 v 6 8 l 1,9 v 10 l 1,11 v 11 l 1,13 v 13 14 l 1,14 v 14 l 1,15 v 14 l 1,14 v 14 l 1,13 v 13 11 l 1,11 v 9 l 1,9 v 7 l 1,6 v 4 3 l 1,1 v 0 l 1,-2 v -3 l 1,-4 v -6 l 1,-7 v -9 -10 l 1,-10 v -12 l 1,-12 v -13 l 1,-14 v -14 -14 l 1,-15 v -14 l 1,-14 v -14 l 1,-13 v -13 l 1,-12 v -11 -10 l 1,-8 v -8 l 1,-6 v -5 l 1,-3 v -2 0 l 1,1 v 3 l 1,4 v 5 l 1,7 v 8 l 1,9 v 11 11 l 1,12 v 13 l 1,14 v 14 l 1,14 v 14 15 l 1,14 v 14 l 1,13 v 13 l 1,12 v 12 l 1,10 v 9 8 l 1,6 v 6 l 1,3 v 2 l 1,1 v 0 -3 l 1,-3 v -5 l 1,-7 v -8 l 1,-9 v -10 l 1,-11 v -12 -12 l 1,-14 v -13 l 1,-14 v -15 l 1,-14 v -15 -14 l 1,-13 v -13 l 1,-13 v -11 l 1,-11 v -9 l 1,-9 v -7 -5 l 1,-4 v -3 l 1,-1 v 0 l 1,2 v 3 5 l 1,6 v 7 l 1,9 v 9 l 1,11 v 12 l 1,12 v 13 14 l 1,14 v 14 l 1,15 v 14 l 1,14 v 14 l 1,13 v 13 12 l 1,11 v 10 l 1,8 v 8 l 1,6 v 4 3 l 1,2 v 0 l 1,-1 v -3 l 1,-4 v -6 l 1,-7 v -8 -9 l 1,-11 v -11 l 1,-12 v -13 l 1,-14 v -14 -14 l 1,-15 v -14 l 1,-14 v -14 l 1,-14 v -12 l 1,-12 v -12 -10 l 1,-9 v -7 l 1,-7 v -5 l 1,-4 v -2 0 l 1,1 v 2 l 1,4 v 5 l 1,7 v 7 l 1,9 v 11 11 l 1,12 v 12 l 1,14 v 14 l 1,14 v 14 15 l 1,14 v 14 l 1,14 v 13 l 1,12 v 11 l 1,11 v 9 8 l 1,7 v 6 l 1,4 v 2 l 1,1 v 0 -2 l 1,-3 v -5 l 1,-6 v -8 l 1,-9 v -9 l 1,-11 v -12 -13 l 1,-13 v -13 l 1,-15 v -14 l 1,-14 v -15 -14 l 1,-14 v -13 l 1,-12 v -12 l 1,-11 v -9 l 1,-9 v -7 -6 l 1,-5 v -3 l 1,-1 v 0 l 1,1 v 3 5 l 1,5 v 7 l 1,9 v 9 l 1,11 v 11 l 1,13 v 13 13 l 1,14 v 14 l 1,15 v 14 l 1,15 v 13 14 l 1,13 v 11 l 1,12 v 10 l 1,8 v 8 l 1,6 v 5 4 l 1,2 v 0 l 1,-1 v -2 l 1,-4 v -6 -6 l 1,-8 v -9 l 1,-11 v -11 l 1,-12 v -13 l 1,-13 v -14 -14 l 1,-15 v -14 l 1,-14 v -14 l 1,-14 v -13 -12 l 1,-11 v -11 l 1,-9 v -8 l 1,-7 v -5 l 1,-4 v -2 -1 h 1 v 2 l 1,4 v 5 l 1,6 v 8 8 l 1,10 v 11 l 1,12 v 13 l 1,13 v 14 l 1,14 v 14 15 l 1,14 v 14 l 1,14 v 13 l 1,12 v 12 11 l 1,9 v 9 l 1,7 v 6 l 1,4 v 3 l 1,1 v 0 -2 l 1,-3 v -4 l 1,-6 v -7 l 1,-9 v -9 -11 l 1,-11 v -13 l 1,-13 v -14 l 1,-14 v -14 l 1,-14 v -15 -14 l 1,-14 v -13 l 1,-13 v -12 l 1,-11 v -10 -8 l 1,-8 v -6 l 1,-5 v -3 l 1,-2 v 0 l 1,1 v 3 4 l 1,5 v 7 l 1,8 v 9 l 1,11 v 11 l 1,12 v 13 13 l 1,14 v 15 l 1,14 v 14 l 1,15 v 14 13 l 1,13 v 12 l 1,11 v 11 l 1,9 v 8 l 1,6 v 5 4 l 1,2 v 1 h 1 v -3 l 1,-3 v -5 -7 l 1,-7 v -9 l 1,-10 v -11 l 1,-12 v -13 l 1,-13 v -14 -14 l 1,-15 v -14 l 1,-14 v -14 l 1,-14 v -13 -13 l 1,-11 v -11 l 1,-9 v -8 l 1,-7 v -6 l 1,-4 v -3 -1 h 1 v 2 l 1,3 v 5 l 1,6 v 7 9 l 1,9 v 11 l 1,12 v 12 l 1,13 v 14 l 1,14 v 14 15 l 1,14 v 14 l 1,14 v 13 l 1,13 v 12 11 l 1,9 v 9 l 1,7 v 6 l 1,5 v 3 l 1,2 v 0 -1 l 1,-3 v -4 l 1,-6 v -7 l 1,-8 v -9 -11 l 1,-11 v -12 l 1,-13 v -14 l 1,-14 v -14 l 1,-14 v -15 -14 l 1,-14 v -13 l 1,-13 v -12 l 1,-11 v -11 -9 l 1,-7 v -7 l 1,-5 v -4 l 1,-2 v 0 l 1,1 v 2 4 l 1,5 v 6 l 1,8 v 9 l 1,10 v 11 12 l 1,13 v 14 l 1,13 v 15 l 1,14 v 14 l 1,15 v 14 13 l 1,13 v 13 l 1,11 v 11 l 1,9 v 8 7 l 1,5 v 5 l 1,2 v 1 h 1 v -2 l 1,-3 v -5 -6 l 1,-8 v -8 l 1,-10 v -11 l 1,-12 v -12 -14 l 1,-13 v -14 l 1,-15 v -14 l 1,-14 v -15 l 1,-13 v -14 -12 l 1,-12 v -11 l 1,-9 v -9 l 1,-7 v -6 -5 l 1,-3 v -1 h 1 v 1 l 1,3 v 5 l 1,5 v 7 9 l 1,9 v 11 l 1,11 v 12 l 1,13 v 14 14 l 1,14 v 15 l 1,14 v 14 l 1,14 v 14 l 1,12 v 12 11 l 1,10 v 9 l 1,8 v 6 l 1,5 v 4 2 h 1 v -1 l 1,-2 v -4 l 1,-5 v -7 l 1,-8 v -9 -10 l 1,-12 v -12 l 1,-12 v -14 l 1,-14 v -14 -14 l 1,-15 v -14 l 1,-14 v -14 l 1,-13 v -12 l 1,-11 v -11 -9 l 1,-8 v -7 l 1,-5 v -4 l 1,-2 v -1 h 1 v 2 4 l 1,5 v 6 l 1,8 v 8 l 1,10 v 11 12 l 1,13 v 13 l 1,14 v 14 l 1,14 v 14 l 1,15 v 14 14 l 1,13 v 12 l 1,12 v 11 l 1,9 v 9 7 l 1,5 v 5 l 1,3 v 1 h 1 v -2 l 1,-3 v -4 -6 l 1,-7 v -9 l 1,-9 v -11 l 1,-11 v -13 -13 l 1,-13 v -14 l 1,-15"
+           stroke="#a5a5a5"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path3056" />
+      </g>
+      <g
+         clip-path="url(#clip11)"
+         id="g3062">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(411.667,744)"
+           id="text3060">-0.4</text>
+      </g>
+      <g
+         clip-path="url(#clip12)"
+         id="g3066">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(411.667,701)"
+           id="text3064">-0.3</text>
+      </g>
+      <g
+         clip-path="url(#clip13)"
+         id="g3070">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(411.667,657)"
+           id="text3068">-0.2</text>
+      </g>
+      <g
+         clip-path="url(#clip14)"
+         id="g3074">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(411.667,614)"
+           id="text3072">-0.1</text>
+      </g>
+      <g
+         clip-path="url(#clip15)"
+         id="g3078">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(425.667,570)"
+           id="text3076">0</text>
+      </g>
+      <g
+         clip-path="url(#clip16)"
+         id="g3082">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(415.66,526)"
+           id="text3080">0.1</text>
+      </g>
+      <g
+         clip-path="url(#clip17)"
+         id="g3086">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(415.66,483)"
+           id="text3084">0.2</text>
+      </g>
+      <g
+         clip-path="url(#clip18)"
+         id="g3090">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(415.66,439)"
+           id="text3088">0.3</text>
+      </g>
+      <g
+         clip-path="url(#clip19)"
+         id="g3094">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(415.66,396)"
+           id="text3092">0.4</text>
+      </g>
+      <g
+         clip-path="url(#clip20)"
+         id="g3098">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(434.32,584)"
+           id="text3096">0.0</text>
+      </g>
+      <g
+         clip-path="url(#clip21)"
+         id="g3102">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(518.538,584)"
+           id="text3100">20.0</text>
+      </g>
+      <g
+         clip-path="url(#clip22)"
+         id="g3106">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(606.092,584)"
+           id="text3104">40.0</text>
+      </g>
+      <g
+         clip-path="url(#clip23)"
+         id="g3110">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(693.646,584)"
+           id="text3108">60.0</text>
+      </g>
+      <g
+         clip-path="url(#clip24)"
+         id="g3114">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(781.2,584)"
+           id="text3112">80.0</text>
+      </g>
+      <g
+         clip-path="url(#clip25)"
+         id="g3118">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(865.418,584)"
+           id="text3116">100.0</text>
+      </g>
+      <g
+         clip-path="url(#clip26)"
+         id="g3122">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(952.972,584)"
+           id="text3120">120.0</text>
+      </g>
+      <g
+         clip-path="url(#clip27)"
+         id="g3126">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1040.53,584)"
+           id="text3124">140.0</text>
+      </g>
+      <g
+         clip-path="url(#clip28)"
+         id="g3130">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1128.08,584)"
+           id="text3128">160.0</text>
+      </g>
+      <g
+         clip-path="url(#clip29)"
+         id="g3134">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1215.63,584)"
+           id="text3132">180.0</text>
+      </g>
+      <g
+         clip-path="url(#clip30)"
+         id="g3138">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1303.19,584)"
+           id="text3136">200.0</text>
+      </g>
+      <g
+         clip-path="url(#clip31)"
+         id="g3142">
+        <rect
+           x="476.5"
+           y="426.5"
+           width="128"
+           height="63"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect3140" />
+      </g>
+      <g
+         clip-path="url(#clip32)"
+         id="g3146">
+        <path
+           d="m 482,437 h 26"
+           stroke="#4472c4"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path3144" />
+      </g>
+      <g
+         clip-path="url(#clip33)"
+         id="g3150">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(510.688,441)"
+           id="text3148">VMS-Linear</text>
+      </g>
+      <g
+         clip-path="url(#clip34)"
+         id="g3154">
+        <path
+           d="m 482,458 h 26"
+           stroke="#ed7d31"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path3152" />
+      </g>
+      <g
+         clip-path="url(#clip35)"
+         id="g3158">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(510.688,462)"
+           id="text3156">VMS-Quadrático</text>
+      </g>
+      <g
+         clip-path="url(#clip36)"
+         id="g3162">
+        <path
+           d="m 482,479 h 26"
+           stroke="#a5a5a5"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path3160" />
+      </g>
+      <g
+         clip-path="url(#clip37)"
+         id="g3166">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(510.688,483)"
+           id="text3164">LES</text>
+      </g>
+    </g>
+  </g>
+</svg>

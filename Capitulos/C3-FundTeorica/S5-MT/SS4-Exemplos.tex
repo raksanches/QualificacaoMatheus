@@ -4,6 +4,10 @@
 
 Na presente seção serão apresentadas algumas simulações realizadas utilizando os modelos VMS e LES, com a finalidade de validar os modelos implementados.
 
+%==================================================================================================
+\subsubsection{Cavidade bidimensional}
+%==================================================================================================
+
 A primeira simulação considerada trata-se de uma cavidade quadrada ($\Omega=[-1,1]\times[-1,1]$) com paredes aderentes, onde o fluido encontra-se confinado e sujeito a uma velocidade prescrita $\BB{u}_\infty$ ocasionada devido ao deslizamento de uma parede na face superior da cavidade. Nesse sentido serão observados os efeitos provocados no fluido devido à diferentes números de Reynolds, o qual é calculado por meio da equação \ref{eq:Reynolds}:
 
 \begin{equation}
@@ -23,7 +27,7 @@ A primeira simulação considerada trata-se de uma cavidade quadrada ($\Omega=[-
 
 Pelo fato do problema possuir apenas fronteiras do tipo Dirichlet, o condicionamento da solução do campo de pressões é garantido pela aplicação de uma condição de pressão nula no vértice superior direito da cavidade, conforme visto na figura acima.  Também se observa que existe uma descontinuidade nas condições de contorno no encontro entre as paredes da cavidade e seu topo, podendo ser consideradas velocidades nulas ou igual à velocidade do topo. No problema em questão considerou-se que a velocidade nesse ponto é igual à $\BB{u}_\infty$.
 
-A malha de elementos finitos foi feita pela subdivisão do domínio em 20000 elementos dispostos de maneira estruturada com orientação à esquerda, conforme observado na Figura \ref{fig:cavity_disc}. Os parâmetros utilizados foram $\rho=1$ para todas as análises, $\mu=0,02$, $\mu=5\times10^{-3}$, $\mu=2\times10^{-3}$, $\mu=4\times10^{-4}$, $\mu=2,6667\times10^{-4}$ e $\mu=2\times10^{-4}$, resultando em $\Rey=100$, $\Rey=400$, $\Rey=1000$, $\Rey=5000$, $\Rey=7500$ e $\Rey=10000$, respectivamente. Os modelos utilizados foram o VMS com aproximação linear e quadrática e o LES com elementos de Taylor-Hood P2P1 e $C_S=0,10$. O passo de tempo em todos os casos foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade dos parâmetros do fluxo fosse alcançada.
+A malha de elementos finitos foi feita pela subdivisão do domínio em 20000 elementos dispostos de maneira estruturada com orientação à esquerda, conforme observado na Figura \ref{fig:cavity_disc}. O número de graus de liberdade para a simulação VMS de aproximação linear, quadrática e LES são 30603, 121203 e 91003, respectivamente. Os parâmetros utilizados foram $\rho=1$ para todas as análises, $\mu=0,02$, $\mu=5\times10^{-3}$, $\mu=2\times10^{-3}$, $\mu=4\times10^{-4}$, $\mu=2,6667\times10^{-4}$ e $\mu=2\times10^{-4}$, resultando em $\Rey=100$, $\Rey=400$, $\Rey=1000$, $\Rey=5000$, $\Rey=7500$ e $\Rey=10000$, respectivamente. Os modelos utilizados foram o VMS com aproximação linear e quadrática e o LES com elementos de Taylor-Hood P2P1 e $C_S=0,10$. O passo de tempo em todos os casos foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade dos parâmetros do fluxo fosse alcançada.
 
 \begin{figure}[h]
     \centering
@@ -108,3 +112,98 @@ A Figura \ref{fig:cavity-results2} apresenta o campo de velocidades na cavidade 
 \end{figure}
 
 Para todas as simulações conduzidas, percebeu-se que houve uma excelente concordância dos resultados para números de Reynolds baixos, no entanto a simulação VMS de aproximação linear passou a apresentar resultados cada vez mais discrepantes à medida que o número de Reynolds aumentou, enquanto o VMS de aproximação quadrática e o LES apresentaram resultados mais próximos aos de \citeonline{ghia1982high}, sendo que o LES apresentou resultados ligeiramente melhores em relação ao VMS quadrático. Para número de Reynolds muito altos observou-se um leve desvio nos resultados próximos à parede superior da cavidade, o que poderia ser melhorado caso uma discretização mais fina da malha fosse empregada nessa região.
+
+%==================================================================================================
+\subsubsection{\textit{Taylor-Green Vortex} tridimensional}
+%==================================================================================================
+
+Para verificação dos modelos implementados em simulações tridimensionais é possível simular o problema de \textit{Taylor-Green Vortex} (TGV), o qual possui solução analítica, dada por \cite{shapiro1993use}:
+
+\begin{subequations}
+    \begin{equation}
+        \begin{split}
+            &\BB{u}(\BB{x},t)=\\
+            &-\frac{Ae^{-\nu\lambda^2t}}{k^2+l^2}\begin{bmatrix}
+                \lambda l\cos{(kx_1)}\sin{(lx_2)}\sin{(mx_3)}+mk\sin{(kx_1)}\cos{(lx_2)}\cos{(mx_3)}\\
+                \lambda k\sin{(kx_1)}\cos{(lx_2)}\sin{(mx_3)}-ml\cos{(kx_1)}\sin{(lx_2)}\cos{(mx_3)}\\
+                -(k^2+l^2)\cos{(kx_1)}\cos{(lx_2)}\sin{(mx_3)}
+            \end{bmatrix}\text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        p=p_s-\rho\frac{u_1^2+u_2+u_3^2}{2}\text{.}
+    \end{equation}
+\end{subequations}
+
+\noindent em que $k$, $l$ e $m$ são constantes arbitrárias, $\lambda^2=k^2+l^2+m^2$, $A$ é a amplitude da componente $u_3$ e $p_s$ é a pressão do ponto de estagnação.
+
+Para o problema numérico foi considerado um cubo ($\Omega=[-1,1]^3$) simulado nos modelos VMS de aproximação linear e quadrática e o LES utilizando elementos Taylor-Hood P2P1. A malha utilizada na discretização conta com 5802 elementos finitos (conforme ilustrado na Figura \ref{fig:TGV-mesh}), sendo 5580 graus de liberdade para VMS linear, 37600 pra VMS quadrático e 29595 para LES.
+
+\begin{figure}[h]
+    \centering
+    \caption{Malha utilizada para a simulação de TGV.}
+    \includegraphics[width=0.45\linewidth]{Figuras/taylor-green/mesh.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:TGV-mesh}
+\end{figure}
+
+Como condição inicial impôs-se acelerações, velocidade e pressões iguais à solução analítica com $t=0$ e como condições de contorno aplicou-se velocidades iguais à analítica em toda a fronteira e $p=0$ no centro do domínio. Os valores dos parâmetros foram $k=l=m=\pi$ e $A=\nu=\rho=1$, sendo o período analisado de $t\in[0,0.2]$ com um passo de tempo de $\Delta t=0.001$.
+
+Sendo assim, a Figura \ref{fig:TGV-results} apresenta os valores do campo de velocidades nas linhas $u_2=u_3=0$ ($l1$), $u_1=u_3=0$ ($l2$) e $u_1=u_2=0$ ($l3$) para os instantes $t=0$, $t=0.05$ e $t=0.2$ para todos os modelos considerados.
+
+\begin{figure}[h]
+    \centering
+    \caption{Resultados obtidos para a simulação de TGV.}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/VMS-Lin.pdf}
+    \caption{Resultados em $l1$ e $l2$ para VMS linear.}
+    \end{subfigure}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/VMS-Lin-uz.pdf}
+    \caption{Resultados em $l3$ para VMS linear.}
+    \end{subfigure}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/VMS-Qua.pdf}
+    \caption{Resultados em $l1$ e $l2$ para VMS quadrático.}
+    \end{subfigure}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/VMS-Qua-uz.pdf}
+    \caption{Resultados em $l3$ para VMS quadrático.}
+    \end{subfigure}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/LES.pdf}
+    \caption{Resultados em $l1$ e $l2$ para LES.}
+    \end{subfigure}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/LES-uz.pdf}
+    \caption{Resultados em $l3$ para LES.}
+    \end{subfigure}
+    \begin{subfigure}{0.42\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/legenda.pdf}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:TGV-results}
+\end{figure}
+
+Para comparação com a solução analítica, tomou-se as medidas dos erros em $L^2$ e $H^1$, os quais são representados ao longo do tempo de acordo com a Figura \ref{fig:TGV-L2H1}:
+
+\begin{figure}[h]
+    \centering
+    \caption{Medidas ao longo do tempo de:}
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/L2.pdf}
+    \caption{$L^2$.}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/taylor-green/H1.pdf}
+    \caption{$H^1$.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:TGV-L2H1}
+\end{figure}
+
+Assim, observa-se que para o problema estudado, tanto as simulações VMS de aproximação quadrática quanto LES com elemento P2P1 apresentaram boa concordância com o resultado analítico, sendo que ambos apresentaram erros muito próximos entre si, enquanto o VMS de aproximação linear já apresentou um erro maior.
+
+%==================================================================================================
+\subsubsection{Escoamento sobre um cilindro}
+%==================================================================================================
