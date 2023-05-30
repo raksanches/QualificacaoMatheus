@@ -10,7 +10,7 @@ Para a devida representação de escoamentos a temperatura constante é necessá
 
 Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades do fluido na posição atual ($\mathbf{y}$) do elemento e $\rho$ é a massa específica do fluido nesse ponto.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Taxa de fluxo de massa em um elemento infinitesimal permeável.}
     \includegraphics[width=.5\linewidth]{Figuras/BalMas.pdf}
@@ -88,7 +88,7 @@ Para escoamentos incompressíveis a equação da continuidade pode ser reduzida 
 
 Já a equação que expressa a Conservação da Quantidade de Movimento (ou de Momento Linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Taxa de fluxo de quantidade de movimento em um elemento infinitesimal permeável.}
     \includegraphics[width=.55\linewidth]{Figuras/ConQtdMov.pdf}
@@ -114,7 +114,7 @@ Fazendo as devidas simplificações obtém-se a equação da conservação da qu
 
 \noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($c_i$).
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Componentes de forças atuantes no elemento infinitesimal na direção $\bhat{e}_1$.}
     \includegraphics[width=.5\linewidth]{Figuras/EqFor.pdf}
@@ -168,7 +168,7 @@ Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a condição de 
 
 Já o domínio em que essas equações são válidas pode ser definido como $\Omega\subset\mathbb{R}^{n_{sd}}$, sendo $n_{sd}=2$ ou $3$ a dimensão do problema em análise, tal que $\Omega$ possui uma fronteira $\Gamma=\partial\Omega$, em que a parte dessa fronteira onde se impõem condições cinemáticas é denominada como fronteira de Dirichlet ($\Gamma_D$) e a parte onde há prescrição de forças de superfície é denotado como fronteira de Neumann ($\Gamma_N$), conforme pode ser visualizado na Figura \ref{fig:Dom}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Domínio de análise e fronteiras consideradas para problemas de mecânica dos fluidos.}
     \includegraphics[width=.35\linewidth]{Figuras/Dom}
@@ -197,7 +197,7 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
 
 A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}, os quais consideraram três subconjuntos $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha, respectivamente. A Figura \ref{Fig:ALE} ilustra esquematicamente um problema em descrição ALE.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Descrição Lagrangiana-Euleriana Arbitrária.}
     \includegraphics[width=.45\linewidth]{Figuras/ALE.pdf}
@@ -429,7 +429,7 @@ Assim, para se garantir a unicidade da solução, a escolha dos espaços de apro
 
 Como pode-se observar, a escolha dos espaços de aproximações que atendam às condições LBB não é trivial. Sendo assim, \citeonline{donea2003finite} apresenta alguns elementos possíveis de se utilizar atendendo às condições LBB (denominados de Elementos Taylor-Hood). A Figura \ref{fig:Taylor-Hood} ilustra alguns elementos Taylor-Hood.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Elementos Taylor-Hood.}
     \includegraphics[width=.75\linewidth]{Figuras/Taylor-Hood.pdf}

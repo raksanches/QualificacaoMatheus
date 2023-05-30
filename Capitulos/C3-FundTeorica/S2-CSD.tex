@@ -40,7 +40,7 @@ A primeira medida de deformação que pode ser observada é a denominada medida 
 
 \noindent em que $dx$ e $dy$ são os comprimentos de um trecho infinitesimal de uma barra em sua configuração inicial e atual, respectivamente (Figura \ref{fig:Barra}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Desenho esquemático de uma barra submetida a tração.}
     \includegraphics[width=0.45\linewidth]{Figuras/Barra.pdf}
@@ -74,7 +74,7 @@ Assim, pode-se definir alguns modelos constitutivos que relacionarão a medida d
     u_e=\int_0^\varepsilon{\sigma d\varepsilon}\text{.}
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Esquema de diagrama de tensão $\times$ deformação.}
     \includegraphics[width=.45\linewidth]{Figuras/ue.pdf}
@@ -110,7 +110,7 @@ Uma propriedade notável aponta a tensão como a conjugada energética da deform
 
 Inicialmente considere um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ para denotar as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear $\BB{y}$ em função de $\BB{x}$ existe uma função $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$, denominada como função de mudança de configuração.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Configurações inicial e atual de um corpo deformável.}
     \includegraphics[width=.4\linewidth]{Figuras/Cont.pdf}
@@ -166,7 +166,7 @@ Assim, define-se o tensor de deformações de Green-Lagrange como:
 
 Outra medida de deformação interessante é a medida de deformação volumétrica ($\varepsilon_V$). Para isso considere o elemento infinitesimal em suas configurações inicial e atual ilustrado na Figura \ref{fig:MudVol}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de volume de um elemento infinitesimal.}
     \includegraphics[width=0.5\linewidth]{Figuras/MudVol.pdf}
@@ -201,7 +201,7 @@ Conhecendo a transformação expressa em \ref{eq:dyAdx} e fazendo as devidas sim
 
 Na sequência procura-se obter uma expressão que indique a mudança de área nas diferentes configurações. Assim, considere um cilindro infinitesimal ilustrado na figura \ref{fig:Nanson}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de configuração em um cilindro infinitesimal.}
     \includegraphics[width=.45\linewidth]{Figuras/Nanson.pdf}
@@ -219,7 +219,7 @@ Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na d
 
 Com esse embasamento é possível apresentar os conceitos de energia nas descrições Euleriana e Lagrangiana Total. Assim, para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considere um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as forças atuantes na direção $\bhat{e}_1$.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Forças atuantes em um elemento infinitesimal na direção $\bhat{e}_1$.}
     \includegraphics[width=.5\linewidth]{Figuras/CorpoLivreSolido.pdf}
@@ -347,7 +347,7 @@ Já a energia dissipada é escrita em sua forma diferencial:
 
 Para se realizar o cálculo dessas propriedades, será considerada uma aproximação dos parâmetros por meio de polinômios aproximadores (funções de forma), na qual será utilizado um espaço intermediário de coordenadas paramétricas ($\BB{\xi}$) no procedimento. A Figura \ref{fig:Mapeamento} apresenta esquematicamente o mapeamento das coordenadas da superfície média em seus respectivos espaços.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de configuração.}
     \includegraphics[width=.4\linewidth]{Figuras/Mapeamento.pdf}
@@ -527,7 +527,7 @@ Para a implementação computacional realizou-se uma integração em $\Omega_0$ 
 
 O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplifica o código implementado.
 
-\begin{algorithm}[h]
+\begin{algorithm}[h!]
     \caption{Algoritmo utilizado para o cálculo das posições nodais.}
     \label{alg:MEF-casca}
     \KwResult{Vetor global de posições nodais}

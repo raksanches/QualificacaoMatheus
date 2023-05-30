@@ -83,7 +83,7 @@ Assim, trocando-se os índices $n-1\to n$ e $n\to n+1/2$ e tomando $\Delta t\to\
 
 Essa solução pode ser entendida como a média entre as soluções das diferenças adiantadas com as diferenças atrasadas, possuindo uma precisão na ordem de $\script{O}(\Delta t^2)$. A Figura \ref{fig:DifFin} apresenta graficamente a interpretação das diferenças finitas adiantadas, atrasadas e centrais.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Interpretação gráfica das diferenças finitas:}
     \begin{subfigure}{0.32\textwidth}
@@ -104,7 +104,7 @@ Essa solução pode ser entendida como a média entre as soluções das diferen�
 
 Com isso, foi proposto um integrador temporal por \cite{chung1993time}, denominado de $\alpha$-generalizado. Nesse integrador, considere uma propriedade $\phi_{n+\alpha}$ de um ponto distante $\alpha\Delta t$ de $\phi_n$, sendo $0\leq\alpha\leq1$, conforme ilustrado na Figura \ref{fig:alpha-gen}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Esquema de uma propriedade $\phi_{n+\alpha}$.}
     \includegraphics[width=.4\linewidth]{Figuras/alpha-gen.pdf}
@@ -259,7 +259,7 @@ Em geral opta-se por funções de forma do tipo polinomiais, uma vez que se adé
 
 A Figura \ref{fig:funcaoforma} apresenta graficamente a mudança de coordenada de um espaço paramétrico para um plano $x_1x_2$, de forma que $\BB{x}=\BB{x}(\xi)$.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de espaço paramétrico para um plano $x_1x_2$.}
     \includegraphics[width=.4\linewidth]{Figuras/funcaoforma.pdf}
@@ -303,7 +303,7 @@ Assim, obtem-se o seguinte sistema de equações:
 
 \noindent que, ao ser resolvida, retorna os pontos de quadratura e os pesos. A Tabela \ref{tab:QGauss} apresenta os pontos de quadratura e seus respectivos pesos para polinômios de até quarto grau.
 
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \caption{Pontos da quadratura de Gauss e seus respectivos pesos.}
     \begin{tabular}{ccc}
@@ -339,7 +339,7 @@ Fazendo uma aproximação por polinômio tem-se:
 
 A Tabela \ref{tab:QHammer} apresenta os pontos da quadratura de Hammer para aproximação de 1 a 7 pontos.
 
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \caption{Pontos da quadratura de Hammer e seus respectivos pesos para aproximação de 1 a 7 pontos.}
     \begin{tabular}{cccc}
