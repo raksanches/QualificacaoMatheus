@@ -302,7 +302,7 @@ Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teo
 \subsection{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
 %==================================================================================================
 
-Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
+Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o modelo constitutivo de Saint-Venant Kirchhoff e o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
 
 \begin{equation}
     \Pi_0=\mathbb{U}+\mathbb{P}+\mathbb{K}+\mathbb{Q}\text{,}
@@ -313,7 +313,7 @@ Será exposta na presente seção a formulação para elementos de Casca baseada
 \begin{subequations}
     \begin{align}
          & \mathbb{U}=\frac{1}{2}\intDomi{S_{ij}\mathbb{E}_{ij}}\text{,}    \\
-         & \mathbb{P}=-F_i^aY_i^a-\intFronti{t_iy_i}\text{ e}               \\
+         & \mathbb{P}=-F_i^aY_i^a-\intFronti{t_iy_i^m}\text{ e}             \\
          & \mathbb{K}=\frac{1}{2}\intDomi{\rho_0\dot{y}_i\dot{y}_i}\text{,}
     \end{align}
 \end{subequations}
@@ -377,8 +377,8 @@ Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível s
 
 \begin{subequations}
     \begin{align}
-         & A_{i1}^1=f_{i,1}^1=Y_i^aN_{a,1}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,1}\xi_3^2+(V^1)_i^aN_{a,1}(\xi_3+A^bN_b\xi_3^2)}\text{,}  \\
-         & A_{i2}^1=f_{i,2}^1=Y_i^aN_{a,2}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,2}\xi_3^2+(V^1)_i^aN_{a,2}(\xi_3+A^bN_b\xi_3^2)}\text{ e} \\
+         & A_{i1}^1=f_{i,1}^1=Y_i^aN_{a,1}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,1}\xi_3^2+(V^1)_i^aN_{a,1}(\xi_3+\Alpha^bN_b\xi_3^2)}\text{,}  \\
+         & A_{i2}^1=f_{i,2}^1=Y_i^aN_{a,2}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,2}\xi_3^2+(V^1)_i^aN_{a,2}(\xi_3+\Alpha^bN_b\xi_3^2)}\text{ e} \\
          & A_{i3}^1=f_{i,3}^1=\frac{h_0}{2}(V^1)_i^aN_a\bigpar{1+2A^bN_b\xi_3}
     \end{align}
     \label{eq:CSD-A1}
@@ -395,68 +395,88 @@ Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível s
     \label{eq:CSD-A0}
 \end{subequations}
 
-Assim, é possível calcular a derivada da energia total em termos das posições nodais como:
+Assim, considera-se o princípio da conservação da energia como:
 
 \begin{equation}
-    \begin{split}
-        \der{\Pi_0}{Y_i^a}=&\der{\mathbb{U}}{Y_i^a}
-        +\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b+
-        \intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b
-        -F_i^a-\\
-        &\intFronti{N_aN_b}T_i^b
-        -\intFronti{N_aN_b}Q_i^b=0\text{,}
-    \end{split}
+    \delta\Pi=\der{\Pi_0}{g_i}\delta g_i=0\text{,}
 \end{equation}
 
-\noindent sendo possível definir um velor $\BB{g}$, denominado como vetor de desbalanceamento mecânico, como:
+\noindent em que $\BB{g}$ representa o vetor que contém todos os graus de liberdade do problema.
+
+Logo, precisa-se calcular a derivada de $\Pi_0$ em relação à $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$. Dessa forma tem-se as seguintes derivadas:
+
+\begin{subequations}
+    \begin{equation}
+        \begin{split}
+            \der{\Pi_0}{Y_i^a}=&\der{\mathbb{U}}{Y_i^a}+
+            \intDomi{\lambda_m\rho_0N_a\dot{y}_i}+
+            \intDomi{\rho_0N_a\ddot{y}_i}-
+            F_i^a-\\
+            &\intFronti{N_at_i}
+            -\intFronti{N_aq_i}=0\text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            \der{\Pi_0}{(V^1)_i^a}=&\der{\mathbb{U}}{(V^1)_i^a}
+            +\intDomi{\lambda_m\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\dot{y}_i}\\
+            &+\intDomi{\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\ddot{y}_i}-
+            \intFronti{q_i\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)}=0\text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            \der{\Pi_0}{\Alpha^a}=&\der{\mathbb{U}}{\Alpha^a}
+            +\intDomi{\lambda_m\rho_0\frac{h_0}{2}(V^1)_i^bN_aN_b\xi_3^2\dot{y}_i}\\
+            &+\intDomi{\rho_0\frac{h_0}{2}N_aN_b(V^1)_i^b\xi_3^2\ddot{y}_i}-
+            \intFronti{q_i\frac{h_0}{2}(V^1)_i^bN_aN_b\xi_3^2}=0\text{,}
+        \end{split}
+    \end{equation}
+\end{subequations}
+
+\noindent sendo possível definir um vetor resíduo $\BB{r}$ como:
 
 \begin{equation}
-    g_i^a(\BB{Y})=(F^\mathrm{int})_i^a+(F^\mathrm{inerc})_i^a+(F^\mathrm{amort})_i^a-(F^\mathrm{c})_i^a-(F^\mathrm{nc})_i^a=0\text{,}
+    r_i^a(\BB{Y},\BB{V}^1,\BB{\Alpha})=(F^\mathrm{int})_i^a+(F^\mathrm{amort})_i^a+(F^\mathrm{inerc})_i^a-(F^\mathrm{c})_i^a-(F^\mathrm{nc})_i^a=0\text{,}
     \label{eq:CSD-g}
 \end{equation}
 
-\noindent sendo $\BB{Y}$ o vetor de posições nodais e:
+\noindent sendo $\BB{Y}$, $\BB{V}^1$ e $\Alpha$ os vetores dos graus de liberdade nodais do elemento analisado:
 
 \begin{subequations}
     \begin{align}
-         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{Y_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{Y_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}          \\
-         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b\text{,}\label{eq:CSD-Finerc}                                  &  & \text{Forças inerciais}         \\
-         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b\text{,}\label{eq:CSD-Famort}                          &  & \text{Forças de amortecimento}  \\
-         & (F^\mathrm{c})_i^a=F_i^a+\intFronti{N_aN_b}T_i^a\text{ e}\label{eq:CSD-Fc}                                              &  & \text{Forças conservativas}     \\
-         & (F^\mathrm{nc})_i^a=\intFronti{N_aN_b}Q_i^b\text{.}\label{eq:CSD-Fnc}                                                   &  & \text{Forças não-conservativas}
+         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{g_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{g_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}          \\
+         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0\der{y_j}{g_i^a}\dot{y}_j}\text{,}\label{eq:CSD-Famort}                  &  & \text{Forças de amortecimento}  \\
+         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{,}\label{eq:CSD-Finerc}                          &  & \text{Forças inerciais}         \\
+         & (F^\mathrm{c})_i^a=F_j^b\der{Y_j^b}{g_i^a}+\intFronti{t_j\der{y_j^m}{g_i^a}}\text{ e}\label{eq:CSD-Fc}                  &  & \text{Forças conservativas}     \\
+         & (F^\mathrm{nc})_i^a=\intFronti{q_j\der{y_j^m}{g_i^a}}\text{.}\label{eq:CSD-Fnc}                                           &  & \text{Forças não-conservativas}
     \end{align}
     \label{eq:CSD-F}
 \end{subequations}
 
-Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$ tal que $\BB{g}(\BB{Y})=\BB{0}$.
+Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
 
-Como é possível verificar, o cálculo de $\BB{g}$ é dependente não somente das posições nodais, mas também da velocidade e acelerações nodais. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrado temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
+Como é possível verificar, o cálculo de $\BB{r}$ é dependente não somente dos parâmetros nodais, mas também das derivadas de primeira e segunda ordem desses parâmetros. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
 
-A aproximação relizada pelo integrador de Newmark é dada por:
+A aproximação realizada pelo integrador de Newmark é dada por:
 
 \begin{subequations}
     \begin{equation}
-        Y_i^{n+1}=Y_i^n+\dot{Y}_i^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddot{Y}_i^n+\beta\ddot{Y}_i^{n+1}}\text{ e}
+        g_i^{n+1}=g_i^n+\dot{g}_i^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddot{g}_i^n+\beta\ddot{g}_i^{n+1}}\text{ e}
     \end{equation}
     \begin{equation}
-        \dot{Y}_i^{n+1}=\dot{Y}_i^n+\Delta t(1-\gamma)\ddot{Y}_i^n+\gamma\ddot{Y}_i^{n+1}\Delta t\text{,}
+        \dot{g}_i^{n+1}=\dot{g}_i^n+\Delta t(1-\gamma)\ddot{g}_i^n+\gamma\ddot{g}_i^{n+1}\Delta t\text{,}
     \end{equation}
 \end{subequations}
 
 \noindent sendo o superíndice $n$ e $n+1$ a indicação do passo de tempo analisado ($t_n$ e $t_{n+1}$), $\Delta t$ o intervalo de tempo discretizado e $\beta$ e $\gamma$ parâmetros livres, que devem ser escolhidos de forma a garantir a convergência do método, sendo arbitrados valores de $\beta=1/4$ e $\gamma=1/2$, garantindo a estabilidade incondicional do método \cite{LINDFIELD2019239}.
 
-Já para procurar valores de $\BB{Y}$ que anulem $\BB{g}$, utiliza-se o Método de Newton-Raphson, o qual exige o cálculo de uma matriz Hessiana ($H_{ij}^{ab}$):
-
-\begin{equation}
-    H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial Y_j^b\partial Y_i^a}=\der{g_i^a}{Y_j^b}\text{.}
-\end{equation}
-
-Isolando-se as velocidades e acelerações incógnitas em termos de posições no tempo $n+1$ e de parâmetros já conhecidos tem-se:
+Isolando-se os termos incógnitos em função de parâmetros não derivados no tempo em $n+1$ e daqueles já conhecidos tem-se:
 
 \begin{subequations}
     \begin{align}
-         & \ddot{Y}_i^{n+1}=\frac{Y_i^{n+1}}{\beta\Delta t^2}-Q_i^n                                \\
-         & \dot{Y}_i^{n+1}=\frac{\gamma}{\beta\Delta t}Y_i^{n+1}+R_i^n-\gamma\Delta tQ_i^n\text{,}
+         & \ddot{g}_i^{n+1}=\frac{g_i^{n+1}}{\beta\Delta t^2}-Q_i^n                                \\
+         & \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}g_i^{n+1}+R_i^n-\gamma\Delta tQ_i^n\text{,}
     \end{align}
     \label{eq:CSD-Newmark2}
 \end{subequations}
@@ -465,16 +485,31 @@ Isolando-se as velocidades e acelerações incógnitas em termos de posições n
 
 \begin{subequations}
     \begin{align}
-         & Q_i^n=\frac{Y_i^n}{\beta\Delta t^2}+\frac{\dot{Y}_i^n}{\beta\Delta t}+\bigpar{\frac{1}{2\beta}-1}\ddot{Y}_i^n \\
-         & R_i^n=\dot{Y}_i^n+\Delta t(1-\gamma)\ddot{Y}_i^n\text{.}
+         & Q_i^n=\frac{g_i^n}{\beta\Delta t^2}+\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{\frac{1}{2\beta}-1}\ddot{g}_i^n \\
+         & R_i^n=\dot{g}_i^n+\Delta t(1-\gamma)\ddot{g}_i^n\text{.}
     \end{align}
     \label{eq:CSD-QnRn}
 \end{subequations}
 
-Substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
+Já para procurar valores de $\BB{g}$ que anulem $\BB{r}$, utiliza-se o Método de Newton-Raphson, o qual parte da aproximação por série de Taylor truncada no termo de primeira ordem:
 
 \begin{equation}
-    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}\text{,}
+    \begin{split}
+        &\BB{r}(\BB{g}+\Delta\BB{g})=\BB{r}(\BB{g})+\apderp{\BB{r}}{\BB{g}}{\BB{g}}\Delta\BB{g}=\\
+        &\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})+\apderp{\BB{r}}{\BB{Y}}{\BB{Y}}\Delta\BB{Y}+\apderp{\BB{r}}{\BB{V}^1}{\BB{V}^1}\Delta\BB{V}^1+\apderp{\BB{r}}{\BB{\Alpha}}{\BB{\Alpha}}\Delta\BB{\Alpha}=\BB{0}\text{.}
+    \end{split}
+\end{equation}
+
+\noindent Dessa forma, necessita-se do cálculo de uma matriz Hessiana ($H_{ij}^{ab}$):
+
+\begin{equation}
+    H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial g_j^b\partial g_i^a}=\der{r_i^a}{g_j^b}\text{.}
+\end{equation}
+
+Substituindo-se as derivadas temporais da aproximação de Newmark em $\BB{r}$ e realizando as devidas simplificações, obtém-se:
+
+\begin{equation}
+    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\intDom{\rho_0(\lambda_m\dot{y}_k+\ddot{y}_k)\Dder{y_k}{g_j^b}{g_i^a}}\text{,}
     \label{eq:CSD-Hijab}
 \end{equation}
 
@@ -482,40 +517,27 @@ Substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
 
 \begin{subequations}
     \begin{align}
-         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{Y_j^b}{Y_i^a}=\intDomi{\bigpar{\der{S_{kl}}{Y_j^b}\der{\mathbb{E}_{kl}}{Y_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}}} \\
-         & M_{ij}^{ab}=\intDomi{\rho_0N_aN_b}\dij\text{ e}                                                                                                                        \\
-         & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0N_aN_b}\dij\text{.}
+         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{g_j^b}{g_i^a}=\intDomi{\bigpar{\der{S_{kl}}{g_j^b}\der{\mathbb{E}_{kl}}{g_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{g_i^a}{g_j^b}}} \\
+         & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{ e}                                                                                         \\
+         & M_{ij}^{ab}=\intDomi{\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{.}
     \end{align}
     \label{eq:CSD-HMC}
 \end{subequations}
 
-Fazendo as derivadas tem-se:
+\noindent também observa-se que a derivada mista de $y_k$ em relação a $g_i^a$ e $g_j^b$ possuirá valores não-nulos apenas quando for derivada de forma cruzada em relação a $V^1$ e $\Alpha$.
 
-\begin{subequations}
-    \begin{align}
-         & \der{A_{jk}}{Y_i^a}=(A^0_{lk})^{-1}N_{a,l}\dij\text{,}\label{eq:CSD-derA}                                                                                           \\
-         & \der{\mathbb{E}_{kl}}{Y_i^a}=\frac{1}{2}\bigpar{A_{mk}\der{A_{ml}}{Y_i^a}+A_{ml}\der{A_{mk}}{Y_i^a}}\text{,}\label{eq:CSD-derE}                                     \\
-         & \Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}=\frac{1}{2}\bigpar{\der{A_{ml}}{Y_i^a}\der{A_{mk}}{Y_j^b}+\der{A_{mk}}{Y_i^a}\der{A_{ml}}{Y_j^b}}\text{ e}\label{eq:CSD-DderE} \\
-         & \der{S_{kl}}{Y_j^b}=\script{C}_{klmn}\der{\mathbb{E}_{mn}}{Y_j^b}\text{.}\label{eq:CSD-derS}                                                                        \\
-    \end{align}
-    \label{eq:CSD-derAES}
-\end{subequations}
-
-Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{Y}$) como a solução do sistema:
+Com isso, encontra-se um vetor de correções dos parâmetros nodais ($\Delta\BB{g}$) como a solução do sistema:
 
 \begin{equation}
-    H_{ij}\Delta Y_j=-g_i\text{,}
+    H_{ij}\Delta g_j=-r_i\text{,}
 \end{equation}
 
-\noindent tendo como critérios de parada a medida dos erros:
+\noindent tendo como critério de parada a medida do erro:
 
-\begin{subequations}
-    \begin{align}
-         & \frac{\norm{\BB{g}}}{\norm{\BB{F}^\text{ext}}}\leq\text{tol e} \\
-         & \frac{\norm{\Delta\BB{Y}}}{\norm{\BB{X}}}\leq\text{tol,}
-    \end{align}
+\begin{equation}
+    \frac{\norm{\Delta\BB{Y}}}{\norm{\BB{X}}}\leq\text{tol,}
     \label{eq:CSD-erro}
-\end{subequations}
+\end{equation}
 
 \noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
 
@@ -530,7 +552,7 @@ O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplific
 \begin{algorithm}[h!]
     \caption{Algoritmo utilizado para o cálculo das posições nodais.}
     \label{alg:MEF-casca}
-    \KwResult{Vetor global de posições nodais}
+    \KwResult{Vetor global de parâmetros nodais}
     $\BB{Y}\gets\BB{X}$\;
     \For{$t_i\gets 0$ \KwTo $t_f$}{
     Calcular $Q^n$ e $R^n$ (Eq. \ref{eq:CSD-QnRn})\;
@@ -551,22 +573,22 @@ O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplific
     \ForEach{\textnormal{ponto de Hammer }$i_h$}{
     Calcular $\BB{A}^0_{3\times 3}$ (Eq. \ref{eq:CSD-A0}), $J_0=\det{(A^0)}$, $(\BB{A}^0)^{-1}_{3\times 3}$ e $\BB{A}^1_{3\times 3}$ (Eq. \ref{eq:CSD-A1})\;
     Calcular $\BB{A}_{3\times 3}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$\;
-    Calcular $\BB{C}_{3\times 3}=\BB{A}^T\cdot\BB{A}$ (Não precisa armazenar)\;
+    Calcular $\BB{C}_{3\times 3}=\BB{A}^T\cdot\BB{A}$\;
     Calcular $\mathbb{E}_{3\times 3}$ (Eq. \ref{eq:CSD-DefGreenLagr})\;
     Calcular $\BB{S}_{3\times 3}$ (Eq. \ref{eq:CSD-S})\;
     \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
-        Calcular $g_i^a$ (Eq. \ref{eq:CSD-g} e \ref{eq:CSD-Fint} a \ref{eq:CSD-Famort}) com $\partial A_{jk}/\partial Y_i^a$ dado por \ref{eq:CSD-derA}\;
-        Somar a contribuição no vetor global: $g_i^a\cdot J_0\cdot w_{i_h}$\;
+        Calcular $r_i^a$ (Eq. \ref{eq:CSD-g} e \ref{eq:CSD-Fint} a \ref{eq:CSD-Finerc})\;
+        Somar a contribuição no vetor global: $r_i^a\cdot J_0\cdot w_{i_h}$\;
         \ForEach{\textnormal{Nó $b$ do elemento na direção $j$}}{
-            Calcular $H_{ij}^{ab}$ (Eq. \ref{eq:CSD-Hijab}, \ref{eq:CSD-HMC} e \ref{eq:CSD-derAES})\;
+            Calcular $H_{ij}^{ab}$ (Eq. \ref{eq:CSD-Hijab} e \ref{eq:CSD-HMC})\;
             Somar a contribuição na matriz global: $H_{ij}^{ab}\cdot J_0\cdot w_{ih}$\;
         }
     }
     }
     }
-    Resolver o sistema global: $\BB{H}\cdot\Delta\BB{Y}=-\BB{g}$\;
-    Atualizar as posições nodais: $\BB{Y}\gets\BB{Y}+\Delta\BB{Y}$\;
-    Atualizar velocidades e acelerações nodais (Eq. \ref{eq:CSD-Newmark2})\;
+    Resolver o sistema global: $\BB{H}\cdot\Delta\BB{g}=-\BB{r}$\;
+    Atualizar os parâmetros nodais: $\BB{g}\gets\BB{g}+\Delta\BB{g}$\;
+    Atualizar derivadas temporais (Eq. \ref{eq:CSD-Newmark2})\;
     Cálculo do erro via \ref{eq:CSD-erro}\;
     }
     }
@@ -588,7 +610,15 @@ O primeiro exemplo simulado trata-se de um problema dinâmico, onde se estuda o 
     \label{fig:viga1}
 \end{figure}
 
-A modelagem realizada considerou a altura $H$ como a espessura do elemento de casca, sendo a força atuante nessa mesma direção. Assim, observou-se o deslocamento vertical no ponto de aplicação da força. Os resultados obtidos foram comparados com aqueles alcançados a partir de uma modelagem no \textit{software} ANSYS. a Figura \ref{fig:res-viga1} apresenta os resultados calculados.
+\begin{figure}[h!]
+    \centering
+    \caption{Malha utilizada na simulação da viga.}
+    \includegraphics[width=\linewidth]{Figuras/vigas/mesh1.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:viga1-mesh}
+\end{figure}
+
+A modelagem realizada considerou a altura $H$ como a espessura do elemento de casca, sendo a força atuante nessa mesma direção. Assim, observou-se o deslocamento vertical no ponto de aplicação da força. Os resultados obtidos foram comparados com aqueles alcançados a partir de uma modelagem no \textit{software} ANSYS utilizando elementos sólidos 183. a Figura \ref{fig:res-viga1} apresenta os resultados calculados.
 
 \begin{figure}[h!]
     \centering
@@ -607,10 +637,18 @@ Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu cen
     \caption{Desenho esquemático da viga biengastada simulada.}
     \includegraphics[width=0.6\linewidth]{Figuras/vigas/viga2.pdf}
     \\Fonte: Autoria Própria (\the\year).
-    \label{fig:viga1}
+    \label{fig:viga2}
 \end{figure}
 
-Os resultados calculados foram comparados com os apresentados pelo ANSYS e por \cite{mondkar1977ansa}. A Figura \ref{fig:res-viga2} exibe os resultados obtidos.
+\begin{figure}[h!]
+    \centering
+    \caption{Malha utilizada na simulação da viga biengastada.}
+    \includegraphics[width=\linewidth]{Figuras/vigas/mesh2.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:viga2-mesh}
+\end{figure}
+
+Os resultados calculados foram comparados com os apresentados pelo ANSYS, a partir do elemento 183, e por \cite{mondkar1977ansa}. A Figura \ref{fig:res-viga2} exibe os resultados obtidos.
 
 \begin{figure}[h!]
     \centering
