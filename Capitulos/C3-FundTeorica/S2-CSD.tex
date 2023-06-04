@@ -600,7 +600,67 @@ O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplific
 \subsubsection{Exemplos de Verificação} \label{MEFP-Ex}
 %==================================================================================================
 
-O primeiro exemplo simulado trata-se de um problema dinâmico, onde se estuda o comportamento de uma viga engastada em uma de suas extremidades e sujeita a uma carga $P$ aplicada na extremidade oposta, conforme ilustrado na Figura \ref{fig:viga1}. As dimensões da viga são: comprimento $L=60$ dm, altura $h=3$ dm e largura $b=1$ dm. A força aplicada possui intensidade $P=1,25\times10^{-4}$ Mg$\cdot$dm/(ms)² $H(t)$, sendo $H(t)$ a função de Heavside. O material que compõe a viga possui módulo de Young $E=20$ Mg/[dm$\cdot$(ms)²], coeficiente de Poisson nulo e massa específica $\rho=7\times10^{-3}$ Mg/dm³. O intervalo de tempo analisado foi $t\in[0;675]$ ms discretizado em passos de tempo $\Delta t=0,3377$. A malha de elementos finitos utilizada conta com 32 elementos triangulares de aproximação quadrática, com um total de 693 graus de liberdade, a qual pode ser observada na Figura \ref{fig:viga1-mesh}.
+Na presente seção serão apresentadas algumas simulações realizadas utilizando o procedimento supracitado, com a finalidade de validar o código utilizado.
+
+%==================================================================================================
+\subsubsubsection{\textit{Scordelis-Lo roof}}
+%==================================================================================================
+
+O primeiro exemplo simulado trata-se de um problema comumente encontrado para problemas de cascas, denominado de \textit{Scordelis-Lo roof}, conforme ilustrado na Figura \ref{fig:scordelis}. Esse exemplo se caracteriza por uma cobertura curva sujeita a um carregamento gravitacional $q$, distribuído por unidade de área, na direção $x_3$ para baixo. Os parâmetros geométricos são dados por: comprimento $L=50$, raio de curvatura $R=25$, espessura $t=0,25$ e ângulo $\theta=40^\circ$. O valor da carga aplicada é $q=90$. O material que constitui a cobertura possui módulo de Young $E=4,32\times10^8$ e Poisson nulo. Os resultados são comparados com os obtidos por \citeonline{BELYTSCHKO1985221,ZHOU2022108568,CHAUDINH2023110222}, os quais apontam que o deslocamento vertical do nó $A$ é de 0,3024.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Problema de \textit{Scordelis-Lo roof}.}
+    \includegraphics[width=0.75\linewidth]{Figuras/scordelis/scordelis_lo.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:scordelis}
+\end{figure}
+
+Para a simulação do problema utilizou-se uma malha não estruturada contendo 5900 elementos triangulares de aproximação quadrática, resultando em 83405 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Malha utilizada na simulação de \textit{Scordelis-Lo roof}.}
+    \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/scordelis/malha1.png}
+    \caption{Perspectiva isométrica.}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/scordelis/malha2.png}
+    \caption{Vista superior.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:scordelis-mesh}
+\end{figure}
+
+Dessa forma, chegou-se a um deslocamento de 0,3013 nos cálculos realizados, representando um desvio de 0,3638\% em relação à referência, sendo considerado um resultado aceitável. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Campos de deslocamentos obtido na simulação de \textit{Scordelis-Lo roof}.}
+    \begin{subfigure}{0.1\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/scordelis/eixos.png}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/scordelis/ux.png}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/scordelis/uy.png}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/scordelis/uz.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:scordelis-displ}
+\end{figure}
+
+Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}, sendo satisfatoriamente verificada a análise realizada.
+
+%==================================================================================================
+\subsubsubsection{Viga engastada em problema dinâmico}
+%==================================================================================================
+
+Para verificação do código implementado em problemas dinâmicos, estudou-se  primeiramente o comportamento de uma viga engastada em uma de suas extremidades e sujeita a uma carga $P$ aplicada na extremidade oposta, conforme ilustrado na Figura \ref{fig:viga1}. As dimensões da viga são: comprimento $L=60$ dm, altura $h=3$ dm e largura $b=1$ dm. A força aplicada possui intensidade $P=1,25\times10^{-4}$ Mg$\cdot$dm/(ms)² $H(t)$, sendo $H(t)$ a função de Heavside. O material que compõe a viga possui módulo de Young $E=20$ Mg/[dm$\cdot$(ms)²], coeficiente de Poisson nulo e massa específica $\rho=7\times10^{-3}$ Mg/dm³. O intervalo de tempo analisado foi $t\in[0;675]$ ms discretizado em passos de tempo $\Delta t=0,3377$. A malha de elementos finitos utilizada conta com 32 elementos triangulares de aproximação quadrática, com um total de 693 graus de liberdade, a qual pode ser observada na Figura \ref{fig:viga1-mesh}.
 
 \begin{figure}[h!]
     \centering
