@@ -616,16 +616,16 @@ O primeiro exemplo simulado trata-se de um problema comumente encontrado para pr
     \label{fig:scordelis}
 \end{figure}
 
-Para a simulação do problema utilizou-se uma malha não estruturada contendo 5900 elementos triangulares de aproximação quadrática, resultando em 83405 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
+Para a simulação do problema aproveitou-se da simetria da cobertura, o que possibilitou a modelagem de apenas um quarto do problema. Assim utilizou-se uma malha estruturada com orientação à direita contendo 552 elementos triangulares de aproximação quadrática, resultando em 7987 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
 
 \begin{figure}[h!]
     \centering
     \caption{Malha utilizada na simulação de \textit{Scordelis-Lo roof}.}
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\linewidth]{Figuras/scordelis/malha1.png}
     \caption{Perspectiva isométrica.}
     \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\linewidth]{Figuras/scordelis/malha2.png}
     \caption{Vista superior.}
     \end{subfigure}
@@ -633,12 +633,12 @@ Para a simulação do problema utilizou-se uma malha não estruturada contendo 5
     \label{fig:scordelis-mesh}
 \end{figure}
 
-Dessa forma, chegou-se a um deslocamento de 0,3013 nos cálculos realizados, representando um desvio de 0,3638\% em relação à referência, sendo considerado um resultado aceitável. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
+Dessa forma, chegou-se a um deslocamento de 0,3008 nos cálculos realizados, representando um desvio de 0,5291\% em relação à referência, sendo considerado um resultado aceitável. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
 
 \begin{figure}[h!]
     \centering
     \caption{Campos de deslocamentos obtido na simulação de \textit{Scordelis-Lo roof}.}
-    \begin{subfigure}{0.1\textwidth}
+    \begin{subfigure}{0.075\textwidth}
     \includegraphics[width=\linewidth]{Figuras/scordelis/eixos.png}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
@@ -655,6 +655,56 @@ Dessa forma, chegou-se a um deslocamento de 0,3013 nos cálculos realizados, rep
 \end{figure}
 
 Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}, sendo satisfatoriamente verificada a análise realizada.
+
+Outro problema comum considera um cilindro sujeito a duas cargas concentradas diametralmente opostas, conforme visto na Figura \ref{fig:cylinder-shell}. As dimensões do problema são: comprimento $L=600$, raio $R=300$ e espessura $t=3$. A carga aplicada é $P=1$. O material que constitui o cilindro possui módulo de elasticidade $E=3\times10^6$ e coeficiente de Poisson $\nu=0,3$. Ambas as extremidades do cilindro estão vinculadas a um diafragma rígido, ou seja, $u_1=u_3=\phi_2=0$. O resultado de referência adotado é de um deslocamento radial de $1,8248\times10^{-5}$ no ponto de aplicação da carga \cite{BELYTSCHKO1985221,CHAUDINH2023110222,ZHOU2022108568}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cilindro submetido a forças concentradas.}
+    \includegraphics[width=0.65\linewidth]{Figuras/cylinder-shell/cylinder.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell}
+\end{figure}
+
+Pelo fato do problema apresentar simetria, foi estudado somente um octante do problema. Assim utilizou-se uma malha estruturada para a direita contendo 336 elementos triangulares de aproximação quadrática, contando com um total de 10948 graus de liberdade. A malha utilizada é observada na Figura \ref{fig:cylinder-shell-mesh}. Na simulação adotou-se uma aproximação linear da solução.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Malha utilizada na simulação de \textit{Scordelis-Lo roof}.}
+    \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/mesh1.png}
+    \caption{Perspectiva isométrica.}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/mesh2}
+    \caption{Vista superior.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell-mesh}
+\end{figure}
+
+O resultado obtido foi de um deslocamento radial de $1,9209\times10^{-5}$, tendo, portanto, um desvio relativo de $5,2663\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Campos de deslocamentos obtido na simulação de cilindro.}
+    \begin{subfigure}{0.075\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/eixos.png}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/ux.png}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uy.png}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uz.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell-disp}
+\end{figure}
+
+Verifica-se, então, que os resultados dos campos de deslocamentos são muito próximos aos obtidos por \citeonline{ZHOU2022108568}.
 
 %==================================================================================================
 \subsubsubsection{Viga engastada em problema dinâmico}
