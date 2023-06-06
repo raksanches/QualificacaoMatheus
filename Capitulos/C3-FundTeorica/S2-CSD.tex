@@ -606,7 +606,7 @@ Na presente seção serão apresentadas algumas simulações realizadas utilizan
 \subsubsubsection{\textit{Scordelis-Lo roof}}
 %==================================================================================================
 
-O primeiro exemplo simulado trata-se de um problema comumente encontrado para problemas de cascas, denominado de \textit{Scordelis-Lo roof}, conforme ilustrado na Figura \ref{fig:scordelis}. Esse exemplo se caracteriza por uma cobertura curva sujeita a um carregamento gravitacional $q$, distribuído por unidade de área, na direção $x_3$ para baixo. Os parâmetros geométricos são dados por: comprimento $L=50$, raio de curvatura $R=25$, espessura $t=0,25$ e ângulo $\theta=40^\circ$. O valor da carga aplicada é $q=90$. O material que constitui a cobertura possui módulo de Young $E=4,32\times10^8$ e Poisson nulo. Os resultados são comparados com os obtidos por \citeonline{BELYTSCHKO1985221,ZHOU2022108568,CHAUDINH2023110222}, os quais apontam que o deslocamento vertical do nó $A$ é de 0,3024.
+O primeiro exemplo simulado trata-se de um problema comumente encontrado para problemas de cascas, denominado de \textit{Scordelis-Lo roof}, conforme ilustrado na Figura \ref{fig:scordelis}. Esse exemplo se caracteriza por uma cobertura curva sujeita a um carregamento gravitacional $q$, distribuído por unidade de área, na direção $x_3$ para baixo. Os parâmetros geométricos são dados por: comprimento $L=50$, raio de curvatura $R=25$, espessura $t=0,25$ e ângulo $\theta=40^\circ$. O valor da carga aplicada é $q=90$. O material que constitui a cobertura possui módulo de Young $E=4,32\times10^8$ e Poisson nulo. As extremidades estão presas por um diafragma rígido ($u_1=u_3=0$). Os resultados são comparados com os obtidos por \citeonline{BELYTSCHKO1985221,ZHOU2022108568,CHAUDINH2023110222}, os quais apontam que o deslocamento vertical do nó $A$ é de 0,3024.
 
 \begin{figure}[h!]
     \centering
@@ -633,7 +633,7 @@ Para a simulação do problema aproveitou-se da simetria da cobertura, o que pos
     \label{fig:scordelis-mesh}
 \end{figure}
 
-Dessa forma, chegou-se a um deslocamento de 0,3008 nos cálculos realizados, representando um desvio de 0,5291\% em relação à referência, sendo considerado um resultado aceitável. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
+Dessa forma, chegou-se a um deslocamento de 0,3008 nos cálculos realizados, representando um desvio de 0,5291\% em relação à referência. Também analisou-se o resultado com aquele obtido pelo \textit{software} ANSYS, o qual retornou um deslocamento de 0,3020. Assim o desvio relativo do resultado calculado com o do ANSYS é de 0,3973\%. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
 
 \begin{figure}[h!]
     \centering
@@ -687,7 +687,7 @@ Pelo fato do problema apresentar simetria, foi estudado somente um octante do pr
     \label{fig:cylinder-shell-mesh}
 \end{figure}
 
-O resultado obtido foi de um deslocamento radial de $1,8485\times10^{-5}$, tendo, portanto, um desvio relativo de $1,2988\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}
+O resultado obtido foi de um deslocamento radial de $1,8485\times10^{-5}$, tendo, portanto, um desvio relativo de $1,2988\%$ em relação à referência. Também se comparou o resultado obtido com relação à uma simulação feita no \textit{software} ANSYS, a qual resultou em um deslocamento de $1,8504\times10^{-5}$. Logo o desvio do resultado calculado com o apresentado pelo ANSYS foi de $0,1027\%$. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}.
 
 \begin{figure}[h!]
     \centering
