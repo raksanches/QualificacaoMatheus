@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4912879"
-     inkscape:cx="198.48616"
-     inkscape:cy="159.5936"
+     inkscape:cx="207.87401"
+     inkscape:cy="114.66599"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -241,372 +241,10 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-10.92628,-141.92718)">
-    <g
-       id="g1328"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1725)">
-      <path
-         d="m 986.5,409.5 h 460 m -460,54 h 460 m -460,55 h 460 m -460,55 h 460 m -460,110 h 460 m -460,55 h 460"
-         stroke="#d9d9d9"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="path1326" />
-    </g>
-    <g
-       id="g1332"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1719)">
-      <path
-         d="m 1037.5,409.5 v 329 m 51,-329 v 329 m 51,-329 v 329 m 52,-329 v 329 m 51,-329 v 329 m 51,-329 v 329 m 51,-329 v 329 m 51,-329 v 329 m 51,-329 v 329"
-         stroke="#d9d9d9"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="path1330" />
-    </g>
-    <g
-       id="g1336"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1713)">
-      <rect
-         x="986.5"
-         y="409.5"
-         width="460"
-         height="329"
-         stroke="#000000"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="rect1334" />
-    </g>
-    <g
-       id="g1340"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1707)">
-      <path
-         d="m 986.5,409.5 v 329"
-         stroke="#000000"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         fill-rule="evenodd"
-         id="path1338" />
-    </g>
-    <g
-       id="g1344"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1701)">
-      <path
-         d="m 986.5,409.5 h 3 m -3,10 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -6,-329 h 7 m -7,54 h 7 m -7,55 h 7 m -7,55 h 7 m -7,55 h 7 m -7,55 h 7 m -7,55 h 7"
-         stroke="#000000"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="path1342" />
-    </g>
-    <g
-       id="g1348"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1695)">
-      <path
-         d="m 986.5,628.5 h 460"
-         stroke="#000000"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         fill-rule="evenodd"
-         id="path1346" />
-    </g>
-    <g
-       id="g1352"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1689)">
-      <path
-         d="m 986.5,628.5 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m -460,-7 v 8 m 51,-8 v 8 m 51,-8 v 8 m 51,-8 v 8 m 52,-8 v 8 m 51,-8 v 8 m 51,-8 v 8 m 51,-8 v 8 m 51,-8 v 8 m 51,-8 v 8"
-         stroke="#000000"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="path1350" />
-    </g>
-    <g
-       id="g1356"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1683)">
-      <path
-         d="m 987,627 h 14 l 14,-1 14,-1 14,-1 13,-1 13,-2 12,-1 13,-1 12,-1 h 12 12 l 11,1 11,1 11,2 11,3 11,3 10,4 10,5 10,5 9,5 10,6 9,5 9,6 9,5 9,5 8,5 8,4 9,3 8,2 8,2 h 7 l 8,-2 7,-2 7,-4 7,-6 7,-8 7,-9 6,-10 7,-12 6,-14 6,-15 6,-17 6,-18 6,-18 6,-19 6,-20 5,-19 5,-18 5,-17 6,-16 5,-11 5,-6"
-         stroke="#ed7d31"
-         stroke-width="2"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="path1354" />
-    </g>
-    <g
-       id="g1360"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1677)">
-      <path
-         d="m 987,628 h 4 4 4 l 5,-1 h 4 4 l 4,-1 h 5 4 l 4,-1 5,-1 h 4 l 4,-1 h 4 l 5,-1 4,-1 h 4 l 4,-1 5,-1 h 4 l 4,-1 4,-1 h 5 l 4,-1 h 4 4 l 5,-1 h 4 4 l 4,-1 h 5 4 l 4,1 h 4 5 l 4,1 h 4 l 4,1 5,1 4,1 4,1 5,1 4,2 4,1 4,2 5,2 4,2 4,2 4,2 5,2 4,2 4,3 4,3 5,2 4,3 4,3 4,3 5,2 4,3 4,3 4,3 5,3 4,3 4,3 4,2 5,3 4,2 4,3 5,2 4,2 4,1 4,2 4,1 5,1 4,1 h 4 4 l 5,-1 4,-1 4,-2 4,-2 4,-2 5,-3 4,-4 4,-5 5,-5 4,-6 4,-6 5,-8 4,-8 4,-9 5,-10 4,-10 4,-12 5,-12 4,-13 4,-13 4,-13 5,-14 4,-14 4,-15 4,-14 5,-14 4,-14 4,-12 4,-11 4,-8 5,-5"
-         stroke="#4472c4"
-         stroke-width="2"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         id="path1358" />
-    </g>
-    <g
-       id="g1364"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(937,413)"
-         id="text1362">-2.E-05</text>
-    </g>
-    <g
-       id="g1368"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(937,468)"
-         id="text1366">-2.E-05</text>
-    </g>
-    <g
-       id="g1372"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(937,523)"
-         id="text1370">-1.E-05</text>
-    </g>
-    <g
-       id="g1376"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(937,578)"
-         id="text1374">-5.E-06</text>
-    </g>
-    <g
-       id="g1380"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(937.98,633)"
-         id="text1378">0.E+00</text>
-    </g>
-    <g
-       id="g1384"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(940.993,687)"
-         id="text1382">5.E-06</text>
-    </g>
-    <g
-       id="g1388"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(940.993,742)"
-         id="text1386">1.E-05</text>
-    </g>
-    <g
-       id="g1392"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(983.33,618)"
-         id="text1390">0</text>
-    </g>
-    <g
-       id="g1396"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1031.1,618)"
-         id="text1394">10</text>
-    </g>
-    <g
-       id="g1400"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1082.2,618)"
-         id="text1398">20</text>
-    </g>
-    <g
-       id="g1404"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1133.3,618)"
-         id="text1402">30</text>
-    </g>
-    <g
-       id="g1408"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1184.4,618)"
-         id="text1406">40</text>
-    </g>
-    <g
-       id="g1412"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1235.51,618)"
-         id="text1410">50</text>
-    </g>
-    <g
-       id="g1416"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1286.61,618)"
-         id="text1414">60</text>
-    </g>
-    <g
-       id="g1420"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1337.71,618)"
-         id="text1418">70</text>
-    </g>
-    <g
-       id="g1424"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1388.81,618)"
-         id="text1422">80</text>
-    </g>
-    <g
-       id="g1428"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1439.92,618)"
-         id="text1426">90</text>
-    </g>
-    <g
-       id="g1432"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="13px"
-         transform="rotate(-90,782.3335,-148.3335)"
-         id="text1430">Deslocamento radial</text>
-    </g>
-    <g
-       id="g1440"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1671)">
-      <rect
-         x="1024.5"
-         y="468.5"
-         width="94"
-         height="42"
-         stroke="#000000"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="#ffffff"
-         id="rect1438" />
-    </g>
-    <g
-       id="g1444"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1665)">
-      <path
-         d="m 1031,479 h 26"
-         stroke="#ed7d31"
-         stroke-width="2"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         fill-rule="evenodd"
-         id="path1442" />
-    </g>
-    <g
-       id="g1448"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1059.44,483)"
-         id="text1446">Calculado</text>
-    </g>
-    <g
-       id="g1452"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)"
-       clip-path="url(#clipPath1659)">
-      <path
-         d="m 1031,500 h 26"
-         stroke="#4472c4"
-         stroke-width="2"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         stroke-miterlimit="10"
-         fill="none"
-         fill-rule="evenodd"
-         id="path1450" />
-    </g>
-    <g
-       id="g1456"
-       transform="matrix(0.26458333,0,0,0.26458333,-232.85057,34.936292)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1059.44,504)"
-         id="text1454">ANSYS</text>
-    </g>
+     transform="translate(-9.7880404,-153.98339)">
     <g
        inkscape:label=""
-       transform="translate(145.52286,203.70313)"
+       transform="translate(144.45834,215.59023)"
        id="g1955">
       <g
          clip-path="url(#clipPath8425)"
@@ -625,6 +263,356 @@
           </g>
         </g>
       </g>
+    </g>
+    <g
+       id="g637"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993.5,409.5 h 453 m -453,54 h 453 m -453,55 h 453 m -453,55 h 453 m -453,110 h 453 m -453,55 h 453"
+         stroke="#d9d9d9"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="path635" />
+    </g>
+    <g
+       id="g641"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 1043.5,409.5 v 329 m 51,-329 v 329 m 50,-329 v 329 m 50,-329 v 329 m 51,-329 v 329 m 50,-329 v 329 m 50,-329 v 329 m 51,-329 v 329 m 50,-329 v 329"
+         stroke="#d9d9d9"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="path639" />
+    </g>
+    <g
+       id="g645"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <rect
+         x="993.5"
+         y="409.5"
+         width="453"
+         height="329"
+         stroke="#000000"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="rect643" />
+    </g>
+    <g
+       id="g649"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993.5,409.5 v 329"
+         stroke="#000000"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path647" />
+    </g>
+    <g
+       id="g653"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993.5,409.5 h 3 m -3,10 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -3,11 h 3 m -7,-329 h 7 m -7,54 h 7 m -7,55 h 7 m -7,55 h 7 m -7,55 h 7 m -7,55 h 7 m -7,55 h 7"
+         stroke="#000000"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="path651" />
+    </g>
+    <g
+       id="g657"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993.5,628.5 h 453"
+         stroke="#000000"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path655" />
+    </g>
+    <g
+       id="g661"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993.5,628.5 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m 10,-3 v 3 m -453,-7 v 8 m 50,-8 v 8 m 51,-8 v 8 m 50,-8 v 8 m 50,-8 v 8 m 51,-8 v 8 m 50,-8 v 8 m 50,-8 v 8 m 51,-8 v 8 m 50,-8 v 8"
+         stroke="#000000"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="path659" />
+    </g>
+    <g
+       id="g665"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993,627 h 14 l 14,-1 14,-1 13,-1 13,-1 13,-2 13,-1 12,-1 12,-1 h 12 11 l 12,1 11,1 10,2 11,3 10,3 10,4 10,5 10,5 10,5 9,6 9,5 9,6 9,5 8,5 9,5 8,4 8,3 8,2 7,2 h 8 l 7,-2 8,-2 7,-4 7,-6 6,-8 7,-9 7,-10 6,-12 6,-14 6,-15 6,-17 6,-18 6,-18 5,-19 6,-20 5,-19 6,-18 5,-17 5,-16 5,-11 5,-6"
+         stroke="#ed7d31"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="path663" />
+    </g>
+    <g
+       id="g669"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 993,628 h 5 4 4 l 4,-1 h 4 5 l 4,-1 h 4 4 l 4,-1 5,-1 h 4 l 4,-1 h 4 l 4,-1 4,-1 h 5 l 4,-1 4,-1 h 4 l 4,-1 5,-1 h 4 l 4,-1 h 4 4 l 5,-1 h 4 4 l 4,-1 h 4 5 l 4,1 h 4 4 l 4,1 h 5 l 4,1 4,1 4,1 4,1 5,1 4,2 4,1 4,2 4,2 5,2 4,2 4,2 4,2 4,2 5,3 4,3 4,2 4,3 4,3 5,3 4,2 4,3 4,3 4,3 5,3 4,3 4,3 4,2 4,3 5,2 4,3 4,2 4,2 4,1 5,2 4,1 4,1 4,1 h 4 4 l 4,-1 5,-1 4,-2 4,-2 4,-2 4,-3 4,-4 5,-5 4,-5 4,-6 4,-6 5,-8 4,-8 4,-9 5,-10 4,-10 4,-12 4,-12 5,-13 4,-13 4,-13 4,-14 4,-14 5,-15 4,-14 4,-14 4,-14 4,-12 4,-11 4,-8 5,-5"
+         stroke="#4472c4"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         id="path667" />
+    </g>
+    <g
+       id="g673"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(937,413)"
+         id="text671">-2.0E-05</text>
+    </g>
+    <g
+       id="g677"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(937,468)"
+         id="text675">-1.5E-05</text>
+    </g>
+    <g
+       id="g681"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(937,523)"
+         id="text679">-1.0E-05</text>
+    </g>
+    <g
+       id="g685"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(937,578)"
+         id="text683">-5.0E-06</text>
+    </g>
+    <g
+       id="g689"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(937.98,633)"
+         id="text687">0.0E+00</text>
+    </g>
+    <g
+       id="g693"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(940.993,687)"
+         id="text691">5.0E-06</text>
+    </g>
+    <g
+       id="g697"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(940.993,742)"
+         id="text695">1.0E-05</text>
+    </g>
+    <g
+       id="g701"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(990.004,618)"
+         id="text699">0</text>
+    </g>
+    <g
+       id="g705"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1037.03,618)"
+         id="text703">10</text>
+    </g>
+    <g
+       id="g709"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1087.39,618)"
+         id="text707">20</text>
+    </g>
+    <g
+       id="g713"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1137.75,618)"
+         id="text711">30</text>
+    </g>
+    <g
+       id="g717"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1188.11,618)"
+         id="text715">40</text>
+    </g>
+    <g
+       id="g721"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1238.47,618)"
+         id="text719">50</text>
+    </g>
+    <g
+       id="g725"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1288.83,618)"
+         id="text723">60</text>
+    </g>
+    <g
+       id="g729"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1339.19,618)"
+         id="text727">70</text>
+    </g>
+    <g
+       id="g733"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1389.55,618)"
+         id="text731">80</text>
+    </g>
+    <g
+       id="g737"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1439.92,618)"
+         id="text735">90</text>
+    </g>
+    <g
+       id="g741"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="rotate(-90,782.3335,-148.3335)"
+         id="text739">Deslocamento radial</text>
+    </g>
+    <g
+       id="g749"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <rect
+         x="1024.5"
+         y="468.5"
+         width="94"
+         height="42"
+         stroke="#000000"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect747" />
+    </g>
+    <g
+       id="g753"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 1031,479 h 26"
+         stroke="#ed7d31"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path751" />
+    </g>
+    <g
+       id="g757"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1059.44,483)"
+         id="text755">Calculado</text>
+    </g>
+    <g
+       id="g761"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <path
+         d="m 1031,500 h 26"
+         stroke="#4472c4"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path759" />
+    </g>
+    <g
+       id="g765"
+       transform="matrix(0.26458333,0,0,0.26458333,-233.98881,46.992504)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1059.44,504)"
+         id="text763">ANSYS</text>
     </g>
   </g>
 </svg>
