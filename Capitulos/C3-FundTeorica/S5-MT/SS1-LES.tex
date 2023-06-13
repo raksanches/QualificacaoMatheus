@@ -116,11 +116,13 @@ Portanto, o problema se ser resolvido será:
 
 Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB{T}_S}$.
 
+\begin{comment}
 \citeonline{germano1991dynamic,hughes2000large} ainda fazem algumas constatações sobre o modelo de Smagorinsky, os quais destacam-se o fato de $\BB{T}_S$ não possuir um comportamento assintótico próximo às paredes, o que se esperaria de $\BB{T}$, os valores de $C_S$ na presença de cisalhamento médio causaram amortecimentos excessivos e o tensor $\BB{T}_S$ impede a energia de fluir entre diferentes escalas, podendo ser significante em alguns casos.
 
 Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, permitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
+\end{comment}
 
-Assim, define-se inicialmente a amplitude espectral da energia cinética $E(k)$, dada sobre uma superfície de esferas parametrizadas de raio $k$, dada por \cite{hughes2000large}:
+Para a determinação da constante de Smagorinsky, define-se inicialmente a amplitude espectral da energia cinética $E(k)$, dada sobre uma superfície de esferas parametrizadas de raio $k$, dada por \cite{hughes2000large}:
 
 \begin{equation}
     E(k)=\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
