@@ -148,6 +148,30 @@ Também foi observado o tempo necessário para que a convergência fosse atingid
 
 Observa-se no resíduo da velocidade que todos os métodos tiveram uma convergência mais rápida no início da simulação, pois um fluxo rotacional ainda estava sendo obtido pelos modelos. Após se estabelecer esse fluxo a convergência desacelerou até atingir a tolerância admitida. Já com relação ao resíduo da pressão verifica-se que o modelo LES obteve uma convergência imediata, no entanto a convergência dos demais modelos também foi rápida de tal forma a essa medida não ser o limitante em relação ao tempo de processamento. Ao final do processamento o VMS quadrático foi o que precisou da menor quantidade de iterações para convergir, no entanto, devido à quantidade de graus de liberdade ser maior, seu tempo requerido para cada iteração aumentou, necessitando de um tempo similar ao LES.
 
+Por fim, verificou-se a necessidade da utilização do modelo de turbulência em simulações de malha menos refinada em situação de número de Reynolds elevado. Para isso assumiu-se um problema com $\Rey=10000$, sendo o domínio computacional gerado pela divisão de cada aresta em 20 segmentos, totalizando, assim, 800 elementos finitos triangulares, dispostos de forma estruturada com orientação à esquerda. As simulações foram conduzidas sem a utilização de nenhum modelo de turbulência, seguido dos modelos LES e VMS. Para cada uma das simulações empregou-se elementos de aproximação linear, quadrática e Taylor-Hood P2P1, sendo que para os dois primeiros aplicou-se um estabilizador PSPG, uma vez que esses elementos não possuem estabilidade no campo de pressões. Assim, chegou-se em 441 nós e 1323 DOF para a simulação contendo elementos lineares, 1681 nós e 5043 DOF para quadráticos e 1681 nós e 3803 DOF para P2P1. A simulação foi mantida em um intervalo de tempo $t\in[0,500]$, discretizado em $\Delta t=0,1$, sendo que a condição inicial foi de $\BB{u}=\BB{0}$ em todos os pontos no interior do domínio. A Tabela \ref{tab:comp-res2} apresenta de forma qualitativa os resultados obtidos. O campo de velocidades obtidos para cada simulação no instante $t=500$ é apresentado no Apêndice A.
+
+\begin{table}[h!]
+    \centering
+    \caption{Comparação dos resultados apresentados em simulação em modelo, com aplicação de LES e de VMS.}
+    \begin{tabularx}{\textwidth}{|p{2cm}|p{3cm}|X|}
+        \hline
+        Tipo de elemento      & Simulação  & Resultado                                                         \\\hline
+        \MR{3}{*}{Linear}     & Sem modelo & Sem sentido físico                                                \\\cline{2-3}
+                              & LES        & Formação de vórtice com valores espúrios próximos à face superior \\\cline{2-3}
+                              & VMS        & Formação de vórtice com variação pequena do campo de velocidades  \\\hline
+        \MR{3}{*}{Quadrático} & Sem modelo & Não houve avanço na solução (se manteve na condição inicial)      \\\cline{2-3}
+                              & LES        & Formação de vórtice                                               \\\cline{2-3}
+                              & VMS        & Formação de vórtice                                               \\\hline
+        \MR{3}{*}{P2P1}       & Sem modelo & Divergência                                                       \\\cline{2-3}
+                              & LES        & Não atingiu o regime permanente                                   \\\cline{2-3}
+                              & VMS        & Formação de vórtice                                               \\\hline
+    \end{tabularx}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:comp-res2}
+\end{table}
+
+Logo, verifica-se que as simulações sem a aplicação de modelos de turbulência não foi capaz de simular o comportamento do escoamento. Por outro lado, mesmo em uma situação de malha grosseira, as simulações empregando LES e VMS foram capazes de capturar esse comportamento. No entanto a simulação modelada por LES em elemento P2P1 não atingiu o regime permanente.
+
 %==================================================================================================
 \subsubsection{\textit{Taylor-Green Vortex} tridimensional}
 %==================================================================================================
@@ -286,7 +310,7 @@ Outro parâmetro possível de se verificar é o número de Strouhal ($\Str$), qu
 
 \noindent sendo $f_v$ a frequência de desprendimento de vórtices.
 
-As Figuras \ref{fig:cyl-draglift-None}, \ref{fig:cyl-draglift-LES} e \ref{fig:cyl-draglift-VMS} apresentam os coeficientes de arrasto e de sustentação obtidos em todas as simulações. Os campos de velocidades e de pressões atuantes no cilindro no instante $t=120$ são apresentados no Apêndice A.
+As Figuras \ref{fig:cyl-draglift-None}, \ref{fig:cyl-draglift-LES} e \ref{fig:cyl-draglift-VMS} apresentam os coeficientes de arrasto e de sustentação obtidos em todas as simulações. Os campos de velocidades e de pressões atuantes no cilindro no instante $t=120$ são apresentados no Apêndice B.
 
 \begin{figure}[h!]
     \centering
@@ -355,8 +379,6 @@ Os valores da média e da amplitude dos coeficientes de arrasto e de sustentaç�
 
 \begin{table}[h!]
     \centering
-    \newcommand{\MR}{\multirow}
-    \newcommand{\MC}{\multicolumn}
     \newcommand{\celc}{\multicolumn{1}{c}}
     \newcommand{\ccelc}{\multicolumn{2}{c}}
     \caption{Valores das propriedades dos coeficientes de arrasto e de sustentação para os modelos analisados.}

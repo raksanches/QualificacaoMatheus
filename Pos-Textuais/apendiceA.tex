@@ -1,0 +1,52 @@
+\chapter*{Campos de velocidades para simulações em malha grosseira e $\Rey=10000$.}
+\addcontentsline{toc}{chapter}{APÊNDICE A}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Campos de velocidades no instante $t=100$.}
+    \begin{subfigure}{\textwidth}\centering
+        \begin{subfigure}{\textwidth}\centering
+            \begin{subfigure}{.32\textwidth}
+                \caption*{\textbf{Elemento Linear.}}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/None-Lin.png}
+            \end{subfigure}
+            \begin{subfigure}{.32\textwidth}
+                \caption*{\textbf{Elemento quadrático.}}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/None-Qua.png}
+            \end{subfigure}
+            \begin{subfigure}{.32\textwidth}
+                \caption*{\textbf{Elemento P2P1.}}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/None-TH.png}
+            \end{subfigure}
+            \caption{Simulação sem modelo.}
+        \end{subfigure}
+        \begin{subfigure}{\textwidth}\centering
+            \begin{subfigure}{.32\textwidth}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/LES-Lin.png}
+            \end{subfigure}
+            \begin{subfigure}{.32\textwidth}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/LES-Qua.png}
+            \end{subfigure}
+            \begin{subfigure}{.32\textwidth}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/LES-TH.png}
+            \end{subfigure}
+            \caption{Simulação LES.}
+        \end{subfigure}
+        \begin{subfigure}{\textwidth}\centering
+            \begin{subfigure}{.32\textwidth}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/VMS-Lin.png}
+            \end{subfigure}
+            \begin{subfigure}{.32\textwidth}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/VMS-Qua.png}
+            \end{subfigure}
+            \begin{subfigure}{.32\textwidth}
+                \includegraphics[width=\linewidth]{Figuras/cavity-poor/VMS-TH.png}
+            \end{subfigure}
+            \caption{Simulação VMS.}
+        \end{subfigure}
+        \begin{subfigure}{.5\textwidth}\centering
+            \includegraphics[width=\linewidth]{Figuras/cavity-poor/legenda.png}
+        \end{subfigure}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+\end{figure}
