@@ -45,15 +45,15 @@ portuguese % ou english
 \cleardoublepage
 
 % Lista de ilustrações (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
-\listoffigures*
-\cleardoublepage
+% \listoffigures*
+% \cleardoublepage
 
 % Lista de tabelas (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
-\listoftables*
-\cleardoublepage
+% \listoftables*
+% \cleardoublepage
 
-\input{Config/Siglas.tex}
-\input{Config/Simbolos.tex}
+% \input{Config/Siglas.tex}
+% \input{Config/Simbolos.tex}
 
 % Sumário
 \pdfbookmark[0]{\contentsname}{toc}
@@ -73,9 +73,24 @@ portuguese % ou english
 
 \bibliography{referencias}
 
+\appendix
+\titleformat{\chapter}[display]
+{\normalfont\bfseries\centering}{\MakeTextUppercase{\chaptertitlename}\ \thechapter}{20pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+%\cleardoublepage
+%\pagenumbering{gobble}
+
 %\input{Pos-Textuais/glossario}
+\input{Pos-Textuais/algoritmo1}
 \input{Pos-Textuais/apendiceA}
 \input{Pos-Textuais/apendiceB}
+\input{Pos-Textuais/apendiceC}
+\input{Pos-Textuais/algoritmo2}
+\input{Pos-Textuais/apendiceD}
+\input{Pos-Textuais/apendiceE}
+\input{Pos-Textuais/apendiceF}
+\input{Pos-Textuais/apendiceG}
+\input{Pos-Textuais/apendiceH}
 %\input{Pos-Textuais/anexo}
 %\input{Pos-Textuais/indice}
 

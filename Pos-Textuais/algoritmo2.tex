@@ -1,0 +1,51 @@
+\chapter[APÊNDICE \ref{Ap:MEF-VMS}]{Algoritmo utilizado para o modelo VMS}
+\label{Ap:MEF-VMS}
+
+\begin{algorithm}[h!]
+    \caption{Algoritmo para a solução de escoamento incompressíveis via modelo VMS.}
+    \label{alg:MEF-VMS}
+    \KwResult{Vetor de velocidades, acelerações e pressões nodais}
+    Atualização das velocidades para os valores iniciais\;
+    \For{$t_i\gets 0$ \KwTo $t_f$}{
+        Previsão dos parâmetros:
+        \begin{flalign*}
+             & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+1}^0\gets((\gamma-1)/\gamma)\BB{\dot{U}}_n & \\
+             & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+1}^0\gets\BB{U}_n                                & \\
+             & \text{Vetor de pressões nodais: }    &  & \BB{P}_{n+1}^0\gets\BB{P}_n                                &
+        \end{flalign*}\\
+        \While{\textnormal{erro}>\textnormal{tol}}
+        {
+            \ForEach{\textnormal{elemento}}{
+                \ForEach{\textnormal{ponto de Hammer}}{
+                    Interpolação dos parâmetros:
+                    \begin{flalign*}
+                         & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+\alpha_m}^k\gets \alpha_m \BB{\dot{U}}_{n+1}^{k-1}+(1-\alpha_m)\BB{\dot{U}}_n & \\
+                         & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+\alpha_f}^k      \gets \alpha_f \BB{U}_{n+1}^{k-1}+(1-\alpha_f)\BB{U}_n             & \\
+                         & \text{Vetor de pressões nodais: }    &  & \BB{P}_{n+1}^1             \gets \BB{P}_n^{k-1}                                               &
+                    \end{flalign*}\\
+                    Cálculo dos termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ \label{alg:estabilizador}\;
+                    Cálculo da matriz tangente e dos vetores de resíduos\;
+                }
+            }
+            Montagem do sistema global e aplicação das condições de contorno\;
+            Determinação das correções pela solução do sistema:
+            $\begin{bmatrix}
+                    \der{\NM^k}{\BB{\dot{U}}_{n+1}^k} & \der{\NM^k}{P_{n+1}^k} \\
+                    \der{\NC^k}{\BB{\dot{U}}_{n+1}^k} & \der{\NC^k}{P_{n+1}^k}
+                \end{bmatrix}
+                \begin{bmatrix}
+                    \Delta\BB{\dot{U}}_{n+1}^k \\\Delta P_{n+1}^k
+                \end{bmatrix}=-
+                \begin{bmatrix}
+                    \NM^k \\\NC^k
+                \end{bmatrix}$\\
+            Correção dos parâmetros:
+            \begin{flalign*}
+                 & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+1}^{k+1}\gets\BB{\dot{U}}_{n+1}^k+\Delta\BB{\dot{U}_{n+1}^k} & \\
+                 & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+1}^{k+1}\gets\BB{U}_{n+1}^k+\gamma\Delta t\Delta\BB{U_{n+1}^k}     & \\
+                 & \text{Vetor de pressões nodais: }    &  & \BB{P}_{n+1}^{k+1}\gets\BB{P}_{n+1}^k+\Delta\BB{P}_{n+1}^k                   &
+            \end{flalign*}\\
+            Cálculo do erro: erro$=\norm{\NM^k}_{L^2}$
+        }
+    }
+\end{algorithm}

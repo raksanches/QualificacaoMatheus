@@ -28,8 +28,21 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     \delta\Pi=\delta\mathbb{P}+\delta\mathbb{U}+\delta\mathbb{K}=0\text{,}
 \end{equation}
 
-\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que descreva a evolução da energia de deformação em função da medida de deformação.
+\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que descreva a evolução da energia de deformação em função da medida de deformação, sendo um possível modelo o de Saint-Venant-Kirchhoff, dado por:
 
+\begin{equation}
+    u_e^{SVK}=\frac{K\mathbb{E}}{2}\text{,}
+\end{equation}
+
+\noindent sendo $K$ o módulo de elasticidade longitudinal do material e $\mathbb{E}$ a medida de deformação de Green-Lagrange, expressa para um caso uniaxial como:
+
+\begin{equation}
+    \mathbb{E}=\frac{1}{2}\frac{dy^2-dx^2}{dx^2}\text{.}
+\end{equation}
+
+\noindent A seção seguinte tratará de forma mais detalhada o comportamento para casos multiaxiais.
+
+\begin{comment}
 Na sequência serão apresentadas algumas medidas de deformação uniaxiais para fins de exemplificação, sendo as medidas de deformação multiaxiais apresentadas posteriormente na seção \ref{CCD}.
 
 A primeira medida de deformação que pode ser observada é a denominada medida de deformação linear (ou de engenharia), que se trata de uma medida Lagrangiana, pois toma como referência a configuração inicial (ou indeformada) do elemento, e é definida como:
@@ -103,6 +116,7 @@ Uma propriedade notável aponta a tensão como a conjugada energética da deform
 \begin{equation}
     \der{u_e}{\varepsilon}=\sigma=E\varepsilon\text{.}
 \end{equation}
+\end{comment}
 
 %==================================================================================================
 \subsection{Cinemática dos Corpos Deformáveis} \label{CCD}
@@ -162,7 +176,7 @@ Assim, define-se o tensor de deformações de Green-Lagrange como:
     \label{eq:CSD-DefGreenLagr}
 \end{equation}
 
-\noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em movimento de corpo rígido.
+\noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em situação de movimento de corpo rígido.
 
 Outra medida de deformação interessante é a medida de deformação volumétrica ($\varepsilon_V$). Para isso considere o elemento infinitesimal em suas configurações inicial e atual ilustrado na Figura \ref{fig:MudVol}.
 
@@ -209,7 +223,7 @@ Na sequência procura-se obter uma expressão que indique a mudança de área na
     \label{fig:Nanson}
 \end{figure}
 
-Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \ref{eq:dyAdx} e \ref{eq:RelVol}, pode obter que:
+Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \ref{eq:dyAdx} e \ref{eq:RelVol}, pode-se obter que:
 
 \begin{equation}
     \BB{n}dA=J\BB{A}^{-T}\cdot\BB{N}dA_0\text{,}\label{eq:Nanson}
@@ -227,22 +241,9 @@ Com esse embasamento é possível apresentar os conceitos de energia nas descri�
     \label{fig:CorpoLivreSolido}
 \end{figure}
 
-Fazendo o equilíbrio das forças nessa direção tem-se:
+Fazendo o equilíbrio das forças nessa direção e realizando as devidas simplificações tem-se:
 
-\[
-    \begin{split}
-        &-\sigma_{11}dy_2dy_3-\sigma_{21}dy_1dy_3-\sigma_{31}dy_1dy_2+
-        \bigpar{\sigma_{11}+\der{\sigma_{11}}{y_1}dy_1}dy_2dy_3+\\
-        &\bigpar{\sigma_{21}+\der{\sigma_{21}}{y_2}dy_2}dy_1dy_3+
-        \bigpar{\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3}dy_1dy_2+c_1dV=\rho\ddot{y}_1dV
-    \end{split}
-\]
-
-Fazendo as devidas simplificações obtém-se:
-
-\[
-    \der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}
-\]
+\[\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}\]
 
 \noindent que, expandindo analogamente para as demais direções, pode escrever nas notações simbólica (Equação \ref{eq:EqLocEu1}) e indicial (Equação \ref{eq:EqLocEu2}) como:
 
@@ -256,11 +257,7 @@ Fazendo as devidas simplificações obtém-se:
     \label{eq:EqLocEu}
 \end{subequations}
 
-\noindent as quais representam as equações do equilíbrio local na descrição Euleriana e sendo a vírgula presente no subíndice a representação de derivada na direção $i$, ou seja:
-
-\begin{equation}
-    \sigma_{ij,i}=\der{\sigma_{ij}}{y_i}\text{.}
-\end{equation}
+\noindent as quais representam as equações do equilíbrio local na descrição Euleriana.
 
 Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
 
@@ -373,27 +370,7 @@ Sendo assim, os parâmetros dependentes do espaço podem ser aproximados como:
 
 \noindent em que $X_i^a$ representa a posição inicial de um nó $a$, $f_i^{m0}$ e $f_i^{m1}$ são as funções de mudança de configuração da superfície média $\Omega_\xi\to\Omega_0$ e $\Omega_\xi\to\Omega$, respectivamente, onde $\Omega_\xi$ é o espaço paramétrico e $\Omega$ é a configuração atual do contínuo, $v_i^0$ é o vetor unitário normal à superfície média, $v_i^1$ é o vetor generalizado na configuração atual, $h_0$ é a espessura inicial da casca, $N_a$ é a função de forma, $T_i^a$ é o valor de $t_i$ sobre o nó $a$, $Q_i^a$ é o valor de $q_i$ sobre o nó $a$ e $\alpha$ é uma variável inserida no problema, denominada como taxa de variação da espessura, cujo valor sobre o nó $a$ é $\Alpha^a$ \cite{sanches2013unconstrained,sanches2014fluid}.
 
-Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\partial\BB{f}/\partial\BB{x}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que os valores de $\BB{A}^1$ são:
-
-\begin{subequations}
-    \begin{align}
-         & A_{i1}^1=f_{i,1}^1=Y_i^aN_{a,1}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,1}\xi_3^2+(V^1)_i^aN_{a,1}(\xi_3+\Alpha^bN_b\xi_3^2)}\text{,}  \\
-         & A_{i2}^1=f_{i,2}^1=Y_i^aN_{a,2}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,2}\xi_3^2+(V^1)_i^aN_{a,2}(\xi_3+\Alpha^bN_b\xi_3^2)}\text{ e} \\
-         & A_{i3}^1=f_{i,3}^1=\frac{h_0}{2}(V^1)_i^aN_a\bigpar{1+2A^bN_b\xi_3}
-    \end{align}
-    \label{eq:CSD-A1}
-\end{subequations}
-
-\noindent e os valores de $\BB{A}^0$ são:
-
-\begin{subequations}
-    \begin{align}
-         & A_{i1}^0=f_{i,1}^0=X_i^aN_{a,1}+\frac{h_0}{2}(V^0)_i^aN_{a,1}\xi_3\text{,}  \\
-         & A_{i2}^0=f_{i,2}^0=X_i^aN_{a,2}+\frac{h_0}{2}(V^0)_i^aN_{a,2}\xi_3\text{ e} \\
-         & A_{i3}^0=f_{i,3}^0=\frac{h_0}{2}(V^0)_i^aN_a\text{.}
-    \end{align}
-    \label{eq:CSD-A0}
-\end{subequations}
+Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\partial\BB{f}/\partial\BB{x}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que $A^0_{ij}=f^0_{i,j}$ e $A^1_{ij}=f^1_{i,j}$.
 
 Assim, considera-se o princípio da conservação da energia como:
 
@@ -449,7 +426,7 @@ Logo, precisa-se calcular a derivada de $\Pi_0$ em relação à $\BB{Y}$, $\BB{V
          & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0\der{y_j}{g_i^a}\dot{y}_j}\text{,}\label{eq:CSD-Famort}                  &  & \text{Forças de amortecimento}  \\
          & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{,}\label{eq:CSD-Finerc}                          &  & \text{Forças inerciais}         \\
          & (F^\mathrm{c})_i^a=F_j^b\der{Y_j^b}{g_i^a}+\intFronti{t_j\der{y_j^m}{g_i^a}}\text{ e}\label{eq:CSD-Fc}                  &  & \text{Forças conservativas}     \\
-         & (F^\mathrm{nc})_i^a=\intFronti{q_j\der{y_j^m}{g_i^a}}\text{.}\label{eq:CSD-Fnc}                                           &  & \text{Forças não-conservativas}
+         & (F^\mathrm{nc})_i^a=\intFronti{q_j\der{y_j^m}{g_i^a}}\text{.}\label{eq:CSD-Fnc}                                         &  & \text{Forças não-conservativas}
     \end{align}
     \label{eq:CSD-F}
 \end{subequations}
@@ -547,280 +524,10 @@ Com isso, encontra-se um vetor de correções dos parâmetros nodais ($\Delta\BB
 
 Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
 
-O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplifica o código implementado.
-
-\begin{algorithm}[h!]
-    \caption{Algoritmo utilizado para o cálculo das posições nodais.}
-    \label{alg:MEF-casca}
-    \KwResult{Vetor global de parâmetros nodais}
-    $\BB{Y}\gets\BB{X}$\;
-    \For{$t_i\gets 0$ \KwTo $t_f$}{
-    Calcular $Q^n$ e $R^n$ (Eq. \ref{eq:CSD-QnRn})\;
-    \ForEach{\textnormal{passo de carga}}{
-    \tcp{Cálculo das forças externas}
-    \ForEach{\textnormal{elemento}}{
-    \ForEach{\textnormal{ponto de Hammer }$i_h$}{
-    Calcular $\BB{A}^0_{2\times 2}$ e $J_0=\det{(A^0)}$\;
-    \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
-        Calcular $\BB{F}^c$ e $\BB{F}^{nc}$ (Eq. \ref{eq:CSD-Fc} e \ref{eq:CSD-Fnc})\;
-        Somar a contribuição no vetor global: $((F^c)_i^a+(F^{nc})_i^a)\cdot J_0\cdot w_{i_h}$\;
-    }
-    }
-    }
-    Somar a contribuição das forças concentradas no vetor global\;
-    \While{erro>tol}{
-    \ForEach{\textnormal{elemento}}{
-    \ForEach{\textnormal{ponto de Hammer }$i_h$}{
-    Calcular $\BB{A}^0_{3\times 3}$ (Eq. \ref{eq:CSD-A0}), $J_0=\det{(A^0)}$, $(\BB{A}^0)^{-1}_{3\times 3}$ e $\BB{A}^1_{3\times 3}$ (Eq. \ref{eq:CSD-A1})\;
-    Calcular $\BB{A}_{3\times 3}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$\;
-    Calcular $\BB{C}_{3\times 3}=\BB{A}^T\cdot\BB{A}$\;
-    Calcular $\mathbb{E}_{3\times 3}$ (Eq. \ref{eq:CSD-DefGreenLagr})\;
-    Calcular $\BB{S}_{3\times 3}$ (Eq. \ref{eq:CSD-S})\;
-    \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
-        Calcular $r_i^a$ (Eq. \ref{eq:CSD-g} e \ref{eq:CSD-Fint} a \ref{eq:CSD-Finerc})\;
-        Somar a contribuição no vetor global: $r_i^a\cdot J_0\cdot w_{i_h}$\;
-        \ForEach{\textnormal{Nó $b$ do elemento na direção $j$}}{
-            Calcular $H_{ij}^{ab}$ (Eq. \ref{eq:CSD-Hijab} e \ref{eq:CSD-HMC})\;
-            Somar a contribuição na matriz global: $H_{ij}^{ab}\cdot J_0\cdot w_{ih}$\;
-        }
-    }
-    }
-    }
-    Resolver o sistema global: $\BB{H}\cdot\Delta\BB{g}=-\BB{r}$\;
-    Atualizar os parâmetros nodais: $\BB{g}\gets\BB{g}+\Delta\BB{g}$\;
-    Atualizar derivadas temporais (Eq. \ref{eq:CSD-Newmark2})\;
-    Cálculo do erro via \ref{eq:CSD-erro}\;
-    }
-    }
-    Atualização dos valores passados\;
-    }
-\end{algorithm}
+O algoritmo visto no Apêndice \ref{Ap:Shell-alg} apresentado na forma de pseudocódigo exemplifica o código implementado.
 
 %==================================================================================================
 \subsubsection{Exemplos de Verificação} \label{MEFP-Ex}
 %==================================================================================================
 
-Na presente seção serão apresentadas algumas simulações realizadas utilizando o procedimento supracitado, com a finalidade de validar o código utilizado.
-
-%==================================================================================================
-\subsubsubsection{\textit{Scordelis-Lo roof}}
-%==================================================================================================
-
-O primeiro exemplo simulado trata-se de um problema comumente encontrado para problemas de cascas, denominado de \textit{Scordelis-Lo roof}, conforme ilustrado na Figura \ref{fig:scordelis}. Esse exemplo se caracteriza por uma cobertura curva sujeita a um carregamento gravitacional $q$, distribuído por unidade de área, na direção $x_3$ para baixo. Os parâmetros geométricos são dados por: comprimento $L=50$, raio de curvatura $R=25$, espessura $t=0,25$ e ângulo $\theta=40^\circ$. O valor da carga aplicada é $q=90$. O material que constitui a cobertura possui módulo de Young $E=4,32\times10^8$ e Poisson nulo. As extremidades estão presas por um diafragma rígido ($u_1=u_3=0$). Os resultados são comparados com os obtidos por \citeonline{BELYTSCHKO1985221,ZHOU2022108568,CHAUDINH2023110222}, os quais apontam que o deslocamento vertical do nó $A$ é de 0,3024.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Problema de \textit{Scordelis-Lo roof}.}
-    \includegraphics[width=0.75\linewidth]{Figuras/scordelis/scordelis_lo.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:scordelis}
-\end{figure}
-
-Para a simulação do problema aproveitou-se da simetria da cobertura, o que possibilitou a modelagem de apenas um quarto do problema. Assim utilizou-se uma malha estruturada com orientação à esquerda contendo 552 elementos triangulares de aproximação quadrática, resultando em 7987 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. As faces laterais observadas na malha foram criadas por conta da forma de construção da aresta circular da cobertura, sendo atribuídos $E=\nu=0$ para os elementos dessas faces. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Malha utilizada na simulação de \textit{Scordelis-Lo roof}.}
-    \begin{subfigure}{0.35\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/scordelis/malha1.png}
-    \caption{Perspectiva isométrica.}
-    \end{subfigure}
-    \begin{subfigure}{0.35\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/scordelis/malha2.png}
-    \caption{Vista superior.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:scordelis-mesh}
-\end{figure}
-
-Dessa forma, chegou-se a um deslocamento de 0,3008 nos cálculos realizados, representando um desvio de 0,5291\% em relação à referência. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Campos de deslocamentos obtido na simulação de \textit{Scordelis-Lo roof}.}
-    \begin{subfigure}{0.05\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/scordelis/eixos.png}
-    \end{subfigure}
-    \begin{subfigure}{0.31\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/scordelis/ux.png}
-    \end{subfigure}
-    \begin{subfigure}{0.31\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/scordelis/uy.png}
-    \end{subfigure}
-    \begin{subfigure}{0.31\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/scordelis/uz.png}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:scordelis-displ}
-\end{figure}
-
-Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}, sendo satisfatoriamente verificada a análise realizada.
-
-Também realizou-se uma análise quanto à convergência da malha, onde dividiu-se as arestas do problema em $N$ partes. A Tabela \ref{tab:scordelis-sol} apresenta os resultados obtidos, sendo os valores do deslocamento em função do refinamento da malha ilustrados na Figura \ref{fig:shell-static-sol}.
-
-\begin{table}[h!]
-    \centering
-    \caption{Análise da convergência da malha para o problema de \textit{Scordelis-Lo roof}.}
-    \begin{tabular}{ccccc}
-        \hline
-        $N$  & Número de elementos & Graus de liberdade & Calculado & Desvio relativo \\\hline
-        5    & 64                  & 1001               & 0,2115    & -30,060\%       \\
-        6    & 88                  & 1351               & 0,2361    & -21,925\%       \\
-        7    & 11                  & 1757               & 0,2638    & -12,765\%       \\
-        8    & 148                 & 2219               & 0,2726    & -9,854\%        \\
-        9    & 184                 & 2737               & 0,2824    & -6,614\%        \\
-        10   & 224                 & 3311               & 0,2863    & -5,324\%        \\
-        11   & 268                 & 3941               & 0,2893    & -4,332\%        \\
-        12   & 316                 & 4627               & 0,2925    & -3,274\%        \\
-        13   & 368                 & 5369               & 0,2954    & -2,325\%        \\
-        14   & 424                 & 6167               & 0,2970    & -1,786\%        \\
-        15   & 484                 & 7021               & 0,2978    & -1,521\%        \\
-        16   & 552                 & 7987               & 0,3008    & -0,529\%        \\\hline
-    \end{tabular}
-    \\Fonte:Autoria Própria (\the\year).
-    \label{tab:scordelis-sol}
-\end{table}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Deslocamento vertical do ponto $A$ para diferentes malhas.}
-    \includegraphics[width=0.75\linewidth]{Figuras/scordelis/static-sol.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:shell-static-sol}
-\end{figure}
-
-Igualmente analisou-se o resultado com aquele obtido pelo \textit{software} ANSYS, o qual retornou um deslocamento de 0,3020. Assim o desvio relativo do resultado calculado com o do ANSYS é de 0,3973\%. Além disso, observou-se os deslocamentos verticais ao longo da aresta livre da cobertura, os quais são apresentados na Figura \ref{fig:scordelis-graph}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Deslocamento vertical ao longo da aresta livre da cobertura.}
-    \includegraphics[width=0.7\linewidth]{Figuras/scordelis/deslocamento.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:scordelis-graph}
-\end{figure}
-
-%==================================================================================================
-\subsubsubsection{Cilindro biengastado}
-%==================================================================================================
-
-Outro problema comum considera um cilindro sujeito a duas cargas concentradas diametralmente opostas, conforme visto na Figura \ref{fig:cylinder-shell}. As dimensões do problema são: comprimento $L=600$, raio $R=300$ e espessura $t=3$. A carga aplicada é $P=1$. O material que constitui o cilindro possui módulo de elasticidade $E=3\times10^6$ e coeficiente de Poisson $\nu=0,3$. Ambas as extremidades do cilindro estão vinculadas a um diafragma rígido, ou seja, $u_1=u_3=\phi_2=0$. O resultado de referência adotado é de um deslocamento radial de $1,8248\times10^{-5}$ no ponto de aplicação da carga \cite{BELYTSCHKO1985221,CHAUDINH2023110222,ZHOU2022108568}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Cilindro submetido a forças concentradas.}
-    \includegraphics[width=0.65\linewidth]{Figuras/cylinder-shell/cylinder.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:cylinder-shell}
-\end{figure}
-
-Pelo fato do problema apresentar simetria, foi estudado somente um octante do problema. Assim utilizou-se uma malha não-estruturada, com refinamento maior próximo ao ponto de aplicação da força, contendo 839 elementos triangulares de aproximação quadrática, contando com um total de 12180 graus de liberdade. A malha utilizada é observada na Figura \ref{fig:cylinder-shell-mesh}. As faces laterais devido ao processo de geração da aresta circular possuem $E=\nu=0$. Na simulação adotou-se uma única iteração de newton-Raphson.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Malha utilizada na simulação de cilindro biengastado.}
-    \includegraphics[width=0.3\linewidth]{Figuras/cylinder-shell/mesh1.png}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:cylinder-shell-mesh}
-\end{figure}
-
-O resultado obtido foi de um deslocamento radial de $1,8207\times10^{-5}$, tendo, portanto, um desvio relativo de $0,2247\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}, os quais são muito próximos aos obtidos por \citeonline{ZHOU2022108568}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Campos de deslocamentos obtido na simulação de cilindro.}
-    \begin{subfigure}{0.075\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/eixos.png}
-    \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/ux.png}
-    \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uy.png}
-    \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uz.png}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:cylinder-shell-disp}
-\end{figure}
-
-Também se comparou o resultado obtido com relação à uma simulação feita no \textit{software} ANSYS, a qual resultou em um deslocamento de $1,8190\times10^{-5}$. Logo o desvio do resultado calculado com o apresentado pelo ANSYS foi de $0,0934\%$. Além disso, verificou-se o deslocamento radial ao longo das arestas compreendidas pela interseção do cilindro com o plano $x_1=0$ e com $x_2=L/2$. A Figura \ref{fig:cylinder-shell-deslradial} ilustra graficamente os resultados obtidos.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Deslocamentos radiais ao longo da aresta compreendida pela interseção do cilindro como o plano:}
-    \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/deslocamento1.pdf}
-    \caption{$x_1=0$}
-    \end{subfigure}
-    \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/cylinder-shell/deslocamento2.pdf}
-    \caption{$x_2=L/2$}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:cylinder-shell-deslradial}
-\end{figure}
-
-%==================================================================================================
-\subsubsubsection{Viga engastada em problema dinâmico}
-%==================================================================================================
-
-Para verificação do código implementado em problemas dinâmicos, estudou-se  primeiramente o comportamento de uma viga engastada em uma de suas extremidades e sujeita a uma carga $P$ aplicada na extremidade oposta, conforme ilustrado na Figura \ref{fig:viga1}. As dimensões da viga são: comprimento $L=60$ dm, altura $h=3$ dm e largura $b=1$ dm. A força aplicada possui intensidade $P=1,25\times10^{-4}$ Mg$\cdot$dm/(ms)² $H(t)$, sendo $H(t)$ a função de Heavside. O material que compõe a viga possui módulo de Young $E=20$ Mg/[dm$\cdot$(ms)²], coeficiente de Poisson nulo e massa específica $\rho=7\times10^{-3}$ Mg/dm³. O intervalo de tempo analisado foi $t\in[0;675]$ ms discretizado em passos de tempo $\Delta t=0,3377$. A malha de elementos finitos utilizada conta com 32 elementos triangulares de aproximação quadrática, com um total de 693 graus de liberdade, a qual pode ser observada na Figura \ref{fig:viga1-mesh}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Desenho esquemático da viga simulada.}
-    \includegraphics[width=0.5\linewidth]{Figuras/vigas/viga1.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:viga1}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Malha utilizada na simulação da viga.}
-    \includegraphics[width=\linewidth]{Figuras/vigas/mesh1.png}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:viga1-mesh}
-\end{figure}
-
-A modelagem realizada considerou a altura $H$ como a espessura do elemento de casca, sendo a força atuante nessa mesma direção. Assim, observou-se o deslocamento vertical no ponto de aplicação da força. Os resultados obtidos foram comparados com aqueles alcançados a partir de uma modelagem no \textit{software} ANSYS utilizando elementos sólidos 183. a Figura \ref{fig:res-viga1} apresenta os resultados calculados.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Deslocamento vertical no ponto de aplicação da força ao longo do tempo.}
-    \includegraphics[width=\linewidth]{Figuras/vigas/res1.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:res-viga1}
-\end{figure}
-
-Observa-se nesse caso uma boa concordância entre os resultados apresentados pelo ANSYS e os obtidos pelo código desenvolvido, sendo verificada a eficácia nesse exemplo.
-
-Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu centro, conforme mostrado na Figura \ref{fig:viga2}. Nesse exemplo considerou-se um comprimento $L=20$ in, com seção transversal de $b\times h=1,0\times0,125$ in². O material que constitui a viga possui módulo de Young $E=3\times10^{7}$ lb/in², coeficiente de Poisson nulo e massa específica de $\rho=2,6\times10^{-4}$ lb$\cdot$s²/in$^4$. A força aplicada foi de $P=640$ lb constante durante todo o período de análise, de $t\in[0;5]$ ms, o qual foi discretizado em passos de tempo de $\Delta t=25\ \mu$ s. A malha de elementos finitos (Figura \ref{fig:viga2-mesh}) possui 132 elementos triangulares de aproximação quadrática, totalizando 2331 graus de liberdade. A espessura do elemento de casca foi considerado como a direção da altura $H$ da viga.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Desenho esquemático da viga biengastada simulada.}
-    \includegraphics[width=0.6\linewidth]{Figuras/vigas/viga2.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:viga2}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Malha utilizada na simulação da viga biengastada.}
-    \includegraphics[width=\linewidth]{Figuras/vigas/mesh2.png}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:viga2-mesh}
-\end{figure}
-
-Os resultados calculados foram comparados com os apresentados pelo ANSYS, a partir do elemento 183, e por \cite{mondkar1977ansa}. A Figura \ref{fig:res-viga2} exibe os resultados obtidos.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Deslocamento vertical no centro da viga biengastada ao longo do tempo.}
-    \includegraphics[width=\linewidth]{Figuras/vigas/res2.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:res-viga2}
-\end{figure}
-
-Verifica-se uma boa concordância entre os resultados obtidos pela análise por ambos os valores de referência, sendo assim, averiguada a eficácia do código nesse exemplo.
+Para verificação do código implementado, estudou-se para problemas estáticos: a simulação de \textit{Scordelis-Lo roof} e o problema de cilindro biengastado, enquanto para problemas dinâmicos estudou-se o comportamento de vigas engastadas. Tais simulações executadas, contendo os parâmetros de entrada, assim como a discretização de cada problema e os resultados obtidos, são apresentados nos Apêndices \ref{Ap:SLR}, \ref{Ap:Shell-cyl} e \ref{Ap:DinBeam}, para os respectivos problemas.

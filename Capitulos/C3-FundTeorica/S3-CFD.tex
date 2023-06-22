@@ -24,24 +24,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     dm=dm_0+\apder{dm}{t}dt\text{,}
 \end{equation}
 
-\noindent que pode ser expandida como:
-
-\[
-    \begin{split}
-        \rho dV+\apder{\rho}{t}dVdt=&\rho dV+\rho u_1dy_2dy_3dt+\rho u_2dy_1dy_3dt+\rho u_3dy_1dy_2dt-\\
-        &\left(\rho u_1+\apder{(\rho u_1)}{y_1}dy_1\right)dy_2dy_3dt-
-        \left(\rho u_2+\apder{(\rho u_2)}{y_2}dy_2\right)dy_1dy_3dt-\\
-        &\left(\rho u_3+\apder{(\rho u_3)}{y_3}dy_3\right)dy_1dy_2dt\text{.}
-    \end{split}
-\]
-
-Simplificando essa expressão, chega-se a seguinte relação em forma expandida:
-
-\begin{equation}
-    \apder{\rho}{t}=-\left(\apder{(\rho u_1)}{y_1}+\apder{(\rho u_2)}{y_2}+\apder{(\rho u_3)}{y_3}\right)\text{,}
-\end{equation}
-
-\noindent a qual pode ser reescrita em notação simbólica de acordo com a Equação \ref{eq:BalMas1}, ou em notação indicial de acordo com a Equação \ref{eq:BalMas2}, que representam a conservação de massa em um elemento infinitesimal.
+\noindent que, após algumas simplificações, resulta em uma expressão dada em sua forma simbólica de acordo com a Equação \ref{eq:BalMas1}, ou em notação indicial de acordo com a Equação \ref{eq:BalMas2}, que representam a conservação de massa em um elemento infinitesimal.
 
 \begin{subequations}
     \begin{equation}
@@ -96,23 +79,14 @@ Já a equação que expressa a Conservação da Quantidade de Movimento (ou de M
     \label{fig:ConQtdMov}
 \end{figure}
 
-Assim, procede-se com o balanço da taxa de quantidade de movimento, no qual $d\BB{F}$ representa a resultante das forças externas atuante no elemento.
-
-\[
-    \begin{split}
-        \apder{(\rho\BB{u})}{t}dV=&u_1\rho\BB{u}dy_2dy_3+u_2\rho\BB{u}dy_1dy_3+u_3\rho\BB{u}dy_1dy_2-\left(u_1\rho\BB{u}+\apder{u_1\rho\BB{u}}{y_1}dy_1\right)dy_2dy_3-\\
-        &\left(u_2\rho\BB{u}+\apder{u_2\rho\BB{u}}{y_2}dy_2\right)dy_1dy_3-\left(u_3\rho\BB{u}+\apder{u_3\rho\BB{u}}{y_3}dy_3\right)dy_1dy_2+d\BB{F}
-    \end{split}
-\]
-
-Fazendo as devidas simplificações obtém-se a equação da conservação da quantidade de movimento:
+Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se uma resultante de forças externas atuante no elemento dado por $d\BB{F}$. Logo, após feitas as devidas simplificações, chega-se à equação:
 
 \begin{equation}
     \apder{(\rho u_i)}{t}+(\rho u_ju_i)_{,j}-q_i=0\text{,}
     \label{eq:ConQtdMov}
 \end{equation}
 
-\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($c_i$).
+\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($c_i$).
 
 \begin{figure}[h!]
     \centering
@@ -123,18 +97,6 @@ Fazendo as devidas simplificações obtém-se a equação da conservação da qu
 \end{figure}
 
 Fazendo o equilíbrio de forças nessa direção, obtém-se que:
-
-\[
-    \begin{split}
-        &-\sigma_{11}dy_2dy_3-\sigma_{21}dy_1dy_3-\sigma_{31}dy_1dy_3
-        +\left(\sigma_{11}+\der{\sigma_{11}}{y_1}dy_1\right)dy_2dy_3\\
-        &+\left(\sigma_{21}+\der{\sigma_{21}}{y_2}dy_2\right)dy_1dy_3
-        +\left(\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3\right)dy_1dy_2+
-        c_1dy_1dy_2dy_3=dF_1
-    \end{split}
-\]
-
-Após feitas as devidas simplificações, pode-se estabelecer uma relação entre $q_i$ e $\sigma_{ij}$:
 
 \begin{equation}
     q_1=\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1\text{,}
@@ -432,7 +394,7 @@ Como pode-se observar, a escolha dos espaços de aproximações que atendam às 
 \begin{figure}[h!]
     \centering
     \caption{Elementos Taylor-Hood.}
-    \includegraphics[width=.75\linewidth]{Figuras/Taylor-Hood.pdf}
+    \includegraphics[width=.65\linewidth]{Figuras/Taylor-Hood.pdf}
     \\Fonte: \citeonline{fernandes2020tecnica} - Adaptado.
     \label{fig:Taylor-Hood}
 \end{figure}

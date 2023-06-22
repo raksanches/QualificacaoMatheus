@@ -1,137 +1,60 @@
-\chapter*{Campos de velocidades e de pressões para o problema de escoamento em torno de um cilindro.}
-\addcontentsline{toc}{chapter}{APÊNDICE B}
+\chapter[APÊNDICE \ref{Ap:Shell-cyl}]{Cilindro biengastado em problema estático}
+\label{Ap:Shell-cyl}
+
+Outro problema comum considera um cilindro sujeito a duas cargas concentradas diametralmente opostas, conforme visto na Figura \ref{fig:cylinder-shell}. As dimensões do problema são: comprimento $L=600$, raio $R=300$ e espessura $t=3$. A carga aplicada é $P=1$. O material que constitui o cilindro possui módulo de elasticidade $E=3\times10^6$ e coeficiente de Poisson $\nu=0,3$. Ambas as extremidades do cilindro estão vinculadas a um diafragma rígido, ou seja, $u_1=u_3=\phi_2=0$. O resultado de referência adotado é de um deslocamento radial de $1,8248\times10^{-5}$ no ponto de aplicação da carga \cite{BELYTSCHKO1985221,CHAUDINH2023110222,ZHOU2022108568}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Resultados no instante $t=120$ para elemento de aproximação linear.}
-    \begin{subfigure}{\textwidth}
-        \begin{subfigure}{\textwidth}\centering
-            \begin{subfigure}{.42\textwidth}
-                \caption*{Campo de velocidades.}
-                \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/lu.png}
-            \end{subfigure}
-            \begin{subfigure}{.42\textwidth}
-                \caption*{Campo de pressões.}
-                \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/lp.png}
-            \end{subfigure}
-        \end{subfigure}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/none-Lin-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/none-Lin-p.png}
-        \end{subfigure}
-        \caption{Sem modelo}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/LES-Lin-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/LES-Lin-p.png}
-        \end{subfigure}
-        \caption{LES}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/VMS-Lin-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/VMS-Lin-p.png}
-        \end{subfigure}
-        \caption{VMS}
-    \end{subfigure}
+    \caption{Cilindro submetido a forças concentradas.}
+    \includegraphics[width=0.65\linewidth]{Figuras/cylinder-shell/cylinder.pdf}
     \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \caption{Resultados no instante $t=120$ para elemento de aproximação quadrática.}
-    \begin{subfigure}{\textwidth}
-        \begin{subfigure}{\textwidth}\centering
-            \begin{subfigure}{.42\textwidth}
-                \caption*{Campo de velocidades.}
-                \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/lu.png}
-            \end{subfigure}
-            \begin{subfigure}{.42\textwidth}
-                \caption*{Campo de pressões.}
-                \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/lp.png}
-            \end{subfigure}
-        \end{subfigure}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/none-Qua-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/none-Qua-p.png}
-        \end{subfigure}
-        \caption{Sem modelo}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/LES-Qua-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/LES-Qua-p.png}
-        \end{subfigure}
-        \caption{LES}
-    \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/VMS-Qua-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/VMS-Qua-p.png}
-        \end{subfigure}
-        \caption{VMS}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-\end{figure}
+Pelo fato do problema apresentar simetria, foi estudado somente um octante do problema. Assim utilizou-se uma malha não-estruturada, com refinamento maior próximo ao ponto de aplicação da força, contendo 839 elementos triangulares de aproximação quadrática, contando com um total de 12180 graus de liberdade. A malha utilizada é observada na Figura \ref{fig:cylinder-shell-mesh}. As faces laterais devido ao processo de geração da aresta circular possuem $E=\nu=0$. Na simulação adotou-se uma única iteração de newton-Raphson.
 
 \begin{figure}[h!]
     \centering
-    \caption{Resultados no instante $t=120$ para elemento Taylor-Hood P2P1.}
-    \begin{subfigure}{\textwidth}
-        \begin{subfigure}{\textwidth}\centering
-            \begin{subfigure}{.42\textwidth}
-                \caption*{Campo de velocidades.}
-                \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/lu.png}
-            \end{subfigure}
-            \begin{subfigure}{.42\textwidth}
-                \caption*{Campo de pressões.}
-                \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/lp.png}
-            \end{subfigure}
-        \end{subfigure}
+    \caption{Malha utilizada na simulação de cilindro biengastado.}
+    \includegraphics[width=0.3\linewidth]{Figuras/cylinder-shell/mesh1.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell-mesh}
+\end{figure}
+
+O resultado obtido foi de um deslocamento radial de $1,8207\times10^{-5}$, tendo, portanto, um desvio relativo de $0,2247\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}, os quais são muito próximos aos obtidos por \citeonline{ZHOU2022108568}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Campos de deslocamentos obtido na simulação de cilindro.}
+    \begin{subfigure}{0.075\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder-shell/eixos.png}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/none-TH-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/none-TH-p.png}
-        \end{subfigure}
-        \caption{Sem modelo}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder-shell/ux.png}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/LES-TH-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/LES-TH-p.png}
-        \end{subfigure}
-        \caption{LES}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uy.png}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}\centering
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/VMS-TH-u.png}
-        \end{subfigure}
-        \begin{subfigure}{.49\textwidth}
-            \includegraphics[width=\linewidth]{Figuras/cylinder/analise2/VMS-TH-p.png}
-        \end{subfigure}
-        \caption{VMS}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uz.png}
     \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell-disp}
+\end{figure}
+
+Também se comparou o resultado obtido com relação à uma simulação feita no \textit{software} ANSYS, a qual resultou em um deslocamento de $1,8190\times10^{-5}$. Logo o desvio do resultado calculado com o apresentado pelo ANSYS foi de $0,0934\%$. Além disso, verificou-se o deslocamento radial ao longo das arestas compreendidas pela interseção do cilindro com o plano $x_1=0$ e com $x_2=L/2$. A Figura \ref{fig:cylinder-shell-deslradial} ilustra graficamente os resultados obtidos.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Deslocamentos radiais ao longo da aresta compreendida pela interseção do cilindro como o plano:}
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder-shell/deslocamento1.pdf}
+        \caption{$x_1=0$}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder-shell/deslocamento2.pdf}
+        \caption{$x_2=L/2$}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cylinder-shell-deslradial}
 \end{figure}
