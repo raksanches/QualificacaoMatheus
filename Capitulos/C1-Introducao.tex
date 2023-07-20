@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 \documentclass[_ArquivoPrincipal.tex]{subfiles}
 
 \begin{document}
 
+=======
+>>>>>>> Qualificacao-Resumida
 %==================================================================================================
 \chapter{Introdução}
 %==================================================================================================
@@ -30,7 +33,7 @@ Porém, uma nova descrição vêm se mostrado promissora para representação de
 
 Outra dificuldade verificada em problemas de CFD está relacionada à escoamentos com alto número de Reynolds, o que o classifica como um escoamento turbulento. Esse tipo de escoamento é muito comum na natureza, principalmente em problemas envolvendo engenharia, e é caracterizado pela formação de vórtices, que são estruturas formadas de maneira instável, desordenadas e em diversas escalas diferentes. A determinação dos parâmetros desse escoamento pode ser dado através das Equações de Navier-Stokes, entretanto a obtenção de resultados a partir dessas equações pode ser uma tarefa muito desafiadora e requer diferentes estratégias para esse fim.
 
-Uma possível maneira de se obter resultados é pela simulação de \textit{Direct Numerical Simulation} (DNS), a qual é capaz de solucionar as equações de Navier-Stokes sem a utilização de modelos, descrevendo o escoamento em todas as escalas presentes no mesmo. Contudo, seu custo computacional é extremamente elevado, tornando sua utilização muito restrita a problemas de pequenas dimensões e para validação de modelos \cite{olad2022towards}.
+Uma possível maneira de se obter resultados é pela simulação de \textit{Direct Numerical Simulation} (DNS), a qual é capaz de solucionar as equações de Navier-Stokes sem a utilização de modelos, descrevendo o escoamento em todas as escalas presentes no mesmo. Contudo, seu custo computacional é extremamente elevado, tornando sua utilização muito restrita a problemas de pequenas dimensões e para verificação de modelos \cite{olad2022towards}.
 
 Já para simulações mais representativas, se faz necessário o uso de modelos que descrevam adequadamente o comportamento dos escoamentos turbulentos. Dentre os possíveis modelos, destacam-se os modelos de \RANS\ (RANS), \LES\ (LES) e \VMS\ (VMS). Esses modelos são caracterizados por considerar uma separação dos parâmetros de análise em duas parcelas, onde, dependendo de como essa separação é feita, pode ocorrer aprimoramentos no tempo de processamento ou na qualidade dos resultados.
 
@@ -63,5 +66,3 @@ Duas formas possíveis de se obter esses resultados são: pela construção de m
 No entanto muitos tipos de análise envolvendo escoamentos turbulentos recaem em problema com um alto grau de complexidade, ocasionando, consequentemente, um custo computacional muito alto. Dessa maneira, o presente trabalho busca analisar entre as técnicas matemáticas qual se mostra mais eficiente para essas análises, dando continuidade aos trabalhos que já foram realizados pelo grupo de pesquisa.
 
 Além dos métodos para determinação de parâmetros referentes ao escoamento, também é necessário se obter aqueles referentes à resposta da estrutura frente à esse escoamento. Assim, nota-se a presença de diversos métodos para a determinação de parâmetros relativos à estruturas flexíveis, em que se percebe o Método dos Elementos Finitos Posicional como uma alternativa interessante para tal análise. Esse método se destaca pela consideração das posições nodais como parâmetros de análise, evitando problemas devido à falta de comutatividade de rotações, que é observado, por exemplo, no Método dos Elementos Finitos Corrotacional, que, além de deslocamentos, também considera rotações nodais como parâmetros de análise. Além disso, também vale destacar que a matriz de massa em problemas dinâmicos permanece constante ao longo do tempo, possibilitando a implementação facilitada de métodos de integração temporal.
-
-\end{document}

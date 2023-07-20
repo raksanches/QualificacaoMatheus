@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 \documentclass[_ArquivoPrincipal.tex]{subfiles}
 
 \begin{document}
 
+=======
+>>>>>>> Qualificacao-Resumida
 %==================================================================================================
 \section{Equações Governantes da Dinâmica dos Sólidos} \label{EGDS}
 %==================================================================================================
@@ -32,8 +35,21 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     \delta\Pi=\delta\mathbb{P}+\delta\mathbb{U}+\delta\mathbb{K}=0\text{,}
 \end{equation}
 
-\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que descreva a evolução da energia de deformação em função da medida de deformação.
+\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que descreva a evolução da energia de deformação em função da medida de deformação, sendo um possível modelo o de Saint-Venant-Kirchhoff, dado por:
 
+\begin{equation}
+    u_e^{SVK}=\frac{K\mathbb{E}}{2}\text{,}
+\end{equation}
+
+\noindent sendo $K$ o módulo de elasticidade longitudinal do material e $\mathbb{E}$ a medida de deformação de Green-Lagrange, expressa para um caso uniaxial como:
+
+\begin{equation}
+    \mathbb{E}=\frac{1}{2}\frac{dy^2-dx^2}{dx^2}\text{.}
+\end{equation}
+
+\noindent A seção seguinte tratará de forma mais detalhada o comportamento para casos multiaxiais.
+
+\begin{comment}
 Na sequência serão apresentadas algumas medidas de deformação uniaxiais para fins de exemplificação, sendo as medidas de deformação multiaxiais apresentadas posteriormente na seção \ref{CCD}.
 
 A primeira medida de deformação que pode ser observada é a denominada medida de deformação linear (ou de engenharia), que se trata de uma medida Lagrangiana, pois toma como referência a configuração inicial (ou indeformada) do elemento, e é definida como:
@@ -44,7 +60,7 @@ A primeira medida de deformação que pode ser observada é a denominada medida 
 
 \noindent em que $dx$ e $dy$ são os comprimentos de um trecho infinitesimal de uma barra em sua configuração inicial e atual, respectivamente (Figura \ref{fig:Barra}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Desenho esquemático de uma barra submetida a tração.}
     \includegraphics[width=0.45\linewidth]{Figuras/Barra.pdf}
@@ -78,7 +94,7 @@ Assim, pode-se definir alguns modelos constitutivos que relacionarão a medida d
     u_e=\int_0^\varepsilon{\sigma d\varepsilon}\text{.}
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Esquema de diagrama de tensão $\times$ deformação.}
     \includegraphics[width=.45\linewidth]{Figuras/ue.pdf}
@@ -107,6 +123,7 @@ Uma propriedade notável aponta a tensão como a conjugada energética da deform
 \begin{equation}
     \der{u_e}{\varepsilon}=\sigma=E\varepsilon\text{.}
 \end{equation}
+\end{comment}
 
 %==================================================================================================
 \subsection{Cinemática dos Corpos Deformáveis} \label{CCD}
@@ -114,7 +131,7 @@ Uma propriedade notável aponta a tensão como a conjugada energética da deform
 
 Inicialmente considere um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ para denotar as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear $\BB{y}$ em função de $\BB{x}$ existe uma função $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$, denominada como função de mudança de configuração.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Configurações inicial e atual de um corpo deformável.}
     \includegraphics[width=.4\linewidth]{Figuras/Cont.pdf}
@@ -166,11 +183,11 @@ Assim, define-se o tensor de deformações de Green-Lagrange como:
     \label{eq:CSD-DefGreenLagr}
 \end{equation}
 
-\noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em movimento de corpo rígido.
+\noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em situação de movimento de corpo rígido.
 
 Outra medida de deformação interessante é a medida de deformação volumétrica ($\varepsilon_V$). Para isso considere o elemento infinitesimal em suas configurações inicial e atual ilustrado na Figura \ref{fig:MudVol}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de volume de um elemento infinitesimal.}
     \includegraphics[width=0.5\linewidth]{Figuras/MudVol.pdf}
@@ -205,7 +222,7 @@ Conhecendo a transformação expressa em \ref{eq:dyAdx} e fazendo as devidas sim
 
 Na sequência procura-se obter uma expressão que indique a mudança de área nas diferentes configurações. Assim, considere um cilindro infinitesimal ilustrado na figura \ref{fig:Nanson}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de configuração em um cilindro infinitesimal.}
     \includegraphics[width=.45\linewidth]{Figuras/Nanson.pdf}
@@ -213,7 +230,7 @@ Na sequência procura-se obter uma expressão que indique a mudança de área na
     \label{fig:Nanson}
 \end{figure}
 
-Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \ref{eq:dyAdx} e \ref{eq:RelVol}, pode obter que:
+Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \ref{eq:dyAdx} e \ref{eq:RelVol}, pode-se obter que:
 
 \begin{equation}
     \BB{n}dA=J\BB{A}^{-T}\cdot\BB{N}dA_0\text{,}\label{eq:Nanson}
@@ -223,7 +240,7 @@ Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na d
 
 Com esse embasamento é possível apresentar os conceitos de energia nas descrições Euleriana e Lagrangiana Total. Assim, para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considere um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as forças atuantes na direção $\bhat{e}_1$.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Forças atuantes em um elemento infinitesimal na direção $\bhat{e}_1$.}
     \includegraphics[width=.5\linewidth]{Figuras/CorpoLivreSolido.pdf}
@@ -231,22 +248,9 @@ Com esse embasamento é possível apresentar os conceitos de energia nas descri�
     \label{fig:CorpoLivreSolido}
 \end{figure}
 
-Fazendo o equilíbrio das forças nessa direção tem-se:
+Fazendo o equilíbrio das forças nessa direção e realizando as devidas simplificações tem-se:
 
-\[
-    \begin{split}
-        &-\sigma_{11}dy_2dy_3-\sigma_{21}dy_1dy_3-\sigma_{31}dy_1dy_2+
-        \bigpar{\sigma_{11}+\der{\sigma_{11}}{y_1}dy_1}dy_2dy_3+\\
-        &\bigpar{\sigma_{21}+\der{\sigma_{21}}{y_2}dy_2}dy_1dy_3+
-        \bigpar{\sigma_{31}+\der{\sigma_{31}}{y_3}dy_3}dy_1dy_2+c_1dV=\rho\ddot{y}_1dV
-    \end{split}
-\]
-
-Fazendo as devidas simplificações obtém-se:
-
-\[
-    \der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}
-\]
+\[\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}\]
 
 \noindent que, expandindo analogamente para as demais direções, pode escrever nas notações simbólica (Equação \ref{eq:EqLocEu1}) e indicial (Equação \ref{eq:EqLocEu2}) como:
 
@@ -260,11 +264,7 @@ Fazendo as devidas simplificações obtém-se:
     \label{eq:EqLocEu}
 \end{subequations}
 
-\noindent as quais representam as equações do equilíbrio local na descrição Euleriana e sendo a vírgula presente no subíndice a representação de derivada na direção $i$, ou seja:
-
-\begin{equation}
-    \sigma_{ij,i}=\der{\sigma_{ij}}{y_i}\text{.}
-\end{equation}
+\noindent as quais representam as equações do equilíbrio local na descrição Euleriana.
 
 Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
 
@@ -306,7 +306,7 @@ Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teo
 \subsection{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
 %==================================================================================================
 
-Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
+Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o modelo constitutivo de Saint-Venant Kirchhoff e o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
 
 \begin{equation}
     \Pi_0=\mathbb{U}+\mathbb{P}+\mathbb{K}+\mathbb{Q}\text{,}
@@ -317,7 +317,7 @@ Será exposta na presente seção a formulação para elementos de Casca baseada
 \begin{subequations}
     \begin{align}
          & \mathbb{U}=\frac{1}{2}\intDomi{S_{ij}\mathbb{E}_{ij}}\text{,}    \\
-         & \mathbb{P}=-F_i^aY_i^a-\intFronti{t_iy_i}\text{ e}               \\
+         & \mathbb{P}=-F_i^aY_i^a-\intFronti{t_iy_i^m}\text{ e}             \\
          & \mathbb{K}=\frac{1}{2}\intDomi{\rho_0\dot{y}_i\dot{y}_i}\text{,}
     \end{align}
 \end{subequations}
@@ -351,10 +351,10 @@ Já a energia dissipada é escrita em sua forma diferencial:
 
 Para se realizar o cálculo dessas propriedades, será considerada uma aproximação dos parâmetros por meio de polinômios aproximadores (funções de forma), na qual será utilizado um espaço intermediário de coordenadas paramétricas ($\BB{\xi}$) no procedimento. A Figura \ref{fig:Mapeamento} apresenta esquematicamente o mapeamento das coordenadas da superfície média em seus respectivos espaços.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \caption{Mudança de configuração.}
-    \includegraphics[width=.4\linewidth]{../../Figuras/Mapeamento.pdf}
+    \includegraphics[width=.4\linewidth]{Figuras/Mapeamento.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:Mapeamento}
 \end{figure}
@@ -377,90 +377,90 @@ Sendo assim, os parâmetros dependentes do espaço podem ser aproximados como:
 
 \noindent em que $X_i^a$ representa a posição inicial de um nó $a$, $f_i^{m0}$ e $f_i^{m1}$ são as funções de mudança de configuração da superfície média $\Omega_\xi\to\Omega_0$ e $\Omega_\xi\to\Omega$, respectivamente, onde $\Omega_\xi$ é o espaço paramétrico e $\Omega$ é a configuração atual do contínuo, $v_i^0$ é o vetor unitário normal à superfície média, $v_i^1$ é o vetor generalizado na configuração atual, $h_0$ é a espessura inicial da casca, $N_a$ é a função de forma, $T_i^a$ é o valor de $t_i$ sobre o nó $a$, $Q_i^a$ é o valor de $q_i$ sobre o nó $a$ e $\alpha$ é uma variável inserida no problema, denominada como taxa de variação da espessura, cujo valor sobre o nó $a$ é $\Alpha^a$ \cite{sanches2013unconstrained,sanches2014fluid}.
 
-Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\partial\BB{f}/\partial\BB{x}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que os valores de $\BB{A}^1$ são:
+Note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\partial\BB{f}/\partial\BB{x}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que $A^0_{ij}=f^0_{i,j}$ e $A^1_{ij}=f^1_{i,j}$.
 
-\begin{subequations}
-    \begin{align}
-         & A_{i1}^1=f_{i,1}^1=Y_i^aN_{a,1}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,1}\xi_3^2+(V^1)_i^aN_{a,1}(\xi_3+A^bN_b\xi_3^2)}\text{,}  \\
-         & A_{i2}^1=f_{i,2}^1=Y_i^aN_{a,2}+\frac{h_0}{2}\bigpar{(V^1)_i^aN_aA^bN_{b,2}\xi_3^2+(V^1)_i^aN_{a,2}(\xi_3+A^bN_b\xi_3^2)}\text{ e} \\
-         & A_{i3}^1=f_{i,3}^1=\frac{h_0}{2}(V^1)_i^aN_a\bigpar{1+2A^bN_b\xi_3}
-    \end{align}
-    \label{eq:CSD-A1}
-\end{subequations}
-
-\noindent e os valores de $\BB{A}^0$ são:
-
-\begin{subequations}
-    \begin{align}
-         & A_{i1}^0=f_{i,1}^0=X_i^aN_{a,1}+\frac{h_0}{2}(V^0)_i^aN_{a,1}\xi_3\text{,}  \\
-         & A_{i2}^0=f_{i,2}^0=X_i^aN_{a,2}+\frac{h_0}{2}(V^0)_i^aN_{a,2}\xi_3\text{ e} \\
-         & A_{i3}^0=f_{i,3}^0=\frac{h_0}{2}(V^0)_i^aN_a\text{.}
-    \end{align}
-    \label{eq:CSD-A0}
-\end{subequations}
-
-Assim, é possível calcular a derivada da energia total em termos das posições nodais como:
+Assim, considera-se o princípio da conservação da energia como:
 
 \begin{equation}
-    \begin{split}
-        \der{\Pi_0}{Y_i^a}=&\der{\mathbb{U}}{Y_i^a}
-        +\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b+
-        \intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b
-        -F_i^a-\\
-        &\intFronti{N_aN_b}T_i^b
-        -\intFronti{N_aN_b}Q_i^b=0\text{,}
-    \end{split}
+    \delta\Pi=\der{\Pi_0}{g_i}\delta g_i=0\text{,}
 \end{equation}
 
-\noindent sendo possível definir um velor $\BB{g}$, denominado como vetor de desbalanceamento mecânico, como:
+\noindent em que $\BB{g}$ representa o vetor que contém todos os graus de liberdade do problema.
+
+Logo, precisa-se calcular a derivada de $\Pi_0$ em relação à $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$. Dessa forma tem-se as seguintes derivadas:
+
+\begin{subequations}
+    \begin{equation}
+        \begin{split}
+            \der{\Pi_0}{Y_i^a}=&\der{\mathbb{U}}{Y_i^a}+
+            \intDomi{\lambda_m\rho_0N_a\dot{y}_i}+
+            \intDomi{\rho_0N_a\ddot{y}_i}-
+            F_i^a-\\
+            &\intFronti{N_at_i}
+            -\intFronti{N_aq_i}=0\text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            \der{\Pi_0}{(V^1)_i^a}=&\der{\mathbb{U}}{(V^1)_i^a}
+            +\intDomi{\lambda_m\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\dot{y}_i}\\
+            &+\intDomi{\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\ddot{y}_i}-
+            \intFronti{q_i\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)}=0\text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            \der{\Pi_0}{\Alpha^a}=&\der{\mathbb{U}}{\Alpha^a}
+            +\intDomi{\lambda_m\rho_0\frac{h_0}{2}(V^1)_i^bN_aN_b\xi_3^2\dot{y}_i}\\
+            &+\intDomi{\rho_0\frac{h_0}{2}N_aN_b(V^1)_i^b\xi_3^2\ddot{y}_i}-
+            \intFronti{q_i\frac{h_0}{2}(V^1)_i^bN_aN_b\xi_3^2}=0\text{,}
+        \end{split}
+    \end{equation}
+\end{subequations}
+
+\noindent sendo possível definir um vetor resíduo $\BB{r}$ como:
 
 \begin{equation}
-    g_i^a(\BB{Y})=(F^\mathrm{int})_i^a+(F^\mathrm{inerc})_i^a+(F^\mathrm{amort})_i^a-(F^\mathrm{c})_i^a-(F^\mathrm{nc})_i^a=0\text{,}
+    r_i^a(\BB{Y},\BB{V}^1,\BB{\Alpha})=(F^\mathrm{int})_i^a+(F^\mathrm{amort})_i^a+(F^\mathrm{inerc})_i^a-(F^\mathrm{c})_i^a-(F^\mathrm{nc})_i^a=0\text{,}
     \label{eq:CSD-g}
 \end{equation}
 
-\noindent sendo $\BB{Y}$ o vetor de posições nodais e:
+\noindent sendo $\BB{Y}$, $\BB{V}^1$ e $\Alpha$ os vetores dos graus de liberdade nodais do elemento analisado:
 
 \begin{subequations}
     \begin{align}
-         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{Y_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{Y_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}          \\
-         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0N_aN_b}\ddot{Y}_i^b\text{,}\label{eq:CSD-Finerc}                                  &  & \text{Forças inerciais}         \\
-         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0N_aN_b}\dot{Y}_i^b\text{,}\label{eq:CSD-Famort}                          &  & \text{Forças de amortecimento}  \\
-         & (F^\mathrm{c})_i^a=F_i^a+\intFronti{N_aN_b}T_i^a\text{ e}\label{eq:CSD-Fc}                                              &  & \text{Forças conservativas}     \\
-         & (F^\mathrm{nc})_i^a=\intFronti{N_aN_b}Q_i^b\text{.}\label{eq:CSD-Fnc}                                                   &  & \text{Forças não-conservativas}
+         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{g_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{g_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}          \\
+         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0\der{y_j}{g_i^a}\dot{y}_j}\text{,}\label{eq:CSD-Famort}                  &  & \text{Forças de amortecimento}  \\
+         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{,}\label{eq:CSD-Finerc}                          &  & \text{Forças inerciais}         \\
+         & (F^\mathrm{c})_i^a=F_j^b\der{Y_j^b}{g_i^a}+\intFronti{t_j\der{y_j^m}{g_i^a}}\text{ e}\label{eq:CSD-Fc}                  &  & \text{Forças conservativas}     \\
+         & (F^\mathrm{nc})_i^a=\intFronti{q_j\der{y_j^m}{g_i^a}}\text{.}\label{eq:CSD-Fnc}                                         &  & \text{Forças não-conservativas}
     \end{align}
     \label{eq:CSD-F}
 \end{subequations}
 
-Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$ tal que $\BB{g}(\BB{Y})=\BB{0}$.
+Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
 
-Como é possível verificar, o cálculo de $\BB{g}$ é dependente não somente das posições nodais, mas também da velocidade e acelerações nodais. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrado temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
+Como é possível verificar, o cálculo de $\BB{r}$ é dependente não somente dos parâmetros nodais, mas também das derivadas de primeira e segunda ordem desses parâmetros. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
 
-A aproximação relizada pelo integrador de Newmark é dada por:
+A aproximação realizada pelo integrador de Newmark é dada por:
 
 \begin{subequations}
     \begin{equation}
-        Y_i^{n+1}=Y_i^n+\dot{Y}_i^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddot{Y}_i^n+\beta\ddot{Y}_i^{n+1}}\text{ e}
+        g_i^{n+1}=g_i^n+\dot{g}_i^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddot{g}_i^n+\beta\ddot{g}_i^{n+1}}\text{ e}
     \end{equation}
     \begin{equation}
-        \dot{Y}_i^{n+1}=\dot{Y}_i^n+\Delta t(1-\gamma)\ddot{Y}_i^n+\gamma\ddot{Y}_i^{n+1}\Delta t\text{,}
+        \dot{g}_i^{n+1}=\dot{g}_i^n+\Delta t(1-\gamma)\ddot{g}_i^n+\gamma\ddot{g}_i^{n+1}\Delta t\text{,}
     \end{equation}
 \end{subequations}
 
 \noindent sendo o superíndice $n$ e $n+1$ a indicação do passo de tempo analisado ($t_n$ e $t_{n+1}$), $\Delta t$ o intervalo de tempo discretizado e $\beta$ e $\gamma$ parâmetros livres, que devem ser escolhidos de forma a garantir a convergência do método, sendo arbitrados valores de $\beta=1/4$ e $\gamma=1/2$, garantindo a estabilidade incondicional do método \cite{LINDFIELD2019239}.
 
-Já para procurar valores de $\BB{Y}$ que anulem $\BB{g}$, utiliza-se o Método de Newton-Raphson, o qual exige o cálculo de uma matriz Hessiana ($H_{ij}^{ab}$):
-
-\begin{equation}
-    H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial Y_j^b\partial Y_i^a}=\der{g_i^a}{Y_j^b}\text{.}
-\end{equation}
-
-Isolando-se as velocidades e acelerações incógnitas em termos de posições no tempo $n+1$ e de parâmetros já conhecidos tem-se:
+Isolando-se os termos incógnitos em função de parâmetros não derivados no tempo em $n+1$ e daqueles já conhecidos tem-se:
 
 \begin{subequations}
     \begin{align}
-         & \ddot{Y}_i^{n+1}=\frac{Y_i^{n+1}}{\beta\Delta t^2}-Q_i^n                                \\
-         & \dot{Y}_i^{n+1}=\frac{\gamma}{\beta\Delta t}Y_i^{n+1}+R_i^n-\gamma\Delta tQ_i^n\text{,}
+         & \ddot{g}_i^{n+1}=\frac{g_i^{n+1}}{\beta\Delta t^2}-Q_i^n                                \\
+         & \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}g_i^{n+1}+R_i^n-\gamma\Delta tQ_i^n\text{,}
     \end{align}
     \label{eq:CSD-Newmark2}
 \end{subequations}
@@ -469,16 +469,31 @@ Isolando-se as velocidades e acelerações incógnitas em termos de posições n
 
 \begin{subequations}
     \begin{align}
-         & Q_i^n=\frac{Y_i^n}{\beta\Delta t^2}+\frac{\dot{Y}_i^n}{\beta\Delta t}+\bigpar{\frac{1}{2\beta}-1}\ddot{Y}_i^n \\
-         & R_i^n=\dot{Y}_i^n+\Delta t(1-\gamma)\ddot{Y}_i^n\text{.}
+         & Q_i^n=\frac{g_i^n}{\beta\Delta t^2}+\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{\frac{1}{2\beta}-1}\ddot{g}_i^n \\
+         & R_i^n=\dot{g}_i^n+\Delta t(1-\gamma)\ddot{g}_i^n\text{.}
     \end{align}
     \label{eq:CSD-QnRn}
 \end{subequations}
 
-Substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
+Já para procurar valores de $\BB{g}$ que anulem $\BB{r}$, utiliza-se o Método de Newton-Raphson, o qual parte da aproximação por série de Taylor truncada no termo de primeira ordem:
 
 \begin{equation}
-    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}\text{,}
+    \begin{split}
+        &\BB{r}(\BB{g}+\Delta\BB{g})=\BB{r}(\BB{g})+\apderp{\BB{r}}{\BB{g}}{\BB{g}}\Delta\BB{g}=\\
+        &\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})+\apderp{\BB{r}}{\BB{Y}}{\BB{Y}}\Delta\BB{Y}+\apderp{\BB{r}}{\BB{V}^1}{\BB{V}^1}\Delta\BB{V}^1+\apderp{\BB{r}}{\BB{\Alpha}}{\BB{\Alpha}}\Delta\BB{\Alpha}=\BB{0}\text{.}
+    \end{split}
+\end{equation}
+
+\noindent Dessa forma, necessita-se do cálculo de uma matriz Hessiana ($H_{ij}^{ab}$):
+
+\begin{equation}
+    H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial g_j^b\partial g_i^a}=\der{r_i^a}{g_j^b}\text{.}
+\end{equation}
+
+Substituindo-se as derivadas temporais da aproximação de Newmark em $\BB{r}$ e realizando as devidas simplificações, obtém-se:
+
+\begin{equation}
+    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\intDom{\rho_0(\lambda_m\dot{y}_k+\ddot{y}_k)\Dder{y_k}{g_j^b}{g_i^a}}\text{,}
     \label{eq:CSD-Hijab}
 \end{equation}
 
@@ -486,40 +501,27 @@ Substituindo-os em $\BB{g}$ e realizando as devidas simplificações, obtém-se:
 
 \begin{subequations}
     \begin{align}
-         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{Y_j^b}{Y_i^a}=\intDomi{\bigpar{\der{S_{kl}}{Y_j^b}\der{\mathbb{E}_{kl}}{Y_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}}} \\
-         & M_{ij}^{ab}=\intDomi{\rho_0N_aN_b}\dij\text{ e}                                                                                                                        \\
-         & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0N_aN_b}\dij\text{.}
+         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{g_j^b}{g_i^a}=\intDomi{\bigpar{\der{S_{kl}}{g_j^b}\der{\mathbb{E}_{kl}}{g_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{g_i^a}{g_j^b}}} \\
+         & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{ e}                                                                                         \\
+         & M_{ij}^{ab}=\intDomi{\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{.}
     \end{align}
     \label{eq:CSD-HMC}
 \end{subequations}
 
-Fazendo as derivadas tem-se:
+\noindent também observa-se que a derivada mista de $y_k$ em relação a $g_i^a$ e $g_j^b$ possuirá valores não-nulos apenas quando for derivada de forma cruzada em relação a $V^1$ e $\Alpha$.
 
-\begin{subequations}
-    \begin{align}
-         & \der{A_{jk}}{Y_i^a}=(A^0_{lk})^{-1}N_{a,l}\dij\text{,}\label{eq:CSD-derA}                                                                                           \\
-         & \der{\mathbb{E}_{kl}}{Y_i^a}=\frac{1}{2}\bigpar{A_{mk}\der{A_{ml}}{Y_i^a}+A_{ml}\der{A_{mk}}{Y_i^a}}\text{,}\label{eq:CSD-derE}                                     \\
-         & \Dder{\mathbb{E}_{kl}}{Y_i^a}{Y_j^b}=\frac{1}{2}\bigpar{\der{A_{ml}}{Y_i^a}\der{A_{mk}}{Y_j^b}+\der{A_{mk}}{Y_i^a}\der{A_{ml}}{Y_j^b}}\text{ e}\label{eq:CSD-DderE} \\
-         & \der{S_{kl}}{Y_j^b}=\script{C}_{klmn}\der{\mathbb{E}_{mn}}{Y_j^b}\text{.}\label{eq:CSD-derS}                                                                        \\
-    \end{align}
-    \label{eq:CSD-derAES}
-\end{subequations}
-
-Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{Y}$) como a solução do sistema:
+Com isso, encontra-se um vetor de correções dos parâmetros nodais ($\Delta\BB{g}$) como a solução do sistema:
 
 \begin{equation}
-    H_{ij}\Delta Y_j=-g_i\text{,}
+    H_{ij}\Delta g_j=-r_i\text{,}
 \end{equation}
 
-\noindent tendo como critérios de parada a medida dos erros:
+\noindent tendo como critério de parada a medida do erro:
 
-\begin{subequations}
-    \begin{align}
-         & \frac{\norm{\BB{g}}}{\norm{\BB{F}^\text{ext}}}\leq\text{tol e} \\
-         & \frac{\norm{\Delta\BB{Y}}}{\norm{\BB{X}}}\leq\text{tol,}
-    \end{align}
+\begin{equation}
+    \frac{\norm{\Delta\BB{Y}}}{\norm{\BB{X}}}\leq\text{tol,}
     \label{eq:CSD-erro}
-\end{subequations}
+\end{equation}
 
 \noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
 
@@ -529,59 +531,10 @@ Com isso, encontra-se um vetor de correções nas posições nodais ($\Delta\BB{
 
 Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
 
-O algoritmo \ref{alg:MEF-casca} apresentado na forma de pseudocódigo exemplifica o código implementado.
-
-\begin{algorithm}[h]
-    \caption{Algoritmo utilizado para o cálculo das posições nodais.}
-    \label{alg:MEF-casca}
-    \KwResult{Vetor global de posições nodais}
-    $\BB{Y}\gets\BB{X}$\;
-    \For{$t_i\gets 0$ \KwTo $t_f$}{
-    Calcular $Q^n$ e $R^n$ (Eq. \ref{eq:CSD-QnRn})\;
-    \ForEach{\textnormal{passo de carga}}{
-    \tcp{Cálculo das forças externas}
-    \ForEach{\textnormal{elemento}}{
-    \ForEach{\textnormal{ponto de Hammer }$i_h$}{
-    Calcular $\BB{A}^0_{2\times 2}$ e $J_0=\det{(A^0)}$\;
-    \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
-        Calcular $\BB{F}^c$ e $\BB{F}^{nc}$ (Eq. \ref{eq:CSD-Fc} e \ref{eq:CSD-Fnc})\;
-        Somar a contribuição no vetor global: $((F^c)_i^a+(F^{nc})_i^a)\cdot J_0\cdot w_{i_h}$\;
-    }
-    }
-    }
-    Somar a contribuição das forças concentradas no vetor global\;
-    \While{erro>tol}{
-    \ForEach{\textnormal{elemento}}{
-    \ForEach{\textnormal{ponto de Hammer }$i_h$}{
-    Calcular $\BB{A}^0_{3\times 3}$ (Eq. \ref{eq:CSD-A0}), $J_0=\det{(A^0)}$, $(\BB{A}^0)^{-1}_{3\times 3}$ e $\BB{A}^1_{3\times 3}$ (Eq. \ref{eq:CSD-A1})\;
-    Calcular $\BB{A}_{3\times 3}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$\;
-    Calcular $\BB{C}_{3\times 3}=\BB{A}^T\cdot\BB{A}$ (Não precisa armazenar)\;
-    Calcular $\mathbb{E}_{3\times 3}$ (Eq. \ref{eq:CSD-DefGreenLagr})\;
-    Calcular $\BB{S}_{3\times 3}$ (Eq. \ref{eq:CSD-S})\;
-    \ForEach{\textnormal{Nó $a$ do elemento na direção $i$}}{
-        Calcular $g_i^a$ (Eq. \ref{eq:CSD-g} e \ref{eq:CSD-Fint} a \ref{eq:CSD-Famort}) com $\partial A_{jk}/\partial Y_i^a$ dado por \ref{eq:CSD-derA}\;
-        Somar a contribuição no vetor global: $g_i^a\cdot J_0\cdot w_{i_h}$\;
-        \ForEach{\textnormal{Nó $b$ do elemento na direção $j$}}{
-            Calcular $H_{ij}^{ab}$ (Eq. \ref{eq:CSD-Hijab}, \ref{eq:CSD-HMC} e \ref{eq:CSD-derAES})\;
-            Somar a contribuição na matriz global: $H_{ij}^{ab}\cdot J_0\cdot w_{ih}$\;
-        }
-    }
-    }
-    }
-    Resolver o sistema global: $\BB{H}\cdot\Delta\BB{Y}=-\BB{g}$\;
-    Atualizar as posições nodais: $\BB{Y}\gets\BB{Y}+\Delta\BB{Y}$\;
-    Atualizar velocidades e acelerações nodais (Eq. \ref{eq:CSD-Newmark2})\;
-    Cálculo do erro via \ref{eq:CSD-erro}\;
-    }
-    }
-    Atualização dos valores passados\;
-    }
-\end{algorithm}
+O algoritmo visto no Apêndice \ref{Ap:Shell-alg} apresentado na forma de pseudocódigo exemplifica o código implementado.
 
 %==================================================================================================
-\subsubsection{Exemplos de Validação} \label{MEFP-Ex}
+\subsubsection{Exemplos de Verificação} \label{MEFP-Ex}
 %==================================================================================================
 
-\textcolor{red}{Apresentar exemplos}
-
-\end{document}
+Para verificação do código implementado, estudou-se para problemas estáticos: a simulação de \textit{Scordelis-Lo roof} e o problema de cilindro biengastado, enquanto para problemas dinâmicos estudou-se o comportamento de vigas engastadas. Tais simulações executadas, contendo os parâmetros de entrada, assim como a discretização de cada problema e os resultados obtidos, são apresentados nos Apêndices \ref{Ap:SLR}, \ref{Ap:Shell-cyl} e \ref{Ap:DinBeam}, para os respectivos problemas.

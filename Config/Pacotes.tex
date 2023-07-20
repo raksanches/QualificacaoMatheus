@@ -53,6 +53,10 @@
 \usepackage{hhline}
 \usepackage{dblfloatfix}    % To enable figures at the bottom of page
 \usepackage[section]{placeins} % make floating elements don't switch from sections
+<<<<<<< HEAD
+=======
+\usepackage{etoolbox}
+>>>>>>> Qualificacao-Resumida
 
 % Pacotes de citações - Citações padrão ABNT - Sistema autor-data
 \usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both,
@@ -71,4 +75,51 @@
 \usepackage{multirow}	% Suporte a mesclagens em linhas
 \usepackage{longtable}	% Tabelas com várias páginas
 \usepackage{threeparttablex}	% notas no longtable
+<<<<<<< HEAD
 \usepackage{array}
+=======
+\usepackage{array}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage{times} %fonte Adobe Times Roman 
+\usepackage{lastpage} % usado pela ficha catalográfica
+\usepackage{color} % controle das cores		
+\usepackage{graphicx} % inclusão de gráficos
+\usepackage{float} % força as figuras a ficarem depois do texto que você colocou
+\usepackage{chemfig}
+%\usepackage{chemmacros}
+\usepackage{upgreek}
+\usepackage{microtype} % para melhorias de justificação	
+\usepackage{pdfpages}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage{makeidx}
+\usepackage{quoting}
+\usepackage{afterpage}
+\usepackage{indentfirst} % indenta todos os primeiros parágrafos
+\usepackage{setspace}
+\usepackage{titlesec}
+\renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\bfseries\normalsize}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\usepackage{hyperref} % para permitir a criação de links
+\usepackage[scaled]{helvet} % usa a fonte arial
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage{amsmath,amssymb,amsfonts,textcomp} % vários pacotes juntos, utilizados para usar funções e outros símbolos matemáticos
+\fancyhf{} % numeração no canto superior direito
+\fancyheadoffset{0cm}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[R]{\thepage}
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyhead[R]{\thepage}%
+}
+\usepackage[alf]{abntex2cite} % Citações padrão ABNT
+\usepackage{appendix}
+>>>>>>> Qualificacao-Resumida

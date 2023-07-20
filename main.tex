@@ -1,0 +1,97 @@
+\documentclass[
+12pt,
+openright,
+twoside,
+a4paper,
+chapter=TITLE,
+english,
+portuguese % ou english
+]{abntex2}
+
+\input{Config/Pacotes.tex}
+\input{Config/Dados.tex}
+
+\renewcommand\familydefault{\sfdefault} % mantém a fonte como padrão do documento
+
+\input{Config/Comandos.tex}
+
+% "Referências" em letras maiúsculas
+\addto\captionsbrazil{%
+  \renewcommand{\bibname}%
+    {REFERÊNCIAS}%
+}
+
+\frenchspacing % Retira espaço obsoleto entre as frases.
+
+\setlength\afterchapskip{18pt} % Ajusta o espaçamento entre o título do capitulo e o texto para 1,5
+
+\begin{document}
+
+\input{Pre-Textuais/capa}
+\input{Pre-Textuais/folha de rosto_dissertacao}
+%\includepdf{Pre-Textuais/fichacatalografica_latex}
+%\input{Pre-Textuais/errata}
+%\cleardoublepage
+
+% Folha de avaliação ou aprovação
+%\includepdf{Pre-Textuais/folhadeavaliacao_latex}
+%\cleardoublepage
+
+%\input{Pre-Textuais/dedicatoria}
+%\input{Pre-Textuais/agradecimentos}
+%\input{Pre-Textuais/epigrafe}
+\input{Pre-Textuais/resumo}
+\input{Pre-Textuais/abstract}
+\cleardoublepage
+
+% Lista de ilustrações (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
+\listoffigures*
+\cleardoublepage
+
+% Lista de tabelas (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
+\listoftables*
+\cleardoublepage
+
+\input{Config/Siglas.tex}
+\input{Config/Simbolos.tex}
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\textual
+\pagestyle{simple} % tira cabeçalho com nome do capítulo e exibe só paginação
+
+
+\include{Capitulos/C1-Introducao.tex}
+\input{Capitulos/C2-EstadoArte.tex}
+\input{Capitulos/C3-FundTeorica/C3-FundTeorica}
+%\input{Capitulos/C5-ProximosDesenvolvimentos}
+\input{Capitulos/C5-ResultadosEsperados}
+\input{Capitulos/C4-MetodologiaCronograma}
+
+\bibliography{referencias}
+
+\appendix
+\titleformat{\chapter}[display]
+{\normalfont\bfseries\centering}{\MakeTextUppercase{\chaptertitlename}\ \thechapter}{20pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+%\cleardoublepage
+%\pagenumbering{gobble}
+
+%\input{Pos-Textuais/glossario}
+\input{Pos-Textuais/algoritmo1}
+\input{Pos-Textuais/apendiceA}
+\input{Pos-Textuais/apendiceB}
+\input{Pos-Textuais/apendiceC}
+\input{Pos-Textuais/algoritmo2}
+\input{Pos-Textuais/apendiceD}
+\input{Pos-Textuais/apendiceE}
+\input{Pos-Textuais/apendiceF}
+\input{Pos-Textuais/apendiceG}
+\input{Pos-Textuais/apendiceH}
+%\input{Pos-Textuais/anexo}
+%\input{Pos-Textuais/indice}
+
+\end{document}
