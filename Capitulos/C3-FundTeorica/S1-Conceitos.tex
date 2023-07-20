@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-\documentclass[_ArquivoPrincipal.tex]{subfiles}
-
-\begin{document}
-
-=======
->>>>>>> Qualificacao-Resumida
 %==================================================================================================
 \section{Conceitos Iniciais} \label{CI}
 %==================================================================================================
@@ -94,16 +87,16 @@ Essa solução pode ser entendida como a média entre as soluções das diferen�
     \centering
     \caption{Interpretação gráfica das diferenças finitas:}
     \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/DifAd.pdf}
-    \caption{Adiantadas.}
+        \includegraphics[width=\linewidth]{Figuras/DifAd.pdf}
+        \caption{Adiantadas.}
     \end{subfigure}
     \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/DifAt.pdf}
-    \caption{Atrasadas.}
+        \includegraphics[width=\linewidth]{Figuras/DifAt.pdf}
+        \caption{Atrasadas.}
     \end{subfigure}
     \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{Figuras/DifCen.pdf}
-    \caption{Centrais.}
+        \includegraphics[width=\linewidth]{Figuras/DifCen.pdf}
+        \caption{Centrais.}
     \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:DifFin}
@@ -246,8 +239,8 @@ Uma estratégia comumente utilizada para se resolver problemas onde não se conh
 \begin{equation}
     \delta_{ab}=\left\{
     \begin{array}{ll}
-         1&\text{ se }a=b\\
-         0&\text{ se }a\neq b 
+        1 & \text{ se }a=b     \\
+        0 & \text{ se }a\neq b
     \end{array}
     \right.\text{,}
 \end{equation}
@@ -314,13 +307,13 @@ Assim, obtem-se o seguinte sistema de equações:
     \centering
     \caption{Pontos da quadratura de Gauss e seus respectivos pesos.}
     \begin{tabular}{ccc}
-    \hline
-    $n$ & $x_i$ & $w_i$ \\ \hline
-    2 & $\pm\frac{1}{\sqrt{3}}$ & 1 \\ \hline
-    \multirow{2}{*}{3} & $0$ & $\frac{8}{9}$ \\
-     & $\pm\sqrt{\frac{3}{5}}$ & $\frac{5}{9}$ \\ \hline
-    \multirow{2}{*}{4} & $\pm\sqrt{\frac{3}{7}-\frac{2}{7}\sqrt{\frac{6}{5}}}$ & $\frac{18+\sqrt{30}}{36}$ \\
-     & $\pm\sqrt{\frac{3}{7}+\frac{2}{7}\sqrt{\frac{6}{5}}}$ & $\frac{18-\sqrt{30}}{36}$ \\ \hline
+        \hline
+        $n$                & $x_i$                                                 & $w_i$                     \\ \hline
+        2                  & $\pm\frac{1}{\sqrt{3}}$                               & 1                         \\ \hline
+        \multirow{2}{*}{3} & $0$                                                   & $\frac{8}{9}$             \\
+                           & $\pm\sqrt{\frac{3}{5}}$                               & $\frac{5}{9}$             \\ \hline
+        \multirow{2}{*}{4} & $\pm\sqrt{\frac{3}{7}-\frac{2}{7}\sqrt{\frac{6}{5}}}$ & $\frac{18+\sqrt{30}}{36}$ \\
+                           & $\pm\sqrt{\frac{3}{7}+\frac{2}{7}\sqrt{\frac{6}{5}}}$ & $\frac{18-\sqrt{30}}{36}$ \\ \hline
     \end{tabular}
     \\Fonte: Autoria Própria (\the\year).
     \label{tab:QGauss}
@@ -350,29 +343,29 @@ A Tabela \ref{tab:QHammer} apresenta os pontos da quadratura de Hammer para apro
     \centering
     \caption{Pontos da quadratura de Hammer e seus respectivos pesos para aproximação de 1 a 7 pontos.}
     \begin{tabular}{cccc}
-    \hline
-        $n$ & $x_k$ & $y_k$ & $w_k$ \\ \hline
-        1 & 0,33333333333333 & 0,33333333333333 & 0,50000000000000 \\ \hline
-        \multirow{3}{*}{3} & 0,16666666666667 & 0,16666666666667 & 0,16666666666667 \\
-        & 0,16666666666667 & 0,66666666666667 & 0,16666666666667 \\
-        & 0,66666666666667 & 0,16666666666667 & 0,16666666666667 \\ \hline
+        \hline
+        $n$                & $x_k$            & $y_k$            & $w_k$             \\ \hline
+        1                  & 0,33333333333333 & 0,33333333333333 & 0,50000000000000  \\ \hline
+        \multirow{3}{*}{3} & 0,16666666666667 & 0,16666666666667 & 0,16666666666667  \\
+                           & 0,16666666666667 & 0,66666666666667 & 0,16666666666667  \\
+                           & 0,66666666666667 & 0,16666666666667 & 0,16666666666667  \\ \hline
         \multirow{4}{*}{4} & 0,33333333333333 & 0,33333333333333 & -0,28125000000000 \\
-        & 0,20000000000000 & 0,20000000000000 & 0,26041666666667 \\
-        & 0,20000000000000 & 0,60000000000000 & 0,26041666666667 \\
-        & 0,60000000000000 & 0,20000000000000 & 0,26041666666667 \\ \hline
-        \multirow{6}{*}{6} & 0,44594849091597 & 0,44594849091597 & 0,11169079483901 \\
-        & 0,44594849091597 & 0,10810301816807 & 0,11169079483901 \\
-        & 0,10810301816807 & 0,44594849091597 & 0,11169079483901 \\
-        & 0,09157621350977 & 0,09157621350977 & 0,05497587182766 \\
-        & 0,09157621350977 & 0,81684757298046 & 0,05497587182766 \\
-         & 0,81684757298046 & 0,09157621350977 & 0,05497587182766 \\ \hline
-        \multirow{7}{*}{7} & 0,33333333333333 & 0,33333333333333 & 0,11250000000000 \\
-        & 0,47014206410511 & 0,47014206410511 & 0,06619707639426 \\
-        & 0,47014206410511 & 0,05971587178977 & 0,06619707639426 \\
-        & 0,05971587178977 & 0,47014206410511 & 0,06619707639426 \\
-        & 0,10128650732346 & 0,10128650732346 & 0,06296959027242 \\
-        & 0,10128650732346 & 0,79742698535309 & 0,06296959027242 \\
-        & 0,79742698535309 & 0,10128650732346 & 0,06296959027242 \\ \hline
+                           & 0,20000000000000 & 0,20000000000000 & 0,26041666666667  \\
+                           & 0,20000000000000 & 0,60000000000000 & 0,26041666666667  \\
+                           & 0,60000000000000 & 0,20000000000000 & 0,26041666666667  \\ \hline
+        \multirow{6}{*}{6} & 0,44594849091597 & 0,44594849091597 & 0,11169079483901  \\
+                           & 0,44594849091597 & 0,10810301816807 & 0,11169079483901  \\
+                           & 0,10810301816807 & 0,44594849091597 & 0,11169079483901  \\
+                           & 0,09157621350977 & 0,09157621350977 & 0,05497587182766  \\
+                           & 0,09157621350977 & 0,81684757298046 & 0,05497587182766  \\
+                           & 0,81684757298046 & 0,09157621350977 & 0,05497587182766  \\ \hline
+        \multirow{7}{*}{7} & 0,33333333333333 & 0,33333333333333 & 0,11250000000000  \\
+                           & 0,47014206410511 & 0,47014206410511 & 0,06619707639426  \\
+                           & 0,47014206410511 & 0,05971587178977 & 0,06619707639426  \\
+                           & 0,05971587178977 & 0,47014206410511 & 0,06619707639426  \\
+                           & 0,10128650732346 & 0,10128650732346 & 0,06296959027242  \\
+                           & 0,10128650732346 & 0,79742698535309 & 0,06296959027242  \\
+                           & 0,79742698535309 & 0,10128650732346 & 0,06296959027242  \\ \hline
     \end{tabular}
     \\Fonte: Autoria Própria (\the\year).
     \label{tab:QHammer}
