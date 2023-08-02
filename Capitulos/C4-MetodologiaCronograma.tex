@@ -2,37 +2,85 @@
 \chapter{Metodologia e cronograma} \label{MetodologiaCronograma}
 %==================================================================================================
 
-O trabalho será conduzido inicialmente pelo estudo e formulação matemática dos diferentes métodos de modelagem de escoamentos turbulentos e de dinâmica das estruturas utilizando o Método dos Elementos Finitos Posicional, seguida pela discretização desses modelos e implementação computacional para obtenção de soluções numéricas. Esses resultados serão validados através da comparação com resultados consagrados na literatura, assim como aplicação em problemas relevantes na engenharia.
+Tendo em vista a complexidade dos problemas em estudo, inicialmente delimita-se os estudos dos problemas de interação fluido-estrutura considerando escoamento incompressível viscoso interagindo com estruturas reticuladas com grandes deslocamentos. Adota-se acoplamento particionado forte do tipo bloco-iterativo, com método de malha móvel para o fluido empregando-se a descrição Lagrangiana-Euleriana Arbitrária (ALE). Essa abordagem é adotada por ser reconhecidamente robusta e amplamente utilizada para análises de IFE.
 
-A linguagem de programação que será utilizada é a C++ orientada a objeto, em um sistema operacional Linux, uma vez que se é possível aproveitar diversas funções já desenvolvidas pelo grupo de pesquisa. Serão utilizadas as bibliotecas \textit{Boost} e PETSc, que permite a utilização de processamento em paralelo MPI. As malhas serão geradas a partir do \textit{software} Gmsh \cite{geuzaine2009gmsh}, e os resultados serão apresentados graficamente pela exportação para o \textit{software} Paraview \cite{ahrens2005paraview}.
+Assim como os problemas a serem estudados, as implementações necessárias também são bastante complexas, sendo importante a adoção de uma metodologia de programação que aproveite os códigos disponíveis e ao mesmo tempo facilite alterações de tipos de elementos, modelos constitutivos, métodos de solução de sistemas e operações algébricas, e mais importante no contexto desta proposta, diferentes métodos de estabilização e diferentes modelos de turbulência.
 
-O cronograma apresentado na Tabela \ref{Cronograma} é planejado tomando-se um período de Junho de 2023 à Fevereiro de 2024, o qual considera as seguintes etapas para devida execução da pesquisa:
+Dessa forma, adota-se a linguagem de programação C++ orientada a objeto, em um sistema operacional Linux, uma vez que se é possível aproveitar diversos códigos já desenvolvidos pelo grupo de pesquisa, a saber, programa de elementos finitos para análise de escoamentos incompressíveis empregando-se elementos triangulares (2D) e tetraédricos (3D) com aproximações linear ou quadrática e programa para análise dinâmica não linear geométrica de estruturas de casca finas ou espessas empregando elementos triangulares cúbicos.
+
+Para determinação dos parâmetros do sólido será empregado o MEF baseado em posições, em uma descrição Lagrangiana Total, sendo adotado o modelo constitutivo de Saint-Venant Kirchhoff e uma medida de deformação de Green-Lagrange. A aproximação das derivadas temporais do problema será dada via integrador temporal de Newmark e a integração no espaço paramétrico será dada via quadratura de Hammer. Assim, a solução numérica será obtida a partir de um código já desenvolvido pelo grupo de pesquisa, capaz de resolver o sólido a partir do método de Newton-Raphson em situação de não-linearidade geométrica em regime estático e transiente, sendo necessário apenas algumas alterações a fim de compatibilizá-lo com o código de fluidos.
+
+Já para a determinação dos parâmetros do fluido será empregado o MEF em uma descrição ALE, o que possibilita o cálculo considerando contornos móveis. A aproximação temporal será dada via integrador $\alpha$-generalizado a partir da consideração de um raio espectral para controle da difusão numérica. Para isso será utilizado outro código também desenvolvido pelo grupo de pesquisa, o qual resolve o fluido por meio do método de Newton-Raphson e com estabilização SUPG/PSGP. Assim o código será modificado de forma a ser compatível com aquele utilizado para sólidos, assim como serão implementados os modelos de turbulência RANS e LES e o modelo de estabilização VMS.
+
+Por fim, ambos os códigos funcionarão em conjunto a partir de um acoplamento particionado forte do tipo bloco-iterativo, o qual fará a movimentação da malha para acomodar ambos os meios, assim como também será feita a transferência das condições de contorno.
+
+% \textcolor{red}{-Falar como você vai resolver o sólido (citar o programa de cascas disponível, a formulação empregada e a integração temporal adotada). Especificar se você vai implementar alguma coisa nele ou só utilizar.}
+
+% \textcolor{red}{-Falar como você vai resolver o fluido considerando contornos móveis (citar o programa de fluido disponível, a formulação/elementos empregados e a integração temporal adotada). Especificar o que você vai implementar}
+
+% \textcolor{red}{-Falar sobre a técnica de acoplamento a ser adotada para unir os códigos}
+
+O programa será baseado no protocolo de processamento paralelo \textit{Message Passing Interface} (MPI), sendo utilizada a biblioteca PETSc (\textit{Portable, Extensible Toolkit for Scientific Computation}) \cite{petsc-web-page}, sendo adequada para solução de problemas envolvendo equações diferenciais que necessitem de alto desempenho computacional, com suporte para C++ e MPI, para a solução de grandes sistemas esparços de equações. As malhas serão geradas a partir do \textit{software} Gmsh \cite{geuzaine2009gmsh}, e os resultados serão apresentados graficamente pela exportação para o \textit{software} Paraview \cite{ahrens2005paraview}. Nota-se que prioriza-se o uso de ferramentas computacionais livres e de código aberto para facilitar a distribuição e as atualizações da ferramenta computacional resultante.
+
+%==================================================================================================
+\section{Cronograma}
+%==================================================================================================
+
+% \textcolor{red}{As atividades estavam insuficientes para descrever o seu trabalho durante o curso (pode incluir as disciplinas, já que o cronograma é do trabalho de mestrado como todo). Adicionei outras atividades, verifique se não falta nada e atualize o cronograma (Pode incluir o exame de qualificação...).}
+
+As atividades necessárias para se alcançar os objetivos desta pesquisa são organizadas da seguinte maneira:
 
 \begin{enumerate}[label=\alph*.]
-	\item\label{M:2} Revisão bibliográfica, a qual será realizada ao longo de todo o trabalho, para que o mesmo se mantenha atualizado durante toda sua execução;
-	\item\label{M:3} Formulação matemática das técnicas de análise de escoamentos turbulentos e de Interação Fluido-Estrutura;
-	\item\label{M:5} Implementação computacional das técnicas formuladas;
-	\item\label{M:6} Verificação dos resultados obtidos a partir de exemplos presentes na literatura e em problemas de engenharia;
-	\item\label{M:7} Otimização das rotinas computacionais;
-	\item\label{M:8} Redação da dissertação e elaboração de artigos para revistas.
+	\item\label{M:1} Cursar disciplinas do programa de mestrado;
+	\item\label{M:2} Revisão bibliográfica a ser realizada de forma contínua ao longo de todo o trabalho, para que o mesmo se mantenha atualizado frente ao estado da arte durante toda sua execução;
+	\item\label{M:3} Estudo das formulações estabilizadas do método dos elementos finitos para a solução de escoamentos incompressíveis com contornos móveis;
+	\item\label{M:4} Estudo dos modelos de turbulência RANS e LES;
+	\item\label{M:5} Estudo do código computacional para escoamentos incompressíveis disponível e implementações do modelo de estabilização VMS;
+	\item\label{M:6} Implementação computacional dos modelos de turbulência no código de escoamentos incompressíveis;
+	\item\label{M:7} Verificação dos modelos de turbulência implementados no contexto de escoamentos com contornos fixos a partir de exemplos presentes na literatura;
+	\item\label{M:8} Estudo da formulação posicional do MEF para elementos de casca com cinemática de Reissner-Mindlin;
+	\item\label{M:9} Exame de qualificação de mestrado;
+	\item\label{M:10} Estudo e implementação do modelo de acoplamento particionado do tipo bloco-iterativo;
+	\item\label{M:11} Verificação e Estudo dos modelos implementados no contexto dos problemas de iteração fluido-estrutura com elevados números de Reynolds;
+	\item\label{M:12} Redação da dissertação e elaboração de artigos para revistas;
+	\item \label{M:13} Defesa do mestrado.
 \end{enumerate}
+
+Essas atividades são organizadas cronologicamente, ao longo do tempo disponível para a conclusão do mestrado, de acordo com o cronograma da Tabela \ref{Cronograma}.
+
+\definecolor{lightgray}{RGB}{153,153,153}
+\definecolor{lightblue}{RGB}{126,194,216}
 
 \begin{table}[h!]
 	\caption{Cronograma de atividades}
-	\fontsize{10}{14}\selectfont
+	\fontsize{8}{14}\selectfont
 	\centering
-	\definecolor{X}{rgb}{0.4,0.5,0.7}
-	\newcommand{\CM}{\cellcolor{X}}
-	\begin{tabular}{c|ccccc|cccc}
+	\newcommand{\Rx}{\cellcolor{lightblue}}
+	\newcommand{\Px}{\cellcolor{lightgray}}
+	\begin{tabular}{c|ccccccccc|cccccccccccc|cccc}
 		\hline
-		\MR{2}{*}{Item} & \MC{5}{c|}{2023} & \MC{4}{c}{2024}                                           \\ \cline{2-10}
-		                & Ago              & Set             & Out & Nov & Dez & Jan & Fev & Mar & Abr \\ \hline
-		\ref{M:2}       & \CM              & \CM             & \CM & \CM & \CM & \CM & \CM & \CM &     \\ \hline
-		\ref{M:3}       & \CM              & \CM             &     &     &     &     &                 \\ \hline
-		\ref{M:5}       & \CM              & \CM             & \CM & \CM & \CM & \CM &     &     &     \\ \hline
-		\ref{M:6}       &                  &                 &     &     & \CM & \CM &     &     &     \\ \hline
-		\ref{M:7}       &                  &                 &     &     &     & \CM & \CM &     &     \\ \hline
-		\ref{M:8}       &                  &                 &     &     & \CM & \CM & \CM & \CM & \CM \\ \hline
+		\MR{2}{*}{Item} & \MC{9}{c|}{2023} & \MC{12}{c|}{2023} & \MC{4}{c}{2024}                                                                                                                                     \\ \cline{2-26}
+		                & A                & M                 & J               & J   & A   & S   & O   & N   & D   & J   & F   & M   & A   & M   & J   & J   & A   & S   & O   & N   & D   & J   & F   & M   & A   \\ \hline
+		\ref{M:1}       & \Rx              & \Rx               & \Rx             & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     \\ \hline
+		\ref{M:2}       & \Rx              & \Rx               & \Rx             & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Px & \Px & \Px & \Px & \Px & \Px & \Px & \Px &     \\ \hline
+		\ref{M:3}       &                  &                   &                 &     & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx &     &     &     &     &     &     &     &     &     &     &     &     &     &     \\ \hline
+		\ref{M:4}       &                  &                   &                 &     &     &     &     & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx &     &     &     &     &     &     &     &     &     &     &     \\ \hline
+		\ref{M:5}       &                  &                   &                 &     &     &     &     &     &     &     & \Rx & \Rx & \Rx & \Rx &     &     &     &     &     &     &     &     &     &     &     \\ \hline
+		\ref{M:6}       &                  &                   &                 &     &     &     &     &     &     &     &     &     &     & \Rx & \Rx & \Rx & \Px & \Px & \Px &     &     &     &     &     &     \\ \hline
+		\ref{M:7}       &                  &                   &                 &     &     &     &     &     &     &     &     &     &     &     & \Rx & \Rx &     &     &     &     &     &     &     &     &     \\ \hline
+		\ref{M:8}       &                  &                   &                 &     &     &     &     &     &     &     &     &     &     & \Rx & \Rx & \Rx &     &     &     &     &     &     &     &     &     \\ \hline
+		\ref{M:9}       &                  &                   &                 &     &     &     &     &     &     &     &     &     &     &     &     &     & \Px &     &     &     &     &     &     &           \\ \hline
+		\ref{M:10}      &                  &                   &                 &     &     &     &     &     &     &     &     &     &     &     &     &     & \Px & \Px & \Px & \Px &     &     &     &     &     \\ \hline
+		\ref{M:11}      &                  &                   &                 &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     & \Px & \Px & \Px & \Px &     &     \\ \hline
+		\ref{M:12}      & \Rx              & \Rx               & \Rx             & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Rx & \Px & \Px & \Px & \Px & \Px & \Px & \Px & \Px &     \\ \hline
+		\ref{M:13}      &                  &                   &                 &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     &     & \Px \\ \hline
 	\end{tabular}
 	\label{Cronograma}
 \end{table}
+
+\begin{minipage}{\textwidth}
+	\fontsize{8}{14}\selectfont
+	\centering
+	\colorbox{lightgray}{\rule{0pt}{10pt}\rule{10pt}{0pt}} Já realizado \quad
+	\colorbox{lightblue}{\rule{0pt}{10pt}\rule{10pt}{0pt}} Pendente \quad
+\end{minipage}
