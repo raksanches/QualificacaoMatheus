@@ -1,5 +1,5 @@
 %==================================================================================================
-\section{Equações Governantes da Dinâmica dos Sólidos} \label{EGDS}
+\chapter{Equações Governantes da Dinâmica dos Sólidos} \label{EGDS}
 %==================================================================================================
 
 O estudo dos elementos sólidos baseia-se na determinação de parâmetros referentes à elementos estruturais, tais como esforços internos e deslocamentos, ou tensões e deformações. Em alguns casos particulares isso pode ser obtido através da simples consideração das relações de equilíbrio, de compatibilidade e constitutivas. Entretanto, em vários outros casos, pode ser necessário o uso de algumas técnicas, como o uso dos princípios variacionais, que serão devidamente descritos na presente seção.
@@ -119,7 +119,7 @@ Uma propriedade notável aponta a tensão como a conjugada energética da deform
 \end{comment}
 
 %==================================================================================================
-\subsection{Cinemática dos Corpos Deformáveis} \label{CCD}
+\section{Cinemática dos Corpos Deformáveis} \label{CCD}
 %==================================================================================================
 
 Inicialmente considere um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ para denotar as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear $\BB{y}$ em função de $\BB{x}$ existe uma função $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$, denominada como função de mudança de configuração.
@@ -296,7 +296,7 @@ Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teo
 \end{subequations}
 
 %==================================================================================================
-\subsection{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
+\section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
 %==================================================================================================
 
 Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o modelo constitutivo de Saint-Venant Kirchhoff e o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
@@ -519,7 +519,7 @@ Com isso, encontra-se um vetor de correções dos parâmetros nodais ($\Delta\BB
 \noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
 
 %==================================================================================================
-\subsubsection{Procedimento Computacional} \label{MEFP-Comp}
+\subsection{Procedimento Computacional} \label{MEFP-Comp}
 %==================================================================================================
 
 Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
@@ -527,7 +527,7 @@ Para a implementação computacional realizou-se uma integração em $\Omega_0$ 
 O algoritmo visto no Apêndice \ref{Ap:Shell-alg} apresentado na forma de pseudocódigo exemplifica o código implementado.
 
 %==================================================================================================
-\subsubsection{Exemplos de Verificação} \label{MEFP-Ex}
+\subsection{Exemplos de Verificação} \label{MEFP-Ex}
 %==================================================================================================
 
 Para verificação do código implementado, estudou-se para problemas estáticos: a simulação de \textit{Scordelis-Lo roof} e o problema de cilindro biengastado, enquanto para problemas dinâmicos estudou-se o comportamento de vigas engastadas. Tais simulações executadas, contendo os parâmetros de entrada, assim como a discretização de cada problema e os resultados obtidos, são apresentados nos Apêndices \ref{Ap:SLR}, \ref{Ap:Shell-cyl} e \ref{Ap:DinBeam}, para os respectivos problemas.

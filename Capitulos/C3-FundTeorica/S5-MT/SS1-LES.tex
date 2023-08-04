@@ -1,5 +1,5 @@
 %==================================================================================================
-\subsubsection{\textit{Large Eddy Simulation}} \label{LES}
+\subsection{\textit{Large Eddy Simulation}} \label{LES}
 %==================================================================================================
 
 A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, que irá reescrever as equações de Navier-Stokes em termos de parcelas filtradas (ou de grandes escalas), denotadas para uma propriedade qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large,moeng2015large}. Para isso, considera-se uma filtragem dada por:
@@ -183,7 +183,7 @@ Segundo \citeonline{bailly2015turbulence} o valor de $\bar{k}$ pode ser estimado
 Com isso, um possível valor para a constante Kolmogoroff é $\alpha=1,4$, o que resulta em $C_S\approx0,18$. No entanto valores de $C_S$ próximos à 0,10 conduzem a solução à resultados mais realistas \cite{hughes2000large,bailly2015turbulence,katopodes2019free}.
 
 %==================================================================================================
-\subsubsubsection{Procedimento computacional} \label{LES-PC}
+\subsubsection{Procedimento computacional} \label{LES-PC}
 %==================================================================================================
 
 Para a obtenção dos resultados, parte-se para a formulação variacional, em que se utiliza funções testes $\BB{w}$ e $q$, associadas às equações de conservação do momento e da continuidade, respectivamente. Assim, se tem a forma fraca do problema, dada por:

@@ -1,5 +1,5 @@
 %==================================================================================================
-\subsection{\textit{Variational Multi-Scale}} \label{VMS}
+\section{\textit{Variational Multi-Scale}} \label{VMS}
 %==================================================================================================
 
 O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização multiescala o qual faz a separação dos espaços de tentativas e de testes em subespaços que representem as escalas grosseiras, que se tratam de subespaços de dimensões finitas e denotadas por uma barra, e as escalas finas, que são subespaços de infinitas dimensões e denotadas por $'$, ou seja:
@@ -236,7 +236,7 @@ Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, ta
 \end{subequations}
 
 %==================================================================================================
-\subsubsection{Integração temporal} \label{IT-VMS}
+\subsection{Integração temporal} \label{IT-VMS}
 %==================================================================================================
 
 Como pôde-se verificar, em ambas as descrições, Euleriana e ALE, chega-se a um problema discreto no espaço, porém contínuo no tempo (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal dos parâmetros, que pode ocorrer de diferentes formas, como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, o surgimento de integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como em diferenças finitas atrasadas, e o denominado semi-explícito (ou da regra de trapézios). Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que: se observa a implicidade natural da pressão em escoamentos incompressíveis; deve-se ter um cuidado extra para garantir a estabilidade do integrador; apresentar problemas para a diagonalização de matrizes de massa; e perda de precisão na diagonalização.
@@ -300,7 +300,7 @@ Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos
 \end{subequations}
 
 %==================================================================================================
-\subsubsection{Procedimento iterativo} \label{Comp-VMS}
+\subsection{Procedimento iterativo} \label{Comp-VMS}
 %==================================================================================================
 
 O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os parâmetros a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção desses parâmetros é:

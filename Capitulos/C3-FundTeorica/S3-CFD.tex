@@ -1,11 +1,11 @@
 %==================================================================================================
-\section{Equações Governantes da Dinâmica dos Fluidos} \label{EGDF}
+\chapter{Equações Governantes da Dinâmica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
 Para a devida representação de escoamentos a temperatura constante é necessária a consideração dos princípios da conservação da massa e da conservação da quantidade de movimento de um fluido. Estas podem ser realizadas a partir de uma descrição Euleriana, sendo sua formulação apresentada na subseção \ref{CFD-E}, ou a partir de uma descrição Lagrangiana-Euleriana Arbitrária, em que sua formulação é devidamente apresentada na subseção \ref{CFD-ALE}.
 
 %==================================================================================================
-\subsection{Descrição Euleriana} \label{CFD-E}
+\section{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
 Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades do fluido na posição atual ($\mathbf{y}$) do elemento e $\rho$ é a massa específica do fluido nesse ponto.
@@ -154,7 +154,7 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
 \noindent as quais são chamadas de equações de Navier-Stokes para escoamentos incompressíveis em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
 
 %==================================================================================================
-\subsection{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
+\section{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
 %==================================================================================================
 
 A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}, os quais consideraram três subconjuntos $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha, respectivamente. A Figura \ref{Fig:ALE} ilustra esquematicamente um problema em descrição ALE.
@@ -275,7 +275,7 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 \noindent que são denominadas como as equações de Navier-Stokes para escoamentos incompressíveis em descrição ALE \cite{bazilevs2013computational}.
 
 %==================================================================================================
-\subsection{Modelo Constitutivo} \label{MC}
+\section{Modelo Constitutivo} \label{MC}
 %==================================================================================================
 
 O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é expresso de acordo com a Equação \ref{eq:const1}:
@@ -319,7 +319,7 @@ Já para o caso de escoamentos incompressíveis, verifica-se que $\dot{\varepsil
 \end{equation}
 
 %==================================================================================================
-\subsection{Formulação Semi-Discreta} \label{FSD}
+\section{Formulação Semi-Discreta} \label{FSD}
 %==================================================================================================
 
 Para a obtenção de uma formulação na forma fraca (ou integral) das equações de Navier-Stokes considere os conjuntos $\script{S}_u$ e $\script{S}_p$ de dimensões infinitas que definem os espaços de funções tentativas para os campos de velocidades e pressões, respectivamente, tais que \cite{bazilevs2013computational,fernandes2020tecnica}:
