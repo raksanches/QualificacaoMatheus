@@ -1,0 +1,69 @@
+%==================================================================================================
+\section{Proposta de sumário estruturado} \label{SumarioEstruturado}
+%==================================================================================================
+
+Com base nas etapas já desenvolvidas do trabalho e visando atingir os resultados esperados, propõe-se o seguinte sumário estruturado:
+
+{
+\setlist[enumerate,1]{label=\textbf{\arabic*}, font=\bfseries, leftmargin=10pt}
+\setlist[enumerate,2]{label=\arabic{enumi}.\arabic*, font=\bfseries, leftmargin=10pt}
+\setlist[enumerate,3]{label=\arabic{enumi}.\arabic{enumii}.\arabic*, leftmargin=10pt}
+
+\newcommand{\itemi}[1]{\item \hspace{3em}\textbf{#1}}
+\newcommand{\itemii}[1]{\item \hspace{2em}\textbf{#1}}
+\newcommand{\itemiii}[1]{\item \hspace{1em}{#1}}
+
+\begin{enumerate}
+    \itemi{INTRODUÇÃO}
+    \begin{enumerate}
+        \itemii{Objetivos}
+        \itemii{Justificativa}
+    \end{enumerate}
+    \itemi{ESTADO DA ARTE}
+    \begin{enumerate}
+        \itemii{Dinâmica Das Estruturas Computacional}
+        \itemii{Dinâmica Dos Fluidos Computacional}
+        \begin{enumerate}
+            \itemiii{Modelos De Turbulência}
+        \end{enumerate}
+        \itemii{Interação Fluido-Estrutura}
+    \end{enumerate}
+    \itemi{METODOLOGIA}
+    \itemi{EQUAÇÕES GOVERNANTES DA DINÂMICA DOS FLUIDOS}
+    \begin{enumerate}
+        \itemii{Descrição Euleriana}
+        \itemii{Descrição Lagrangiana-Euleriana Arbitrária}
+        \itemii{Modelo constitutivos}
+        \itemii{Formulação Semi-Discreta}
+        \itemii{Variational Multi-Scale}
+        \begin{enumerate}
+            \itemiii{Integração temporal}
+            \itemiii{Procedimento iterativo}
+        \end{enumerate}
+        \itemii{Modelos De Turbulência}
+        \begin{enumerate}
+            \itemiii{\textit{Large Eddy Simulation}}
+            \itemiii{\textit{Reynolds-Averaged Navier-Stokes}}
+        \end{enumerate}
+        \itemii{Exemplos de Verificação}
+    \end{enumerate}
+    \itemi{EQUAÇÕES GOVERNANTES DA DINÂMICA DOS SÓLIDOS}
+    \begin{enumerate}
+        \itemii{Cinemática dos Corpos Deformáveis}
+        \itemii{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca}
+        \begin{enumerate}
+            \itemiii{Procedimento Computacional}
+        \end{enumerate}
+        \itemii{Exemplos de Verificação}
+    \end{enumerate}
+    \itemi{ACOPLAMENTO FLUIDO-ESTRUTURA}
+    \begin{enumerate}
+        \itemii{Procedimento Computacional}
+        \itemii{Exemplos de Verificação}
+    \end{enumerate}
+    \itemi{CONCLUSÕES}
+    \begin{enumerate}
+        \itemii{Desenvolvimentos Futuros}
+    \end{enumerate}
+\end{enumerate}
+}
