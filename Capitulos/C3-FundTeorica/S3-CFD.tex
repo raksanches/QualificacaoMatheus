@@ -1,14 +1,15 @@
 %==================================================================================================
-\chapter{Equações Governantes da Dinâmica dos Fluidos} \label{EGDF}
+\chapter{Formulação numérica para mecânica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-Para a devida representação de escoamentos a temperatura constante é necessária a consideração dos princípios da conservação da massa e da conservação da quantidade de movimento de um fluido. Estas podem ser realizadas a partir de uma descrição Euleriana, sendo sua formulação apresentada na subseção \ref{CFD-E}, ou a partir de uma descrição Lagrangiana-Euleriana Arbitrária, em que sua formulação é devidamente apresentada na subseção \ref{CFD-ALE}.
+Para a devida representação de escoamentos à temperatura constante, é necessária a consideração dos princípios da conservação da massa e da conservação da quantidade de movimento de um fluido. Parte-se de um volume de controle infinitesimal na configuração atual do fluido (descrição Euleriana), como apresentado na seção \ref{CFD-E}, e posteriormente, obtém-se as equações a partir da descrição Lagrangiana-Euleriana Arbitrária, para permitir a movimentação da malha indepententemente do movimento do fluido, como apresentado na bseção \ref{CFD-ALE}. 
+Na sequência, desenvolve-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{CDF-FEM} , apresentando-se ainda a formulação VMS. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{CFD-RANS} e LES \ref{CFD-LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas no anexo \ref{AnexoExemplosCFD}.
 
 %==================================================================================================
 \section{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
-Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades do fluido na posição atual ($\mathbf{y}$) do elemento e $\rho$ é a massa específica do fluido nesse ponto.
+Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h!]
     \centering
@@ -26,6 +27,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
 
 \noindent que, após algumas simplificações, resulta em uma expressão dada em sua forma simbólica de acordo com a Equação \ref{eq:BalMas1}, ou em notação indicial de acordo com a Equação \ref{eq:BalMas2}, que representam a conservação de massa em um elemento infinitesimal.
 
+\textcolor{red}{Trocar $\bhat{e}_1$, $\bhat{e}_2$ e $\bhat{e}_3$ por $y_1$, $y_2$ e $y_3$. Não faz sentido adotar mais um sistema de coordenadas.}
 \begin{subequations}
     \begin{equation}
         \frac{D\rho}{Dt}+\rho\NN\cdot\BB{u}=\apder{\rho}{t}+\NN\cdot(\rho\BB{u})=0\text{,}\label{eq:BalMas1}\\
@@ -36,28 +38,33 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     \label{eq:BalMas}
 \end{subequations}
 
-\noindent sendo $D\rho/Dt$ a representação de derivada material, definida para uma propriedade $\phi$ qualquer como:
+\textcolor{red}{Adote apenas uma notação para apresentar as equações nessa altura. Eu adotaria a simbólica e posteriormente, na hora de aplicar o mef, escreveria a forma indicial a ser usada, se julgar necessário. Aplique essa mesma lógica a todo o texto.}
+
+\noindent sendo \noindent sendo que $\NN\cdot(\cdot)$ representa o divergente em relação às coordenadas atuais $\mathbf{y}$ e $D\rho/Dt$ é a derivada material, definida para um escalar $\phi$ qualquer como:
 
 \begin{equation}
     \frac{D\phi}{Dt}=\apder{\phi}{t}+\BB{u}\cdot\NN\phi\text{,}
 \end{equation}
 
-\noindent tal que $\NN(\cdot)$ é o operador nabla, definido para uma função escalar $g$ qualquer de acordo com a Equação \ref{eq:grad1} e para uma função vetorial $\BB{g}$ qualquer de acordo com a Equação \ref{eq:grad2}:
+\noindent onde $\NN(\cdot)$ representa o gradiente em relação às coordenadas atuais $\mathbf{y}$.
 
-\begin{subequations}
-    \begin{equation}
-        \NN g=\der{g}{\BB{y}}\equiv\der{g}{y_i}=g_{,i}\text{,}\label{eq:grad1}
-    \end{equation}
-    \begin{equation}
-        \NN\BB{g}=\der{\BB{g}}{\BB{y}}\equiv\der{g_i}{y_j}=g_{i,j}\text{,}\label{eq:grad2}
-    \end{equation}
-\end{subequations}
+%
+%, definido para uma função escalar $g$ qualquer de acordo com a Equação \ref{eq:grad1} e para uma função vetorial $\BB{g}$ qualquer de acordo com a Equação \ref{eq:grad2}:
 
-\noindent e $\NN\cdot(\cdot)$ é o divergente, que para uma função vetorial $\BB{g}$ qualquer, é dado por:
+%\begin{subequations}
+%    \begin{equation}
+%        \NN g=\der{g}{\BB{y}}\equiv\der{g}{y_i}=g_{,i}\text{,}\label{eq:grad1}
+%    \end{equation}
+%    \begin{equation}
+%        \NN\BB{g}=\der{\BB{g}}{\BB{y}}\equiv\der{g_i}{y_j}=g_{i,j}\text{,}\label{eq:grad2}
+%    \end{equation}
+%\end{subequations}
 
-\begin{equation}
-    \NN\BB{g}\equiv\der{g_i}{y_i}=g_{i,i}\text{,}
-\end{equation}
+%\noindent e $\NN\cdot(\cdot)$ é o divergente, que para uma função vetorial $\BB{g}$ qualquer, é dado por:
+
+%\begin{equation}
+%    \NN\BB{g}\equiv\der{g_i}{y_i}=g_{i,i}\text{,}
+%\end{equation}
 
 \noindent sendo a vírgula presente no subíndice a representação de derivada para a respectiva componente.
 
@@ -69,7 +76,7 @@ Para escoamentos incompressíveis a equação da continuidade pode ser reduzida 
 
 \noindent denominada como condição de incompressibilidade.
 
-Já a equação que expressa a Conservação da Quantidade de Movimento (ou de Momento Linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
+Já a equação que expressa a Conservação da Quantidade de Movimento linear (ou de $Momentum$ Linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
 
 \begin{figure}[h!]
     \centering
@@ -86,7 +93,7 @@ Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se um
     \label{eq:ConQtdMov}
 \end{equation}
 
-\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$). Para isso, considere o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde se é representado apenas as componentes na direção $\bhat{e}_1$ de tensões e de forças de corpo ($c_i$).
+\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$) e forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $\bhat{e}_1$.
 
 \begin{figure}[h!]
     \centering
@@ -157,7 +164,7 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
 \section{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
 %==================================================================================================
 
-A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}, os quais consideraram três subconjuntos $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha, respectivamente. A Figura \ref{Fig:ALE} ilustra esquematicamente um problema em descrição ALE.
+A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}. São considerados 3 domínios, $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha respectivamente, como ilustrado na Figura \ref{Fig:ALE}. O domínio $\hat{\Omega}$ possui movimento arbitrário.
 
 \begin{figure}[h!]
     \centering
@@ -166,6 +173,8 @@ A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eu
     \label{Fig:ALE}
     \\Fonte: Autoria Própria (\the\year).
 \end{figure}
+
+\parei aquiiiii
 
 As coordenadas $\BB{x}$, $\BB{y}$ e $\bhat{x}$ representam as coordenadas de um ponto nos domínios $\Omega_0$, $\Omega$ e $\hat{\Omega}$, respectivamente. Já as funções $\BB{f}(\BB{x},t)=\BB{y}(\BB{x},t)$, $\that{f}(\BB{x},t)=\bhat{x}(\BB{x},t)$ e $\bhat{f}(\bhat{x},t)=\BB{y}(\bhat{x},t)$ são funções de mudança de configuração.
 
