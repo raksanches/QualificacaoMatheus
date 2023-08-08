@@ -2,13 +2,17 @@
 \chapter{Formulação numérica para mecânica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-Para a devida representação de escoamentos à temperatura constante, é necessária a consideração dos princípios da conservação da massa e da conservação da quantidade de movimento de um fluido, os quais são apresentados, para descrição Euleriana e ALE, no Apêndice \ref{Ap:CFD}. Assim desenvolve-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{VMS} , apresentando-se ainda a formulação VMS. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{RANS} e LES \ref{LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
+Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam em (ver anexo \ref{Ap:CFD}):
+
+\textcolor{red}{colocar equações}.
+
+Neste capítulo apresenta-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{VMS}. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{RANS} e LES \ref{LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
 
 %==================================================================================================
 \section{Formulação Semi-Discreta} \label{FSD}
 %==================================================================================================
 
-Para a obtenção de uma formulação na forma fraca (ou integral) das equações de Navier-Stokes considere os conjuntos $\script{S}_u$ e $\script{S}_p$ de dimensões infinitas que definem os espaços de funções tentativas para os campos de velocidades e pressões, respectivamente, tais que \cite{bazilevs2013computational,fernandes2020tecnica}:
+Para a obtenção de uma forma forma fraca das equações \eqref{} e \eqref{}, emprega-se o método de resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
 
 \begin{equation}
     \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),u_i=g_i\text{ em }\Gamma_D\right\}\text{ e}
@@ -28,7 +32,7 @@ Para a obtenção de uma formulação na forma fraca (ou integral) das equaçõe
     L^2(\Omega)=\left\{u|\int_\Omega{|u|^2d\Omega}<\infty\right\}\text{.}
 \end{equation}
 
-Também define-se os conjuntos de funções testes para a conservação de massa e conservação da quantidade de movimento como $\script{V}_u$ e $\script{V}_p$, respectivamente, tais que:
+Sejam ainda os espaços das funções testes para a conservação de massa e conservação da quantidade de movimento $\script{V}_u$ e $\script{V}_p$, respectivamente, tais que:
 
 \begin{equation}
     \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},w_i=0\text{ em }\Gamma_D\right\}\text{ e}
@@ -38,7 +42,7 @@ Também define-se os conjuntos de funções testes para a conservação de massa
     \script{V}_p=\script{S}_p\text{.}
 \end{equation}
 
-Dessa forma, multiplica-se as equações de conservação da massa e de quantidade de movimento pelas suas respectivas funções testes e integra-se dentro do domínio $\Omega$, obtendo-se:
+Dessa forma, ponderando-se as equações \eqref{} e \eqref{} \textcolor{red}{Citar} respectivamente por $\BB{w}$ e $q$, tal que $q \in  \script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
     \intDom{w_i\bigpar{\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}}}+\intDom{qu_{i,i}}=0\text{.}
@@ -51,7 +55,7 @@ Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira in
     \label{eq:WeakForm1}
 \end{equation}
 
-Fazendo a integração por partes da parcela que foi separada e considerando o Teorema da Divergência, chega-se à forma fraca do problema, expressa como a Equação \ref{eq:WeakForm2}, onde define-se o problema como: determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p\forall\BB{w}\in\script{V}_u$ e $q\in\script{V}_p$ arbitrários em um intervalo $t\in(0,T)$, sendo $T$ o tempo analisado, dados $f_i$, $g_i$, $h_i$ e $\hat{u}_i$, em que $h_i=\sigma_{ji}n_j$ é o valor prescrito de força de superfície em $\Gamma_N$:
+Fazendo a integração por partes da parcela que foi separada e considerando o Teorema da Divergência, chega-se a:
 
 \begin{equation}
     \begin{split}
@@ -60,8 +64,9 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
     \end{split}
     \label{eq:WeakForm2}
 \end{equation}
+Assim, o problema, fica definido como: dados $f_i$, $g_i$, $h_i$ e $\hat{u}_i$, em que $h_i=\sigma_{ji}n_j$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}, principalmente em problemas de convecção dominante devido à grande não-linearidade e assimetria do sistema de equações resultante desse método. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez essa escolha possui restrições, as quais denominam-se condições de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a impossibilidade de se aproximar o campo de velocidades e de pressões no mesmo espaço, uma vez que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez essa escolha possui restrições, as quais denominam-se condições de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a impossibilidade de se aproximar o campo de velocidades e de pressões no mesmo espaço, uma vez que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
@@ -75,7 +80,7 @@ Assim, para se garantir a unicidade da solução, a escolha dos espaços de apro
 
 \noindent em que $\beta$ é uma constante independente do tamanho da malha.
 
-Como pode-se observar, a escolha dos espaços de aproximações que atendam às condições LBB não é trivial. Sendo assim, \citeonline{donea2003finite} apresenta alguns elementos possíveis de se utilizar atendendo às condições LBB (denominados de Elementos Taylor-Hood). A Figura \ref{fig:Taylor-Hood} ilustra alguns elementos Taylor-Hood.
+Como pode-se observar, a escolha dos espaços de aproximações que atendam às condições LBB não é trivial. Sendo assim, \citeonline{donea2003finite} apresenta alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
 
 \begin{figure}[h!]
     \centering
@@ -85,7 +90,9 @@ Como pode-se observar, a escolha dos espaços de aproximações que atendam às 
     \label{fig:Taylor-Hood}
 \end{figure}
 
-Outros trabalhos foram desenvolvidos a fim de se obter formulações estabilizadas que permitam a utilização dos mesmos espaços de aproximação para ambos os espaços almejados, como a formulação SUPG/PSPG, reduzindo também problemas relacionados à convecção dominante.
+Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG.
+
+Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS.
 
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
 \input{Capitulos/C3-FundTeorica/S5-MT/S5-MT}
