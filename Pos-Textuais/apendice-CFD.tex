@@ -5,7 +5,7 @@
 \section{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
-Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\mathbf{u}$ é o campo de velocidades e $\rho$ é a massa específica do fluido nesse ponto.
+Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\BB{u}$ é o campo de velocidades e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h!]
     \centering
@@ -23,13 +23,10 @@ Realizando-se o balanço de massa nesse elemento tem-se:
 
 \noindent que resulta em uma expressão simplificada dada por \ref{eq:BalMas}, que representa a conservação de massa em um elemento infinitesimal.
 
-%\textcolor{red}{Trocar $\bhat{e}_1$, $\bhat{e}_2$ e $\bhat{e}_3$ por $y_1$, $y_2$ e $y_3$. Não faz sentido adotar mais um sistema de coordenadas.}
 \begin{equation}
     \frac{D\rho}{Dt}+\rho u_{i,i}=\dot{\rho}+(\rho u_i)_{,i}=0\text{,}
     \label{eq:BalMas}
 \end{equation}
-
-%\textcolor{red}{Adote apenas uma notação para apresentar as equações nessa altura. Eu adotaria a simbólica e posteriormente, na hora de aplicar o mef, escreveria a forma indicial a ser usada, se julgar necessário. Aplique essa mesma lógica a todo o texto.}
 
 \noindent sendo $\dot{\rho}$ a derivada temporal de $\rho$ e $D\rho/Dt$ a derivada material, definida para um escalar $\phi$ qualquer como:
 
