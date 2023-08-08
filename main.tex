@@ -1,7 +1,8 @@
 \documentclass[
 12pt,
 openright,
-twoside,
+oneside,
+%twoside,
 a4paper,
 chapter=TITLE,
 english,
@@ -45,15 +46,15 @@ portuguese % ou english
 \cleardoublepage
 
 % Lista de ilustrações (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
-\listoffigures*
-\cleardoublepage
+% \listoffigures*
+% \cleardoublepage
 
 % Lista de tabelas (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
-\listoftables*
-\cleardoublepage
+% \listoftables*
+% \cleardoublepage
 
-\input{Config/Siglas.tex}
-\input{Config/Simbolos.tex}
+% \input{Config/Siglas.tex}
+% \input{Config/Simbolos.tex}
 
 % Sumário
 \pdfbookmark[0]{\contentsname}{toc}
@@ -86,13 +87,15 @@ portuguese % ou english
 %\pagenumbering{gobble}
 
 %\input{Pos-Textuais/glossario}
-\input{Pos-Textuais/algoritmo2}
+\input{Pos-Textuais/apendice-CFD}
+%\input{Pos-Textuais/algoritmo2}
 \input{Pos-Textuais/apendiceD}
 \input{Pos-Textuais/apendiceE}
 \input{Pos-Textuais/apendiceF}
 \input{Pos-Textuais/apendiceG}
 \input{Pos-Textuais/apendiceH}
-\input{Pos-Textuais/algoritmo1}
+\input{Pos-Textuais/apendice-CSD}
+%\input{Pos-Textuais/algoritmo1}
 \input{Pos-Textuais/apendiceA}
 \input{Pos-Textuais/apendiceB}
 \input{Pos-Textuais/apendiceC}

@@ -8,7 +8,7 @@
 \subsection{Integração Temporal} \label{MEFP-IntTemp}
 %==================================================================================================
 
-Como observado no equacionamento apresentado, há o surgimento de equações diferenciais com variações temporais. No entanto a determinação de uma expressão analítica que descreva o desenvolvimento dos parâmetros ao longo do tempo é de grande dificuldade, sendo necessário o desenvolvimento de métodos numéricos que representem adequadamente aos valores que a solução possui no tempo. Nesse cenário serão apresentados na presente seção alguns métodos de integração temporal baseados em diferenças finitas, sendo eles, o método por diferenças finitas adiantado (ou explícito), atrasado (ou implícito), central (ou semi-implícito), $\alpha$-generalizado e o método de Newmark.
+Como observado no equacionamento apresentado, há o surgimento de equações diferenciais com variações temporais. No entanto a determinação de uma expressão analítica que descreva o desenvolvimento das variáveis ao longo do tempo é de grande dificuldade, sendo necessário o desenvolvimento de métodos numéricos que representem adequadamente aos valores que a solução possui no tempo. Nesse cenário serão apresentados na presente seção alguns métodos de integração temporal baseados em diferenças finitas, sendo eles, o método por diferenças finitas adiantado (ou explícito), atrasado (ou implícito), central (ou semi-implícito), $\alpha$-generalizado e o método de Newmark.
 
 Para se obter a taxa de variação temporal de uma propriedade qualquer $\phi$ ($\dot{\phi}=\partial\phi/\partial t$) a partir de uma abordagem de diferenças finitas adiantadas faz-se inicialmente uma expansão em séries de Taylor da mesma:
 
@@ -138,7 +138,7 @@ Além disso, é possível somar à Equação \ref{eq:Taylor-alpha-gen} a Equaç�
     \phi_{n+\alpha}=(1-\alpha)\phi_n+\alpha\phi_{n+1}\text{,}
 \end{equation}
 
-\noindent a qual representa uma aproximação de primeira ordem de um parâmetro $\phi_{n+\alpha}$. Em caso de uma aproximação de segunda ordem pode-se partir do truncamento a esse nível nas equações \ref{eq:TaylorAd} e \ref{eq:Taylor-alpha-gen} e seguir o procedimento análogo ao apresentado anteriormente, obtendo-se a seguinte aproximação:
+\noindent a qual representa uma aproximação de primeira ordem de uma variável $\phi_{n+\alpha}$. Em caso de uma aproximação de segunda ordem pode-se partir do truncamento a esse nível nas equações \ref{eq:TaylorAd} e \ref{eq:Taylor-alpha-gen} e seguir o procedimento análogo ao apresentado anteriormente, obtendo-se a seguinte aproximação:
 
 \begin{equation}
     \phi_{n+\alpha}=(1-\alpha^2)\phi_n+\alpha^2\phi_{n+1}+\alpha(1-\alpha)\dot{\phi}_n\Delta t\text{.}

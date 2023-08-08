@@ -2,7 +2,7 @@
 \chapter{Equações Governantes da Dinâmica dos Sólidos} \label{EGDS}
 %==================================================================================================
 
-O estudo dos elementos sólidos baseia-se na determinação de parâmetros referentes à elementos estruturais, tais como esforços internos e deslocamentos, ou tensões e deformações. Em alguns casos particulares isso pode ser obtido através da simples consideração das relações de equilíbrio, de compatibilidade e constitutivas. Entretanto, em vários outros casos, pode ser necessário o uso de algumas técnicas, como o uso dos princípios variacionais, que serão devidamente descritos na presente seção.
+O estudo dos elementos sólidos baseia-se na determinação de variáveis referentes à elementos estruturais, tais como esforços internos e deslocamentos, ou tensões e deformações. Em alguns casos particulares isso pode ser obtido através da simples consideração das relações de equilíbrio, de compatibilidade e constitutivas. Entretanto, em vários outros casos, pode ser necessário o uso de algumas técnicas, como o uso dos princípios variacionais, que serão devidamente descritos na presente seção.
 
 Para se utilizar desses princípios, deve-se primeiramente definir o conceito de energia total ($\Pi$) de um sistema, que pode ser entendido como a soma de todas as parcelas relevantes ao problema. Em casos mais comuns de problemas envolvendo elementos sólidos, tem-se a consideração de uma parcela de energia devida às forças externas atuantes no corpo ($\mathbb{P}$), energia de deformação ($\mathbb{U}$) e energia cinética ($\mathbb{K}$). Dessa forma:
 
@@ -40,260 +40,7 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     \mathbb{E}=\frac{1}{2}\frac{dy^2-dx^2}{dx^2}\text{.}
 \end{equation}
 
-\noindent A seção seguinte tratará de forma mais detalhada o comportamento para casos multiaxiais.
-
-\begin{comment}
-Na sequência serão apresentadas algumas medidas de deformação uniaxiais para fins de exemplificação, sendo as medidas de deformação multiaxiais apresentadas posteriormente na seção \ref{CCD}.
-
-A primeira medida de deformação que pode ser observada é a denominada medida de deformação linear (ou de engenharia), que se trata de uma medida Lagrangiana, pois toma como referência a configuração inicial (ou indeformada) do elemento, e é definida como:
-
-\begin{equation}
-    \varepsilon=\frac{dy-dx}{dx}\text{,}
-\end{equation}
-
-\noindent em que $dx$ e $dy$ são os comprimentos de um trecho infinitesimal de uma barra em sua configuração inicial e atual, respectivamente (Figura \ref{fig:Barra}).
-
-\begin{figure}[h!]
-    \centering
-    \caption{Desenho esquemático de uma barra submetida a tração.}
-    \includegraphics[width=0.45\linewidth]{Figuras/Barra.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:Barra}
-\end{figure}
-
-Outra medida de deformação Lagrangiana interessante é a medida de deformação quadrática (ou de Green-Lagrange), definida como:
-
-\begin{equation}
-    \mathbb{E}=\frac{1}{2}\frac{dy^2-dx^2}{dx^2}\text{.}
-\end{equation}
-
-Vale ressaltar que, em comparação com a medida de deformação linear, a deformação quadrática pode ser utilizada para problemas com uma deformação maior, descrevendo uma variedade maior de problemas.
-
-Já outras medidas de deformação Eulerianas (que tomam como referência a configuração atual do elemento) tem-se a medida de deformação de Almansi:
-
-\begin{equation}
-    \mathbb{A}=\frac{1}{2}\frac{dy^2-dx^2}{dy^2}\text{,}
-\end{equation}
-
-\noindent e a medida de deformação de Hencky:
-
-\begin{equation}
-    \mathbb{H}=-\ln{\left(\frac{dx}{dy}\right)}\text{.}
-\end{equation}
-
-Assim, pode-se definir alguns modelos constitutivos que relacionarão a medida de tensão com a de deformação, ou de forma mais prática, a medida de energia específica de deformação ($u_e$) com alguma dessas duas medidas, sendo $u_e$ a energia de deformação por unidade de volume, matematicamente interpretado como a área sob a curva de tensão $\times$ deformação (Figura \ref{fig:ue}), ou seja:
-
-\begin{equation}
-    u_e=\int_0^\varepsilon{\sigma d\varepsilon}\text{.}
-\end{equation}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Esquema de diagrama de tensão $\times$ deformação.}
-    \includegraphics[width=.45\linewidth]{Figuras/ue.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:ue}
-\end{figure}
-
-Assim, destacam-se os modelos constitutivos de Hooke (Equação \ref{eq:Hooke}), de Saint-Venant-Kirchhoff (Equação \ref{eq:SVK}) e de Almasi (Equação \ref{eq:Almansi}):
-
-\begin{subequations}
-    \begin{equation}
-        u_e^H=\frac{E\varepsilon^2}{2}\text{,}\label{eq:Hooke}
-    \end{equation}
-    \begin{equation}
-        u_e^{SVK}=\frac{K\mathbb{E}^2}{2}\text{,}\label{eq:SVK}
-    \end{equation}
-    \begin{equation}
-        u_e^{Al}=\frac{Z\mathbb{A}^2}{2}\text{,}\label{eq:Almansi}
-    \end{equation}
-\end{subequations}
-
-\noindent em que $E$, $K$ e $Z$ representam o módulo de elasticidade longitudinal do material em seus respectivos modelos constitutivos.
-
-Uma propriedade notável aponta a tensão como a conjugada energética da deformação, que, matematicamente, significa que a primeira derivada da energia específica de deformação em relação à medida de deformação é igual à tensão, ou seja:
-
-\begin{equation}
-    \der{u_e}{\varepsilon}=\sigma=E\varepsilon\text{.}
-\end{equation}
-\end{comment}
-
-%==================================================================================================
-\section{Cinemática dos Corpos Deformáveis} \label{CCD}
-%==================================================================================================
-
-Inicialmente considere um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ para denotar as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear $\BB{y}$ em função de $\BB{x}$ existe uma função $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$, denominada como função de mudança de configuração.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Configurações inicial e atual de um corpo deformável.}
-    \includegraphics[width=.4\linewidth]{Figuras/Cont.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:Cont}
-\end{figure}
-
-Para um ponto $\BB{x}$ na vizinhança de $\BB{x}_0$, pode-se dizer que:
-
-\begin{equation}
-    \BB{y}(\BB{x})=\BB{f}(\BB{x}_0)+\left.\der{\BB{f}}{\BB{x}}\right|_{\BB{x}_0}\cdot d\BB{x}\text{,}
-\end{equation}
-
-\noindent em que $\BB{A}=\partial\BB{f}/\partial\BB{x}$ é o gradiente de mudança de configuração. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
-
-\begin{equation}
-    d\BB{y}=\BB{A}\cdot d\BB{x}\text{,}\label{eq:dyAdx}
-\end{equation}
-
-\noindent o que permite escrever o quadrado da norma de $d\BB{y}$ como:
-
-\[
-    \norm{d\BB{y}}^2=dy^2=d\BB{y}^T\cdot d\BB{y}=(\BB{A}\cdot d\BB{x})^T\cdot(\BB{A}\cdot d\BB{x})=d\BB{x}^T\cdot\BB{A}^T\cdot\BB{A}\cdot d\BB{x}
-\]
-
-Subtraindo-se $dx^2=\norm{d\BB{x}}^2$ de ambos os lados da igualdade obtém-se:
-
-\begin{equation}
-    dy^2-dx^2=d\BB{x}^T\cdot(\BB{A}^T\cdot\BB{A}-\BB{I})\cdot d\BB{x}\text{,}
-    \label{eq:difdxdy}
-\end{equation}
-
-\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\BB{A}^T\cdot\BB{A}$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \ref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
-
-\[
-    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}^T\cdot(\BB{C}-\BB{I})\cdot d\BB{x}}{dx^2}\text{.}
-\]
-
-\noindent Tomando um versor na direção de $d\BB{x}$ ($\BB{u}=d\BB{x}/\norm{d\BB{x}}$), tem-se que:
-
-\begin{equation}
-    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\BB{u}^T\cdot\left(\frac{1}{2}(\BB{C}-\BB{I})\right)\cdot\BB{u}\text{.}
-\end{equation}
-
-Assim, define-se o tensor de deformações de Green-Lagrange como:
-
-\begin{equation}
-    \mathbb{E}=\frac{1}{2}(\BB{C}-\BB{I})\text{,}
-    \label{eq:CSD-DefGreenLagr}
-\end{equation}
-
-\noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em situação de movimento de corpo rígido.
-
-Outra medida de deformação interessante é a medida de deformação volumétrica ($\varepsilon_V$). Para isso considere o elemento infinitesimal em suas configurações inicial e atual ilustrado na Figura \ref{fig:MudVol}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Mudança de volume de um elemento infinitesimal.}
-    \includegraphics[width=0.5\linewidth]{Figuras/MudVol.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:MudVol}
-\end{figure}
-
-Logo o valor de $\varepsilon_V$ pode ser obtido através da relação entre o volume inicial e atual desse elemento como:
-
-\begin{equation}
-    \varepsilon_V=\frac{dV-dV_0}{dV_0}\text{.}
-\end{equation}
-
-O volume do elemento em ambas as configurações pode ser obtido por meio do produto misto dos vetores que formam o mesmo, ou seja:
-
-\begin{subequations}
-    \begin{equation}
-        dV_0=d\BB{x}_1\cdot(d \BB{x}_2\times d\BB{x}_3)\text{,}
-    \end{equation}
-    \begin{equation}
-        dV=d\BB{y}_1\cdot(d \BB{y}_2\times d\BB{y}_3)\text{,}
-    \end{equation}
-\end{subequations}
-
-Conhecendo a transformação expressa em \ref{eq:dyAdx} e fazendo as devidas simplificações pode-se obter que:
-
-\begin{equation}
-    dV=\det{(\BB{A})}dV_0=JdV_0\text{,}\label{eq:RelVol}
-\end{equation}
-
-\noindent em que $J=\det{(\BB{A})}$ é o Jacobiano da mudança de configuração.
-
-Na sequência procura-se obter uma expressão que indique a mudança de área nas diferentes configurações. Assim, considere um cilindro infinitesimal ilustrado na figura \ref{fig:Nanson}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Mudança de configuração em um cilindro infinitesimal.}
-    \includegraphics[width=.45\linewidth]{Figuras/Nanson.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:Nanson}
-\end{figure}
-
-Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \ref{eq:dyAdx} e \ref{eq:RelVol}, pode-se obter que:
-
-\begin{equation}
-    \BB{n}dA=J\BB{A}^{-T}\cdot\BB{N}dA_0\text{,}\label{eq:Nanson}
-\end{equation}
-
-\noindent que é conhecida como a Equação de Nanson.
-
-Com esse embasamento é possível apresentar os conceitos de energia nas descrições Euleriana e Lagrangiana Total. Assim, para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considere um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as forças atuantes na direção $\bhat{e}_1$.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Forças atuantes em um elemento infinitesimal na direção $\bhat{e}_1$.}
-    \includegraphics[width=.5\linewidth]{Figuras/CorpoLivreSolido.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:CorpoLivreSolido}
-\end{figure}
-
-Fazendo o equilíbrio das forças nessa direção e realizando as devidas simplificações tem-se:
-
-\[\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}\]
-
-\noindent que, expandindo analogamente para as demais direções, pode escrever nas notações simbólica (Equação \ref{eq:EqLocEu1}) e indicial (Equação \ref{eq:EqLocEu2}) como:
-
-\begin{subequations}
-    \begin{equation}
-        \NN\cdot\tens^T+\BB{c}=\rho\ddot{\BB{y}}\text{,}\label{eq:EqLocEu1}
-    \end{equation}
-    \begin{equation}
-        \sigma_{ij,i}+c_j=\rho\ddot{y}_j\text{,}\label{eq:EqLocEu2}
-    \end{equation}
-    \label{eq:EqLocEu}
-\end{subequations}
-
-\noindent as quais representam as equações do equilíbrio local na descrição Euleriana.
-
-Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
-
-\begin{equation}
-    \int_\Gamma{\tens^T\cdot\BB{n}d\Gamma}+\int_\Omega{\BB{c}d\Omega}=\int_\Omega{\rho\ddot{\BB{y}}d\Omega}
-    \text{,}
-    \label{eq:EqGlobEu}
-\end{equation}
-
-\noindent onde $\Gamma=\partial\Omega$ é a fronteira do domínio de análise. Essa equação representa o equilíbrio global na descrição Euleriana.
-
-Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \ref{eq:EqGlobEu} levando em consideração as Equações \ref{eq:RelVol} e \ref{eq:Nanson}:
-
-\begin{equation}
-    \int_{\Gamma_0}{J\tens^T\cdot\BB{A}^{-T}\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
-    \text{.}
-\end{equation}
-
-\noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\BB{P}=J\BB{A}^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
-
-\begin{equation}
-    \int_{\Gamma_0}{\BB{P}^T\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
-\end{equation}
-
-\noindent que representa a equação do equilíbrio global na descrição Lagrangiana Total.
-
-Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teorema da Divergência e tomando um elemento infinitesimal de volume, pode-se obter a equação do equilíbrio local na descrição Lagrangiana Total:
-
-\begin{subequations}
-    \begin{equation}
-        \NNx\cdot\BB{P}^T+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{, ou}
-    \end{equation}
-    \begin{equation}
-        P_{ij,i}+c_j^0=\rho_0\ddot{y}_j\text{.}
-    \end{equation}
-\end{subequations}
+\noindent O Apêndice \ref{Ap:CSD} trata de forma mais detalhada o comportamento para casos multiaxiais.
 
 %==================================================================================================
 \section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
@@ -342,7 +89,7 @@ Já a energia dissipada é escrita em sua forma diferencial:
 
 \noindent na qual $\lambda_m$ é uma constante de amortecimento e $q_i$ é uma força não-conservativa distribuída na superfície média.
 
-Para se realizar o cálculo dessas propriedades, será considerada uma aproximação dos parâmetros por meio de polinômios aproximadores (funções de forma), na qual será utilizado um espaço intermediário de coordenadas paramétricas ($\BB{\xi}$) no procedimento. A Figura \ref{fig:Mapeamento} apresenta esquematicamente o mapeamento das coordenadas da superfície média em seus respectivos espaços.
+Para se realizar o cálculo dessas propriedades, será considerada uma aproximação das variáveis por meio de polinômios aproximadores (funções de forma), na qual será utilizado um espaço intermediário de coordenadas paramétricas ($\BB{\xi}$) no procedimento. A Figura \ref{fig:Mapeamento} apresenta esquematicamente o mapeamento das coordenadas da superfície média em seus respectivos espaços.
 
 \begin{figure}[h!]
     \centering
@@ -433,7 +180,7 @@ Logo, precisa-se calcular a derivada de $\Pi_0$ em relação à $\BB{Y}$, $\BB{V
 
 Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
 
-Como é possível verificar, o cálculo de $\BB{r}$ é dependente não somente dos parâmetros nodais, mas também das derivadas de primeira e segunda ordem desses parâmetros. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
+Como é possível perceber, o cálculo de $\BB{r}$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de primeira e segunda ordem das posições. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
 
 A aproximação realizada pelo integrador de Newmark é dada por:
 
@@ -448,7 +195,7 @@ A aproximação realizada pelo integrador de Newmark é dada por:
 
 \noindent sendo o superíndice $n$ e $n+1$ a indicação do passo de tempo analisado ($t_n$ e $t_{n+1}$), $\Delta t$ o intervalo de tempo discretizado e $\beta$ e $\gamma$ parâmetros livres, que devem ser escolhidos de forma a garantir a convergência do método, sendo arbitrados valores de $\beta=1/4$ e $\gamma=1/2$, garantindo a estabilidade incondicional do método \cite{LINDFIELD2019239}.
 
-Isolando-se os termos incógnitos em função de parâmetros não derivados no tempo em $n+1$ e daqueles já conhecidos tem-se:
+Isolando-se os termos incógnitos em função de variáveis não derivadas no tempo em $n+1$ e daquelas já conhecidas tem-se:
 
 \begin{subequations}
     \begin{align}
@@ -503,7 +250,7 @@ Substituindo-se as derivadas temporais da aproximação de Newmark em $\BB{r}$ e
 
 \noindent também observa-se que a derivada mista de $y_k$ em relação a $g_i^a$ e $g_j^b$ possuirá valores não-nulos apenas quando for derivada de forma cruzada em relação a $V^1$ e $\Alpha$.
 
-Com isso, encontra-se um vetor de correções dos parâmetros nodais ($\Delta\BB{g}$) como a solução do sistema:
+Com isso, encontra-se um vetor de correções dos graus de liberdade ($\Delta\BB{g}$) como a solução do sistema:
 
 \begin{equation}
     H_{ij}\Delta g_j=-r_i\text{,}
@@ -518,13 +265,13 @@ Com isso, encontra-se um vetor de correções dos parâmetros nodais ($\Delta\BB
 
 \noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
 
-%==================================================================================================
-\subsection{Procedimento Computacional} \label{MEFP-Comp}
-%==================================================================================================
-
-Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
-
-O algoritmo visto no Apêndice \ref{Ap:Shell-alg} apresentado na forma de pseudocódigo exemplifica o código implementado.
+%%==================================================================================================
+%\subsection{Procedimento Computacional} \label{MEFP-Comp}
+%%==================================================================================================
+%
+%Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada %automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações %relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
+%
+%O algoritmo visto no Apêndice \ref{Ap:Shell-alg} apresentado na forma de pseudocódigo exemplifica o código implementado.
 
 %==================================================================================================
 \subsection{Exemplos de Verificação} \label{MEFP-Ex}

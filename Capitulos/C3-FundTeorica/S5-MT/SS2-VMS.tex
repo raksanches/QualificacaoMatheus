@@ -299,67 +299,67 @@ Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos
     \end{equation}
 \end{subequations}
 
-%==================================================================================================
-\subsection{Procedimento iterativo} \label{Comp-VMS}
-%==================================================================================================
-
-O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os parâmetros a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção desses parâmetros é:
-
-\begin{equation}
-    \begin{bmatrix}
-        \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}} & \der{(N_M)_i^a}{(P^b)^{n+1}} \\
-        \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}   & \der{(N_C)^a}{(P^b)^{n+1}}
-    \end{bmatrix}
-    \begin{bmatrix}
-        \Delta(\dot{U}_j^b)^{n+1} \\
-        \Delta (P^b)^{n+1}
-    \end{bmatrix}=-
-    \begin{bmatrix}
-        (N_M)_i^a \\
-        (N_C)^a
-    \end{bmatrix}\text{,}
-    \label{Eq:Newton-Raphson}
-\end{equation}
-
-\noindent em que, para uma descrição ALE:
-
-\begin{subequations}
-    \begin{equation}
-        \begin{split}
-            \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}}=&\am\intDomna{\rho N_aN_b}\dij+\am\intDomna{\rho\tsups N_{a,k}N_{b}\uub{k}}\dij+\\
-            &\agdt\intDomna{\rho N_aN_{b,k}\uub{k}}\dij+\agdt\intDomna{\mu N_{a,k}N_{b,k}}\dij+\\
-            &\agdt\intDomna{\mu N_{a,j}N_{b,i}}+\agdt\intDomna{\rho\nlsic N_{a,i}N_{b,j}}+\\
-            &\agdt\intDomna{\rho\tsups N_{a,k}N_{b,m}\uub{k}\uub{m}}\dij+\\
-            &\agdt\intDomna{\rho N_aN_b\bar{u}_{i,j}}+\agdt\intDomna{\rho\tsups N_{a,k}N_b\uub{k}\bar{u}_{i,j}}-\\
-            &\am\intDomna{\rho\tsups N_aN_b\bar{u}_{i,j}}-\\
-            &\agdt\intDomna{\rho\tsups N_aN_{b,m}\uub{m}\bar{u}_{i,j}}-\\
-            &\agdt\intDomna{\rho\tsups N_aN_b\bar{u}_{i,k}\bar{u}_{k,j}}\text{,}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        \begin{split}
-            \der{(N_M)_i^a}{(P^b)^{n+1}}=&-\intDomna{N_{a,i}N_b}+\intDomna{\tsups N_{a,j}N_{b,i}\uub{j}}-\\
-            &\intDomna{\tsups N_aN_{b,j}\bar{u}_{i,j}}\text{,}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        \begin{split}
-            \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}=&\agdt\intDomna{N_aN_{b,j}}+\am\intDomna{\tsups N_{a,j}N_b}+\\
-            &\agdt\intDomna{\tsups N_{a,j}N_{b,m}\uub{m}}+\\
-            &\agdt\intDomna{\tsups N_{a,i}N_b\bar{u}_{i,j}}\text{ e}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        \der{(N_C)^a}{(P^b)^{n+1}}=\intDomna{\frac{\tsups}{\rho}N_{a,i}N_{b,i}}\text{,}
-    \end{equation}
-\end{subequations}
-
-\noindent em que $\agdt=\alpha_f\gamma\Delta t$ e:
-
-\begin{equation}
-    \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
-\end{equation}
-
-Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
-
-Sendo assim, o pseudocódigo apresentado no algoritmo presente no Apêndice \ref{Ap:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
+%%==================================================================================================
+%\subsection{Procedimento iterativo} \label{Comp-VMS}
+%%==================================================================================================
+%
+%O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os parâmetros a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção desses parâmetros é:
+%
+%\begin{equation}
+%    \begin{bmatrix}
+%        \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}} & \der{(N_M)_i^a}{(P^b)^{n+1}} \\
+%        \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}   & \der{(N_C)^a}{(P^b)^{n+1}}
+%    \end{bmatrix}
+%    \begin{bmatrix}
+%        \Delta(\dot{U}_j^b)^{n+1} \\
+%        \Delta (P^b)^{n+1}
+%    \end{bmatrix}=-
+%    \begin{bmatrix}
+%        (N_M)_i^a \\
+%        (N_C)^a
+%    \end{bmatrix}\text{,}
+%    \label{Eq:Newton-Raphson}
+%\end{equation}
+%
+%\noindent em que, para uma descrição ALE:
+%
+%\begin{subequations}
+%    \begin{equation}
+%        \begin{split}
+%            \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}}=&\am\intDomna{\rho N_aN_b}\dij+\am\intDomna{\rho\tsups N_{a,k}N_{b}\uub{k}}\dij+\\
+%            &\agdt\intDomna{\rho N_aN_{b,k}\uub{k}}\dij+\agdt\intDomna{\mu N_{a,k}N_{b,k}}\dij+\\
+%            &\agdt\intDomna{\mu N_{a,j}N_{b,i}}+\agdt\intDomna{\rho\nlsic N_{a,i}N_{b,j}}+\\
+%            &\agdt\intDomna{\rho\tsups N_{a,k}N_{b,m}\uub{k}\uub{m}}\dij+\\
+%            &\agdt\intDomna{\rho N_aN_b\bar{u}_{i,j}}+\agdt\intDomna{\rho\tsups N_{a,k}N_b\uub{k}\bar{u}_{i,j}}-\\
+%            &\am\intDomna{\rho\tsups N_aN_b\bar{u}_{i,j}}-\\
+%            &\agdt\intDomna{\rho\tsups N_aN_{b,m}\uub{m}\bar{u}_{i,j}}-\\
+%            &\agdt\intDomna{\rho\tsups N_aN_b\bar{u}_{i,k}\bar{u}_{k,j}}\text{,}
+%        \end{split}
+%    \end{equation}
+%    \begin{equation}
+%        \begin{split}
+%            \der{(N_M)_i^a}{(P^b)^{n+1}}=&-\intDomna{N_{a,i}N_b}+\intDomna{\tsups N_{a,j}N_{b,i}\uub{j}}-\\
+%            &\intDomna{\tsups N_aN_{b,j}\bar{u}_{i,j}}\text{,}
+%        \end{split}
+%    \end{equation}
+%    \begin{equation}
+%        \begin{split}
+%            \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}=&\agdt\intDomna{N_aN_{b,j}}+\am\intDomna{\tsups N_{a,j}N_b}+\\
+%            &\agdt\intDomna{\tsups N_{a,j}N_{b,m}\uub{m}}+\\
+%            &\agdt\intDomna{\tsups N_{a,i}N_b\bar{u}_{i,j}}\text{ e}
+%        \end{split}
+%    \end{equation}
+%    \begin{equation}
+%        \der{(N_C)^a}{(P^b)^{n+1}}=\intDomna{\frac{\tsups}{\rho}N_{a,i}N_{b,i}}\text{,}
+%    \end{equation}
+%\end{subequations}
+%
+%\noindent em que $\agdt=\alpha_f\gamma\Delta t$ e:
+%
+%\begin{equation}
+%    \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
+%\end{equation}
+%
+%Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
+%
+%Sendo assim, o pseudocódigo apresentado no algoritmo presente no Apêndice \ref{Ap:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
