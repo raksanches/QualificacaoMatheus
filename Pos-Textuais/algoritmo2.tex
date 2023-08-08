@@ -7,7 +7,7 @@
     \KwResult{Vetor de velocidades, acelerações e pressões nodais}
     Atualização das velocidades para os valores iniciais\;
     \For{$t_i\gets 0$ \KwTo $t_f$}{
-        Previsão dos parâmetros:
+        Previsão dos valores nodais:
         \begin{flalign*}
              & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+1}^0\gets((\gamma-1)/\gamma)\BB{\dot{U}}_n & \\
              & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+1}^0\gets\BB{U}_n                                & \\
@@ -17,7 +17,7 @@
         {
             \ForEach{\textnormal{elemento}}{
                 \ForEach{\textnormal{ponto de Hammer}}{
-                    Interpolação dos parâmetros:
+                    Interpolação das variáveis:
                     \begin{flalign*}
                          & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+\alpha_m}^k\gets \alpha_m \BB{\dot{U}}_{n+1}^{k-1}+(1-\alpha_m)\BB{\dot{U}}_n & \\
                          & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+\alpha_f}^k      \gets \alpha_f \BB{U}_{n+1}^{k-1}+(1-\alpha_f)\BB{U}_n             & \\
@@ -39,7 +39,7 @@
                 \begin{bmatrix}
                     \NM^k \\\NC^k
                 \end{bmatrix}$\\
-            Correção dos parâmetros:
+            Correção dos valores:
             \begin{flalign*}
                  & \text{Vetor de acelerações nodais:}  &  & \BB{\dot{U}}_{n+1}^{k+1}\gets\BB{\dot{U}}_{n+1}^k+\Delta\BB{\dot{U}_{n+1}^k} & \\
                  & \text{Vetor de velocidades nodais: } &  & \BB{U}_{n+1}^{k+1}\gets\BB{U}_{n+1}^k+\gamma\Delta t\Delta\BB{U_{n+1}^k}     & \\

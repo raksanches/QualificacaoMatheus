@@ -116,11 +116,9 @@ Portanto, o problema se ser resolvido será:
 
 Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB{T}_S}$.
 
-\begin{comment}
-\citeonline{germano1991dynamic,hughes2000large} ainda fazem algumas constatações sobre o modelo de Smagorinsky, os quais destacam-se o fato de $\BB{T}_S$ não possuir um comportamento assintótico próximo às paredes, o que se esperaria de $\BB{T}$, os valores de $C_S$ na presença de cisalhamento médio causaram amortecimentos excessivos e o tensor $\BB{T}_S$ impede a energia de fluir entre diferentes escalas, podendo ser significante em alguns casos.
-
-Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, permitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
-\end{comment}
+%\citeonline{germano1991dynamic,hughes2000large} ainda fazem algumas constatações sobre o modelo de Smagorinsky, os quais destacam-se o fato de $\BB{T}_S$ não possuir um comportamento assintótico próximo às paredes, o que se esperaria de $\BB{T}$, os valores de $C_S$ na presença de cisalhamento médio causaram amortecimentos excessivos e o tensor $\BB{T}_S$ impede a energia de fluir entre diferentes escalas, podendo ser significante em alguns casos.
+%
+%Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, permitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
 
 Para a determinação da constante de Smagorinsky, define-se inicialmente a amplitude espectral da energia cinética $E(k)$, dada sobre uma superfície de esferas parametrizadas de raio $k$, dada por \cite{hughes2000large}:
 
@@ -219,7 +217,7 @@ No intuito de se obter uma solução estável, será considerado o elemento de T
     \label{eq:VetoresResiduo-LES}
 \end{subequations}
 
-Dessa forma procura-se determinar valores de $\ub$ e $\pb$ que anulem $N_M$ e $N_C$. Para esse fim utiliza-se o método de Newton-Raphson, em que os parâmetros a serem determinados são as acelerações e pressões nodais, sendo o integrador utilizado o $\alpha$-generalizado, apresentado na seção \ref{IT-VMS}. Desse modo tem-se os seguintes sub-blocos que compõem a matriz tangente:
+Dessa forma procura-se determinar valores de $\ub$ e $\pb$ que anulem $N_M$ e $N_C$. Para esse fim utiliza-se o método de Newton-Raphson, em que as variáveis a serem determinadas são as acelerações e pressões nodais, sendo o integrador utilizado o $\alpha$-generalizado, apresentado na seção \ref{IT-VMS}. Desse modo tem-se os seguintes sub-blocos que compõem a matriz tangente:
 
 \begin{subequations}
     \begin{equation}

@@ -67,7 +67,7 @@ Já os termos $\rMi{i}$ e $\rCi$ são os resíduos associados à equação de co
     \end{equation}
 \end{subequations}
 
-Outra forma de se modelar os parâmetros estabilizadores pode ser dado por \cite{bazilevs2013computational}:
+Outra forma de se modelar os termos estabilizadores pode ser dado por \cite{bazilevs2013computational}:
 
 \begin{subequations}
     \begin{equation}
@@ -239,7 +239,7 @@ Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, ta
 \subsection{Integração temporal} \label{IT-VMS}
 %==================================================================================================
 
-Como pôde-se verificar, em ambas as descrições, Euleriana e ALE, chega-se a um problema discreto no espaço, porém contínuo no tempo (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal dos parâmetros, que pode ocorrer de diferentes formas, como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, o surgimento de integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como em diferenças finitas atrasadas, e o denominado semi-explícito (ou da regra de trapézios). Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que: se observa a implicidade natural da pressão em escoamentos incompressíveis; deve-se ter um cuidado extra para garantir a estabilidade do integrador; apresentar problemas para a diagonalização de matrizes de massa; e perda de precisão na diagonalização.
+Como pôde-se verificar, em ambas as descrições, Euleriana e ALE, chega-se a um problema discreto no espaço, porém contínuo no tempo (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas, como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, o surgimento de integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como em diferenças finitas atrasadas, e o denominado semi-explícito (ou da regra de trapézios). Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que: se observa a implicidade natural da pressão em escoamentos incompressíveis; deve-se ter um cuidado extra para garantir a estabilidade do integrador; apresentar problemas para a diagonalização de matrizes de massa; e perda de precisão na diagonalização.
 
 O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo \cite{fernandes2020tecnica}.
 
@@ -303,7 +303,7 @@ Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos
 %\subsection{Procedimento iterativo} \label{Comp-VMS}
 %%==================================================================================================
 %
-%O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os parâmetros a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção desses parâmetros é:
+%O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os valores a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção dessas variáveis é:
 %
 %\begin{equation}
 %    \begin{bmatrix}

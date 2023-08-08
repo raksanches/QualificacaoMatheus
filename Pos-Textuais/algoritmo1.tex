@@ -4,7 +4,7 @@
 \begin{algorithm}[h!]
     \caption{Algoritmo utilizado para o cálculo das posições nodais.}
     \label{alg:MEF-casca}
-    \KwResult{Vetor global de parâmetros nodais}
+    \KwResult{Vetor global de graus de liberdade}
     $\BB{Y}\gets\BB{X}$\;
     \For{$t_i\gets 0$ \KwTo $t_f$}{
     Calcular $Q^n$ e $R^n$ (Eq. \ref{eq:CSD-QnRn})\;
@@ -39,7 +39,7 @@
     }
     }
     Resolver o sistema global: $\BB{H}\cdot\Delta\BB{g}=-\BB{r}$\;
-    Atualizar os parâmetros nodais: $\BB{g}\gets\BB{g}+\Delta\BB{g}$\;
+    Atualizar os valores nodais: $\BB{g}\gets\BB{g}+\Delta\BB{g}$\;
     Atualizar derivadas temporais (Eq. \ref{eq:CSD-Newmark2})\;
     Cálculo do erro via \ref{eq:CSD-erro}\;
     }

@@ -8,13 +8,13 @@ Nesse sentido \citeonline{richter2017fluid} apontam três condições auxiliares
 
 A determinação do comportamento dos diferentes meios que compõem o problema de IFE pode ser obtido de diferentes formas, sendo observados o acoplamento monolítico e o acoplamento particionado, sendo o último ainda subdividido em particionado fraco e forte.
 
-Nos casos estudados para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo dos parâmetros de interesse, o que leva à definição de uma matriz tangentes ($\BB{H}$), a qual pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
+Nos casos estudados para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas, o que leva à definição de uma matriz tangentes ($\BB{H}$), a qual pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
 
 \begin{equation}
     H_{ij}^k=\Dder{\script{G}}{\beta_i^k}{\alpha_j^k}\text{,}
 \end{equation}
 
-\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\beta_i^k$ o vetor com todos os parâmetros nodais das funções testes e $\alpha_j^k$ o vetor com todos os parâmetros nodais do problema. Assim, obtém-se a correção dos parâmetros nodais ($\Delta\BB{\alpha}^k$) por meio da solução do sistema:
+\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\beta_i^k$ o vetor com todos os graus de liberdade das funções testes e $\alpha_j^k$ o vetor com todos os graus de liberdade do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\BB{\alpha}^k$) por meio da solução do sistema:
 
 \begin{equation}
     \BB{H}^k\cdot\Delta\BB{\alpha}^k=-\BB{h}^k\text{,}
@@ -55,29 +55,29 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
 Para aprimorar os resultados, pode-se atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no pseudocódigo \ref{alg:AcoplamentoParticionado}:
 
 \begin{algorithm}[h!]
-    \caption{Cálculo dos parâmetros nodais}
+    \caption{Cálculo dos valores das variáveis incógnitas}
     \label{alg:AcoplamentoParticionado}
     Resolver o sistema: $\BB{H}_{11}^k(\BB{\alpha}_1^k,\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_1^k=-\BB{h}_1^k(\BB{\alpha}_1^k,\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
-    Atualizar parâmetros: $\BB{\alpha}_1^{k+1}\gets\BB{\alpha}_1^k+\Delta\BB{\alpha}_1^k$\;
+    Atualizar valores: $\BB{\alpha}_1^{k+1}\gets\BB{\alpha}_1^k+\Delta\BB{\alpha}_1^k$\;
     Resolver o sistema: $\BB{H}_{22}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_2^k=-\BB{h}_2^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
-    Atualizar parâmetros: $\BB{\alpha}_2^{k+1}\gets\BB{\alpha}_2^k+\Delta\BB{\alpha}_2^k$\;
+    Atualizar valores: $\BB{\alpha}_2^{k+1}\gets\BB{\alpha}_2^k+\Delta\BB{\alpha}_2^k$\;
     Resolver o sistema: $\BB{H}_{33}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_3^k=-\BB{h}_3^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)$\;
-    Atualizar parâmetros: $\BB{\alpha}_3^{k+1}\gets\BB{\alpha}_3^k+\Delta\BB{\alpha}_3^k$\;
+    Atualizar valores: $\BB{\alpha}_3^{k+1}\gets\BB{\alpha}_3^k+\Delta\BB{\alpha}_3^k$\;
 \end{algorithm}
 
 Nesse ponto o acoplamento fraco e forte se diferenciam no sentido de que o acoplamento fraco despreza as etapas de correções das variáveis, ou seja, o valor dessas variáveis em um passo de tempo é unicamente dependente dos valores do passo anterior, caracterizando, assim, como um método explícito.
 
-\citeonline{sanches2022metodos} sugere um procedimento refinado para o cálculo dos parâmetros, em que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em um iteração.
+\citeonline{sanches2022metodos} sugere um procedimento refinado para o cálculo das variáveis, em que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em um iteração.
 
 \begin{algorithm}[h!]
-    \caption{Cálculo dos parâmetros nodais em um acoplamento particionado fraco}
+    \caption{Cálculo das variáveis em um acoplamento particionado fraco}
     \label{alg:PartFraco}
     Resolver o sistema: $\BB{H}_{11}((\BB{\alpha}_1^{k_f})^{t+1},(\BB{\alpha}_2)^t,(\BB{\alpha}_3)^t)\cdot\Delta(\BB{\alpha}_1^{k_f})^{t+1}=-\BB{h}_1((\BB{\alpha}_1^{k_f})^{t+1},(\BB{\alpha}_2)^t,(\BB{\alpha}_3)^t)$\;
-    Atualizar parâmetros: $(\BB{\alpha}_1^{k_f+1})^{t+1}\gets(\BB{\alpha}_1^{k_f})^{t+1}+(\Delta\BB{\alpha}_1^{k_f})^{t+1}$\;
+    Atualizar valores: $(\BB{\alpha}_1^{k_f+1})^{t+1}\gets(\BB{\alpha}_1^{k_f})^{t+1}+(\Delta\BB{\alpha}_1^{k_f})^{t+1}$\;
     Resolver o sistema: $\BB{H}_{22}((\BB{\alpha}_1)^{t+1},(\BB{\alpha}_2^{k_s})^{t+1})\cdot\Delta(\BB{\alpha}_2^{k_s})^{t+1}=-\BB{h}_2((\BB{\alpha}_1)^{t+1},(\BB{\alpha}_2^{k_s})^t)$\;
-    Atualizar parâmetros: $(\BB{\alpha}_2^{k_s+1})^{t+1}\gets(\BB{\alpha}_2^{k_s})^{t+1}+(\Delta\BB{\alpha}_2^{k_s})^{t+1}$\;
+    Atualizar valores: $(\BB{\alpha}_2^{k_s+1})^{t+1}\gets(\BB{\alpha}_2^{k_s})^{t+1}+(\Delta\BB{\alpha}_2^{k_s})^{t+1}$\;
     Resolver o sistema: $\BB{H}_{3}((\BB{\alpha}_3^{k_m})^{t+1},(\BB{\alpha}_2)^t)\cdot\Delta(\BB{\alpha}_3^{k_s})^{t+1}=-\BB{h}_3((\BB{\alpha}_3^{k_m})^{t+1},(\BB{\alpha}_2)^t)$\;
-    Atualizar parâmetros: $(\BB{\alpha}_3^{k_m+1})^{t+1}\gets(\BB{\alpha}_3^{k_m})^{t+1}+(\Delta\BB{\alpha}_3^{k_m})^{t+1}$\;
+    Atualizar valores: $(\BB{\alpha}_3^{k_m+1})^{t+1}\gets(\BB{\alpha}_3^{k_m})^{t+1}+(\Delta\BB{\alpha}_3^{k_m})^{t+1}$\;
 \end{algorithm}
 
 Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos, uma vez que os erros inerentes à variação temporal se tornam mais proeminentes em casos com passos de tempo elevados.
