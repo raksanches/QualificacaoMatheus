@@ -243,21 +243,21 @@ Como pôde-se verificar, em ambas as descrições, Euleriana e ALE, chega-se a u
 
 O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo \cite{fernandes2020tecnica}.
 
-Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo de tempo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dot{\BB{U}}^{n+\alpha_m}$ e $\BB{U}^{n+\alpha_f}$:
+Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo de tempo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dot{U}_i^{n+\alpha_m}$ e $U_i^{n+\alpha_f}$:
 
 \begin{subequations}
     \begin{equation}
-        \dot{\BB{U}}^{n+\alpha_m}=\dot{\BB{U}}^n+\alpha_m(\dot{\BB{U}}^{n+1}-\dot{\BB{U}}^n)\text{ e}
+        \dot{U}_i^{n+\alpha_m}=\dot{U}_i^n+\alpha_m(\dot{U}_i^{n+1}-\dot{U}_i^n)\text{ e}
     \end{equation}
     \begin{equation}
-        \BB{U}^{n+\alpha_f}=\BB{U}^n+\alpha_f(\BB{U}^{n+1}-\BB{U}^n)\text{.}
+        U_i^{n+\alpha_f}=U_i^n+\alpha_f(U_i^{n+1}-U_i^n)\text{.}
     \end{equation}
 \end{subequations}
 
 Já para se relacionar a velocidade à aceleração, pode-se proceder com a aproximação de Newmark \cite{bazilevs2013computational}:
 
 \begin{equation}
-    \BB{U}^{n+1}=\BB{U}^n+\Delta t_n\bigpar{(1-\gamma)\dot{\BB{U}}^n+\gamma\dot{\BB{U}}^{n+1}}\text{,}
+    U_i^{n+1}=U_i^n+\Delta t_n\bigpar{(1-\gamma)\dot{U}_i^n+\gamma\dot{U}_i^{n+1}}\text{,}
 \end{equation}
 
 \noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente observando as necessidades de estabilidade e precisão do método.
