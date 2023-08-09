@@ -2,9 +2,17 @@
 \chapter{Formulação numérica para mecânica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam em (ver anexo \ref{Ap:CFD}):
+Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa (Eq. \ref{eq:CFD-NS1}) e da conservação da quantidade de movimento (Eq. \ref{eq:CFD-NS2}), que na descrição ALE resultam em (ver anexo \ref{Ap:CFD}):
 
-\textcolor{red}{colocar equações}.
+\begin{subequations}
+    \begin{align}
+         & \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS1} \\
+         & u_{i,i}=0                                                         &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS2} %\\
+        % & \sigma_{ij}n_i=h_j                                                &  & \text{ em }\Gamma_N\text{,} \label{eq:CFD-NS3} \\
+        % & u_j=g_j                                                           &  & \text{ em }\Gamma_D\text{,} \label{eq:CFD-NS4}
+    \end{align}
+    \label{eq:CFD-NS}
+\end{subequations}
 
 Neste capítulo apresenta-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{VMS}. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{RANS} e LES \ref{LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
 
@@ -12,7 +20,7 @@ Neste capítulo apresenta-se a formulação numérica para solução do problema
 \section{Formulação Semi-Discreta} \label{FSD}
 %==================================================================================================
 
-Para a obtenção de uma forma forma fraca das equações \eqref{} e \eqref{}, emprega-se o método de resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
+Para a obtenção de uma forma forma fraca das equações \eqref{eq:CFD-NS}, emprega-se o método de resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
 
 \begin{equation}
     \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),u_i=g_i\text{ em }\Gamma_D\right\}\text{ e}
@@ -42,7 +50,7 @@ Sejam ainda os espaços das funções testes para a conservação de massa e con
     \script{V}_p=\script{S}_p\text{.}
 \end{equation}
 
-Dessa forma, ponderando-se as equações \eqref{} e \eqref{} \textcolor{red}{Citar} respectivamente por $\BB{w}$ e $q$, tal que $q \in  \script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
+Dessa forma, ponderando-se as equações \eqref{eq:CFD-NS1} e \eqref{eq:CFD-NS2} respectivamente por $\BB{w}$ e $q$, tal que $q \in  \script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
     \intDom{w_i\bigpar{\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}}}+\intDom{qu_{i,i}}=0\text{.}
