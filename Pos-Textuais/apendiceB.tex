@@ -11,7 +11,7 @@ Outro problema comum considera um cilindro sujeito a duas cargas concentradas di
     \label{fig:cylinder-shell}
 \end{figure}
 
-Pelo fato do problema apresentar simetria, foi estudado somente um octante do problema. Assim utilizou-se uma malha não-estruturada, com refinamento maior próximo ao ponto de aplicação da força, contendo 839 elementos triangulares de aproximação quadrática, contando com um total de 12180 graus de liberdade. A malha utilizada é observada na Figura \ref{fig:cylinder-shell-mesh}. As faces laterais devido ao processo de geração da aresta circular possuem $E=\nu=0$. Na simulação adotou-se uma única iteração de newton-Raphson.
+Pelo fato do problema apresentar simetria, foi estudado somente um octante do problema. Assim utilizou-se uma malha não-estruturada, com refinamento maior próximo ao ponto de aplicação da força, contendo 810 elementos triangulares de aproximação quadrática, contando com um total de 11977 graus de liberdade. A malha utilizada é observada na Figura \ref{fig:cylinder-shell-mesh}. Na simulação adotou-se uma única iteração de Newton-Raphson.
 
 \begin{figure}[h!]
     \centering
@@ -21,7 +21,7 @@ Pelo fato do problema apresentar simetria, foi estudado somente um octante do pr
     \label{fig:cylinder-shell-mesh}
 \end{figure}
 
-O resultado obtido foi de um deslocamento radial de $1,8207\times10^{-5}$, tendo, portanto, um desvio relativo de $0,2247\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}, os quais são muito próximos aos obtidos por \citeonline{ZHOU2022108568}.
+O resultado obtido foi de um deslocamento radial de $1,8135\times10^{-5}$, tendo, portanto, um desvio relativo de $0,6176\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}, os quais são muito próximos aos obtidos por \citeonline{ZHOU2022108568}.
 
 \begin{figure}[h!]
     \centering
@@ -42,7 +42,7 @@ O resultado obtido foi de um deslocamento radial de $1,8207\times10^{-5}$, tendo
     \label{fig:cylinder-shell-disp}
 \end{figure}
 
-Também se comparou o resultado obtido com relação à uma simulação feita no \textit{software} ANSYS, a qual resultou em um deslocamento de $1,8190\times10^{-5}$. Logo o desvio do resultado calculado com o apresentado pelo ANSYS foi de $0,0934\%$. Além disso, verificou-se o deslocamento radial ao longo das arestas compreendidas pela interseção do cilindro com o plano $x_1=0$ e com $x_2=L/2$. A Figura \ref{fig:cylinder-shell-deslradial} ilustra graficamente os resultados obtidos.
+Também se comparou o resultado obtido com relação à uma simulação feita no \textit{software} ANSYS, a qual resultou em um deslocamento de $1,8190\times10^{-5}$. Logo o desvio do resultado calculado com o apresentado pelo ANSYS foi de $0,3007\%$. Além disso, verificou-se o deslocamento radial ao longo das arestas compreendidas pela interseção do cilindro com o plano $x_1=0$ e com $x_2=L/2$. A Figura \ref{fig:cylinder-shell-deslradial} ilustra graficamente os resultados obtidos.
 
 \begin{figure}[h!]
     \centering

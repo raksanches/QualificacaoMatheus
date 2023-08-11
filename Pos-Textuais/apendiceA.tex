@@ -11,7 +11,7 @@ O primeiro exemplo simulado trata-se de um problema comumente encontrado para pr
     \label{fig:scordelis}
 \end{figure}
 
-Para a simulação do problema aproveitou-se da simetria da cobertura, o que possibilitou a modelagem de apenas um quarto do problema. Assim utilizou-se uma malha estruturada com orientação à esquerda contendo 552 elementos triangulares de aproximação quadrática, resultando em 7987 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. As faces laterais observadas na malha foram criadas por conta da forma de construção da aresta circular da cobertura, sendo atribuídos $E=\nu=0$ para os elementos dessas faces. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
+Para a simulação do problema aproveitou-se da simetria da cobertura, o que possibilitou a modelagem de apenas um quarto do problema. Assim utilizou-se uma malha estruturada com orientação à esquerda contendo 512 elementos triangulares de aproximação quadrática, resultando em 7623 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
 
 \begin{figure}[h!]
     \centering
@@ -28,7 +28,7 @@ Para a simulação do problema aproveitou-se da simetria da cobertura, o que pos
     \label{fig:scordelis-mesh}
 \end{figure}
 
-Dessa forma, chegou-se a um deslocamento de 0,3008 nos cálculos realizados, representando um desvio de 0,5291\% em relação à referência. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
+Dessa forma, chegou-se a um deslocamento de 0,2997 nos cálculos realizados, representando um desvio de 0,8965\% em relação à referência. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
 
 \begin{figure}[h!]
     \centering
@@ -51,7 +51,7 @@ Dessa forma, chegou-se a um deslocamento de 0,3008 nos cálculos realizados, rep
 
 Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}, sendo satisfatoriamente verificada a análise realizada.
 
-Também realizou-se uma análise quanto à convergência da malha, onde dividiu-se as arestas do problema em $N$ partes. A Tabela \ref{tab:scordelis-sol} apresenta os resultados obtidos, sendo os valores do deslocamento em função do refinamento da malha ilustrados na Figura \ref{fig:shell-static-sol}.
+Também realizou-se uma análise quanto à convergência da malha, onde dividiu-se as arestas do problema em $N$ partes. A Tabela \ref{tab:scordelis-sol} apresenta os resultados obtidos, sendo os valores do desvio relativo em função do refinamento da malha ilustrados na Figura \ref{fig:shell-static-sol}.
 
 \begin{table}[h!]
     \centering
@@ -59,18 +59,18 @@ Também realizou-se uma análise quanto à convergência da malha, onde dividiu-
     \begin{tabular}{ccccc}
         \hline
         $N$ & Número de elementos & Graus de liberdade & Calculado & Desvio relativo \\\hline
-        5   & 64                  & 1001               & 0,2115    & -30,060\%       \\
-        6   & 88                  & 1351               & 0,2361    & -21,925\%       \\
-        7   & 11                  & 1757               & 0,2638    & -12,765\%       \\
-        8   & 148                 & 2219               & 0,2726    & -9,854\%        \\
-        9   & 184                 & 2737               & 0,2824    & -6,614\%        \\
-        10  & 224                 & 3311               & 0,2863    & -5,324\%        \\
-        11  & 268                 & 3941               & 0,2893    & -4,332\%        \\
-        12  & 316                 & 4627               & 0,2925    & -3,274\%        \\
-        13  & 368                 & 5369               & 0,2954    & -2,325\%        \\
-        14  & 424                 & 6167               & 0,2970    & -1,786\%        \\
-        15  & 484                 & 7021               & 0,2978    & -1,521\%        \\
-        16  & 552                 & 7987               & 0,3008    & -0,529\%        \\\hline
+        5   & 50                  & 847                & 0,225806  & 25,3287\%       \\
+        6   & 72                  & 1183               & 0,256328  & 15,2354\%       \\
+        7   & 98                  & 1575               & 0,273597  & 9,5248\%        \\
+        8   & 128                 & 2023               & 0,283481  & 6,2563\%        \\
+        9   & 162                 & 2527               & 0,289343  & 4,3178\%        \\
+        10  & 200                 & 3087               & 0,292967  & 3,1194\%        \\
+        11  & 242                 & 3703               & 0,2953    & 2,3479\%        \\
+        12  & 288                 & 4375               & 0,296859  & 1,8323\%        \\
+        13  & 338                 & 5103               & 0,297937  & 1,4759\%        \\
+        14  & 392                 & 5887               & 0,298705  & 1,2219\%        \\
+        15  & 450                 & 6727               & 0,299267  & 1,0360\%        \\
+        16  & 512                 & 7623               & 0,299689  & 0,8965\%        \\\hline
     \end{tabular}
     \\Fonte:Autoria Própria (\the\year).
     \label{tab:scordelis-sol}
@@ -78,13 +78,13 @@ Também realizou-se uma análise quanto à convergência da malha, onde dividiu-
 
 \begin{figure}[h!]
     \centering
-    \caption{Deslocamento vertical do ponto $A$ para diferentes malhas.}
+    \caption{Desvio relativo do deslocamento vertical do ponto $A$ para diferentes malhas.}
     \includegraphics[width=0.75\linewidth]{Figuras/scordelis/static-sol.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:shell-static-sol}
 \end{figure}
 
-Igualmente analisou-se o resultado com aquele obtido pelo \textit{software} ANSYS, o qual retornou um deslocamento de 0,3020. Assim o desvio relativo do resultado calculado com o do ANSYS é de 0,3973\%. Além disso, observou-se os deslocamentos verticais ao longo da aresta livre da cobertura, os quais são apresentados na Figura \ref{fig:scordelis-graph}.
+Igualmente analisou-se o resultado com aquele obtido pelo \textit{software} ANSYS, o qual retornou um deslocamento de 0,3020. Assim o desvio relativo do resultado calculado com o do ANSYS é de 0,7616\%. Além disso, observou-se os deslocamentos verticais ao longo da aresta livre da cobertura, os quais são apresentados na Figura \ref{fig:scordelis-graph}.
 
 \begin{figure}[h!]
     \centering
