@@ -2,25 +2,26 @@
 \chapter{Formulação numérica para mecânica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa (Eq. \ref{eq:CFD-NS1}) e da conservação da quantidade de movimento (Eq. \ref{eq:CFD-NS2}), que na descrição ALE resultam em (ver anexo \ref{Ap:CFD}):
+Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
 
 \begin{subequations}
     \begin{align}
-         & \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS1} \\
-         & u_{i,i}=0                                                         &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS2} %\\
+         
+         & u_{i,i}=0                                                         &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS2} \\
+         & \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS1} %\\
         % & \sigma_{ij}n_i=h_j                                                &  & \text{ em }\Gamma_N\text{,} \label{eq:CFD-NS3} \\
         % & u_j=g_j                                                           &  & \text{ em }\Gamma_D\text{,} \label{eq:CFD-NS4}
     \end{align}
     \label{eq:CFD-NS}
 \end{subequations}
 
-Neste capítulo apresenta-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{VMS}. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{RANS} e LES \ref{LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
+Neste capítulo apresenta-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{VMS} em descrição ALE. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{RANS} e LES \ref{LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
 
 %==================================================================================================
 \section{Formulação Semi-Discreta} \label{FSD}
 %==================================================================================================
 
-Para a obtenção de uma forma forma fraca das equações \eqref{eq:CFD-NS}, emprega-se o método de resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
+Para a obtenção da forma fraca das equações \eqref{eq:CFD-NS}, parte-se do método dos resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
 
 \begin{equation}
     \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),u_i=g_i\text{ em }\Gamma_D\right\}\text{ e}
@@ -30,7 +31,7 @@ Para a obtenção de uma forma forma fraca das equações \eqref{eq:CFD-NS}, emp
     \script{S}_p=\left\{p|p(\cdot)\in L^2(\Omega),\int_\Omega{pd\Omega}=0\text{ se }\Gamma=\Gamma_D\right\}\text{,}
 \end{equation}
 
-\noindent em que $H^1(\Omega)$ representa o espaço de valor vetorial com derivadas de quadrado integrável em $\Omega$ e $L^2(\Omega)$ representa o espaço de valor escalar de quadrado integrável em $\Omega$, ou seja:
+\noindent em que $H^1(\Omega)$ representa o espaço de funções polinomiais com derivadas de quadrado integrável em $\Omega$ e $L^2(\Omega)$ representa o espaço de funçÕes polinomiais de quadrado integrável em $\Omega$, ou seja:
 
 \begin{equation}
     H^1(\Omega)=\left\{u\in L^2(\Omega);\der{u}{x_i}\in L^2(\Omega)\text{, com }i=1,\cdots,n_{sd}\right\}\text{ e}
@@ -40,16 +41,18 @@ Para a obtenção de uma forma forma fraca das equações \eqref{eq:CFD-NS}, emp
     L^2(\Omega)=\left\{u|\int_\Omega{|u|^2d\Omega}<\infty\right\}\text{.}
 \end{equation}
 
-Sejam ainda os espaços das funções testes para a conservação de massa e conservação da quantidade de movimento $\script{V}_u$ e $\script{V}_p$, respectivamente, tais que:
+Sejam ainda os espaços das funções testes para a conservação de massa e conservação da quantidade de movimento $\script{V}_p$ e $\script{V}_u$, respectivamente, tais que:
 
 \begin{equation}
-    \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},w_i=0\text{ em }\Gamma_D\right\}\text{ e}
+    \script{V}_p=\script{S}_p\text{ e}
 \end{equation}
 
 \begin{equation}
-    \script{V}_p=\script{S}_p\text{.}
+    \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},w_i=0\text{ em }\Gamma_D\right\}\text{.}
 \end{equation}
 
+
+\AQUIIIIIII
 Dessa forma, ponderando-se as equações \eqref{eq:CFD-NS1} e \eqref{eq:CFD-NS2} respectivamente por $\BB{w}$ e $q$, tal que $q \in  \script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
