@@ -5,8 +5,7 @@
 Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
 
 \begin{subequations}
-    \begin{align}
-         
+    \begin{align}  
          & u_{i,i}=0                                                         &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS2} \\
          & \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS1} %\\
         % & \sigma_{ij}n_i=h_j                                                &  & \text{ em }\Gamma_N\text{,} \label{eq:CFD-NS3} \\
@@ -31,7 +30,7 @@ Para a obtenção da forma fraca das equações \eqref{eq:CFD-NS}, parte-se do m
     \script{S}_p=\left\{p|p(\cdot)\in L^2(\Omega),\int_\Omega{pd\Omega}=0\text{ se }\Gamma=\Gamma_D\right\}\text{,}
 \end{equation}
 
-\noindent em que $H^1(\Omega)$ representa o espaço de funções polinomiais com derivadas de quadrado integrável em $\Omega$ e $L^2(\Omega)$ representa o espaço de funçÕes polinomiais de quadrado integrável em $\Omega$, ou seja:
+\noindent em que $H^1(\Omega)$ representa o espaço de funções polinomiais com derivadas de quadrado integrável em $\Omega$ e $L^2(\Omega)$ representa o espaço de funções polinomiais de quadrado integrável em $\Omega$, ou seja:
 
 \begin{equation}
     H^1(\Omega)=\left\{u\in L^2(\Omega);\der{u}{x_i}\in L^2(\Omega)\text{, com }i=1,\cdots,n_{sd}\right\}\text{ e}
@@ -51,8 +50,6 @@ Sejam ainda os espaços das funções testes para a conservação de massa e con
     \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},w_i=0\text{ em }\Gamma_D\right\}\text{.}
 \end{equation}
 
-
-\AQUIIIIIII
 Dessa forma, ponderando-se as equações \eqref{eq:CFD-NS1} e \eqref{eq:CFD-NS2} respectivamente por $\BB{w}$ e $q$, tal que $q \in  \script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
@@ -77,13 +74,13 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 \end{equation}
 Assim, o problema, fica definido como: dados $f_i$, $g_i$, $h_i$ e $\hat{u}_i$, em que $h_i=\sigma_{ji}n_j$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez essa escolha possui restrições, as quais denominam-se condições de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a impossibilidade de se aproximar o campo de velocidades e de pressões no mesmo espaço, uma vez que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
 \end{equation}
 
-Assim, para se garantir a unicidade da solução, a escolha dos espaços de aproximação da velocidade e da pressão depende da seguinte condição suficiente:
+A escolha dos espaços de aproximação da velocidade e da pressão depende da seguinte condição suficiente:
 
 \begin{equation}
     \inf_{q^h\in\script{V}_p^h}{\sup_{\BB{w}^h\in\script{V}_u^h}{\frac{(q^h,\BB{\nabla}\cdot\BB{w}^h)}{\norm{q}_0\norm{\BB{w}^h}_1}}}\geq\beta>0\text{,}
@@ -91,7 +88,7 @@ Assim, para se garantir a unicidade da solução, a escolha dos espaços de apro
 
 \noindent em que $\beta$ é uma constante independente do tamanho da malha.
 
-Como pode-se observar, a escolha dos espaços de aproximações que atendam às condições LBB não é trivial. Sendo assim, \citeonline{donea2003finite} apresenta alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
+Como pode-se observar, a determinação de combinações de espaços de aproximações que atendam às condições LBB não é trivial. Sendo que elementos estáveis são identificados em diferentes trabalhos. \citeonline{donea2003finite} apresenta alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
 
 \begin{figure}[h!]
     \centering
@@ -103,7 +100,7 @@ Como pode-se observar, a escolha dos espaços de aproximações que atendam às 
 
 Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG.
 
-Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS.
+Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{} \textcolor{red}{Citar VMS}.
 
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
 \input{Capitulos/C3-FundTeorica/S5-MT/S5-MT}
