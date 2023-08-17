@@ -1,16 +1,15 @@
 %==================================================================================================
-\chapter{Equações Governantes da Dinâmica dos Sólidos} \label{EGDS}
+\chapter{Formulação numérica para dinâmica não linear dos sólidos} \label{EGDS}
 %==================================================================================================
 
-O estudo dos elementos sólidos baseia-se na determinação de variáveis referentes à elementos estruturais, tais como esforços internos e deslocamentos, ou tensões e deformações. Em alguns casos particulares isso pode ser obtido através da simples consideração das relações de equilíbrio, de compatibilidade e constitutivas. Entretanto, em vários outros casos, pode ser necessário o uso de algumas técnicas, como o uso dos princípios variacionais, que serão devidamente descritos na presente seção.
-
-Para se utilizar desses princípios, deve-se primeiramente definir o conceito de energia total ($\Pi$) de um sistema, que pode ser entendido como a soma de todas as parcelas relevantes ao problema. Em casos mais comuns de problemas envolvendo elementos sólidos, tem-se a consideração de uma parcela de energia devida às forças externas atuantes no corpo ($\mathbb{P}$), energia de deformação ($\mathbb{U}$) e energia cinética ($\mathbb{K}$). Dessa forma:
+Em se tratando de sólidos de comportamento hiperelástico, dada à natureza da lei constitutiva e à adequação da descrição Lagrangiana, é conveniente o uso de abordagens energéticas de modo a obter o equacionamento em forma fraca, seguido da aplicação da técnica de elementos finitos e de processos para solução numérica do sistema resultante. Para tal, deve-se primeiramente definir o conceito de energia total ($\Pi$) de um sistema, que pode ser entendido como a soma de todas as parcelas de energia relevantes ao problema. Nos casos mais comuns, tem-se uma parcela de energia potencial das forças externas atuantes no corpo ($\mathbb{P}$), uma parcela de energia de deformação elástica ($\mathbb{U}$) e parcela de energia cinética ($\mathbb{K}$). Dessa forma, o funcional de energia total é dado por:
 
 \begin{equation}
     \Pi=\mathbb{P}+\mathbb{U}+\mathbb{K}\text{.}
+    \label{FuncionalEnergia}
 \end{equation}
 
-Nesse sentido, busca-se encontrar uma configuração que esteja em equilíbrio estável. Dessa forma postula-se o primeiro teorema variacional, que aponta que, para se obter o equilíbrio em um sólido sujeito a forças externas conservativas, a primeira variação da energia total deve ser nula para qualquer variação admissível, ou seja:
+Busca-se encontrar a configuração de equilíbrio do sólido, e para tal, a conservação da energia deve ser respeitada. Dessa forma postula-se o primeiro teorema variacional, que aponta que, para se obter o equilíbrio em um sólido sujeito a forças externas conservativas, a primeira variação da energia total deve ser nula para qualquer variação admissível nas incógnitas do problema, ou seja:
 
 \begin{equation}
     \delta^{(1)}\Pi=0\forall\delta\BB{u}|\delta\BB{u}=\BB{0}\text{ em }\Gamma_D\text{,}
@@ -28,31 +27,14 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     \delta\Pi=\delta\mathbb{P}+\delta\mathbb{U}+\delta\mathbb{K}=0\text{,}
 \end{equation}
 
-\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que descreva a evolução da energia de deformação em função da medida de deformação, sendo um possível modelo o de Saint-Venant-Kirchhoff, dado por:
+\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que permita, juntamente com as demais equações da cinemática do modelo estrutural, descrever a evolução da energia de deformação em função das variáveis principais do problema. Um possível modelo constitutivo é o de Saint-Venant-Kirchhoff, dado por:
 
 \begin{equation}
     u_e^{SVK}=\frac{K\mathbb{E}}{2}\text{,}
 \end{equation}
+\textcolor{red}{essa só vale para o caso uniaxial de tensão e é desnecessária aqui. Escreva na forma    $u_e^{SVK}=\frac{\mathbb{E}:\mathbb{C}:\mathbb{E}}{2}=\frac{\mathbb{S}:\mathbb{E}}{2}$ onde $\mathbb{C}$ é o tensor constitutivo de quarta ordem, a ajuste com o texto abaixo}.
 
-\noindent sendo $K$ o módulo de elasticidade longitudinal do material e $\mathbb{E}$ a medida de deformação de Green-Lagrange, expressa para um caso uniaxial como:
-
-\begin{equation}
-    \mathbb{E}=\frac{1}{2}\frac{dy^2-dx^2}{dx^2}\text{.}
-\end{equation}
-
-\noindent O Apêndice \ref{Ap:CSD} trata de forma mais detalhada o comportamento para casos multiaxiais.
-
-%==================================================================================================
-\section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
-%==================================================================================================
-
-Será exposta na presente seção a formulação para elementos de Casca baseada no Método dos Elementos Finitos Posicional, a qual seguirá uma descrição Lagrangiana Total, adotando o modelo constitutivo de Saint-Venant Kirchhoff e o tensor de deformações de Green-Lagrange ($\mathbb{E}$). Para isso, será considerado inicialmente o princípio da conservação da energia, onde as parcelas envolvidas serão aquelas devidas às forças externas ($\mathbb{P}$), de deformação ($\mathbb{U}$), cinética ($\mathbb{K}$) e a dissipação da energia total ($\mathbb{Q}$):
-
-\begin{equation}
-    \Pi_0=\mathbb{U}+\mathbb{P}+\mathbb{K}+\mathbb{Q}\text{,}
-\end{equation}
-
-\noindent sendo:
+Assim, as parcelas de energia ficam dadas por:
 
 \begin{subequations}
     \begin{align}
@@ -62,7 +44,7 @@ Será exposta na presente seção a formulação para elementos de Casca baseada
     \end{align}
 \end{subequations}
 
-\noindent em que $\Omega_0$ é o domínio de análise em sua configuração inicial, cuja fronteira é $\Gamma_0=\partial\Omega_0$, $F_i^a$ é uma força concentrada aplicada sobre um ponto $a$ na direção $i$, cuja posição atual é $Y_i^a$, $t_i$ é uma força distribuída sobre uma superfície média da casca ($y_i$), $\rho_0$ é a massa específica inicial do contínuo e  $S_{ij}$ é o tensor de Piola-Kirchhoff de segunda espécie, escrito como:
+\noindent onde $\Omega_0$ é o domínio de análise em sua configuração inicial, cuja fronteira é $\Gamma_0=\partial\Omega_0$, $F_i^a$ é uma força concentrada aplicada sobre um ponto $a$ na direção $i$, cuja posição atual é $Y_i^a$, $t_i$ é uma força distribuída sobre uma superfície média da casca ($y_i$), $\rho_0$ é a massa específica inicial do contínuo e  $S_{ij}$ é o tensor de Piola-Kirchhoff de segunda espécie, escrito como:
 
 \begin{equation}
     S_{ij}=\script{C}_{ijkl}\mathbb{E}_{kl}\text{,}
@@ -81,13 +63,18 @@ Será exposta na presente seção a formulação para elementos de Casca baseada
     G=\frac{E}{2(1+\nu)}\text{.}
 \end{equation}
 
-Já a energia dissipada é escrita em sua forma diferencial:
+%\noindent O Apêndice \ref{Ap:CSD} trata de forma mais detalhada o comportamento para casos multiaxiais.
 
-\begin{equation}
-    \der{\mathbb{Q}}{y_i}=\intDomi{\lambda_m\rho_0\dot{y}_i}-\intFronti{q_i}\text{,}
-\end{equation}
+%==================================================================================================
+\section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
+%==================================================================================================
 
-\noindent na qual $\lambda_m$ é uma constante de amortecimento e $q_i$ é uma força não-conservativa distribuída na superfície média.
+\textcolor{red}{Deixe a parcela dissipativa de fora...}
+
+\subsection{Cinemática de Reissner-Mindlin}
+
+\textcolor{red}{Aqui você precisa escrever de forma melhor detalhada, deixar um conjunto de 9 equações sem texto não é viável. Tente reorganizar seguindo a lógica do meu texto de livre docência (página 62). Lá está bem compacto. Se você não tiver o texto, é só me pedir...}
+
 
 Para se realizar o cálculo dessas propriedades, será considerada uma aproximação das variáveis por meio de polinômios aproximadores (funções de forma), na qual será utilizado um espaço intermediário de coordenadas paramétricas ($\BB{\xi}$) no procedimento. A Figura \ref{fig:Mapeamento} apresenta esquematicamente o mapeamento das coordenadas da superfície média em seus respectivos espaços.
 
