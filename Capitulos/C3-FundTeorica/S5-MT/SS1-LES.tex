@@ -2,13 +2,13 @@
 \subsection{\textit{Large Eddy Simulation}} \label{LES}
 %==================================================================================================
 
-A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, que irá reescrever as equações de Navier-Stokes em termos de parcelas filtradas (ou de grandes escalas), denotadas para uma propriedade qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large,moeng2015large}. Para isso, considera-se uma filtragem dada por:
+A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, permitindo reescrever as equações de Navier-Stokes em termos de parcelas filtrada (ou de grandes escalas), denotada para uma propriedade $\phi$ qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large,moeng2015large}. Para isso, considera-se uma filtragem dada por:
 
 \begin{equation}
     \bar{\phi}=\int_{\Dfil}{g(\BB{y},\yfil)\phi(\yfil,t)d\yfil}\text{,}
 \end{equation}
 
-\noindent em que $\Dfil$ é um subconjunto de $\Omega$ que determina a abrangência do filtro, $\yfil$ é um ponto na vizinhança de $\BB{y}$ e $g$ é o filtro, que deve possuir a propriedade de homogeneidade, $g(\BB{y},\yfil)=g(\BB{y}-\yfil)$.
+\noindent em que $\Dfil$ é um subdomínio de $\Omega$ que determina a abrangência do filtro, $\yfil$ é um ponto na vizinhança de $\BB{y}$ e $g$ é o filtro, que deve possuir a propriedade de homogeneidade, $g(\BB{y},\yfil)=g(\BB{y}-\yfil)$.
 
 \citeonline{hughes2000large} apresentam ainda uma possibilidade de abrangência de filtro dada por:
 
@@ -26,7 +26,7 @@ A simulação de grandes vórtices se baseia na observação de que vórtices fo
     \label{fig:Filtro}
 \end{figure}
 
-Dessa maneira, é possível separar os efeitos das grandes escalas e das pequenas escalas, o que pode ser observado esquematicamente na Figura \ref{fig:EfeitoFiltragem}, a qual apresenta o efeito da filtragem sobre um campo de velocidades $\BB{u}$.
+Dessa maneira, é possível separar os efeitos das grandes escalas e das pequenas escalas, o que é ilustrado na Figura \ref{fig:EfeitoFiltragem} para uma distribuição de velocidade $\BB{u}$.
 
 \begin{figure}[h!]
     \centering
@@ -47,19 +47,19 @@ Assim, em uma descrição Euleriana, pode-se obter as equações de Navier-Stoke
     \right.
 \end{equation}
 
-Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Logo, sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação de movimento como:
+Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação da quantidade de movimento como:
 
 \begin{equation}
     \rho\bigpar{\dot{\bar{u}}_i+(\overline{(\bar{u}_i+u'_i)(\bar{u}_j+u'_j)})_{,j}-\bar{f}_i}-\bar{\sigma}_{ji,j}=0
 \end{equation}
 
-Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, o que serão condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
+Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais serão condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
 
 \begin{equation}
     T_{ij}=\bar{u}_i\bar{u}_j-\overline{u_iu_j}=-\bigpar{L_{ij}+C_{ij}+R_{ij}}\text{,}
 \end{equation}
 
-\noindent no qual $L_{ij}=\overline{\bar{u}_i\bar{u}_j}-\bar{u}_i\bar{u}_j$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente utilizado para análise de erros, $C_{ij}=\overline{\bar{u}_iu'_j}+\overline{u'_i\bar{u}_j}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $R_{ij}=\overline{u'_iu'_j}$ é o tensor de tensões SGS de Reynolds, que rerepsenta a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever que:
+\noindent no qual $L_{ij}=\overline{\bar{u}_i\bar{u}_j}-\bar{u}_i\bar{u}_j$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente e utilizado para análise de erros, $C_{ij}=\overline{\bar{u}_iu'_j}+\overline{u'_i\bar{u}_j}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $R_{ij}=\overline{u'_iu'_j}$ é o tensor de tensões SGS de Reynolds, que rerepsenta a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever:
 
 \begin{equation}
     \rho\bigpar{\dot{\bar{u}}_j+(\bar{u}_i\bar{u}_j)_{,i}-T_{ij,i}-\bar{f}_j}-\sigma_{ij,i}=0\text{.}
@@ -71,15 +71,15 @@ Aplicando a incompressibilidade e substituindo-se $\sigma_{ij}$ pelo modelo cons
     \rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-T_{ji,j}-\bar{f}_i}-\mu(\bar{u}_{i,j}+\bar{u}_{j,i})_{,j}+p_{,i}=0\text{,}\label{eq:ConMasLES}
 \end{equation}
 
-\noindent Assim, dividindo-se a Equação \ref{eq:ConMasLES} por $\rho$ e fazendo algumas manipulações tem-se que:
+\noindent ou, dividindo-se por $\rho$ e fazendo algumas manipulações tem-se que:
 
 \begin{equation}
     \dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}+\frac{p_{,i}}{\rho}=\nu\bar{u}_{i,jj}+T_{ji,j}+\bar{f}_i\text{,}
 \end{equation}
 
-\noindent em que $\nu$ é a viscosidade cinemática, dada por $\nu=\mu/\rho$.
+\noindent sendo $\nu$ a viscosidade cinemática, dada por $\nu=\mu/\rho$.
 
-Portanto, o problema se ser resolvido será:
+Assim, o problema fica governado por:
 
 \begin{equation}
     \left\{
@@ -90,13 +90,13 @@ Portanto, o problema se ser resolvido será:
     \right.
 \end{equation}
 
-\noindent o que revela a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
+\noindent havendo ainda a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
 
 \begin{equation}
     \dev{T_{ij}}=T_{ij}-\frac{1}{3}T_{kk}\delta_{ij}\text{,}
 \end{equation}
 
-\noindent que descreva adequadamente as interações entre diferentes escalas. Isso pode se tornar problemático uma vez que não se possui solução para as pequenas escalas. Dessa forma, considera-se um modelo capaz de fazer essa descrição, sendo observado, por exemplo, o modelo de viscosidade de vórtice de Smagorinsky, desenvolvido por \citeonline{smagorinsky1963general}. Nesse cenário faz-se que:
+\noindent que descreva adequadamente as interações entre diferentes escalas. Isso pode se tornar problemático uma vez que não se possui solução para as pequenas escalas. Uma forma de se fazer isso é através do modelo de viscosidade de vórtice de Smagorinsky \cite{smagorinsky1963general}, resultando no tensor:
 
 \begin{equation}
     \bigpar{T_S}_{ij}=2\nu_T\deffilij{ij}\text{,}
@@ -108,7 +108,7 @@ Portanto, o problema se ser resolvido será:
     \nu_T=(C_S\Delta)^2\norm{\deffil}\text{,}
 \end{equation}
 
-\noindent em que $C_S$ é a constante de Smagorinsky e $\norm{\deffil}$ é a magnitude do tensor de taxa de deformação em grandes escalas, dada por:
+\noindent onde $C_S$ é a constante de Smagorinsky e $\norm{\deffil}$ é a magnitude do tensor taxa de deformação em escala grosseira, dada por:
 
 \begin{equation}
     \norm{\deffil}=(2\deffilij{ij}\deffilij{ij})^{1/2}\text{.}
@@ -120,13 +120,13 @@ Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB
 %
 %Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, permitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
 
-Para a determinação da constante de Smagorinsky, define-se inicialmente a amplitude espectral da energia cinética $E(k)$, dada sobre uma superfície de esferas parametrizadas de raio $k$, dada por \cite{hughes2000large}:
+Para a determinação da constante de Smagorinsky, define-se inicialmente a amplitude espectral da energia cinética $E(k)$, dada sobre uma superfície de esferas parametrizadas de raio $k$, de acordo com \cite{hughes2000large}:
 
 \begin{equation}
     E(k)=\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
 \end{equation}
 
-\noindent em que $\alpha$ é a constante de Kolmogoroff, $\varepsilon$ é a dissipação turbulenta. A Figura \ref{fig:EnergiaEspectral} apresenta graficamente o comportamento da energia espectral:
+\noindent em que $\alpha$ é a constante de Kolmogoroff e $\varepsilon$ é a dissipação turbulenta. A Figura \ref{fig:EnergiaEspectral} apresenta graficamente o comportamento da energia espectral em função do raio $k$.
 
 \begin{figure}[h!]
     \centering
@@ -136,15 +136,15 @@ Para a determinação da constante de Smagorinsky, define-se inicialmente a ampl
     \label{fig:EnergiaEspectral}
 \end{figure}
 
-Logo pode-se determinar o valor de $\norm{\deffil}$ como:
+O valor de $\norm{\deffil}$ é adotado como:
 
 \begin{equation}
     \frac{1}{2}\norm{\deffil}=\int_0^{\bar{k}}{k^2E(k)dk}\text{,}\label{eq:ndeffil1}
 \end{equation}
 
-\noindent no qual $\bar{k}$ é o limite de resolução.
+\noindent sendo $\bar{k}$ o limite de resolução.
 
-Substituindo \ref{eq:Ek1} em \ref{eq:ndeffil1}, resolvendo a integral e fazendo algumas manipulações algébricas, tem-se que:
+Substituindo \eqref{eq:Ek1} em \eqref{eq:ndeffil1}, resolvendo a integral e fazendo algumas manipulações algébricas, tem-se que:
 
 \begin{equation}
     \norm{\deffil}^3=\bigpar{\frac{3\alpha}{2}}^{3/2}\bar{k}^2\varepsilon\text{.}
@@ -153,10 +153,10 @@ Substituindo \ref{eq:Ek1} em \ref{eq:ndeffil1}, resolvendo a integral e fazendo 
 Com isso, considerando também que a dissipação de energia cinética é igual àquela produzida, realiza-se o balanço da energia, obtendo-se:
 
 \begin{equation}
-    \varepsilon=({T}_S)_{ij}\deffilij{ij}\text{,}
+    \varepsilon=({T}_S)_{ij}\deffilij{ij}\text{.}
 \end{equation}
 
-\noindent que, após seu desenvolvimento, tem-se uma expressão que relaciona os valores de $C_S$, $\Delta$ e $\nu_T$ com $\bar{k}$:
+\noindent Assim, fica possível obter expressões que relacionam os valores de $C_S$ $\Delta$ e $\nu_T$ com $\bar{k}$:
 
 \begin{equation}
     C_S\Delta=\bigpar{\frac{2}{3\alpha}}^{3/4}\bar{k}^{-1}\text{ e}
@@ -178,13 +178,13 @@ Segundo \citeonline{bailly2015turbulence} o valor de $\bar{k}$ pode ser estimado
     C_S=\frac{1}{\pi}\bigpar{\frac{2}{3\alpha}}^{3/4}\text{.}
 \end{equation}
 
-Com isso, um possível valor para a constante Kolmogoroff é $\alpha=1,4$, o que resulta em $C_S\approx0,18$. No entanto valores de $C_S$ próximos à 0,10 conduzem a solução à resultados mais realistas \cite{hughes2000large,bailly2015turbulence,katopodes2019free}.
+Com isso, um possível valor para a constante Kolmogoroff é $\alpha=1,4$, o que resulta em $C_S\approx0,18$. No entanto, segundo  \citeonline{hughes2000large,bailly2015turbulence,katopodes2019free}, valores de $C_S$ próximos à 0,10 conduzem a solução à resultados mais realistas.
 
 %==================================================================================================
 \subsubsection{Procedimento computacional} \label{LES-PC}
 %==================================================================================================
 
-Para a obtenção dos resultados, parte-se para a formulação variacional, em que se utiliza funções testes $\BB{w}$ e $q$, associadas às equações de conservação do momento e da continuidade, respectivamente. Assim, se tem a forma fraca do problema, dada por:
+Para a obtenção dos resultados, parte-se para a formulação variacional, em que se utiliza funções testes $\BB{w}$ e $q$, associadas às equações de conservação da quantidade de movimento e da continuidade, respectivamente. Assim, a forma fraca do problema LES é dada por:
 
 \begin{equation}
     \begin{split}
@@ -202,7 +202,10 @@ Substituindo o modelo constitutivo e o modelo de viscosidade de Smagorinsky tem-
     \end{split}
 \end{equation}
 
+\textcolor{purple}{
 No intuito de se obter uma solução estável, será considerado o elemento de Taylor-Hood P2P1 (aproximação quadrática para o campo de velocidades e linear para o campo de pressões) na formulação. Assim denomina-se $M$ as funções de forma para aproximação quadrática e $N$ para funções de forma lineares. Com isso, faz-se a aproximação das funções testes por meio das funções de forma, tendo como resultado os seguintes vetores de resíduo associados às equações de conservação de momento e da continuidade:
+}
+\textcolor{red}{1. Você deve deixar a formulação geral, e nos exemplos dizer o que você utilizou para obter resposta estável. Sugiro que desde o início (VMS) você diferencie as funções de forma de pressão e de velocidade (eu prefiro colocar um sobrescrito u e p ao invés de usar N e M). Aqui você deveria apresentar a formulação estabilizada, e nos exemplos você diz o que adotou para rodar. De qualquer forma, aqui ficou faltando colocar a estabilização para a convecção (SUPG) que sempre será necessária. Reveja o restante deste item com base nisso...}
 
 \begin{subequations}
     \begin{equation}
