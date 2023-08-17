@@ -2,7 +2,7 @@
 \section{\textit{Variational Multi-Scale}} \label{VMS}
 %==================================================================================================
 
-O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização multiescala o qual faz a separação dos espaços de tentativas e de testes em subespaços que representem as escalas grosseiras, que se tratam de subespaços de dimensões finitas e denotadas por uma barra, e as escalas finas, que são subespaços de infinitas dimensões e denotadas por $'$, ou seja:
+O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas por uma barra sobrescrita, e subespaços que representam a escalas refinada, que são subespaços de dimensão infinita e denotadas por $'$, ou seja:
 
 \begin{subequations}
     \begin{align}
@@ -13,20 +13,18 @@ O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multisc
     \end{align}
 \end{subequations}
 
-Inicialmente será abordado uma técnica baseada em uma descrição Euleriana com domínio fixo, para maior familiarização com o método, e na sequência será apresentada uma formulação em descrição ALE utilizando domínio móvel.
-
-O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua forma fraca se encontra em \ref{eq:WeakForm2}. Primeiramente realiza-se a separação dos membros em:
+Inicia-se aqui com a apresentação da técnica aplicada às equações governantes na descrição Euleriana, com domínio fixo, para maior familiarização com o método, e na sequência apresenta-se formulação em descrição ALE \textcolor{red}{ACHO QUE NÃO FAZ DIFERENÇA INICIAR DIRETO NO ALE. ALÉM DISSO, \eqref{eq:WeakForm2} É ALE. APROVEITANDO, SEMPRE QUE ESTIVER SER REFERINDO A EQUAÇÕES, USE EQREF AO INVÉS DE REF.}, para domínios móveis. O sistema a ser resolvido parte do apresentado na Eq. \eqref{eq:NS-Euler}, que em sua forma fraca se encontra em \eqref{eq:WeakForm2}. Primeiramente realiza-se a separação dos membros em:
 
 \begin{subequations}
     \begin{align}
          & u_i=\bar{u}_i+u'_i\text{,}  \\
          & p=\bar{p}+p'\text{,}        \\
          & w_i=\bar{w}_i+w'_i\text{ e} \\
-         & q=\bar{q}+q'\text{,}
+         & q=\bar{q}+q'\text{.}
     \end{align}
 \end{subequations}
 
-\noindent em que se adota $w_i=\bar{w}_i$ e $q=\bar{q}$ e as escalas finas $u'_i$ e $p'$ podem ser modeladas como:
+Seguindo \citeonline{Bazilevsetal.2007a} \textcolor{red}{VER REF. NO LIVRO DO TEZDUYAR} adota-se $w_i=\bar{w}_i$, $q=\bar{q}$ e assume-se que a parcela em escala fina $u'_i$ e $p'$ são modeladas como:
 
 \begin{subequations}
     \begin{equation}
@@ -37,7 +35,7 @@ O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua 
     \end{equation}
 \end{subequations}
 
-\noindent nas quais $\tau_{\sups}$ e $\nu_{\lsic}$ são termos estabilizadores, dados por \cite{bazilevs2013computational}:
+\noindent onde $\tau_{\sups}$ e $\nu_{\lsic}$ são termos estabilizadores, propostos por \citeonline{bazilevs2013computational} como:
 %página 80 do pdf de hughes2013 e 65 de fernandes2020
 
 \begin{subequations}
@@ -56,7 +54,7 @@ O sistema a ser resolvido parte do apresentado em \ref{eq:NS-Euler}, que em sua 
     \BB{G}=\frac{\partial\BB{\xi}}{\partial\BB{y}}^T\frac{\partial\BB{\xi}}{\partial\BB{y}}\text{.}
 \end{equation}
 
-Já os termos $\rMi{i}$ e $\rCi$ são os resíduos associados à equação de conservação da quantidade de movimento e da continuidade, respectivamente:
+Já os termos $\rM$ e $\rC$ são os resíduos da equação de conservação da quantidade de movimento e da equação da continuidade, respectivamente, ou seja,
 
 \begin{subequations}
     \begin{equation}
@@ -67,7 +65,7 @@ Já os termos $\rMi{i}$ e $\rCi$ são os resíduos associados à equação de co
     \end{equation}
 \end{subequations}
 
-Outra forma de se modelar os termos estabilizadores pode ser dado por \cite{bazilevs2013computational}:
+Outra forma de se determinar $ \tau_{\sups}$ e $\nu_{\lsic}$, também apresentada em \citeonline{bazilevs2013computational}, consiste em fazer:
 
 \begin{subequations}
     \begin{equation}
@@ -78,7 +76,7 @@ Outra forma de se modelar os termos estabilizadores pode ser dado por \cite{bazi
     \end{equation}
 \end{subequations}
 
-\noindent tal que:
+\noindent sendo:
 
 \begin{subequations}
     \begin{align}
@@ -90,7 +88,7 @@ Outra forma de se modelar os termos estabilizadores pode ser dado por \cite{bazi
     \end{align}
 \end{subequations}
 
-Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíduos (\textit{Residual-Based Variational Multi-Scale} - RBVMS) que busca determinar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational}:
+Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíduos (\textit{Residual-Based Variational Multi-Scale} - RBVMS) que consiste em: determinar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$:
 
 \begin{equation}
     \begin{split}
@@ -101,19 +99,21 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
         \label{eq:RBVMS1}
     \end{split}
 \end{equation}
+\textcolor{red}{Faça a substituição de $u'_j$ e $p'$. Se preferir pode apresentar a substituição em outra equação}.
 
-Para a discretização do problema pode-se realizar a separação da dependência espacial e temporal para os espaços tentativas e testes como:
+Para a discretização do problema pode-se realizar a separação da dependência espacial e temporal para as funções tentativas e testes como:
 
 \begin{subequations}
     \begin{align}
-         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}             \\
+         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}\label{eq:uh}             \\
          & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y})}\text{,}                 \\
          & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y})}\text{ e}\label{eq:w-sep} \\
          & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y})}\text{.}\label{eq:q-sep}
     \end{align}
 \end{subequations}
+\textcolor{red}{definir todas as variáveis da equação que ainda não foram definidos no texto (exemplo $\BB{\eta}^w$)}
 
-Substituindo \ref{eq:w-sep} e \ref{eq:q-sep} em \ref{eq:RBVMS1}, tais que $W^a$ e $Q^a$ são valores arbitrários, obtém-se dois vetores ($\NM=[(N_\mathrm{M})_i^a]$ e $\NC=[(N_\mathrm{C})^a]$) que representam resíduos a serem minimizados:
+Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando-se em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica \textcolor{red}{Procure outro símbolo para o resíduo ponderado, para não associal à função de forma. Não se preocupe em deixar diferente do livro...}:
 
 \begin{subequations}
     \begin{equation}
@@ -122,16 +122,16 @@ Substituindo \ref{eq:w-sep} e \ref{eq:q-sep} em \ref{eq:RBVMS1}, tais que $W^a$ 
             \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}-\\
             &\SintDom{\rho N_{a,j}\bar{u}_ju'_i}-\SintDom{N_{a,i}p'}+\\
             &\SintDom{\rho N_a\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}u'_iu'_j}
-            \text{,}
+            =0\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}
+        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}=0
     \end{equation}
     \label{Eq:Residuos-Euler}
 \end{subequations}
 
-Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os graus de liberdade em velocidades, primeira derivada temporal das velocidades e pressões nodais, então o problema a ser resolvido será dado por: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os parâmetros nodais de velocidade, a primeira derivada temporal dos parâmetros nodais de velocidade, e os parâmetros nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
 
 \begin{subequations}
     \begin{align}
@@ -140,7 +140,7 @@ Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=
     \end{align}
 \end{subequations}
 
-Uma formulação alternativa à apresentada é apresentada por \citeonline{bazilevs2013computational}, denominada como SUPG/PSPG, onde se omite os dois últimos termos da equação \ref{eq:RBVMS1} e se utiliza de valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, resultando em:
+Omitindo-se os dois últimos termos da equação \ref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{} \textcolor{red}{CITAR SUPG/PSPG}, dada por:
 
 \begin{equation}
     \begin{split}
@@ -152,9 +152,9 @@ Uma formulação alternativa à apresentada é apresentada por \citeonline{bazil
     \end{split}
 \end{equation}
 
-\noindent na qual, segundo os autores, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ para uma boa variedade de problemas.
+\noindent onde, seguindo  \citeonline{bazilevs2013computational}, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ com sucesso para uma boa variedade de problemas.
 
-Por sua vez, a formulação baseada em uma descrição ALE parte das equações apresentadas em \ref{eq:NS-ALE}, cujo problema semi-discreto pode ser dado por:
+Por sua vez, a formulação baseada em uma descrição ALE parte das equações apresentadas em \ref{eq:NS-ALE}, cuja forma fraca é dada por:
 
 \begin{equation}
     \begin{split}
@@ -163,7 +163,7 @@ Por sua vez, a formulação baseada em uma descrição ALE parte das equações 
     \end{split}
 \end{equation}
 
-Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompressíveis segundo uma descrição ALE será: encontrar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational}:
+Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompressíveis segundo uma descrição ALE será: encontrar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$ tais que, para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational},
 
 \begin{equation}
     \begin{split}
@@ -175,26 +175,15 @@ Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompres
     \end{split}
 \end{equation}
 
-\noindent em que os termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ são alterados das equações \ref{eq:TermEstab}, onde se considera, ao invés da velocidade do fluido $\bar{u}_i$, a velocidade relativa à malha ($\bar{u}_i-\hat{u}_i$), ou seja, $\bar{u}_i\gets\bar{u}_i-\hat{u}_i$.
+\noindent em que os parâmetros estabilizadores $\tau_\sups$ e $\nu_\lsic$ são alterados das equações \ref{eq:TermEstab}, onde se considera, ao invés da velocidade do fluido $\bar{u}_i$, a velocidade relativa à malha ($\bar{u}_i-\hat{u}_i$), ou seja, $\bar{u}_i\gets\bar{u}_i-\hat{u}_i$.
 
-Para o problema discretizado utiliza-se as seguintes expressões de aproximação dos espaços tentativas e testes:
-
-\begin{subequations}
-    \begin{align}
-         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y},t)}\text{,} \\
-         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y},t)}\text{,}     \\
-         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y},t)}\text{ e}     \\
-         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y},t)}\text{,}
-    \end{align}
-\end{subequations}
-
-\noindent onde as funções de forma $N_a(\BB{y},t)$ são definidas como:
+Para a representação do problema discreto, são utilizadas as mesmas aproximações das Eqs. \eqref{eq:uh}=\eqref{eq:q-sep}, porém as funções de forma $N_a(\BB{y},t)$ são agora definidas com base na configuração de referência da malha como:
 
 \begin{equation}
     N_a(\BB{y},t)=\hat{N}_a(\bhat{f}^{-1}(\BB{y},t))\text{,}
 \end{equation}
 
-\noindent em que $\bhat{f}(\BB{y},t)$ é a função de mudança de configuração de $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
+\noindent onde $\bhat{f}(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
 
 \begin{equation}
     \bhat{f}(\bhat{x},t)=\sum_{a\in\BB{\eta}^s}{(\bhat{x}_a+\Delta\bhat{x}_a(t))\hat{N}_a(\bhat{x})}\text{,}
@@ -202,7 +191,7 @@ Para o problema discretizado utiliza-se as seguintes expressões de aproximaçã
 
 \noindent sendo $\bhat{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\bhat{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
 
-Com isso, define-se os vetores de resíduos da conservação de quantidade de movimento de da continuidade como:
+Com isso, definem-se os vetores de resíduos ponderados da conservação de quantidade de movimento de da continuidade como:
 
 \begin{subequations}
     \begin{equation}
@@ -239,11 +228,11 @@ Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, ta
 \subsection{Integração temporal} \label{IT-VMS}
 %==================================================================================================
 
-Como pôde-se verificar, em ambas as descrições, Euleriana e ALE, chega-se a um problema discreto no espaço, porém contínuo no tempo (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas, como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, o surgimento de integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como em diferenças finitas atrasadas, e o denominado semi-explícito (ou da regra de trapézios). Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que: se observa a implicidade natural da pressão em escoamentos incompressíveis; deve-se ter um cuidado extra para garantir a estabilidade do integrador; apresentar problemas para a diagonalização de matrizes de massa; e perda de precisão na diagonalização.
+Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço porém contínua no tempo) (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
 
-O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo \cite{fernandes2020tecnica}.
+O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
 
-Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo de tempo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dot{U}_i^{n+\alpha_m}$ e $U_i^{n+\alpha_f}$:
+Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dot{U}_i^{n+\alpha_m}$ e $U_i^{n+\alpha_f}$:
 
 \begin{subequations}
     \begin{equation}
@@ -254,13 +243,13 @@ Esse integrador parte da consideração de valores intermediários de aceleraç�
     \end{equation}
 \end{subequations}
 
-Já para se relacionar a velocidade à aceleração, pode-se proceder com a aproximação de Newmark \cite{bazilevs2013computational}:
+Já para se relacionar a velocidade à aceleração, emprega-se a aproximação de Newmark \cite{bazilevs2013computational}:
 
 \begin{equation}
     U_i^{n+1}=U_i^n+\Delta t_n\bigpar{(1-\gamma)\dot{U}_i^n+\gamma\dot{U}_i^{n+1}}\text{,}
 \end{equation}
 
-\noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente observando as necessidades de estabilidade e precisão do método.
+\noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente, observando-se as necessidades de estabilidade e precisão do método.
 
 De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013computational}, a precisão de segunda ordem dessa aproximação pode ser atingida uma vez que:
 
@@ -268,13 +257,13 @@ De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013comput
     \gamma=\frac{1}{2}+\alpha_m-\alpha_f\text{,}
 \end{equation}
 
-\noindent enquanto a estabilidade incondicional pode ser obtida caso:
+\noindent enquanto a estabilidade incondicional é obtida caso:
 
 \begin{equation}
     \alpha_m\geq\alpha_f\geq\frac{1}{2}\text{.}
 \end{equation}
 
-Ainda é possível escrever, a partir da Equação \ref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral de amplificação da matriz para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
+Ainda é possível escrever, a partir da Equação \ref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral da matriz amplificação para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
 
 \begin{subequations}
     \begin{equation}
