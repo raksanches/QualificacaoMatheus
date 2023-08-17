@@ -2,17 +2,17 @@
 \subsection{\textit{Reynolds-Averaged Navier-Stokes}} \label{RANS}
 %==================================================================================================
 
-Na tentativa de se obter soluções aproximativas para as equações de Navier-Stokes, são desenvolvidas técnicas de aproximação, baseadas em equações diferenciais. Uma dessas aproximações, denominada de \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuírem uma implementação mais facilitada \cite{alfonsi2009reynolds, ling2015evaluation}.
+A aproximação das equações diferenciais denominada \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da chamada decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuírem uma implementação mais simples \cite{alfonsi2009reynolds, ling2015evaluation}.
 
-Em uma descrição Euleriana, sua obtenção parte da equação \ref{eq:NS-Euler} e considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: uma referente à média, denotada por uma barra ($\bar{\phi}(\BB{y})$), e uma referente à flutuações no espaço-tempo, denotada por $\phi'(\BB{y},t)$, ou seja, $\phi(\BB{y},t)=\bar{\phi}+\phi'$.
+Considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: uma referente à média, denotada por uma barra ($\bar{\phi}(\BB{y})$), e uma referente à flutuações no espaço-tempo, denotada por $\phi'(\BB{y},t)$, ou seja, $\phi(\BB{y},t)=\bar{\phi}+\phi'$.
 
-Com isso em vista, verifica-se diferentes formas de se considerar a média de uma propriedade, sendo elas: a média temporal, comumente utilizada em escoamentos estacionários; média espacial, utilizada em escoamentos turbulentos homogêneos; e como a média de um conjunto de experimentos \cite{tennekes1972first,speziale1991analytical,alfonsi2009reynolds}. Como apontado por \citeonline{speziale1991analytical,alfonsi2009reynolds}, a última opção é adequada para descrever escoamentos que não são nem estacionários, nem homogêneos, sendo calculada como:
+No entanto, há diferentes formas de se considerar a média de uma propriedade, tal como: média temporal, comumente utilizada em escoamentos estacionários; média espacial, utilizada em escoamentos turbulentos homogêneos; e média de um conjunto de experimentos \cite{tennekes1972first,speziale1991analytical,alfonsi2009reynolds}. Como apontado por \citeonline{speziale1991analytical,alfonsi2009reynolds}, a última opção é adequada para descrever escoamentos que não são nem estacionários, nem homogêneos, sendo calculada como:
 
 \begin{equation}
     \bar{\phi}(\BB{y},t)=\lim_{N\to\infty}{\frac{1}{N}\sum_{k=1}^N{\phi^{k}(\BB{y},t)}}\text{,}
 \end{equation}
 
-\noindent em que $N$ é o número de experimentos realizados.
+\noindent em que $N$ \textcolor{red}{$N$ já foi usado para as funções de forma. Recomendo trocar.} é o número de experimentos realizados.
 
 Vale ressaltar algumas propriedades interessantes relacionadas à média de uma propriedade ($\phi$, $\phi_1$ ou $\phi_2$ quaisquer), tais como:
 
@@ -37,7 +37,7 @@ Assim, pode-se tomar a média das Equações de Navier-Stokes, obtendo-se:
     \right.
 \end{equation}
 
-Assim, aplicando também o modelo constitutivo apresentado em \ref{MC}, o problema se torna:
+AAplicando também o modelo constitutivo apresentado em \eref{MC}, o problema se torna:
 
 \begin{equation}
     \left\{
@@ -61,24 +61,24 @@ Realizando a separação das variáveis em suas respectivas parcelas na equaçã
     \label{eq:RANS-estac}
 \end{equation}
 
-\noindent a qual representa a equação de Navier-Stokes para escoamentos incompressíveis em regime estacionário em uma formulação RANS \cite{chou1945velocity,alfonsi2009reynolds}.
+\noindent a qual representa a equação RANS da quantidade de movimento para escoamentos incompressíveis em regime estacionário \textcolor{red}{(Está certo isso? Por que em regime estacionário?)}  \cite{chou1945velocity,alfonsi2009reynolds}.
 
-Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, que traz a interferência que os efeitos turbulentos da parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
+Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, traz a interferência que os efeitos turbulentos que a parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas do que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
 
-\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos de turbulencia em RANS são:
+\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos RANS de turbulência são:
 
 \begin{enumerate}[label=\alph*.]
     \item Modelos de Zero Equações: Apenas as equações referentes ao campo médio são resolvidas, sendo $l_0$ e $\tau_0$ determinados empiricamente;
     \item Modelos de Uma Equação: É adicionada uma equação de transporte em termos da energia cinética média $k$ para auxiliar na determinação do campo de flutuações de velocidades;
-    \item Modelos de Duas Equações: Uma segunda equação é adicionada para determinação das escalas de comprimento turbulentos;
+    \item Modelos de Duas Equações: Uma segunda equação é adicionada para determinação das escalas de comprimento turbulento;
     \item Modelos de Tensões: A respeito aos Modelos de Zero Equações, adiciona-se duas equações de transporte referentes ao tensor de Reynolds e à $\varepsilon$, tal modelo também pode ser chamado de modelo $\te$.
 \end{enumerate}
 
-Sobre os Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, em que as equações adicionais são dadas em função da energia cinética média gerada pelo campo de flutuações ($k$) e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/K$).
+Sobre os Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, nos quais as equações adicionais são dadas em função da energia cinética média gerada pelo campo de flutuações ($k$) e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/K$).
 
-Dentre os modelos $\ke$, $\kw$ e $\te$, observa-se que o primeiro possui menor custo computacional e maior facilidade de implementação, sendo uma boa alternativa para as simulações.
+Dentre os modelos $\ke$, $\kw$ e $\te$, observa-se que o primeiro possui menor custo computacional e maior facilidade de implementação, sendo uma boa alternativa para as simulações \textcolor{red}{(citar referências para atestar essa afirmação.)}.
 
-Com isso, para se obter as equações adicionais, faz-se a simples substituição de $\BB{u}=\umed+\BB{u}'$ e $p=\bar{p}+p'$ na equação da quantidade de movimento, o que leva a:
+Para se obter as equações adicionais, faz-se a simples substituição de $\BB{u}=\umed+\BB{u}'$ e $p=\bar{p}+p'$ na equação da quantidade de movimento, o que leva a:
 
 \begin{equation}
     \begin{split}
@@ -87,17 +87,17 @@ Com isso, para se obter as equações adicionais, faz-se a simples substituiçã
     \label{eq:NS-RANS1}
 \end{equation}
 
-Subtraindo \ref{eq:RANS-estac} de \ref{eq:NS-RANS1} obtém-se:
+Subtraindo \eqref{eq:RANS-estac} de \eqref{eq:NS-RANS1} obtém-se:
 
 \begin{equation}
     \rho\bigpar{\dot{u}'_i+\bar{u}_ju'_{i,j}+u'_j\bar{u}_{i,j}+u'_ju'_{i,j}-(\bar{u'_iu'_j})_{,j}}-\mu u'_{i,jj}+p'_{,i}=0\text{.}
     \label{eq:NS-RANS2}
 \end{equation}
 
-\noindent \textbf{Observação:} Fazendo o mesmo procedimento para a equação da conservação da massa se obtém que:
+Seguindo o mesmo procedimento para a equação da conservação da massa obtém-se que:
 
 \begin{equation}
-    u'_{i,i}=0\text{.}
+    u'_{i,i}=0\text{,}
 \end{equation}
 
 \noindent sendo equivalente à condição de incompressibilidade no campo de flutuações de velocidade, a qual será interessante para algumas simplificações que virão posteriormente.
@@ -110,7 +110,7 @@ Fazendo a contração do índice $i$ em \ref{eq:NS-RANS2} por meio de $u'_i$, to
 
 \noindent em que $\pr'=p'/\rho$.
 
-Fazendo as devidas simplificações tem-se a equação que descreve de forma exata o comportamento da energia cinética média gerada pelo campo de flutuações ($K=\bar{u'_iu'_i}/2$) \cite{alfonsi2009reynolds}:
+Fazendo as devidas simplificações, tem-se a equação que descreve de forma exata o comportamento da energia cinética média gerada pelo campo de flutuações ($K=\bar{u'_iu'_i}/2$) \cite{alfonsi2009reynolds}:
 
 \begin{equation}
     \dot{K}+\bar{u}_jK_{,j}=\tau_{ij}\bar{u}_{i,j}-\nu\bar{u'_{i,j}u'_{i,j}}-\bigpar{\frac{\bar{u'_iu'_iu'_j}}{2}+\bar{u'_j\pr'}}_{,j}+\nu K_{,jj}\text{,}
@@ -145,7 +145,7 @@ Fazendo as devidas simplificações tem-se a equação que descreve de forma exa
 
 \noindent sendo $l_0$ o comprimento de vórtice, $C^*=0,166$ e $\sigma_K=1,0$ constantes adimensionais.
 
-Assim, também observa-se a necessidade de se modelar o tensor de Reynolds, o qual pode ser subdividido em duas parcelas: uma parte isotrópica ($\tau_{ij}^I$) e outra desviadora ($\tau_{ij}^D$), ou seja:
+Há ainda a necessidade de se modelar o tensor de Reynolds, o qual pode ser subdividido em duas parcelas: uma parte isotrópica ($\tau_{ij}^I$) e outra desviadora ($\tau_{ij}^D$), ou seja:
 
 \begin{equation}
     \tau_{ij}=\tau_{ij}^I+\tau_{ij}^D\text{,}
@@ -166,7 +166,7 @@ Assim, também observa-se a necessidade de se modelar o tensor de Reynolds, o qu
     \epmean_{ij}=\frac{\bar{u}_{i,j}+\bar{u}_{j,i}}{2}
 \end{equation}
 
-\noindent e $\nu_T$ é a viscosidade de vórtice, dado por:
+\noindent e $\nu_T$ é a viscosidade de vórtice, dada por
 
 \begin{equation}
     \nu_T=C_\mu\frac{K^2}{\varepsilon}\text{,}
@@ -174,7 +174,7 @@ Assim, também observa-se a necessidade de se modelar o tensor de Reynolds, o qu
 
 \noindent sendo $C_\mu=0,09$.
 
-Já a equação exata do transporte que descreve a taxa de dissipação também é proveniente da equação \ref{eq:NS-RANS2}, fazendo a troca dos índices mudos $j\to k$, derivando ambos os lados em uma direção $j$ e contraindo-se os índices $i$ e $j$ por meio de $\nu u'_{i,j}/\rho$:
+Já a equação exata do transporte que descreve a taxa de dissipação também é proveniente da equação \eqref{eq:NS-RANS2}, fazendo a troca dos índices mudos $j\to k$, derivando ambos os lados em uma direção $j$ e contraindo-se os índices $i$ e $j$ por meio de $\nu u'_{i,j}/\rho$:
 
 \begin{equation}
     \begin{split}
@@ -202,8 +202,8 @@ Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 
 \begin{subequations}
     \begin{align}
-         & P_\ep=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \\
-         & D_\ep=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i}                                                                                 \\
+         & P_\ep=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \text{,} \\
+         & D_\ep=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i} \text{ e}                                                                                 \\
          & \Phi_\ep=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
     \end{align}
 \end{subequations}
@@ -220,7 +220,7 @@ Assim, realiza-se uma modelagem sobre os termos necessários como:
 
 \noindent em que $C_{\ep 1}=1,44$, $C_{\ep 2}=1,92$ e $\sigma_\ep=1,3$ são constantes adimensionais.
 
-Portanto o problema a ser resolvido é:
+Assim, o problema RANS fica descrito pelas equações:
 
 \begin{equation}
     \left\{
