@@ -180,6 +180,7 @@ Segundo \citeonline{bailly2015turbulence} o valor de $\bar{k}$ pode ser estimado
 
 Com isso, um possível valor para a constante Kolmogoroff é $\alpha=1,4$, o que resulta em $C_S\approx0,18$. No entanto, segundo  \citeonline{hughes2000large,bailly2015turbulence,katopodes2019free}, valores de $C_S$ próximos à 0,10 conduzem a solução à resultados mais realistas.
 
+\begin{comment}
 %==================================================================================================
 \subsubsection{Procedimento computacional} \label{LES-PC}
 %==================================================================================================
@@ -203,7 +204,7 @@ Substituindo o modelo constitutivo e o modelo de viscosidade de Smagorinsky tem-
 \end{equation}
 
 \textcolor{purple}{
-No intuito de se obter uma solução estável, será considerado o elemento de Taylor-Hood P2P1 (aproximação quadrática para o campo de velocidades e linear para o campo de pressões) na formulação. Assim denomina-se $M$ as funções de forma para aproximação quadrática e $N$ para funções de forma lineares. Com isso, faz-se a aproximação das funções testes por meio das funções de forma, tendo como resultado os seguintes vetores de resíduo associados às equações de conservação de momento e da continuidade:
+    No intuito de se obter uma solução estável, será considerado o elemento de Taylor-Hood P2P1 (aproximação quadrática para o campo de velocidades e linear para o campo de pressões) na formulação. Assim denomina-se $M$ as funções de forma para aproximação quadrática e $N$ para funções de forma lineares. Com isso, faz-se a aproximação das funções testes por meio das funções de forma, tendo como resultado os seguintes vetores de resíduo associados às equações de conservação de momento e da continuidade:
 }
 \textcolor{red}{1. Você deve deixar a formulação geral, e nos exemplos dizer o que você utilizou para obter resposta estável. Sugiro que desde o início (VMS) você diferencie as funções de forma de pressão e de velocidade (eu prefiro colocar um sobrescrito u e p ao invés de usar N e M). Aqui você deveria apresentar a formulação estabilizada, e nos exemplos você diz o que adotou para rodar. De qualquer forma, aqui ficou faltando colocar a estabilização para a convecção (SUPG) que sempre será necessária. Reveja o restante deste item com base nisso...}
 
@@ -247,3 +248,4 @@ Dessa forma procura-se determinar valores de $\ub$ e $\pb$ que anulem $N_M$ e $N
 Observa-se que o sub-bloco $\partial{\NC}/\partial\BB{P}$ está presente na diagonal principal do problema, possuindo valor nulo. Isso pode ser interpretado como a consideração das pressões como multiplicadores de Lagrange nessa formulação.
 
 %Para obtenção da solução aproximada, utiliza-se um procedimento similar ao apresentado no algoritmo \ref{alg:MEF-VMS}, onde o comando \ref{alg:estabilizador} é alterado para computar o valor da viscosidade de vórtice, assim como os valores das componentes da matriz tangente e dos vetores de resíduo são alterados para se adequarem ao presente modelo.
+\end{comment}

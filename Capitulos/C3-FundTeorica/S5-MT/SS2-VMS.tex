@@ -117,14 +117,14 @@ Para a discretização do problema em descrição Euleriana pode-se realizar a s
 
 \begin{subequations}
     \begin{align}
-         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}\label{eq:uh} \\
-         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y})}\text{,}                  \\
-         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y})}\text{ e}\label{eq:w-sep}  \\
-         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y})}\text{,}\label{eq:q-sep}
+         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a^u(\BB{y})}\text{,}\label{eq:uh} \\
+         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a^p(\BB{y})}\text{,}                  \\
+         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a^u(\BB{y})}\text{ e}\label{eq:w-sep}  \\
+         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a^p(\BB{y})}\text{,}\label{eq:q-sep}
     \end{align}
 \end{subequations}
 
-\noindent onde $N_a$ são as funções de forma associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
+\noindent onde $N_a^u$ e $N_a^p$ são as funções de forma para aproximação do campo de velocidades e de pressões, respectivamente, associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
 
 Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
 
@@ -146,14 +146,14 @@ Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e leva
     \begin{equation}
         \begin{split}
             \NMi{i}{a}=&
-            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}-\\
-            &\SintDom{\rho N_{a,j}(\bar{u}_j-\hat{u}_j)u'_i}-\SintDom{N_{a,i}p'}+\\
-            &\SintDom{\rho N_a\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}u'_iu'_j}
+            \intDom{N_a^u\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}^u\bar{\sigma}_{ij}}-\intNeumann{N_a^u\bar{h}_i}-\\
+            &\SintDom{\rho N_{a,j}^u(\bar{u}_j-\hat{u}_j)u'_i}-\SintDom{N_{a,i}^up'}+\\
+            &\SintDom{\rho N_a^u\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}^uu'_iu'_j}
             =0\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        \NCi{a}=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}=0
+        \NCi{a}=\intDom{N_a^p\bar{u}_{i,i}}-\SintDom{N_{a,i}^pu'_i}=0
     \end{equation}
     \label{Eq:Residuos-Euler}
 \end{subequations}
@@ -167,7 +167,7 @@ Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=
     \end{align}
 \end{subequations}
 
-Omitindo-se os dois últimos termos da equação \ref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{tezduyar2000finite,tezduyar2003computation,catabriga2005compressible,catabriga2006compressible}, dada por:
+Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{tezduyar2000finite,tezduyar2003computation,catabriga2005compressible,catabriga2006compressible}, dada por:
 
 \begin{equation}
     \begin{split}

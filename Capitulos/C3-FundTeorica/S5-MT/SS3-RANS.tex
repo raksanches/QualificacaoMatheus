@@ -9,10 +9,10 @@ Considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: um
 No entanto, há diferentes formas de se considerar a média de uma propriedade, tal como: média temporal, comumente utilizada em escoamentos estacionários; média espacial, utilizada em escoamentos turbulentos homogêneos; e média de um conjunto de experimentos \cite{tennekes1972first,speziale1991analytical,alfonsi2009reynolds}. Como apontado por \citeonline{speziale1991analytical,alfonsi2009reynolds}, a última opção é adequada para descrever escoamentos que não são nem estacionários, nem homogêneos, sendo calculada como:
 
 \begin{equation}
-    \bar{\phi}(\BB{y},t)=\lim_{N\to\infty}{\frac{1}{N}\sum_{k=1}^N{\phi^{k}(\BB{y},t)}}\text{,}
+    \bar{\phi}(\BB{y},t)=\lim_{n\to\infty}{\frac{1}{n}\sum_{k=1}^n{\phi^{k}(\BB{y},t)}}\text{,}
 \end{equation}
 
-\noindent em que $N$ \textcolor{red}{$N$ já foi usado para as funções de forma. Recomendo trocar.} é o número de experimentos realizados.
+\noindent em que $n$ é o número de experimentos realizados.
 
 Vale ressaltar algumas propriedades interessantes relacionadas à média de uma propriedade ($\phi$, $\phi_1$ ou $\phi_2$ quaisquer), tais como:
 
@@ -61,7 +61,7 @@ Realizando a separação das variáveis em suas respectivas parcelas na equaçã
     \label{eq:RANS-estac}
 \end{equation}
 
-\noindent a qual representa a equação RANS da quantidade de movimento para escoamentos incompressíveis em regime estacionário \textcolor{red}{(Está certo isso? Por que em regime estacionário?)}  \cite{chou1945velocity,alfonsi2009reynolds}.
+\noindent a qual representa a equação RANS da quantidade de movimento para escoamentos incompressíveis \cite{chou1945velocity,alfonsi2009reynolds}.
 
 Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, traz a interferência que os efeitos turbulentos que a parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas do que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
 
@@ -76,7 +76,7 @@ Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela de
 
 Sobre os Modelos de Duas Equações, destacam-se os modelos $\ke$ \cite{haakansson2012experimental,davidson2014pans,parente2011improved}, nos quais as equações adicionais são dadas em função da energia cinética média gerada pelo campo de flutuações ($k$) e da taxa de dissipação da energia cinética turbulenta ($\varepsilon$) e $\kw$ \cite{larsen2018over,bassi2005discontinuous}, que ao invés de adicionar uma equação em termos de $\varepsilon$, esta de dá em função da escala de tempo turbulento recíproco ($\omega=\varepsilon/K$).
 
-Dentre os modelos $\ke$, $\kw$ e $\te$, observa-se que o primeiro possui menor custo computacional e maior facilidade de implementação, sendo uma boa alternativa para as simulações \textcolor{red}{(citar referências para atestar essa afirmação.)}.
+Dentre os modelos $\ke$, $\kw$ e $\te$, observa-se que o primeiro possui menor custo computacional e maior facilidade de implementação, sendo uma boa alternativa para as simulações \cite{koutsourakis2012evaluation,adanta2020comparison}.
 
 Para se obter as equações adicionais, faz-se a simples substituição de $\BB{u}=\umed+\BB{u}'$ e $p=\bar{p}+p'$ na equação da quantidade de movimento, o que leva a:
 
