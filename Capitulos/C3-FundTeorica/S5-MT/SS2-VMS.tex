@@ -13,7 +13,7 @@ O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multisc
     \end{align}
 \end{subequations}
 
-Inicia-se aqui com a apresentação da técnica aplicada às equações governantes na descrição Euleriana, com domínio fixo, para maior familiarização com o método, e na sequência apresenta-se formulação em descrição ALE \textcolor{red}{ACHO QUE NÃO FAZ DIFERENÇA INICIAR DIRETO NO ALE. ALÉM DISSO, \eqref{eq:WeakForm2} É ALE. APROVEITANDO, SEMPRE QUE ESTIVER SER REFERINDO A EQUAÇÕES, USE EQREF AO INVÉS DE REF.}, para domínios móveis. O sistema a ser resolvido parte do apresentado na Eq. \eqref{eq:NS-Euler}, que em sua forma fraca se encontra em \eqref{eq:WeakForm2}. Primeiramente realiza-se a separação dos membros em:
+Assim, o sistema a ser resolvido parte do apresentado na Eq. \eqref{eq:NS-Euler}, que em sua forma fraca se encontra em \eqref{eq:WeakForm2}. Primeiramente realiza-se a separação dos membros em:
 
 \begin{subequations}
     \begin{align}
@@ -24,7 +24,7 @@ Inicia-se aqui com a apresentação da técnica aplicada às equações governan
     \end{align}
 \end{subequations}
 
-Seguindo \citeonline{Bazilevsetal.2007a} \textcolor{red}{VER REF. NO LIVRO DO TEZDUYAR} adota-se $w_i=\bar{w}_i$, $q=\bar{q}$ e assume-se que a parcela em escala fina $u'_i$ e $p'$ são modeladas como:
+Seguindo \citeonline{bazilevs2007variational} adota-se $w_i=\bar{w}_i$, $q=\bar{q}$ e assume-se que a parcela em escala fina $u'_i$ e $p'$ são modeladas como:
 
 \begin{subequations}
     \begin{equation}
@@ -58,7 +58,7 @@ Já os termos $\rM$ e $\rC$ são os resíduos da equação de conservação da q
 
 \begin{subequations}
     \begin{equation}
-        \rMi{i}=\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}-\sigma_{ji,j}\text{ e}
+        \rMi{i}=\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}-\sigma_{ji,j}\text{ e}
     \end{equation}
     \begin{equation}
         \rCi=\bar{u}_{i,i}\text{.}
@@ -105,9 +105,9 @@ Para a discretização do problema pode-se realizar a separação da dependênci
 
 \begin{subequations}
     \begin{align}
-         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}\label{eq:uh}             \\
-         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y})}\text{,}                 \\
-         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y})}\text{ e}\label{eq:w-sep} \\
+         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}\label{eq:uh} \\
+         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y})}\text{,}                  \\
+         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y})}\text{ e}\label{eq:w-sep}  \\
          & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y})}\text{.}\label{eq:q-sep}
     \end{align}
 \end{subequations}

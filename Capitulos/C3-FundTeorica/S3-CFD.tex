@@ -5,7 +5,7 @@
 Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
 
 \begin{subequations}
-    \begin{align}  
+    \begin{align}
          & u_{i,i}=0                                                         &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS2} \\
          & \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS1} %\\
         % & \sigma_{ij}n_i=h_j                                                &  & \text{ em }\Gamma_N\text{,} \label{eq:CFD-NS3} \\
@@ -88,7 +88,7 @@ A escolha dos espaços de aproximação da velocidade e da pressão depende da s
 
 \noindent em que $\beta$ é uma constante independente do tamanho da malha.
 
-Como pode-se observar, a determinação de combinações de espaços de aproximações que atendam às condições LBB não é trivial. Sendo que elementos estáveis são identificados em diferentes trabalhos. \citeonline{donea2003finite} apresenta alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
+Como pode-se observar, a determinação de combinações de espaços de aproximações que atendam às condições LBB não é trivial. Sendo que elementos estáveis são identificados em diferentes trabalhos. \citeonline{donea2003finite} apresentam alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
 
 \begin{figure}[h!]
     \centering
@@ -100,7 +100,7 @@ Como pode-se observar, a determinação de combinações de espaços de aproxima
 
 Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG.
 
-Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{} \textcolor{red}{Citar VMS}.
+Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
 
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
 \input{Capitulos/C3-FundTeorica/S5-MT/S5-MT}
