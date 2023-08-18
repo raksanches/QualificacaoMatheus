@@ -2,19 +2,19 @@
 \chapter{Acoplamento Fluido-Estrutura} \label{AFE}
 %==================================================================================================
 
-No intuito de realizar o acoplamento entre o fluido e a estrutura, denota-se $\Omega_F$ o domínio do fluido, $\Omega_E$ o domínio da estrutura, $\Omega_{IFE}=\Omega_S\cup\Omega_E$ o domínio do problema e $\Gamma_{IFE}=\Omega_S\cap\Omega_E$ a interface de IFE.
+Para se descrever o problema acoplado, denota-se $\Omega_F$ o domínio do fluido, $\Omega_E$ o domínio da estrutura, $\Omega_{IFE}=\Omega_S\cup\Omega_E$ o domínio do problema e $\Gamma_{IFE}=\Omega_S\cap\Omega_E$ a interface de IFE.
 
-Nesse sentido \citeonline{richter2017fluid} apontam três condições auxiliares para que haja a correta interação: a Condição Cinemática, que diz respeito à movimentação dos domínios analisados, devendo ser compatíveis em $\Gamma_{IFE}$, ou seja, a componente normal ao movimento deve ser igual em ambos os meios, assim como a componente tangencial, em caso de aderência; a Condição Dinâmica, que aponta a continuidade das forças internas, observadas no tensor de tensões de Cauchy; e a Condição Geométrica, que exige a necessidade de ambos os domínios coincidirem em $\Gamma_{IFE}$, não havendo sobreposições nem formação de vazios.
+\citeonline{richter2017fluid} apontam três condições que devem ser satisfeitas no acoplamento: a Condição Cinemática, que diz respeito à movimentação dos domínios analisados, devendo ser compatíveis em $\Gamma_{IFE}$, ou seja, a componente normal ao movimento deve ser igual em ambos os meios, assim como a componente tangencial em caso de condição de aderência do fluido à estrutura; a Condição Dinâmica, que aponta a continuidade das forças internas, observadas no tensor de tensões de Cauchy; e a Condição Geométrica, que exige a necessidade de ambos os domínios coincidirem em $\Gamma_{IFE}$, não havendo sobreposições nem formação de vazios.
 
-A determinação do comportamento dos diferentes meios que compõem o problema de IFE pode ser obtido de diferentes formas, sendo observados o acoplamento monolítico e o acoplamento particionado, sendo o último ainda subdividido em particionado fraco e forte.
+Numericamente, há diversas possibilidades para que essas condições sejam impostas de forma exata ou aproximada, sendo possível acoplamento monolítico ou acoplamento particionado, com o último ainda subdividido em particionado fraco e forte, como mencionado em \ref{} \textcolor{red}{(Citar trecho no estado da arte)}.
 
-Nos casos estudados para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas, o que leva à definição de uma matriz tangentes ($\BB{H}$), a qual pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
+Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas. O mesmo pode ser aplicado quando do acoplamento direto, monolítico, entre os dois meios. Para isso a matriz tangente ($\BB{H}$) pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
 
 \begin{equation}
     H_{ij}^k=\Dder{\script{G}}{\beta_i^k}{\alpha_j^k}\text{,}
 \end{equation}
 
-\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\beta_i^k$ o vetor com todos os graus de liberdade das funções testes e $\alpha_j^k$ o vetor com todos os graus de liberdade do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\BB{\alpha}^k$) por meio da solução do sistema:
+\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\beta_i^k$ o vetor com todos os parâmetros nodais das funções teste e $\alpha_j^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\BB{\alpha}^k$) por meio da solução do sistema:
 
 \begin{equation}
     \BB{H}^k\cdot\Delta\BB{\alpha}^k=-\BB{h}^k\text{,}
@@ -36,7 +36,7 @@ Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cda p
     \end{bmatrix}\text{,}
 \end{equation}
 
-\noindent sendo os subíndices $1$, $2$ e $3$ referentes às formulações do fluido, da estrutura e da malha, respectivamente.
+\noindent sendo os subíndices $1$, $2$ e $3$ referentes às variáveis do fluido, da estrutura e da malha, respectivamente.
 
 Já o acoplamento particionado trata o sistema de forma a eliminar os termos cruzados da matriz tangente, resultando em blocos de sistema que podem ser resolvidos independentemente:
 
@@ -52,7 +52,9 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
     \end{bmatrix}\text{.}
 \end{equation}
 
-Para aprimorar os resultados, pode-se atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no pseudocódigo \ref{alg:AcoplamentoParticionado}:
+Note que o método continua sendo consistente, uma vez que apenas a matriz tangente do método de Newton-Raphson foi modificada, no entanto, a convergência não é garantida.
+Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphson, pode-se resolver sequencialmente os blocos e atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no Algoritmo \ref{alg:AcoplamentoParticionado}. Isso resulta em um acoplamento forte, onde, havendo convergência, a mesma resposta do problema fortemente acoplado deve ser alcançada.
+
 
 \begin{algorithm}[h!]
     \caption{Cálculo dos valores das variáveis incógnitas}
@@ -65,10 +67,10 @@ Para aprimorar os resultados, pode-se atualizar os valores calculados em um bloc
     Atualizar valores: $\BB{\alpha}_3^{k+1}\gets\BB{\alpha}_3^k+\Delta\BB{\alpha}_3^k$\;
 \end{algorithm}
 
-Nesse ponto o acoplamento fraco e forte se diferenciam no sentido de que o acoplamento fraco despreza as etapas de correções das variáveis, ou seja, o valor dessas variáveis em um passo de tempo é unicamente dependente dos valores do passo anterior, caracterizando, assim, como um método explícito.
 
-\citeonline{sanches2022metodos} sugere um procedimento refinado para o cálculo das variáveis, em que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em um iteração.
+Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja atualização das variáveis de um problema para o outro dentro de cada processo iterativo, fazendo a atualização apenas ao final de cada passo no tempo, tem-se um modelo de acoplamento particionado fraco. Para construir um acoplamento particionado fraco, pode-se assumir que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente \cite{sanches2022metodos}. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em um iteração.
 
+\textcolor{red}{Você precisa modificar o algoritmo para identificar que 1 e 2 estão dentro do processo iterativo para resolver o fluido, 3 e 4 dentro do processo iterativo para resolver o sólido, e 5 e 6 dentro do processo iterativo para resolver a malha}
 \begin{algorithm}[h!]
     \caption{Cálculo das variáveis em um acoplamento particionado fraco}
     \label{alg:PartFraco}
@@ -80,6 +82,6 @@ Nesse ponto o acoplamento fraco e forte se diferenciam no sentido de que o acopl
     Atualizar valores: $(\BB{\alpha}_3^{k_m+1})^{t+1}\gets(\BB{\alpha}_3^{k_m})^{t+1}+(\Delta\BB{\alpha}_3^{k_m})^{t+1}$\;
 \end{algorithm}
 
-Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos, uma vez que os erros inerentes à variação temporal se tornam mais proeminentes em casos com passos de tempo elevados.
+Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos e fica sujeito a problemas de instabilidades como mencionado em \citeonline{Felippaetal2001}. Nota-se que esse tipo de acoplamento é mais adequado a problemas com escoamento compressível, onde um passo de tempo pequeno é necessário para se capturar a propagação de ondas de choque ao mesmo tempo em que a massa específica do fluido costuma ser muito menor que a do sólido.
 
-Por sua vez, o acoplamento particionado forte realiza etapas de correção dentro do processo iterativo, de forma a corrigir eventuais erros provenientes da solução de cada subproblema.
+Por outro lado, a convergência do processo de acoplamento particionado forte pode ficar prejudicada, especialmente à medida em que a massa específica do fluido e do sólido se aproximam, ou em problemas fortemente acoplados, onde uma pequena perturbação do fluido pode produzir grandes perturbações na estrutura e vice-versa. Como meios de garantir convergência nessa situação, mantendo o acoplamento particionado, pode-se adotar relaxações de Aitken, destinadas melhorar a convergência no método de Gauss-Seidel, na atualização das variáveis \cite{fernandes2019ale} ou aplicar um fator de escala sobre a matriz de massa do sólido (técnica \textit{Augmented $A_{22}$}) \cite{bazilevs2013computational}.
