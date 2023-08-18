@@ -21,7 +21,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     dm=dm_0+\apder{dm}{t}dt\text{,}
 \end{equation}
 
-\noindent que resulta em uma expressão simplificada dada por \ref{eq:BalMas}, que representa a conservação de massa em um elemento infinitesimal.
+\noindent que resulta em uma expressão simplificada dada por \eqref{eq:BalMas}, que representa a conservação de massa em um elemento infinitesimal.
 
 \begin{equation}
     \frac{D\rho}{Dt}+\rho u_{i,i}=\dot{\rho}+(\rho u_i)_{,i}=0\text{,}
@@ -34,7 +34,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     \frac{D\phi}{Dt}=\dot{\phi}+u_i\phi_{,i}\text{,}
 \end{equation}
 
-%, definido para uma função escalar $g$ qualquer de acordo com a Equação \ref{eq:grad1} e para uma função vetorial $\BB{g}$ qualquer de acordo com a Equação \ref{eq:grad2}:
+%, definido para uma função escalar $g$ qualquer de acordo com a Equação \eqref{eq:grad1} e para uma função vetorial $\BB{g}$ qualquer de acordo com a Equação \eqref{eq:grad2}:
 
 %\begin{subequations}
 %    \begin{equation}
@@ -78,7 +78,7 @@ Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se um
     \label{eq:ConQtdMov}
 \end{equation}
 
-\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \ref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$) e forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $y_1$.
+\noindent em que $q_i$ representa a força resultante por unidade de volume, ou seja, $q_i=dF_i/dV$. Entretanto, não é de interesse escrever a equação \eqref{eq:ConQtdMov} em termos desse vetor $q_i$, mas em termos do tensor de tensões de Cauchy ($\sigma_{ij}$) e forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $y_1$.
 
 \begin{figure}[h!]
     \centering
@@ -101,14 +101,14 @@ Fazendo o equilíbrio de forças nessa direção, obtém-se que:
     \label{eq:RelQSig}
 \end{equation}
 
-Substituindo \ref{eq:RelQSig} em \ref{eq:ConQtdMov} e aplicando a condição de incompressibilidade obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
+Substituindo \eqref{eq:RelQSig} em \eqref{eq:ConQtdMov} e aplicando a condição de incompressibilidade obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
 
 \begin{equation}
     \rho\bigpar{\dot{u}_i+u_ju_{i,j}-f_i}-\sigma_{ji,j}=0\text{,}
     \label{eq:ConQtdMov-2}
 \end{equation}
 
-\noindent em que $c_i=\rho f_i$, tal que $f_i$ é uma força por unidade de massa. Além disso, também é possível escrever a equação \ref{eq:ConQtdMov-2} utilizando a notação de derivada material como:
+\noindent em que $c_i=\rho f_i$, tal que $f_i$ é uma força por unidade de massa. Além disso, também é possível escrever a equação \eqref{eq:ConQtdMov-2} utilizando a notação de derivada material como:
 
 \begin{equation}
     \rho\bigpar{\frac{Du_i}{Dt}-f_i}-\sigma_{ji,j}=0\text{.}
@@ -231,17 +231,18 @@ Substituindo \ref{w1} em \ref{phi3}, obtém-se que:
 Dessa maneira, remove-se os sobrescritos * e ** e define-se a derivada material na descrição ALE como:
 
 \begin{equation}
-    \frac{D\phi}{Dt}=\apderxh{\phi}{t}+(\BB{u}-\uhat)\cdot\NN\phi\text{.}\label{DerMat2}
+    \frac{D\phi}{Dt}=\apderxh{\phi}{t}+(\BB{u}-\uhat)\cdot\NN\phi\text{.}
+    \label{eq:DerMat2}
 \end{equation}
 
-Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \ref{DerMat2} em \ref{eq:BalMas} para se obter a Equação da Continuidade na descrição ALE:
+Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \eqref{eq:DerMat2} em \eqref{eq:BalMas} para se obter a Equação da Continuidade na descrição ALE:
 
 \begin{equation}
     \apderxh{\rho}{t}+(\BB{u}-\uhat)\cdot\NN\rho+\rho\NN\cdot\BB{u}=0\text{,}
     \label{ConMas4}
 \end{equation}
 
-Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \ref{DerMat2} em \ref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
+Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \eqref{eq:DerMat2} em \eqref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
 
 \begin{equation}
     \rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\NN\BB{u}-\BB{f}\right)-\NN\cdot\tens^T=\BB{0}\text{.}
@@ -267,7 +268,7 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 \section{Modelo Constitutivo} \label{MC}
 %==================================================================================================
 
-O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é expresso de acordo com a Equação \ref{eq:const1}:
+O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é expresso de acordo com a Equação \eqref{eq:const1}:
 
 \begin{equation}
     \sigma_{ij}=\tau_{ij}-p\delta_{ij}\text{,}\label{eq:const1}
@@ -301,7 +302,7 @@ Assim, o tensor desviador pode ser escrito da seguinte maneira:
     \tau_{ij}=2\mu\dot{\varepsilon}_{ij}+\lambda\dot{\varepsilon}_{\beta\beta}\delta_{ij}\text{.}
 \end{equation}
 
-Já para o caso de escoamentos incompressíveis, verifica-se que $\dot{\varepsilon}_{\beta\beta}=0$, fazendo com que \ref{eq:const1} possa ser escrita como:
+Já para o caso de escoamentos incompressíveis, verifica-se que $\dot{\varepsilon}_{\beta\beta}=0$, fazendo com que \eqref{eq:const1} possa ser escrita como:
 
 \begin{equation}
     \sigma_{ij}=\mu(u_{i,j}+u_{j,i})-p\delta_{ij}\text{.}\label{eq:ModConst}

@@ -2,7 +2,7 @@
 \section{\textit{Variational Multi-Scale}} \label{VMS}
 %==================================================================================================
 
-O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas por uma barra sobrescrita, e subespaços que representam a escalas refinada, que são subespaços de dimensão infinita e denotadas por $'$, ou seja:
+O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas por uma barra sobrescrita, e subespaços que representam as escalas refinadas, que são subespaços de dimensão infinita e denotadas por $'$, ou seja:
 
 \begin{subequations}
     \begin{align}
@@ -220,7 +220,7 @@ De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013comput
     \alpha_m\geq\alpha_f\geq\frac{1}{2}\text{.}
 \end{equation}
 
-Ainda é possível escrever, a partir da Equação \ref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral da matriz amplificação para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
+Ainda é possível escrever, a partir da Equação \eqref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral da matriz amplificação para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
 
 \begin{subequations}
     \begin{equation}

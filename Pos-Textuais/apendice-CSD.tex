@@ -40,7 +40,7 @@ Subtraindo-se $dx^2=\norm{d\BB{x}}^2$ de ambos os lados da igualdade obtém-se:
     \label{eq:difdxdy}
 \end{equation}
 
-\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\BB{A}^T\cdot\BB{A}$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \ref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
+\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\BB{A}^T\cdot\BB{A}$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
 
 \[
     \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}^T\cdot(\BB{C}-\BB{I})\cdot d\BB{x}}{dx^2}\text{.}
@@ -88,7 +88,7 @@ O volume do elemento em ambas as configurações pode ser obtido por meio do pro
     \end{equation}
 \end{subequations}
 
-Conhecendo a transformação expressa em \ref{eq:dyAdx} e fazendo as devidas simplificações pode-se obter que:
+Conhecendo a transformação expressa em \eqref{eq:dyAdx} e fazendo as devidas simplificações pode-se obter que:
 
 \begin{equation}
     dV=\det{(\BB{A})}dV_0=JdV_0\text{,}\label{eq:RelVol}
@@ -106,7 +106,7 @@ Na sequência procura-se obter uma expressão que indique a mudança de área na
     \label{fig:Nanson}
 \end{figure}
 
-Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \ref{eq:dyAdx} e \ref{eq:RelVol}, pode-se obter que:
+Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \eqref{eq:dyAdx} e \eqref{eq:RelVol}, pode-se obter que:
 
 \begin{equation}
     \BB{n}dA=J\BB{A}^{-T}\cdot\BB{N}dA_0\text{,}\label{eq:Nanson}
@@ -128,7 +128,7 @@ Fazendo o equilíbrio das forças nessa direção e realizando as devidas simpli
 
 \[\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}\]
 
-\noindent que, expandindo analogamente para as demais direções, pode escrever nas notações simbólica (Equação \ref{eq:EqLocEu1}) e indicial (Equação \ref{eq:EqLocEu2}) como:
+\noindent que, expandindo analogamente para as demais direções, pode escrever nas notações simbólica (Equação \eqref{eq:EqLocEu1}) e indicial (Equação \eqref{eq:EqLocEu2}) como:
 
 \begin{subequations}
     \begin{equation}
@@ -142,7 +142,7 @@ Fazendo o equilíbrio das forças nessa direção e realizando as devidas simpli
 
 \noindent as quais representam as equações do equilíbrio local na descrição Euleriana.
 
-Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
+Integrando a equação \eqref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
 
 \begin{equation}
     \int_\Gamma{\tens^T\cdot\BB{n}d\Gamma}+\int_\Omega{\BB{c}d\Omega}=\int_\Omega{\rho\ddot{\BB{y}}d\Omega}
@@ -152,7 +152,7 @@ Integrando a equação \ref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da div
 
 \noindent onde $\Gamma=\partial\Omega$ é a fronteira do domínio de análise. Essa equação representa o equilíbrio global na descrição Euleriana.
 
-Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \ref{eq:EqGlobEu} levando em consideração as Equações \ref{eq:RelVol} e \ref{eq:Nanson}:
+Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \eqref{eq:EqGlobEu} levando em consideração as Equações \eqref{eq:RelVol} e \eqref{eq:Nanson}:
 
 \begin{equation}
     \int_{\Gamma_0}{J\tens^T\cdot\BB{A}^{-T}\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
