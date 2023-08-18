@@ -72,7 +72,7 @@ Assim, as parcelas de energia ficam dadas por:
 
 Os elementos de casca podem ser ser entendidos como aqueles em que uma de suas dimensões é muito menor que as demais. Assim, é possível tomar como referência a superfície média do elemento para mapear os pontos que o compõem, facilitando, assim, a computação desses elementos.
 
-A formulação que será apresentada a seguir foi proposta por \citeonline{coda2007alternative}, sendo aplicada ao contexto da interação fluido-estrutura por \citeonline{sanches2011acoplamento,sanches2013unconstrained}.
+A formulação que será apresentada a seguir segue a cinemática de Reissner-Mindlin e foi proposta por \citeonline{coda2007alternative}, sendo aplicada ao contexto da interação fluido-estrutura por \citeonline{sanches2011acoplamento,sanches2013unconstrained}.
 
 O método de solução numérica partirá de uma abordagem energética, com discretização espacial feita a partir de funções de forma e a discretização temporal feita por meio de aproximação de Newmark, sendo o sistema algébrico resultante resolvido via método de Newton-Raphson.
 
@@ -131,7 +131,7 @@ Já os demais pontos do elemento podem ser mapeados por meio de um vetor general
 
 Sendo assim, o problema possui como graus de liberdade as posições nodais atuais ($Y_i^a$), os valores do vetor generalizado na configuração atual ($(V^1)_i^a$) e a taxa de variação linear da deformação ($\Alpha^a$).
 
-Além disso, note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\partial\BB{f}/\partial\BB{x}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que $A^0_{ij}=f^0_{i,j}$ e $A^1_{ij}=f^1_{i,j}$.
+%Além disso, note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\partial\BB{f}/\partial\BB{x}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que $A^0_{ij}=f^0_{i,j}$ e $A^1_{ij}=f^1_{i,j}$.
 
 Assim, considera-se o princípio da conservação da energia como:
 
@@ -141,53 +141,34 @@ Assim, considera-se o princípio da conservação da energia como:
 
 \noindent em que $\BB{g}$ representa o vetor que contém todos os graus de liberdade do problema.
 
-Logo, precisa-se calcular a derivada de $\Pi_0$ em relação à $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$. Dessa forma tem-se as seguintes derivadas:
+Logo, precisa-se calcular a derivada de $\Pi_0$ em relação à $Y_i^a$, $({V}^1)_i^a$ e $\Alpha^a$. Dessa forma tem-se as seguintes derivadas:
 
 \begin{subequations}
     \begin{equation}
-        \begin{split}
-            \der{\Pi_0}{Y_i^a}=&\der{\mathbb{U}}{Y_i^a}+
-            \intDomi{\lambda_m\rho_0N_a\dot{y}_i}+
-            \intDomi{\rho_0N_a\ddot{y}_i}-
-            F_i^a-\\
-            &\intFronti{N_at_i}
-            -\intFronti{N_aq_i}=0\text{,}
-        \end{split}
+        \der{\Pi_0}{Y_i^a}=\der{\mathbb{U}}{Y_i^a}+\intDomi{\rho_0N_a\ddot{y}_i}-F_i^a-\intFronti{N_at_i}=0\text{,}
     \end{equation}
     \begin{equation}
-        \begin{split}
-            \der{\Pi_0}{(V^1)_i^a}=&\der{\mathbb{U}}{(V^1)_i^a}
-            +\intDomi{\lambda_m\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\dot{y}_i}\\
-            &+\intDomi{\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\ddot{y}_i}-
-            \intFronti{q_i\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)}=0\text{,}
-        \end{split}
+        \der{\Pi_0}{(V^1)_i^a}=\der{\mathbb{U}}{(V^1)_i^a}+\intDomi{\rho_0\frac{h_0}{2}N_a(\xi_3+\alpha\xi_3^2)\ddot{y}_i}=0\text{,}
     \end{equation}
     \begin{equation}
-        \begin{split}
-            \der{\Pi_0}{\Alpha^a}=&\der{\mathbb{U}}{\Alpha^a}
-            +\intDomi{\lambda_m\rho_0\frac{h_0}{2}(V^1)_i^bN_aN_b\xi_3^2\dot{y}_i}\\
-            &+\intDomi{\rho_0\frac{h_0}{2}N_aN_b(V^1)_i^b\xi_3^2\ddot{y}_i}-
-            \intFronti{q_i\frac{h_0}{2}(V^1)_i^bN_aN_b\xi_3^2}=0\text{,}
-        \end{split}
+        \der{\Pi_0}{\Alpha^a}=\der{\mathbb{U}}{\Alpha^a}+\intDomi{\rho_0\frac{h_0}{2}N_aN_b(V^1)_i^b\xi_3^2\ddot{y}_i}=0\text{,}
     \end{equation}
 \end{subequations}
 
 \noindent sendo possível definir um vetor resíduo $\BB{r}$ como:
 
 \begin{equation}
-    r_i^a(\BB{Y},\BB{V}^1,\BB{\Alpha})=(F^\mathrm{int})_i^a+(F^\mathrm{amort})_i^a+(F^\mathrm{inerc})_i^a-(F^\mathrm{c})_i^a-(F^\mathrm{nc})_i^a=0\text{,}
+    r_i^a(\BB{Y},\BB{V}^1,\BB{\Alpha})=(F^\mathrm{int})_i^a+(F^\mathrm{inerc})_i^a-(F^\mathrm{c})_i^a=0\text{,}
     \label{eq:CSD-g}
 \end{equation}
 
-\noindent sendo $\BB{Y}$, $\BB{V}^1$ e $\Alpha$ os vetores dos graus de liberdade nodais do elemento analisado:
+\noindent sendo $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ os vetores dos graus de liberdade nodais do elemento analisado:
 
 \begin{subequations}
     \begin{align}
-         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{g_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{g_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}          \\
-         & (F^\mathrm{amort})_i^a=\intDomi{\lambda_m\rho_0\der{y_j}{g_i^a}\dot{y}_j}\text{,}\label{eq:CSD-Famort}                  &  & \text{Forças de amortecimento}  \\
-         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{,}\label{eq:CSD-Finerc}                          &  & \text{Forças inerciais}         \\
-         & (F^\mathrm{c})_i^a=F_j^b\der{Y_j^b}{g_i^a}+\intFronti{t_j\der{y_j^m}{g_i^a}}\text{ e}\label{eq:CSD-Fc}                  &  & \text{Forças conservativas}     \\
-         & (F^\mathrm{nc})_i^a=\intFronti{q_j\der{y_j^m}{g_i^a}}\text{.}\label{eq:CSD-Fnc}                                         &  & \text{Forças não-conservativas}
+         & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{g_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{g_i^a}}\text{,}\label{eq:CSD-Fint} &  & \text{Forças internas}      \\
+         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{,}\label{eq:CSD-Finerc}                          &  & \text{Forças inerciais}     \\
+         & (F^\mathrm{c})_i^a=F_j^b\der{Y_j^b}{g_i^a}+\intFronti{t_j\der{y_j^m}{g_i^a}}\text{ e}\label{eq:CSD-Fc}                  &  & \text{Forças conservativas}
     \end{align}
     \label{eq:CSD-F}
 \end{subequations}
@@ -213,20 +194,10 @@ Isolando-se os termos incógnitos em função de variáveis não derivadas no te
 
 \begin{subequations}
     \begin{align}
-         & \ddot{g}_i^{n+1}=\frac{g_i^{n+1}}{\beta\Delta t^2}-Q_i^n                                \\
-         & \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}g_i^{n+1}+R_i^n-\gamma\Delta tQ_i^n\text{,}
+         & \ddot{g}_i^{n+1}=\frac{g_i^{n+1}-g_i^n}{\beta\Delta t^2}-\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddot{g}_i^n                                    \\
+         & \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}(g_i^{n+1}-g_i^n)+\bigpar{1-\frac{\gamma}{\beta}}\dot{g}_i^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddot{g}_i^n\text{.}
     \end{align}
     \label{eq:CSD-Newmark2}
-\end{subequations}
-
-\noindent em que:
-
-\begin{subequations}
-    \begin{align}
-         & Q_i^n=\frac{g_i^n}{\beta\Delta t^2}+\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{\frac{1}{2\beta}-1}\ddot{g}_i^n \\
-         & R_i^n=\dot{g}_i^n+\Delta t(1-\gamma)\ddot{g}_i^n\text{.}
-    \end{align}
-    \label{eq:CSD-QnRn}
 \end{subequations}
 
 Já para procurar valores de $\BB{g}$ que anulem $\BB{r}$, utiliza-se o Método de Newton-Raphson, o qual parte da aproximação por série de Taylor truncada no termo de primeira ordem:
@@ -247,7 +218,7 @@ Já para procurar valores de $\BB{g}$ que anulem $\BB{r}$, utiliza-se o Método 
 Substituindo-se as derivadas temporais da aproximação de Newmark em $\BB{r}$ e realizando as devidas simplificações, obtém-se:
 
 \begin{equation}
-    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{\gamma C_{ij}^{ab}}{\beta\Delta t}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\intDom{\rho_0(\lambda_m\dot{y}_k+\ddot{y}_k)\Dder{y_k}{g_j^b}{g_i^a}}\text{,}
+    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\intDom{\rho_0\ddot{y}_k\Dder{y_k}{g_j^b}{g_i^a}}\text{,}
     \label{eq:CSD-Hijab}
 \end{equation}
 
@@ -255,8 +226,7 @@ Substituindo-se as derivadas temporais da aproximação de Newmark em $\BB{r}$ e
 
 \begin{subequations}
     \begin{align}
-         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{g_j^b}{g_i^a}=\intDomi{\bigpar{\der{S_{kl}}{g_j^b}\der{\mathbb{E}_{kl}}{g_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{g_i^a}{g_j^b}}} \\
-         & C_{ij}^{ab}=\intDomi{\lambda_m\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{ e}                                                                                         \\
+         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{g_j^b}{g_i^a}=\intDomi{\bigpar{\der{S_{kl}}{g_j^b}\der{\mathbb{E}_{kl}}{g_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{g_i^a}{g_j^b}}}\text{ e} \\
          & M_{ij}^{ab}=\intDomi{\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{.}
     \end{align}
     \label{eq:CSD-HMC}
