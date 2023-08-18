@@ -33,6 +33,7 @@ Seguindo \citeonline{bazilevs2007variational} adota-se $w_i=\bar{w}_i$, $q=\bar{
     \begin{equation}
         p'=-\rho\nu_{\lsic}\rC\text{,}
     \end{equation}
+    \label{eq:VMS-fine}
 \end{subequations}
 
 \noindent onde $\tau_{\sups}$ e $\nu_{\lsic}$ são termos estabilizadores, propostos por \citeonline{bazilevs2013computational} como:
@@ -40,7 +41,7 @@ Seguindo \citeonline{bazilevs2007variational} adota-se $w_i=\bar{w}_i$, $q=\bar{
 
 \begin{subequations}
     \begin{equation}
-        \tau_{\sups}=\bigpar{\frac{4}{\Delta t^2}+\BBB{u}\cdot\BB{G}\BBB{u}+C_I\nu^2\BB{G}:\BB{G}}^{-1/2}\text{ e}
+        \tau_{\sups}=\bigpar{\frac{4}{\Delta t^2}+(\BBB{u}-\HBB{u})\cdot\BB{G}(\BBB{u}-\HBB{u})+C_I\nu^2\BB{G}:\BB{G}}^{-1/2}\text{ e}
     \end{equation}
     \begin{equation}
         \nu_{\lsic}=(\tr{\BB{G}}\tau_{\sups})^{-1}\text{,}
@@ -72,7 +73,7 @@ Outra forma de se determinar $ \tau_{\sups}$ e $\nu_{\lsic}$, também apresentad
         \tau_{\sups}=\bigpar{\frac{1}{\tau_{\sugn 1}^2}+\frac{1}{\tau_{\sugn 2}^2}+\frac{1}{\tau_{\sugn 3}^2}}^{-1/2}\text{ e}
     \end{equation}
     \begin{equation}
-        \nu_{\lsic}=\tau_{\sups}\norm{\BBB{u}}^2\text{,}
+        \nu_{\lsic}=\tau_{\sups}\norm{\BBB{u}-\BBB{u}}^2\text{,}
     \end{equation}
 \end{subequations}
 
@@ -80,11 +81,11 @@ Outra forma de se determinar $ \tau_{\sups}$ e $\nu_{\lsic}$, também apresentad
 
 \begin{subequations}
     \begin{align}
-         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BBB{u}\cdot\NN N_a}}}^{-1}\text{,} \\
-         & \tau_{\sugn 2}=\frac{\Delta t}{2}\text{,}                                           \\
-         & \tau_{\sugn 3}=\frac{h_{\rgn}^2}{4\nu}\text{,}                                      \\
-         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\NN N_a}}}^{-1}\text{ e}        \\
-         & \BB{r}=\frac{\NN\norm{\BBB{u}}}{\norm{\NN\norm{\BBB{u}}}}\text{.}
+         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{(\BBB{u}-\HBB{u})\cdot\NN N_a}}}^{-1}\text{,} \\
+         & \tau_{\sugn 2}=\frac{\Delta t}{2}\text{,}                                                     \\
+         & \tau_{\sugn 3}=\frac{h_{\rgn}^2}{4\nu}\text{,}                                                \\
+         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\NN N_a}}}^{-1}\text{ e}                  \\
+         & \BB{r}=\frac{\NN\norm{\BBB{u}-\HBB{u}}}{\norm{\NN\norm{\BBB{u}-\HBB{u}}}}\text{.}
     \end{align}
 \end{subequations}
 
@@ -92,92 +93,40 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\rho\bigpar{\bar{u}_j\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}u'_i}-\SintDom{\bar{w}_{i,i}p'}+\\
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
+        &\SintDom{\rho\bigpar{(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}u'_i}-\SintDom{\bar{w}_{i,i}p'}+\\
         &\SintDom{\rho\bar{w}_iu'_j\bar{u}_{i,j}}-\SintDom{\rho\bar{w}_{i,j}u'_iu'_j}=0
+        \text{,}
+        \label{eq:RBVMS1}
+    \end{split}
+\end{equation}
+
+\noindent o que pode ser reescrito ainda, substituindo-se $u'_j$ e $p'$ por \eqref{eq:VMS-fine}:
+
+\begin{equation}
+    \begin{split}
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
+        &\SintDom{\tau_\sups\bigpar{(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}\rMi{i}}+\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}-\\
+        &\SintDom{\tau_\sups\bar{w}_i\rMi{j}\bar{u}_{i,j}}-\SintDom{\frac{\bar{w}_{i,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}=0
         \text{.}
         \label{eq:RBVMS1}
     \end{split}
 \end{equation}
-\textcolor{red}{Faça a substituição de $u'_j$ e $p'$. Se preferir pode apresentar a substituição em outra equação}.
 
-Para a discretização do problema pode-se realizar a separação da dependência espacial e temporal para as funções tentativas e testes como:
+Para a discretização do problema em descrição Euleriana pode-se realizar a separação da dependência espacial e temporal para as funções tentativas e testes como:
 
 \begin{subequations}
     \begin{align}
          & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a(\BB{y})}\text{,}\label{eq:uh} \\
          & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a(\BB{y})}\text{,}                  \\
          & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a(\BB{y})}\text{ e}\label{eq:w-sep}  \\
-         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y})}\text{.}\label{eq:q-sep}
-    \end{align}
-\end{subequations}
-\textcolor{red}{definir todas as variáveis da equação que ainda não foram definidos no texto (exemplo $\BB{\eta}^w$)}
-
-Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando-se em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica \textcolor{red}{Procure outro símbolo para o resíduo ponderado, para não associal à função de forma. Não se preocupe em deixar diferente do livro...}:
-
-\begin{subequations}
-    \begin{equation}
-        \begin{split}
-            (N_\mathrm{M})_i^a=&
-            \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}-\\
-            &\SintDom{\rho N_{a,j}\bar{u}_ju'_i}-\SintDom{N_{a,i}p'}+\\
-            &\SintDom{\rho N_a\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}u'_iu'_j}
-            =0\text{,}
-        \end{split}
-    \end{equation}
-    \begin{equation}
-        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}=0
-    \end{equation}
-    \label{Eq:Residuos-Euler}
-\end{subequations}
-
-Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os parâmetros nodais de velocidade, a primeira derivada temporal dos parâmetros nodais de velocidade, e os parâmetros nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
-
-\begin{subequations}
-    \begin{align}
-         & \NM(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{ e} \\
-         & \NC(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{.}
+         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a(\BB{y})}\text{,}\label{eq:q-sep}
     \end{align}
 \end{subequations}
 
-Omitindo-se os dois últimos termos da equação \ref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{} \textcolor{red}{CITAR SUPG/PSPG}, dada por:
+\noindent onde $N_a$ são as funções de forma associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
 
-\begin{equation}
-    \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\tau_\supg\bar{w}_{i,j}\bar{u}_j\rMi{i}}-\SintDom{\tau_\pspg\frac{q_{,i}}{\rho}\rMi{i}}-\\
-        &\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}=0
-        \text{,}
-        \label{eq:SUPG-PSPG}
-    \end{split}
-\end{equation}
-
-\noindent onde, seguindo  \citeonline{bazilevs2013computational}, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ com sucesso para uma boa variedade de problemas.
-
-Por sua vez, a formulação baseada em uma descrição ALE parte das equações apresentadas em \ref{eq:NS-ALE}, cuja forma fraca é dada por:
-
-\begin{equation}
-    \begin{split}
-        &\intDom{w_i\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_j}}+\intDom{w_{i,j}\sigma_{ij}}-\\
-        &\intNeumann{w_ih_i}+\intDom{qu_{i,i}}=0
-    \end{split}
-\end{equation}
-
-Portanto o problema semi-discreto em formulação RBVMS de escoamentos incompressíveis segundo uma descrição ALE será: encontrar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$ tais que, para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$ \cite{bazilevs2013computational},
-
-\begin{equation}
-    \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\bigpar{\rho(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\bar{q}_{,i}}u'_i}-\SintDom{\bar{w}_{i,i}p'}+\\
-        &\SintDom{\rho\bar{w}_i\bar{u}_{i,j}u'_j}-\SintDom{\rho\bar{w}_{i,j}u'_iu'_j}=0
-        \text{,}
-        \label{eq:RBVMS-ALE}
-    \end{split}
-\end{equation}
-
-\noindent em que os parâmetros estabilizadores $\tau_\sups$ e $\nu_\lsic$ são alterados das equações \ref{eq:TermEstab}, onde se considera, ao invés da velocidade do fluido $\bar{u}_i$, a velocidade relativa à malha ($\bar{u}_i-\hat{u}_i$), ou seja, $\bar{u}_i\gets\bar{u}_i-\hat{u}_i$.
-
-Para a representação do problema discreto, são utilizadas as mesmas aproximações das Eqs. \eqref{eq:uh}=\eqref{eq:q-sep}, porém as funções de forma $N_a(\BB{y},t)$ são agora definidas com base na configuração de referência da malha como:
+Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
 
 \begin{equation}
     N_a(\BB{y},t)=\hat{N}_a(\bhat{f}^{-1}(\BB{y},t))\text{,}
@@ -191,31 +140,25 @@ Para a representação do problema discreto, são utilizadas as mesmas aproxima�
 
 \noindent sendo $\bhat{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\bhat{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
 
-Com isso, definem-se os vetores de resíduos ponderados da conservação de quantidade de movimento de da continuidade como:
+Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando-se em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica:
 
 \begin{subequations}
     \begin{equation}
-        \NM=[(N_\mathrm{M})_i^a]\text{,}
-    \end{equation}
-    \begin{equation}
-        \NC=[(N_\mathrm{C})^a]\text{,}
-    \end{equation}
-    \begin{equation}
         \begin{split}
-            (N_\mathrm{M})_i^a=&
+            \NMi{i}{a}=&
             \intDom{N_a\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}\bar{\sigma}_{ij}}-\intNeumann{N_a\bar{h}_i}-\\
             &\SintDom{\rho N_{a,j}(\bar{u}_j-\hat{u}_j)u'_i}-\SintDom{N_{a,i}p'}+\\
             &\SintDom{\rho N_a\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}u'_iu'_j}
-            \text{,}
+            =0\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        (N_\mathrm{C})^a=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}
+        \NCi{a}=\intDom{N_a\bar{u}_{i,i}}-\SintDom{N_{a,i}u'_i}=0
     \end{equation}
-    \label{Eq:Residuos-ALE}
+    \label{Eq:Residuos-Euler}
 \end{subequations}
 
-Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os parâmetros nodais de velocidade, a primeira derivada temporal dos parâmetros nodais de velocidade, e os parâmetros nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
 
 \begin{subequations}
     \begin{align}
@@ -224,11 +167,25 @@ Assim, pretende-se determinar os vetores $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, ta
     \end{align}
 \end{subequations}
 
+Omitindo-se os dois últimos termos da equação \ref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{tezduyar2000finite,tezduyar2003computation,catabriga2005compressible,catabriga2006compressible}, dada por:
+
+\begin{equation}
+    \begin{split}
+        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
+        &\SintDom{\tau_\supg\bar{w}_{i,j}(\bar{u}_j-\hat{u}_j)\rMi{i}}-\SintDom{\tau_\pspg\frac{q_{,i}}{\rho}\rMi{i}}-\\
+        &\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}=0
+        \text{,}
+        \label{eq:SUPG-PSPG}
+    \end{split}
+\end{equation}
+
+\noindent onde, segundo \citeonline{bazilevs2013computational}, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ com sucesso para uma boa variedade de problemas.
+
 %==================================================================================================
 \subsection{Integração temporal} \label{IT-VMS}
 %==================================================================================================
 
-Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço porém contínua no tempo) (Equações \ref{Eq:Residuos-Euler} e \ref{Eq:Residuos-ALE}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
+Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço porém contínua no tempo) (Equações \eqref{Eq:Residuos-Euler}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
 
 O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
 
