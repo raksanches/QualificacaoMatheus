@@ -193,10 +193,12 @@ A aproximação realizada pelo integrador de Newmark é dada por:
 Isolando-se os termos incógnitos em função de variáveis não derivadas no tempo em $n+1$ e daquelas já conhecidas tem-se:
 
 \begin{subequations}
-    \begin{align}
-         & \ddot{g}_i^{n+1}=\frac{g_i^{n+1}-g_i^n}{\beta\Delta t^2}-\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddot{g}_i^n                                    \\
-         & \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}(g_i^{n+1}-g_i^n)+\bigpar{1-\frac{\gamma}{\beta}}\dot{g}_i^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddot{g}_i^n\text{.}
-    \end{align}
+    \begin{equation}
+        \ddot{g}_i^{n+1}=\frac{g_i^{n+1}-g_i^n}{\beta\Delta t^2}-\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddot{g}_i^n
+    \end{equation}
+    \begin{equation}
+        \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}(g_i^{n+1}-g_i^n)+\bigpar{1-\frac{\gamma}{\beta}}\dot{g}_i^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddot{g}_i^n\text{.}
+    \end{equation}
     \label{eq:CSD-Newmark2}
 \end{subequations}
 
