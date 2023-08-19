@@ -6,7 +6,7 @@ Para se descrever o problema acoplado, denota-se $\Omega_F$ o domínio do fluido
 
 \citeonline{richter2017fluid} apontam três condições que devem ser satisfeitas no acoplamento: a Condição Cinemática, que diz respeito à movimentação dos domínios analisados, devendo ser compatíveis em $\Gamma_{IFE}$, ou seja, a componente normal ao movimento deve ser igual em ambos os meios, assim como a componente tangencial em caso de condição de aderência do fluido à estrutura; a Condição Dinâmica, que aponta a continuidade das forças internas, observadas no tensor de tensões de Cauchy; e a Condição Geométrica, que exige a necessidade de ambos os domínios coincidirem em $\Gamma_{IFE}$, não havendo sobreposições nem formação de vazios.
 
-Numericamente, há diversas possibilidades para que essas condições sejam impostas de forma exata ou aproximada, sendo possível acoplamento monolítico ou acoplamento particionado, com o último ainda subdividido em particionado fraco e forte, como mencionado em \ref{} \textcolor{red}{(Citar trecho no estado da arte)}.
+Numericamente, há diversas possibilidades para que essas condições sejam impostas de forma exata ou aproximada, sendo possível acoplamento monolítico ou acoplamento particionado, com o último ainda subdividido em particionado fraco e forte, como mencionado em \ref{IFE}. % \textcolor{red}{(Citar trecho no estado da arte)}.
 
 Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas. O mesmo pode ser aplicado quando do acoplamento direto, monolítico, entre os dois meios. Para isso a matriz tangente ($\BB{H}$) pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
 
@@ -22,7 +22,7 @@ Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de N
 
 \noindent em que $\BB{h}=\partial\script{G}/\partial\beta_i^k$ é o vetor resíduo.
 
-Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cda parcela no sistema global tem-se:
+Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cada parcela no sistema global tem-se:
 
 \begin{equation}
     \begin{bmatrix}
@@ -70,16 +70,29 @@ Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphs
 
 Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja atualização das variáveis de um problema para o outro dentro de cada processo iterativo, fazendo a atualização apenas ao final de cada passo no tempo, tem-se um modelo de acoplamento particionado fraco. Para construir um acoplamento particionado fraco, pode-se assumir que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente \cite{sanches2022metodos}. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em um iteração.
 
-\textcolor{red}{Você precisa modificar o algoritmo para identificar que 1 e 2 estão dentro do processo iterativo para resolver o fluido, 3 e 4 dentro do processo iterativo para resolver o sólido, e 5 e 6 dentro do processo iterativo para resolver a malha}
+%\textcolor{red}{Você precisa modificar o algoritmo para identificar que 1 e 2 estão dentro do processo iterativo para resolver o fluido, 3 e 4 dentro do processo iterativo para resolver o sólido, e 5 e 6 dentro do processo iterativo para resolver a malha}
+
 \begin{algorithm}[h!]
     \caption{Cálculo das variáveis em um acoplamento particionado fraco}
     \label{alg:PartFraco}
+
+    \While{erro>tol}{
     Resolver o sistema: $\BB{H}_{11}((\BB{\alpha}_1^{k_f})^{t+1},(\BB{\alpha}_2)^t,(\BB{\alpha}_3)^t)\cdot\Delta(\BB{\alpha}_1^{k_f})^{t+1}=-\BB{h}_1((\BB{\alpha}_1^{k_f})^{t+1},(\BB{\alpha}_2)^t,(\BB{\alpha}_3)^t)$\;
     Atualizar valores: $(\BB{\alpha}_1^{k_f+1})^{t+1}\gets(\BB{\alpha}_1^{k_f})^{t+1}+(\Delta\BB{\alpha}_1^{k_f})^{t+1}$\;
+    $k_f\gets k_f+1$
+    }
+
+    \While{erro>tol}{
     Resolver o sistema: $\BB{H}_{22}((\BB{\alpha}_1)^{t+1},(\BB{\alpha}_2^{k_s})^{t+1})\cdot\Delta(\BB{\alpha}_2^{k_s})^{t+1}=-\BB{h}_2((\BB{\alpha}_1)^{t+1},(\BB{\alpha}_2^{k_s})^t)$\;
     Atualizar valores: $(\BB{\alpha}_2^{k_s+1})^{t+1}\gets(\BB{\alpha}_2^{k_s})^{t+1}+(\Delta\BB{\alpha}_2^{k_s})^{t+1}$\;
+    $k_s\gets k_s+1$
+    }
+
+    \While{erro>tol}{
     Resolver o sistema: $\BB{H}_{3}((\BB{\alpha}_3^{k_m})^{t+1},(\BB{\alpha}_2)^t)\cdot\Delta(\BB{\alpha}_3^{k_s})^{t+1}=-\BB{h}_3((\BB{\alpha}_3^{k_m})^{t+1},(\BB{\alpha}_2)^t)$\;
     Atualizar valores: $(\BB{\alpha}_3^{k_m+1})^{t+1}\gets(\BB{\alpha}_3^{k_m})^{t+1}+(\Delta\BB{\alpha}_3^{k_m})^{t+1}$\;
+    $k_m\gets k_m+1$
+    }
 \end{algorithm}
 
 Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos e fica sujeito a problemas de instabilidades como mencionado em \citeonline{Felippaetal2001}. Nota-se que esse tipo de acoplamento é mais adequado a problemas com escoamento compressível, onde um passo de tempo pequeno é necessário para se capturar a propagação de ondas de choque ao mesmo tempo em que a massa específica do fluido costuma ser muito menor que a do sólido.
