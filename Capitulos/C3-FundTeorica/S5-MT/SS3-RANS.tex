@@ -37,7 +37,7 @@ Assim, pode-se tomar a média das Equações de Navier-Stokes, obtendo-se:
     \right.
 \end{equation}
 
-AAplicando também o modelo constitutivo apresentado em \ref{MC}, o problema se torna:
+Aplicando também o modelo constitutivo apresentado em \ref{MC}, o problema se torna:
 
 \begin{equation}
     \left\{
@@ -63,9 +63,9 @@ Realizando a separação das variáveis em suas respectivas parcelas na equaçã
 
 \noindent a qual representa a equação RANS da quantidade de movimento para escoamentos incompressíveis \cite{chou1945velocity,alfonsi2009reynolds}.
 
-Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, traz a interferência que os efeitos turbulentos que a parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas do que equações para determiná-las. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
+Nesse contexto vale mencionar o tensor de tensões de Reynolds (dividido pela densidade), dado por $\tau_{ij}=-\bar{u'_iu'_j}$, traz a interferência que os efeitos turbulentos que a parcela de flutuação causa no movimento médio \cite{chou1945velocity,alfonsi2009reynolds}. Porém, verifica-se que, ao assumir essa separação de variáveis, o problema conta com mais incógnitas do que equações para as determinar. Logo, uma forma de se obter equações adicionais que auxiliem na resolução do problema se encontra na modelagem do tensor de tensões de Reynolds de forma a relacionar as flutuações de velocidades com as velocidades médias.
 
-\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada refere-se ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos RANS de turbulência são:
+\citeonline{alfonsi2009reynolds} aponta que problemas envolvendo RANS podem ser classificados dependendo da quantidade de equações diferenciais resolvidas, em que cada equação adicionada se refere ao transporte de uma propriedade relativa à turbulência, alterando, assim, a maneira com que a viscosidade de vórtice é determinada. Segundo o autor, as classes de modelos RANS de turbulência são:
 
 \begin{enumerate}[label=\alph*.]
     \item Modelos de Zero Equações: Apenas as equações referentes ao campo médio são resolvidas, sendo $l_0$ e $\tau_0$ determinados empiricamente;

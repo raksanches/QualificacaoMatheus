@@ -70,7 +70,7 @@ Assim, as parcelas de energia ficam dadas por:
 \section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
 %==================================================================================================
 
-Os elementos de casca podem ser ser entendidos como aqueles em que uma de suas dimensões é muito menor que as demais. Assim, é possível tomar como referência a superfície média do elemento para mapear os pontos que o compõem, facilitando a descrição. 
+Os elementos de casca podem ser entendidos como aqueles em que uma de suas dimensões é muito menor que as demais. Assim, é possível tomar como referência a superfície média do elemento para mapear os pontos que o compõem, facilitando a descrição.
 
 A formulação que será apresentada a seguir segue a cinemática de Reissner-Mindlin, levando em consideração as deformações causadas pelas tensões de cisalhamento nas direções transversais ao elemento, e foi proposta por \citeonline{coda2007alternative}, já tendo sido aplicada com sucesso ao contexto da interação fluido-estrutura por \citeonline{sanches2011acoplamento,sanches2013unconstrained} e \citeonline{fernandes2019ale}.
 %\textcolor{red}{Deixe a parcela dissipativa de fora...}
@@ -113,7 +113,7 @@ Já os pontos fora da superfície média, são mapeados com auxílio de vetores 
 
 \begin{subequations}
     \begin{align}
-         & v_i^0=\frac{h_0}{2}N_ a(\xi_1,\xi_2)(V^0)_i^a\xi_3\text{ e}                              \\
+         & v_i^0=\frac{h_0}{2}N_ a(\xi_1,\xi_2)(V^0)_i^a\xi_3\text{ e}                             \\
          & v_i^1=\frac{h_0}{2}N_ a(\xi_1,\xi_2)(V^1)_i^a[\xi_3+\alpha(\xi_1,\xi_2)\xi_3^2]\text{,}
     \end{align}
 \end{subequations}
@@ -164,7 +164,7 @@ Considerando-se o princípio da conservação da energia, tem-se:
 \begin{subequations}
     \begin{align}
          & (F^\mathrm{int})_i^a=\intDomi{\der{u_e}{g_i^a}}=\intDomi{S_{kl}\der{\mathbb{E}_{kl}}{g_i^a}}\text{,}\label{eq:CSD-Fint} \\
-         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{ e}\label{eq:CSD-Finerc}        \\
+         & (F^\mathrm{inerc})_i^a=\intDomi{\rho_0\der{y_j}{g_i^a}\ddot{y}_j}\text{ e}\label{eq:CSD-Finerc}                         \\
          & (F^\mathrm{c})_i^a=F_j^b\der{Y_j^b}{g_i^a}+\intFronti{t_j\der{y_j^m}{g_i^a}}\text{.}\label{eq:CSD-Fc}
     \end{align}
     \label{eq:CSD-F}
@@ -173,7 +173,7 @@ Considerando-se o princípio da conservação da energia, tem-se:
 Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
 
 Como é possível perceber, o cálculo de $\BB{r}$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de primeira e segunda ordem das posições. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
-\textcolor{red}{ Pode deixar o Newmark mesmo para a qualificação, mas vamos mudar isso para o alfa generalizado. Não faz mais sentido usar Newmark.}
+%\textcolor{red}{ Pode deixar o Newmark mesmo para a qualificação, mas vamos mudar isso para o alfa generalizado. Não faz mais sentido usar Newmark.}
 
 A aproximação realizada pelo integrador de Newmark é dada por:
 
@@ -261,4 +261,4 @@ Com isso, encontra-se um vetor de correções dos graus de liberdade ($\Delta\BB
 \subsection{Exemplos de Verificação} \label{MEFP-Ex}
 %==================================================================================================
 
-Para o melhor conhecimento e para verificação do código a ser utilizado para a dinâmica das estruturas, foram selecionados e simulados os problemas estáticos de \textit{Scordelis-Lo roof} e de um cilindro elástico biengastado, e os problemas dinâmicos de uma viga em balanço e de uma viga bi-engastada submetidas a carregamento de impacto. Tais simulações executadas, contendo os parâmetros de entrada, assim como a discretização de cada problema e os resultados obtidos, são apresentados no Apêndice \ref{} \textcolor{red}{REUNIR EM UM ÚNICO APÊNDICE}. %\ref{Ap:SLR}, \ref{Ap:Shell-cyl} e \ref{Ap:DinBeam}, para os respectivos problemas.
+Para o melhor conhecimento e para verificação do código a ser utilizado para a dinâmica das estruturas, foram selecionados e simulados os problemas estáticos de \textit{Scordelis-Lo roof} e de um cilindro elástico biengastado, e os problemas dinâmicos de uma viga em balanço e de uma viga bi-engastada submetidas a carregamento de impacto. Tais simulações executadas, contendo os parâmetros de entrada, assim como a discretização de cada problema e os resultados obtidos, são apresentados no Apêndice \ref{Ap:CSD-Exemplos}. %\ref{Ap:SLR}, \ref{Ap:Shell-cyl} e \ref{Ap:DinBeam}, para os respectivos problemas.
