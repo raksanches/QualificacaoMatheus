@@ -4,7 +4,7 @@
 
 A aproximação das equações diferenciais denominada \textit{Reynolds-Averaged Navier-Stokes} (RANS) busca encontrar uma solução a partir da chamada decomposição de Reynolds. Nesse contexto, observa-se que simulações feitas utilizando RANS são mais eficientes computacionalmente que aquelas feitas a partir de LES, além de possuírem uma implementação mais simples \cite{alfonsi2009reynolds, ling2015evaluation}.
 
-Considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: uma referente à média, denotada por uma barra ($\bar{\phi}(\BB{y})$), e uma referente à flutuações no espaço-tempo, denotada por $\phi'(\BB{y},t)$, ou seja, $\phi(\BB{y},t)=\bar{\phi}+\phi'$.
+Considera-se que uma propriedade $\phi$ pode ser decomposta em duas parcelas: uma referente à média, denotada por uma barra ($\bar{\phi}(\BB{y},t)$), e uma referente à flutuações no espaço-tempo, denotada por $\phi'(\BB{y},t)$, ou seja, $\phi(\BB{y},t)=\bar{\phi}+\phi'$.
 
 No entanto, há diferentes formas de se considerar a média de uma propriedade, tal como: média temporal, comumente utilizada em escoamentos estacionários; média espacial, utilizada em escoamentos turbulentos homogêneos; e média de um conjunto de experimentos \cite{tennekes1972first,speziale1991analytical,alfonsi2009reynolds}. Como apontado por \citeonline{speziale1991analytical,alfonsi2009reynolds}, a última opção é adequada para descrever escoamentos que não são nem estacionários, nem homogêneos, sendo calculada como:
 
