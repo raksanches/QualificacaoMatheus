@@ -100,7 +100,7 @@ Para isso, realiza-se primeiramente o mapeamento dos pontos da superfície médi
 
 \noindent onde $f_i^{m0}$ e $f_i^{m1}$ são as funções de mapeamento da superfície média para as configurações inicial a atual, respectivamente, $X_i^a$ e $Y_i^a$ são as coordenadas dos nós $a$, pertencentes à superfície média nas configurações inicial e atual, respectivamente, e $N_a(\xi_1,\xi_2)$ é a função de forma associada ao nó $a$.
 
-Já os pontos fora da superfície média, são mapeados com auxílio de vetores generalizados $v_i^0$ e $v_i^1$, sendo as funções de mapeamento para qualquer pondo, para as configurações inicial e atual, dadas por:
+Já os pontos fora da superfície média, são mapeados com auxílio de vetores generalizados $v_i^0$ e $v_i^1$, sendo as funções de mapeamento para qualquer ponto, para as configurações inicial e atual, dadas por:
 
 \begin{subequations}
     \begin{align}
@@ -109,7 +109,7 @@ Já os pontos fora da superfície média, são mapeados com auxílio de vetores 
     \end{align}
 \end{subequations}
 
-\noindent onde $v_i^0$, o qual é normal à superfície média inicial da superfície média ao ponto mapeado, e enquanto $v_i^1$ é o vetor, não necessariamente normal à superfície média, que liga o ponto da superfície média de coordenadas $(\xi_1,\xi_2)$ ao ponto mapeado na configuração atual. Empregando-se as mesmas funções de forma do elemento plano para representar esses vetores, escrevem-se as aproximações:
+\noindent onde $v_i^0$ é normal à superfície média inicial ao ponto mapeado, e enquanto $v_i^1$ é o vetor, não necessariamente normal à superfície média, que liga o ponto da superfície média de coordenadas $(\xi_1,\xi_2)$ ao ponto mapeado na configuração atual. Empregando-se as mesmas funções de forma do elemento plano para representar esses vetores, escrevem-se as aproximações:
 
 \begin{subequations}
     \begin{align}
@@ -118,7 +118,7 @@ Já os pontos fora da superfície média, são mapeados com auxílio de vetores 
     \end{align}
 \end{subequations}
 
-\noindent sendo $h_0$ a espessura inicial da casca, $(V^0)_i^a$ e $(V^1)_i^a$ os valores dos vetores generalizados adimensionais na configuração inicial e atual sobre o nó $a$, respectivamente, e $\alpha(\xi_1,\xi_2)$ é um enriquecimento nodal inserido ao problema com a finalidade de evitar travamento volumétrico, o representa a taxa de variação linear da deformação na direção da espessura. É importante notar que $(V^0)_i^a$ é unitário e normal à superfície média, enquanto $(V^1)_i^a$ não é mais necessariamente normal à superfície média nem unitário.
+\noindent sendo $h_0$ a espessura inicial da casca, $(V^0)_i^a$ e $(V^1)_i^a$ os valores dos vetores generalizados adimensionais na configuração inicial e atual sobre o nó $a$, respectivamente, e $\alpha(\xi_1,\xi_2)$ é um enriquecimento nodal inserido ao problema com a finalidade de evitar travamento volumétrico, o qual representa a taxa de variação linear da deformação na direção da espessura. É importante notar que $(V^0)_i^a$ é unitário e normal à superfície média, enquanto $(V^1)_i^a$ não é mais necessariamente normal à superfície média nem unitário.
 
 O parâmetro de enriquecimento é interpolado através de seus valores nodais por:
 
@@ -170,7 +170,7 @@ Considerando-se o princípio da conservação da energia, tem-se:
     \label{eq:CSD-F}
 \end{subequations}
 
-Portanto o problema ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
+Portanto o problema a ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
 
 Como é possível perceber, o cálculo de $\BB{r}$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de primeira e segunda ordem das posições. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
 %\textcolor{red}{ Pode deixar o Newmark mesmo para a qualificação, mas vamos mudar isso para o alfa generalizado. Não faz mais sentido usar Newmark.}
