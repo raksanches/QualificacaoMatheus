@@ -122,16 +122,15 @@ Já o domínio em que essas equações são válidas pode ser definido como $\Om
 
 Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações:
 
-\begin{equation}
-    \left\{
-    \begin{array}{ll}
-        \rho\bigpar{\dvt{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
-        \Ny\cdot\BB{u}=0                                                           & \text{ em }\Omega\text{,}   \\
-        \tens\cdot\BB{n}=\BB{h}                                                    & \text{ em }\Gamma_N\text{,} \\
-        \BB{u}=\BB{g}                                                              & \text{ em }\Gamma_D\text{,}
-    \end{array}
-    \right.\label{eq:NS-Euler}
-\end{equation}
+\begin{subequations}
+    \begin{align}
+         & \rho\bigpar{\dvt{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} &  & \text{ em }\Omega\text{,}   \\
+         & \Ny\cdot\BB{u}=0                                                           &  & \text{ em }\Omega\text{,}   \\
+         & \tens\cdot\BB{n}=\BB{h}                                                    &  & \text{ em }\Gamma_N\text{,} \\
+         & \BB{u}=\BB{g}                                                              &  & \text{ em }\Gamma_D\text{,}
+    \end{align}
+    \label{eq:NS-Euler}
+\end{subequations}
 
 \noindent as quais são chamadas de equações de Navier-Stokes para escoamentos incompressíveis em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
 
@@ -240,22 +239,21 @@ Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \eqref{eq:DerMa
 Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \eqref{eq:DerMat2} em \eqref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
 
 \begin{equation}
-    \rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\Ny\BB{u}-\BB{f}\right)-\Ny\cdot\tens^T=\BB{0}\text{.}
+    \rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\Ny\BB{u}-\BB{f}\right)-\Ny\cdot\tens=\BB{0}\text{.}
     \label{ConQtdMov10}
 \end{equation}
 
 Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 
-\begin{equation}
-    \left\{
-    \begin{array}{ll}
-        \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 & \text{ em }\Omega\text{,}   \\
-        u_{i,i}=0                                                         & \text{ em }\Omega\text{,}   \\
-        \sigma_{ij}n_i=h_j                                                & \text{ em }\Gamma_N\text{,} \\
-        u_j=g_j                                                           & \text{ em }\Gamma_D\text{,}
-    \end{array}
-    \right.\label{eq:NS-ALE}
-\end{equation}
+\begin{subequations}
+    \begin{align}
+         & \rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} &  & \text{ em }\Omega\text{,}   \label{eq:ALE-mov}  \\
+         & \Ny\cdot\BB{u}=0                                                                     &  & \text{ em }\Omega\text{,}   \label{eq:ALE-cont} \\
+         & \tens\cdot\BB{n}=\BB{h}                                                              &  & \text{ em }\Gamma_N\text{,}                     \\
+         & \BB{u}=\BB{g}                                                                        &  & \text{ em }\Gamma_D\text{,}
+    \end{align}
+    \label{eq:NS-ALE}
+\end{subequations}
 
 \noindent que são denominadas como as equações de Navier-Stokes para escoamentos incompressíveis em descrição ALE \cite{bazilevs2013computational}.
 
@@ -266,41 +264,45 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é expresso de acordo com a Equação \eqref{eq:const1}:
 
 \begin{equation}
-    \sigma_{ij}=\tau_{ij}-p\delta_{ij}\text{,}\label{eq:const1}
+    \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
 \end{equation}
 
-\noindent no qual $\tau_{ij}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
+\noindent no qual $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
 
 \begin{equation}
-    \tau_{ij}=\script{D}_{ij\alpha\beta}\dot{\varepsilon}_{ij}\text{,}
+    \BB{\tau}=\BB{\mathfrak{D}}:\dDef\text{,}
 \end{equation}
 
-\noindent em que $\script{D}_{ij\alpha\beta}$ é o tensor constitutivo de quarta ordem:
+\noindent em que $\BB{\mathfrak{D}}$ é o tensor constitutivo de quarta ordem:
 
 \begin{equation}
-    \script{D}_{ij\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\text{,}
+    \BB{\mathfrak{D}}=2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}\text{,}
 \end{equation}
 
-\noindent sendo $\mu$ a viscosidade dinâmica do fluido e $\dot{\varepsilon}_{ij}$ é o tensor de taxa de deformação, definido como:
+\noindent sendo $\BB{\mathbb{I}}$ o tensor identidade de quarta ordem, $\mu$ a viscosidade dinâmica do fluido e $\dDef$ o tensor de taxa de deformação, definido como:
 
 \begin{equation}
-    \dot{\varepsilon}_{ij}=\frac{u_{i,j}+u_{j,i}}{2}\text{.}\label{eq:deftax1}
+    \dDef=\frac{1}{2}\bigpar{\Ny\BB{u}+\NyT\BB{u}}\text{.}\label{eq:deftax1}
 \end{equation}
 
 Assim, o tensor desviador pode ser escrito da seguinte maneira:
 
-\[\tau_{ij}=(2\mu\delta_{i\alpha}\delta_{j\beta}+\lambda\delta_{ij}\delta_{\alpha\beta})\dot{\varepsilon}_{\alpha\beta}=2\mu\delta_{i\alpha}\delta_{j\beta}\dot{\varepsilon}_{\alpha\beta}+\lambda\delta_{ij}\delta_{\alpha\beta}\dot{\varepsilon}_{\alpha\beta}\]
+\[
+    \BB{\tau}=(2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}):\dDef=2\mu\BB{\mathbb{I}}:\dDef+\lambda\BB{I}\otimes\BB{I}:\dDef
+\]
 
 \noindent resultando em:
 
 \begin{equation}
-    \tau_{ij}=2\mu\dot{\varepsilon}_{ij}+\lambda\dot{\varepsilon}_{\beta\beta}\delta_{ij}\text{.}
+    \BB{\tau}=2\mu\dDef+\lambda\tr{(\dDef)}\BB{I}\text{,}
 \end{equation}
 
-Já para o caso de escoamentos incompressíveis, verifica-se que $\dot{\varepsilon}_{\beta\beta}=0$, fazendo com que \eqref{eq:const1} possa ser escrita como:
+\noindent sendo $\tr{(\dDef)}$ o traço do tensor $\dDef$.
+
+Já para o caso de escoamentos incompressíveis, verifica-se que $\tr{(\dDef)}=0$, fazendo com que \eqref{eq:const1} possa ser escrita como:
 
 \begin{equation}
-    \sigma_{ij}=\mu(u_{i,j}+u_{j,i})-p\delta_{ij}\text{.}\label{eq:ModConst}
+    \tens=\mu(\Ny\BB{u}+\NyT\BB{u})-p\BB{I}\text{.}\label{eq:ModConst}
 \end{equation}
 
 % Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
@@ -321,10 +323,10 @@ Já para o caso de escoamentos incompressíveis, verifica-se que $\dot{\varepsil
 \section{Formulação Semi-Discreta} \label{FSD}
 %==================================================================================================
 
-Para a obtenção da forma fraca das equações \eqref{eq:CFD-NS}, parte-se do método dos resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
+Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
 
 \begin{equation}
-    \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),u_i=g_i\text{ em }\Gamma_D\right\}\text{ e}
+    \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),\BB{u}=\BB{g}\text{ em }\Gamma_D\right\}\text{ e}
 \end{equation}
 
 \begin{equation}
@@ -334,11 +336,11 @@ Para a obtenção da forma fraca das equações \eqref{eq:CFD-NS}, parte-se do m
 \noindent em que $H^1(\Omega)$ representa o espaço de funções polinomiais com derivadas de quadrado integrável em $\Omega$ e $L^2(\Omega)$ representa o espaço de funções polinomiais de quadrado integrável em $\Omega$, ou seja:
 
 \begin{equation}
-    H^1(\Omega)=\left\{u\in L^2(\Omega);\der{u}{x_i}\in L^2(\Omega)\text{, com }i=1,\cdots,n_{sd}\right\}\text{ e}
+    H^1(\Omega)=\left\{u\in L^2(\Omega);\der{u}{\BB{x}}\in L^2(\Omega)\right\}\text{ e}
 \end{equation}
 
 \begin{equation}
-    L^2(\Omega)=\left\{u|\int_\Omega{|u|^2d\Omega}<\infty\right\}\text{.}
+    L^2(\Omega)=\left\{u\big|\int_\Omega{|u|^2d\Omega}<\infty\right\}\text{.}
 \end{equation}
 
 Sejam ainda os espaços das funções testes para a conservação de massa e conservação da quantidade de movimento $\script{V}_p$ e $\script{V}_u$, respectivamente, tais que:
@@ -348,19 +350,19 @@ Sejam ainda os espaços das funções testes para a conservação de massa e con
 \end{equation}
 
 \begin{equation}
-    \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},w_i=0\text{ em }\Gamma_D\right\}\text{.}
+    \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},\BB{w}=\BB{0}\text{ em }\Gamma_D\right\}\text{.}
 \end{equation}
 
-Dessa forma, ponderando-se as equações \eqref{eq:CFD-NS1} e \eqref{eq:CFD-NS2} respectivamente por $w_i$ e $q$, tal que $q\in\script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
+Dessa forma, ponderando-se as equações \eqref{eq:ALE-mov} e \eqref{eq:ALE-mov} respectivamente por $\BB{w}$ e $q$, tal que $q\in\script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
-    \intDom{w_i\bigpar{\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}}}+\intDom{qu_{i,i}}=0\text{.}
+    \intDom{\BB{w}\cdot\bigpar{\rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens}}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
 \end{equation}
 
 Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira integral, tem-se que:
 
 \begin{equation}
-    \intDom{w_i\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}}-\intDom{w_i\sigma_{ji,j}}+\intDom{qu_{i,i}}=0\text{.}
+    \intDom{\BB{w}\cdot\rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
     \label{eq:WeakForm1}
 \end{equation}
 
@@ -368,12 +370,12 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 
 \begin{equation}
     \begin{split}
-        &\intDom{w_i\rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}}-\intNeumann{w_ih_i}+\\
-        &\intDom{w_{i,j}\sigma_{ij}}+\intDom{qu_{i,i}}=0\text{.}
+        &\intDom{\BB{w}\cdot\rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
+        &\intDom{\Ny\BB{w}:\tens}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
     \end{split}
     \label{eq:WeakForm2}
 \end{equation}
-Assim, o problema, fica definido como: dados $f_i$, $g_i$, $h_i$ e $\hat{u}_i$, em que $h_i=\sigma_{ji}n_j$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
+Assim, o problema, fica definido como: dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\HBB{u}$, em que $\BB{h}=\tens\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
 A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
 

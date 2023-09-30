@@ -17,14 +17,14 @@ Assim, o sistema a ser resolvido parte do apresentado na Eq. \eqref{eq:NS-Euler}
 
 \begin{subequations}
     \begin{align}
-         & u_i=\bar{u}_i+u'_i\text{,}  \\
-         & p=\bar{p}+p'\text{,}        \\
-         & w_i=\bar{w}_i+w'_i\text{ e} \\
+         & \BB{u}=\BBB{u}+\BB{u}'\text{,}  \\
+         & p=\bar{p}+p'\text{,}            \\
+         & \BB{w}=\BBB{w}+\BB{w}'\text{ e} \\
          & q=\bar{q}+q'\text{.}
     \end{align}
 \end{subequations}
 
-Seguindo \citeonline{bazilevs2007variational} adota-se $w_i=\bar{w}_i$, $q=\bar{q}$ e assume-se que a parcela em escala fina $u'_i$ e $p'$ são modeladas como:
+Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar{q}$ e assume-se que a parcela em escala fina $\BB{u}'$ e $p'$ são modeladas como:
 
 \begin{subequations}
     \begin{equation}
@@ -59,10 +59,10 @@ Já os termos $\rM$ e $\rC$ são os resíduos da equação de conservação da q
 
 \begin{subequations}
     \begin{equation}
-        \rMi{i}=\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}-\sigma_{ji,j}\text{ e}
+        \rM=\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
     \end{equation}
     \begin{equation}
-        \rCi=\bar{u}_{i,i}\text{.}
+        \rC=\Ny\cdot\BBB{u}\text{.}
     \end{equation}
 \end{subequations}
 
@@ -93,9 +93,10 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\rho\bigpar{(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}u'_i}-\SintDom{\bar{w}_{i,i}p'}+\\
-        &\SintDom{\rho\bar{w}_iu'_j\bar{u}_{i,j}}-\SintDom{\rho\bar{w}_{i,j}u'_iu'_j}=0
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dvt{\BBB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BB{f}}}+\intDom{\Ny\BB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\bar{q}\Ny\cdot\BBB{u}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\cdot\BB{u}'}-\\
+        &\SintDom{\Ny\cdot\BBB{w}p'}+\SintDom{\rho\BBB{w}\cdot(\BB{u}'\cdot\Ny\BBB{u})}-\\
+        &\SintDom{\rho\Ny\BBB{w}:(\BB{u}'\otimes\BB{u}')}=0
         \text{,}
         \label{eq:RBVMS1}
     \end{split}
@@ -105,9 +106,10 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}+\\
-        &\SintDom{\tau_\sups\bigpar{(\bar{u}_j-\hat{u}_j)\bar{w}_{i,j}+\frac{\bar{q}_{,i}}{\rho}}\rMi{i}}+\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}-\\
-        &\SintDom{\tau_\sups\bar{w}_i\rMi{j}\bar{u}_{i,j}}-\SintDom{\frac{\bar{w}_{i,j}}{\rho}(\tau_\sups\rMi{i})(\tau_\sups\rMi{j})}=0
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\sups\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\rM}+\\
+        &\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}-\SintDom{\tau_\sups\BBB{w}\cdot(\rM\cdot\Ny\BBB{u})}-\\
+        &\SintDom{\frac{\Ny\BBB{w}}{\rho}:((\tau_\sups\rM)\otimes(\tau_\sups\rM))}=0
         \text{.}
         \label{eq:RBVMS1}
     \end{split}
@@ -117,9 +119,9 @@ Para a discretização do problema em descrição Euleriana pode-se realizar a s
 
 \begin{subequations}
     \begin{align}
-         & \bar{u}_i(\BB{y},t)=\sum_{\BB{\eta}^s}{U_i^a(t)N_a^u(\BB{y})}\text{,}\label{eq:uh} \\
-         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a^p(\BB{y})}\text{,}                  \\
-         & \bar{w}_i(\BB{y})=\sum_{\BB{\eta}^w}{W_i^aN_a^u(\BB{y})}\text{ e}\label{eq:w-sep}  \\
+         & \BBB{u}(\BB{y},t)=\sum_{\BB{\eta}^s}{\BB{U}^a(t)N_a^u(\BB{y})}\text{,}\label{eq:uh} \\
+         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a^p(\BB{y})}\text{,}                   \\
+         & \BBB{w}(\BB{y})=\sum_{\BB{\eta}^w}{\BB{W}^aN_a^u(\BB{y})}\text{ e}\label{eq:w-sep}  \\
          & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a^p(\BB{y})}\text{,}\label{eq:q-sep}
     \end{align}
 \end{subequations}
@@ -145,15 +147,15 @@ Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e leva
 \begin{subequations}
     \begin{equation}
         \begin{split}
-            \NMi{i}{a}=&
-            \intDom{N_a^u\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{N_{a,j}^u\bar{\sigma}_{ij}}-\intNeumann{N_a^u\bar{h}_i}-\\
-            &\SintDom{\rho N_{a,j}^u(\bar{u}_j-\hat{u}_j)u'_i}-\SintDom{N_{a,i}^up'}+\\
-            &\SintDom{\rho N_a^u\bar{u}_{i,j}u'_j}-\SintDom{\rho N_{a,j}^uu'_iu'_j}
+            \NM^a=&
+            \intDom{N_a^u\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny N_a^u\cdot\bar{\tens}}-\\
+            &\intNeumann{N_a^u\BBB{h}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny N_a^u}\BB{u}'}-\SintDom{\Ny N_a^up'}+\\
+            &\SintDom{\rho N_a^u(\BB{u}'\cdot\Ny\BBB{u})}-\SintDom{\rho\Ny N_a^u\cdot(\BB{u}'\otimes\BB{u}')}
             =0\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        \NCi{a}=\intDom{N_a^p\bar{u}_{i,i}}-\SintDom{N_{a,i}^pu'_i}=0
+        \NC^a=\intDom{N_a^p\Ny\cdot\BBB{u}}-\SintDom{\Ny N_a^p\cdot\BB{u}'}=0
     \end{equation}
     \label{Eq:Residuos-Euler}
 \end{subequations}
@@ -171,9 +173,9 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 
 \begin{equation}
     \begin{split}
-        &\intDom{\bar{w}_i\rho\bigpar{\dot{\bar{u}}_i+(\bar{u}_j-\hat{u}_j)\bar{u}_{i,j}-\bar{f}_i}}+\intDom{\bar{w}_{i,j}\bar{\sigma}_{ij}}-\intNeumann{\bar{w}_i\bar{h}_i}+\intDom{\bar{q}\bar{u}_{i,i}}-\\
-        &\SintDom{\tau_\supg\bar{w}_{i,j}(\bar{u}_j-\hat{u}_j)\rMi{i}}-\SintDom{\tau_\pspg\frac{q_{,i}}{\rho}\rMi{i}}-\\
-        &\SintDom{\rho\nu_\lsic\bar{w}_{i,i}\rCi}=0
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\supg((\BBB{u}-\HBB{u})\cdot\Ny\BBB{w})\cdot\rM}+\\
+        &\SintDom{\tau_\pspg\frac{\Ny\bar{q}}{\rho}\cdot\rM}+\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}=0
         \text{,}
         \label{eq:SUPG-PSPG}
     \end{split}
