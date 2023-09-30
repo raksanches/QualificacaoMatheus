@@ -202,16 +202,16 @@ Para o problema discretizado utiliza-se as seguintes expressões de aproximaçã
 \noindent onde as funções de forma $N_a(\BB{y},t)$ são definidas como:
 
 \begin{equation}
-    N_a(\BB{y},t)=\hat{N}_a(\bhat{f}^{-1}(\BB{y},t))\text{,}
+    N_a(\BB{y},t)=\hat{N}_a(\HBB{f}^{-1}(\BB{y},t))\text{,}
 \end{equation}
 
-\noindent em que $\bhat{f}(\BB{y},t)$ é a função de mudança de configuração de $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
+\noindent em que $\HBB{f}(\BB{y},t)$ é a função de mudança de configuração de $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
 
 \begin{equation}
-    \bhat{f}(\bhat{x},t)=\sum_{a\in\BB{\eta}^s}{(\bhat{x}_a+\Delta\bhat{x}_a(t))\hat{N}_a(\bhat{x})}\text{,}
+    \HBB{f}(\HBB{x},t)=\sum_{a\in\BB{\eta}^s}{(\HBB{x}_a+\Delta\HBB{x}_a(t))\hat{N}_a(\HBB{x})}\text{,}
 \end{equation}
 
-\noindent sendo $\bhat{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\bhat{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
+\noindent sendo $\HBB{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\HBB{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
 
 Com isso, define-se os vetores de resíduos da conservação de quantidade de movimento de da continuidade como:
 

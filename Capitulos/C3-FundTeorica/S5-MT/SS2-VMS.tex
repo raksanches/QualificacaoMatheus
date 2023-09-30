@@ -81,11 +81,11 @@ Outra forma de se determinar $ \tau_{\sups}$ e $\nu_{\lsic}$, também apresentad
 
 \begin{subequations}
     \begin{align}
-         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{(\BBB{u}-\HBB{u})\cdot\NN N_a}}}^{-1}\text{,} \\
+         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{(\BBB{u}-\HBB{u})\cdot\Ny N_a}}}^{-1}\text{,} \\
          & \tau_{\sugn 2}=\frac{\Delta t}{2}\text{,}                                                     \\
          & \tau_{\sugn 3}=\frac{h_{\rgn}^2}{4\nu}\text{,}                                                \\
-         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\NN N_a}}}^{-1}\text{ e}                  \\
-         & \BB{r}=\frac{\NN\norm{\BBB{u}-\HBB{u}}}{\norm{\NN\norm{\BBB{u}-\HBB{u}}}}\text{.}
+         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\Ny N_a}}}^{-1}\text{ e}                  \\
+         & \BB{r}=\frac{\Ny\norm{\BBB{u}-\HBB{u}}}{\norm{\Ny\norm{\BBB{u}-\HBB{u}}}}\text{.}
     \end{align}
 \end{subequations}
 
@@ -129,16 +129,16 @@ Para a discretização do problema em descrição Euleriana pode-se realizar a s
 Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
 
 \begin{equation}
-    N_a(\BB{y},t)=\hat{N}_a(\bhat{f}^{-1}(\BB{y},t))\text{,}
+    N_a(\BB{y},t)=\hat{N}_a(\HBB{f}^{-1}(\BB{y},t))\text{,}
 \end{equation}
 
-\noindent onde $\bhat{f}(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
+\noindent onde $\HBB{f}(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
 
 \begin{equation}
-    \bhat{f}(\bhat{x},t)=\sum_{a\in\BB{\eta}^s}{(\bhat{x}_a+\Delta\bhat{x}_a(t))\hat{N}_a(\bhat{x})}\text{,}
+    \HBB{f}(\HBB{x},t)=\sum_{a\in\BB{\eta}^s}{(\HBB{x}_a+\Delta\HBB{x}_a(t))\hat{N}_a(\HBB{x})}\text{,}
 \end{equation}
 
-\noindent sendo $\bhat{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\bhat{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
+\noindent sendo $\HBB{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\HBB{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
 
 Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando-se em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica:
 

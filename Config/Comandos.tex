@@ -1,5 +1,6 @@
 \renewcommand{\bar}[1]{\overline{#1}}
 
+% SIGLAS ===============================================================================
 \newcommand{\DNS}{\textit{Direct Numerical Simulation}}
 \newcommand{\RANS}{\textit{Reynolds-Averaged Navier-Stokes}}
 \newcommand{\LES}{\textit{Large Eddy Simulation}}
@@ -11,36 +12,43 @@
 \newcommand{\SUPG}{\textit{Streamline-Upwind/Petrov-Galerkin}}
 \newcommand{\PSPG}{\textit{Pressure-Stabilizating/Petrov-Galerkin}}
 
-\newcommand{\BB}[1]{\boldsymbol{#1}}
-\newcommand{\script}[1]{\mathcal{#1}}
+% OPERADORES ===============================================================================
+\newcommand{\Ny}{\BB{\nabla_y}}
+\newcommand{\Nx}{\BB{\nabla_x}}
+\newcommand{\NyT}{\BB{\nabla}^\mathrm{T}_\BB{y}}
+\newcommand{\NxT}{\BB{\nabla}^\mathrm{T}_\BB{x}}
+\newcommand{\Lapl}{\BB{\nabla}^2_\BB{y}}
+\newcommand{\dvt}[1]{\frac{\partial{#1}}{\partial t}}
 \newcommand{\abs}[1]{\left|{#1}\right|}
 \newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
-\newcommand{\dev}[1]{\mathop{\mathrm{dev}}\nolimits{#1}}
-\newcommand{\Rey}{\mathrm{Re}}
-\newcommand{\Str}{\mathrm{St}}
-\newcommand{\NN}{\BB{}{\nabla_y}}
-\newcommand{\NNx}{\BB{\nabla_x}}
-\newcommand{\NNT}{\BB{\nabla}^T_\B{y}}
-\newcommand{\Lapl}{\BB{\nabla}^2_\BB{y}}
-\newcommand{\apderp}[3]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{#3}}}
-\newcommand{\apder}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{y}}}
-\newcommand{\apderx}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{x}}}
-\newcommand{\apderxh}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\bhat{x}}}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\lVert}
+\newcommand{\bigpar}[1]{\left({#1}\right)}
+% DERIVADAS ---------------------------------------------
 \newcommand{\der}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\apderp}[3]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{#3}}}
+\newcommand{\apdery}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{y}}}
+\newcommand{\apderx}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\BB{x}}}
+\newcommand{\apderxh}[2]{\left.\frac{\partial{#1}}{\partial{#2}}\right|_{\HBB{x}}}
 \newcommand{\Dder}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
 \newcommand{\dder}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
+
+% ESCRITA ===============================================================================
+\newcommand{\BB}[1]{\boldsymbol{#1}}
 \newcommand{\BBB}[1]{\overline{\BB{#1}}}
 \newcommand{\HBB}[1]{\hat{\BB{#1}}}
+\newcommand{\TBB}[1]{\tilde{\BB{#1}}}
 \newcommand{\dBB}[1]{\dot{\BB{#1}}}
 \newcommand{\ddBB}[1]{\ddot{\BB{#1}}}
 \newcommand{\uhat}{\hat{\BB{u}}}
-\newcommand{\bhat}[1]{\hat{\BB{#1}}}
-\newcommand{\that}[1]{\tilde{\BB{#1}}}
+\newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\dev}[1]{\mathop{\mathrm{dev}}\nolimits{#1}}
+
+% SIMBOLOS ===============================================================================
+\newcommand{\Rey}{\mathrm{Re}}
+\newcommand{\Str}{\mathrm{St}}
 \newcommand{\Def}{\BB{\varepsilon}}
-\newcommand{\deftax}{\dot{\BB{\varepsilon}}}
+\newcommand{\dDef}{\dot{\BB{\varepsilon}}}
 \newcommand{\tens}{\BB{\sigma}}
-\newcommand{\norm}[1]{\left\lVert{#1}\right\lVert}
-\newcommand{\bigpar}[1]{\left({#1}\right)}
 \newcommand{\uSim}[3]{#1_{#2,#3}+#1_{#3,#2}} %tensor simétrico
 
 %LARGE EDDY SIMULATION:
