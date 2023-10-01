@@ -75,6 +75,7 @@ Outra forma de se determinar $ \tau_{\sups}$ e $\nu_{\lsic}$, também apresentad
     \begin{equation}
         \nu_{\lsic}=\tau_{\sups}\norm{\BBB{u}-\HBB{u}}^2\text{,}
     \end{equation}
+    \label{eq:stabilizatingTerms}
 \end{subequations}
 
 \noindent sendo:
@@ -151,16 +152,16 @@ Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e leva
             \intDom{N_a^u\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny N_a^u\cdot\bar{\tens}}-\\
             &\intNeumann{N_a^u\BBB{h}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny N_a^u}\BB{u}'}-\SintDom{\Ny N_a^up'}+\\
             &\SintDom{\rho N_a^u(\BB{u}'\cdot\Ny\BBB{u})}-\SintDom{\rho\Ny N_a^u\cdot(\BB{u}'\otimes\BB{u}')}
-            =0\text{,}
+            =\BB{0}\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        \NC^a=\intDom{N_a^p\Ny\cdot\BBB{u}}-\SintDom{\Ny N_a^p\cdot\BB{u}'}=0
+        \NC^a=\intDom{N_a^p\Ny\cdot\BBB{u}}-\SintDom{\Ny N_a^p\cdot\BB{u}'}=\BB{0}
     \end{equation}
     \label{Eq:Residuos-Euler}
 \end{subequations}
 
-Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os parâmetros nodais de velocidade, a primeira derivada temporal dos parâmetros nodais de velocidade, e os parâmetros nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os valores nodais de velocidade, sua primeira derivada temporal e os valores nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
 
 \begin{subequations}
     \begin{align}
@@ -191,21 +192,21 @@ Até o momento, apresentou-se uma forma semi-discreta das equações governantes
 
 O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
 
-Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dot{U}_i^{n+\alpha_m}$ e $U_i^{n+\alpha_f}$:
+Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dBB{U}^{n+\alpha_m}$ e $\BB{U}^{n+\alpha_f}$:
 
 \begin{subequations}
     \begin{equation}
-        \dot{U}_i^{n+\alpha_m}=\dot{U}_i^n+\alpha_m(\dot{U}_i^{n+1}-\dot{U}_i^n)\text{ e}
+        \dBB{U}^{n+\alpha_m}=\dBB{U}^n+\alpha_m(\dBB{U}^{n+1}-\dBB{U}^n)\text{ e}
     \end{equation}
     \begin{equation}
-        U_i^{n+\alpha_f}=U_i^n+\alpha_f(U_i^{n+1}-U_i^n)\text{.}
+        \BB{U}^{n+\alpha_f}=\BB{U}^n+\alpha_f(\BB{U}^{n+1}-\BB{U}^n)\text{.}
     \end{equation}
 \end{subequations}
 
 Já para se relacionar a velocidade à aceleração, emprega-se a aproximação de Newmark \cite{bazilevs2013computational}:
 
 \begin{equation}
-    U_i^{n+1}=U_i^n+\Delta t_n\bigpar{(1-\gamma)\dot{U}_i^n+\gamma\dot{U}_i^{n+1}}\text{,}
+    \BB{U}^{n+1}=\BB{U}^n+\Delta t_n\bigpar{(1-\gamma)\dBB{U}^n+\gamma\dBB{U}^{n+1}}\text{,}
 \end{equation}
 
 \noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente, observando-se as necessidades de estabilidade e precisão do método.
@@ -247,67 +248,113 @@ Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos
     \end{equation}
 \end{subequations}
 
-%%==================================================================================================
-%\subsection{Procedimento iterativo} \label{Comp-VMS}
-%%==================================================================================================
-%
-%O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os valores a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção dessas variáveis é:
-%
-%\begin{equation}
-%    \begin{bmatrix}
-%        \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}} & \der{(N_M)_i^a}{(P^b)^{n+1}} \\
-%        \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}   & \der{(N_C)^a}{(P^b)^{n+1}}
-%    \end{bmatrix}
-%    \begin{bmatrix}
-%        \Delta(\dot{U}_j^b)^{n+1} \\
-%        \Delta (P^b)^{n+1}
-%    \end{bmatrix}=-
-%    \begin{bmatrix}
-%        (N_M)_i^a \\
-%        (N_C)^a
-%    \end{bmatrix}\text{,}
-%    \label{Eq:Newton-Raphson}
-%\end{equation}
-%
-%\noindent em que, para uma descrição ALE:
-%
-%\begin{subequations}
-%    \begin{equation}
-%        \begin{split}
-%            \der{(N_M)_i^a}{(\dot{U}_j^b)^{n+1}}=&\am\intDomna{\rho N_aN_b}\dij+\am\intDomna{\rho\tsups N_{a,k}N_{b}\uub{k}}\dij+\\
-%            &\agdt\intDomna{\rho N_aN_{b,k}\uub{k}}\dij+\agdt\intDomna{\mu N_{a,k}N_{b,k}}\dij+\\
-%            &\agdt\intDomna{\mu N_{a,j}N_{b,i}}+\agdt\intDomna{\rho\nlsic N_{a,i}N_{b,j}}+\\
-%            &\agdt\intDomna{\rho\tsups N_{a,k}N_{b,m}\uub{k}\uub{m}}\dij+\\
-%            &\agdt\intDomna{\rho N_aN_b\bar{u}_{i,j}}+\agdt\intDomna{\rho\tsups N_{a,k}N_b\uub{k}\bar{u}_{i,j}}-\\
-%            &\am\intDomna{\rho\tsups N_aN_b\bar{u}_{i,j}}-\\
-%            &\agdt\intDomna{\rho\tsups N_aN_{b,m}\uub{m}\bar{u}_{i,j}}-\\
-%            &\agdt\intDomna{\rho\tsups N_aN_b\bar{u}_{i,k}\bar{u}_{k,j}}\text{,}
-%        \end{split}
-%    \end{equation}
-%    \begin{equation}
-%        \begin{split}
-%            \der{(N_M)_i^a}{(P^b)^{n+1}}=&-\intDomna{N_{a,i}N_b}+\intDomna{\tsups N_{a,j}N_{b,i}\uub{j}}-\\
-%            &\intDomna{\tsups N_aN_{b,j}\bar{u}_{i,j}}\text{,}
-%        \end{split}
-%    \end{equation}
-%    \begin{equation}
-%        \begin{split}
-%            \der{(N_C)^a}{(\dot{U}_j^b)^{n+1}}=&\agdt\intDomna{N_aN_{b,j}}+\am\intDomna{\tsups N_{a,j}N_b}+\\
-%            &\agdt\intDomna{\tsups N_{a,j}N_{b,m}\uub{m}}+\\
-%            &\agdt\intDomna{\tsups N_{a,i}N_b\bar{u}_{i,j}}\text{ e}
-%        \end{split}
-%    \end{equation}
-%    \begin{equation}
-%        \der{(N_C)^a}{(P^b)^{n+1}}=\intDomna{\frac{\tsups}{\rho}N_{a,i}N_{b,i}}\text{,}
-%    \end{equation}
-%\end{subequations}
-%
-%\noindent em que $\agdt=\alpha_f\gamma\Delta t$ e:
-%
-%\begin{equation}
-%    \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
-%\end{equation}
-%
-%Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
-%
-%Sendo assim, o pseudocódigo apresentado no algoritmo presente no Apêndice \ref{Ap:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
+%==================================================================================================
+\subsection{Procedimento iterativo} \label{Comp-VMS}
+%==================================================================================================
+
+O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os valores a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção dessas variáveis é:
+
+\begin{equation}
+    \begin{bmatrix}
+        \der{\NM}{\dBB{U}^{n+1}} & \der{\NM}{\BB{P}^{n+1}} \\
+        \der{\NC}{\dBB{U}^{n+1}} & \der{\NC}{\BB{P}^{n+1}}
+    \end{bmatrix}\cdot
+    \begin{bmatrix}
+        \Delta\dBB{U}^{n+1} \\
+        \Delta\BB{P}^{n+1}
+    \end{bmatrix}=-
+    \begin{bmatrix}
+        \NM \\
+        \NC
+    \end{bmatrix}\text{,}
+    \label{Eq:NR-NS}
+\end{equation}
+
+\noindent em que a matriz tangente elementar em descrição ALE é dada por:
+
+\begin{subequations}
+    \begin{equation}
+        \begin{split}
+            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDomna{\kr{a}N_b}\BB{I}+\agdt\intDomna{\kr{a}\dconv{b}}\BB{I}+\\
+            &\agdt\intDomna{\mu \Ny N_a\cdot\Ny N_b}\BB{I}+\agdt\intDomna{\kr{a}N_b\Ny\BBB{u}}+\\
+            &\agdt\intDomna{(\mu(\Ny N_b\otimes\Ny N_a)+\rho\nlsic(\Ny N_a\otimes\Ny N_b))}-\\
+            &\am\intDomna{\rho\tsups N_aN_b\Ny\BBB{u}}-\\
+            &\agdt\intDomna{\rho\tsups N_a(\dconv{b}\BB{I}+N_b\Ny\BBB{u})\cdot\Ny\BBB{u}}\text{,}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \der{\NM^a}{(P^b)^{n+1}}=-\intDomna{N_b\Ny N_a}+\intDomna{\tsups(\dconv{a}\BB{I}-N_a\Ny\BBB{u})\cdot\Ny N_b}\text{,}
+    \end{equation}
+    \begin{equation}
+        \begin{split}
+            \der{\NC^a}{(\dBB{U}^b)^{n+1}}=&\agdt\intDomna{N_a\Ny N_b}+\am\intDomna{\tsups N_b\Ny N_a}+\\
+            &\agdt\intDomna{\tsups(\dconv{b}\BB{I}+N_b\NyT\BBB{u})\cdot\Ny N_a}\text{ e}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \der{\NC^a}{(P^b)^{n+1}}=\intDomna{\frac{\tsups}{\rho}\Ny N_a\cdot\Ny N_b}\text{,}
+    \end{equation}
+    \label{Eq:MatrizTangente-VMS}
+\end{subequations}
+
+\noindent em que $\dconv{a}=\UUB\cdot\Ny N_{a}$, $\kr{a}=\rho(N_a+\tsups\dconv{a})$ e:
+
+\begin{equation}
+    \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
+\end{equation}
+
+Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
+
+Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
+
+\begin{algorithm}[h!]
+    \caption{Algoritmo para a solução de escoamento incompressíveis via VMS.}
+    \label{alg:MEF-VMS}
+    \KwResult{Vetor de velocidades, acelerações e pressões nodais}
+    \ForEach{\textnormal{passo de tempo}}{
+    Previsão dos valores nodais:\newline
+    $
+        \begin{bmatrix}
+            \dBB{U} \\\BB{U}\\\BB{P}
+        \end{bmatrix}^0_{n+1}\gets
+        \begin{bmatrix}
+            ((\gamma-1)/\gamma)\dBB{U} \\
+            \BB{U}                     \\
+            \BB{P}
+        \end{bmatrix}_n
+    $\\
+    \ForEach{\textnormal{iteração de Newton-Raphson}}
+    {
+    \ForEach{\textnormal{elemento}}{
+    Interpolação das variáveis:\newline
+    $
+        \begin{bmatrix}
+            \dBB{U}_{n+\alpha_m} \\\BB{U}_{n+\alpha_f}\\\BB{P}_{n+1}
+        \end{bmatrix}^{k+1}\gets
+        \begin{bmatrix}
+            \alpha_m \BB{\dot{U}}_{n+1}+(1-\alpha_m)\BB{\dot{U}}_n \\
+            \alpha_f \BB{U}_{n+1}+(1-\alpha_f)\BB{U}_n             \\
+            \BB{P}_n
+        \end{bmatrix}^{k-1}
+    $\\
+    Cálculo dos termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ \eqref{eq:stabilizatingTerms}\;
+    Cálculo da matriz tangente \eqref{Eq:MatrizTangente-VMS} e dos vetores de resíduos \eqref{Eq:Residuos-Euler}\;
+    }
+    Montagem do sistema global e aplicação das condições de contorno\;
+    Determinar as correções nodais pela solução do sistema \eqref{Eq:NR-NS}\;
+    Correção dos valores:\newline
+    $
+        \begin{bmatrix}
+            \dBB{U} \\\BB{U}\\\BB{P}
+        \end{bmatrix}_{n+1}^{k+1}\gets
+        \begin{bmatrix}
+            \dBB{U} \\\BB{U}\\\BB{P}
+        \end{bmatrix}_{n+1}^{k}+
+        \begin{bmatrix}
+            \Delta\dBB{U} \\\gamma\Delta t\Delta\dBB{U}\\\Delta\BB{P}
+        \end{bmatrix}_{n+1}^{k}
+    $\\
+    Cálculo do erro: $\epsilon=\norm{\NM^k}_{L^2}$
+    }
+    }
+\end{algorithm}
