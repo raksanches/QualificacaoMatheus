@@ -38,68 +38,64 @@ Dessa maneira, é possível separar os efeitos das grandes escalas e das pequena
 
 Assim, em uma descrição Euleriana, pode-se obter as equações de Navier-Stokes filtradas:
 
-\begin{equation}
-    \left\{
-    \begin{array}{ll}
-        \rho\bigpar{\dot{\bar{u}}_i+(\overline{u_iu_j})_{,j}-\bar{f}_i}-\bar{\sigma}_{ji,j}=0 & \text{ em }\Omega\text{,} \\
-        \bar{u}_{i,i}=0                                                                       & \text{ em }\Omega\text{.}
-    \end{array}
-    \right.
-\end{equation}
+\begin{subequations}
+    \begin{align}
+         & \rho\bigpar{\dvt{\BBB{u}}+\Ny\cdot(\overline{\BB{u}\otimes\BB{u}})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0} &  & \text{ em }\Omega\text{,} \\
+         & \Ny\cdot\BBB{u}=0                                                                                      &  & \text{ em }\Omega\text{.}
+    \end{align}
+\end{subequations}
 
 Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação da quantidade de movimento como:
 
 \begin{equation}
-    \rho\bigpar{\dot{\bar{u}}_i+(\overline{(\bar{u}_i+u'_i)(\bar{u}_j+u'_j)})_{,j}-\bar{f}_i}-\bar{\sigma}_{ji,j}=0
+    \rho\bigpar{\dvt{\BBB{u}}+\Ny\cdot(\overline{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}
 \end{equation}
 
 Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais serão condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
 
 \begin{equation}
-    T_{ij}=\bar{u}_i\bar{u}_j-\overline{u_iu_j}=-\bigpar{L_{ij}+C_{ij}+R_{ij}}\text{,}
+    \BB{T}=\BBB{u}\otimes\BBB{u}-\overline{\BB{u}\otimes\BB{u}}=-\bigpar{\BB{L}+\BB{C}+\BB{R}}\text{,}
 \end{equation}
 
-\noindent no qual $L_{ij}=\overline{\bar{u}_i\bar{u}_j}-\bar{u}_i\bar{u}_j$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente e utilizado para análise de erros, $C_{ij}=\overline{\bar{u}_iu'_j}+\overline{u'_i\bar{u}_j}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $R_{ij}=\overline{u'_iu'_j}$ é o tensor de tensões SGS de Reynolds, que representa a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever:
+\noindent no qual $\BB{L}=\overline{\BBB{u}\otimes\BBB{u}}-\BBB{u}\otimes\BBB{u}$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente e utilizado para análise de erros, $\BB{C}=\overline{\BBB{u}\otimes\BB{u}'}+\overline{\BB{u}'\otimes\BBB{u}}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $\BB{R}=\overline{\BB{u}'\otimes\BB{u}'}$ é o tensor de tensões SGS de Reynolds, que representa a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever:
 
 \begin{equation}
-    \rho\bigpar{\dot{\bar{u}}_j+(\bar{u}_i\bar{u}_j)_{,i}-T_{ij,i}-\bar{f}_j}-\sigma_{ij,i}=0\text{.}
+    \rho\bigpar{\dvt{\BBB{u}}+\Ny\cdot(\BBB{u}\otimes\BBB{u})-\Ny\cdot\BB{T}-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}\text{.}
 \end{equation}
 
-Aplicando a incompressibilidade e substituindo-se $\sigma_{ij}$ pelo modelo constitutivo \eqref{eq:ModConst}, tem-se que:
+Aplicando a incompressibilidade e substituindo-se $\bar{\tens}$ pelo modelo constitutivo \eqref{eq:ModConst}, tem-se que:
 
 \begin{equation}
-    \rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-T_{ji,j}-\bar{f}_i}-\mu(\bar{u}_{i,j}+\bar{u}_{j,i})_{,j}+p_{,i}=0\text{,}\label{eq:ConMasLES}
+    \rho\bigpar{\dvt{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}-\Ny\cdot\BB{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
 \end{equation}
 
 \noindent ou, dividindo-se por $\rho$ e fazendo algumas manipulações tem-se que:
 
 \begin{equation}
-    \dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}+\frac{p_{,i}}{\rho}=\nu\bar{u}_{i,jj}+T_{ji,j}+\bar{f}_i\text{,}
+    \dvt{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\BB{T}+\BBB{f}\text{,}
 \end{equation}
 
-\noindent sendo $\nu$ a viscosidade cinemática, dada por $\nu=\mu/\rho$.
+\noindent sendo $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
 
 Assim, o problema fica governado por:
 
-\begin{equation}
-    \left\{
-    \begin{array}{ll}
-        \dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}+\frac{p_{,i}}{\rho}=\nu\bar{u}_{i,jj}+T_{ji,j}+\bar{f}_i & \text{ em }\Omega\text{,} \\
-        \bar{u}_{i,i}=0                                                                                 & \text{ em }\Omega\text{,}
-    \end{array}
-    \right.
-\end{equation}
+\begin{subequations}
+    \begin{align}
+         & \dvt{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} &  & \text{ em }\Omega\text{,} \\
+         & \Ny\cdot\BBB{u}=0                                                                              &  & \text{ em }\Omega\text{,}
+    \end{align}
+\end{subequations}
 
 \noindent havendo ainda a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
 
 \begin{equation}
-    \dev{T_{ij}}=T_{ij}-\frac{1}{3}T_{kk}\delta_{ij}\text{,}
+    \dev{\BB{T}}=\BB{T}-\frac{1}{3}\tr{(\BB{T})}\BB{I}\text{,}
 \end{equation}
 
 \noindent que descreva adequadamente as interações entre diferentes escalas. Isso pode se tornar problemático uma vez que não se possui solução para as pequenas escalas. Uma forma de se fazer isso é através do modelo de viscosidade de vórtice de Smagorinsky \cite{smagorinsky1963general}, resultando no tensor:
 
 \begin{equation}
-    \bigpar{T_S}_{ij}=2\nu_T\deffilij{ij}\text{,}
+    \bigpar{\BB{T}_S}=2\nu_T\deffil\text{,}
 \end{equation}
 
 \noindent sendo $\nu_T$ a viscosidade de vórtice SGS, dada por \cite{germano1991dynamic,piomelli1999large,hughes2000large,bailly2015turbulence,katopodes2019free}:
@@ -111,7 +107,7 @@ Assim, o problema fica governado por:
 \noindent onde $C_S$ é a constante de Smagorinsky e $\norm{\deffil}$ é a magnitude do tensor taxa de deformação em escala grosseira, dada por:
 
 \begin{equation}
-    \norm{\deffil}=(2\deffilij{ij}\deffilij{ij})^{1/2}\text{.}
+    \norm{\deffil}=(2\deffil:\deffil)^{1/2}\text{.}
 \end{equation}
 
 Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB{T}_S}$.
@@ -153,7 +149,7 @@ Substituindo \eqref{eq:Ek1} em \eqref{eq:ndeffil1}, resolvendo a integral e faze
 Com isso, considerando também que a dissipação de energia cinética é igual àquela produzida, realiza-se o balanço da energia, obtendo-se:
 
 \begin{equation}
-    \varepsilon=({T}_S)_{ij}\deffilij{ij}\text{.}
+    \varepsilon=\BB{T}_S:\deffil\text{.}
 \end{equation}
 
 \noindent Assim, fica possível obter expressões que relacionam os valores de $C_S$ $\Delta$ e $\nu_T$ com $\bar{k}$:

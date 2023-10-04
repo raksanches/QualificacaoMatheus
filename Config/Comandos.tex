@@ -17,7 +17,7 @@
 \newcommand{\Nx}{\BB{\nabla_x}}
 \newcommand{\NyT}{\BB{\nabla}^{\mathrm{T}}_{\BB{y}}}
 \newcommand{\NxT}{\BB{\nabla}^{\mathrm{T}}_{\BB{x}}}
-\newcommand{\Lapl}{\BB{\nabla}^2_\BB{y}}
+\newcommand{\Lapl}{\BB{\nabla}^2_{\BB{y}}}
 \newcommand{\dvt}[1]{\frac{\partial{#1}}{\partial t}}
 \newcommand{\abs}[1]{\left|{#1}\right|}
 \newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
@@ -62,6 +62,7 @@
 \newcommand{\UUB}{\bigpar{\BBB{u}-\HBB{u}}}
 \newcommand{\dconv}[1]{\omega^{#1}}
 \newcommand{\kr}[1]{\kappa^{#1}}
+\newcommand{\btau}{\BB{\tau}}
 
 %LARGE EDDY SIMULATION:
 \newcommand{\Dfil}{D_\Delta(\BB{y})}
@@ -100,10 +101,11 @@
 %REYNOLDS-AVERAGED NAVIER-STOKES
 \newcommand{\umed}{\bar{\BB{u}}}
 \newcommand{\ufl}{\BB{u}'}
-\newcommand{\epmean}{\bar{S}}
+\newcommand{\epmeanij}[2]{\bar{S}_{#1#2}}
+\newcommand{\epmean}{\BBB{S}}
 \newcommand{\ke}{K-\varepsilon}
 \newcommand{\kw}{K-\omega}
-\newcommand{\te}{\tau_{ij}-\varepsilon}
+\newcommand{\te}{\btau-\varepsilon}
 \newcommand{\ep}{\varepsilon}
 \newcommand{\pr}{\script{P}}
 
