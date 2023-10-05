@@ -1,8 +1,8 @@
 \documentclass[
 12pt,
 openright,
-oneside,
-%twoside,
+%oneside,
+twoside,
 a4paper,
 chapter=TITLE,
 english,
@@ -46,15 +46,15 @@ portuguese % ou english
 \cleardoublepage
 
 % Lista de ilustrações (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
-% \listoffigures*
-% \cleardoublepage
+\listoffigures*
+\cleardoublepage
 
 % Lista de tabelas (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
-% \listoftables*
-% \cleardoublepage
+\listoftables*
+\cleardoublepage
 
-% \input{Config/Siglas.tex}
-% \input{Config/Simbolos.tex}
+\input{Config/Siglas.tex}
+\input{Config/Simbolos.tex}
 
 % Sumário
 \pdfbookmark[0]{\contentsname}{toc}
@@ -94,7 +94,6 @@ portuguese % ou english
 \input{Pos-Textuais/apendiceF}
 \input{Pos-Textuais/apendiceG}
 \input{Pos-Textuais/apendiceH}
-\input{Pos-Textuais/apendice-CSD}
 %\input{Pos-Textuais/algoritmo1}
 \input{Pos-Textuais/apendiceA}
 %\input{Pos-Textuais/apendiceB}

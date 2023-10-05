@@ -148,25 +148,23 @@ A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eu
     \\Fonte: Autoria Própria (\the\year).
 \end{figure}
 
-%\parei aquiiiii
-
-As coordenadas $\BB{x}$, $\BB{y}$ e $\HBB{x}$ representam as coordenadas de um ponto nos domínios $\Omega_0$, $\Omega$ e $\hat{\Omega}$, respectivamente. Já as funções $\BB{f}(\BB{x},t)=\BB{y}(\BB{x},t)$, $\TBB{f}(\BB{x},t)=\HBB{x}(\BB{x},t)$ e $\HBB{f}(\HBB{x},t)=\BB{y}(\HBB{x},t)$ são funções de mudança de configuração.
+As coordenadas $\BB{x}$, $\BB{y}$ e $\HBB{x}$ representam as coordenadas de um ponto nos domínios $\Omega_0$, $\Omega$ e $\hat{\Omega}$, respectivamente. Já as funções $\fmc(\BB{x},t)=\BB{y}(\BB{x},t)$, $\tfmc(\BB{x},t)=\HBB{x}(\BB{x},t)$ e $\hfmc(\HBB{x},t)=\BB{y}(\HBB{x},t)$ são funções de mudança de configuração.
 
 Com isso, pode-se obter o gradiente das funções de mudança de configuração:
 
 \begin{subequations}
     \begin{equation}
-        \mathbf{A}=\der{(\BB{f}(\BB{x},t),t)}{(\mathbf{x},t)}=\begin{bmatrix}
+        \FMC=\der{(\fmc(\BB{x},t),t)}{(\mathbf{x},t)}=\begin{bmatrix}
             \der{\BB{y}}{\BB{x}} & \BB{u} \\\BB{0}^T&1
         \end{bmatrix}\text{,}\label{F2}
     \end{equation}
     \begin{equation}
-        \TBB{A}=\der{(\TBB{f}(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
+        \TFMC=\der{(\tfmc(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
             \der{\HBB{x}}{\BB{x}} & \BB{w} \\\BB{0}^T&1
         \end{bmatrix}\text{, e}\label{F1}
     \end{equation}
     \begin{equation}
-        \HBB{A}=\der{(\HBB{f}(\HBB{x},t),t)}{(\HBB{x},t)}=\begin{bmatrix}
+        \HFMC=\der{(\hfmc(\HBB{x},t),t)}{(\HBB{x},t)}=\begin{bmatrix}
             \der{\BB{y}}{\HBB{x}} & \uhat \\\BB{0}^T&1
         \end{bmatrix}\text{,}\label{F3}
     \end{equation}

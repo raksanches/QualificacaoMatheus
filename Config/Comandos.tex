@@ -15,8 +15,10 @@
 % OPERADORES ===============================================================================
 \newcommand{\Ny}{\BB{\nabla_y}}
 \newcommand{\Nx}{\BB{\nabla_x}}
+\newcommand{\Nxi}{\BB{\nabla_\xi}}
 \newcommand{\NyT}{\BB{\nabla}^{\mathrm{T}}_{\BB{y}}}
 \newcommand{\NxT}{\BB{\nabla}^{\mathrm{T}}_{\BB{x}}}
+\newcommand{\NxiT}{\BB{\nabla}^{\mathrm{T}}_{\BB{xi}}}
 \newcommand{\Lapl}{\BB{\nabla}^2_{\BB{y}}}
 \newcommand{\dvt}[1]{\frac{\partial{#1}}{\partial t}}
 \newcommand{\abs}[1]{\left|{#1}\right|}
@@ -42,6 +44,13 @@
 \newcommand{\uhat}{\hat{\BB{u}}}
 \newcommand{\script}[1]{\mathcal{#1}}
 \newcommand{\dev}[1]{\mathop{\mathrm{dev}}\nolimits{#1}}
+%função de mudança de configuração
+\newcommand{\fmc}{\BB{\mathfrak{f}}}
+\newcommand{\tfmc}{\tilde{\fmc}}
+\newcommand{\hfmc}{\hat{\fmc}}
+\newcommand{\FMC}{\BB{\mathfrak{F}}}
+\newcommand{\TFMC}{\tilde{\FMC}}
+\newcommand{\HFMC}{\hat{\FMC}}
 
 % SIMBOLOS ===============================================================================
 \newcommand{\Rey}{\mathrm{Re}}
@@ -50,6 +59,7 @@
 \newcommand{\dDef}{\dot{\BB{\varepsilon}}}
 \newcommand{\tens}{\BB{\sigma}}
 \newcommand{\uSim}[3]{#1_{#2,#3}+#1_{#3,#2}} %tensor simétrico
+\newcommand{\tensCon}{\BB{\mathfrak{C}}} %tensor constitutivo de quarta ordem
 
 % SHORTCUT ===============================================================================
 \newcommand{\agdt}{\alpha_f\gamma\Delta t}

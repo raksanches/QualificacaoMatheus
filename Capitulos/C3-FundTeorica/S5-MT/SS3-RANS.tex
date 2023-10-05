@@ -187,16 +187,19 @@ Já a equação exata do transporte que descreve a taxa de dissipação turbulen
 Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 
 \begin{equation}
-    \dot{\ep}+\bar{u}_i\ep_{,i}=P_\ep+D_\ep-\Phi_\ep+\nu\ep_{,ii}\text{,}
+    \dot{\ep}+\BBB{u}\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep\text{,}
 \end{equation}
 
 \noindent em que $P_\ep$ é a produção de dissipação, $D_\ep$ é a difusão turbulenta de dissipação, $\Phi_\ep$ é a destruição turbulenta da dissipação e o último termo é o transporte viscoso. Essas parcelas são dadas de forma exata por:
 
 \begin{subequations}
     \begin{align}
-         & P_\ep=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_ku'_{i,j}}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{i,k}u'_{k,j}} \text{,} \\
-         & D_\ep=-\nu(\bar{u'_ku'_{i,j}u'_{i,j}})_{,k}-2\nu(\bar{\pr'_{,j}u'_{i,j}})_{,i} \text{ e}                                                                                \\
-         & \Phi_\ep=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
+        \begin{split}
+            & P_\ep=-2\nu\bigpar{\bar{\Ny\BB{u}'\cdot\NyT\BB{u}'}+\bar{\NyT\BB{u}'\cdot\Ny\BB{u}'}}:\Ny\BBB{u}-\\
+            &2\nu\bar{\Ny\BB{u}'\otimes\BB{u}'}\vdots\script{H}(\BBB{u})-2\nu\bar{\Ny\BB{u}':(\Ny\BB{u}'\cdot\Ny\BB{u}')} \text{,}
+        \end{split} \\
+         & D_\ep=-\frac{\nu}{2}\Ny\cdot\bigpar{\bar{\norm{\Ny\BB{u}'}^2\BB{u}'}}-2\nu\Ny\cdot(\bar{\Ny\pr'\cdot\Ny\BB{u}'}) \text{ e}                                                                              \\
+         & \Phi_\ep=2\nu^2\bar{\script{H}(\BB{u}')\vdots\script{H}(\BB{u}')}\text{.}
     \end{align}
 \end{subequations}
 
@@ -204,8 +207,8 @@ Assim, realiza-se uma modelagem sobre os termos necessários como:
 
 \begin{subequations}
     \begin{align}
-         & P_\ep=C_{\ep 1}\frac{\ep}{k}\tau_{ij}\bar{u}_{i,j}\text{,}   \\
-         & D_\ep=\bigpar{\frac{\nu_T}{\sigma_\ep}\ep_{,i}}_{,i}\text{e} \\
+         & P_\ep=C_{\ep 1}\frac{\ep}{k}\btau:\Ny\BBB{u}\text{,}          \\
+         & D_\ep=\Ny\cdot\bigpar{\frac{\nu_T}{\sigma_\ep}\Ny\ep}\text{e} \\
          & \Phi_\ep=C_{\ep 2}\frac{\ep^2}{K}\text{,}
     \end{align}
 \end{subequations}
@@ -214,15 +217,13 @@ Assim, realiza-se uma modelagem sobre os termos necessários como:
 
 Assim, o problema RANS fica descrito pelas equações:
 
-\begin{equation}
-    \left\{
-    \begin{array}{l}
-        \rho\bigpar{\dot{\bar{u}}_i+\bar{u}_j\bar{u}_{i,j}-\tau_{ij,j}-\bar{f}_i}-\mu\bar{u}_{i,jj}+\bar{p}_{,i}=0    \\
-        \bar{u}_{i,i}=0                                                                                               \\
-        \dot{K}+\bar{u}_jK_{,j}=P_K-\varepsilon-D_{j,j}+\nu K_{,jj}                                                   \\
-        \dot{\varepsilon}+\bar{u}_i\varepsilon_{,i}=P_\varepsilon+D_\varepsilon-\Phi_\varepsilon+\nu\varepsilon_{,ii} \\
-        \tau_{ij}=-\frac{2}{3}K\delta_{ij}+\nu_T(\bar{u}_{i,j}+\bar{u}_{j,i})                                         \\
-        \nu_T=C_\mu\frac{K^2}{\ep}
-    \end{array}
-    \right.\text{.}
-\end{equation}
+\begin{subequations}
+    \begin{align}
+         & \rho\bigpar{\dvt{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}-\Ny\cdot\btau-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0} \\
+         & \Ny\cdot\BBB{u}=0                                                                                         \\
+         & \dot{K}+\BBB{u}\cdot\Ny K=P_K-\varepsilon-\Ny\cdot\BB{D}+\nu\Lapl K                                       \\
+         & \dot{\varepsilon}+\BBB{u}\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep                                     \\
+         & \btau=-\frac{2}{3}K\BB{I}+\nu_T(\Ny\BBB{u}+\NyT\BBB{u})                                                   \\
+         & \nu_T=C_\mu\frac{K^2}{\ep}\text{.}
+    \end{align}
+\end{subequations}
