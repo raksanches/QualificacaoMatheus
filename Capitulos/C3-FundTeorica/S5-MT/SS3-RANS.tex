@@ -23,14 +23,14 @@ Vale ressaltar algumas propriedades interessantes relacionadas à média de uma 
     \item $\bar{\phi_1\bar{\phi}_2}=\bar{\phi}_1\bar{\phi}_2$;
     \item $\bar{\phi_1\phi_2}=\bar{\phi}_1\bar{\phi}_2+\bar{\phi_1'\phi_2'}$;
     \item $\bar{\Ny\phi}=\Ny\bar{\phi}$; e
-    \item $\bar{\der{\phi}{t}}=\der{\bar{\phi}}{t}$.
+    \item $\bar{\dot{\phi}}=\dot{\bar{\phi}}$.
 \end{enumerate}
 
 Assim, pode-se tomar a média das Equações de Navier-Stokes, obtendo-se:
 
 \begin{subequations}
     \begin{align}
-         & \rho\bigpar{\bar{\dvt{\BB{u}}}+\bar{\Ny\cdot(\BB{u}\otimes\BB{u})}-\BBB{f}}-\bar{\Ny\cdot\tens}=\BB{0} &  & \text{ em }\Omega\text{,} \\
+         & \rho\bigpar{\bar{\dot{\BB{u}}}+\bar{\Ny\cdot(\BB{u}\otimes\BB{u})}-\BBB{f}}-\bar{\Ny\cdot\tens}=\BB{0} &  & \text{ em }\Omega\text{,} \\
          & \bar{\Ny\cdot\BB{u}}=0                                                                                 &  & \text{ em }\Omega\text{.}
     \end{align}
 \end{subequations}
@@ -39,7 +39,7 @@ Aplicando também o modelo constitutivo apresentado em \ref{MC}, o problema se t
 
 \begin{subequations}
     \begin{align}
-         & \rho\bigpar{\dvt{\BBB{u}}+\Ny\cdot(\bar{\BB{u}\otimes\BB{u}})-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0} &  & \text{ em }\Omega\text{,} \\
+         & \rho\bigpar{\dot{\BBB{u}}+\Ny\cdot(\bar{\BB{u}\otimes\BB{u}})-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0} &  & \text{ em }\Omega\text{,} \\
          & \Ny\cdot\BBB{u}=0                                                                                        &  & \text{ em }\Omega\text{.}
     \end{align}
 \end{subequations}
@@ -47,13 +47,13 @@ Aplicando também o modelo constitutivo apresentado em \ref{MC}, o problema se t
 Realizando a separação das variáveis em suas respectivas parcelas na equação da conservação de movimento, tem-se que:
 
 \begin{equation}
-    \rho\bigpar{\dvt{\BBB{u}}+\Ny\cdot\bar{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')}-\BBB{f}}-\mu\Lapl{\BBB{u}}+\Ny\bar{p}=\BB{0}\text{,}
+    \rho\bigpar{\dot{\BBB{u}}+\Ny\cdot\bar{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')}-\BBB{f}}-\mu\Lapl{\BBB{u}}+\Ny\bar{p}=\BB{0}\text{,}
 \end{equation}
 
 \noindent que leva à seguinte expressão simplificada:
 
 \begin{equation}
-    \rho\bigpar{\dvt{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}+\Ny\cdot(\bar{\BB{u}'\otimes\BB{u}'})-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0}\text{,}
+    \rho\bigpar{\dot{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}+\Ny\cdot(\bar{\BB{u}'\otimes\BB{u}'})-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0}\text{,}
     \label{eq:RANS-estac}
 \end{equation}
 
@@ -78,7 +78,7 @@ Para se obter as equações adicionais, faz-se a simples substituição de $\BB{
 
 \begin{equation}
     \begin{split}
-        &\rho\bigpar{\dvt{\BBB{u}}+\dvt{\BB{u}'}+\BBB{u}\cdot\Ny\BBB{u}+\BBB{u}\cdot\Ny\BB{u}'+\BB{u}'\cdot\Ny\BBB{u}+\BB{u}'\cdot\Ny\BB{u}'-\BBB{f}}-\mu\Lapl\BBB{u}-\\
+        &\rho\bigpar{\dot{\BBB{u}}+\dot{\BB{u}'}+\BBB{u}\cdot\Ny\BBB{u}+\BBB{u}\cdot\Ny\BB{u}'+\BB{u}'\cdot\Ny\BBB{u}+\BB{u}'\cdot\Ny\BB{u}'-\BBB{f}}-\mu\Lapl\BBB{u}-\\
         &\mu\Lapl\BB{u}'+\Ny\bar{p}+\Ny p'=\BB{0}\text{.}
     \end{split}
     \label{eq:NS-RANS1}
@@ -87,7 +87,7 @@ Para se obter as equações adicionais, faz-se a simples substituição de $\BB{
 Subtraindo \eqref{eq:RANS-estac} de \eqref{eq:NS-RANS1} obtém-se:
 
 \begin{equation}
-    \rho\bigpar{\dvt{\BB{u}'}+\BBB{u}\cdot\Ny\BB{u}'+\BB{u}'\cdot\Ny\BBB{u}+\BB{u}'\cdot\Ny\BB{u}'-\Ny\cdot\btau}-\mu\Lapl\BB{u}'+\Ny p'=\BB{0}\text{.}
+    \rho\bigpar{\dot{\BB{u}'}+\BBB{u}\cdot\Ny\BB{u}'+\BB{u}'\cdot\Ny\BBB{u}+\BB{u}'\cdot\Ny\BB{u}'-\Ny\cdot\btau}-\mu\Lapl\BB{u}'+\Ny p'=\BB{0}\text{.}
     \label{eq:NS-RANS2}
 \end{equation}
 
@@ -106,7 +106,7 @@ Fazendo a contração em \eqref{eq:NS-RANS2} por meio de $\BB{u}'$, tomando a m�
 %\end{equation}
 
 \begin{equation}
-    \dvt{K}+\BBB{u}\cdot\Ny K=\btau:\Ny\BBB{u}-\frac{\nu}{2}\bar{\norm{\Ny\BB{u}'}^2}-\Ny\cdot\bigpar{\frac{\bar{\norm{\BB{u}'}^2\BB{u}'}}{2}+\bar{\pr'\BB{u}'}}+\nu\Lapl K\text{,}
+    \dot{K}+\BBB{u}\cdot\Ny K=\btau:\Ny\BBB{u}-\frac{\nu}{2}\bar{\norm{\Ny\BB{u}'}^2}-\Ny\cdot\bigpar{\frac{\bar{\norm{\BB{u}'}^2\BB{u}'}}{2}+\bar{\pr'\BB{u}'}}+\nu\Lapl K\text{,}
     \label{eq:Ke-K}
 \end{equation}
 
@@ -168,38 +168,30 @@ Há ainda a necessidade de se modelar o tensor de Reynolds, o qual pode ser subd
 
 \noindent sendo $C_\mu=0,09$.
 
-Já a equação exata do transporte que descreve a taxa de dissipação turbulenta da energia cinética ($\ep$) também é proveniente da equação \eqref{eq:NS-RANS2}, onde toma-se o gradiente da equação, realiza-se a contração dupla por meio de $\nu\Ny\BB{u}'/\rho$ e toma-se a média de todos os termos. Assim, após as simplificações tem-se:
+Já a equação exata do transporte que descreve a taxa de dissipação turbulenta da energia cinética ($\ep$) também é proveniente da equação \eqref{eq:NS-RANS2}, onde toma-se o gradiente da equação, realiza-se a contração dupla por meio de $\nu\Ny\BB{u}'/\rho$ e toma-se a média de todos os termos. Assim, após as simplificações tem-se, em sua forma indicial:
 
 \begin{equation}
     \begin{split}
-        &\dot{\ep}+\BBB{u}\cdot\Ny\ep=-2\nu\bigpar{\bar{\Ny\BB{u}'\cdot\NyT\BB{u}'}+\bar{\NyT\BB{u}'\cdot\Ny\BB{u}'}}:\Ny\BBB{u}-\\
-        &2\nu\bar{\Ny\BB{u}'\otimes\BB{u}'}\vdots\script{H}{(\BBB{u})}-2\nu\bar{\Ny\BB{u}':(\Ny\BB{u}'\cdot\Ny\BB{u}')}-\frac{\nu}{2}\Ny\cdot\bigpar{\bar{\norm{\Ny\BB{u}'}^2\BB{u}'}}\\
-        &-2\nu\Ny\cdot(\bar{\Ny\pr'\cdot\Ny\BB{u}'})-2\nu^2\bar{\script{H}(\BB{u}')\vdots\script{H}(\BB{u}')}+\nu\Lapl\varepsilon\text{,}
+        &\dot{\ep}+\bar{u}_k\ep_{,k}=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_{i,j}u'_k}\bar{u}_{i,jk}-\\
+        &2\nu\bar{u'_{i,j}u'_{k,j}u'_{i,k}}-\nu\bigpar{\bar{u'_{i,j}u'_{i,j}u'_k}}_{,k}-2\nu(\bar{u'_{i,j}\pr'_{,j}})_{,i}-2\nu^2\bar{u'_{i,jk}u'_{i,jk}}+\nu\ep_{,kk}\text{,}
     \end{split}
 \end{equation}
 
-\noindent sendo:
-
-\begin{equation}
-    \script{H}(\cdot)=\Ny\otimes\Ny(\cdot)=\frac{\partial^2(\cdot)}{\partial\BB{y}\otimes\partial\BB{y}}\text{.}
-\end{equation}
+\noindent sendo a vírgula no subíndice referente à derivada na direção indicada.
 
 Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 
 \begin{equation}
-    \dot{\ep}+\BBB{u}\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep\text{,}
+    \dot{\ep}+\uub{k}\ep_{,k}=P_\ep+D_\ep-\Phi_\ep+\nu\ep_{,kk}\text{,}
 \end{equation}
 
 \noindent em que $P_\ep$ é a produção de dissipação, $D_\ep$ é a difusão turbulenta de dissipação, $\Phi_\ep$ é a destruição turbulenta da dissipação e o último termo é o transporte viscoso. Essas parcelas são dadas de forma exata por:
 
 \begin{subequations}
     \begin{align}
-        \begin{split}
-            & P_\ep=-2\nu\bigpar{\bar{\Ny\BB{u}'\cdot\NyT\BB{u}'}+\bar{\NyT\BB{u}'\cdot\Ny\BB{u}'}}:\Ny\BBB{u}-\\
-            &2\nu\bar{\Ny\BB{u}'\otimes\BB{u}'}\vdots\script{H}(\BBB{u})-2\nu\bar{\Ny\BB{u}':(\Ny\BB{u}'\cdot\Ny\BB{u}')} \text{,}
-        \end{split} \\
-         & D_\ep=-\frac{\nu}{2}\Ny\cdot\bigpar{\bar{\norm{\Ny\BB{u}'}^2\BB{u}'}}-2\nu\Ny\cdot(\bar{\Ny\pr'\cdot\Ny\BB{u}'}) \text{ e}                                                                              \\
-         & \Phi_\ep=2\nu^2\bar{\script{H}(\BB{u}')\vdots\script{H}(\BB{u}')}\text{.}
+         & P_\ep=-2\nu\bar{u'_{i,j}u'_{k,j}}\bar{u}_{i,k}-2\nu\bar{u'_{i,j}u'_{i,k}}\bar{u}_{k,j}-2\nu\bar{u'_{i,j}u'_k}\bar{u}_{i,jk}-2\nu\bar{u'_{i,j}u'_{k,j}u'_{i,k}} \text{,} \\
+         & D_\ep=-\nu\bigpar{\bar{u'_{i,j}u'_{i,j}u'_k}}_{,k}-2\nu(\bar{u'_{i,j}\pr'_{,j}})_{,i} \text{ e}                                                                         \\
+         & \Phi_\ep=2\nu^2\bar{u'_{i,jk}u'_{i,jk}}\text{.}
     \end{align}
 \end{subequations}
 
@@ -217,13 +209,15 @@ Assim, realiza-se uma modelagem sobre os termos necessários como:
 
 Assim, o problema RANS fica descrito pelas equações:
 
-\begin{subequations}
-    \begin{align}
-         & \rho\bigpar{\dvt{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}-\Ny\cdot\btau-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0} \\
-         & \Ny\cdot\BBB{u}=0                                                                                         \\
-         & \dot{K}+\BBB{u}\cdot\Ny K=P_K-\varepsilon-\Ny\cdot\BB{D}+\nu\Lapl K                                       \\
-         & \dot{\varepsilon}+\BBB{u}\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep                                     \\
-         & \btau=-\frac{2}{3}K\BB{I}+\nu_T(\Ny\BBB{u}+\NyT\BBB{u})                                                   \\
-         & \nu_T=C_\mu\frac{K^2}{\ep}\text{.}
-    \end{align}
-\end{subequations}
+\begin{equation}
+    \left\{
+    \begin{array}{l}
+        \rho\bigpar{\dot{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}-\Ny\cdot\btau-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0} \\
+        \Ny\cdot\BBB{u}=0                                                                                         \\
+        \dot{K}+\BBB{u}\cdot\Ny K=P_K-\varepsilon-\Ny\cdot\BB{D}+\nu\Lapl K                                       \\
+        \dot{\varepsilon}+\BBB\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep                                        \\
+        \btau=-\frac{2}{3}K\BB{I}+\nu_T(\Ny\BBB{u}+\NyT\BBB{u})                                                   \\
+        \nu_T=C_\mu\frac{K^2}{\ep}\text{.}
+    \end{array}
+    \right.
+\end{equation}

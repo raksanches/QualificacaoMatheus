@@ -20,15 +20,18 @@
     \item[$\norm{(\cdot)}$] Norma
 
     \item[\textbf{Parâmetros Gerais}]
+    \item[$\BB{c}$] Força de corpo
+    \item[$\Fres$] Resultante das forças externas
     \item[$\mathbb{I}$] Tensor identidade de quarta ordem
     \item[$\BB{I}$] Tensor identidade de segunda ordem
     \item[$m$] Massa
+    \item[$\BB{n}$] Vetor normal à superfície na configuração atual
+    \item[$\BB{n}_0$] Vetor normal à superfície na configuração inicial
     \item[$N_a$] Função de forma associada ao nó $a$
     \item[$n_{sd}$] Número de dimensões espaciais do problema
     \item[$t$] Tempo
     \item[$V$] Volume
     \item[$V_0$] Volume inicial
-    \item[$\delta_{ij}$] Delta de Kronecker
     \item[$\Delta t$] Intervalo discreto de tempo
     \item[$\BB{\xi}$] Coordenada paramétrica
     \item[$\rho$] Massa específica
@@ -36,6 +39,16 @@
     \item[$\phi$] Propriedade qualquer
 
     \item[\textbf{Configurações do Contínuo}]
+    \item[$\fmc$] Função mudança de configuração de $\Omega_0\to\Omega$
+    \item[$\tfmc$] Função mudança de configuração de $\Omega_0\to\hat{\Omega}$
+    \item[$\hfmc$] Função mudança de configuração de $\hat{\Omega}\to\Omega$
+    \item[$\fmc^0$] Função mudança de configuração de $\Omega_\xi\to\Omega_0$
+    \item[$\fmc^1$] Função mudança de configuração de $\Omega_\xi\to\Omega$
+    \item[$\FMC$] Gradiente da função de mudança de configuração
+    \item[$\TFMC$] Gradiente da função $\tfmc$
+    \item[$\HFMC$] Gradiente da função $\hfmc$
+    \item[$\FMC^0$] Gradiente da função $\fmc^0$
+    \item[$\FMC^1$] Gradiente da função $\fmc^1$
     \item[$\BB{x}$] Posição inicial (ou posição material)
     \item[$\BB{\hat{x}}$] Posição de referência
     \item[$\BB{y}$] Posição atual (ou posição espacial)
@@ -48,15 +61,10 @@
     \item[$\hat{\Omega}$] Domínio de análise na configuração de referência
 
     \item[\textbf{Dinâmica dos Fluidos Computacional}]
-    \item[$\BB{A}$] Gradiente da função de mudança de configuração
-    \item[$\BB{c}$] Força de corpo
-    \item[$\script{D}$] Tensor constitutivo de quarta ordem
+    \item[$\BB{\mathfrak{D}}$] Tensor constitutivo de quarta ordem
     \item[$\BB{f}$] Força por unidade de massa
-    \item[$\fmc$] Função mudança de configuração
-    \item[$\BB{F}$] Resultante das forças externas
     \item[$\BB{g}$] Velocidades prescritas na fronteira de Dirichlet
     \item[$\BB{h}$] Forças de superfícies prescritas na fronteira de Neumann
-    \item[$n$] Vetor normal à superfície
     \item[$p$] Campo de pressões
     \item[$q$] Função teste relacionado à equação da continuidade
     \item[$\BB{q}$] Resultante das forças externas por unidade de volume
@@ -64,63 +72,54 @@
     \item[$\script{S}_u$] Espaço de funções tentativas para o campo de velocidades
     \item[$\script{S}_p$] Espaço de funções tentativas para o campo de pressões
     \item[$\BB{u}$] Campo de velocidades
+    \item[$\BB{\hat{u}}$] Campo de velocidades da malha
+    \item[$\tilde{\BB{u}}$] Velocidade da malha em relação à configuração inicial
     \item[$\dot{\BB{u}}$] Campo de acelerações
     \item[$\script{V}_u$] Espaço de funções teste para o campo de velocidades
     \item[$\script{V}_p$] Espaço de funções teste para o campo de pressões
     \item[$\BB{w}$] Função teste relacionada à equação da conservação do momento
-    \item[$\BB{w}$] Velocidade da malha em relação à configuração inicial
-    \item[$\BB{\hat{u}}$] Campo de velocidades da malha
     \item[$\BB{\dot{\varepsilon}}$] Tensor de taxa de deformação
     \item[$\mu$] Viscosidade dinâmica
     \item[$\nu$] Viscosidade cinemática
     \item[$\tau$] Tensor de tensões desviadoras
 
     \item[\textbf{Dinâmica dos Sólidos Computacional}]
-    \item[$\mathbb{A}$] Medida de deformação de Almansi
-    \item[$\BB{A}$] Gradiente da função de mudança de configuração
-    \item[$\BB{c}$] Forças de corpo
     \item[$\BB{c}^0$] Forças de corpo na configuração inicial
     \item[$\BB{C}$] Tensor de alongamento à direita de Cauchy-Green
-    \item[$\script{C}$] Tensor constitutivo de quarta ordem
+    \item[$\tensCon$] Tensor constitutivo de quarta ordem
     \item[$E$] Módulo de elasticidade longitudinal (ou Módulo de Young)
     \item[$\mathbb{E}$] Medida de deformação de Green-Lagrange
-    \item[$\BB{F}$] Resultante das forças externas
-    \item[$\BB{f}$] Função de mudança de configuração
-    \item[$\mathbb{H}$] Medida de deformação de Hencky
-    \item[$J$] Jacobiano da mudança de configuração
-    \item[$\mathbb{K}$] Energia cinética
-    \item[$n$] Vetor normal à superfície na configuração atual
-    \item[$N$] Vetor normal à superfície na configuração inicial
-    \item[$\mathbb{P}$] Energia das Forças Externas
-    \item[$\BB{P}$] Tensor de tensões de Piola-Kirchhoff de primeira espécie
-    \item[$u_e$] Energia específica de deformação
-    \item[$\mathbb{U}$] Energia de deformação
-    \item[$\dot{\BB{y}}$] Campo de velocidades
-    \item[$\ddot{\BB{y}}$] Campo de acelerações
-    \item[$\BB{\varepsilon}$] Tensor de deformação linear
-    \item[$\varepsilon_V$] Deformação volumétrica
-    \item[$\Pi$] Energia total
-
-    \item[\textbf{Método dos Elementos Finitos para Elemento de Casca}]
-    \item[$\BB{F}$] Força concentrada
-    \item[$\BB{g}$] Vetor de desbalanceamento mecânico
+    \item[$\BB{F}_a$] Força concentrada sobre o nó $a$
     \item[$G$] Módulo de elasticidade transversal
     \item[$h_0$] Espessura inicial da casca
     \item[$\BB{H}$] Matriz Hessiana
-    \item[$\BB{q}$] Força não-conservativa
-    \item[$\mathbb{Q}$] Dissipação de energia
-    \item[$\BB{S}$] Tensor de tensões de Piola-Kirchhoff de segunda espécie
+    \item[$J$] Jacobiano da mudança de configuração
+    \item[$\mathbb{K}$] Energia cinética
+    \item[$\mathbb{P}$] Energia das Forças Externas
+    \item[$\BB{P}$] Tensor de tensões de Piola-Kirchhoff de primeira espécie
+    \item[$\Stens$] Tensor de tensões de Piola-Kirchhoff de segunda espécie
+    \item[$S_0$] Área da superfície na configuração inicial
+    \item[$S$] Área da superfície na configuração atual
     \item[$\BB{t}$] força distribuída sobre a superfície média
-    \item[$\BB{v}^0$] Vetor unitário normal è superfície média
-    \item[$\BB{v}^1$] Vetor generalizado na configuração atual
+    \item[$u_e$] Energia específica de deformação
+    \item[$\mathbb{U}$] Energia de deformação
+    \item[$\BB{w}^0$] Vetor unitário normal à superfície média na configuração inicial
+    \item[$\BB{w}^1$] Vetor generalizado na configuração atual
     \item[$\BB{x}^m$] Coordenada inicial de um ponto na superfície média
     \item[$\BB{y}^m$] Coordenada atual de um ponto na superfície média
+    \item[$\dot{\BB{y}}$] Campo de velocidades
+    \item[$\ddot{\BB{y}}$] Campo de acelerações
     \item[$\alpha$] Taxa de variação da espessura
-    \item[$\nu$] Coeficiente de Poisson
+    \item[$\res$] Vetor resíduo
+    \item[$\BB{\varepsilon}$] Tensor de deformação linear
+    \item[$\varepsilon_V$] Deformação volumétrica
     \item[$\lambda_m$] Constante de amortecimento
+    \item[$\nu$] Coeficiente de Poisson
+    \item[$\Pi$] Energia total
+    \item[$\DOF$] Vetor que contém todos os graus de liberdade do problema
 
     \item[\textbf{Acoplamento Fluido-Estrutura}]
-    \item[$\script{G}$] Soma de todas as equações diferenciais do problem
+    \item[$\script{G}$] Soma de todas as equações diferenciais do problema
     \item[$\BB{H}$] Matriz tangente
     \item[$\BB{h}$] Vetor resíduo
     \item[$\BB{\alpha}$] Vetor contendo os graus de liberdade

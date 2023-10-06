@@ -27,14 +27,14 @@ Realizando-se o balanço de massa nesse elemento tem-se:
 \noindent que resulta em uma expressão simplificada dada por \eqref{eq:BalMas}, que representa a conservação de massa em um elemento infinitesimal.
 
 \begin{equation}
-    \frac{D\rho}{Dt}+\rho \Ny\cdot\BB{u}=\dvt{\rho}+\Ny\cdot(\rho \BB{u})=0\text{,}
+    \frac{D\rho}{Dt}+\rho \Ny\cdot\BB{u}=\dot{\rho}+\Ny\cdot(\rho \BB{u})=0\text{,}
     \label{eq:BalMas}
 \end{equation}
 
 \noindent sendo $D\rho/Dt$ a derivada material, definida para um escalar $\phi$ qualquer como:
 
 \begin{equation}
-    \frac{D\phi}{Dt}=\dvt{\phi}+\BB{u}\cdot\Ny\phi\text{,}
+    \frac{D\phi}{Dt}=\dot{\phi}+\BB{u}\cdot\Ny\phi\text{,}
 \end{equation}
 
 \noindent em que $\Ny\cdot(\cdot)$ é o operador divergente e $\Ny(\cdot)$ é o operador gradiente, que para uma função escalar $g$ é definido por \eqref{eq:grad1} e para uma função vetorial é definido por \eqref{eq:grad2}:
@@ -66,14 +66,14 @@ Já a equação que expressa a Conservação da Quantidade de Movimento linear (
     \label{fig:ConQtdMov}
 \end{figure}
 
-Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se uma resultante de forças externas atuante no elemento dado por $d\BB{F}$. Logo, após feitas as devidas simplificações, chega-se à equação:
+Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se uma resultante de forças externas atuante no elemento dado por $d\Fres$. Logo, após feitas as devidas simplificações, chega-se à equação:
 
 \begin{equation}
     \apdery{(\rho \BB{u})}{t}+\Ny\cdot(\rho \BB{u}\otimes\BB{u})-\BB{q}=\BB{0}\text{,}
     \label{eq:ConQtdMov}
 \end{equation}
 
-\noindent em que $\BB{q}$ representa a força resultante por unidade de volume, ou seja, $\BB{q}=d\BB{F}/dV$. Entretanto, não é de interesse escrever a equação \eqref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$) e forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $y_1$.
+\noindent em que $\BB{q}$ representa a força resultante por unidade de volume, ou seja, $\BB{q}=d\Fres/dV$. Entretanto, não é de interesse escrever a equação \eqref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$) e forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $y_1$.
 
 \begin{figure}[h!]
     \centering
@@ -99,7 +99,7 @@ Fazendo o equilíbrio de forças nessa direção, obtém-se que:
 Substituindo \eqref{eq:RelQSig} em \eqref{eq:ConQtdMov} e aplicando a condição de incompressibilidade obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
 
 \begin{equation}
-    \rho\bigpar{\dvt{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{,}
+    \rho\bigpar{\dot{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{,}
     \label{eq:ConQtdMov-2}
 \end{equation}
 
@@ -122,15 +122,17 @@ Já o domínio em que essas equações são válidas pode ser definido como $\Om
 
 Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações:
 
-\begin{subequations}
-    \begin{align}
-         & \rho\bigpar{\dvt{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} &  & \text{ em }\Omega\text{,}   \\
-         & \Ny\cdot\BB{u}=0                                                           &  & \text{ em }\Omega\text{,}   \\
-         & \tens\cdot\BB{n}=\BB{h}                                                    &  & \text{ em }\Gamma_N\text{,} \\
-         & \BB{u}=\BB{g}                                                              &  & \text{ em }\Gamma_D\text{,}
-    \end{align}
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \rho\bigpar{\dot{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
+        \Ny\cdot\BB{u}=0                                                           & \text{ em }\Omega\text{,}   \\
+        \tens\cdot\BB{n}=\BB{h}                                                    & \text{ em }\Gamma_N\text{,} \\
+        \BB{u}=\BB{g}                                                              & \text{ em }\Gamma_D\text{,}
+    \end{array}
+    \right.
     \label{eq:NS-Euler}
-\end{subequations}
+\end{equation}
 
 \noindent as quais são chamadas de equações de Navier-Stokes para escoamentos incompressíveis em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
 
@@ -160,7 +162,7 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
     \end{equation}
     \begin{equation}
         \TFMC=\der{(\tfmc(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
-            \der{\HBB{x}}{\BB{x}} & \BB{w} \\\BB{0}^T&1
+            \der{\HBB{x}}{\BB{x}} & \tilde{\BB{u}} \\\BB{0}^T&1
         \end{bmatrix}\text{, e}\label{F1}
     \end{equation}
     \begin{equation}
@@ -171,38 +173,38 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
     \label{eq:GradFun}
 \end{subequations}
 
-\noindent nos quais $\BB{u}=\partial\BB{y}/\partial t|_{\BB{x}}$, $\BB{w}=\partial\HBB{x}/\partial t|_{\BB{x}}$ e $\uhat=\partial\HBB{f}/\partial t|_{\HBB{x}}$. Além disso, vale ressaltar que $\BB{f}=\HBB{f}(\TBB{f},t)$, portanto $\BB{A}=\HBB{A}\cdot\TBB{A}$, ou seja:
+\noindent nos quais $\BB{u}=\partial\BB{y}/\partial t|_{\BB{x}}$, $\tilde{\BB{u}}=\partial\HBB{x}/\partial t|_{\BB{x}}$ e $\uhat=\partial\fmc/\partial t|_{\HBB{x}}$. Além disso, vale ressaltar que $\fmc=\hfmc(\tfmc,t)$, portanto $\FMC=\HFMC\cdot\TFMC$, ou seja:
 
 \begin{equation}
     \begin{bmatrix}\der{\BB{y}}{\BB{x}}&\BB{u}\\\BB{0}^T&1\end{bmatrix}=
     \begin{bmatrix}\der{\BB{y}}{\HBB{x}}&\uhat\\\BB{0}^T&1\end{bmatrix}\cdot
-    \begin{bmatrix}\der{\HBB{x}}{\BB{x}}&\BB{w}\\\BB{0}^T&1\end{bmatrix}\text{,}
+    \begin{bmatrix}\der{\HBB{x}}{\BB{x}}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}\text{,}
     \label{F4}
 \end{equation}
 
 \noindent que possui, como uma de suas consequências:
 
 \begin{equation}
-    \BB{u}=\der{\BB{y}}{\HBB{x}}\cdot\BB{w}+\uhat\text{, ou}
+    \BB{u}=\der{\BB{y}}{\HBB{x}}\cdot\tilde{\BB{u}}+\uhat\text{, ou}
     \label{u1}
 \end{equation}
 
 \begin{equation}
-    \BB{w}=\der{\HBB{x}}{\BB{y}}\cdot(\BB{u}-\uhat)\text{.}
+    \tilde{\BB{u}}=\der{\HBB{x}}{\BB{y}}\cdot(\BB{u}-\uhat)\text{.}
     \label{w1}
 \end{equation}
 
-Assim é possível definir a derivada material em uma descrição ALE. Para isso considere uma propriedade $\phi(\BB{y},t)$ escrita em termos da configuração atual, $\phi^*(\HBB{x},t)$ escrita em termos da configuração de referência e $\phi^{**}(\BB{x},t)=\phi^*(\TBB{f}(\BB{x},t),t)$ escrita em termos da configuração inicial. Logo:
+Assim é possível definir a derivada material em uma descrição ALE. Para isso considere uma propriedade $\phi(\BB{y},t)$ escrita em termos da configuração atual, $\phi^*(\HBB{x},t)$ escrita em termos da configuração de referência e $\phi^{**}(\BB{x},t)=\phi^*(\tfmc(\BB{x},t),t)$ escrita em termos da configuração inicial. Logo:
 
 \begin{equation}
-    \der{\phi^{**}(\BB{x},t)}{(\BB{x},t)}=\der{\phi^*(\HBB{x},t)}{(\HBB{x},t)}\cdot\der{\TBB{f}(\BB{x},t)}{(\BB{x},t)}\text{, ou}
+    \der{\phi^{**}(\BB{x},t)}{(\BB{x},t)}=\der{\phi^*(\HBB{x},t)}{(\HBB{x},t)}\cdot\der{\tfmc(\BB{x},t)}{(\BB{x},t)}\text{, ou}
     \label{phi1}
 \end{equation}
 
 \begin{equation}
     \begin{bmatrix}\der{\phi^{**}}{\BB{x}}&\der{\phi^{**}}{t}\end{bmatrix}=
     \begin{bmatrix}\der{\phi^{*}}{\HBB{x}}&\der{\phi^{*}}{t}\end{bmatrix}\cdot
-    \begin{bmatrix}\der{\HBB{x}}{\BB{x}}&\BB{w}\\\BB{0}^T&1\end{bmatrix}
+    \begin{bmatrix}\der{\HBB{x}}{\BB{x}}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}
     \text{.}
     \label{phi2}
 \end{equation}
@@ -210,7 +212,7 @@ Assim é possível definir a derivada material em uma descrição ALE. Para isso
 \noindent Portanto:
 
 \begin{equation}
-    \der{\phi^{**}}{t}=\der{\phi^{*}}{\HBB{x}}\cdot\BB{w}+\der{\phi^{*}}{t}\text{.}
+    \der{\phi^{**}}{t}=\der{\phi^{*}}{\HBB{x}}\cdot\tilde{\BB{u}}+\der{\phi^{*}}{t}\text{.}
     \label{phi3}
 \end{equation}
 
@@ -230,28 +232,36 @@ Dessa maneira, remove-se os sobrescritos * e ** e define-se a derivada material 
 Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \eqref{eq:DerMat2} em \eqref{eq:BalMas} para se obter a Equação da Continuidade na descrição ALE:
 
 \begin{equation}
-    \apderxh{\rho}{t}+(\BB{u}-\uhat)\cdot\Ny\rho+\rho\Ny\cdot\BB{u}=0\text{,}
-    \label{ConMas4}
+    \dot{\rho}+(\BB{u}-\uhat)\cdot\Ny\rho+\rho\Ny\cdot\BB{u}=0\text{,}
+\end{equation}
+
+\noindent que em escoamentos incompressíveis pode ser escrito como:
+
+\begin{equation}
+    \Ny\cdot\BB{u}=0\text{,}
+    \label{eq:ALE-cont}
 \end{equation}
 
 Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \eqref{eq:DerMat2} em \eqref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
 
 \begin{equation}
-    \rho\left(\apderxh{\BB{u}}{t}+(\BB{u}-\uhat)\cdot\Ny\BB{u}-\BB{f}\right)-\Ny\cdot\tens=\BB{0}\text{.}
-    \label{ConQtdMov10}
+    \rho\bigpar{\dot{\BB{u}}+(\BB{u}-\uhat)\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{.}
+    \label{eq:ALE-mov}
 \end{equation}
 
 Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 
-\begin{subequations}
-    \begin{align}
-         & \rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} &  & \text{ em }\Omega\text{,}   \label{eq:ALE-mov}  \\
-         & \Ny\cdot\BB{u}=0                                                                     &  & \text{ em }\Omega\text{,}   \label{eq:ALE-cont} \\
-         & \tens\cdot\BB{n}=\BB{h}                                                              &  & \text{ em }\Gamma_N\text{,}                     \\
-         & \BB{u}=\BB{g}                                                                        &  & \text{ em }\Gamma_D\text{,}
-    \end{align}
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
+        \Ny\cdot\BB{u}=0                                                                     & \text{ em }\Omega\text{,}   \\
+        \tens\cdot\BB{n}=\BB{h}                                                              & \text{ em }\Gamma_N\text{,} \\
+        \BB{u}=\BB{g}                                                                        & \text{ em }\Gamma_D\text{,}
+    \end{array}
+    \right.
     \label{eq:NS-ALE}
-\end{subequations}
+\end{equation}
 
 \noindent que são denominadas como as equações de Navier-Stokes para escoamentos incompressíveis em descrição ALE \cite{bazilevs2013computational}.
 
@@ -351,16 +361,16 @@ Sejam ainda os espaços das funções testes para a conservação de massa e con
     \script{V}_u=\left\{\BB{w}|\BB{w}(\cdot)\in(H^1(\Omega))^{n_{sd}},\BB{w}=\BB{0}\text{ em }\Gamma_D\right\}\text{.}
 \end{equation}
 
-Dessa forma, ponderando-se as equações \eqref{eq:ALE-mov} e \eqref{eq:ALE-mov} respectivamente por $\BB{w}$ e $q$, tal que $q\in\script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
+Dessa forma, ponderando-se as equações \eqref{eq:ALE-mov} e \eqref{eq:ALE-cont} respectivamente por $\BB{w}$ e $q$, tal que $q\in\script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
-    \intDom{\BB{w}\cdot\bigpar{\rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens}}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
+    \intDom{\BB{w}\cdot\bigpar{\rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens}}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
 \end{equation}
 
 Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira integral, tem-se que:
 
 \begin{equation}
-    \intDom{\BB{w}\cdot\rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
+    \intDom{\BB{w}\cdot\rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
     \label{eq:WeakForm1}
 \end{equation}
 
@@ -368,7 +378,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BB{w}\cdot\rho\bigpar{\dvt{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
+        &\intDom{\BB{w}\cdot\rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
         &\intDom{\Ny\BB{w}:\tens}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
     \end{split}
     \label{eq:WeakForm2}

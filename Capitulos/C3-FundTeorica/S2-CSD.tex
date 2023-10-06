@@ -15,29 +15,29 @@ Inicialmente considere um corpo deformável, idealizado como um meio contínuo q
 Para um ponto $\BB{x}$ na vizinhança de $\BB{x}_0$, pode-se dizer que:
 
 \begin{equation}
-    \BB{y}(\BB{x})=\BB{f}(\BB{x}_0)+\left.\der{\BB{f}}{\BB{x}}\right|_{\BB{x}_0}\cdot d\BB{x}\text{,}
+    \BB{y}(\BB{x})=\BB{f}(\BB{x}_0)+\apderp{\fmc}{\BB{x}}{x_0}\cdot d\BB{x}\text{,}
 \end{equation}
 
-\noindent em que $\BB{A}=\partial\BB{f}/\partial\BB{x}=\Nx\BB{f}$ é o gradiente de mudança de configuração. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
+\noindent em que $\FMC=\partial\fmc/\partial\BB{x}=\Nx\fmc$ é o gradiente de mudança de configuração. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
 
 \begin{equation}
-    d\BB{y}=\BB{A}\cdot d\BB{x}\text{,}\label{eq:dyAdx}
+    d\BB{y}=\FMC\cdot d\BB{x}\text{,}\label{eq:dyAdx}
 \end{equation}
 
 \noindent o que permite escrever o quadrado da norma de $d\BB{y}$ como:
 
 \[
-    \norm{d\BB{y}}^2=dy^2=d\BB{y}^T\cdot d\BB{y}=(\BB{A}\cdot d\BB{x})^T\cdot(\BB{A}\cdot d\BB{x})=d\BB{x}^T\cdot\BB{A}^T\cdot\BB{A}\cdot d\BB{x}
+    \norm{d\BB{y}}^2=dy^2=d\BB{y}^T\cdot d\BB{y}=(\FMC\cdot d\BB{x})^T\cdot(\FMC\cdot d\BB{x})=d\BB{x}^T\cdot\FMC^T\cdot\FMC\cdot d\BB{x}
 \]
 
 Subtraindo-se $dx^2=\norm{d\BB{x}}^2$ de ambos os lados da igualdade obtém-se:
 
 \begin{equation}
-    dy^2-dx^2=d\BB{x}^T\cdot(\BB{A}^T\cdot\BB{A}-\BB{I})\cdot d\BB{x}\text{,}
+    dy^2-dx^2=d\BB{x}^T\cdot(\FMC^T\cdot\FMC-\BB{I})\cdot d\BB{x}\text{,}
     \label{eq:difdxdy}
 \end{equation}
 
-\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\BB{A}^T\cdot\BB{A}$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
+\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\FMC^T\cdot\FMC$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
 
 \[
     \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}^T\cdot(\BB{C}-\BB{I})\cdot d\BB{x}}{dx^2}\text{.}
@@ -88,10 +88,10 @@ O volume do elemento em ambas as configurações pode ser obtido por meio do pro
 Conhecendo a transformação expressa em \eqref{eq:dyAdx} e fazendo as devidas simplificações pode-se obter que:
 
 \begin{equation}
-    dV=\det{(\BB{A})}dV_0=JdV_0\text{,}\label{eq:RelVol}
+    dV=\det{(\FMC)}dV_0=JdV_0\text{,}\label{eq:RelVol}
 \end{equation}
 
-\noindent em que $J=\det{(\BB{A})}$ é o Jacobiano da mudança de configuração.
+\noindent em que $J=\det{(\FMC)}$ é o Jacobiano da mudança de configuração.
 
 Na sequência procura-se obter uma expressão que indique a mudança de área nas diferentes configurações. Assim, considere um cilindro infinitesimal ilustrado na figura \ref{fig:Nanson}.
 
@@ -103,10 +103,10 @@ Na sequência procura-se obter uma expressão que indique a mudança de área na
     \label{fig:Nanson}
 \end{figure}
 
-Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{A}_0=dA_0\BB{N}$ e $d\BB{A}=dA\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{A}_0\cdot\BB{u}$ e $dV=\BB{A}\cdot\BB{v}$). Conhecendo as relações \eqref{eq:dyAdx} e \eqref{eq:RelVol}, pode-se obter que:
+Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{S}_0=dS_0\BB{n}_0$ e $d\BB{S}=dS\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{S}_0\cdot\BB{h}^S_0$ e $dV=\BB{S}\cdot\BB{h}^S$). Conhecendo as relações \eqref{eq:dyAdx} e \eqref{eq:RelVol}, pode-se obter que:
 
 \begin{equation}
-    \BB{n}dA=J\BB{A}^{-T}\cdot\BB{N}dA_0\text{,}\label{eq:Nanson}
+    \BB{n}dS=J\FMC^{-T}\cdot\BB{n}_0dS_0\text{,}\label{eq:Nanson}
 \end{equation}
 
 \noindent que é conhecida como a Equação de Nanson.
@@ -147,14 +147,14 @@ Integrando a equação \eqref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da d
 Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \eqref{eq:EqGlobEu} levando em consideração as Equações \eqref{eq:RelVol} e \eqref{eq:Nanson}:
 
 \begin{equation}
-    \int_{\Gamma_0}{J\tens^T\cdot\BB{A}^{-T}\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
+    \int_{\Gamma_0}{J\tens^T\cdot\FMC^{-T}\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
     \text{.}
 \end{equation}
 
-\noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\BB{P}=J\BB{A}^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
+\noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\BB{P}=J\FMC^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
 
 \begin{equation}
-    \int_{\Gamma_0}{\BB{P}^T\cdot\BB{N}d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
+    \int_{\Gamma_0}{\BB{P}^T\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
 \end{equation}
 
 \noindent que representa a equação do equilíbrio global na descrição Lagrangiana Total.
@@ -176,16 +176,16 @@ Em se tratando de sólidos de comportamento hiperelástico, dada a natureza das 
     \label{FuncionalEnergia}
 \end{equation}
 
-Busca-se encontrar a configuração de equilíbrio do sólido, e para tal, a conservação da energia deve ser respeitada. Dessa forma postula-se o primeiro teorema variacional, que aponta que, para se obter o equilíbrio em um sólido sujeito a forças externas conservativas, a primeira variação da energia total deve ser nula para qualquer variação admissível nas incógnitas do problema, ou seja:
+Busca-se encontrar a configuração de equilíbrio do sólido, e para tal, a conservação da energia deve ser respeitada. Dessa forma postula-se o primeiro teorema variacional, que aponta que, para se obter o equilíbrio em um sólido sujeito a forças externas conservativas, a primeira variação da energia total deve ser nula para qualquer variação admissível nas incógnitas do problema ($\DOF$), ou seja:
 
 \begin{equation}
-    \delta^{(1)}\Pi=0\forall\delta\BB{u}|\delta\BB{u}=\BB{0}\text{ em }\Gamma_D\text{,}
+    \delta^{(1)}\Pi=0\forall\delta\DOF|\delta\DOF=\BB{0}\text{ em }\Gamma_D\text{,}
 \end{equation}
 
 \noindent em que $\Gamma_D$ é a parcela da fronteira onde os deslocamentos são prescritos. Já o segundo teorema trata-se da estabilidade desse equilíbrio, onde para se atingir o equilíbrio estável a segunda variação da energia total deve ser positiva para qualquer variação admissível, ou seja:
 
 \begin{equation}
-    \delta^{(2)}\Pi>0\forall\delta\BB{u}|\delta\BB{u}=\BB{0}\text{ em }\Gamma_D\text{.}
+    \delta^{(2)}\Pi>0\forall\delta\DOF|\delta\DOF=\BB{0}\text{ em }\Gamma_D\text{.}
 \end{equation}
 
 Sendo assim, primeiramente procura-se anular a primeira variação da energia total:
@@ -197,13 +197,13 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
 \noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que permita, juntamente com as demais equações da cinemática do modelo estrutural, descrever a evolução da energia de deformação em função das variáveis principais do problema. Um possível modelo constitutivo é o de Saint-Venant-Kirchhoff, dado por:
 
 \begin{equation}
-    u_e^{SVK}=\frac{\BB{S}:\mathbb{E}}{2}\text{,}
+    u_e^{SVK}=\frac{\Stens:\mathbb{E}}{2}\text{,}
 \end{equation}
 
-\noindent no qual $BB{S}$ é o tensor de Piola-Kirchhoff de segunda espécie, calculado como:
+\noindent no qual $\Stens$ é o tensor de Piola-Kirchhoff de segunda espécie, calculado como:
 
 \begin{equation}
-    \BB{S}=\tensCon:\mathbb{E}\text{,}
+    \Stens=\tensCon:\mathbb{E}\text{,}
     \label{eq:CSD-S}
 \end{equation}
 
@@ -223,7 +223,7 @@ Assim, as parcelas de energia ficam dadas por:
 
 \begin{subequations}
     \begin{align}
-         & \mathbb{U}=\frac{1}{2}\intDomi{\BB{S}:\mathbb{E}}\text{,}                  \\
+         & \mathbb{U}=\frac{1}{2}\intDomi{\Stens:\mathbb{E}}\text{,}                  \\
          & \mathbb{P}=-\BB{F}^a\cdot\BB{Y}^a-\intFronti{\BB{t}\cdot\BB{y}^m}\text{ e} \\
          & \mathbb{K}=\frac{1}{2}\intDomi{\rho_0\norm{\dBB{y}}^2}\text{,}
     \end{align}
@@ -260,19 +260,19 @@ Para isso, realiza-se primeiramente o mapeamento dos pontos da superfície médi
 
 \begin{subequations}
     \begin{align}
-         & \BB{f}^{m0}=\BB{x}^m=\BB{X}_aN_a(\xi_1,\xi_2)\text{,} \\
-         & \BB{f}^{m1}=\BB{y}^m=\BB{Y}_aN_a(\xi_1,\xi_2)\text{,}
+         & \fmc^{m0}=\BB{x}^m=\BB{X}_aN_a(\xi_1,\xi_2)\text{,} \\
+         & \fmc^{m1}=\BB{y}^m=\BB{Y}_aN_a(\xi_1,\xi_2)\text{,}
     \end{align}
 \end{subequations}
 
-\noindent onde $\BB{f}^{m0}$ e $\BB{f}^{m1}$ são as funções de mapeamento da superfície média para as configurações inicial a atual, respectivamente, $\BB{X}_a$ e $\BB{Y}_a$ são as coordenadas dos nós $a$, pertencentes à superfície média nas configurações inicial e atual, respectivamente, e $N_a(\xi_1,\xi_2)$ é a função de forma associada ao nó $a$.
+\noindent onde $\fmc^{m0}$ e $\fmc^{m1}$ são as funções de mapeamento da superfície média para as configurações inicial a atual, respectivamente, $\BB{X}_a$ e $\BB{Y}_a$ são as coordenadas dos nós $a$, pertencentes à superfície média nas configurações inicial e atual, respectivamente, e $N_a(\xi_1,\xi_2)$ é a função de forma associada ao nó $a$.
 
 Já os pontos fora da superfície média, são mapeados com auxílio de vetores generalizados $\BB{v}^0$ e $\BB{v}^1$, sendo as funções de mapeamento para qualquer ponto, para as configurações inicial e atual, dadas por:
 
 \begin{subequations}
     \begin{align}
-         & \BB{f}^0=\BB{x}^m(\xi_1,\xi_2)+\BB{v}^0(\xi_1,\xi_2,\xi_3)\text{ e} \\
-         & \BB{f}^1=\BB{y}^m(\xi_1,\xi_2)+\BB{v}^1(\xi_1,\xi_2,\xi_3)\text{,}
+         & \fmc^0=\BB{x}^m(\xi_1,\xi_2)+\BB{v}^0(\xi_1,\xi_2,\xi_3)\text{ e} \\
+         & \fmc^1=\BB{y}^m(\xi_1,\xi_2)+\BB{v}^1(\xi_1,\xi_2,\xi_3)\text{,}
     \end{align}
 \end{subequations}
 
@@ -299,15 +299,15 @@ Já os pontos fora da superfície média, são mapeados com auxílio de vetores 
 
 Sendo assim, o problema possui como graus de liberdade as posições nodais atuais da superfície média ($\BB{Y}_a$), os valores nodais do vetor generalizado adimensional na configuração atual ($\BB{V}^1_a$) e o valor nodal da taxa de variação linear de deformação na direção da espessura ($\Alpha_a$).
 
-Além disso, torna-se necessário determinar o gradiente da função de mudança de configuração. Para isso note que $\BB{f}(\BB{x},t)=\BB{f}^1((\BB{f}^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\BB{A}=\Nx\BB{f}$) como $\BB{A}=\BB{A}^1\cdot(\BB{A}^0)^{-1}$, em que $\BB{A}^0=\Nxi\BB{f}^0$ e $\BB{A}^1=\Nxi\BB{f}^1$.
+Além disso, torna-se necessário determinar o gradiente da função de mudança de configuração. Para isso note que $\fmc(\BB{x},t)=\fmc^1((\fmc^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\FMC=\Nx\fmc$) como $\FMC=\FMC^1\cdot(\FMC^0)^{-1}$, em que $\FMC^0=\Nxi\fmc^0$ e $\FMC^1=\Nxi\fmc^1$.
 
 Considerando-se o princípio da conservação da energia, tem-se:
 
 \begin{equation}
-    \delta\Pi=\der{\Pi_0}{\BB{g}}\cdot\delta\BB{g}=0\text{,}
+    \delta\Pi=\der{\Pi_0}{\DOF}\cdot\delta\DOF=0\text{,}
 \end{equation}
 
-\noindent em que $\BB{g}$ representa o vetor que contém todos os graus de liberdade do problema. Dada a arbitrarieade de $\delta\BB{g}$, o princípio da estacionariedade da energia escrito em função das posições nodais e vetores generalizados fica:
+\noindent em que $\DOF$ representa o vetor que contém todos os graus de liberdade do problema. Dada a arbitrarieade de $\delta\DOF$, o princípio da estacionariedade da energia escrito em função das posições nodais e vetores generalizados fica:
 
 \begin{subequations}
     \begin{equation}
@@ -321,10 +321,10 @@ Considerando-se o princípio da conservação da energia, tem-se:
     \end{equation}
 \end{subequations}
 
-\noindent sendo possível definir um vetor resíduo $\BB{r}$ como:
+\noindent sendo possível definir um vetor resíduo $\res$, que pode ser interpretado como um vetor de desbalanceamento mecânico, como:
 
 \begin{equation}
-    \BB{r}_a(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{F}_a^\mathrm{int}+\BB{F}_a^\mathrm{inerc}-\BB{F}_a^\mathrm{ext}=\BB{0}\text{,}
+    \res_a(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{F}_a^\mathrm{int}+\BB{F}_a^\mathrm{inerc}-\BB{F}_a^\mathrm{ext}=\BB{0}\text{,}
     \label{eq:CSD-g}
 \end{equation}
 
@@ -332,84 +332,77 @@ Considerando-se o princípio da conservação da energia, tem-se:
 
 \begin{subequations}
     \begin{align}
-         & \BB{F}_a^\mathrm{int}=\intDomi{\der{u_e}{\BB{g}_a}}=\intDomi{\BB{S}:\der{\mathbb{E}}{\BB{g}_a}}\text{,}\label{eq:CSD-Fint}           \\
-         & \BB{F}_a^\mathrm{inerc}=\intDomi{\rho_0\der{\BB{y}}{\BB{g}_a}\cdot\ddBB{y}}\text{ e}\label{eq:CSD-Finerc}                            \\
-         & \BB{F}_a^\mathrm{ext}=\BB{F}_b\cdot\der{\BB{Y}_b}{\BB{g}_a}+\intFronti{\BB{t}\cdot\der{\BB{y}^m}{\BB{g}^a}}\text{.}\label{eq:CSD-Fc}
+         & \BB{F}_a^\mathrm{int}=\intDomi{\der{u_e}{\DOF_a}}=\intDomi{\Stens:\der{\mathbb{E}}{\DOF_a}}\text{,}\label{eq:CSD-Fint}           \\
+         & \BB{F}_a^\mathrm{inerc}=\intDomi{\rho_0\der{\BB{y}}{\DOF_a}\cdot\ddBB{y}}\text{ e}\label{eq:CSD-Finerc}                          \\
+         & \BB{F}_a^\mathrm{ext}=\BB{F}_b\cdot\der{\BB{Y}_b}{\DOF_a}+\intFronti{\BB{t}\cdot\der{\BB{y}^m}{\DOF_a}}\text{.}\label{eq:CSD-Fc}
     \end{align}
     \label{eq:CSD-F}
 \end{subequations}
 
-Portanto o problema a ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
+Portanto o problema a ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\res(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
 
-Como é possível perceber, o cálculo de $\BB{r}$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de $\BB{y}$. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador temporal de Newmark, devido à capacidade de respeitar a conservação de momento linear para $\gamma=1/2$ e apresentando bons resultados para modelagem de elementos de casca, conforme apresentado por \citeonline{sanches2013unconstrained}.
-%\textcolor{red}{ Pode deixar o Newmark mesmo para a qualificação, mas vamos mudar isso para o alfa generalizado. Não faz mais sentido usar Newmark.}
-
-A aproximação realizada pelo integrador de Newmark é dada por:
+Como é possível perceber, o cálculo de $\res$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de $\BB{y}$. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador $\alpha$-generalizado, conforme apresentado em \ref{IT-VMS}, sendo ainda possível aproximar em um instante $n+1$ o valor da variável ($\BB{y}^{n+1}$) e sua primeira derivada temporal ($\dBB{y}^{n+1}$) a partir da aproximação de Newmark:
 
 \begin{subequations}
     \begin{equation}
-        g_i^{n+1}=g_i^n+\dot{g}_i^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddot{g}_i^n+\beta\ddot{g}_i^{n+1}}\text{ e}
+        \BB{y}^{n+1}=\BB{y}^n+\dBB{y}^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddBB{y}^n+\beta\ddBB{y}^{n+1}}\text{ e}
     \end{equation}
     \begin{equation}
-        \dot{g}_i^{n+1}=\dot{g}_i^n+\Delta t(1-\gamma)\ddot{g}_i^n+\gamma\ddot{g}_i^{n+1}\Delta t\text{,}
+        \dBB{y}^{n+1}=\dBB{y}^n+\Delta t(1-\gamma)\ddBB{y}^n+\gamma\ddBB{y}^{n+1}\Delta t\text{,}
     \end{equation}
+    \label{eq:Newmark-alpha}
 \end{subequations}
 
-\noindent sendo o superíndice $n$ e $n+1$ a indicação do passo de tempo analisado ($t_n$ e $t_{n+1}$), $\Delta t$ o intervalo de tempo discretizado e $\beta$ e $\gamma$ parâmetros livres, que devem ser escolhidos de forma a garantir a convergência do método, sendo arbitrados valores de $\beta=1/4$ e $\gamma=1/2$, garantindo a estabilidade incondicional do método \cite{LINDFIELD2019239}.
-
-Isolando-se os termos incógnitos em função de variáveis não derivadas no tempo em $n+1$ e daquelas já conhecidas tem-se:
+\noindent sendo $\Delta t$ o intervalo de tempo discretizado, $\beta$ e $\gamma$ parâmetros calculados de forma a garantir a precisão de segunda ordem e estabilidade incondicional do método como \cite{chung1993time}:
 
 \begin{subequations}
     \begin{equation}
-        \ddot{g}_i^{n+1}=\frac{g_i^{n+1}-g_i^n}{\beta\Delta t^2}-\frac{\dot{g}_i^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddot{g}_i^n
+        \beta=\frac{1}{4}+\frac{1}{2}(\alpha_m-\alpha_f)\text{ e}
     \end{equation}
     \begin{equation}
-        \dot{g}_i^{n+1}=\frac{\gamma}{\beta\Delta t}(g_i^{n+1}-g_i^n)+\bigpar{1-\frac{\gamma}{\beta}}\dot{g}_i^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddot{g}_i^n\text{.}
+        \gamma=\frac{1}{2}-\alpha_f+\alpha_m\text{.}
     \end{equation}
-    \label{eq:CSD-Newmark2}
 \end{subequations}
 
-Já para procurar valores de $\BB{g}$ que anulem $\BB{r}$, utiliza-se o Método de Newton-Raphson, o qual parte da aproximação por série de Taylor truncada no termo de primeira ordem:
+Já para procurar valores de $\DOF$ que anulem $\res$, utiliza-se o Método de Newton-Raphson, o qual parte da aproximação por série de Taylor truncada no termo de primeira ordem:
 
 \begin{equation}
     \begin{split}
-        &\BB{r}(\BB{g}+\Delta\BB{g})=\BB{r}(\BB{g})+\apderp{\BB{r}}{\BB{g}}{\BB{g}}\Delta\BB{g}=\\
-        &\BB{r}(\BB{Y},\BB{V}^1,\BB{\Alpha})+\apderp{\BB{r}}{\BB{Y}}{\BB{Y}}\Delta\BB{Y}+\apderp{\BB{r}}{\BB{V}^1}{\BB{V}^1}\Delta\BB{V}^1+\apderp{\BB{r}}{\BB{\Alpha}}{\BB{\Alpha}}\Delta\BB{\Alpha}=\BB{0}\text{.}
+        &\res(\DOF+\Delta\DOF)=\res(\DOF)+\apderp{\res}{\DOF}{\DOF}\cdot\Delta\DOF=\BB{0}\text{.}
     \end{split}
 \end{equation}
 
-\noindent Dessa forma, necessita-se do cálculo de uma matriz Hessiana ($H_{ij}^{ab}$):
+\noindent Dessa forma, necessita-se do cálculo de uma matriz Hessiana ($\BB{H}_{ab}$):
 
 \begin{equation}
-    H_{ij}^{ab}=\frac{\partial^2\Pi_0}{\partial g_j^b\partial g_i^a}=\der{r_i^a}{g_j^b}\text{.}
+    \BB{H}_{ab}=\frac{\partial^2\Pi_0}{\partial\DOF_a\otimes\partial\DOF_b}=\der{\res_a}{\DOF_b}\text{.}
 \end{equation}
 
-Substituindo-se as derivadas temporais da aproximação de Newmark em $\BB{r}$ e realizando as devidas simplificações, obtém-se:
+Substituindo-se as derivadas temporais do integrador $\alpha$-generalizado em $\res$ e realizando as devidas simplificações, pode-se escrever, em notação indicial:
 
 \begin{equation}
-    H_{ij}^{ab}=(H^\text{est})_{ij}^{ab}+\frac{M_{ij}^{ab}}{\beta\Delta t^2}+\intDom{\rho_0\ddot{y}_k\Dder{y_k}{g_j^b}{g_i^a}}\text{,}
+    \begin{split}
+        H_{ij}^{ab}=&\intDoma{\bigpar{\der{\Stens^{n+\alpha_f}_{kl}}{\Phi_j^b}\der{\mathbb{E}^{n+\alpha_f}_{kl}}{\Phi_i^a}+\Stens^{n+\alpha_f}_{kl}\Dder{\mathbb{E}^{n+\alpha_f}_{kl}}{\Phi_i^a}{\Phi_j^b}}}+\\
+        &\frac{\alpha_m\alpha_f}{\beta\Delta t}\intDoma{\rho_0\der{y_k^{n+1}}{\Phi_j^b}\der{y_k^{n+1}}{\Phi_i^a}}+\alpha_f\intDoma{\rho_0\Dder{y_k^{n+1}}{\Phi_i^a}{\Phi_j^b}\ddot{y}_k^{n+\alpha_m}}\text{.}
+    \end{split}
     \label{eq:CSD-Hijab}
 \end{equation}
 
-\noindent sendo $(H^\text{est})_{ij}^{ab}$ a matriz hessiana estática elementar, $M_{ij}^{ab}$ a matriz de massa e $C_{ij}^{ab}$ a matriz de amortecimento, dadas por:
+%\noindent em que:
+%
+%\begin{equation}
+%    \Omega_\alpha=\Omega^{n+\alpha_f}=\left\{\BB{y}\big|\BB{y}(\BB{x},t^{n+\alpha_f})=\BB{y}(\BB{x},t^n)+\alpha_f(\BB{y}(\BB{x},t^{n+1})-\BB{y}(\BB{x},t^n))\right\}\text{.}
+%\end{equation}
 
-\begin{subequations}
-    \begin{align}
-         & (H^\text{est})_{ij}^{ab}=\Dder{\mathbb{U}}{g_j^b}{g_i^a}=\intDomi{\bigpar{\der{S_{kl}}{g_j^b}\der{\mathbb{E}_{kl}}{g_i^a}+S_{kl}\Dder{\mathbb{E}_{kl}}{g_i^a}{g_j^b}}}\text{ e} \\
-         & M_{ij}^{ab}=\intDomi{\rho_0\der{y_k}{g_i^a}\der{y_k}{g_j^b}}\text{.}
-    \end{align}
-    \label{eq:CSD-HMC}
-\end{subequations}
+Note que a derivada mista de $y_k^{n+1}$ em relação a $\Phi_i^a$ e $\Phi_j^b$ só possuirá valores não-nulos apenas quando for derivada de forma cruzada em relação a $\BB{V}^1$ e $\Alpha$.
 
-\noindent também observa-se que a derivada mista de $y_k$ em relação a $g_i^a$ e $g_j^b$ possuirá valores não-nulos apenas quando for derivada de forma cruzada em relação a $V^1$ e $\Alpha$.
-
-Com isso, encontra-se um vetor de correções dos graus de liberdade ($\Delta\BB{g}$) como a solução do sistema:
+Com isso, encontra-se um vetor de correções dos graus de liberdade ($\Delta\DOF$) como a solução do sistema:
 
 \begin{equation}
-    H_{ij}\Delta g_j=-r_i\text{,}
+    \BB{H}\cdot\Delta\DOF=-\res\text{,}
 \end{equation}
 
-\noindent tendo como critério de parada a medida do erro:
+\noindent tendo como medida de convergência:
 
 \begin{equation}
     \frac{\norm{\Delta\BB{Y}}}{\norm{\BB{X}}}\leq\text{tol,}
@@ -418,13 +411,45 @@ Com isso, encontra-se um vetor de correções dos graus de liberdade ($\Delta\BB
 
 \noindent em que $\BB{X}$ o vetor de posições nodais iniciais e tol uma tolerância admitida.
 
-%%==================================================================================================
-%\subsection{Procedimento Computacional} \label{MEFP-Comp}
-%%==================================================================================================
-%
-%Para a implementação computacional realizou-se uma integração em $\Omega_0$ e $\Gamma_0$ segundo a quadratura de hammer \cite{hammer1956numerical}, sendo a malha gerada %automaticamente via comunicação direta do algoritmo com o \textit{Gmsh} e o procedimento paralelizado utilizando o protocolo MPI presente na biblioteca PETSc. Demais informações %relevantes à implementação computacional são descritas detalhadamente no capítulo \ref{MetodologiaCronograma}.
-%
-%O algoritmo visto no Apêndice \ref{Ap:Shell-alg} apresentado na forma de pseudocódigo exemplifica o código implementado.
+Assim, o algoritmo utilizado para solução do elemento de casca é dado pelo pseudocódigo \ref{alg:MEF-casca}.
+
+\begin{algorithm}[h!]
+    \caption{Algoritmo utilizado para o cálculo das posições nodais.}
+    \label{alg:MEF-casca}
+    \KwResult{Vetor global de graus de liberdade}
+    Previsão inicial: $\BB{Y}\gets\BB{X}$\;
+    \For{$t_i\gets 0$ \KwTo $t_f$}{
+        \ForEach{\textnormal{passo de carga}}{
+            \ForEach{\textnormal{elemento}}{
+                \ForEach{\textnormal{nó $a$ do elemento}}{
+                    Somar contribuição de $\BB{F}_a^\mathrm{ext}$ \eqref{eq:CSD-Fc} sobre o vetor global\;
+                }
+            }
+            Somar a contribuição das forças concentradas sobre o vetor global\;
+            \ForEach{\textnormal{iteração de Newton-Raphson}}{
+                \ForEach{\textnormal{elemento}}{
+                    Interpolar variáveis em $\Omega_a$\;
+                    Calcular $\FMC^0$, $(\FMC^0)^{-1}$, $(\FMC^1)^{n+1}$ e $(\FMC^1)^{n+\alpha_f}$\;
+                    Calcular $\FMC^{n+1}=(\FMC^1)^{n+1}\cdot(\FMC^0)^{-1}$ e $\FMC^{n+\alpha_f}=(\FMC^1)^{n+\alpha_f}\cdot(\FMC^0)^{-1}$\;
+                    Calcular $\BB{C}^{n+1}=(\FMC^{n+1})^T\cdot\FMC^{n+1}$ e $\BB{C}^{n+\alpha_f}=(\FMC^{n+\alpha_f})^T\cdot\FMC^{n+\alpha_f}$\;
+                    Calcular $\mathbb{E}^{n+\alpha_f}$ \eqref{eq:CSD-DefGreenLagr} e $\Stens^{n+\alpha_f}$ \eqref{eq:CSD-S}\;
+                    \ForEach{\textnormal{nó $a$ do elemento}}{
+                        Calcular $\partial{\BB{y}^{n+1}}/\partial{\DOF_a}$, $\partial{\FMC^{n+1}}/\partial{\DOF_a}$, $\partial{\mathbb{E}^{n+\alpha_f}}/\partial{\DOF_a}$ e $\partial{\Stens^{n+\alpha_f}}/\partial{\DOF_a}$\;
+                        Calcular $\res_a$ e somar a contribuição no vetor global\;
+                        \ForEach{\textnormal{nó $b$ do elemento}}{
+                            Calcular $\BB{H}_{ab}$ \eqref{eq:CSD-Hijab} e somar contribuição na matriz global\;
+                        }
+                    }
+                }
+                Resolver o sistema global: $\BB{H}^k\cdot\Delta\DOF^k=-\res^k$\;
+                Atualizar os valores nodais: $\DOF^{k+1}\gets\DOF^k+\Delta\DOF^k$\;
+                Atualizar derivadas temporais\;
+                Cálculo do erro \eqref{eq:CSD-erro}\;
+            }
+        }
+        Atualização dos valores passados\;
+    }
+\end{algorithm}
 
 %==================================================================================================
 \subsection{Exemplos de Verificação} \label{MEFP-Ex}

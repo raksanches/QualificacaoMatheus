@@ -59,7 +59,7 @@ Já os termos $\rM$ e $\rC$ são os resíduos da equação de conservação da q
 
 \begin{subequations}
     \begin{equation}
-        \rM=\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
+        \rM=\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
     \end{equation}
     \begin{equation}
         \rC=\Ny\cdot\BBB{u}\text{.}
@@ -94,7 +94,7 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dvt{\BBB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BB{f}}}+\intDom{\Ny\BB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BB{f}}}+\intDom{\Ny\BB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
         &\intDom{\bar{q}\Ny\cdot\BBB{u}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\cdot\BB{u}'}-\\
         &\SintDom{\Ny\cdot\BBB{w}p'}+\SintDom{\rho\BBB{w}\cdot(\BB{u}'\cdot\Ny\BBB{u})}-\\
         &\SintDom{\rho\Ny\BBB{w}:(\BB{u}'\otimes\BB{u}')}=0
@@ -107,7 +107,7 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
         &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\sups\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\rM}+\\
         &\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}-\SintDom{\tau_\sups\BBB{w}\cdot(\rM\cdot\Ny\BBB{u})}-\\
         &\SintDom{\frac{\Ny\BBB{w}}{\rho}:((\tau_\sups\rM)\otimes(\tau_\sups\rM))}=0
@@ -149,7 +149,7 @@ Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e leva
     \begin{equation}
         \begin{split}
             \NM^a=&
-            \intDom{N_a^u\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny N_a^u\cdot\bar{\tens}}-\\
+            \intDom{N_a^u\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny N_a^u\cdot\bar{\tens}}-\\
             &\intNeumann{N_a^u\BBB{h}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny N_a^u}\BB{u}'}-\SintDom{\Ny N_a^up'}+\\
             &\SintDom{\rho N_a^u(\BB{u}'\cdot\Ny\BBB{u})}-\SintDom{\rho\Ny N_a^u\cdot(\BB{u}'\otimes\BB{u}')}
             =\BB{0}\text{,}
@@ -174,7 +174,7 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dvt{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
         &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\supg((\BBB{u}-\HBB{u})\cdot\Ny\BBB{w})\cdot\rM}+\\
         &\SintDom{\tau_\pspg\frac{\Ny\bar{q}}{\rho}\cdot\rM}+\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}=0
         \text{,}
@@ -275,24 +275,24 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \begin{subequations}
     \begin{equation}
         \begin{split}
-            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDomna{\kr{a}N_b}\BB{I}+\agdt\intDomna{\kr{a}\dconv{b}}\BB{I}+\\
-            &\agdt\intDomna{\mu \Ny N_a\cdot\Ny N_b}\BB{I}+\agdt\intDomna{\kr{a}N_b\Ny\BBB{u}}+\\
-            &\agdt\intDomna{(\mu(\Ny N_b\otimes\Ny N_a)+\rho\nlsic(\Ny N_a\otimes\Ny N_b))}-\\
-            &\am\intDomna{\rho\tsups N_aN_b\Ny\BBB{u}}-\\
-            &\agdt\intDomna{\rho\tsups N_a(\dconv{b}\BB{I}+N_b\Ny\BBB{u})\cdot\Ny\BBB{u}}\text{,}
+            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDoma{\kr{a}N_b}\BB{I}+\agdt\intDoma{\kr{a}\dconv{b}}\BB{I}+\\
+            &\agdt\intDoma{\mu \Ny N_a\cdot\Ny N_b}\BB{I}+\agdt\intDoma{\kr{a}N_b\Ny\BBB{u}}+\\
+            &\agdt\intDoma{(\mu(\Ny N_b\otimes\Ny N_a)+\rho\nlsic(\Ny N_a\otimes\Ny N_b))}-\\
+            &\am\intDoma{\rho\tsups N_aN_b\Ny\BBB{u}}-\\
+            &\agdt\intDoma{\rho\tsups N_a(\dconv{b}\BB{I}+N_b\Ny\BBB{u})\cdot\Ny\BBB{u}}\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        \der{\NM^a}{(P^b)^{n+1}}=-\intDomna{N_b\Ny N_a}+\intDomna{\tsups(\dconv{a}\BB{I}-N_a\Ny\BBB{u})\cdot\Ny N_b}\text{,}
+        \der{\NM^a}{(P^b)^{n+1}}=-\intDoma{N_b\Ny N_a}+\intDoma{\tsups(\dconv{a}\BB{I}-N_a\Ny\BBB{u})\cdot\Ny N_b}\text{,}
     \end{equation}
     \begin{equation}
         \begin{split}
-            \der{\NC^a}{(\dBB{U}^b)^{n+1}}=&\agdt\intDomna{N_a\Ny N_b}+\am\intDomna{\tsups N_b\Ny N_a}+\\
-            &\agdt\intDomna{\tsups(\dconv{b}\BB{I}+N_b\NyT\BBB{u})\cdot\Ny N_a}\text{ e}
+            \der{\NC^a}{(\dBB{U}^b)^{n+1}}=&\agdt\intDoma{N_a\Ny N_b}+\am\intDoma{\tsups N_b\Ny N_a}+\\
+            &\agdt\intDoma{\tsups(\dconv{b}\BB{I}+N_b\NyT\BBB{u})\cdot\Ny N_a}\text{ e}
         \end{split}
     \end{equation}
     \begin{equation}
-        \der{\NC^a}{(P^b)^{n+1}}=\intDomna{\frac{\tsups}{\rho}\Ny N_a\cdot\Ny N_b}\text{,}
+        \der{\NC^a}{(P^b)^{n+1}}=\intDoma{\frac{\tsups}{\rho}\Ny N_a\cdot\Ny N_b}\text{,}
     \end{equation}
     \label{Eq:MatrizTangente-VMS}
 \end{subequations}
@@ -300,7 +300,7 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \noindent em que $\dconv{a}=\UUB\cdot\Ny N_{a}$, $\kr{a}=\rho(N_a+\tsups\dconv{a})$ e:
 
 \begin{equation}
-    \Omega^{n+\alpha_f}=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
+    \Omega_\alpha=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
 \end{equation}
 
 Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
@@ -315,13 +315,13 @@ Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o
     Previsão dos valores nodais:\newline
     $
         \begin{bmatrix}
-            \dBB{U} \\\BB{U}\\\BB{P}
-        \end{bmatrix}^0_{n+1}\gets
+            \dBB{U}^{n+1} \\\BB{U}^{n+1}\\\BB{P}^{n+1}
+        \end{bmatrix}^0\gets
         \begin{bmatrix}
-            ((\gamma-1)/\gamma)\dBB{U} \\
-            \BB{U}                     \\
-            \BB{P}
-        \end{bmatrix}_n
+            ((\gamma-1)/\gamma)\dBB{U}^n \\
+            \BB{U}^n                     \\
+            \BB{P}^n
+        \end{bmatrix}
     $\\
     \ForEach{\textnormal{iteração de Newton-Raphson}}
     {
@@ -329,12 +329,12 @@ Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o
     Interpolação das variáveis:\newline
     $
         \begin{bmatrix}
-            \dBB{U}_{n+\alpha_m} \\\BB{U}_{n+\alpha_f}\\\BB{P}_{n+1}
+            \dBB{U}^{n+\alpha_m} \\\BB{U}^{n+\alpha_f}\\\BB{P}^{n+1}
         \end{bmatrix}^{k+1}\gets
         \begin{bmatrix}
-            \alpha_m \BB{\dot{U}}_{n+1}+(1-\alpha_m)\BB{\dot{U}}_n \\
-            \alpha_f \BB{U}_{n+1}+(1-\alpha_f)\BB{U}_n             \\
-            \BB{P}_n
+            \alpha_m \BB{\dot{U}}^{n+1}+(1-\alpha_m)\BB{\dot{U}}^n \\
+            \alpha_f \BB{U}^{n+1}+(1-\alpha_f)\BB{U}^n             \\
+            \BB{P}^n
         \end{bmatrix}^{k-1}
     $\\
     Cálculo dos termos estabilizadores $\tau_\sups$ e $\nu_\lsic$ \eqref{eq:stabilizatingTerms}\;
@@ -345,14 +345,14 @@ Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o
     Correção dos valores:\newline
     $
         \begin{bmatrix}
-            \dBB{U} \\\BB{U}\\\BB{P}
-        \end{bmatrix}_{n+1}^{k+1}\gets
+            \dBB{U}^{n+1} \\\BB{U}^{n+1}\\\BB{P}^{n+1}
+        \end{bmatrix}^{k+1}\gets
         \begin{bmatrix}
-            \dBB{U} \\\BB{U}\\\BB{P}
-        \end{bmatrix}_{n+1}^{k}+
+            \dBB{U}^{n+1} \\\BB{U}^{n+1}\\\BB{P}^{n+1}
+        \end{bmatrix}^{k}+
         \begin{bmatrix}
-            \Delta\dBB{U} \\\gamma\Delta t\Delta\dBB{U}\\\Delta\BB{P}
-        \end{bmatrix}_{n+1}^{k}
+            \Delta\dBB{U}^{n+1} \\\gamma\Delta t\Delta\dBB{U}^{n+1}\\\Delta\BB{P}^{n+1}
+        \end{bmatrix}^{k}
     $\\
     Cálculo do erro: $\epsilon=\norm{\NM^k}_{L^2}$
     }
