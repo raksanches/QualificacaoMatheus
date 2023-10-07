@@ -37,6 +37,9 @@
     \item[$\rho$] Massa específica
     \item[$\BB{\sigma}$] Tensor de tensões de Cauchy
     \item[$\phi$] Propriedade qualquer
+    \item[$\DOF$] Vetor que contém todos os graus de liberdade do problema
+    \item[$\BB{\Psi}$] Vetor que contém todos os valores nodais das funções teste
+    \item[$\varnothing$] Conjunto vazio
 
     \item[\textbf{Configurações do Contínuo}]
     \item[$\fmc$] Função mudança de configuração de $\Omega_0\to\Omega$
@@ -54,6 +57,8 @@
     \item[$\BB{y}$] Posição atual (ou posição espacial)
     \item[$\Gamma$] Fronteira do domínio de análise
     \item[$\Gamma_D$] Fronteira de Dirichlet
+    \item[$\Gamma_f$] Fronteira fixa
+    \item[$\Gamma_m$] Fronteira móvel
     \item[$\Gamma_N$] Fronteira de Neumann
     \item[$\Omega$] Domínio de análise na configuração atual
     \item[$\Omega_0$] Domínio de análise na configuração inicial
@@ -116,18 +121,26 @@
     \item[$\lambda_m$] Constante de amortecimento
     \item[$\nu$] Coeficiente de Poisson
     \item[$\Pi$] Energia total
-    \item[$\DOF$] Vetor que contém todos os graus de liberdade do problema
+
+    \item[\textbf{Movimentação dinâmica da malha}]
+    \item[$\BB{B}$] Matriz tangente do problema de Laplace
+    \item[$\BB{z}$] Campo de deslocamentos da malha
+    \item[$\BB{Z}_a$] Valor de $\BB{z}$ sobre o nó $a$
+    \item[$\BB{z}_m$]  Valores prescritos de deslocamentos em $\Gamma_m$
+    \item[$\Delta{Z}$] Vetor de correção dos valores nodais de deslocamento
+    \item[$\res_L$] Vetor resíduo do problema de Laplace
+    \item[$\eta$] Amplificação de rigidez dos elementos menores
+    \item[$\BB{\upsilon}$] Função teste relacionado ao problema de Laplace
+    \item[$\BB{\Upsilon}_a$] Valor de $\BB{\upsilon}$ sobre o nó $a$
 
     \item[\textbf{Acoplamento Fluido-Estrutura}]
     \item[$\script{G}$] Soma de todas as equações diferenciais do problema
     \item[$\BB{H}$] Matriz tangente
-    \item[$\BB{h}$] Vetor resíduo
-    \item[$\BB{\alpha}$] Vetor contendo os graus de liberdade
-    \item[$\BB{\beta}$] Vetor com graus de liberdade das funções teste
+    \item[$\res$] Vetor resíduo
 
     \item[\textbf{\textit{Variational Multi-Scale}}]
-    \item[$\NM$] Vetor de resíduo
-    \item[$\NC$] Vetor de resíduo
+    \item[$\NM$] Vetor de resíduo referente à equação da conservação da quantidade de movimento
+    \item[$\NC$] Vetor de resíduo referente à equação da continuidade
     \item[$\BB{P}$] Vetor de pressões nodais
     \item[$\rC$] Resíduo da equação da continuidade
     \item[$\rM$] Resíduo da equação da conservação da quantidade de movimento

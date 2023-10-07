@@ -1,0 +1,95 @@
+%==================================================================================================
+\chapter{Movimentação da malha via suavização de Laplace} \label{MovMalha}
+%==================================================================================================
+
+Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada mantendo-se a qualidade da malha utilizada para o cálculo dos passos de tempo posteriores, evitando, assim, distorções excessivas nos elementos. Como mencionado por \citeonline{kanchi20073d}, essa etapa deve produzir uma malha de boa qualidade ao longo do tempo, ao mesmo tempo que não deve ser custoso computacionalmente. Assim, uma possibilidade para se realizar a movimentação da malha parte da suavização de Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
+
+Nesse esquema, considere o domínio limitado aberto do fluido $\Omega_F$, com uma fronteira suave por partes $\Gamma$. Logo, $\Gamma$ pode ser decomposta em partes de fronteira fixa $\Gamma_f$ e partes de fronteira móvel $\Gamma_m$, tais que:
+
+\begin{subequations}
+    \begin{equation}
+        \Gamma=\Gamma_m\cup\Gamma_f\text{ e}
+    \end{equation}
+    \begin{equation}
+        \varnothing=\Gamma_m\cap\Gamma_f\text{.}
+    \end{equation}
+\end{subequations}
+
+Dessa forma, define-se as condições de contorno do problema como:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \BB{z}=\BB{z}_m & \text{ em }\Gamma_m\text{ e} \\
+        \BB{z}=\BB{0}   & \text{ em }\Gamma_f\text{,}
+    \end{array}
+    \right.
+\end{equation}
+
+\noindent em que $\BB{z}$ é o campo de deslocamentos da malha e $\BB{z}_m$ é o deslocamento prescrito em $\Gamma_f$.
+
+Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{u}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em uma situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
+
+Assim, propõe-se um esquema de movimentação dado pelo problema de valor de contorno:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \Ny\cdot([1+\eta]\Ny)\BB{u}=0 & \text{ em }\Omega_F\text{,}  \\
+        \BB{z}=\BB{z}_m               & \text{ em }\Gamma_m\text{ e} \\
+        \BB{z}=\BB{0}                 & \text{ em }\Gamma_f\text{,}
+    \end{array}
+    \right.\label{eq:LaplMov}
+\end{equation}
+
+\noindent em que:
+
+\begin{equation}
+    \eta^e=\frac{V_\mathrm{máx}-V_\mathrm{mín}}{V^e}
+\end{equation}
+
+\noindent é um termo adicionado ao problema de maneira a aumentar a rigidez dos elementos menores, enquanto possibilita a movimentação dos elementos maiores, $V_\mathrm{máx}$, $V_\mathrm{mín}$ e $V^e$ são os volumes atuais do maior elemento, do menor elemento e do elemento $e$ calculado.
+
+Para a solução do problema \eqref{eq:LaplMov}, parte-se para o método dos resíduos ponderados, em que $\BB{\upsilon}$ é a função teste:
+
+\begin{equation}
+    \SintDom{[1+\eta^e]\BB{\upsilon}\cdot\Lapl\BB{z}}=0\text{.}
+\end{equation}
+
+Integrando por partes e aplicando o teorema da divergência tem-se que:
+
+\begin{equation}
+    \SintFront{[1+\eta^e]\BB{\upsilon}\cdot(\Ny\BB{z}\cdot\BB{n})}-\SintDom{[1+\eta]\Ny\BB{\upsilon}:\Ny\BB{z}}=0\text{.}
+\end{equation}
+
+Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nula, o que leva ao seguinte problema:
+
+\begin{equation}
+    \SintDom{[1+\eta^e]\Ny\BB{\upsilon}:\Ny\BB{z}}=0\text{.}
+\end{equation}
+
+Fazendo a aproximação da função teste por funções de forma, tem-se:
+
+\begin{equation}
+    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\int_{\Omega^e}{[1+\eta^e]\Ny N_a\Ny\BB{z}d\Omega^e}}\text{,}
+\end{equation}
+
+\noindent sendo $\BB{\Upsilon}_a$ e $N_a$ o valor nodal da função teste e a função de forma sobre o nó $a$.
+
+Devido à arbitrariedade da função teste, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
+
+\begin{equation}
+    \res_L^a=\intDome{[1+\eta^e]\Ny N_a\Ny\BB{z}}=0\text{.}
+\end{equation}
+
+Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson, em que a matriz do problema é dada por:
+
+\begin{equation}
+    \BB{B}^{ab}=\der{\res_L^a}{\BB{Z}^b}=\intDome{[1+\eta^e]\Ny N_a\cdot\Ny N_b}\BB{I}\text{.}
+\end{equation}
+
+Portanto o problema de movimentação da malha no contexto do MEF pode ser dado por:
+
+\begin{equation}
+    \BB{B}\cdot\Delta\BB{Z}=-\res_L\text{.}
+\end{equation}

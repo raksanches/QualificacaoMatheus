@@ -2,25 +2,33 @@
 \chapter{Acoplamento Fluido-Estrutura} \label{AFE}
 %==================================================================================================
 
-Para se descrever o problema acoplado, denota-se $\Omega_F$ o domínio do fluido, $\Omega_E$ o domínio da estrutura, $\Omega_{IFE}=\Omega_S\cup\Omega_E$ o domínio do problema e $\Gamma_{IFE}=\Omega_S\cap\Omega_E$ a interface de IFE.
+Para se descrever o problema acoplado, denota-se $\Omega_F$ o domínio do fluido, $\Omega_S$ o domínio da estrutura, $\Omega_\mathrm{IFE}=\Omega_F\cup\Omega_S$ o domínio do problema e $\Gamma_\mathrm{IFE}=\Omega_F\cap\Omega_S$ a interface de IFE, conforme ilustrado na Figura \ref{fig:DomComp}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Domínio computacional do problema de IFE.}
+    \includegraphics[width=.65\linewidth]{Figuras/Dom_Comp.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:DomComp}
+\end{figure}
 
 \citeonline{richter2017fluid} apontam três condições que devem ser satisfeitas no acoplamento: a Condição Cinemática, que diz respeito à movimentação dos domínios analisados, devendo ser compatíveis em $\Gamma_{IFE}$, ou seja, a componente normal ao movimento deve ser igual em ambos os meios, assim como a componente tangencial em caso de condição de aderência do fluido à estrutura; a Condição Dinâmica, que aponta a continuidade das forças internas, observadas no tensor de tensões de Cauchy; e a Condição Geométrica, que exige a necessidade de ambos os domínios coincidirem em $\Gamma_{IFE}$, não havendo sobreposições nem formação de vazios.
 
-Numericamente, há diversas possibilidades para que essas condições sejam impostas de forma exata ou aproximada, sendo possível acoplamento monolítico ou acoplamento particionado, com o último ainda subdividido em particionado fraco e forte, como mencionado em \ref{IFE}. % \textcolor{red}{(Citar trecho no estado da arte)}.
+Numericamente, há diversas possibilidades para que essas condições sejam impostas de forma exata ou aproximada, sendo possível acoplamento monolítico ou acoplamento particionado, com o último ainda subdividido em particionado fraco e forte, como mencionado em \ref{IFE}.
 
 Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas. O mesmo pode ser aplicado quando do acoplamento direto, monolítico, entre os dois meios. Para isso a matriz tangente ($\BB{H}$) pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
 
 \begin{equation}
-    H_{ij}^k=\Dder{\script{G}}{\beta_i^k}{\alpha_j^k}\text{,}
+    \BB{H}^k=\frac{\partial^2{G}}{\partial\BB{\Psi}^k\otimes\partial\DOF^k}\text{,}
 \end{equation}
 
-\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\beta_i^k$ o vetor com todos os parâmetros nodais das funções teste e $\alpha_j^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\BB{\alpha}^k$) por meio da solução do sistema:
+\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}^k$ o vetor com todos os parâmetros nodais das funções teste e $\DOF^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\DOF^k$) por meio da solução do sistema:
 
 \begin{equation}
-    \BB{H}^k\cdot\Delta\BB{\alpha}^k=-\BB{h}^k\text{,}
+    \BB{H}^k\cdot\Delta\DOF^k=-\res^k\text{,}
 \end{equation}
 
-\noindent em que $\BB{h}=\partial\script{G}/\partial\beta_i^k$ é o vetor resíduo.
+\noindent em que $\res^k=\partial\script{G}/\partial\BB{\Psi}^k$ é o vetor resíduo.
 
 Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cada parcela no sistema global tem-se:
 
@@ -30,9 +38,9 @@ Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cada 
         \BB{H}_{21}^k & \BB{H}_{22}^k & \BB{H}_{23}^k \\
         \BB{H}_{31}^k & \BB{H}_{32}^k & \BB{H}_{33}^k
     \end{bmatrix}\cdot\begin{bmatrix}
-        \Delta\BB{\alpha}_1^k \\\Delta\BB{\alpha}_2^k\\\Delta\BB{\alpha}_3^k
+        \Delta\DOF_1^k \\\Delta\DOF_2^k\\\Delta\DOF_3^k
     \end{bmatrix}=-\begin{bmatrix}
-        \BB{h}_1^k \\\BB{h}_2^k\\\BB{h}_3^k
+        \res_1^k \\\res_2^k\\\res_3^k
     \end{bmatrix}\text{,}
 \end{equation}
 
@@ -46,52 +54,54 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
         0             & \BB{H}_{22}^k & 0             \\
         0             & 0             & \BB{H}_{33}^k
     \end{bmatrix}\cdot\begin{bmatrix}
-        \Delta\BB{\alpha}_1^k \\\Delta\BB{\alpha}_2^k\\\Delta\BB{\alpha}_3^k
+        \Delta\DOF_1^k \\\Delta\DOF_2^k\\\Delta\DOF_3^k
     \end{bmatrix}=-\begin{bmatrix}
-        \BB{h}_1^k \\\BB{h}_2^k\\\BB{h}_3^k
+        \res_1^k \\\res_2^k\\\res_3^k
     \end{bmatrix}\text{.}
 \end{equation}
 
 Note que o método continua sendo consistente, uma vez que apenas a matriz tangente do método de Newton-Raphson foi modificada, no entanto, a convergência não é garantida.
-Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphson, pode-se resolver sequencialmente os blocos e atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no Algoritmo \ref{alg:AcoplamentoParticionado}. Isso resulta em um acoplamento forte, onde, havendo convergência, a mesma resposta do problema fortemente acoplado deve ser alcançada.
-
+Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphson, pode-se resolver sequencialmente os blocos e atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no Algoritmo \ref{alg:acoplamentoForte}. Isso resulta em um acoplamento forte, onde, havendo convergência, a mesma resposta do problema fortemente acoplado deve ser alcançada.
 
 \begin{algorithm}[h!]
-    \caption{Cálculo dos valores das variáveis incógnitas}
-    \label{alg:AcoplamentoParticionado}
-    Resolver o sistema: $\BB{H}_{11}^k(\BB{\alpha}_1^k,\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_1^k=-\BB{h}_1^k(\BB{\alpha}_1^k,\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
-    Atualizar valores: $\BB{\alpha}_1^{k+1}\gets\BB{\alpha}_1^k+\Delta\BB{\alpha}_1^k$\;
-    Resolver o sistema: $\BB{H}_{22}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_2^k=-\BB{h}_2^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^k,\BB{\alpha}_3^k)$\;
-    Atualizar valores: $\BB{\alpha}_2^{k+1}\gets\BB{\alpha}_2^k+\Delta\BB{\alpha}_2^k$\;
-    Resolver o sistema: $\BB{H}_{33}^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)\cdot\Delta\BB{\alpha}_3^k=-\BB{h}_3^k(\BB{\alpha}_1^{k+1},\BB{\alpha}_2^{k+1},\BB{\alpha}_3^k)$\;
-    Atualizar valores: $\BB{\alpha}_3^{k+1}\gets\BB{\alpha}_3^k+\Delta\BB{\alpha}_3^k$\;
+    \caption{Processo de acoplamento particionado forte}
+    \label{alg:acoplamentoForte}
+    \ForEach{\textnormal{passo de tempo}}{
+        Atualizar valores passados do fluido, sólido e malha;\\
+        \ForEach{\textnormal{iteração $k$ de Newton-Raphson}}{
+            \textbf{Resolver fluido}: $\BB{H}_{11}^k(\DOF_1^k,\DOF_2^k,\DOF_3^k)\cdot\Delta\DOF_1^k=-\res_1^k(\DOF_1^k,\DOF_2^k,\DOF_3^k)$\\
+            Atualizar valores atuais do fluido: $\DOF_1^{k+1}\gets\DOF_1^k+\Delta\DOF_1^k$\\
+            Atualizar forças de superfície no sólido: $\BB{t}^s=-\BB{\sigma}^f\cdot\BB{n}^f$\\
+            \textbf{Resolver sólido}: $\BB{H}_{22}^k(\DOF_1^{k+1},\DOF_2^k,\DOF_3^k)\cdot\Delta\DOF_2^k=-\res_2^k(\DOF_1^{k+1},\DOF_2^k,\DOF_3^k)$\\
+            Atualizar valores atuais do sólido:  $\DOF_2^{k+1}\gets\DOF_2^k+\Delta\DOF_2^k$\\
+            Atualizar velocidades e acelerações do fluido em $\Gamma_{IFE}$;\\
+            Atualizar deslocamentos na malha em $\Gamma_{IFE}$;\\
+            \textbf{Resolver malha}: $\BB{H}_{33}^k(\DOF_1^{k+1},\DOF_2^{k+1},\DOF_3^k)\cdot\Delta\DOF_3^k=-\res_3^k(\DOF_1^{k+1},\DOF_2^{k+1},\DOF_3^k)$\\
+            Atualizar valores atuais da malha: $\DOF_3^{k+1}\gets\DOF_3^k+\Delta\DOF_3^k$\\
+        }
+    }
 \end{algorithm}
-
 
 Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja atualização das variáveis de um problema para o outro dentro de cada processo iterativo, fazendo a atualização apenas ao final de cada passo no tempo, tem-se um modelo de acoplamento particionado fraco. Para construir um acoplamento particionado fraco, pode-se assumir que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente \cite{sanches2022metodos}. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em uma iteração.
 
-%\textcolor{red}{Você precisa modificar o algoritmo para identificar que 1 e 2 estão dentro do processo iterativo para resolver o fluido, 3 e 4 dentro do processo iterativo para resolver o sólido, e 5 e 6 dentro do processo iterativo para resolver a malha}
-
 \begin{algorithm}[h!]
-    \caption{Cálculo das variáveis em um acoplamento particionado fraco}
+    \caption{Processo de acoplamento particionado fraco}
     \label{alg:PartFraco}
 
-    \While{erro>tol}{
-    Resolver o sistema: $\BB{H}_{11}((\BB{\alpha}_1^{k_f})^{t+1},(\BB{\alpha}_2)^t,(\BB{\alpha}_3)^t)\cdot\Delta(\BB{\alpha}_1^{k_f})^{t+1}=-\BB{h}_1((\BB{\alpha}_1^{k_f})^{t+1},(\BB{\alpha}_2)^t,(\BB{\alpha}_3)^t)$\;
-    Atualizar valores: $(\BB{\alpha}_1^{k_f+1})^{t+1}\gets(\BB{\alpha}_1^{k_f})^{t+1}+(\Delta\BB{\alpha}_1^{k_f})^{t+1}$\;
-    $k_f\gets k_f+1$
+    \ForEach{\textnormal{iteração $k_f$ de Newton-Raphson}}{
+    Resolver o sistema: $\BB{H}_{11}((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)\cdot\Delta(\DOF_1^{k_f})^{t+1}=-\res_1((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)$\;
+    Atualizar valores: $(\DOF_1^{k_f+1})^{t+1}\gets(\DOF_1^{k_f})^{t+1}+(\Delta\DOF_1^{k_f})^{t+1}$\;
     }
-
-    \While{erro>tol}{
-    Resolver o sistema: $\BB{H}_{22}((\BB{\alpha}_1)^{t+1},(\BB{\alpha}_2^{k_s})^{t+1})\cdot\Delta(\BB{\alpha}_2^{k_s})^{t+1}=-\BB{h}_2((\BB{\alpha}_1)^{t+1},(\BB{\alpha}_2^{k_s})^t)$\;
-    Atualizar valores: $(\BB{\alpha}_2^{k_s+1})^{t+1}\gets(\BB{\alpha}_2^{k_s})^{t+1}+(\Delta\BB{\alpha}_2^{k_s})^{t+1}$\;
-    $k_s\gets k_s+1$
+    Atualizar forças de superfície no sólido: $\BB{t}^s=-\BB{\sigma}^f\cdot\BB{n}^f$\\
+    \ForEach{\textnormal{iteração $k_s$ de Newton-Raphson}}{
+    Resolver o sistema: $\BB{H}_{22}((\DOF_1)^{t+1},(\DOF_2^{k_s})^{t+1})\cdot\Delta(\DOF_2^{k_s})^{t+1}=-\res_2((\DOF_1)^{t+1},(\DOF_2^{k_s})^t)$\;
+    Atualizar valores: $(\DOF_2^{k_s+1})^{t+1}\gets(\DOF_2^{k_s})^{t+1}+(\Delta\DOF_2^{k_s})^{t+1}$\;
     }
-
-    \While{erro>tol}{
-    Resolver o sistema: $\BB{H}_{3}((\BB{\alpha}_3^{k_m})^{t+1},(\BB{\alpha}_2)^t)\cdot\Delta(\BB{\alpha}_3^{k_s})^{t+1}=-\BB{h}_3((\BB{\alpha}_3^{k_m})^{t+1},(\BB{\alpha}_2)^t)$\;
-    Atualizar valores: $(\BB{\alpha}_3^{k_m+1})^{t+1}\gets(\BB{\alpha}_3^{k_m})^{t+1}+(\Delta\BB{\alpha}_3^{k_m})^{t+1}$\;
-    $k_m\gets k_m+1$
+    Atualizar velocidades e acelerações do fluido em $\Gamma_{IFE}$;\\
+    Atualizar deslocamentos na malha em $\Gamma_{IFE}$;\\
+    \ForEach{\textnormal{iteração $k_m$ de Newton-Raphson}}{
+    Resolver o sistema: $\BB{H}_{3}((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)\cdot\Delta(\DOF_3^{k_s})^{t+1}=-\res_3((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)$\;
+    Atualizar valores: $(\DOF_3^{k_m+1})^{t+1}\gets(\DOF_3^{k_m})^{t+1}+(\Delta\DOF_3^{k_m})^{t+1}$\;
     }
 \end{algorithm}
 
