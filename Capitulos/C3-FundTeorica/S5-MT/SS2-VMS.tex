@@ -132,13 +132,13 @@ Para a discretização do problema em descrição Euleriana pode-se realizar a s
 Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
 
 \begin{equation}
-    N_a(\BB{y},t)=\hat{N}_a(\HBB{f}^{-1}(\BB{y},t))\text{,}
+    N_a(\BB{y},t)=\hat{N}_a(\hfmc^{-1}(\BB{y},t))\text{,}
 \end{equation}
 
-\noindent onde $\HBB{f}(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
+\noindent onde $\hfmc(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
 
 \begin{equation}
-    \HBB{f}(\HBB{x},t)=\sum_{a\in\BB{\eta}^s}{(\HBB{x}_a+\Delta\HBB{x}_a(t))\hat{N}_a(\HBB{x})}\text{,}
+    \hfmc(\HBB{x},t)=\sum_{a\in\BB{\eta}^s}{(\HBB{x}_a+\Delta\HBB{x}_a(t))\hat{N}_a(\HBB{x})}\text{,}
 \end{equation}
 
 \noindent sendo $\HBB{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\HBB{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
