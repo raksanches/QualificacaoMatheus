@@ -12,7 +12,7 @@ Para se descrever o problema acoplado, denota-se $\Omega_F$ o domínio do fluido
     \label{fig:DomComp}
 \end{figure}
 
-\citeonline{richter2017fluid} apontam três condições que devem ser satisfeitas no acoplamento: a Condição Cinemática, que diz respeito à movimentação dos domínios analisados, devendo ser compatíveis em $\Gamma_{IFE}$, ou seja, a componente normal ao movimento deve ser igual em ambos os meios, assim como a componente tangencial em caso de condição de aderência do fluido à estrutura; a Condição Dinâmica, que aponta a continuidade das forças internas, observadas no tensor de tensões de Cauchy; e a Condição Geométrica, que exige a necessidade de ambos os domínios coincidirem em $\Gamma_{IFE}$, não havendo sobreposições nem formação de vazios.
+\citeonline{richter2017fluid} apontam três condições que devem ser satisfeitas no acoplamento: a Condição Cinemática, que diz respeito à movimentação dos domínios analisados, devendo ser compatíveis em $\Gamma_\mathrm{IFE}$, ou seja, a componente normal ao movimento deve ser igual em ambos os meios, assim como a componente tangencial em caso de condição de aderência do fluido à estrutura; a Condição Dinâmica, que aponta a continuidade das forças internas, observadas no tensor de tensões de Cauchy; e a Condição Geométrica, que exige a necessidade de ambos os domínios coincidirem em $\Gamma_\mathrm{IFE}$, não havendo sobreposições nem formação de vazios.
 
 Numericamente, há diversas possibilidades para que essas condições sejam impostas de forma exata ou aproximada, sendo possível acoplamento monolítico ou acoplamento particionado, com o último ainda subdividido em particionado fraco e forte, como mencionado em \ref{IFE}.
 
@@ -108,3 +108,74 @@ Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja 
 Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos e fica sujeito a problemas de instabilidades como mencionado em \citeonline{Felippaetal2001}. Nota-se que esse tipo de acoplamento é mais adequado a problemas com escoamento compressível, onde um passo de tempo pequeno é necessário para se capturar a propagação de ondas de choque ao mesmo tempo em que a massa específica do fluido costuma ser muito menor que a do sólido.
 
 Por outro lado, a convergência do processo de acoplamento particionado forte pode ficar prejudicada, especialmente à medida em que a massa específica do fluido e do sólido se aproximam, ou em problemas fortemente acoplados, onde uma pequena perturbação do fluido pode produzir grandes perturbações na estrutura e vice-versa. Como meios de garantir convergência nessa situação, mantendo o acoplamento particionado, pode-se adotar relaxações de Aitken, destinadas melhorar a convergência no método de Gauss-Seidel, na atualização das variáveis \cite{fernandes2019ale} ou aplicar um fator de escala sobre a matriz de massa do sólido (técnica \textit{Augmented $A_{22}$}) \cite{bazilevs2013computational}.
+
+%==================================================================================================
+\section{Exemplos de verificação}
+%==================================================================================================
+
+O primeiro exemplo utilizado para verificação do código utilizando o acoplamento forte tipo bloco-iterativo trata-se de uma cavidade com fundo flexível, conforme ilustrado na Figura \ref{fig:cavity2D}. Tal exemplo caracteriza-se pelo comportamento bidimensional do escoamento, no entanto pode ser satisfatoriamente transportado para uma análise tridimensional. Esse problema foi estudado por \citeonline{gerbeau2003quasi}, considerando as seguintes propriedades da casca: massa específica $\rho_S=500$, módulo de Young $E=250$, espessura $h=0,002$; e do fluido: massa específica $\rho_F=1$ e viscosidade dinâmica $\mu=0,01$. Na face superior da cavidade é imposta uma velocidade prescrita variável ao longo do tempo, sendo $u_1(t)=1-\cos{(0,4\pi t)}$, logo, tomando-se o comprimento característico o tamanho do lado da cavidade, o número de Reynolds varia entre 0 a 200.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Problema de cavidade com fundo flexível.}
+    \includegraphics[width=0.5\linewidth]{Figuras/FSI-Cavity2D/FSI-Cavity2D.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity2D}
+\end{figure}
+
+Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[0,40]$ discretizado em $\Delta t=0,1$, sendo o domínio computacional referente ao sólido performado com uma malha contendo 7517 elementos, 13547 nós, o que resulta em 54188 graus de liberdade. Já o domínio computacional da casca foi realizada com uma malha contendo 80 elementos, 205 nós, resultando em 1435 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios. A integração temporal foi feita considerando-se $\rho_\infty=0$, pois, como relatado por \citeonline{forster2007artificial}, integradores temporais de segunda ordem levaram a instabilidades imediatas.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Malha utilizada para o domínio:}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/fluid-mesh.png}
+        \caption{do fluido.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/shell-mesh.png}
+        \caption{da casca.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Cavity2D-mesh}
+\end{figure}
+
+Para a que fosse efetuada a transferência das condições de contorno entre os meios, utilizou-se malhas de tal forma que os nós do sólido e do fluido fossem coincidentes em $\Gamma_\mathrm{IFE}$, onde os valores das forças de superfície advindas do fluido fossem transferidas diretamente para os nós da casca, assim como as variáveis da movimentação da casca foram transferidas para o fluido e malha.
+
+Observou-se, portanto o deslocamento vertical do nó $A$, referente ao centro da casca, e comparou-se os resultados obtidos por \citeonline{gerbeau2003quasi} (Figura \ref{fig:cavity2D-res}).
+
+\begin{figure}[h!]
+    \centering
+    \caption{Deslocamento vertical do nó $A$.}
+    \includegraphics[width=0.75\linewidth]{Figuras/FSI-Cavity2D/resultados.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity2D-res}
+\end{figure}
+
+A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Campo de pressões e linhas de corrente na cavidade.}
+    \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/t3_5.png}
+        \caption{$t=3,5$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/t8.png}
+        \caption{$t=8,0$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/t14.png}
+        \caption{$t=14,0$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/t21.png}
+        \caption{$t=21,0$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/legenda.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity2D-time}
+\end{figure}

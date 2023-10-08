@@ -28,7 +28,7 @@ Dessa forma, define-se as condições de contorno do problema como:
 
 \noindent em que $\BB{z}$ é o campo de deslocamentos da malha e $\BB{z}_m$ é o deslocamento prescrito em $\Gamma_f$.
 
-Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{u}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em uma situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
+Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{u}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
 
 Assim, propõe-se um esquema de movimentação dado pelo problema de valor de contorno:
 
