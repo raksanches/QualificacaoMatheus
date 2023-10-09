@@ -3,8 +3,8 @@
 
 <svg
    width="189.17708mm"
-   height="110.06667mm"
-   viewBox="0 0 189.17708 110.06667"
+   height="93.927086mm"
+   viewBox="0 0 189.17708 93.927083"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
@@ -26,8 +26,8 @@
      showgrid="false"
      inkscape:lockguides="true"
      inkscape:zoom="1.4912879"
-     inkscape:cx="343.32741"
-     inkscape:cy="237.37871"
+     inkscape:cx="335.95123"
+     inkscape:cy="179.03988"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -63,110 +63,128 @@
          height="344"
          id="rect138" />
     </clipPath>
+    <clipPath
+       id="clip0-6">
+      <rect
+         x="637"
+         y="449"
+         width="715"
+         height="355"
+         id="rect357" />
+    </clipPath>
+    <clipPath
+       id="clip1-1">
+      <rect
+         x="710"
+         y="463"
+         width="620"
+         height="283"
+         id="rect360" />
+    </clipPath>
   </defs>
   <g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(82.878862,-155.03118)">
+     transform="translate(177.28998,-143.19667)">
     <g
-       clip-path="url(#clip0)"
-       transform="matrix(0.26458333,0,0,0.26458333,-267.02886,154.7666)"
-       id="g269">
+       clip-path="url(#clip0-6)"
+       transform="matrix(0.26458333,0,0,0.26458333,-345.82956,24.398756)"
+       id="g483">
       <rect
-         x="696"
-         y="1"
+         x="637"
+         y="449"
          width="715"
-         height="416"
+         height="355"
          fill="#ffffff"
-         id="rect143" />
+         id="rect365" />
       <g
-         id="g147">
+         id="g369">
         <path
-           d="M 846.5,15.5001 V 358.5 m 78,-342.9999 V 358.5 m 77,-342.9999 V 358.5 m 78,-342.9999 V 358.5 m 77,-342.9999 V 358.5 m 77,-342.9999 V 358.5 m 78,-342.9999 V 358.5 m 77,-342.9999 V 358.5"
+           d="m 813.5,463.5 v 282 m 103,-282 v 282 m 104,-282 v 282 m 103,-282 v 282 m 103,-282 v 282 m 103,-282 v 282"
            stroke="#d9d9d9"
            stroke-width="0.982677"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="none"
-           id="path145" />
+           id="path367" />
       </g>
       <g
-         id="g151">
+         id="g373">
         <path
-           d="m 769.5,289.5 h 619 m -619,-68 h 619 m -619,-69 h 619 m -619,-67.9999 h 619 m -619,-69 h 619"
+           d="m 710.5,688.5 h 619 m -619,-56 h 619 m -619,-56 h 619 m -619,-57 h 619 m -619,-56 h 619"
            stroke="#d9d9d9"
            stroke-width="0.982677"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="none"
-           id="path149" />
+           id="path371" />
       </g>
       <g
-         id="g155">
+         id="g377">
         <rect
-           x="769.5"
-           y="15.5001"
+           x="710.5"
+           y="463.5"
            width="619"
-           height="343"
+           height="282"
            stroke="#000000"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="none"
-           id="rect153" />
+           id="rect375" />
       </g>
       <g
-         id="g159">
+         id="g381">
         <path
-           d="m 769.5,358.5 h 619"
-           stroke="#000000"
-           stroke-width="0.982677"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           fill-rule="evenodd"
-           id="path157" />
-      </g>
-      <g
-         id="g163">
-        <path
-           d="m 769.5,354.5 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m 16,-4 v 4 m 15,-4 v 4 m -619,-5 v 9 m 77,-9 v 9 m 78,-9 v 9 m 77,-9 v 9 m 78,-9 v 9 m 77,-9 v 9 m 77,-9 v 9 m 78,-9 v 9 m 77,-9 v 9"
-           stroke="#000000"
-           stroke-width="0.982677"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           id="path161" />
-      </g>
-      <g
-         id="g167">
-        <path
-           d="M 0,0 1.04987e-4,343"
+           d="m 710.5,745.5 h 619"
            stroke="#000000"
            stroke-width="0.982677"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="none"
            fill-rule="evenodd"
-           transform="matrix(1,0,0,-1,769.5,358.5)"
-           id="path165" />
+           id="path379" />
       </g>
       <g
-         id="g171">
+         id="g385">
         <path
-           d="m 769.5,358.5 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-13.9999 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-14 h 3 m -3,-13 h 3 m -3,-14 h 3 m -3,-14 h 3 m -7,342.9999 h 8 m -8,-69 h 8 m -8,-68 h 8 m -8,-69 h 8 m -8,-67.9999 h 8 m -8,-69 h 8"
+           d="m 710.5,742.5 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m 21,-3 v 3 m 21,-3 v 3 m 20,-3 v 3 m -619,-4 v 8 m 103,-8 v 8 m 103,-8 v 8 m 104,-8 v 8 m 103,-8 v 8 m 103,-8 v 8 m 103,-8 v 8"
            stroke="#000000"
            stroke-width="0.982677"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="none"
-           id="path169" />
+           id="path383" />
       </g>
       <g
-         clip-path="url(#clip1)"
-         id="g175">
+         id="g389">
         <path
-           d="m 768,358 h 10 8 l 8,-2 6,-4 6,-8 2,-5 5,-17 10,-40 6,-22 5,-24 4,-15 4,-16 5,-15 5,-18 5,-15 4,-8 1,-5 4,-2 3,3 4,6 2,7 3,5 3,4 4,2 5,-3 2,-6 5,-11 4,-18 5,-15 2,-13 4,-11 2,-8 3,-12 2,-3 4,-1 3,2 3,4 3,9 3,11 5,14 3,17 4,12 4,9 2,5 3,4 2,2 5,-3 4,-8 3,-13 6,-17 4,-22 5,-15 2,-8 4,-5 1,-3 1,-2 4,2 5,8 2,6 5,12 1,7 2,6 3,7 1,8 4,6 4,10 3,6 5,5 3,2 5,-2 3,-7 4,-7 2,-8 4,-10 4,-12 2,-7 2,-6 3,-7 2,-8 6,-5 5,2 6,12 3,8 5,11 7,21 5,12 5,7 3,5 4,1 5,-4 3,-7 4,-11 3,-10 4,-11 4,-15 5,-12 2,-4 3,-5 3,-1 5,3 4,10 2,6 4,12 4,10 3,11 5,13 5,9 6,6 6,-2 4,-7 4,-9 4,-12 4,-13 4,-13 3,-11 5,-10 5,-3 7,8 4,10 4,7 2,9 4,12 3,11 7,10 3,9 4,3 2,2 5,-4 4,-4 3,-10 5,-17 4,-10 4,-13 3,-8 4,-9 2,-3 4,-3 6,6 3,5 3,9 4,13 6,17 6,16 5,9 2,4 4,1 5,-2 5,-7 5,-12 3,-12 3,-9 3,-11 4,-10 4,-8 2,-5 5,-4 6,8 2,5 5,10 3,9 3,12 5,14 5,8 2,7 4,6 5,2 5,-4 5,-9 6,-17 2,-12 5,-13 4,-13 3,-6 4,-5 4,-2 6,4 1,7 5,11 4,9 1,8 5,13 3,10 4,9 4,5 6,5 5,-3 2,-5 5,-8 3,-12 4,-14 4,-12 3,-10 3,-7 4,-7 4,-3 5,5 5,7 4,11 3,12 4,11 4,9 3,9 3,11 6,5 5,1 5,-5 4,-12 5,-12 5,-16 4,-12 4,-12 6,-10 2,-2 5,4 6,7 4,15 6,19 5,13 4,9 5,9 5,5 9,-5 3,-11 5,-15 5,-14 4,-13 3,-9 4,-10 6,-4 5,6 6,13 5,16"
+           d="M 0,0 1.04987e-4,282"
+           stroke="#000000"
+           stroke-width="0.982677"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           transform="matrix(1,0,0,-1,710.5,745.5)"
+           id="path387" />
+      </g>
+      <g
+         id="g393">
+        <path
+           d="m 710.5,745.5 h 3 m -3,-12 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-12 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-12 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-12 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-12 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-12 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-11 h 3 m -3,-12 h 3 m -3,-11 h 3 m -7,282 h 8 m -8,-57 h 8 m -8,-56 h 8 m -8,-56 h 8 m -8,-57 h 8 m -8,-56 h 8"
+           stroke="#000000"
+           stroke-width="0.982677"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path391" />
+      </g>
+      <g
+         clip-path="url(#clip1-1)"
+         id="g397">
+        <path
+           d="m 710,745 h 6 6 l 5,-2 4,-3 4,-7 1,-4 4,-14 6,-32 4,-19 3,-19 3,-12 3,-14 3,-12 4,-15 3,-12 2,-7 1,-4 2,-1 3,2 2,5 2,5 2,5 2,3 2,2 4,-3 1,-4 4,-10 2,-14 3,-13 2,-11 2,-9 2,-6 2,-10 1,-3 3,-1 2,3 2,3 2,7 2,9 3,11 2,15 3,10 2,7 2,4 2,3 1,2 3,-3 3,-6 2,-10 4,-15 3,-18 3,-12 2,-6 2,-5 1,-3 1,-1 2,2 3,7 2,4 3,10 1,6 1,5 2,6 1,6 3,5 2,8 2,5 4,4 1,2 3,-2 3,-5 2,-7 2,-6 2,-8 3,-10 1,-6 2,-5 2,-5 1,-7 4,-4 4,1 4,10 1,7 4,9 4,17 4,10 3,6 2,4 3,1 3,-3 2,-7 3,-8 2,-8 3,-9 2,-13 3,-10 2,-3 2,-4 2,-1 3,3 3,7 1,5 3,11 2,7 3,10 3,10 3,8 4,5 4,-2 3,-5 2,-8 3,-10 3,-11 2,-10 3,-10 3,-7 3,-3 5,7 3,8 2,6 2,7 2,10 2,9 4,8 3,7 2,3 2,1 3,-2 3,-4 2,-8 3,-14 3,-8 2,-11 3,-7 2,-7 2,-3 2,-2 4,5 2,4 2,8 3,10 4,14 4,13 3,7 2,4 2,1 3,-2 4,-5 3,-11 2,-9 2,-8 2,-9 3,-8 2,-7 2,-4 3,-3 4,6 2,4 3,9 2,7 2,11 3,11 3,6 2,6 3,5 3,1 3,-2 3,-8 4,-14 2,-10 3,-11 3,-11 2,-4 3,-4 2,-2 4,3 1,6 3,9 2,7 1,7 4,10 2,9 2,8 3,4 4,3 3,-1 2,-5 3,-7 2,-10 3,-11 2,-10 3,-8 1,-6 3,-6 3,-2 3,4 4,6 2,9 2,10 3,9 2,8 3,7 1,9 4,3 4,1 3,-3 3,-10 3,-10 4,-13 2,-10 2,-10 5,-8 1,-2 3,3 4,6 3,13 4,15 3,11 3,7 4,8 3,3 6,-3 2,-10 3,-12 4,-11 2,-11 2,-7 3,-9 4,-3 3,5 4,10 3,14"
            stroke="#000000"
            stroke-width="2"
            stroke-linecap="round"
@@ -174,191 +192,172 @@
            stroke-miterlimit="10"
            stroke-dasharray="4.02, 3.98"
            fill="none"
-           id="path173" />
+           id="path395" />
       </g>
       <g
-         clip-path="url(#clip2)"
-         id="g179">
+         id="g401">
         <path
-           d="m 769,358 h 2 2 1 2 1 2 1 2 1 2 1 2 2 l 1,-1 h 2 l 1,-1 h 2 l 1,-1 2,-2 1,-2 2,-2 1,-3 2,-3 2,-4 1,-4 2,-5 1,-6 2,-6 1,-6 2,-6 1,-7 2,-6 2,-7 1,-6 2,-6 1,-6 2,-6 1,-5 2,-5 1,-5 2,-5 1,-4 2,-4 2,-4 1,-3 2,-4 1,-3 2,-4 1,-3 2,-4 1,-3 2,-3 1,-3 2,-4 2,-3 1,-3 2,-4 1,-3 2,-4 1,-2 2,-3 1,-1 h 2 2 l 1,1 2,2 1,2 2,2 1,3 2,2 1,2 2,1 h 1 2 l 2,-1 1,-2 2,-3 1,-3 2,-5 1,-5 2,-5 1,-6 2,-6 1,-7 2,-6 2,-7 1,-6 2,-6 1,-6 2,-5 1,-5 2,-5 1,-5 2,-4 2,-4 1,-3 2,-2 1,-2 2,-1 1,1 2,2 1,3 2,4 1,5 2,5 2,6 1,6 2,5 1,6 2,6 1,5 2,6 1,5 2,5 1,4 2,4 2,4 1,2 2,2 1,1 h 2 l 1,-2 2,-3 1,-4 2,-6 2,-6 1,-7 2,-8 1,-9 2,-9 1,-8 2,-9 1,-9 2,-7 1,-8 2,-6 2,-6 1,-5 2,-4 1,-3 2,-1 1,-1 2,1 1,1 2,3 1,4 2,5 2,5 1,7 2,6 1,8 2,7 1,8 2,7 1,7 2,6 2,6 1,5 2,4 1,3 2,3 1,2 2,1 h 1 2 1 l 2,-1 2,-2 1,-2 2,-2 1,-3 2,-4 1,-4 2,-4 1,-5 2,-5 1,-6 2,-6 2,-6 1,-5 2,-6 1,-5 2,-5 1,-5 2,-5 1,-4 2,-3 1,-2 2,-1 2,-1 h 1 l 2,1 1,1 2,2 1,3 2,3 1,4 2,5 2,5 1,5 2,6 1,5 2,5 1,5 2,4 1,4 2,4 1,4 2,3 2,4 1,3 2,2 1,2 2,1 1,1 2,1 h 1 2 l 1,-1 2,-1 2,-2 1,-2 2,-3 1,-4 2,-4 1,-4 2,-5 1,-6 2,-6 2,-5 1,-6 2,-6 1,-5 2,-5 1,-4 2,-4 1,-3 2,-3 1,-2 2,-2 2,-1 h 1 2 l 1,2 2,2 1,3 2,3 1,5 2,5 1,5 2,6 2,5 1,6 2,6 1,6 2,6 1,5 2,4 1,4 2,3 2,2 1,3 2,1 1,2 2,1 h 1 2 1 l 2,-1 1,-1 2,-2 2,-3 1,-3 2,-4 1,-5 2,-5 1,-5 2,-6 1,-6 2,-6 1,-6 2,-5 2,-6 1,-4 2,-5 1,-3 2,-3 1,-3 2,-1 1,-2 h 2 2 l 1,1 2,2 1,2 2,3 1,4 2,5 1,4 2,6 1,5 2,6 2,5 1,6 2,5 1,5 2,5 1,4 2,3 1,4 2,2 1,3 2,1 2,2 1,1 h 2 1 2 l 1,-1 2,-2 1,-1 2,-3 2,-3 1,-4 2,-4 1,-5 2,-5 1,-6 2,-5 1,-6 2,-6 1,-6 2,-5 2,-4 1,-5 2,-3 1,-4 2,-2 1,-2 2,-1 1,-1 h 2 l 1,1 2,2 2,2 1,3 2,3 1,5 2,5 1,5 2,5 1,6 2,5 1,6 2,5 2,5 1,5 2,4 1,4 2,3 1,3 2,3 1,1 2,2 2,1 1,1 h 2 l 1,-1 h 2 l 1,-2 2,-2 1,-2 2,-3 1,-4 2,-4 2,-5 1,-6 2,-5 1,-6 2,-6 1,-6 2,-6 1,-5 2,-5 1,-4 2,-4 2,-3 1,-2 2,-2 1,-2 h 2 1 l 2,1 1,1 2,3 2,3 1,3 2,5 1,5 2,5 1,5 2,6 1,6 2,5 1,6 2,5 2,4 1,5 2,3 1,4 2,3 1,2 2,2 1,1"
+           d="m 710,745 h 1 1 2 1 1 1 1 1 1 1 1 1 1 l 1,-1 h 1 1 l 1,-1 1,-1 1,-1 1,-1 1,-2 1,-2 1,-3 1,-3 1,-4 1,-4 1,-4 1,-5 1,-5 1,-6 1,-6 1,-6 1,-6 2,-6 1,-6 1,-6 1,-6 1,-6 1,-6 1,-6 1,-5 1,-5 1,-5 1,-5 1,-5 1,-5 1,-5 1,-4 1,-5 1,-4 1,-4 1,-5 1,-4 1,-4 1,-4 1,-4 1,-4 1,-3 1,-2 h 1 1 l 1,1 1,3 1,3 2,3 1,4 1,4 1,4 1,3 1,3 1,2 1,2 h 1 1 1 l 1,-2 1,-3 1,-3 1,-4 1,-4 1,-6 1,-6 1,-6 1,-6 1,-7 1,-7 1,-7 1,-6 1,-7 1,-6 1,-6 1,-5 1,-5 1,-5 1,-3 2,-2 1,-1 1,1 1,1 1,3 1,4 1,4 1,6 1,5 1,6 1,6 1,7 1,6 1,7 1,7 1,6 1,6 1,6 1,5 1,4 1,3 1,3 1,1 1,1 h 1 l 1,-1 1,-2 1,-2 1,-4 1,-4 1,-4 2,-5 1,-6 1,-6 1,-7 1,-6 1,-7 1,-6 1,-7 1,-5 1,-6 1,-5 1,-4 1,-4 1,-3 1,-3 1,-1 1,-2 h 1 l 1,1 1,2 1,3 1,3 1,4 1,5 1,5 1,5 1,6 1,5 1,5 1,5 1,4 1,4 2,4 1,4 1,3 1,3 1,3 1,2 1,2 1,2 1,2 1,1 1,1 h 1 1 1 l 1,-2 1,-1 1,-3 1,-3 1,-3 1,-4 1,-5 1,-5 1,-4 1,-5 1,-6 1,-5 1,-4 1,-5 1,-5 1,-4 1,-4 2,-4 1,-3 1,-2 1,-2 1,-1 1,-1 1,1 1,1 1,3 1,3 1,3 1,4 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,4 1,5 1,4 1,4 1,4 1,3 1,3 1,3 1,2 1,2 1,1 1,1 h 2 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-4 1,-5 1,-5 1,-6 1,-5 1,-6 1,-6 1,-5 1,-5 1,-5 1,-5 1,-4 1,-4 1,-3 1,-3 1,-2 1,-1 h 1 l 1,1 1,2 1,3 1,3 1,4 1,5 2,5 1,5 1,6 1,5 1,5 1,5 1,5 1,5 1,4 1,4 1,4 1,3 1,3 1,3 1,2 1,2 1,2 1,1 h 1 1 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-5 1,-5 1,-5 1,-5 1,-6 2,-5 1,-5 1,-5 1,-6 1,-4 1,-5 1,-4 1,-3 1,-4 1,-2 1,-2 1,-1 h 1 l 1,1 1,2 1,2 1,4 1,4 1,4 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,4 1,4 1,4 1,3 2,3 1,3 1,3 1,2 1,1 1,1 1,1 h 1 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-4 1,-5 1,-5 1,-6 1,-5 1,-5 1,-6 1,-5 1,-5 1,-5 1,-5 1,-4 1,-4 1,-3 1,-2 1,-2 1,-1 h 2 l 1,1 1,1 1,3 1,3 1,4 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,4 1,4 1,4 1,3 1,4 1,2 1,3 1,2 1,2 1,1 h 1 1 l 1,-1 1,-1 1,-2 1,-3 2,-3 1,-4 1,-4 1,-5 1,-5 1,-6 1,-5 1,-6 1,-5 1,-5 1,-5 1,-5 1,-5 1,-4 1,-4 1,-3 1,-2 1,-2 1,-1 h 1 l 1,1 1,2 1,2 1,4 1,3 1,5 1,5 1,5 1,5 1,5 1,5 2,5 1,5 1,5 1,4 1,4 1,4 1,3 1,4 1,2 1,3 1,2 1,1 1,2 h 1 1 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-4 1,-5 1,-5 1,-6 1,-5 1,-6 1,-5 1,-5 1,-5 1,-5 1,-5 2,-4 1,-4 1,-3 1,-2 1,-2 1,-1 h 1 l 1,1 1,2 1,2 1,3 1,4 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,4 1,4 1,4 1,3 1,4 1,2 1,3 1,2 1,1 1,2 h 2 1 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-4 1,-5 1,-5 1,-6 1,-5 1,-6 1,-5 1,-5 1,-5 1,-5 1,-5 1,-4 1,-4 1,-3 1,-2 1,-2 1,-1 h 1 l 1,1 1,2 1,2 1,4 1,3 2,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,4 1,4 1,4 1,3 1,4 1,2 1,3 1,2 1,1 1,2 h 1 1 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-4 1,-5 1,-5 1,-6 2,-5 1,-6 1,-5 1,-5 1,-5 1,-5 1,-5 1,-4 1,-4 1,-3 1,-2 1,-2 1,-1 h 1 l 1,1 1,2 1,2 1,4 1,3 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,5 1,4 1,4 1,4 2,3 1,4 1,2 1,3 1,2 1,1 1,2 h 1 1 l 1,-1 1,-1 1,-2 1,-3 1,-3 1,-4 1,-4 1,-5 1,-5 1,-6 1,-5 1,-6 1,-5 1,-5 1,-5 1,-5 1,-5 1,-4 1,-4 1,-3 1,-2 1,-2 2,-1 h 1 l 1,1 1,2 1,2 1,3"
            stroke="#000000"
            stroke-width="2"
            stroke-linecap="round"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="none"
-           id="path177" />
+           id="path399" />
       </g>
       <g
-         id="g183">
+         id="g405">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(765.727,378)"
-           id="text181">0</text>
+           transform="translate(706.714,765)"
+           id="text403">0</text>
       </g>
       <g
-         id="g187">
+         id="g409">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(843.137,378)"
-           id="text185">5</text>
+           transform="translate(806.222,765)"
+           id="text407">10</text>
       </g>
       <g
-         id="g191">
+         id="g413">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(916.841,378)"
-           id="text189">10</text>
+           transform="translate(909.435,765)"
+           id="text411">20</text>
       </g>
       <g
-         id="g195">
+         id="g417">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(994.252,378)"
-           id="text193">15</text>
+           transform="translate(1012.65,765)"
+           id="text415">30</text>
       </g>
       <g
-         id="g199">
+         id="g421">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1071.66,378)"
-           id="text197">20</text>
+           transform="translate(1115.86,765)"
+           id="text419">40</text>
       </g>
       <g
-         id="g203">
+         id="g425">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1149.07,378)"
-           id="text201">25</text>
+           transform="translate(1219.08,765)"
+           id="text423">50</text>
       </g>
       <g
-         id="g207">
+         id="g429">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1226.48,378)"
-           id="text205">30</text>
+           transform="translate(1322.29,765)"
+           id="text427">60</text>
       </g>
       <g
-         id="g211">
+         id="g433">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1303.89,378)"
-           id="text209">35</text>
+           transform="translate(691.533,749)"
+           id="text431">0</text>
       </g>
       <g
-         id="g215">
+         id="g437">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1381.3,378)"
-           id="text213">40</text>
+           transform="translate(673,693)"
+           id="text435">0.05</text>
       </g>
       <g
-         id="g219">
+         id="g441">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(750.546,362)"
-           id="text217">0</text>
+           transform="translate(680.413,637)"
+           id="text439">0.1</text>
       </g>
       <g
-         id="g223">
+         id="g445">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(732.013,294)"
-           id="text221">0.05</text>
+           transform="translate(673,580)"
+           id="text443">0.15</text>
       </g>
       <g
-         id="g227">
+         id="g449">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(739.426,225)"
-           id="text225">0.1</text>
+           transform="translate(680.413,524)"
+           id="text447">0.2</text>
       </g>
       <g
-         id="g231">
+         id="g453">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(732.013,157)"
-           id="text229">0.15</text>
+           transform="translate(673,468)"
+           id="text451">0.25</text>
       </g>
       <g
-         id="g235">
+         id="g457">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(739.426,88)"
-           id="text233">0.2</text>
+           transform="translate(999.316,785)"
+           id="text455">Tempo</text>
       </g>
       <g
-         id="g239">
+         id="g461">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(732.013,20)"
-           id="text237">0.25</text>
+           transform="rotate(-90,668.3335,1.6665)"
+           id="text459">Deslocamento vertical</text>
       </g>
       <g
-         id="g243">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="13px"
-           transform="translate(1058.33,398)"
-           id="text241">Tempo</text>
-      </g>
-      <g
-         id="g247">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="13px"
-           transform="rotate(-90,488.8395,-236.8395)"
-           id="text245">Deslocamento vertical</text>
-      </g>
-      <g
-         id="g251">
+         id="g465">
         <rect
-           x="1187.5"
-           y="291.5"
+           x="1128.5"
+           y="696.5"
            width="194"
-           height="47"
+           height="40"
            stroke="#000000"
            stroke-linejoin="round"
            stroke-miterlimit="10"
            fill="#ffffff"
-           id="rect249" />
+           id="rect463" />
       </g>
       <g
-         id="g255">
+         id="g469">
         <path
-           d="m 1196,303 h 26"
+           d="m 1137,707 h 25"
            stroke="#000000"
            stroke-width="2"
            stroke-linecap="round"
@@ -367,21 +366,21 @@
            stroke-dasharray="4.02, 3.98"
            fill="none"
            fill-rule="evenodd"
-           id="path253" />
+           id="path467" />
       </g>
       <g
-         id="g259">
+         id="g473">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1224.2,307)"
-           id="text257">Gerbeau, Vidrascu (2003)</text>
+           transform="translate(1165.19,711)"
+           id="text471">Gerbeau, Vidrascu (2003)</text>
       </g>
       <g
-         id="g263">
+         id="g477">
         <path
-           d="m 1196,327 h 26"
+           d="m 1137,727 h 25"
            stroke="#000000"
            stroke-width="2"
            stroke-linecap="round"
@@ -389,16 +388,16 @@
            stroke-miterlimit="10"
            fill="none"
            fill-rule="evenodd"
-           id="path261" />
+           id="path475" />
       </g>
       <g
-         id="g267">
+         id="g481">
         <text
            font-family="Arial, Arial_MSFontService, sans-serif"
            font-weight="400"
            font-size="13px"
-           transform="translate(1224.2,331)"
-           id="text265">Autor</text>
+           transform="translate(1165.19,731)"
+           id="text479">Autor</text>
       </g>
     </g>
   </g>

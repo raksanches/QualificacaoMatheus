@@ -123,7 +123,7 @@ O primeiro exemplo utilizado para verificação do código utilizando o acoplame
     \label{fig:cavity2D}
 \end{figure}
 
-Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[0,40]$ discretizado em $\Delta t=0,1$, sendo o domínio computacional referente ao sólido performado com uma malha contendo 7517 elementos, 13547 nós, o que resulta em 54188 graus de liberdade. Já o domínio computacional da casca foi realizada com uma malha contendo 80 elementos, 205 nós, resultando em 1435 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios. A integração temporal foi feita considerando-se $\rho_\infty=0$, pois, como relatado por \citeonline{forster2007artificial}, integradores temporais de segunda ordem levaram a instabilidades imediatas. Os termos estabilizadores considerados foram o PSPG e SUPG.
+Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[0,60]$ discretizado em $\Delta t=0,1$, sendo o domínio computacional referente ao sólido performado com uma malha contendo 7517 elementos, 13547 nós, o que resulta em 54188 graus de liberdade. Já o domínio computacional da casca foi realizada com uma malha contendo 80 elementos, 205 nós, resultando em 1435 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios. A integração temporal foi feita considerando-se $\rho_\infty=0$, pois, como relatado por \citeonline{forster2007artificial}, integradores temporais de segunda ordem levaram a instabilidades imediatas. Os termos estabilizadores considerados foram o PSPG e SUPG.
 
 \begin{figure}[h!]
     \centering
@@ -147,12 +147,12 @@ Observou-se, portanto o deslocamento vertical do nó $A$, referente ao centro da
 \begin{figure}[h!]
     \centering
     \caption{Deslocamento vertical do nó $A$.}
-    \includegraphics[width=0.75\linewidth]{Figuras/FSI-Cavity2D/resultados.pdf}
+    \includegraphics[width=.8\linewidth]{Figuras/FSI-Cavity2D/resultados.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:cavity2D-res}
 \end{figure}
 
-A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$.
+A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
 
 \begin{figure}[h!]
     \centering
