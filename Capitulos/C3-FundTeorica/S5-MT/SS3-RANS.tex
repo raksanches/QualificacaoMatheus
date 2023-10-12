@@ -182,7 +182,7 @@ Já a equação exata do transporte que descreve a taxa de dissipação turbulen
 Fazendo a simplificação em termos dos efeitos de cada parcela tem-se:
 
 \begin{equation}
-    \dot{\ep}+\uub{k}\ep_{,k}=P_\ep+D_\ep-\Phi_\ep+\nu\ep_{,kk}\text{,}
+    \dot{\ep}+\bar{u}_k\ep_{,k}=P_\ep+D_\ep-\Phi_\ep+\nu\ep_{,kk}\text{,}
 \end{equation}
 
 \noindent em que $P_\ep$ é a produção de dissipação, $D_\ep$ é a difusão turbulenta de dissipação, $\Phi_\ep$ é a destruição turbulenta da dissipação e o último termo é o transporte viscoso. Essas parcelas são dadas de forma exata por:
@@ -215,9 +215,9 @@ Assim, o problema RANS fica descrito pelas equações:
         \rho\bigpar{\dot{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}-\Ny\cdot\btau-\BBB{f}}-\mu\Lapl\BBB{u}+\Ny\bar{p}=\BB{0} \\
         \Ny\cdot\BBB{u}=0                                                                                         \\
         \dot{K}+\BBB{u}\cdot\Ny K=P_K-\varepsilon-\Ny\cdot\BB{D}+\nu\Lapl K                                       \\
-        \dot{\varepsilon}+\BBB\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep                                        \\
+        \dot{\varepsilon}+\bar{u}\cdot\Ny\ep=P_\ep+D_\ep-\Phi_\ep+\nu\Lapl\ep                                     \\
         \btau=-\frac{2}{3}K\BB{I}+\nu_T(\Ny\BBB{u}+\NyT\BBB{u})                                                   \\
-        \nu_T=C_\mu\frac{K^2}{\ep}\text{.}
+        \nu_T=C_\mu\frac{K^2}{\ep}
     \end{array}
-    \right.
+    \right.\text{.}
 \end{equation}

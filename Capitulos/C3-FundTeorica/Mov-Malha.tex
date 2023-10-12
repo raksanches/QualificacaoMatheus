@@ -28,14 +28,14 @@ Dessa forma, define-se as condições de contorno do problema como:
 
 \noindent em que $\BB{z}$ é o campo de deslocamentos da malha e $\BB{z}_m$ é o deslocamento prescrito em $\Gamma_f$.
 
-Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{u}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
+Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
 
 Assim, propõe-se um esquema de movimentação dado pelo problema de valor de contorno:
 
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \Ny\cdot([1+\eta]\Ny)\BB{u}=0 & \text{ em }\Omega_F\text{,}  \\
+        \Ny\cdot([1+\eta]\Ny)\BB{z}=0 & \text{ em }\Omega_F\text{,}  \\
         \BB{z}=\BB{z}_m               & \text{ em }\Gamma_m\text{ e} \\
         \BB{z}=\BB{0}                 & \text{ em }\Gamma_f\text{,}
     \end{array}
@@ -71,7 +71,7 @@ Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nu
 Fazendo a aproximação da função teste por funções de forma, tem-se:
 
 \begin{equation}
-    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\int_{\Omega^e}{[1+\eta^e]\Ny N_a\Ny\BB{z}d\Omega^e}}\text{,}
+    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e]\Ny N_a\cdot\Ny\BB{z}}}\text{,}
 \end{equation}
 
 \noindent sendo $\BB{\Upsilon}_a$ e $N_a$ o valor nodal da função teste e a função de forma sobre o nó $a$.
@@ -79,7 +79,7 @@ Fazendo a aproximação da função teste por funções de forma, tem-se:
 Devido à arbitrariedade da função teste, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
 
 \begin{equation}
-    \res_L^a=\intDome{[1+\eta^e]\Ny N_a\Ny\BB{z}}=0\text{.}
+    \res_L^a=\intDome{[1+\eta^e]\Ny N_a\cdot\Ny\BB{z}}=0\text{.}
 \end{equation}
 
 Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson, em que a matriz do problema é dada por:
