@@ -46,6 +46,7 @@ Assim, propõe-se um esquema de movimentação dado pelo problema de valor de co
 
 \begin{equation}
     \eta^e=\frac{V_\mathrm{máx}-V_\mathrm{mín}}{V^e}
+    \label{eq:movStiff}
 \end{equation}
 
 \noindent é um termo adicionado ao problema de maneira a aumentar a rigidez dos elementos menores, enquanto possibilita a movimentação dos elementos maiores, $V_\mathrm{máx}$, $V_\mathrm{mín}$ e $V^e$ são os volumes atuais do maior elemento, do menor elemento e do elemento $e$ calculado.
@@ -80,16 +81,73 @@ Devido à arbitrariedade da função teste, tem-se, portanto, a definição do v
 
 \begin{equation}
     \res_L^a=\intDome{[1+\eta^e]\Ny N_a\cdot\Ny\BB{z}}=0\text{.}
+    \label{eq:resLapl}
 \end{equation}
 
-Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson, em que a matriz do problema é dada por:
+Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
 
 \begin{equation}
-    \BB{B}^{ab}=\der{\res_L^a}{\BB{Z}^b}=\intDome{[1+\eta^e]\Ny N_a\cdot\Ny N_b}\BB{I}\text{.}
+    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Ny N_a\cdot\Ny N_b}\BB{I}\text{.}
+    \label{eq:movMatriz}
 \end{equation}
 
 Portanto o problema de movimentação da malha no contexto do MEF pode ser dado por:
 
 \begin{equation}
-    \BB{B}\cdot\Delta\BB{Z}=-\res_L\text{.}
+    \BB{B}\cdot\Delta\ddBB{Y}=-\res_L\text{,}
+    \label{eq:sistLapl}
 \end{equation}
+
+\noindent sujeito às seguintes condições de contorno:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \ddBB{y}=\ddBB{y}_m & \text{ em }\Gamma_m \\
+        \ddBB{y}=\BB{0}     & \text{ em }\Gamma_f
+    \end{array}
+    \right.
+\end{equation}
+
+Assim, o procedimento utilizado para a movimentação da malha é apresentado no algoritmo \ref{alg:movMalha}.
+
+\begin{algorithm}[h!]
+    \caption{Algoritmo utilizado para realizar a movimentação da malha.}
+    \label{alg:movMalha}
+    \ForEach{\textnormal{passo de tempo}}{
+    Previsão dos valores nodais:\newline
+    $
+        \begin{bmatrix}
+            \BB{y}^{n+1} \\\dBB{y}^{n+1}\\\ddBB{y}^{n+1}
+        \end{bmatrix}^0\gets
+        \begin{bmatrix}
+            \BB{y}^n                                                                                    \\
+            \bigpar{1-\frac{\gamma}{\beta}}\dBB{y}^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddBB{y}^n \\
+            -\frac{\dBB{y}^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddBB{y}^n
+        \end{bmatrix}
+    $\\
+    Atualização dos valores da fronteira\;
+    \ForEach{\textnormal{iteração de Newton-Raphson}}{
+    \ForEach{\textnormal{elemento}}{
+        Interpolação das variáveis: $\BB{z}^{n+\alpha_f}\gets\alpha_f\BB{y}^{n+1}+(1-\alpha_f)\BB{y}^n-\BB{x}$\\
+        Cálculo da matriz tangente \eqref{eq:movMatriz} e do vetor resíduo \eqref{eq:resLapl}\;
+    }
+    Montagem do sistema global e aplicação das condições de contorno\;
+    Determinar as correções nodais pela solução do sistema \eqref{eq:sistLapl}\;
+    Correção das acelerações: $(\ddBB{y}^{n+1})^{k+1}\gets(\ddBB{y}^{n+1})^k+\Delta(\ddBB{y}^{n+1})^k$\;
+    Correção das posições e velocidades:\newline
+    $
+        \begin{bmatrix}
+            \BB{y}^{n+1} \\\dBB{y}^{n+1}
+        \end{bmatrix}^{k+1}\gets
+        \begin{bmatrix}
+            \BB{y}^n+\dBB{y}^n\Delta t+\Delta t^2\bigpar{\bigpar{\frac{1}{2}-\beta}\ddBB{y}^n+\beta\ddBB{y}^{n+1}} \\
+            \dBB{y}^n+\Delta t\bigpar{(1-\gamma)\ddBB{y}^n+\gamma\ddBB{y}^{n+1}}
+        \end{bmatrix}^{k+1}
+    $\\
+    Cálculo do erro\;
+    }
+
+    Atualização dos valores passados\;
+    }
+\end{algorithm}
