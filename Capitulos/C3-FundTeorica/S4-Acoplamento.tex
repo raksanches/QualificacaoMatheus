@@ -19,7 +19,7 @@ Numericamente, há diversas possibilidades para que essas condições sejam impo
 Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas. O mesmo pode ser aplicado quando do acoplamento direto, monolítico, entre os dois meios. Para isso a matriz tangente ($\BB{H}$) pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
 
 \begin{equation}
-    \BB{H}^k=\frac{\partial^2{G}}{\partial\BB{\Psi}^k\otimes\partial\DOF^k}\text{,}
+    \BB{H}^k=\frac{\partial^2\script{G}}{\partial\BB{\Psi}^k\otimes\partial\DOF^k}\text{,}
 \end{equation}
 
 \noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}^k$ o vetor com todos os parâmetros nodais das funções teste e $\DOF^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\DOF^k$) por meio da solução do sistema:
