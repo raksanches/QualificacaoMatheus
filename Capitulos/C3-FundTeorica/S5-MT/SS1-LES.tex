@@ -2,29 +2,70 @@
 \subsection{\textit{Large Eddy Simulation}} \label{LES}
 %==================================================================================================
 
-A simulação de grandes vórtices se baseia na observação de que vórtices formados em pequenas escalas possuem comportamento isotrópico, o que permite uma modelagem dessas escalas, enquanto as grandes escalas podem ser computadas diretamente. Assim, realiza-se uma separação de escalas por meio de um filtro, permitindo reescrever as equações de Navier-Stokes em termos de parcelas filtrada (ou de grandes escalas), denotada para uma propriedade $\phi$ qualquer como $\bar{\phi}$, e uma parcela não filtrada (ou de escalas finas ou flutuações), denotada como $\phi'$ \cite{germano1991dynamic,hughes2000large,moeng2015large}. Para isso, considera-se uma filtragem dada por:
+Em escoamentos com elevados números de Reynolds, observa-se a formação de vórtices em um amplo espectro de escalas, o que torna a simulação direta desses escoamentos computacionalmente inviável, uma vez que se exigem altas resoluções da malha do fluido para capturar todos os efeitos. Nesse sentido, a simulação de grandes vórtices (\textit{Large Eddy Simulation} - LES) surge como uma alternativa para se obter resultados próximos aos da simulação direta, porém com um custo computacional reduzido.
+
+O LES originou-se do trabalho de \citeonline{smagorinsky1963general} no intuito de se estudar simulações de camadas limite atmosféricas e tendo o coeficiente de Smagorinsky estimado por \citeonline{deardorff1971magnitude} ao estudar escoamentos em canais. A ideia central do modelo parte da consideração de que o escoamento pode ser bem caracterizado por meio de uma separação de escalas, na qual as grandes escalas são responsáveis pela transferência da energia cinética, sendo influenciadas diretamente pela natureza do escoamento, assim como pelas condições de contorno, enquanto as pequenas escalas são responsáveis pela dissipação de energia e possuem propriedades isotrópicas e homogêneas no escoamento. Assim, o modelo de Smagorinsky consiste em uma decomposição do campo de velocidades em duas parcelas, uma de grandes escalas e outra de pequenas escalas, sendo a parcela de pequenas escalas modelada por um termo viscoso, o qual é determinado a partir de um modelo de viscosidade de vórtice.
+
+Assim, a decomposição das variáveis do problema ($\phi$) se dá por $\phi=\bar{\phi}+\phi'$, em que $\bar{\phi}$ é a parcela de grandes escalas e $\phi'$ é a parcela de pequenas escalas. Tal separação é dada a partir da consideração de um filtro, definido como a convolução integral de uma função $\filter$, dita como filtro, com a variável $\phi$ \cite{germano1991dynamic,hughes2000large,moeng2015large,katopodes2019free}:
 
 \begin{equation}
-    \bar{\phi}=\int_{\Dfil}{g(\BB{y},\yfil)\phi(\yfil,t)d\yfil}\text{,}
+    \bar{\phi}=\int_{\Dfil}{\filter(\BB{y}-\yfil,t)\phi(\yfil,t)d\yfil}\text{,}
 \end{equation}
 
-\noindent em que $\Dfil$ é um subdomínio de $\Omega$ que determina a abrangência do filtro, $\yfil$ é um ponto na vizinhança de $\BB{y}$ e $g$ é o filtro, que deve possuir a propriedade de homogeneidade, $g(\BB{y},\yfil)=g(\BB{y}-\yfil)$.
-
-\citeonline{hughes2000large} apresentam ainda uma possibilidade de abrangência de filtro dada por:
+\noindent em que $\Dfil$ é um subdomínio de $\Omega$ que determina a abrangência do filtro, $\yfil$ é um ponto na vizinhança de $\BB{y}$ e $\filter$ é o filtro. \citeonline{hughes2000large} apresentam ainda uma possibilidade de abrangência de filtro dada por:
 
 \begin{equation}
-    \Dfil=\left\{\yfil\in\mathbb{R}^{n_{sd}}|\rho(\BB{y},\yfil)<\Delta/2\right\}\text{,}
+    \Dfil=\left\{\yfil\in\mathbb{R}^{n_{sd}}|\rho_\Delta(\BB{y},\yfil)<\Delta/2\right\}\text{,}
 \end{equation}
 
-\noindent na qual $\Delta/2$ é o raio de abrangência do filtro centrado em $\BB{y}$ e $\rho$ é a distância Euclidiana de $\yfil$ à $\BB{y}$. A Figura \ref{fig:Filtro} apresenta esquematicamente o filtro considerado, assim como seu domínio de abrangência.
+\noindent na qual $\Delta/2$ é o raio de abrangência do filtro centrado em $\BB{y}$ e $\rho_\Delta$ é a distância Euclidiana de $\yfil$ à $\BB{y}$.
+
+Assim, um filtro $\filter$ deve ser capaz de remover as altas frequências na representação de Fourier e deve ser escolhido de forma a obedecer algumas propriedades, \ie\ a condição de homogeneidade: $\filter(\BB{y},\yfil,t)=\filter(\BB{y}-\yfil,t)$, a condição de isotropia: $\filter(\BB{y}-\yfil,t)=\filter(\rho_\Delta,t)$, a condição de normalização:
+
+\begin{equation}
+    \int_{\Dfil}{\filter(\BB{y}-\yfil,t)d\yfil}=1
+\end{equation}
+
+\noindent e deve possuir um suporte compacto, ou seja, sua influência deve diminuir com o aumento da distância de seu centro.
+
+Dessa maneira, algumas propriedades são garantidas, como a conversão da operação de convolução em multiplicação em um espaço de Fourier, a qual é dada por:
+
+\begin{subequations}
+    \begin{equation}
+        \Fourier{\bar{\phi}}(\BB{k},t)=\Fourier{\filter}(\BB{k},t)\Fourier{\phi}(\BB{k},t)\text{ e}
+    \end{equation}
+    \begin{equation}
+        \Fourier{\phi'}(\BB{k},t)=(1-\Fourier{\filter}(\BB{k},t))\Fourier{\phi}(\BB{k},t)\text{,}
+    \end{equation}
+\end{subequations}
+
+\noindent em que o sobrescrito $\mathcal{F}$ representa a transformação de Fourier. Além disso, a filtragem é uma operação linear, ou seja, $\bar{\phi}+\bar{\psi}=\overline{\phi+\psi}$ e $\alpha\bar{\phi}=\overline{\alpha\phi}$, em que $\alpha$ é uma constante. Já em domínios ilimitados, cujo filtro possui abrangência constante, tem-se a comutatividade da filtragem com a diferenciação, ou seja, $\bar{\Ny\phi}=\Ny\bar{\phi}$.
+
+\citeonline{katopodes2019free} apresenta algumas possibilidades de filtro, os quais são apresentados na Tabela \ref{tab:filters}, assim como sua respectiva transformada de Fourier. A variável $k$ representa o número de onda. A Figura \ref{fig:Filters} apresenta graficamente o comportamento dos filtros apresentados na Tabela \ref{tab:filters}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Filtros utilizados em LES.}
+    \begin{tabular}{lll}
+        \hline
+        Filtro              & Função                                                                                                                                             & Transformada de Fourier                                                                                                  \\\hline
+        \textit{Box filter} & $\filter(\rho_\Delta)=\left\{\begin{array}{ll}\frac{1}{\Delta} & \text{ se }\rho_\Delta\leq\Delta/2 \\0& \text{ caso contrário}\end{array}\right.$ & $\Fourier{\filter}(k)=\frac{\sin{(k\Delta/2)}}{k\Delta/2}$                                                               \\
+        Filtro gaussiano    & $\filter(\rho_\Delta)=\sqrt{\frac{\gamma_g}{\pi\Delta^2}}e^{-\frac{\gamma\rho_\Delta^2}{\Delta^2}}$                                                & $\Fourier{\filter}(k)=e^{-\frac{k^2\Delta^2}{4\gamma}}$                                                                  \\
+        Filtro espectral    & $\filter(\rho_\Delta)=\frac{\sin{(k_c\rho_\Delta)}}{k_c\rho_\Delta}$                                                                               & $\Fourier{\filter}(k)=\left\{\begin{array}{ll} 1 & \text{ se }|k|\leq k_c \\0& \text{ caso contrário}\end{array}\right.$ \\\hline
+    \end{tabular}
+    \\Fonte: \citeonline{katopodes2019free} - Adaptado.
+    \label{tab:filters}
+\end{table}
 
 \begin{figure}[h!]
     \centering
-    \caption{Desenho esquemático do filtro considerado.}
-    \includegraphics[width=0.5\linewidth]{Figuras/filtro.pdf}
-    \\Fonte: \citeonline{hughes2000large} - Adaptado.
-    \label{fig:Filtro}
+    \caption{Comportamento dos filtros apresentados na Tabela \ref{tab:filters}.}
+    \includegraphics[width=.85\linewidth]{Figuras/filtros.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Filters}
 \end{figure}
+
+O valor $\gamma_g$ observado no filtro gaussiano é uma constante, comumente atribuída com o valor de 6,0. Já o parâmetro $k_c$ é o número de onda de corte, dado por $k_c=\pi/\Delta$. Dentre os filtros apresentados, percebe-se que tanto o \textit{box filter} quanto o filtro gaussiano possuem suporte compacto no espaço físico, porém não possuem suporte compacto no espaço de Fourier, o que pode gerar problemas numéricos. Já o filtro espectral possui suporte compacto no espaço de Fourier, porém não possui suporte compacto no espaço físico.
 
 Dessa maneira, é possível separar os efeitos das grandes escalas e das pequenas escalas, o que é ilustrado na Figura \ref{fig:EfeitoFiltragem} para uma distribuição de velocidade $\BB{u}$.
 
@@ -118,10 +159,10 @@ Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB
 %
 %Como tentativa de se resolver esses problemas, \citeonline{germano1991dynamic} propuseram assumir $C_S$ como uma função $C_S=C_S(\BB{y},t)$, permitindo, assim, que esse parâmetro se adapte para melhor modelar as pequenas escalas.
 
-Para a determinação da constante de Smagorinsky, define-se inicialmente a amplitude espectral da energia cinética $E(k)$, dada sobre uma superfície de esferas parametrizadas de raio $k$, de acordo com \cite{hughes2000large}:
+Para a determinação da constante de Smagorinsky, realiza-se inicialmente uma aproximação da amplitude espectral da energia cinética $E(k)$, dada sobre a superfície de uma esfera parametrizada de raio $k$, de acordo com \cite{hughes2000large}:
 
 \begin{equation}
-    E(k)=\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
+    E(k)\approx\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
 \end{equation}
 
 \noindent em que $\alpha$ é a constante de Kolmogoroff e $\varepsilon$ é a dissipação turbulenta. A Figura \ref{fig:EnergiaEspectral} apresenta graficamente o comportamento da energia espectral em função do raio $k$.
@@ -137,15 +178,15 @@ Para a determinação da constante de Smagorinsky, define-se inicialmente a ampl
 O valor de $\norm{\deffil}$ é adotado como:
 
 \begin{equation}
-    \frac{1}{2}\norm{\deffil}=\int_0^{\bar{k}}{k^2E(k)dk}\text{,}\label{eq:ndeffil1}
+    \frac{1}{2}\norm{\deffil}=\int_0^{k_c}{k^2E(k)dk}\text{,}\label{eq:ndeffil1}
 \end{equation}
 
-\noindent sendo $\bar{k}$ o limite de resolução.
+\noindent sendo $k_c$ o limite de resolução.
 
 Substituindo \eqref{eq:Ek1} em \eqref{eq:ndeffil1}, resolvendo a integral e fazendo algumas manipulações algébricas, tem-se que:
 
 \begin{equation}
-    \norm{\deffil}^3=\bigpar{\frac{3\alpha}{2}}^{3/2}\bar{k}^2\varepsilon\text{.}
+    \norm{\deffil}^3=\bigpar{\frac{3\alpha}{2}}^{3/2}k_c^2\varepsilon\text{.}
 \end{equation}
 
 Com isso, considerando também que a dissipação de energia cinética é igual àquela produzida, realiza-se o balanço da energia, obtendo-se:
@@ -154,23 +195,17 @@ Com isso, considerando também que a dissipação de energia cinética é igual 
     \varepsilon=\BB{T}_S:\deffil\text{.}
 \end{equation}
 
-\noindent Assim, fica possível obter expressões que relacionam os valores de $C_S$ $\Delta$ e $\nu_T$ com $\bar{k}$:
+\noindent Assim, fica possível obter expressões que relacionam os valores de $C_S$ $\Delta$ e $\nu_T$ com $k_c$:
 
 \begin{equation}
-    C_S\Delta=\bigpar{\frac{2}{3\alpha}}^{3/4}\bar{k}^{-1}\text{ e}
+    C_S\Delta=\bigpar{\frac{2}{3\alpha}}^{3/4}k_c^{-1}\text{ e}
 \end{equation}
 
 \begin{equation}
-    \nu_T=\bigpar{\frac{2}{3\alpha}}\varepsilon^{1/3}\bar{k}^{-4/3}\text{.}
+    \nu_T=\bigpar{\frac{2}{3\alpha}}\varepsilon^{1/3}k_c^{-4/3}\text{.}
 \end{equation}
 
-Segundo \citeonline{bailly2015turbulence} o valor de $\bar{k}$ pode ser estimado como:
-
-\begin{equation}
-    \bar{k}=\frac{\pi}{\Delta}\text{,}
-\end{equation}
-
-\noindent o que leva à seguinte expressão para a constante de Smagorinsky:
+Segundo \citeonline{bailly2015turbulence} o valor de $k_c$ pode ser estimado como $k_c=\pi/\Delta$, o que leva à seguinte expressão para a constante de Smagorinsky:
 
 \begin{equation}
     C_S=\frac{1}{\pi}\bigpar{\frac{2}{3\alpha}}^{3/4}\text{.}
