@@ -157,17 +157,17 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
 \begin{subequations}
     \begin{equation}
         \FMC=\der{(\fmc(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
-            \Nx\BB{y} & \BB{u} \\\BB{0}^T&1
+            \Nx\BB{y} & \BB{u} \\\BB{0}\trans&1
         \end{bmatrix}\text{,}\label{F2}
     \end{equation}
     \begin{equation}
         \TFMC=\der{(\tfmc(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
-            \Nx\HBB{x} & \tilde{\BB{u}} \\\BB{0}^T&1
+            \Nx\HBB{x} & \tilde{\BB{u}} \\\BB{0}\trans&1
         \end{bmatrix}\text{, e}\label{F1}
     \end{equation}
     \begin{equation}
         \HFMC=\der{(\hfmc(\HBB{x},t),t)}{(\HBB{x},t)}=\begin{bmatrix}
-            \Nxh\BB{y} & \uhat \\\BB{0}^T&1
+            \Nxh\BB{y} & \uhat \\\BB{0}\trans&1
         \end{bmatrix}\text{,}\label{F3}
     \end{equation}
     \label{eq:GradFun}
@@ -176,9 +176,9 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
 \noindent nos quais $\BB{u}=\dBB{y}|_{\BB{x}}$, $\tilde{\BB{u}}=\dot{\HBB{x}}|_{\BB{x}}$ e $\uhat=\dBB{y}|_{\HBB{x}}$. Além disso, vale ressaltar que $\fmc=\hfmc(\tfmc,t)$, portanto $\FMC=\HFMC\cdot\TFMC$, ou seja:
 
 \begin{equation}
-    \begin{bmatrix}\Nx\BB{y}&\BB{u}\\\BB{0}^T&1\end{bmatrix}=
-    \begin{bmatrix}\Nxh\BB{y}&\uhat\\\BB{0}^T&1\end{bmatrix}\cdot
-    \begin{bmatrix}\Nx\HBB{x}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}\text{,}
+    \begin{bmatrix}\Nx\BB{y}&\BB{u}\\\BB{0}\trans&1\end{bmatrix}=
+    \begin{bmatrix}\Nxh\BB{y}&\uhat\\\BB{0}\trans&1\end{bmatrix}\cdot
+    \begin{bmatrix}\Nx\HBB{x}&\tilde{\BB{u}}\\\BB{0}\trans&1\end{bmatrix}\text{,}
     \label{F4}
 \end{equation}
 

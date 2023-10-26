@@ -27,26 +27,26 @@ Para um ponto $\BB{x}$ na vizinhança de $\BB{x}_0$, pode-se dizer que:
 \noindent o que permite escrever o quadrado da norma de $d\BB{y}$ como:
 
 \[
-    \norm{d\BB{y}}^2=dy^2=d\BB{y}^T\cdot d\BB{y}=(\FMC\cdot d\BB{x})^T\cdot(\FMC\cdot d\BB{x})=d\BB{x}^T\cdot\FMC^T\cdot\FMC\cdot d\BB{x}
+    \norm{d\BB{y}}^2=dy^2=d\BB{y}\trans\cdot d\BB{y}=(\FMC\cdot d\BB{x})\trans\cdot(\FMC\cdot d\BB{x})=d\BB{x}\trans\cdot\FMC\trans\cdot\FMC\cdot d\BB{x}
 \]
 
 Subtraindo-se $dx^2=\norm{d\BB{x}}^2$ de ambos os lados da igualdade obtém-se:
 
 \begin{equation}
-    dy^2-dx^2=d\BB{x}^T\cdot(\FMC^T\cdot\FMC-\BB{I})\cdot d\BB{x}\text{,}
+    dy^2-dx^2=d\BB{x}\trans\cdot(\FMC\trans\cdot\FMC-\BB{I})\cdot d\BB{x}\text{,}
     \label{eq:difdxdy}
 \end{equation}
 
-\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\FMC^T\cdot\FMC$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
+\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\FMC\trans\cdot\FMC$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
 
 \[
-    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}^T\cdot(\BB{C}-\BB{I})\cdot d\BB{x}}{dx^2}\text{.}
+    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}\trans\cdot(\BB{C}-\BB{I})\cdot d\BB{x}}{dx^2}\text{.}
 \]
 
 \noindent Tomando um versor na direção de $d\BB{x}$ ($\BB{u}=d\BB{x}/\norm{d\BB{x}}$), tem-se que:
 
 \begin{equation}
-    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\BB{u}^T\cdot\left(\frac{1}{2}(\BB{C}-\BB{I})\right)\cdot\BB{u}\text{.}
+    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\BB{u}\trans\cdot\left(\frac{1}{2}(\BB{C}-\BB{I})\right)\cdot\BB{u}\text{.}
 \end{equation}
 
 Assim, define-se o tensor de deformações de Green-Lagrange como:
@@ -106,7 +106,7 @@ Na sequência procura-se obter uma expressão que indique a mudança de área na
 Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{S}_0=dS_0\BB{n}_0$ e $d\BB{S}=dS\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{S}_0\cdot\BB{h}^S_0$ e $dV=\BB{S}\cdot\BB{h}^S$). Conhecendo as relações \eqref{eq:dyAdx} e \eqref{eq:RelVol}, pode-se obter que:
 
 \begin{equation}
-    \BB{n}dS=J\FMC^{-T}\cdot\BB{n}_0dS_0\text{,}\label{eq:Nanson}
+    \BB{n}dS=J\FMC\Ttrans\cdot\BB{n}_0dS_0\text{,}\label{eq:Nanson}
 \end{equation}
 
 \noindent que é conhecida como a Equação de Nanson.
@@ -128,7 +128,7 @@ Fazendo o equilíbrio das forças nessa direção e realizando as devidas simpli
 \noindent que, expandindo analogamente para as demais direções tem-se:
 
 \begin{equation}
-    \Ny\cdot\tens^T+\BB{c}=\rho\ddot{\BB{y}}\text{,}
+    \Ny\cdot\tens\trans+\BB{c}=\rho\ddot{\BB{y}}\text{,}
     \label{eq:EqLocEu}
 \end{equation}
 
@@ -137,7 +137,7 @@ Fazendo o equilíbrio das forças nessa direção e realizando as devidas simpli
 Integrando a equação \eqref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
 
 \begin{equation}
-    \int_\Gamma{\tens^T\cdot\BB{n}d\Gamma}+\int_\Omega{\BB{c}d\Omega}=\int_\Omega{\rho\ddot{\BB{y}}d\Omega}
+    \int_\Gamma{\tens\trans\cdot\BB{n}d\Gamma}+\int_\Omega{\BB{c}d\Omega}=\int_\Omega{\rho\ddot{\BB{y}}d\Omega}
     \text{,}
     \label{eq:EqGlobEu}
 \end{equation}
@@ -147,14 +147,14 @@ Integrando a equação \eqref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da d
 Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \eqref{eq:EqGlobEu} levando em consideração as Equações \eqref{eq:RelVol} e \eqref{eq:Nanson}:
 
 \begin{equation}
-    \int_{\Gamma_0}{J\tens^T\cdot\FMC^{-T}\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
+    \int_{\Gamma_0}{J\tens\trans\cdot\FMC\Ttrans\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
     \text{.}
 \end{equation}
 
 \noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\BB{P}=J\FMC^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
 
 \begin{equation}
-    \int_{\Gamma_0}{\BB{P}^T\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
+    \int_{\Gamma_0}{\BB{P}\trans\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
 \end{equation}
 
 \noindent que representa a equação do equilíbrio global na descrição Lagrangiana Total.
@@ -162,7 +162,7 @@ Já em uma descrição Lagrangiana Total, será necessário transformar os termo
 Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teorema da Divergência e tomando um elemento infinitesimal de volume, pode-se obter a equação do equilíbrio local na descrição Lagrangiana Total:
 
 \begin{equation}
-    \Nx\cdot\BB{P}^T+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{, ou}
+    \Nx\cdot\BB{P}\trans+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{, ou}
 \end{equation}
 
 %==================================================================================================
@@ -431,7 +431,7 @@ Assim, o algoritmo utilizado para solução do elemento de casca é dado pelo ps
                     Interpolar variáveis em $\Omega_a$\;
                     Calcular $\FMC^0$, $(\FMC^0)^{-1}$, $(\FMC^1)^{n+1}$ e $(\FMC^1)^{n+\alpha_f}$\;
                     Calcular $\FMC^{n+1}=(\FMC^1)^{n+1}\cdot(\FMC^0)^{-1}$ e $\FMC^{n+\alpha_f}=(\FMC^1)^{n+\alpha_f}\cdot(\FMC^0)^{-1}$\;
-                    Calcular $\BB{C}^{n+1}=(\FMC^{n+1})^T\cdot\FMC^{n+1}$ e $\BB{C}^{n+\alpha_f}=(\FMC^{n+\alpha_f})^T\cdot\FMC^{n+\alpha_f}$\;
+                    Calcular $\BB{C}^{n+1}=(\FMC^{n+1})\trans\cdot\FMC^{n+1}$ e $\BB{C}^{n+\alpha_f}=(\FMC^{n+\alpha_f})\trans\cdot\FMC^{n+\alpha_f}$\;
                     Calcular $\mathbb{E}^{n+\alpha_f}$ \eqref{eq:CSD-DefGreenLagr} e $\Stens^{n+\alpha_f}$ \eqref{eq:CSD-S}\;
                     \ForEach{\textnormal{nó $a$ do elemento}}{
                         Calcular $\partial{\BB{y}^{n+1}}/\partial{\DOF_a}$, $\partial{\FMC^{n+1}}/\partial{\DOF_a}$, $\partial{\mathbb{E}^{n+\alpha_f}}/\partial{\DOF_a}$ e $\partial{\Stens^{n+\alpha_f}}/\partial{\DOF_a}$\;
