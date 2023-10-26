@@ -15,10 +15,10 @@ Inicialmente considere um corpo deformável, idealizado como um meio contínuo q
 Para um ponto $\BB{x}$ na vizinhança de $\BB{x}_0$, pode-se dizer que:
 
 \begin{equation}
-    \BB{y}(\BB{x})=\BB{f}(\BB{x}_0)+\apderp{\fmc}{\BB{x}}{x_0}\cdot d\BB{x}\text{,}
+    \BB{y}(\BB{x})=\fmc(\BB{x}_0)+\Nx\fmc|_{\BB{x}_0}\cdot d\BB{x}\text{,}
 \end{equation}
 
-\noindent em que $\FMC=\partial\fmc/\partial\BB{x}=\Nx\fmc$ é o gradiente de mudança de configuração. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
+\noindent em que $\FMC=\Nx\fmc$ é o gradiente de mudança de configuração. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
 
 \begin{equation}
     d\BB{y}=\FMC\cdot d\BB{x}\text{,}\label{eq:dyAdx}
@@ -299,7 +299,7 @@ Já os pontos fora da superfície média, são mapeados com auxílio de vetores 
 
 Sendo assim, o problema possui como graus de liberdade as posições nodais atuais da superfície média ($\BB{Y}_a$), os valores nodais do vetor generalizado adimensional na configuração atual ($\BB{V}^1_a$) e o valor nodal da taxa de variação linear de deformação na direção da espessura ($\Alpha_a$).
 
-Além disso, torna-se necessário determinar o gradiente da função de mudança de configuração. Para isso note que $\fmc(\BB{x},t)=\fmc^1((\fmc^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração ($\FMC=\Nx\fmc$) como $\FMC=\FMC^1\cdot(\FMC^0)^{-1}$, em que $\FMC^0=\Nxi\fmc^0$ e $\FMC^1=\Nxi\fmc^1$.
+Além disso, torna-se necessário determinar o gradiente da função de mudança de configuração. Para isso note que $\fmc(\BB{x},t)=\fmc^1((\fmc^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração como $\FMC=\FMC^1\cdot(\FMC^0)^{-1}$, em que $\FMC^0=\Nxi\fmc^0$ e $\FMC^1=\Nxi\fmc^1$.
 
 Considerando-se o princípio da conservação da energia, tem-se:
 

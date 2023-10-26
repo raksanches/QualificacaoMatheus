@@ -34,10 +34,10 @@ Realizando-se o balanço de massa nesse elemento tem-se:
 \noindent sendo $D\rho/Dt$ a derivada material, definida para um escalar $\phi$ qualquer como:
 
 \begin{equation}
-    \frac{D\phi}{Dt}=\dot{\phi}+\BB{u}\cdot\Ny\phi\text{,}
+    \frac{D\phi}{Dt}=\dot{\phi}+(\BB{u}\cdot\Ny)\phi\text{,}
 \end{equation}
 
-\noindent em que $\Ny\cdot(\cdot)$ é o operador divergente e $\Ny(\cdot)$ é o operador gradiente, que para uma função escalar $g$ é definido por \eqref{eq:grad1} e para uma função vetorial é definido por \eqref{eq:grad2}:
+\noindent em que o ponto sobre a variável representa a derivada temporal da mesma, $\Ny\cdot(\cdot)$ é o operador divergente e $\Ny(\cdot)$ é o operador gradiente, que para uma função escalar $g$ é definido por \eqref{eq:grad1} e para uma função vetorial é definido por \eqref{eq:grad2}:
 
 \begin{subequations}
     \begin{align}
@@ -99,7 +99,7 @@ Fazendo o equilíbrio de forças nessa direção, obtém-se que:
 Substituindo \eqref{eq:RelQSig} em \eqref{eq:ConQtdMov} e aplicando a condição de incompressibilidade obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
 
 \begin{equation}
-    \rho\bigpar{\dot{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{,}
+    \rho\bigpar{\dot{\BB{u}}+(\BB{u}\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{,}
     \label{eq:ConQtdMov-2}
 \end{equation}
 
@@ -125,10 +125,10 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \rho\bigpar{\dot{\BB{u}}+\BB{u}\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
-        \Ny\cdot\BB{u}=0                                                           & \text{ em }\Omega\text{,}   \\
-        \tens\cdot\BB{n}=\BB{h}                                                    & \text{ em }\Gamma_N\text{,} \\
-        \BB{u}=\BB{g}                                                              & \text{ em }\Gamma_D\text{,}
+        \rho\bigpar{\dot{\BB{u}}+(\BB{u}\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
+        \Ny\cdot\BB{u}=0                                                             & \text{ em }\Omega\text{,}   \\
+        \tens\cdot\BB{n}=\BB{h}                                                      & \text{ em }\Gamma_N\text{,} \\
+        \BB{u}=\BB{g}                                                                & \text{ em }\Gamma_D\text{,}
     \end{array}
     \right.
     \label{eq:NS-Euler}
@@ -156,41 +156,41 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
 
 \begin{subequations}
     \begin{equation}
-        \FMC=\der{(\fmc(\BB{x},t),t)}{(\mathbf{x},t)}=\begin{bmatrix}
-            \der{\BB{y}}{\BB{x}} & \BB{u} \\\BB{0}^T&1
+        \FMC=\der{(\fmc(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
+            \Nx\BB{y} & \BB{u} \\\BB{0}^T&1
         \end{bmatrix}\text{,}\label{F2}
     \end{equation}
     \begin{equation}
         \TFMC=\der{(\tfmc(\BB{x},t),t)}{(\BB{x},t)}=\begin{bmatrix}
-            \der{\HBB{x}}{\BB{x}} & \tilde{\BB{u}} \\\BB{0}^T&1
+            \Nx\HBB{x} & \tilde{\BB{u}} \\\BB{0}^T&1
         \end{bmatrix}\text{, e}\label{F1}
     \end{equation}
     \begin{equation}
         \HFMC=\der{(\hfmc(\HBB{x},t),t)}{(\HBB{x},t)}=\begin{bmatrix}
-            \der{\BB{y}}{\HBB{x}} & \uhat \\\BB{0}^T&1
+            \Nxh\BB{y} & \uhat \\\BB{0}^T&1
         \end{bmatrix}\text{,}\label{F3}
     \end{equation}
     \label{eq:GradFun}
 \end{subequations}
 
-\noindent nos quais $\BB{u}=\partial\BB{y}/\partial t|_{\BB{x}}$, $\tilde{\BB{u}}=\partial\HBB{x}/\partial t|_{\BB{x}}$ e $\uhat=\partial\fmc/\partial t|_{\HBB{x}}$. Além disso, vale ressaltar que $\fmc=\hfmc(\tfmc,t)$, portanto $\FMC=\HFMC\cdot\TFMC$, ou seja:
+\noindent nos quais $\BB{u}=\dBB{y}|_{\BB{x}}$, $\tilde{\BB{u}}=\dot{\HBB{x}}|_{\BB{x}}$ e $\uhat=\dBB{y}|_{\HBB{x}}$. Além disso, vale ressaltar que $\fmc=\hfmc(\tfmc,t)$, portanto $\FMC=\HFMC\cdot\TFMC$, ou seja:
 
 \begin{equation}
-    \begin{bmatrix}\der{\BB{y}}{\BB{x}}&\BB{u}\\\BB{0}^T&1\end{bmatrix}=
-    \begin{bmatrix}\der{\BB{y}}{\HBB{x}}&\uhat\\\BB{0}^T&1\end{bmatrix}\cdot
-    \begin{bmatrix}\der{\HBB{x}}{\BB{x}}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}\text{,}
+    \begin{bmatrix}\Nx\BB{y}&\BB{u}\\\BB{0}^T&1\end{bmatrix}=
+    \begin{bmatrix}\Nxh\BB{y}&\uhat\\\BB{0}^T&1\end{bmatrix}\cdot
+    \begin{bmatrix}\Nx\HBB{x}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}\text{,}
     \label{F4}
 \end{equation}
 
 \noindent que possui, como uma de suas consequências:
 
 \begin{equation}
-    \BB{u}=\der{\BB{y}}{\HBB{x}}\cdot\tilde{\BB{u}}+\uhat\text{, ou}
+    \BB{u}=\Nxh\BB{y}\cdot\tilde{\BB{u}}+\uhat\text{, ou}
     \label{u1}
 \end{equation}
 
 \begin{equation}
-    \tilde{\BB{u}}=\der{\HBB{x}}{\BB{y}}\cdot(\BB{u}-\uhat)\text{.}
+    \tilde{\BB{u}}=\Ny\HBB{x}\cdot(\BB{u}-\uhat)\text{.}
     \label{w1}
 \end{equation}
 
@@ -202,9 +202,9 @@ Assim é possível definir a derivada material em uma descrição ALE. Para isso
 \end{equation}
 
 \begin{equation}
-    \begin{bmatrix}\der{\phi^{**}}{\BB{x}}&\der{\phi^{**}}{t}\end{bmatrix}=
-    \begin{bmatrix}\der{\phi^{*}}{\HBB{x}}&\der{\phi^{*}}{t}\end{bmatrix}\cdot
-    \begin{bmatrix}\der{\HBB{x}}{\BB{x}}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}
+    \begin{bmatrix}\Nx\phi^{**}&\dot{\phi}^{**}\end{bmatrix}=
+    \begin{bmatrix}\Nxh\phi^{*}&\dot{\phi}^{*}\end{bmatrix}\cdot
+    \begin{bmatrix}\Nx\HBB{x}&\tilde{\BB{u}}\\\BB{0}^T&1\end{bmatrix}
     \text{.}
     \label{phi2}
 \end{equation}
@@ -212,20 +212,20 @@ Assim é possível definir a derivada material em uma descrição ALE. Para isso
 \noindent Portanto:
 
 \begin{equation}
-    \der{\phi^{**}}{t}=\der{\phi^{*}}{\HBB{x}}\cdot\tilde{\BB{u}}+\der{\phi^{*}}{t}\text{.}
+    \dot{\phi}^{**}=\Nxh\phi^{*}\cdot\tilde{\BB{u}}+\dot{\phi}^{*}\text{.}
     \label{phi3}
 \end{equation}
 
 Substituindo \ref{w1} em \ref{phi3}, obtém-se que:
 
-\[\der{\phi^{**}}{t}=\der{\phi^{*}}{\HBB{x}}\cdot\der{\HBB{x}}{\BB{y}}\cdot(\BB{u}-\uhat)+\der{\phi^{*}}{t}\]
+\[\dot{\phi}^{**}=\Nxh\phi^{*}\cdot\Ny\HBB{x}\cdot(\BB{u}-\uhat)+\dot{\phi}^{*}\]
 
-\[\der{\phi^{**}}{t}=\der{\phi^{*}}{t}+(\BB{u}-\uhat)\cdot\der{\phi^{*}}{\BB{y}}\]
+\[\dot{\phi}^{**}=\dot{\phi}^{*}+(\BB{u}-\uhat)\cdot\Ny\phi^{*}\]
 
 Dessa maneira, remove-se os sobrescritos * e ** e define-se a derivada material na descrição ALE como:
 
 \begin{equation}
-    \frac{D\phi}{Dt}=\apderxh{\phi}{t}+(\BB{u}-\uhat)\cdot\Ny\phi\text{.}
+    \frac{D\phi}{Dt}=\dot{\phi}|_{\HBB{x}}+(\BB{u}-\uhat)\cdot\Ny\phi\text{.}
     \label{eq:DerMat2}
 \end{equation}
 
@@ -242,10 +242,10 @@ Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \eqref{eq:DerMa
     \label{eq:ALE-cont}
 \end{equation}
 
-Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \eqref{eq:DerMat2} em \eqref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\mathbf{u}$, obtendo-se:
+Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \eqref{eq:DerMat2} em \eqref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\BB{u}$, obtendo-se:
 
 \begin{equation}
-    \rho\bigpar{\dot{\BB{u}}+(\BB{u}-\uhat)\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{.}
+    \rho\bigpar{\dot{\BB{u}}+((\BB{u}-\uhat)\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{.}
     \label{eq:ALE-mov}
 \end{equation}
 
@@ -254,10 +254,10 @@ Assim, pode-se escrever o problema a ser resolvido a partir das equações:
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
-        \Ny\cdot\BB{u}=0                                                                     & \text{ em }\Omega\text{,}   \\
-        \tens\cdot\BB{n}=\BB{h}                                                              & \text{ em }\Gamma_N\text{,} \\
-        \BB{u}=\BB{g}                                                                        & \text{ em }\Gamma_D\text{,}
+        \rho\bigpar{\dot{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
+        \Ny\cdot\BB{u}=0                                                                       & \text{ em }\Omega\text{,}   \\
+        \tens\cdot\BB{n}=\BB{h}                                                                & \text{ em }\Gamma_N\text{,} \\
+        \BB{u}=\BB{g}                                                                          & \text{ em }\Gamma_D\text{,}
     \end{array}
     \right.
     \label{eq:NS-ALE}
@@ -364,13 +364,13 @@ Sejam ainda os espaços das funções testes para a conservação de massa e con
 Dessa forma, ponderando-se as equações \eqref{eq:ALE-mov} e \eqref{eq:ALE-cont} respectivamente por $\BB{w}$ e $q$, tal que $q\in\script{V}_p$ e integrando-se sobre o domínio $\Omega$, obtém-se:
 
 \begin{equation}
-    \intDom{\BB{w}\cdot\bigpar{\rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}-\Ny\cdot\tens}}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
+    \intDom{\BB{w}\cdot\bigpar{\rho\bigpar{\dot{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens}}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
 \end{equation}
 
 Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira integral, tem-se que:
 
 \begin{equation}
-    \intDom{\BB{w}\cdot\rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
+    \intDom{\BB{w}\cdot\rho\bigpar{\dot{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
     \label{eq:WeakForm1}
 \end{equation}
 
@@ -378,7 +378,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BB{w}\cdot\rho\bigpar{\dot{\BB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BB{u}-\BB{f}}}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
+        &\intDom{\BB{w}\cdot\rho\bigpar{\dot{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
         &\intDom{\Ny\BB{w}:\tens}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
     \end{split}
     \label{eq:WeakForm2}

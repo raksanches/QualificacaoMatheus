@@ -66,25 +66,27 @@ Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais s
 Aplicando a incompressibilidade e substituindo-se $\bar{\tens}$ pelo modelo constitutivo \eqref{eq:ModConst}, tem-se que:
 
 \begin{equation}
-    \rho\bigpar{\dot{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}-\Ny\cdot\BB{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
+    \rho\bigpar{\dot{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}-\Ny\cdot\BB{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
 \end{equation}
 
 \noindent ou, dividindo-se por $\rho$ e fazendo algumas manipulações tem-se que:
 
 \begin{equation}
-    \dot{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\BB{T}+\BBB{f}\text{,}
+    \dot{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\BB{T}+\BBB{f}\text{,}
 \end{equation}
 
 \noindent sendo $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
 
 Assim, o problema fica governado por:
 
-\begin{subequations}
-    \begin{align}
-         & \dot{\BBB{u}}+\BBB{u}\cdot\Ny\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} &  & \text{ em }\Omega\text{,} \\
-         & \Ny\cdot\BBB{u}=0                                                                              &  & \text{ em }\Omega\text{,}
-    \end{align}
-\end{subequations}
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \dot{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \Ny\cdot\BBB{u}=0                                                                                & \text{ em }\Omega\text{,}
+    \end{array}
+    \right.
+\end{equation}
 
 \noindent havendo ainda a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
 

@@ -59,7 +59,7 @@ Já os termos $\rM$ e $\rC$ são os resíduos da equação de conservação da q
 
 \begin{subequations}
     \begin{equation}
-        \rM=\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
+        \rM=\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
     \end{equation}
     \begin{equation}
         \rC=\Ny\cdot\BBB{u}\text{.}
@@ -94,22 +94,22 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+(\BB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BB{f}}}+\intDom{\Ny\BB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
-        &\intDom{\bar{q}\Ny\cdot\BBB{u}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\cdot\BB{u}'}-\\
-        &\SintDom{\Ny\cdot\BBB{w}p'}+\SintDom{\rho\BBB{w}\cdot(\BB{u}'\cdot\Ny\BBB{u})}-\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\bar{q}\Ny\cdot\BBB{u}}-\SintDom{\rho\bigpar{((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\cdot\BB{u}'}-\\
+        &\SintDom{\Ny\cdot\BBB{w}p'}+\SintDom{\rho\BBB{w}\cdot((\BB{u}'\cdot\Ny)\BBB{u})}-\\
         &\SintDom{\rho\Ny\BBB{w}:(\BB{u}'\otimes\BB{u}')}=0
         \text{,}
         \label{eq:RBVMS1}
     \end{split}
 \end{equation}
 
-\noindent o que pode ser reescrito ainda, substituindo-se $u'_j$ e $p'$ por \eqref{eq:VMS-fine}:
+\noindent o que pode ser reescrito ainda, substituindo-se $\BB{u}'$ e $p'$ por \eqref{eq:VMS-fine}:
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
-        &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\sups\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\rM}+\\
-        &\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}-\SintDom{\tau_\sups\BBB{w}\cdot(\rM\cdot\Ny\BBB{u})}-\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\sups\bigpar{((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\rM}+\\
+        &\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}-\SintDom{\tau_\sups\BBB{w}\cdot((\rM\cdot\Ny)\BBB{u})}-\\
         &\SintDom{\frac{\Ny\BBB{w}}{\rho}:((\tau_\sups\rM)\otimes(\tau_\sups\rM))}=0
         \text{.}
         \label{eq:RBVMS1}
@@ -143,15 +143,15 @@ Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas 
 
 \noindent sendo $\HBB{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\HBB{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
 
-Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando-se em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica:
+Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica:
 
 \begin{subequations}
     \begin{equation}
         \begin{split}
             \NM^a=&
-            \intDom{N_a^u\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny N_a^u\cdot\bar{\tens}}-\\
+            \intDom{N_a^u\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\bar{\tens}\cdot\Ny N_a^u}-\\
             &\intNeumann{N_a^u\BBB{h}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny N_a^u}\BB{u}'}-\SintDom{\Ny N_a^up'}+\\
-            &\SintDom{\rho N_a^u(\BB{u}'\cdot\Ny\BBB{u})}-\SintDom{\rho\Ny N_a^u\cdot(\BB{u}'\otimes\BB{u}')}
+            &\SintDom{\rho N_a^u((\BB{u}'\cdot\Ny)\BBB{u})}-\SintDom{\rho\Ny N_a^u\cdot(\BB{u}'\otimes\BB{u}')}
             =\BB{0}\text{,}
         \end{split}
     \end{equation}
@@ -174,8 +174,8 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+(\BBB{u}-\HBB{u})\cdot\Ny\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
-        &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\supg((\BBB{u}-\HBB{u})\cdot\Ny\BBB{w})\cdot\rM}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\supg((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{w}\cdot\rM}+\\
         &\SintDom{\tau_\pspg\frac{\Ny\bar{q}}{\rho}\cdot\rM}+\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}=0
         \text{,}
         \label{eq:SUPG-PSPG}
@@ -275,8 +275,8 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \begin{subequations}
     \begin{equation}
         \begin{split}
-            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDoma{\kr{a}N_b}\BB{I}+\agdt\intDoma{\kr{a}\dconv{b}}\BB{I}+\\
-            &\agdt\intDoma{\mu \Ny N_a\cdot\Ny N_b}\BB{I}+\agdt\intDoma{\kr{a}N_b\Ny\BBB{u}}+\\
+            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDoma{\rho\kr{a}N_b}\BB{I}+\agdt\intDoma{\rho\kr{a}\dconv{b}}\BB{I}+\\
+            &\agdt\intDoma{\mu \Ny N_a\cdot\Ny N_b}\BB{I}+\agdt\intDoma{\rho\kr{a}N_b\Ny\BBB{u}}+\\
             &\agdt\intDoma{(\mu(\Ny N_b\otimes\Ny N_a)+\rho\nlsic(\Ny N_a\otimes\Ny N_b))}-\\
             &\am\intDoma{\rho\tsups N_aN_b\Ny\BBB{u}}-\\
             &\agdt\intDoma{\rho\tsups N_a(\dconv{b}\BB{I}+N_b\Ny\BBB{u})\cdot\Ny\BBB{u}}\text{,}
@@ -297,7 +297,7 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
     \label{Eq:MatrizTangente-VMS}
 \end{subequations}
 
-\noindent em que $\dconv{a}=\UUB\cdot\Ny N_{a}$, $\kr{a}=\rho(N_a+\tsups\dconv{a})$ e:
+\noindent em que $\dconv{a}=\UUB\cdot\Ny N_{a}$, $\kr{a}=N_a+\tsups\dconv{a}$ e:
 
 \begin{equation}
     \Omega_\alpha=\left\{\bar{\BB{x}}|\bar{\BB{x}}(\hat{\BB{x}},t^{n+\alpha_f})=\alpha_f\bar{\BB{x}}(\hat{\BB{x}},t^{n+1})+(1-\alpha_f)\bar{\BB{x}}(\hat{\BB{x}},t^n)\right\}\text{.}
