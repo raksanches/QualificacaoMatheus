@@ -39,18 +39,18 @@ Dessa maneira, algumas propriedades são garantidas, como a conversão da opera�
     \end{equation}
 \end{subequations}
 
-\noindent em que o sobrescrito $\mathcal{F}$ representa a transformação de Fourier. Além disso, a filtragem é uma operação linear, ou seja, $\bar{\phi}+\bar{\psi}=\overline{\phi+\psi}$ e $\alpha\bar{\phi}=\overline{\alpha\phi}$, em que $\alpha$ é uma constante. Já em domínios ilimitados, cujo filtro possui abrangência constante, tem-se a comutatividade da filtragem com a diferenciação, ou seja, $\bar{\Ny\phi}=\Ny\bar{\phi}$.
+\noindent em que a variável $\BB{k}$ representa o número de onda e o sobrescrito $\mathcal{F}$ representa a transformação de Fourier. Além disso, a filtragem é uma operação linear, ou seja, $\bar{\phi_1+\phi_2}=\bar{\phi_1}+\bar{\phi_2}$ e $\bar{\alpha\phi}=\alpha\bar{\phi}$, em que $\alpha$ é uma constante. Já em domínios ilimitados, cujo filtro possui abrangência constante, tem-se a comutatividade da filtragem com a diferenciação, ou seja, $\bar{\Ny\phi}=\Ny\bar{\phi}$.
 
-\citeonline{katopodes2019free} apresenta algumas possibilidades de filtro, os quais são apresentados na Tabela \ref{tab:filters}, assim como sua respectiva transformada de Fourier. A variável $k$ representa o número de onda. A Figura \ref{fig:Filters} apresenta graficamente o comportamento dos filtros apresentados na Tabela \ref{tab:filters}.
+\citeonline{katopodes2019free} apresenta algumas possibilidades de filtro, os quais são apresentados na Tabela \ref{tab:filters}, assim como sua respectiva transformada de Fourier. A Figura \ref{fig:Filters} apresenta graficamente o comportamento dos filtros apresentados na Tabela \ref{tab:filters}.
 
 \begin{table}[h!]
     \centering
-    \caption{Filtros utilizados em LES.}
+    \caption{Filtros utilizados em \LES.}
     \begin{tabular}{lll}
         \hline
         Filtro              & Função                                                                                                                                             & Transformada de Fourier                                                                                                  \\\hline
         \textit{Box filter} & $\filter(\rho_\Delta)=\left\{\begin{array}{ll}\frac{1}{\Delta} & \text{ se }\rho_\Delta\leq\Delta/2 \\0& \text{ caso contrário}\end{array}\right.$ & $\Fourier{\filter}(k)=\frac{\sin{(k\Delta/2)}}{k\Delta/2}$                                                               \\
-        Filtro gaussiano    & $\filter(\rho_\Delta)=\sqrt{\frac{\gamma_g}{\pi\Delta^2}}e^{-\frac{\gamma\rho_\Delta^2}{\Delta^2}}$                                                & $\Fourier{\filter}(k)=e^{-\frac{k^2\Delta^2}{4\gamma}}$                                                                  \\
+        Filtro gaussiano    & $\filter(\rho_\Delta)=\sqrt{\frac{\gamma_g}{\pi\Delta^2}}\exp{\left\{-\frac{\gamma\rho_\Delta^2}{\Delta^2}\right\}}$                               & $\Fourier{\filter}(k)=\exp{\left\{-\frac{k^2\Delta^2}{4\gamma}\right\}}$                                                 \\
         Filtro espectral    & $\filter(\rho_\Delta)=\frac{\sin{(k_c\rho_\Delta)}}{k_c\rho_\Delta}$                                                                               & $\Fourier{\filter}(k)=\left\{\begin{array}{ll} 1 & \text{ se }|k|\leq k_c \\0& \text{ caso contrário}\end{array}\right.$ \\\hline
     \end{tabular}
     \\Fonte: \citeonline{katopodes2019free} - Adaptado.
@@ -60,7 +60,14 @@ Dessa maneira, algumas propriedades são garantidas, como a conversão da opera�
 \begin{figure}[h!]
     \centering
     \caption{Comportamento dos filtros apresentados na Tabela \ref{tab:filters}.}
-    \includegraphics[width=.85\linewidth]{Figuras/filtros.pdf}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/filtros1.pdf}
+        \caption{Função filtro.}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/filtros2.pdf}
+        \caption{Transformada de Fourier.}
+    \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:Filters}
 \end{figure}
@@ -165,11 +172,11 @@ Para a determinação da constante de Smagorinsky, realiza-se inicialmente uma a
     E(k)\approx\alpha\varepsilon^{2/3}k^{-5/3}\text{,}\label{eq:Ek1}
 \end{equation}
 
-\noindent em que $\alpha$ é a constante de Kolmogoroff e $\varepsilon$ é a dissipação turbulenta. A Figura \ref{fig:EnergiaEspectral} apresenta graficamente o comportamento da energia espectral em função do raio $k$.
+\noindent em que $\alpha$ é a constante de Kolmogoroff e $\varepsilon$ é a dissipação turbulenta. A Figura \ref{fig:EnergiaEspectral} apresenta graficamente o comportamento da energia espectral em função de $k$.
 
 \begin{figure}[h!]
     \centering
-    \caption{Energia espectral de Kolgomorov.}
+    \caption{Amplitude da energia espectral.}
     \includegraphics[width=0.4\linewidth]{Figuras/EnergiaEspectral.pdf}
     \\Fonte: \cite{hughes2000large} - Adaptado.
     \label{fig:EnergiaEspectral}
