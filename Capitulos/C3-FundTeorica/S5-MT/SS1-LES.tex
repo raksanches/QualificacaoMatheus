@@ -18,7 +18,7 @@ Assim, a decomposição das variáveis do problema ($\phi$) se dá por $\phi=\ba
     \Dfil=\left\{\yfil\in\mathbb{R}^{n_{sd}}|\rho_\Delta(\BB{y},\yfil)<\Delta/2\right\}\text{,}
 \end{equation}
 
-\noindent na qual $\Delta/2$ é o raio de abrangência do filtro centrado em $\BB{y}$ e $\rho_\Delta$ é a distância Euclidiana de $\yfil$ à $\BB{y}$.
+\noindent na qual $\Delta/2$ é o raio de abrangência do filtro centrado em $\BB{y}$ e $\rho_\Delta$ é a distância Euclidiana de $\yfil$ à $\BB{y}$ ($\rho_\Delta=\norm{\BB{y}-\yfil}$).
 
 Assim, um filtro $\filter$ deve ser capaz de remover as altas frequências na representação de Fourier e deve ser escolhido de forma a obedecer algumas propriedades, \ie\ a condição de homogeneidade: $\filter(\BB{y},\yfil,t)=\filter(\BB{y}-\yfil,t)$, a condição de isotropia: $\filter(\BB{y}-\yfil,t)=\filter(\rho_\Delta,t)$, a condição de normalização:
 
@@ -26,9 +26,9 @@ Assim, um filtro $\filter$ deve ser capaz de remover as altas frequências na re
     \int_{\Dfil}{\filter(\BB{y}-\yfil,t)d\yfil}=1
 \end{equation}
 
-\noindent e deve possuir um suporte compacto, ou seja, sua influência deve diminuir com o aumento da distância de seu centro.
+\noindent e deve possuir um suporte compacto.
 
-Dessa maneira, algumas propriedades são garantidas, como a conversão da operação de convolução em multiplicação em um espaço de Fourier, a qual é dada por:
+Dessa maneira, algumas propriedades são observadas, como a conversão da operação de convolução em multiplicação em um espaço de Fourier, a qual é dada por:
 
 \begin{subequations}
     \begin{equation}
@@ -48,10 +48,10 @@ Dessa maneira, algumas propriedades são garantidas, como a conversão da opera�
     \caption{Filtros utilizados em \LES.}
     \begin{tabular}{lll}
         \hline
-        Filtro              & Função                                                                                                                                             & Transformada de Fourier                                                                                                  \\\hline
-        \textit{Box filter} & $\filter(\rho_\Delta)=\left\{\begin{array}{ll}\frac{1}{\Delta} & \text{ se }\rho_\Delta\leq\Delta/2 \\0& \text{ caso contrário}\end{array}\right.$ & $\Fourier{\filter}(k)=\frac{\sin{(k\Delta/2)}}{k\Delta/2}$                                                               \\
-        Filtro gaussiano    & $\filter(\rho_\Delta)=\sqrt{\frac{\gamma_g}{\pi\Delta^2}}\exp{\left\{-\frac{\gamma\rho_\Delta^2}{\Delta^2}\right\}}$                               & $\Fourier{\filter}(k)=\exp{\left\{-\frac{k^2\Delta^2}{4\gamma}\right\}}$                                                 \\
-        Filtro espectral    & $\filter(\rho_\Delta)=\frac{\sin{(k_c\rho_\Delta)}}{k_c\rho_\Delta}$                                                                               & $\Fourier{\filter}(k)=\left\{\begin{array}{ll} 1 & \text{ se }|k|\leq k_c \\0& \text{ caso contrário}\end{array}\right.$ \\\hline
+        Filtro              & Função                                                                                                               & Transformada de Fourier                                                  \\\hline
+        \textit{Box filter} & $\filter(\rho_\Delta)=\frac{1}{\Delta}\script{H}(\frac{\Delta}{2}-\rho_\Delta)$                                      & $\Fourier{\filter}(k)=\frac{\sin{(k\Delta/2)}}{k\Delta/2}$               \\
+        Filtro gaussiano    & $\filter(\rho_\Delta)=\sqrt{\frac{\gamma_g}{\pi\Delta^2}}\exp{\left\{-\frac{\gamma\rho_\Delta^2}{\Delta^2}\right\}}$ & $\Fourier{\filter}(k)=\exp{\left\{-\frac{k^2\Delta^2}{4\gamma}\right\}}$ \\
+        Filtro espectral    & $\filter(\rho_\Delta)=\frac{\sin{(k_c\rho_\Delta)}}{k_c\rho_\Delta}$                                                 & $\Fourier{\filter}(k)=\script{H}(k_c-|k|)$                               \\\hline
     \end{tabular}
     \\Fonte: \citeonline{katopodes2019free} - Adaptado.
     \label{tab:filters}
@@ -72,7 +72,25 @@ Dessa maneira, algumas propriedades são garantidas, como a conversão da opera�
     \label{fig:Filters}
 \end{figure}
 
-O valor $\gamma_g$ observado no filtro gaussiano é uma constante, comumente atribuída com o valor de 6,0. Já o parâmetro $k_c$ é o número de onda de corte, dado por $k_c=\pi/\Delta$. Dentre os filtros apresentados, percebe-se que tanto o \textit{box filter} quanto o filtro gaussiano possuem suporte compacto no espaço físico, porém não possuem suporte compacto no espaço de Fourier, o que pode gerar problemas numéricos. Já o filtro espectral possui suporte compacto no espaço de Fourier, porém não possui suporte compacto no espaço físico.
+A função $\script{H}(x)$ é a função de Heaviside, o valor $\gamma_g$ observado no filtro gaussiano é uma constante, comumente atribuída com o valor de 6,0. Já o parâmetro $k_c$ é o número de onda de corte, dado por $k_c=\pi/\Delta$. Dentre os filtros apresentados ainda é possível observar algumas propriedades, as quais são apresentadas na Tabela \ref{tab:filters2}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Propriedades dos filtros utilizados em LES.}
+    \begin{tabular}{llcc}
+        \hline
+        Filtro                               & Propriedade      & Espaço físico & Espaço de Fourier \\\hline
+        \multirow{2}{*}{\textit{Box filter}} & Positividade     & Sim           & Não               \\
+                                             & Suporte compacto & Sim           & Não               \\\hline
+        \multirow{2}{*}{Filtro gaussiano}    & Positividade     & Sim           & Sim               \\
+                                             & Suporte compacto & Não           & Não               \\\hline
+        \multirow{2}{*}{Filtro espectral}    & Positividade     & Não           & Sim               \\
+                                             & Suporte compacto & Não           & Sim               \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:filters2}
+\end{table}
+
 
 Dessa maneira, é possível separar os efeitos das grandes escalas e das pequenas escalas, o que é ilustrado na Figura \ref{fig:EfeitoFiltragem} para uma distribuição de velocidade $\BB{u}$.
 
