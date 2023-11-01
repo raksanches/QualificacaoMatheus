@@ -313,6 +313,18 @@ Já para o caso de escoamentos incompressíveis, verifica-se que $\tr{(\dDef)}=0
     \tens=\mu(\Ny\BB{u}+\NyT\BB{u})-p\BB{I}\text{.}\label{eq:ModConst}
 \end{equation}
 
+%INTERPRETAÇÃO DA EQUAÇÃO DO MOVIMENTO
+Logo é possível substituir o modelo constitutivo na equação da conservação da quantidade de movimento apresentada em \eqref{eq:NS-ALE} e realizar algumas manipulações algébricas para se obter:
+
+\begin{equation}
+    \dBB{u}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}=\BB{f}-\frac{\Ny p}{\rho}+\nu\Lapl\BB{u}\text{.}
+    \label{eq:NS-ALE-2}
+\end{equation}
+
+\noindent em que $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ é o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
+
+Essa equação pode ser interpretada como a segunda lei de Newton para um elemento de fluido, sendo o lado esquerdo referente às acelerações, onde $\dBB{u}$ representa a variação local de velocidade em um elemento ao longo do tempo e $((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}$ representa a aceleração convectiva, referente à variação de velocidade no espaço. Já o lado direito pode ser interpretado como as forças por unidade de massa, sendo $\BB{f}$ devida às forças de corpo, $\Ny p/\rho$ devida à pressão interna do fluido e $\nu\Lapl\BB{u}$ devido às forças viscosas (ou forças de difusão).
+
 % Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
 % 
 % \begin{subequations}
