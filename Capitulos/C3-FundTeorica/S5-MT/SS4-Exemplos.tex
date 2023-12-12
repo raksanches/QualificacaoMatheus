@@ -238,7 +238,20 @@ Devido à simetria do problema, considerou-se somente metade da largura do duto,
 
 Para a simulação numérica, considerou-se um duto com largura $B=35h$, altura $h=1,0$, altura do degrau $S=0,9423$ e comprimento $L_u=0,0$ e $L_d=55,0$. A malha utilizada na discretização do domínio foi construída a partir de elementos tetraédicos de aproximação quadrática de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 57173 elementos finitos e 95334 nós, resultando em 381336 graus de liberdade (conforme ilustrado na Figura \ref{fig:step-mesh}). A simulação foi estabilizada a partir da estabilização SUPG/PSPG.
 
-\textcolor{red}{FIGURA}
+\begin{figure}
+    \centering
+    \caption{Escoamento em degrau invertido - Malha utilizada.}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/malha1.png}
+        \caption{Vista lateral.}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/malha2.png}
+        \caption{Vista superior.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:step-mesh}
+\end{figure}
 
 O número de Reynolds do problema analisado é obtido a partir da equação \eqref{eq:ReyBFS}:
 
