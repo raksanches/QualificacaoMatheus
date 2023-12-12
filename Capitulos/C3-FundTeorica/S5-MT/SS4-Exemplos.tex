@@ -201,3 +201,98 @@ Para comparação com a solução analítica, tomou-se a medida do erro em $L^2$
 
 Assim, observa-se que para o problema estudado, tanto as simulações VMS de aproximação quadrática quanto LES com elemento P2P1 apresentaram boa concordância com o resultado analítico, sendo que ambos apresentaram erros muito próximos entre si, enquanto o VMS de aproximação linear já apresentou um erro maior. Analisando o instante de tempo $t=0.1$ obteve-se um erro $L^2$ de $3,55\times 10^{-2}$, $2,77\times 10^{-3}$ e $3,07\times 10^{-3}$ para as simulações VMS linear, quadrático e LES, respectivamente. Ao verificar a ordem da medida do erro, observa-se que estes valores se encontram próximos ao obtido por \citeonline{zapata2023parallel}. Realizando uma regressão exponencial do tipo \[\norm{\BB{e}}=a\cdot10^{mt}\] para $t\geq 0,1$, encontra-se $m=-9,80$, $m=-10,01$ e $m=-9,60$ para os respectivos modelos.
 \end{comment}
+
+\newpage
+%==================================================================================================
+\subsection{Escoamento em degrau invertido}
+%==================================================================================================
+
+O problema de escoamento em degrau invertido é um problema clássico de escoamento em dutos, sendo bastante utilizado como \textit{benchmark} \cite{armaly1983experimental,chiang1999numerical}. O problema consiste em um escoamento advindo de um duto, cuja seção sofre um alargamento abrupto, conforme ilustrado na Figura \ref{fig:step}. Tal problema tem sua origem nos estudos experimentais de \citeonline{armaly1983experimental} e posteriormente estudado numericamente em problemas tridimensionais por \citeonline{chiang1999numerical}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento em degrau invertido - Desenho esquemático.}
+    \includegraphics[width=.7\linewidth]{Figuras/backwardFacingStep/backwardFacingStep.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:step}
+\end{figure}
+
+Em seu estudo numérico, \citeonline{chiang1999numerical} considerou um duto de largura constante $B$, uma altura de seção transversal a montante de $h$ e comprimento $L_u$, e altura a jusante de $H=h+S$ com comprimento $L_d$. Nas laterais do duto considerou-se paredes aderentes, ou seja, $\BB{u}=\BB{0}$, assim como nas faces do fundo e do topo do duto. Na face de entrada do duto considerou-se uma velocidade prescrita $\BB{u}_\infty=(u_1(x_2,x_3),0,0)\trans$, tal que:
+
+\begin{subequations}
+    \begin{equation}
+        u_1(x_2,x_3)=\frac{48}{\alpha\pi^3}\beta(x_1,x_2)\text{,}
+    \end{equation}
+    \begin{equation}
+        \alpha=1-\frac{192B}{\pi^5}\sum_{i=1,3,5,\hdots}^{\infty}\frac{\tanh{(\xi_i)}}{i^5}\text{,}
+    \end{equation}
+    \begin{equation}
+        \beta(x_1,x_2)=\sum_{i=1,3,5,\hdots}^{\infty}(-1)^{(i-1)/2}\bigpar{1-\frac{\cosh{[(2x_2-1)\xi_i]}}{\cosh{(\xi_i)}}}\frac{\cos{(2x_3\xi_i)}}{i^3}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \xi_i=\frac{\pi i}{2B}\text{.}
+    \end{equation}
+\end{subequations}
+
+Devido à simetria do problema, considerou-se somente metade da largura do duto, impondo-se uma condição de simetria ($u_3=0$) no plano $x_3=0$, o qual é utilizado para observar os resultados do problema.
+
+Para a simulação numérica, considerou-se um duto com largura $B=35h$, altura $h=1,0$, altura do degrau $S=0,9423$ e comprimento $L_u=0,0$ e $L_d=55,0$. A malha utilizada na discretização do domínio foi construída a partir de elementos tetraédicos de aproximação quadrática de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 57173 elementos finitos e 95334 nós, resultando em 381336 graus de liberdade (conforme ilustrado na Figura \ref{fig:step-mesh}). A simulação foi estabilizada a partir da estabilização SUPG/PSPG.
+
+\textcolor{red}{FIGURA}
+
+O número de Reynolds do problema analisado é obtido a partir da equação \eqref{eq:ReyBFS}:
+
+\begin{equation}
+    \Rey=\frac{\rho u_\mathrm{médio}(2h)}{\mu}\text{,}
+    \label{eq:ReyBFS}
+\end{equation}
+
+\noindent sendo $u_\mathrm{médio}=1,0$ a velocidade média na região de entrada do duto. Assim, sendo $\rho=1,0$, considera-se os valores de viscosidade dinâmica $\mu=0,02$, $5,1414\times10^{-3}$ e $2,0\times10^{-3}$, o que resulta em $\Rey=100$, $389$ e $1000$, respectivamente. O passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rho_\infty=0,0$.
+
+Além disso, uma simulação bidimensional foi conduzida para o $\Rey=1000$, uma vez que \citeonline{chiang1999numerical} observaram uma discrepância entre os valores de simulações bidimensionais e tridimensionais para esse número de Reynolds. Como mencionado pelos autores, essa diferença se dá pela influência da parede aderente nos resultados, o que não é capturada pela simulação bidimensional.
+
+A malha utilizada para a simulação bidimensional foi construída a partir de elementos triangulares de aproximação quadrática de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 836 elementos finitos e 1883 nós, resultando em 5649 graus de liberdade.
+
+A Figura \ref{fig:BFSvel} apresenta os perfis de velocidade para diferentes distâncias ao longo da linha de fluxo para as três simulações conduzidas.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento em degrau invertido - Perfis de velocidade.}
+    \begin{subfigure}{0.75\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/Re100.pdf}
+        \caption{$\Rey=100$}
+    \end{subfigure}
+    \begin{subfigure}{0.75\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/Re389.pdf}
+        \caption{$\Rey=389$}
+    \end{subfigure}
+    \begin{subfigure}{0.75\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/Re1000.pdf}
+        \caption{$\Rey=1000$}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/legenda.pdf}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:BFSvel}
+\end{figure}
+
+Outra simulação realizada trata-se do problema bidimensional com $S=1$ e $\Rey=800$, onde os autores observaram os perfis de velocidade para as distâncias $x_1=14$ e $x_1=30$, além da distribuição de pressões ao longo do fundo e do topo do canal. Como a pressão de estagnação do problema simulado é nula na face de saída do duto, foi apenas adicionada uma pressão constante nos resultados de referência para fins de comparação, de forma que as pressões sejam equivalentes nesse ponto especificado. As Figuras \ref{fig:BFS800-vel} e \ref{fig:BFS800-pre} apresentam os resultados obtidos para a simulação bidimensional.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento em degrau invertido - Perfis de velocidade para $\Rey=800$.}
+    \includegraphics[width=.6\linewidth]{Figuras/backwardFacingStep/resultado2D-2.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:BFS800-vel}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento em degrau invertido - Distribuição de pressões para $\Rey=800$.}
+    \includegraphics[width=.6\linewidth]{Figuras/backwardFacingStep/resultado2D-1.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:BFS800-pre}
+\end{figure}
+
+Assim, percebe-se boa concordância com os resultados obtidos pela referência, tanto para os perfis de velocidade em $\Rey=100$, $389$, $800$ e $1000$, quanto para a distribuição de pressões em $\Rey=800$.
