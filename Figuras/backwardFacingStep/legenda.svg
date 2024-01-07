@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="83.785316mm"
-   height="10.028661mm"
-   viewBox="0 0 83.785317 10.028661"
+   width="85.19091mm"
+   height="16.663919mm"
+   viewBox="0 0 85.190911 16.66392"
    version="1.1"
    id="svg9112"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="legenda.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,23 +26,19 @@
      showgrid="false"
      inkscape:lockguides="true"
      inkscape:zoom="2.1089995"
-     inkscape:cx="91.038428"
-     inkscape:cy="41.014709"
+     inkscape:cx="165.00715"
+     inkscape:cy="22.285449"
      inkscape:window-width="1920"
-     inkscape:window-height="997"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
        id="grid10892"
-       originx="2.3812498"
-       originy="-5.5425026e-06"
-       spacingy="1"
-       spacingx="1"
-       units="mm"
-       visible="false" />
+       originx="2.3812497"
+       originy="6.6404213" />
   </sodipodi:namedview>
   <defs
      id="defs9109">
@@ -1267,16 +1263,77 @@
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1238-3">
+      <g
+         id="g1242-5"
+         transform="matrix(3.7795276,0,0,3.7795276,1190.5139,-489.8744)">
+        <rect
+           x="-55.433872"
+           y="129.61259"
+           width="215.89999"
+           height="78.581245"
+           id="rect1240-1"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2318">
+      <g
+         id="g2322"
+         transform="matrix(3.7795276,0,0,3.7795276,2394.9577,-402.25985)">
+        <rect
+           x="-59.784649"
+           y="106.43125"
+           width="260.08542"
+           height="84.137497"
+           id="rect2320"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2312">
+      <g
+         id="g2316"
+         transform="matrix(3.7795276,0,0,3.7795276,2394.9577,-402.25985)">
+        <rect
+           x="-59.784649"
+           y="106.43125"
+           width="260.08542"
+           height="84.137497"
+           id="rect2314"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2306">
+      <g
+         id="g2310"
+         transform="matrix(3.7795276,0,0,3.7795276,2394.9577,-402.25985)">
+        <rect
+           x="-59.784649"
+           y="106.43125"
+           width="260.08542"
+           height="84.137497"
+           id="rect2308"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
   </defs>
   <g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-41.23489,-148.39232)">
+     transform="translate(-41.23489,-141.7519)">
     <g
        id="g563"
        transform="matrix(0.35277773,0,0,0.26458333,-425.84282,75.998109)"
-       clip-path="url(#clipPath1238)">
+       clip-path="url(#clipPath1238)"
+       style="stroke:#4472c4;stroke-opacity:1">
       <path
          d="m 1325,280 h 25"
          stroke="#000000"
@@ -1286,7 +1343,8 @@
          stroke-miterlimit="10"
          fill="none"
          fill-rule="evenodd"
-         id="path561" />
+         id="path561"
+         style="stroke:#4472c4;stroke-opacity:1" />
     </g>
     <g
        id="g579"
@@ -1308,9 +1366,32 @@
        y="151.01059"
        id="text1448"><tspan
          sodipodi:role="line"
-         id="tspan10859"
-         x="52.831768"
-         y="151.01059">Autor - 3D</tspan></text>
+         id="tspan10348">Qua - 3D</tspan></text>
+    <g
+       id="g563-8"
+       transform="matrix(0.35277773,0,0,0.26458333,-425.77732,69.357693)"
+       clip-path="url(#clipPath1238-3)"
+       style="stroke:#ed7d31;stroke-opacity:1">
+      <path
+         d="m 1325,280 h 25"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path561-8"
+         style="stroke:#ed7d31;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.165"
+       x="52.897266"
+       y="144.37016"
+       id="text1448-85"><tspan
+         sodipodi:role="line"
+         id="tspan10346">P2P1 - 3D</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.165"
@@ -1318,9 +1399,7 @@
        y="157.62517"
        id="text1448-1"><tspan
          sodipodi:role="line"
-         id="tspan10857"
-         x="52.831768"
-         y="157.62517">Autor - 2D</tspan></text>
+         id="tspan10350">Qua - 2D</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.165"
@@ -1328,13 +1407,14 @@
        y="157.68718"
        id="text1448-8"><tspan
          sodipodi:role="line"
-         id="tspan2"
+         id="tspan10890"
          x="80.459717"
-         y="157.68718">Chiang, Sheu (1999) - 2D</tspan></text>
+         y="157.68718">Chiang, Sheu (1998) - 2D</tspan></text>
     <g
        id="g8782-3"
        transform="matrix(0.26458333,0,0,0.26458333,-785.8526,68.532016)"
-       clip-path="url(#clipPath10299-7)">
+       clip-path="url(#clipPath10299-7)"
+       style="stroke:#4472c4;stroke-opacity:1">
       <path
          d="m 3127,330 h 34"
          stroke="#000000"
@@ -1345,7 +1425,8 @@
          stroke-dasharray="4, 4"
          fill="none"
          fill-rule="evenodd"
-         id="path8780-7" />
+         id="path8780-7"
+         style="stroke:#4472c4;stroke-opacity:1" />
     </g>
     <g
        id="g8790-3"
@@ -1367,8 +1448,8 @@
        y="151.0726"
        id="text1448-8-3"><tspan
          sodipodi:role="line"
-         id="tspan1"
+         id="tspan10888"
          x="80.459717"
-         y="151.0726">Chiang, Sheu (1999) - 3D</tspan></text>
+         y="151.0726">Chiang, Sheu (1998) - 3D</tspan></text>
   </g>
 </svg>

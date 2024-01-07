@@ -2,11 +2,11 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="122.18473mm"
-   height="7.9030499mm"
-   viewBox="0 0 122.18473 7.9030498"
+   width="157.81813mm"
+   height="14.519357mm"
+   viewBox="0 0 157.81813 14.519356"
    version="1.1"
-   id="svg18133"
+   id="svg7484"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="legenda.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -14,7 +14,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview18135"
+     id="namedview7486"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -24,9 +24,10 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.1089995"
-     inkscape:cx="223.8028"
-     inkscape:cy="-9.9573279"
+     inkscape:lockguides="true"
+     inkscape:zoom="1.4912879"
+     inkscape:cx="266.88341"
+     inkscape:cy="16.764034"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -35,428 +36,668 @@
      inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
-       id="grid19044"
-       originx="-3.7041724"
-       originy="-0.034457176" />
+       id="grid8919"
+       originx="-1.6000001e-07"
+       originy="0.0017273649" />
   </sodipodi:namedview>
   <defs
-     id="defs18130">
+     id="defs7481">
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18876">
+       id="clipPath8419">
       <g
-         id="g18880"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8423"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18878"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8421"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18882">
+       id="clipPath8425">
       <g
-         id="g18886"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8429"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18884"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8427"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18888">
+       id="clipPath8431">
       <g
-         id="g18892"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8435"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18890"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8433"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18894">
+       id="clipPath8437">
       <g
-         id="g18898"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8441"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18896"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8439"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18900">
+       id="clipPath8443">
       <g
-         id="g18904"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8447"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18902"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8445"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18906">
+       id="clipPath8449">
       <g
-         id="g18910"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8453"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18908"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8451"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18912">
+       id="clipPath8455">
       <g
-         id="g18916"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8459"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18914"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8457"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18918">
+       id="clipPath8461">
       <g
-         id="g18922"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8465"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18920"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8463"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18924">
+       id="clipPath8467">
       <g
-         id="g18928"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8471"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18926"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8469"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18930">
+       id="clipPath8473">
       <g
-         id="g18934"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8477"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18932"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8475"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18936">
+       id="clipPath8479">
       <g
-         id="g18940"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8483"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18938"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8481"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18942">
+       id="clipPath8485">
       <g
-         id="g18946"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8489"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18944"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8487"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18948">
+       id="clipPath8491">
       <g
-         id="g18952"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8495"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18950"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8493"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18954">
+       id="clipPath8497">
       <g
-         id="g18958"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8501"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18956"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8499"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18960">
+       id="clipPath8503">
       <g
-         id="g18964"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8507"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18962"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8505"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18966">
+       id="clipPath8509">
       <g
-         id="g18970"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8513"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18968"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8511"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18972">
+       id="clipPath8515">
       <g
-         id="g18976"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8519"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18974"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8517"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18978">
+       id="clipPath8521">
       <g
-         id="g18982"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8525"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18980"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8523"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18984">
+       id="clipPath8527">
       <g
-         id="g18988"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8531"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18986"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8529"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18990">
+       id="clipPath8533">
       <g
-         id="g18994"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8537"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18992"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8535"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath18996">
+       id="clipPath8539">
       <g
-         id="g19000"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8543"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect18998"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8541"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19002">
+       id="clipPath8545">
       <g
-         id="g19006"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8549"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19004"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8547"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19008">
+       id="clipPath8551">
       <g
-         id="g19012"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8555"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19010"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8553"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19014">
+       id="clipPath8557">
       <g
-         id="g19018"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8561"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19016"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8559"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19020">
+       id="clipPath8563">
       <g
-         id="g19024"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8567"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19022"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8565"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19026">
+       id="clipPath8569">
       <g
-         id="g19030"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8573"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19028"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8571"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19032">
+       id="clipPath8575">
       <g
-         id="g19036"
-         transform="matrix(3.7795276,0,0,3.7795276,351.47167,-185.24346)">
+         id="g8579"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19034"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8577"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath19038">
+       id="clipPath8581">
       <g
-         id="g19042">
+         id="g8585"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
         <rect
-           x="8.6064529"
-           y="65.151917"
-           width="152.39999"
-           height="150.01875"
-           id="rect19040"
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8583"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8587">
+      <g
+         id="g8591"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8589"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8593">
+      <g
+         id="g8597"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8595"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8599">
+      <g
+         id="g8603"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8601"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8605">
+      <g
+         id="g8609"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8607"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8611">
+      <g
+         id="g8615"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8613"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8617">
+      <g
+         id="g8621"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8619"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8623">
+      <g
+         id="g8627"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8625"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8629">
+      <g
+         id="g8633"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8631"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8635">
+      <g
+         id="g8639"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8637"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8641">
+      <g
+         id="g8645"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8643"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8647">
+      <g
+         id="g8651"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8649"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8653">
+      <g
+         id="g8657"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8655"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8659">
+      <g
+         id="g8663"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8661"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8665">
+      <g
+         id="g8669"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8667"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8671">
+      <g
+         id="g8675"
+         transform="matrix(3.7795276,0,0,3.7795276,2298.7757,-455.95405)">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8673"
+           style="stroke-width:0.264583" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8677">
+      <g
+         id="g8681">
+        <rect
+           x="-104.98024"
+           y="120.63784"
+           width="200.02499"
+           height="210.07916"
+           id="rect8679"
            style="stroke-width:0.264583" />
       </g>
     </clipPath>
@@ -465,25 +706,26 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-34.535625,-203.8978)">
+     transform="translate(65.292737,-313.58712)">
     <g
-       id="g18483"
-       transform="matrix(0.26458333,0,0,0.26458333,-92.993546,49.012333)"
-       clip-path="url(#clipPath18930)">
+       id="g7866"
+       transform="matrix(0.26458333,0,0,0.26458333,-608.21773,120.63784)"
+       clip-path="url(#clipPath8521)">
       <path
-         d="m 485.5,587.5 3,3 -3,3 -3,-3 z"
+         d="m 2072,737 -6,-6 m 0,6 6,-6"
          stroke="#000000"
+         stroke-width="1.66667"
          stroke-linejoin="round"
          stroke-miterlimit="10"
-         id="path18481" />
+         fill="none"
+         id="path7864" />
     </g>
     <g
-       id="g18499"
-       transform="matrix(0.26458331,0,0,0.26458333,-88.231033,49.082092)"
-       clip-path="url(#clipPath18918)"
-       style="stroke-width:1.88976;stroke-dasharray:none">
+       id="g7882"
+       transform="matrix(0.26458333,0,0,0.26458333,-596.34707,120.60838)"
+       clip-path="url(#clipPath8509)">
       <path
-         d="m 636,590 h 33"
+         d="m 2208,735 h 33"
          stroke="#ed7d31"
          stroke-width="2"
          stroke-linecap="round"
@@ -491,16 +733,14 @@
          stroke-miterlimit="10"
          fill="none"
          fill-rule="evenodd"
-         id="path18497"
-         style="stroke-width:1.88976;stroke-dasharray:none" />
+         id="path7880" />
     </g>
     <g
-       id="g18515"
-       transform="matrix(0.2572338,0,0,0.26458333,-126.2649,54.373759)"
-       clip-path="url(#clipPath18906)"
-       style="stroke-width:1.91657;stroke-dasharray:none">
+       id="g7898"
+       transform="matrix(0.26458333,0,0,0.26458333,-583.1179,120.60838)"
+       clip-path="url(#clipPath8497)">
       <path
-         d="m 802,590 h 34"
+         d="m 2362,735 h 34"
          stroke="#4472c4"
          stroke-width="2"
          stroke-linecap="round"
@@ -508,15 +748,60 @@
          stroke-miterlimit="10"
          fill="none"
          fill-rule="evenodd"
-         id="path18513"
-         style="stroke-width:1.91657;stroke-dasharray:none" />
+         id="path7896" />
     </g>
     <g
-       id="g18539"
-       transform="matrix(0.26458333,0,0,0.26458333,-48.808129,48.817509)"
-       clip-path="url(#clipPath18888)">
+       id="g7914"
+       transform="matrix(0.26458333,0,0,0.26458333,-608.21773,120.63784)"
+       clip-path="url(#clipPath8485)">
       <path
-         d="m 636,611 h 33"
+         d="m 2053,756 h 34"
+         stroke="#a5a5a5"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path7912" />
+    </g>
+    <g
+       id="g7930"
+       transform="matrix(0.26458333,0,0,0.26458333,-596.34707,120.60838)"
+       clip-path="url(#clipPath8473)">
+      <path
+         d="m 2208,756 h 33"
+         stroke="#70ad47"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path7928" />
+    </g>
+    <g
+       id="g7946"
+       transform="matrix(0.26458333,0,0,0.26458333,-583.1179,120.60838)"
+       clip-path="url(#clipPath8461)">
+      <path
+         d="m 2362,756 h 34"
+         stroke="#ed7d31"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-dasharray="4, 4"
+         fill="none"
+         fill-rule="evenodd"
+         id="path7944" />
+    </g>
+    <g
+       id="g7962"
+       transform="matrix(0.26458333,0,0,0.26458333,-608.21773,120.63784)"
+       clip-path="url(#clipPath8449)">
+      <path
+         d="m 2053,777 h 34"
          stroke="#4472c4"
          stroke-width="2"
          stroke-linecap="round"
@@ -525,15 +810,15 @@
          stroke-dasharray="4, 4"
          fill="none"
          fill-rule="evenodd"
-         id="path18537" />
+         id="path7960" />
     </g>
     <g
-       id="g18555"
-       transform="matrix(0.26458333,0,0,0.26458333,-92.728962,43.525842)"
-       clip-path="url(#clipPath18876)">
+       id="g7978"
+       transform="matrix(0.26458333,0,0,0.26458333,-596.34707,120.60838)"
+       clip-path="url(#clipPath8437)">
       <path
-         d="m 802,611 h 34"
-         stroke="#ed7d31"
+         d="m 2208,777 h 33"
+         stroke="#a5a5a5"
          stroke-width="2"
          stroke-linecap="round"
          stroke-linejoin="round"
@@ -541,62 +826,114 @@
          stroke-dasharray="4, 4"
          fill="none"
          fill-rule="evenodd"
-         id="path18553" />
+         id="path7976" />
+    </g>
+    <g
+       id="g7994"
+       transform="matrix(0.26458333,0,0,0.26458333,-583.1179,120.60838)"
+       clip-path="url(#clipPath8425)">
+      <path
+         d="m 2362,777 h 34"
+         stroke="#70ad47"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-dasharray="4, 4"
+         fill="none"
+         fill-rule="evenodd"
+         id="path7992" />
     </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="38.768951"
-       y="206.50917"
+       x="-54.897163"
+       y="316.15717"
        id="text19100"><tspan
          sodipodi:role="line"
          id="tspan19098"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-         x="38.768951"
-         y="206.50917">Ghia, Ghia e Shin (1982)</tspan></text>
+         x="-54.897163"
+         y="316.15717">Ghia, Ghia e Shin (1982)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="90.090538"
-       y="206.46611"
-       id="text19517"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-1.9804949"
+       y="316.15717"
+       id="text19100-0"><tspan
          sodipodi:role="line"
-         id="tspan19515"
-         style="stroke-width:0.264583"
-         x="90.090538"
-         y="206.46611">DNS - Linear</tspan></text>
+         id="tspan9091"
+         x="-1.9804949"
+         y="316.15717">SUPG/PSPG - DNS - Qua</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none"
-       x="90.090538"
-       y="211.60448"
-       id="text19521"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="52.288372"
+       y="321.45056"
+       id="text19100-0-0"><tspan
          sodipodi:role="line"
-         id="tspan19519"
-         style="stroke-width:0.5"
-         x="90.090538"
-         y="211.60448">DNS - Quadrático</tspan></text>
+         id="tspan9122"
+         x="52.288372"
+         y="321.45056">SUPG/PSPG - LES - Qua</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none"
-       x="129.79182"
-       y="206.46611"
-       id="text19525"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="52.288372"
+       y="316.15717"
+       id="text19100-0-7"><tspan
          sodipodi:role="line"
-         id="tspan19523"
-         style="stroke-width:0.5"
-         x="129.79182"
-         y="206.46611">LES - Linear</tspan></text>
+         id="tspan9093"
+         x="52.288372"
+         y="316.15717">SUPG/PSPG - DNS - Lin</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-dasharray:none"
-       x="129.79182"
-       y="211.60448"
-       id="text19529"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-54.867878"
+       y="328.06342"
+       id="text19100-0-7-5"><tspan
          sodipodi:role="line"
-         id="tspan19527"
-         style="stroke-width:0.5"
-         x="129.79182"
-         y="211.60448">LES - Quadrático</tspan></text>
+         id="tspan9151"
+         x="-54.867878"
+         y="328.06342">SUPG/PSPG - LES - Lin</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-54.724907"
+       y="321.44882"
+       id="text19100-0-76"><tspan
+         sodipodi:role="line"
+         id="tspan9060"
+         x="-54.724907"
+         y="321.44882">VMS - DNS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-1.8082399"
+       y="328.06342"
+       id="text19100-0-76-2"><tspan
+         sodipodi:role="line"
+         id="tspan9180"
+         x="-1.8082399"
+         y="328.06342">VMS - LES</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-1.8082399"
+       y="321.44882"
+       id="text19100-0-76-0"><tspan
+         sodipodi:role="line"
+         id="tspan9089"
+         x="-1.8082399"
+         y="321.44882">P2P1 - DNS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="52.174683"
+       y="328.06342"
+       id="text19100-0-76-0-3"><tspan
+         sodipodi:role="line"
+         id="tspan9209"
+         x="52.174683"
+         y="328.06342">P2P1 - LES</tspan></text>
   </g>
 </svg>
