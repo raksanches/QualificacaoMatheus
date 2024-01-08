@@ -129,7 +129,7 @@ O primeiro exemplo utilizado para verificação do código utilizando o acoplame
     \label{fig:cavity2D}
 \end{figure}
 
-Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[0,60]$ discretizado em $\Delta t=0,1$, sendo o domínio computacional referente ao fluido performado com uma malha contendo 1845 elementos, 3859 nós, o que resulta em 15436 graus de liberdade. Já o domínio computacional da casca foi realizada com uma malha contendo 60 elementos, 155 nós, resultando em 1085 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios. A integração temporal foi feita considerando-se $\rho_\infty=0$, pois, como relatado por \citeonline{forster2007artificial}, integradores temporais de segunda ordem levaram a instabilidades imediatas. Os termos estabilizadores considerados foram o PSPG e SUPG.
+Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[0,60]$ discretizado em $\Delta t=0,1$, sendo o domínio computacional referente ao fluido construído das seguintes formas: uma malha contendo 1957 elementos tetraédricos de aproximação linear e quadrática, sendo que a malha linear possui 707 nós e a malha quadrática possui 4071 nós, o que resulta em 2828 e 16284 graus de liberdade, respectivamente. Uma outra malha utilizada é construída a partir de elementos P2P1, com 1957 elementos, 707 nós para interpolação do campo de pressões e 4071 nós para interpolação do campo de velocidades, resultando em 12920 graus de liberdade. Já o domínio computacional da casca foi realizada com uma malha contendo 64 elementos, 165 nós, resultando em 1155 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios. A integração temporal foi feita considerando-se $\rho_\infty=0$, pois, como relatado por \citeonline{forster2007artificial}, integradores temporais de segunda ordem levaram a instabilidades imediatas. Para as simulações linear e quadrática considerou-se a estabilização SUPG/PSPG e a P2P1 não foi estabilizada.
 
 \begin{figure}[h!]
     \centering
@@ -155,12 +155,12 @@ Observou-se, portanto o deslocamento vertical do nó $A$, referente ao centro da
 \begin{figure}[h!]
     \centering
     \caption{Cavidade bidimensional - Deslocamento vertical do nó $A$.}
-    \includegraphics[width=.8\linewidth]{Figuras/FSI-Cavity2D/resultados.pdf}
+    \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/resultados.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:cavity2D-res}
 \end{figure}
 
-A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
+A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para a simulação quadrática os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
 
 \begin{figure}[h!]
     \centering
@@ -187,6 +187,8 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, ass
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:cavity2D-time}
 \end{figure}
+
+\textcolor{red}{DISCUSSÃO DOS RESULTADOS}
 
 %==================================================================================================
 \subsection{\textit{Flutter} em painel flexível}

@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.0544998"
-     inkscape:cx="465.62362"
-     inkscape:cy="200.09488"
+     inkscape:cx="438.12242"
+     inkscape:cy="178.28358"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -2016,861 +2016,984 @@
     <g
        id="g2145"
        transform="matrix(0.26458333,0,0,0.26458333,-606.03178,138.12013)"
-       clip-path="url(#clipPath3122)">
+       clip-path="url(#clipPath3122)"
+       style="stroke:#000000;stroke-opacity:1">
       <path
          d="m 1572.51,121.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1901" />
+         id="path1901"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1598.51,112.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1903" />
+         id="path1903"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1617.51,102.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1905" />
+         id="path1905"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1635.51,91.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1907" />
+         id="path1907"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1644.51,81.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1909" />
+         id="path1909"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1645.51,62.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1911" />
+         id="path1911"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1637.51,52.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1913" />
+         id="path1913"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1620.51,39.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1915" />
+         id="path1915"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1599.51,29.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1917" />
+         id="path1917"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1576.51,19.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1919" />
+         id="path1919"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1555.51,13.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1921" />
+         id="path1921"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1645.51,232.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1923" />
+         id="path1923"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1640.51,225.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1925" />
+         id="path1925"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1643.51,211.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1927" />
+         id="path1927"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1647.51,199.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1929" />
+         id="path1929"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1657.51,179.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1931" />
+         id="path1931"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1675.51,156.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1933" />
+         id="path1933"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1693.51,137.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1935" />
+         id="path1935"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1708.51,115.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1937" />
+         id="path1937"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1715.51,100.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1939" />
+         id="path1939"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1713.51,88.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1941" />
+         id="path1941"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1702.51,70.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1943" />
+         id="path1943"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1685.51,52.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1945" />
+         id="path1945"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1670.51,35.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1947" />
+         id="path1947"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1655.51,24.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1949" />
+         id="path1949"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1646.51,12.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1951" />
+         id="path1951"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1736.51,232.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1953" />
+         id="path1953"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1736.51,219.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1955" />
+         id="path1955"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1741.51,206.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1957" />
+         id="path1957"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1750.51,189.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1959" />
+         id="path1959"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1762.51,172.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1961" />
+         id="path1961"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1778.51,150.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1963" />
+         id="path1963"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1791.51,131.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1965" />
+         id="path1965"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1798.51,114.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1967" />
+         id="path1967"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1800.51,98.5001 h 6 V 104.5 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1969" />
+         id="path1969"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1794.51,83.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1971" />
+         id="path1971"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1780.51,62.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1973" />
+         id="path1973"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1767.51,48.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1975" />
+         id="path1975"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1754.51,34.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1977" />
+         id="path1977"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1737.51,13.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1979" />
+         id="path1979"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1831.51,223.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1981" />
+         id="path1981"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1836.51,207.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1983" />
+         id="path1983"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1843.51,192.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1985" />
+         id="path1985"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1854.51,175.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1987" />
+         id="path1987"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1866.51,158.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1989" />
+         id="path1989"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1877.51,144.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1991" />
+         id="path1991"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1883.51,127.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1993" />
+         id="path1993"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1886.51,110.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1995" />
+         id="path1995"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1885.51,95.5001 h 6 V 101.5 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1997" />
+         id="path1997"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1874.51,77.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path1999" />
+         id="path1999"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1863.51,59.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2001" />
+         id="path2001"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1850.51,45.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2003" />
+         id="path2003"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1839.51,27.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2005" />
+         id="path2005"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1919.51,233.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2007" />
+         id="path2007"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1928.51,220.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2009" />
+         id="path2009"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1939.51,199.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2011" />
+         id="path2011"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1949.51,176.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2013" />
+         id="path2013"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1962.51,156.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2015" />
+         id="path2015"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1970.51,134.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2017" />
+         id="path2017"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1974.51,115.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2019" />
+         id="path2019"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1970.51,95.5001 h 6 V 101.5 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2021" />
+         id="path2021"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1960.51,77.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2023" />
+         id="path2023"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1951.51,62.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2025" />
+         id="path2025"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1940.51,45.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2027" />
+         id="path2027"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1928.51,26.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2029" />
+         id="path2029"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 1919.51,14.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2031" />
+         id="path2031"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2010.51,231.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2033" />
+         id="path2033"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2023.51,216.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2035" />
+         id="path2035"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2032.51,197.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2037" />
+         id="path2037"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2046.51,176.5 h 5.99 v 6 h -5.99 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2039" />
+         id="path2039"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2055.51,160.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2041" />
+         id="path2041"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2060.51,141.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2043" />
+         id="path2043"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2063.51,118.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2045" />
+         id="path2045"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2058.51,99.5001 h 6 V 105.5 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2047" />
+         id="path2047"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2049.51,76.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2049" />
+         id="path2049"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2037.51,57.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2051" />
+         id="path2051"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2024.51,36.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2053" />
+         id="path2053"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2009.51,13.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2055" />
+         id="path2055"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2100.51,233.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2057" />
+         id="path2057"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2115.51,216.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2059" />
+         id="path2059"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2123.51,204.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2061" />
+         id="path2061"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2133.51,186.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2063" />
+         id="path2063"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2143.51,166.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2065" />
+         id="path2065"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2151.51,145.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2067" />
+         id="path2067"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2152.51,128.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2069" />
+         id="path2069"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2148.51,99.5001 h 6 V 105.5 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2071" />
+         id="path2071"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2136.51,76.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2073" />
+         id="path2073"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2128.51,58.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2075" />
+         id="path2075"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2116.51,37.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2077" />
+         id="path2077"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2101.51,13.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2079" />
+         id="path2079"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2203.51,219.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2081" />
+         id="path2081"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2216.51,198.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2083" />
+         id="path2083"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2228.51,182.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2085" />
+         id="path2085"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2237.51,155.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2087" />
+         id="path2087"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2242.51,130.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2089" />
+         id="path2089"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2240.51,113.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2091" />
+         id="path2091"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2232.51,83.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2093" />
+         id="path2093"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2222.51,60.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2095" />
+         id="path2095"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2210.51,40.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2097" />
+         id="path2097"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2283.51,234.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2099" />
+         id="path2099"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2301.51,210.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2101" />
+         id="path2101"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2314.51,188.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2103" />
+         id="path2103"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2324.51,165.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2105" />
+         id="path2105"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2330.51,144.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2107" />
+         id="path2107"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2332.51,129.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2109" />
+         id="path2109"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2332.51,103.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2111" />
+         id="path2111"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2323.51,79.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2113" />
+         id="path2113"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2308.51,50.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2115" />
+         id="path2115"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2297.51,29.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2117" />
+         id="path2117"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2283.51,13.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2119" />
+         id="path2119"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2374.51,232.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2121" />
+         id="path2121"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2388.51,216.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2123" />
+         id="path2123"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2403.51,194.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2125" />
+         id="path2125"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2414.51,167.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2127" />
+         id="path2127"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2420.51,144.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2129" />
+         id="path2129"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2422.51,126.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2131" />
+         id="path2131"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2420.51,102.5 h 6 v 6 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2133" />
+         id="path2133"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2413.51,79.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2135" />
+         id="path2135"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2405.51,59.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2137" />
+         id="path2137"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2396.51,40.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2139" />
+         id="path2139"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2386.51,25.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2141" />
+         id="path2141"
+         style="stroke:#000000;stroke-opacity:1" />
       <path
          d="m 2374.51,13.5001 h 6 v 5.9998 h -6 z"
          stroke="#ff0000"
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path2143" />
+         id="path2143"
+         style="stroke:#000000;stroke-opacity:1" />
     </g>
     <g
        inkscape:label=""

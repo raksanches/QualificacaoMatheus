@@ -268,20 +268,20 @@ Além disso, uma simulação bidimensional foi conduzida para o $\Rey=1000$, uma
 
 A malha utilizada para a simulação bidimensional foi construída a partir de elementos triangulares de aproximação quadrática de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 836 elementos finitos e 1883 nós, resultando em 5649 graus de liberdade.
 
-A Figura \ref{fig:BFSvel} apresenta os perfis de velocidade para diferentes distâncias ao longo da linha de fluxo para as três simulações conduzidas.
+A Figura \ref{fig:BFSvel} apresenta os perfis de velocidade para diferentes distâncias ao longo da linha de fluxo para as três simulações conduzidas. Já a Figura \ref{fig:BFSpre} apresenta as distribuições de pressão ao longo do fundo e do topo do duto para as três simulações.
 
 \begin{figure}[h!]
     \centering
     \caption{Escoamento em degrau invertido - Perfis de velocidade.}
-    \begin{subfigure}{0.75\textwidth}
+    \begin{subfigure}{0.9\textwidth}
         \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/Re100.pdf}
         \caption{$\Rey=100$}
     \end{subfigure}
-    \begin{subfigure}{0.75\textwidth}
+    \begin{subfigure}{0.9\textwidth}
         \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/Re389.pdf}
         \caption{$\Rey=389$}
     \end{subfigure}
-    \begin{subfigure}{0.75\textwidth}
+    \begin{subfigure}{0.9\textwidth}
         \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/Re1000.pdf}
         \caption{$\Rey=1000$}
     \end{subfigure}
@@ -290,6 +290,25 @@ A Figura \ref{fig:BFSvel} apresenta os perfis de velocidade para diferentes dist
     \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:BFSvel}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento em degrau invertido - Distribuição de pressões.}
+    \begin{subfigure}{0.65\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/pre100.pdf}
+        \caption{$\Rey=100$}
+    \end{subfigure}
+    \begin{subfigure}{0.65\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/pre389.pdf}
+        \caption{$\Rey=389$}
+    \end{subfigure}
+    \begin{subfigure}{0.65\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/backwardFacingStep/pre1000.pdf}
+        \caption{$\Rey=1000$}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:BFSpre}
 \end{figure}
 
 Outra simulação realizada trata-se do problema bidimensional com $S=1$ e $\Rey=800$, onde os autores observaram os perfis de velocidade para as distâncias $x_1=14$ e $x_1=30$, além da distribuição de pressões ao longo do fundo e do topo do canal. Como a pressão de estagnação do problema simulado é nula na face de saída do duto, foi apenas adicionada uma pressão constante nos resultados de referência para fins de comparação, de forma que as pressões sejam equivalentes nesse ponto especificado. As Figuras \ref{fig:BFS800-vel} e \ref{fig:BFS800-pre} apresentam os resultados obtidos para a simulação bidimensional.
@@ -309,7 +328,5 @@ Outra simulação realizada trata-se do problema bidimensional com $S=1$ e $\Rey
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:BFS800-pre}
 \end{figure}
-
-\textcolor{red}{PLOTAR TAMBÉM UM RESULTADO DO CAMPO DE PRESSÕES NO 3D}
 
 Assim, percebe-se que, em relação ao campo de velocidades, todas as simulações possuíram resultados satisfatórios em todos os números de Reynolds analisados, tanto em simulações bidimensionais quanto tridimensionais. No entanto, para o campo de pressões, observa-se que os elementos P2P1 apresentaram oscilações espúrias, principalmente próximo à face de entrada, o que não é observado na simulação estabilizada por PSPG.
