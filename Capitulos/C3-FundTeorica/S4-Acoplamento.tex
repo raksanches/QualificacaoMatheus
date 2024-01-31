@@ -25,7 +25,7 @@ Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de N
 \noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}^k$ o vetor com todos os parâmetros nodais das funções teste e $\DOF^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\DOF^k$) por meio da solução do sistema:
 
 \begin{equation}
-    \BB{H}^k\cdot\Delta\DOF^k=-\res^k\text{,}
+    \BB{H}^k\Delta\DOF^k=-\res^k\text{,}
 \end{equation}
 
 \noindent em que $\res^k=\partial\script{G}/\partial\BB{\Psi}^k$ é o vetor resíduo.
@@ -37,7 +37,7 @@ Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cada 
         \BB{H}_{11}^k & \BB{H}_{12}^k & \BB{H}_{13}^k \\
         \BB{H}_{21}^k & \BB{H}_{22}^k & \BB{H}_{23}^k \\
         \BB{H}_{31}^k & \BB{H}_{32}^k & \BB{H}_{33}^k
-    \end{bmatrix}\cdot\begin{bmatrix}
+    \end{bmatrix}\begin{bmatrix}
         \Delta\DOF_1^k \\\Delta\DOF_2^k\\\Delta\DOF_3^k
     \end{bmatrix}=-\begin{bmatrix}
         \res_1^k \\\res_2^k\\\res_3^k
@@ -53,7 +53,7 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
         \BB{H}_{11}^k & 0             & 0             \\
         0             & \BB{H}_{22}^k & 0             \\
         0             & 0             & \BB{H}_{33}^k
-    \end{bmatrix}\cdot\begin{bmatrix}
+    \end{bmatrix}\begin{bmatrix}
         \Delta\DOF_1^k \\\Delta\DOF_2^k\\\Delta\DOF_3^k
     \end{bmatrix}=-\begin{bmatrix}
         \res_1^k \\\res_2^k\\\res_3^k
@@ -67,17 +67,21 @@ Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphs
     \caption{Processo de acoplamento particionado forte}
     \label{alg:acoplamentoForte}
     \ForEach{\textnormal{passo de tempo}}{
-        Atualizar valores passados do fluido, sólido e malha;\\
+        Atualizar valores passados do fluido, sólido e malha\;
         \ForEach{\textnormal{iteração $k$ de Newton-Raphson}}{
-            \textbf{Resolver fluido}: $\BB{H}_{11}^k(\DOF_1^k,\DOF_2^k,\DOF_3^k)\cdot\Delta\DOF_1^k=-\res_1^k(\DOF_1^k,\DOF_2^k,\DOF_3^k)$\\
+            \textbf{Resolver fluido}: $\BB{H}_{11}^k(\DOF_1^k,\DOF_2^k,\DOF_3^k)\Delta\DOF_1^k=-\res_1^k(\DOF_1^k,\DOF_2^k,\DOF_3^k)$\\
             Atualizar valores atuais do fluido: $\DOF_1^{k+1}\gets\DOF_1^k+\Delta\DOF_1^k$\\
             Atualizar forças de superfície no sólido: $\BB{t}^s=-\BB{\sigma}^f\cdot\BB{n}^f$\\
-            \textbf{Resolver sólido}: $\BB{H}_{22}^k(\DOF_1^{k+1},\DOF_2^k,\DOF_3^k)\cdot\Delta\DOF_2^k=-\res_2^k(\DOF_1^{k+1},\DOF_2^k,\DOF_3^k)$\\
+            Calcular medida de convergência $\epsilon_f$\;
+            \textbf{Resolver sólido}: $\BB{H}_{22}^k(\DOF_1^{k+1},\DOF_2^k,\DOF_3^k)\Delta\DOF_2^k=-\res_2^k(\DOF_1^{k+1},\DOF_2^k,\DOF_3^k)$\\
             Atualizar valores atuais do sólido:  $\DOF_2^{k+1}\gets\DOF_2^k+\Delta\DOF_2^k$\\
             Atualizar velocidades e acelerações do fluido em $\Gamma_\mathrm{IFE}$;\\
             Atualizar deslocamentos e acelerações na malha em $\Gamma_\mathrm{IFE}$;\\
-            \textbf{Resolver malha}: $\BB{H}_{33}^k(\DOF_1^{k+1},\DOF_2^{k+1},\DOF_3^k)\cdot\Delta\DOF_3^k=-\res_3^k(\DOF_1^{k+1},\DOF_2^{k+1},\DOF_3^k)$\\
+            Calcular medida de convergência $\epsilon_s$\;
+            \textbf{Resolver malha}: $\BB{H}_{33}^k(\DOF_1^{k+1},\DOF_2^{k+1},\DOF_3^k)\Delta\DOF_3^k=-\res_3^k(\DOF_1^{k+1},\DOF_2^{k+1},\DOF_3^k)$\\
             Atualizar valores atuais da malha: $\DOF_3^{k+1}\gets\DOF_3^k+\Delta\DOF_3^k$\\
+            Calcular medida de convergência $\epsilon_m$\;
+            \lIf{$\epsilon_f<\mathrm{tol}_f$, $\epsilon_s<\mathrm{tol}_s$ e $\epsilon_m<\mathrm{tol}_m$}{Sair do \textit{loop}}
         }
     }
 \end{algorithm}
@@ -88,20 +92,29 @@ Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja 
     \caption{Processo de acoplamento particionado fraco}
     \label{alg:PartFraco}
 
+    \ForEach{\textnormal{passo de tempo}}{
+    Atualizar valores passados do fluido, sólido e malha\;
     \ForEach{\textnormal{iteração $k_f$ de Newton-Raphson}}{
-    Resolver o sistema: $\BB{H}_{11}((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)\cdot\Delta(\DOF_1^{k_f})^{t+1}=-\res_1((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)$\;
+    Resolver o sistema: $\BB{H}_{11}((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)\Delta(\DOF_1^{k_f})^{t+1}=-\res_1((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)$\;
     Atualizar valores: $(\DOF_1^{k_f+1})^{t+1}\gets(\DOF_1^{k_f})^{t+1}+(\Delta\DOF_1^{k_f})^{t+1}$\;
+    % Calcular medida de convergência $\epsilon_f$\;
+    \lIf{$\epsilon_f<\mathrm{tol}_f$}{Sair do \textit{loop}}
     }
     Atualizar forças de superfície no sólido: $\BB{t}^s=-\BB{\sigma}^f\cdot\BB{n}^f$\\
     \ForEach{\textnormal{iteração $k_s$ de Newton-Raphson}}{
-    Resolver o sistema: $\BB{H}_{22}((\DOF_1)^{t+1},(\DOF_2^{k_s})^{t+1})\cdot\Delta(\DOF_2^{k_s})^{t+1}=-\res_2((\DOF_1)^{t+1},(\DOF_2^{k_s})^t)$\;
+    Resolver o sistema: $\BB{H}_{22}((\DOF_1)^{t+1},(\DOF_2^{k_s})^{t+1})\Delta(\DOF_2^{k_s})^{t+1}=-\res_2((\DOF_1)^{t+1},(\DOF_2^{k_s})^t)$\;
     Atualizar valores: $(\DOF_2^{k_s+1})^{t+1}\gets(\DOF_2^{k_s})^{t+1}+(\Delta\DOF_2^{k_s})^{t+1}$\;
+    % Calcular medida de convergência $\epsilon_s$\;
+    \lIf{$\epsilon_s<\mathrm{tol}_s$}{Sair do \textit{loop}}
     }
     Atualizar velocidades e acelerações do fluido em $\Gamma_\mathrm{IFE}$;\\
     Atualizar deslocamentos e acelerações na malha em $\Gamma_\mathrm{IFE}$;\\
     \ForEach{\textnormal{iteração $k_m$ de Newton-Raphson}}{
-    Resolver o sistema: $\BB{H}_{3}((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)\cdot\Delta(\DOF_3^{k_s})^{t+1}=-\res_3((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)$\;
+    Resolver o sistema: $\BB{H}_{3}((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)\Delta(\DOF_3^{k_s})^{t+1}=-\res_3((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)$\;
     Atualizar valores: $(\DOF_3^{k_m+1})^{t+1}\gets(\DOF_3^{k_m})^{t+1}+(\Delta\DOF_3^{k_m})^{t+1}$\;
+    % Calcular medida de convergência $\epsilon_m$\;
+    \lIf{$\epsilon_m<\mathrm{tol}_m$}{Sair do \textit{loop}}
+    }
     }
 \end{algorithm}
 

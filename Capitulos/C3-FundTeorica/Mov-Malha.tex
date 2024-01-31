@@ -94,7 +94,7 @@ Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha
 Portanto o problema de movimentação da malha no contexto do MEF pode ser dado por:
 
 \begin{equation}
-    \BB{B}\cdot\Delta\ddBB{Y}=-\res_L\text{,}
+    \BB{B}\Delta\ddBB{Y}=-\res_L\text{,}
     \label{eq:sistLapl}
 \end{equation}
 
@@ -145,7 +145,8 @@ Assim, o procedimento utilizado para a movimentação da malha é apresentado no
             \dBB{y}^n+\Delta t\bigpar{(1-\gamma)\ddBB{y}^n+\gamma\ddBB{y}^{n+1}}
         \end{bmatrix}^{k+1}
     $\\
-    Cálculo do erro\;
+    Cálculo da medida de convergência $\epsilon$\;
+    \lIf{$\epsilon<\mathrm{tol}$}{Sair do \textit{loop}}
     }
 
     Atualização dos valores passados\;

@@ -190,7 +190,7 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 
 Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço, porém contínua no tempo) (Equações \eqref{Eq:Residuos-Euler}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
 
-O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, que possui a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
+O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, no contexto da mecânica dos sólidos, e expandido por \citeonline{jansen2000generalized} para análises da mecânica dos fluidos. Tal integrador possui vantagens, como a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
 
 Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dBB{U}^{n+\alpha_m}$ e $\BB{U}^{n+\alpha_f}$:
 
@@ -258,7 +258,7 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
     \begin{bmatrix}
         \der{\NM}{\dBB{U}^{n+1}} & \der{\NM}{\BB{P}^{n+1}} \\
         \der{\NC}{\dBB{U}^{n+1}} & \der{\NC}{\BB{P}^{n+1}}
-    \end{bmatrix}\cdot
+    \end{bmatrix}
     \begin{bmatrix}
         \Delta\dBB{U}^{n+1} \\
         \Delta\BB{P}^{n+1}
@@ -354,7 +354,7 @@ Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o
             \Delta\dBB{U}^{n+1} \\\gamma\Delta t\Delta\dBB{U}^{n+1}\\\Delta\BB{P}^{n+1}
         \end{bmatrix}^{k}
     $\\
-    Cálculo do erro: $\epsilon=\norm{\NM^k}_{L^2}$
+    Cálculo da medida de convergência: $\epsilon=\norm{\NM^k}_{L^2}$
     }
     }
 \end{algorithm}

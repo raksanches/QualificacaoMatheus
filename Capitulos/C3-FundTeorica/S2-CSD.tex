@@ -399,7 +399,7 @@ Note que a derivada mista de $y_k^{n+1}$ em relação a $\Phi_i^a$ e $\Phi_j^b$ 
 Com isso, encontra-se um vetor de correções dos graus de liberdade ($\Delta\DOF$) como a solução do sistema:
 
 \begin{equation}
-    \BB{H}\cdot\Delta\DOF=-\res\text{,}
+    \BB{H}\Delta\DOF=-\res\text{,}
 \end{equation}
 
 \noindent tendo como medida de convergência:
@@ -441,10 +441,10 @@ Assim, o algoritmo utilizado para solução do elemento de casca é dado pelo ps
                         }
                     }
                 }
-                Resolver o sistema global: $\BB{H}^k\cdot\Delta\DOF^k=-\res^k$\;
+                Resolver o sistema global: $\BB{H}^k\Delta\DOF^k=-\res^k$\;
                 Atualizar os valores nodais: $\DOF^{k+1}\gets\DOF^k+\Delta\DOF^k$\;
                 Atualizar derivadas temporais\;
-                Cálculo do erro \eqref{eq:CSD-erro}\;
+                Cálculo da medida de convergência \eqref{eq:CSD-erro}\;
             }
         }
         Atualização dos valores passados\;
@@ -511,11 +511,11 @@ Dessa forma, chegou-se a um deslocamento de 0,2997 nos cálculos realizados, rep
 
 Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}, sendo satisfatoriamente verificada a análise realizada.
 
-Também realizou-se uma análise quanto à convergência da malha, onde dividiu-se as arestas do problema em $N$ partes. A Tabela \ref{tab:scordelis-sol} apresenta os resultados obtidos, sendo os valores do desvio relativo em função do tamanho do elemento ($h$) ilustrados na Figura \ref{fig:shell-static-sol}.
+Também realizou-se uma análise quanto à dependência da malha, onde dividiu-se as arestas do problema em $N$ partes. A Tabela \ref{tab:scordelis-sol} apresenta os resultados obtidos, sendo os valores do desvio relativo em função do tamanho do elemento ($h$) ilustrados na Figura \ref{fig:shell-static-sol}.
 
 \begin{table}[h!]
     \centering
-    \caption{\textit{Scordelis-Lo roof} - Análise da convergência da malha.}
+    \caption{\textit{Scordelis-Lo roof} - Análise da dependência da malha.}
     \begin{tabular}{cccccc}
         \hline
         $N$ & $h$   & Número de elementos & Graus de liberdade & Calculado & Desvio relativo \\\hline
