@@ -203,16 +203,17 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, ass
 
 \textcolor{red}{DISCUSSÃO DOS RESULTADOS}
 
+\newpage
 %==================================================================================================
 \subsection{\textit{Flutter} em painel flexível}
 %==================================================================================================
 
-Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid} e modificado por \citeonline{hubner2004monolithic}. Originalmente o problema proposto possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, enquanto no segundo caso a relação é menor, resultando em um problema fracamente acoplado. Ainda assim, tal exemplo apresenta certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressões de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm². O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty$ cm/s na direção 1. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $e=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na direção da espessura e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de não penetração nas faces frontal e traseira do domínio.
+Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid} e modificado por \citeonline{hubner2004monolithic}. Originalmente o problema proposto possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, enquanto no caso modificado a relação é menor, resultando em um problema fracamente acoplado. Ainda assim, tal exemplo apresenta certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressões de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm². O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty$ cm/s na direção 1. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na direção da espessura e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de não penetração nas faces frontal e traseira do domínio.
 
 \begin{figure}[h!]
     \centering
     \caption{Problema de \textit{flutter} em painel.}
-    \includegraphics[width=.75\linewidth]{Figuras/FSI-prism/FSI-prism.pdf}
+    \includegraphics[width=\linewidth]{Figuras/FSI-prism/FSI-prism3D.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:FSI-prism}
 \end{figure}
