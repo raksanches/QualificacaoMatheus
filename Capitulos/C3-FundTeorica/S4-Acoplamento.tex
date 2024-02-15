@@ -96,14 +96,14 @@ Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja 
     Atualizar valores passados do fluido, sólido e malha\;
     \ForEach{\textnormal{iteração $k_f$ de Newton-Raphson}}{
     \textbf{Resolver fluido}: $\BB{H}_{11}((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)\Delta(\DOF_1^{k_f})^{t+1}=-\res_1((\DOF_1^{k_f})^{t+1},(\DOF_2)^t,(\DOF_3)^t)$\;
-    Atualizar valores: $(\DOF_1^{k_f+1})^{t+1}\gets(\DOF_1^{k_f})^{t+1}+(\Delta\DOF_1^{k_f})^{t+1}$\;
+    Atualizar valores: $(\DOF_1^{k_f+1})^{t+1}\gets(\DOF_1^{k_f})^{t+1}+\Delta(\DOF_1^{k_f})^{t+1}$\;
     % Calcular medida de convergência $\epsilon_f$\;
     \lIf{$\epsilon_f<\mathrm{tol}_f$}{Sair do \textit{loop}}
     }
     Atualizar forças de superfície no sólido: $\BB{t}^s=-\BB{\sigma}^f\cdot\BB{n}^f$\\
     \ForEach{\textnormal{iteração $k_s$ de Newton-Raphson}}{
     \textbf{Resolver sólido}: $\BB{H}_{22}((\DOF_1)^{t+1},(\DOF_2^{k_s})^{t+1})\Delta(\DOF_2^{k_s})^{t+1}=-\res_2((\DOF_1)^{t+1},(\DOF_2^{k_s})^t)$\;
-    Atualizar valores: $(\DOF_2^{k_s+1})^{t+1}\gets(\DOF_2^{k_s})^{t+1}+(\Delta\DOF_2^{k_s})^{t+1}$\;
+    Atualizar valores: $(\DOF_2^{k_s+1})^{t+1}\gets(\DOF_2^{k_s})^{t+1}+\Delta(\DOF_2^{k_s})^{t+1}$\;
     % Calcular medida de convergência $\epsilon_s$\;
     \lIf{$\epsilon_s<\mathrm{tol}_s$}{Sair do \textit{loop}}
     }
@@ -111,7 +111,7 @@ Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja 
     Atualizar deslocamentos e acelerações na malha em $\Gamma_\mathrm{IFE}$;\\
     \ForEach{\textnormal{iteração $k_m$ de Newton-Raphson}}{
     \textbf{Resolver malha}: $\BB{H}_{3}((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)\Delta(\DOF_3^{k_s})^{t+1}=-\res_3((\DOF_3^{k_m})^{t+1},(\DOF_2)^t)$\;
-    Atualizar valores: $(\DOF_3^{k_m+1})^{t+1}\gets(\DOF_3^{k_m})^{t+1}+(\Delta\DOF_3^{k_m})^{t+1}$\;
+    Atualizar valores: $(\DOF_3^{k_m+1})^{t+1}\gets(\DOF_3^{k_m})^{t+1}+\Delta(\DOF_3^{k_m})^{t+1}$\;
     % Calcular medida de convergência $\epsilon_m$\;
     \lIf{$\epsilon_m<\mathrm{tol}_m$}{Sair do \textit{loop}}
     }
@@ -212,7 +212,7 @@ Outro problema comumente simulado trata-se de um painel engastado a um prisma qu
 
 \begin{figure}[h!]
     \centering
-    \caption{Problema de \textit{flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Desenho esquemático do problema.}
     \includegraphics[width=\linewidth]{Figuras/FSI-prism/FSI-prism3D.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:FSI-prism}
