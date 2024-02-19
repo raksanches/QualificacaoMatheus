@@ -115,17 +115,17 @@ Assim, o procedimento utilizado para a movimentação da malha é apresentado no
     \caption{Algoritmo utilizado para realizar a movimentação da malha.}
     \label{alg:movMalha}
     \ForEach{\textnormal{passo de tempo}}{
-    Previsão dos valores nodais:\newline
-    $
-        \begin{bmatrix}
-            \BB{y}^{n+1} \\\dBB{y}^{n+1}\\\ddBB{y}^{n+1}
-        \end{bmatrix}^0\gets
-        \begin{bmatrix}
-            \BB{y}^n                                                                                    \\
-            \bigpar{1-\frac{\gamma}{\beta}}\dBB{y}^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddBB{y}^n \\
-            -\frac{\dBB{y}^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddBB{y}^n
-        \end{bmatrix}
-    $\\
+    % Previsão dos valores nodais:\newline
+    % $
+    %     \begin{bmatrix}
+    %         \BB{y}^{n+1} \\\dBB{y}^{n+1}\\\ddBB{y}^{n+1}
+    %     \end{bmatrix}^0\gets
+    %     \begin{bmatrix}
+    %         \BB{y}^n                                                                                    \\
+    %         \bigpar{1-\frac{\gamma}{\beta}}\dBB{y}^n+\Delta t\bigpar{1-\frac{\gamma}{2\beta}}\ddBB{y}^n \\
+    %         -\frac{\dBB{y}^n}{\beta\Delta t}+\bigpar{1-\frac{1}{2\beta}}\ddBB{y}^n
+    %     \end{bmatrix}
+    % $\\
     Atualização dos valores da fronteira\;
     \ForEach{\textnormal{iteração de Newton-Raphson}}{
     \ForEach{\textnormal{elemento}}{
