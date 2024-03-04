@@ -29,9 +29,40 @@ Um problema comumente utilizado na literatura como \textit{benchmark}, trata-se 
 
 Pelo fato de o problema possuir apenas fronteiras de Dirichlet, o condicionamento da solução do campo de pressões é garantido pela aplicação de uma condição de pressão nula no centro da aresta inferior da cavidade, conforme visto na figura acima. Também se observa que existe uma descontinuidade nas condições de contorno no encontro entre as paredes da cavidade e seu topo, podendo ser consideradas velocidades nulas ou igual à velocidade do topo. No problema em questão considerou-se que a velocidade nesse ponto é igual à $\BB{u}_\infty$.
 
-A simulação foi conduzida com uma malha estruturada com orientação à esquerda para elementos triangulares de aproximação linear (estabilizado por SUPG/PSPG), quadrática (estabilizado por SUPG/PSPG e VMS) e P2P1 sem termos estabilizadores, em simulação DNS e com aplicação do modelo LES. A malha utilizada para a simulação de elementos lineares possui 12800 elementos enquanto para a simulação de elementos quadráticos e P2P1 possui 3200 elementos. Assim as simulações de elementos lineares e quadráticos possuirão um total de 6561 nós, o que resulta em 19683 graus de liberdade, enquanto a simulação em elementos P2P1 possuirá 14803 graus de liberdade.
+A simulação foi conduzida considerando malhas estruturadas com orientação à esquerda para elementos triangulares. Assim observou-se a solução obtida para três casos: elementos de aproximação linear (estabilizado por SUPG/PSPG), quadrática (estabilizado por SUPG/PSPG e VMS) e P2P1 sem termos estabilizadores, sendo todos simulados tanto em DNS e com aplicação do modelo LES. A Tabela \ref{tab:cavity-mesh} apresenta as características das malhas utilizadas, sendo $n_u$ e $n_p$ o número de nós para interpolação do campo de velocidades e de pressões, respectivamente. A Figura \ref{fig:cavity-mesh} apresenta as malhas utilizadas para a simulação.
 
-O fluido possui massa específica $\rho=1$ para todas as análises e viscosidade dinâmica variando de forma a se obter diferentes números de Reynolds. Assim os valores da viscosidade serão de $\mu=0,02$, $\mu=5\times10^{-3}$, $\mu=2\times10^{-3}$, $\mu=4\times10^{-4}$, $\mu=2,6667\times10^{-4}$ e $\mu=2\times10^{-4}$, resultando em $\Rey=100$, $\Rey=400$, $\Rey=1000$, $\Rey=5000$, $\Rey=7500$ e $\Rey=10000$, respectivamente. O campo de velocidades inicial em todos os casos foi de $\BB{u}=\BB{0}$, o passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rho_\infty=0,0$. O valor da constante de Smagorinsky foi de $C_S=0,10$.
+\begin{table}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Características das malhas utilizadas.}
+    \begin{tabular}{lcccc}
+        \hline
+        Malha      & Elementos & $n_u$ & $n_p$ & DOF   \\\hline
+        Linear     & 12800     & 6561  & 6561  & 19683 \\
+        Quadrático & 3200      & 6561  & 6561  & 19683 \\
+        P2P1       & 3200      & 6561  & 1681  & 14803 \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:cavity-mesh}
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Malhas utilizadas.}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/Cavity/m1.png}
+        \caption{Malha de elementos quadráticos e P2P1.}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/Cavity/m1-Lin.png}
+        \caption{Malha de elementos lineares.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity-mesh}
+\end{figure}
+
+O fluido possui massa específica $\rho=1$ para todas as análises e viscosidade dinâmica variando de forma a se obter diferentes números de Reynolds. Assim os valores da viscosidade serão de $\mu=0,02$, $\mu=5\times10^{-3}$, $\mu=2\times10^{-3}$, $\mu=4\times10^{-4}$, $\mu=2,6667\times10^{-4}$ e $\mu=2\times10^{-4}$, resultando em $\Rey=100$, $\Rey=400$, $\Rey=1000$, $\Rey=5000$, $\Rey=7500$ e $\Rey=10000$, respectivamente. O problema parte do repouso em todas as simulações, o passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rho_\infty=0,0$. O valor da constante de Smagorinsky foi de $C_S=0,10$.
 
 Os resultados obtidos foram comparados com aqueles apresentados por \citeonline{ghia1982high}. A Figura \ref{fig:cavity-results} apresenta os valores do campo de velocidades sobre as linhas médias da cavidade ($x_1=0$ e $x_2=0$).
 
@@ -111,6 +142,61 @@ Pelo fato da malha ser grosseira, percebe-se que os resultados divergem ligeiram
 Para números de Reynolds elevados, no entanto, a aplicação dos demais termos estabilizadores da formulação VMS não afetou significativamente os resultados, em comparação com a simulação estabilizada por SUPG/PSPG. Outro ponto a ser observado é que a consideração de elementos P2P1 sem nenhuma estabilização ainda foi capaz de apresentar resultados muito semelhantes às demais simulações, em termos do campo de velocidades.
 
 Já com relação ao tempo de processamento, observou-se um tempo médio de 0,2285 segundos por iteração para a simulação de elementos lineares em DNS, enquanto para a simulação de elementos quadráticos o tempo médio foi de 0,2032 segundos por iteração, o que resulta em um tempo 12,466\% maior para a simulação de elementos lineares, o que mostra que mesmo possuindo um tempo de processamento maior, seus resultados são menos precisos que o elemento quadrático. Todavia, para a simulação LES, o tempo médio de processamento foi de 0,2134 segundos por iteração em elementos quadráticos, o que resulta em um tempo 5,028\% maior que a simulação DNS de elementos quadráticos, o que mostra que o modelo LES não possui um impacto significativo no tempo de processamento.
+
+Em seguida realizou-se uma análise da dependência da malha para a simulação de elementos quadráticos e P2P1 (estabilizados com SUPG) com $\Rey=10000$, tanto com em DNS quanto utilizando LES, onde se considerou outras duas discretizações, obtidas a partir da subdivisão das arestas do problema em 20 e 8 partes. A Tabela \ref{tab:cavity-mesh2} apresenta as características das malhas utilizadas. A Figura \ref{fig:cavity-mesh2} apresenta as malhas utilizadas para a simulação.
+
+\begin{table}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Características das malhas utilizadas para a análise de dependência.}
+    \begin{tabular}{lcccccc}
+        \hline
+        Malha               & Elemento   & Subdivisões         & Elementos            & $n_u$ & $n_p$ & DOF  \\\hline
+        \multirow{2}{*}{m1} & Quadrático & \multirow{2}{*}{20} & \multirow{2}{*}{800} & 1681  & 1681  & 5043 \\
+                            & P2P1       &                     &                      & 1681  & 441   & 3803 \\\hline
+        m2                  & Quadrático & 8                   & 128                  & 289   & 289   & 867  \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:cavity-mesh2}
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Malhas utilizadas para a análise de convergência.}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{Figuras/Cavity/m2.png}
+        \caption{Malha m1.}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{Figuras/Cavity/m3.png}
+        \caption{Malha m2.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity-mesh2}
+\end{figure}
+
+Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamente na malha m1, mesmo aplicando o modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressões, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já na malha m2 se observou que a simulação DNS divergiu para todos os elementos, enquanto o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta os valores do campo de velocidades sobre as linhas médias da cavidade para a malha m1 e m2.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Valores do campo de velocidades sobre as linhas médias para as malhas m1 e m2.}
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/Cavity/res-m1.pdf}
+        \caption{Malha m1.}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/Cavity/res-m2.pdf}
+        \caption{Malha m2.}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/Cavity/legenda-m1m2.pdf}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity-results3}
+\end{figure}
+
+Sendo assim, constata-se que a aplicação do modelo LES foi capaz de estabilizar a simulação para a malha m2, enquanto para a malha m1, a aplicação do modelo LES foi capaz de estabilizar a simulação apenas para o elemento quadrático. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS melhorou ligeiramente a solução obtida em relação à simulação estabilizada por SUPG/PSPG. A discrepância dos resultados obtidos com relação à referência se deve à baixa qualidade da malha, no entanto é possível observar que a aplicação do modelo LES foi capaz de manter certa representatividade nos resultados.
 
 \begin{comment}
 %==================================================================================================
