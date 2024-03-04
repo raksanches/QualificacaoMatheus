@@ -527,7 +527,7 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
 
 \begin{table}[h!]
     \centering
-    \caption{Valores dos coeficientes e número de Strouhal para $\Rey=100$.}
+    \caption{Escoamento sobre cilindro - Valores dos coeficientes e número de Strouhal para $\Rey=100$.}
     \begin{tabular}{lcccc}
         \hline
         Simulação                          & $C_D$             & $C_L$       & $\Str$   \\\hline
@@ -547,7 +547,7 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
 
 \begin{table}[h!]
     \centering
-    \caption{Valores dos coeficientes e número de Strouhal para $\Rey=150$.}
+    \caption{Escoamento sobre cilindro - Valores dos coeficientes e número de Strouhal para $\Rey=150$.}
     \begin{tabular}{lcccc}
         \hline
         Simulação                          & $C_D$             & $C_D$       & $\Str$   \\\hline
@@ -566,7 +566,7 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
 
 \begin{table}[h!]
     \centering
-    \caption{Valores dos coeficientes e número de Strouhal para $\Rey=200$.}
+    \caption{Escoamento sobre cilindro - Valores dos coeficientes e número de Strouhal para $\Rey=200$.}
     \begin{tabular}{lcccc}
         \hline
         Simulação                          & $C_D$             & $C_L$       & $\Str$   \\\hline
@@ -584,7 +584,113 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
     \label{tab:cyl-res200}
 \end{table}
 
-Assim, observa-se que todos os valores estão próximos aos valores de referência, sendo que as simulações baseadas em elementos P2P1 apresentaram valores ligeiramente inferiores aos demais conforme o número de Reynolds aumenta. A mínima diferença observada entre os valores calculados em uma simulação DNS e aquela que em simulação LES deve-se ao fato do número de Reynolds ser muito baixo, pois, como apontado por \citeonline{fernandes2020tecnica}, esse tipo de escoamento (com $\Rey$ entre 50 e 200) apresenta a formação de vórtices laminares, denominada de esteira de Von Kárman. Para uma verificação mais precisa dessa influência, deve-se partir para uma análise tridimensional com número de Reynolds superiores à 200.
+Assim, observa-se que todos os valores estão próximos aos valores de referência, sendo que as simulações baseadas em elementos P2P1 apresentaram valores ligeiramente inferiores aos demais conforme o número de Reynolds aumenta. A mínima diferença observada entre os valores calculados em uma simulação DNS e aquela que em simulação LES deve-se ao fato do número de Reynolds ser muito baixo, pois, como apontado por \citeonline{fernandes2020tecnica}, esse tipo de escoamento (com $\Rey$ entre 50 e 200) apresenta a formação de vórtices laminares, denominada de esteira de Von Kárman.
+
+Em seguida partiu-se para uma análise com a consideração de uma malha mais grosseira, a qual é apresentada na Figura \ref{fig:cyl-mesh2}. A malha utilizada para a simulação foi construída a partir de elementos triangulares, possuindo 5004 graus de liberdade para a simulação de elementos quadráticos e 3771 para a simulação de elementos P2P1. Os resultados apresentados nas Figuras \ref{fig:cyl-Cd2} e \ref{fig:cyl-Cl2}, respectivamente.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento sobre cilindro - Malha utilizada para simulação com malha mais grosseira.}
+    \includegraphics[width=.75\linewidth]{Figuras/cylinder/coarse/mesh.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cyl-mesh2}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento sobre cilindro - Coeficiente de arrasto ao longo do tempo para malha mais grosseira.}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=.85\linewidth]{Figuras/cylinder/coarse/Cd100.pdf}
+        \caption{$\Rey=100$}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=.85\linewidth]{Figuras/cylinder/coarse/Cd150.pdf}
+        \caption{$\Rey=150$}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=.85\linewidth]{Figuras/cylinder/coarse/Cd200.pdf}
+        \caption{$\Rey=200$}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cyl-Cd2}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Escoamento sobre cilindro - Coeficiente de sustentação ao longo do tempo para malha mais grosseira.}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder/coarse/Cl100.pdf}
+        \caption{$\Rey=100$}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder/coarse/Cl150.pdf}
+        \caption{$\Rey=150$}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/cylinder/coarse/Cl200.pdf}
+        \caption{$\Rey=200$}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cyl-Cl2}
+\end{figure}
+
+Os valores dos coeficientes de arrasto e de sustentação após o escoamento atingir o equilíbrio dinâmico, assim como o número de Strouhal e valores obtidos na simulação com malha fina, são apresentados na Tabela \ref{tab:cyl-comp100} a \ref{tab:cyl-comp200}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Escoamento sobre cilindro - Comparação de $C_D$, $C_L$ e $\Str$ para $\Rey=100$.}
+    \begin{tabular}{lcccccc}
+        \hline
+        \multirow{2}{*}{Simulação} & \multicolumn{3}{c}{Malha 1} & \multicolumn{3}{c}{Malha 2}                                                         \\\cline{2-7}
+                                   & $C_D$                       & $C_L$                       & $\Str$   & $C_D$             & $C_L$       & $\Str$   \\\hline
+        DNS1                       & $1,3458\pm0,0095$           & $\pm0,3283$                 & $0,1642$ & $1,1913\pm0,0120$ & $\pm0,2966$ & $0,1464$ \\
+        DNS2                       & $1,3488\pm0,0094$           & $\pm0,3255$                 & $0,1647$ & $1,3502\pm0,0128$ & $\pm0,3637$ & $0,1614$ \\
+        DNS3                       & $1,3480\pm0,0095$           & $\pm0,3279$                 & $0,1650$ & $1,3320\pm0,0136$ & $\pm0,3759$ & $0,1621$ \\
+        LES1                       & $1,3445\pm0,0093$           & $\pm0,3264$                 & $0,1639$ & $1,1832\pm0,0103$ & $\pm0,2683$ & $0,1442$ \\
+        LES2                       & $1,3466\pm0,0094$           & $\pm0,3259$                 & $0,1646$ & $1,3210\pm0,0121$ & $\pm0,3527$ & $0,1589$ \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:cyl-comp100}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \caption{Escoamento sobre cilindro - Comparação de $C_D$, $C_L$ e $\Str$ para $\Rey=150$.}
+    \begin{tabular}{lcccccc}
+        \hline
+        \multirow{2}{*}{Simulação} & \multicolumn{3}{c}{Malha 1} & \multicolumn{3}{c}{Malha 2}                                                         \\\cline{2-7}
+                                   & $C_D$                       & $C_L$                       & $\Str$   & $C_D$             & $C_L$       & $\Str$   \\\hline
+        DNS1                       & $1,3309\pm0,0262$           & $\pm0,5218$                 & $0,1848$ & $1,2101\pm0,0416$ & $\pm0,5879$ & $0,1661$ \\
+        DNS2                       & $1,3384\pm0,0263$           & $\pm0,5231$                 & $0,1852$ & $1,3822\pm0,0364$ & $\pm0,5915$ & $0,1821$ \\
+        DNS3                       & $1,3369\pm0,0265$           & $\pm0,5253$                 & $0,1855$ & $1,3660\pm0,0378$ & $\pm0,6059$ & $0,1822$ \\
+        LES1                       & $1,3283\pm0,0257$           & $\pm0,5184$                 & $0,1843$ & $1,1952\pm0,0337$ & $\pm0,5433$ & $0,1626$ \\
+        LES2                       & $1,3358\pm0,0259$           & $\pm0,5196$                 & $0,1847$ & $1,3491\pm0,0346$ & $\pm0,5768$ & $0,1779$ \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:cyl-comp150}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \caption{Escoamento sobre cilindro - Comparação de $C_D$, $C_L$ e $\Str$ para $\Rey=200$.}
+    \begin{tabular}{lcccccc}
+        \hline
+        \multirow{2}{*}{Simulação} & \multicolumn{3}{c}{Malha 1} & \multicolumn{3}{c}{Malha 2}                                                         \\\cline{2-7}
+                                   & $C_D$                       & $C_L$                       & $\Str$   & $C_D$             & $C_L$       & $\Str$   \\\hline
+        DNS1                       & $1,3409\pm0,0450$           & $\pm0,6833$                 & $0,1987$ & $1,2118\pm0,0672$ & $\pm0,7190$ & $0,1776$ \\
+        DNS2                       & $1,3527\pm0,0456$           & $\pm0,6874$                 & $0,1998$ & $1,4232\pm0,7477$ & $\pm0,7477$ & $0,1947$ \\
+        DNS3                       & $1,3506\pm0,0457$           & $\pm0,6892$                 & $0,2001$ & $1,4108\pm0,7646$ & $\pm0,7646$ & $0,1943$ \\
+        LES1                       & $1,3374\pm0,0442$           & $\pm0,6784$                 & $0,1980$ & $1,1997\pm0,6768$ & $\pm0,6768$ & $0,1735$ \\
+        LES2                       & $1,3490\pm0,0449$           & $\pm0,6825$                 & $0,1990$ & $1,3887\pm0,7283$ & $\pm0,7283$ & $0,1894$ \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:cyl-comp200}
+\end{table}
+
+Como pode se observar, os valores obtidos a partir de elementos P2P1 tiveram valores muito abaixo do esperado, principalmente para o coeficiente de arrasto, independentemente da aplicação do LES. Já os valores obtidos a partir de elementos quadráticos apresentaram valores mais próximos aos obtidos na simulação com malha mais fina, em que a aplicação do LES se mostrou eficiente para descrever os coeficientes de arrasto e sustentação a partir de $\Rey=150$. Já o número de Strouhal foi levemente amortecido devido à aplicação do modelo.
 
 %Comparando-se os números de Strouhal calculados com aqueles obtidos por \citeonline{fernandes2020tecnica}, que obteve, para a mesma geometria de domínio e mesmas condições de contorno, um $\Str=0,165$ e amplitude do coeficiente de sustentação de 0,3422, \citeonline{tezduyar1992incompressible}, os quais verificaram $\Str$ entre 0,166 e 0,170, \citeonline{najafi2012meshless}, com valor de 0,182, e \citeonline{codina2006numerical}, com valores entre 0,177 e 0,184. As variações observadas entre os números de Strouhal dos diferentes autores podem ser devidas às diferenças nas dimensões dos domínios utilizados, assim como as diferentes condições de contorno aplicadas por cada um. No entanto ainda observa-se que em todos os casos os valores calculados nas simulações ainda são bem próximos. A mínima diferença observada entre os valores calculados em uma simulação DNS e aquela que em simulação LES deve-se ao fato do número de Reynolds ser muito baixo, pois, como apontado por \citeonline{fernandes2020tecnica}, esse tipo de escoamento (com $\Rey$ entre 50 e 200) apresenta a formação de vórtices laminares, denominada de esteira de Von Kárman. Para uma verificação mais precisa dessa influência, deve-se partir para uma análise tridimensional com número de Reynolds superiores à 200.
 
@@ -732,6 +838,7 @@ Assim, observa-se que todos os valores estão próximos aos valores de referênc
 \newpage
 \end{comment}
 
+\newpage
 %==================================================================================================
 \subsection{Escoamento sobre um aerofólio NACA 0012}
 %==================================================================================================
