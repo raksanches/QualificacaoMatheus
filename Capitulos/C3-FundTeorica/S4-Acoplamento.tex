@@ -205,6 +205,122 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, ass
 
 \newpage
 %==================================================================================================
+\subsection{Cavidade tridimensional}
+%==================================================================================================
+
+O próximo exemplo foi estudado por \citeonline{valdes2007nonlinear} e pode ser entendido como uma extensão do exemplo da cavidade bidimensional, em que o domínio de análise é um cubo de lado unitário cuja base é flexível. Todas as propriedades físicas, tanto do fluido quanto da casca são mantidas as mesmas. As condições de contorno no domínio do fluido se mantém as mesmas em relação ao exemplo anterior, enquanto as condições do sólido são alteradas de forma a este se movimentar livremente nas três direções e todas as suas arestas ficam apoiadas no fundo da cavidade.
+
+O problema discretizado contém 7306 elementos de aproximação quadrática para o domínio do fluido, possuindo, assim, 11824 nós e 47296 graus de liberdade. Já o domínio da casca foi discretizado com 200 elementos de aproximação quadrática, 441 nós e 3087 graus de liberdade. A Figura \ref{fig:Cavity3D-mesh} apresenta a malha utilizada para cada um dos meios. O intervalo de tempo analisado foi $t\in[0,30]$ com passos de tempo $\Delta t=0,10$ e integrador temporal obtido por $\rho_\infty=0,0$. A estabilização utilizada foi a SUPG/PSPG.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Malhas utilizadas para o problema.}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/fluid-mesh.png}
+        \caption{Fluido.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/shell-mesh.png}
+        \caption{Casca.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Cavity3D-mesh}
+\end{figure}
+
+A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Deslocamento vertical do centro da casca ao longo do tempo.}
+    \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/vert_disp.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Cavity3D-res}
+\end{figure}
+
+A Figura \ref{fig:Cavity3D-time} apresenta o deslocamento vertical da casca para os instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Deslocamento vertical da casca.}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/d4.png}
+        \caption{$t=4,0$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/d6.png}
+        \caption{$t=6,0$}
+    \end{subfigure}\\
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/d21-8.png}
+        \caption{$t=21,8$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/d24-3.png}
+        \caption{$t=24,3$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/ld.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Cavity3D-time}
+\end{figure}
+
+As Figuras \ref{fig:Cavity3D-press} e \ref{fig:Cavity3D-vel} apresentam, respectivamente, o campo de pressões e de velocidades para os mesmos instantes de tempo.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Campo de pressões na cavidade.}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p4.png}
+        \caption{$t=4,0$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p6.png}
+        \caption{$t=6,0$}
+    \end{subfigure}\\
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p21-8.png}
+        \caption{$t=21,8$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p24-3.png}
+        \caption{$t=24,3$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/lp.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Cavity3D-press}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Campo de velocidades na cavidade.}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u4.png}
+        \caption{$t=4,0$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u6.png}
+        \caption{$t=6,0$}
+    \end{subfigure}\\
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u21-8.png}
+        \caption{$t=21,8$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u24-3.png}
+        \caption{$t=24,3$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/lu.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:Cavity3D-vel}
+\end{figure}
+
+\newpage
+%==================================================================================================
 \subsection{\textit{Flutter} em painel flexível}
 %==================================================================================================
 
