@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="237.86041mm"
+   height="78.845833mm"
+   viewBox="0 0 237.86042 78.845833"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Cd.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0343421"
+     inkscape:cx="418.6236"
+     inkscape:cy="115.53238"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="clip0">
+      <rect
+         x="252"
+         y="0"
+         width="731"
+         height="321"
+         id="rect1" />
+    </clipPath>
+    <clipPath
+       id="clip1">
+      <rect
+         x="308"
+         y="14"
+         width="654"
+         height="244"
+         id="rect2" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <rect
+         x="308"
+         y="14"
+         width="654"
+         height="244"
+         id="rect3" />
+    </clipPath>
+    <clipPath
+       id="clip0-7">
+      <rect
+         x="252"
+         y="0"
+         width="899"
+         height="298"
+         id="rect1-0" />
+    </clipPath>
+    <clipPath
+       id="clip1-5">
+      <rect
+         x="308"
+         y="14"
+         width="822"
+         height="221"
+         id="rect2-1" />
+    </clipPath>
+    <clipPath
+       id="clip2-5">
+      <rect
+         x="308"
+         y="14"
+         width="822"
+         height="221"
+         id="rect3-9" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(158.22083,-196.32083)">
+    <g
+       clip-path="url(#clip0-7)"
+       transform="matrix(0.26458333,0,0,0.26458333,-224.89583,196.32083)"
+       id="g35">
+      <rect
+         x="252"
+         y="0"
+         width="899"
+         height="298"
+         fill="#ffffff"
+         id="rect4" />
+      <g
+         id="g4">
+        <path
+           d="m 308.5,234.5 h 821 m -821,-27 h 821 m -821,-28 h 821 m -821,-27 h 821 m -821,-54.9999 h 821 m -821,-28 h 821 m -821,-27 h 821 m -821,-28 h 821"
+           stroke="#d9d9d9"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path4" />
+      </g>
+      <g
+         id="g5">
+        <path
+           d="M 445.5,14.5001 V 234.5 M 582.5,14.5001 V 234.5 M 719.5,14.5001 V 234.5 M 856.5,14.5001 V 234.5 M 992.5,14.5001 V 234.5 m 137,-219.9999 V 234.5"
+           stroke="#d9d9d9"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path5" />
+      </g>
+      <g
+         id="g6">
+        <rect
+           x="308.5"
+           y="14.5001"
+           width="821"
+           height="220"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="rect5" />
+      </g>
+      <g
+         id="g7">
+        <path
+           d="M 0,0 1.04987e-4,220"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           transform="matrix(1,0,0,-1,308.5,234.5)"
+           id="path6" />
+      </g>
+      <g
+         id="g8">
+        <path
+           d="m 308.5,234.5 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-4.9999 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5.0001 h 3 m -3,-5.9999 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -3,-5 h 3 m -3,-6 h 3 m -6,219.9999 h 7 m -7,-27 h 7 m -7,-28 h 7 m -7,-27 h 7 m -7,-28 h 7 m -7,-26.9999 h 7 m -7,-28 h 7 m -7,-27 h 7 m -7,-28 h 7"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path7" />
+      </g>
+      <g
+         id="g9">
+        <path
+           d="m 308.5,124.5 h 821"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path8" />
+      </g>
+      <g
+         id="g10">
+        <path
+           d="m 308.5,121.5 v 3 m 28,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m 27,-3 v 3 m 28,-3 v 3 m 27,-3 v 3 m -821,-3 v 7 m 137,-7 v 7 m 137,-7 v 7 m 137,-7 v 7 m 137,-7 v 7 m 136,-7 v 7 m 137,-7 v 7"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path9" />
+      </g>
+      <g
+         clip-path="url(#clip1-5)"
+         id="g11">
+        <path
+           d="m 308,185 6,-17 5,-22 5,-16 6,-27 6,-17 5,-11 7,-17 6,-9 4,-5 h 6 l 5,6 6,10 6,17 5,18 6,27 7,28 5,15 9,19 6,14 2,8 3,6 4,3 5,-4 5,-7 6,-13 5,-18 6,-21 5,-22 4,-18 4,-14 4,-11 8,-20 6,-11 3,-11 3,-6 5,-3 6,5 5,9 6,12 4,17 3,12 7,27 5,17 4,20 4,11 7,13 6,14 3,11 4,8 3,3 6,-4 7,-11 6,-16 5,-17 6,-23 5,-20 4,-17 5,-16 4,-10 5,-10 5,-13 3,-11 4,-6 4,-4 6,3 5,9 6,15 4,10 4,19 6,22 4,15 6,20 4,16 7,15 4,12 4,8 4,9 3,3 4,1 6,-7 5,-9 4,-14 7,-23 5,-21 4,-14 5,-19 4,-15 3,-10 7,-13 5,-13 4,-11 4,-7 3,-2 5,4 6,9 5,12 4,11 5,17 4,19 4,13 5,24 4,16 5,10 7,16 4,11 4,9 3,6 4,1 5,-4 6,-9 3,-9 4,-11 5,-18 5,-19 5,-20 5,-21 6,-17 7,-16 6,-15 5,-12 4,-6 3,-1 4,3 4,6 7,16 6,20 5,18 4,16 5,22 6,21 7,18 6,12 4,13 5,10 4,4 6,-5 9,-16 5,-15 7,-27 6,-22 5,-24 6,-19 6,-14 10,-22 4,-12 4,-4 5,3 6,10 7,16 7,23 6,23 7,28 6,21 7,19 6,14 6,17 5,6 6,-3 6,-9 3,-10 9,-31 7,-23 6,-21 5,-20 4,-15 7,-14"
+           stroke="#156082"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path10" />
+      </g>
+      <g
+         clip-path="url(#clip2-5)"
+         id="g12">
+        <path
+           d="m 309,275 1,-17 v -11 -9 -6 -5 l 1,-5 v -3 -3 -3 -3 -2 l 1,-1 v -2 -2 -1 -1 -1 l 1,-1 v -1 -1 -1 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 l 1,-1 v 0 -1 -1 0 l 1,-1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v 0 -1 -1 0 -1 h 1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 0 -1 h 1 v 0 -1 0 0 -1 h 1 v 0 -1 0 0 0 l 1,-1 v 0 0 -1 0 0 h 1 v -1 0 0 0 h 1 v -1 0 0 0 0 h 1 v -1 0 0 0 0 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 1 h 1 v 0 0 0 0 h 1 v 0 0 0 0 0 l 1,1 v 0 0 0 0 0 h 1 v 0 0 1 0 0 h 1 v 0 0 0 1 0 h 1 v 0 0 0 1 0 h 1 v 0 0 0 1 0 h 1 v 0 0 1 0 h 1 v 0 1 0 0 0 l 1,1 v 0 0 0 1 0 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 1 h 1 v 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 0 1 l 1,1 v 0 1 0 1 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 l 1,1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 h 1 v 1 1 0 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 0 1 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 0 1 0 0 h 1 v 1 0 0 0 1 h 1 v 0 0 1 0 0 h 1 v 0 0 0 1 0 h 1 v 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 l 1,-1 v 0 0 0 0 0 h 1 v 0 -1 0 0 0 h 1 v 0 -1 0 0 0 h 1 v -1 0 0 0 -1 h 1 v 0 0 -1 0 h 1 v 0 -1 0 0 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 0 0 -1 0 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 0 l 1,-1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 -1 0 -1 l 1,-1 v 0 -1 -1 -1 0 l 1,-1 v -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v -1 0 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 h 1 v -1 0 0 -1 0 h 1 v -1 0 0 0 -1 h 1 v 0 0 0 -1 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 1 0 h 1 v 0 0 0 0 1 h 1 v 0 0 0 1 h 1 v 0 0 0 1 0 h 1 v 0 0 1 0 0 h 1 v 1 0 0 1 0 h 1 v 0 1 0 0 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 0 1 0 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 1 0 1 h 1 v 1 0 1 0 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 0 1 h 1 v 1 1 0 1 0 l 1,1 v 1 0 1 0 1 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 1 0 l 1,1 v 1 0 1 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 1 0 1 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 h 1 v 1 1 0 1 1 h 1 v 1 0 1 1 0 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 0 1 h 1 v 1 0 1 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 l 1,1 v 0 0 0 1 0 h 1 v 0 0 0 1 0 h 1 v 0 0 0 0 0 l 1,1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 l 1,-1 v 0 0 0 0 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 -1 0 h 1 v 0 -1 0 0 0 h 1 v -1 0 0 0 -1 h 1 v 0 -1 0 0 0 l 1,-1 v 0 0 -1 0 h 1 v -1 0 0 0 -1 h 1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v -1 0 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 0 0 -1 0 h 1 v 0 0 -1 0 0 h 1 v 0 0 -1 0 0 h 1 v 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 1 0 0 h 1 v 0 0 0 1 0 h 1 v 0 0 0 1 0 h 1 v 0 1 0 0 0 h 1 v 1 0 0 0 l 1,1 v 0 0 0 1 0 h 1 v 1 0 0 0 1 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 1 0 1 h 1 v 1 0 1 0 l 1,1 v 1 0 1 0 1 l 1,1 v 0 1 0 1 1 h 1 v 1 1 0 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 1 0 1 1 h 1 v 1 1 1 0 1 l 1,1 v 0 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 1 0 1 1 h 1 v 1 1 0 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 0 1 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 h 1 v 1 0 1 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 1 0 1 h 1 v 1 0 1 0 1 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 1 0 0 1 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 0 1 0 0 h 1 v 0 0 1 0 0 h 1 v 0 0 0 0 1 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 0 0 h 1 v 0 0 -1 0 0 h 1 v 0 0 -1 0 h 1 v 0 0 -1 0 0 h 1 v -1 0 0 0 0 l 1,-1 v 0 0 -1 0 0 h 1 v -1 0 0 0 -1 h 1 v 0 -1 0 0 -1 h 1 v 0 0 -1 0 0 l 1,-1 v 0 0 -1 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 l 1,-1 v 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 0 -1 0 h 1 v -1 0 0 -1 h 1 v 0 0 -1 0 0 h 1 v 0 -1 0 0 0 h 1 v 0 -1 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 h 1 v 0 1 0 0 0 h 1 v 0 0 1 0 0 h 1 v 0 0 1 0 0 h 1 v 1 0 0 0 0 l 1,1 v 0 0 0 1 0 h 1 v 0 1 0 0 1 h 1 v 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 1 0 1 h 1 v 1 0 1 0 1 h 1 v 1 1 0 1 0 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 1 0 l 1,1 v 0 1 1 0 l 1,1 v 1 0 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 1 0 1 1 0 l 1,1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 l 1,1 v 0 1 1 0 l 1,1 v 1 0 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 0 1 1 h 1 v 1 1 0 1 0 l 1,1 v 1 0 1 0 1 h 1 v 1 1 0 1 0 l 1,1 v 0 1 0 1 h 1 v 1 1 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 0 1 0 0 h 1 v 1 0 0 0 0 h 1 v 1 0 0 0 0 h 1 v 0 0 1 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 -1 0 h 1 v 0 0 0 0 0 h 1 v 0 -1 0 0 0 h 1 v 0 -1 0 0 0 h 1 v -1 0 0 0 -1 h 1 v 0 0 0 -1 h 1 v 0 -1 0 0 0 l 1,-1 v 0 0 0 -1 0 h 1 v -1 0 0 -1 0 h 1 v 0 -1 0 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 -1 0 -1 h 1 v -1 0 -1 0 l 1,-1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 h 1 v -1 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 h 1 v -1 -1 0 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 0 -1 0 0 l 1,-1 v 0 0 -1 0 0 h 1 v -1 0 0 0 0 l 1,-1 v 0 0 0 0 h 1 v -1 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 0 l 1,1 v 0 0 0 0 0 h 1 v 1 0 0 0 h 1 v 0 1 0 0 0 l 1,1 v 0 0 0 0 1 h 1 v 0 0 1 0 0 h 1 v 1 0 0 1 0 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 1 h 1 v 0 1 0 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 1 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 1 0 1 0 1 h 1 v 1 0 1 1 0 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 1 h 1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 1 h 1 v 1 1 0 1 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 1 h 1 v 1 1 0 1 1 h 1 v 1 0 1 1 0 l 1,1 v 1 0 1 1 h 1 v 1 0 1 1 0 l 1,1 v 1 0 1 0 1 l 1,1 v 0 1 0 1 0 l 1,1 v 1 0 1 0 1 h 1 v 1 0 1 0 1 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 l 1,1 v 0 1 0 0 1 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 h 1 v 0 1 0 0 0 l 1,1 v 0 0 0 0 0 l 1,1 v 0 0 0 0 0 h 1 v 0 1 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 -1 0 0 h 1 v 0 0 0 0 0 h 1 v -1 0 0 0 0 h 1 v -1 0 0 0 0 l 1,-1 v 0 0 0 -1 0 h 1 v 0 0 -1 0 0 l 1,-1 v 0 0 0 -1 0 h 1 v 0 -1 0 0 l 1,-1 v 0 0 -1 0 0 h 1 v -1 0 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v -1 0 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 0 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 0 -1 -1 0 l 1,-1 v 0 -1 -1 0 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 0 -1 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 -1 0 l 1,-1 v -1 0 -1 -1 0 l 1,-1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 -1 h 1 v -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 -1 0 -1 l 1,-1 v 0 -1 0 -1 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v -1 0 -1 0 -1 h 1 v -1 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v -1 0 -1 0 0 l 1,-1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 0 l 1,-1 v 0 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v 0 -1 0 -1 0 h 1 v -1 0 -1 0 -1 h 1 v 0 -1 0 -1 0 l 1,-1 v 0 -1 0 0 -1 h 1 v -1 0 0 -1 0 l 1,-1 v 0 -1 0 0 l 1,-1 v 0 -1 0 0 -1 h 1 v 0 -1 0 0 -1 h 1 v 0 -1 0 0 0 l 1,-1 v 0 0 0 0 -1 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v 0 0 0 0 1 h 1 v 0 0 0 0 0 l 1,1 v 0 0 0 0 0 l 1,1 v 0 0 0 1 0 h 1 v 0 0 1 0 h 1 v 0 1 0 0 0 l 1,1 v 0 0 1 0 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 1 0 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 0 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 1 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 1 0 l 1,1 v 1 0 1 1 1 h 1 v 1 1 0 1 1 h 1 v 1 1 0 1 l 1,1 v 0 1 1 1 0 l 1,1 v 1 0 1 1 0 l 1,1 v 0 1 1 0 1 l 1,1 v 0 1 1 0 1 h 1 v 1 1 0 1 1 h 1 v 1 0 1 1 h 1 v 1 0 1 0 1 l 1,1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 1 h 1 v 1 0 1 0 1 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 h 1 v 1 0 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 0 1 0 1 0 l 1,1 v 0 0 1 0 1 h 1 v 1 0 1 0 h 1 v 1 0 1 0 1 h 1 v 0 1 0 1 0 h 1 v 1 0 1 0 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 0 1 0 0 l 1,1 v 0 0 0 1 0 h 1 v 0 0 0 1 h 1 v 0 0 0 0 0 h 1 v 1 0 0 0 0 h 1 v 0 0 0 0 0 h 1 v -1 0 0 0 0 h 1 v 0 0 0 0 -1 h 1 v 0 0 0 0 l 1,-1 v 0 0 0 0 -1 h 1 v 0 0 -1 0 0 h 1 v 0 -1 0 0 -1 h 1 v 0 0 -1 0 0 h 1 v -1 0 0 -1 0 h 1 v -1 0 0 0 -1"
+           stroke="#e97132"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path11" />
+      </g>
+      <g
+         id="g13">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(288,239)"
+           id="text12">-4</text>
+      </g>
+      <g
+         id="g14">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(288,211)"
+           id="text13">-3</text>
+      </g>
+      <g
+         id="g15">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(288,184)"
+           id="text14">-2</text>
+      </g>
+      <g
+         id="g16">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(288,156)"
+           id="text15">-1</text>
+      </g>
+      <g
+         id="g17">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(291.993,129)"
+           id="text16">0</text>
+      </g>
+      <g
+         id="g18">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(291.993,101)"
+           id="text17">1</text>
+      </g>
+      <g
+         id="g19">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(291.993,74)"
+           id="text18">2</text>
+      </g>
+      <g
+         id="g20">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(291.993,46)"
+           id="text19">3</text>
+      </g>
+      <g
+         id="g21">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(291.993,19)"
+           id="text20">4</text>
+      </g>
+      <g
+         id="g22">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(305.65,143)"
+           id="text21">0</text>
+      </g>
+      <g
+         id="g23">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(442.429,143)"
+           id="text22">4</text>
+      </g>
+      <g
+         id="g24">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(579.208,143)"
+           id="text23">8</text>
+      </g>
+      <g
+         id="g25">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(712.65,143)"
+           id="text24">12</text>
+      </g>
+      <g
+         id="g26">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(849.429,143)"
+           id="text25">16</text>
+      </g>
+      <g
+         id="g27">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(986.208,143)"
+           id="text26">20</text>
+      </g>
+      <g
+         id="g28">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1122.99,143)"
+           id="text27">24</text>
+      </g>
+      <g
+         id="g29">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="13px"
+           transform="rotate(-90,235.833,-45.833)"
+           id="text28">Coeficiente de arrasto</text>
+      </g>
+      <g
+         id="g30">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="13px"
+           transform="translate(688.95,250)"
+           id="text29">Tempo (s)</text>
+      </g>
+      <g
+         id="g31">
+        <path
+           d="m 605,279 h 25"
+           stroke="#156082"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path30" />
+      </g>
+      <g
+         id="g32">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(633.004,283)"
+           id="text31">Wan, Turek (2006)</text>
+      </g>
+      <g
+         id="g33">
+        <path
+           d="m 749,279 h 26"
+           stroke="#e97132"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path32" />
+      </g>
+      <g
+         id="g34">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(777.656,283)"
+           id="text33">DNS</text>
+      </g>
+    </g>
+  </g>
+</svg>

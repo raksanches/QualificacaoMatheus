@@ -152,3 +152,248 @@ Assim, o procedimento utilizado para a movimentação da malha é apresentado no
     Atualização dos valores passados\;
     }
 \end{algorithm}
+
+%==================================================================================================
+\section{Exemplos de verificação}
+%==================================================================================================
+
+Na sequência, são apresentados exemplos de aplicação do método de movimentação da malha por meio da suavização de Laplace. Para tanto, são estudados os problemas de cilindro com deslocamento prescrito, proposto por \citeonline{wan2007fictitious}, e o aerofólio com movimento de arfagem prescrito, proposto por \citeonline{mittal1992finite}.
+
+%==================================================================================================
+\subsection{Cilindro com deslocamento prescrito}
+%==================================================================================================
+
+O primeiro problema estudado é o cilindro com deslocamento prescrito, proposto por \citeonline{wan2007fictitious}. Nesse problema, um cilindro de raio $R=0,1\,\mathrm{m}$ encontra-se confinado em um canal definido por $\Omega=[-L/2, L/2]\times[0,H]$, com $L=2,2$ e $H=0,41$, sendo o centro do cilindro posicionado em $(0,\ 0,2)$. O movimento do cilindro ao longo do tempo é determinado por $y_1(t)=x_1+A\sin{(2\pi f t)}$, em que $A=0,25$ e $f=0,25$. As condições de contorno do problema são de paredes aderentes nas faces esquerda e direita do domínio, enquanto as faces superior e inferior são de paredes lisas. A Figura \ref{fig:moving-cylinder} apresenta o esquema do problema estudado.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cilindro com deslocamento prescrito - Esquema do problema.}
+    \includegraphics[width=.7\linewidth]{Figuras/moving-cylinder/moving-cilinder.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:moving-cylinder}
+\end{figure}
+
+O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos triangulares de aproximação quadrática, totalizando 1664 nós e 4992 graus de liberdade. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cilindro com deslocamento prescrito - Configuração inicial da malha.}
+    \includegraphics[width=\linewidth]{Figuras/moving-cylinder/mesh1.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:moving-cylinder-mesh}
+\end{figure}
+
+Assim, a malha é deformada no início de cada passo de tempo de forma a acomodar o movimento do cilindro. Assim, calcula-se o coeficiente de arrasto ao longo do tempo e compara-se com os resultados obtidos por \citeonline{wan2007fictitious}. A Figura \ref{fig:moving-cylinder-results} apresenta a comparação entre os resultados obtidos.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cilindro com deslocamento prescrito - Coeficiente de arrasto ao longo do tempo.}
+    \includegraphics[width=\linewidth]{Figuras/moving-cylinder/Cd.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:moving-cylinder-results}
+\end{figure}
+
+Verifica-se que os resultados obtidos possuem boa concordância com a referência, sendo observada apenas uma pequena diferença de fase entre os resultados, o que pode ser atribuído à diferença na condição inicial do problema.
+
+As Figuras \ref{fig:moving-t-18-9} e \ref{fig:moving-t-21} apresentam as configurações da malha nos instantes $t=18,9$ e $t=21,0$, assim como os campos de velocidades obtidos nesses instantes.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cilindro com deslocamento prescrito - Configuração da malha e campo de velocidades no instante $t=18,9$.}
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/moving-cylinder/m18-9.png}
+        \caption{Configuração da malha.}
+    \end{subfigure}
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/moving-cylinder/u18-9.png}
+        \caption{Campo de velocidades.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:moving-t-18-9}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cilindro com deslocamento prescrito - Configuração da malha e campo de velocidades no instante $t=21,0$.}
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/moving-cylinder/m21.png}
+        \caption{Configuração da malha.}
+    \end{subfigure}
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/moving-cylinder/u21.png}
+        \caption{Campo de velocidades.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:moving-t-21}
+\end{figure}
+
+Observa-se, portanto, que o esquema de movimentação da malha foi capaz de acomodar adequadamente o movimento do cilindro, assim como apresentou resultados muito próximos aos valores de referência, apontando a boa utilização do esquema de movimentação.
+
+%==================================================================================================
+\subsection{Aerofólio com movimento de arfagem}
+%==================================================================================================
+
+O exemplo seguinte se trata de um aerofólio NACA0012 com movimento de arfagem, proposto por \citeonline{mittal1992finite}, o qual aplica esse movimento como uma rotação prescrita do aerofólio em torno de um eixo. O domínio do problema é definido por $\Omega=[-9C, 21C]\times[-10C, 10C]$, com o centro geométrico do aerofólio posicionado em $(0,0)$. Inicialmente o aerofólio possui um ângulo de ataque ($\theta$) de $10,0^\circ$ e cujo valor varia ao longo do tempo por meio de:
+
+\begin{equation}
+    \theta(t)=\frac{\theta_\mathrm{máx}+\theta_\mathrm{mín}}{2}-\frac{\theta_\mathrm{máx}-\theta_\mathrm{mín}}{2}\cos{(\omega_f t)}\text{,}
+\end{equation}
+
+\noindent em que $\theta_\mathrm{máx}=20,0^\circ$ e $\theta_\mathrm{mín}=0,0^\circ$ são as variações máximas e mínimas do ângulo de ataque e $\omega_f=2\pi f_f$, sendo $f_f=1,0$ a frequência de oscilação. O giro do aerofólio se dá em torno de seu centro geométrico.
+
+As condições de contorno do problema são de entrada na face esquerda ($\BB{u}=\{u_\infty,0\}\trans$), saída à direita e condição de simetria nas faces superior e inferior. A Figura \ref{fig:rotating-airfoil} apresenta o esquema do problema estudado.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Esquema do problema.}
+    \includegraphics[width=.8\linewidth]{Figuras/rotating-airfoil/rotating-airfoil.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:rotating-airfoil}
+\end{figure}
+
+O número de Reynolds do problema, considerando o $C=1,0$ o comprimento característico do problema e baseado na velocidade de entrada $u_\infty=1,0$, é $\Rey=1000$. Para se obter a condição inicial do problema, realizou-se uma simulação estática para cada malha, mantendo-se fixo o ângulo de ataque inicial, até que se atingisse o regime permanente.
+
+Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A primeira malha foi simulada em DNS enquanto a segunda foi realizada tanto em DNS quanto em LES. As simulações foram estabilizadas por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. As Figuras \ref{fig:rotating-airfoil-m1} e \ref{fig:rotating-airfoil-m2} apresentam as configurações iniciais da malha utilizada para ambas as simulações.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha m1.}
+    \includegraphics[width=.8\linewidth]{Figuras/rotating-airfoil/m1.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:rotating-airfoil-m1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha m2.}
+    \includegraphics[width=.8\linewidth]{Figuras/rotating-airfoil/m2.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:rotating-airfoil-m2}
+\end{figure}
+
+Dessa maneira, observou-se os valores dos coeficientes de arrasto e de sustentação ao longo do tempo e comparou-se com os apresentados por \citeonline{mittal1992finite}. As Figuras \ref{fig:rotating-airfoil-Cd} e \ref{fig:rotating-airfoil-Cl} apresentam a comparação entre os resultados obtidos.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Coeficiente de arrasto ao longo do tempo.}
+    \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cd.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:rotating-airfoil-Cd}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Coeficiente de sustentação ao longo do tempo.}
+    \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cl.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:rotating-airfoil-Cl}
+\end{figure}
+
+Pode-se observar que em todas as simulações os resultados foram muito satisfatório, se aproximando dos valores de referência. A pequena variação entre os resultados deve-se ao nível de refinamento da malha ainda ser bem adequado ao problema.
+
+A Figura \ref{fig:vort} apresenta os campos de vorticidade e de velocidade no instante $t=8,0$ e frações de período a partir desse instante.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Campos de vorticidade e de velocidade.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \caption*{Campo de vorticidade.}
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort1.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \caption*{Campo de velocidade.}
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str1.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,0$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort2.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str2.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,2$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort3.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str3.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,4$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort4.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str4.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,6$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort5.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str5.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,8$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lvort.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lstr.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:vort}
+\end{figure}
+
+Qualitativamente os resultados são muito semelhantes aos obtidos por \citeonline{mittal1992finite}. A Figura \ref{fig:mesh} apresenta a configuração de ambas as malhas nos instantes $t=8,0$, $8,2$ e $8,4$.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Configuração da malha em frações de oscilação.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \caption*{Malha m1.}
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/m11.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \caption*{Malha m2.}
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/m21.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,0$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/m12.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/m22.png}
+    \end{subfigure}
+    \caption*{Instante $t=8,2$.}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/m13.png}
+    \end{subfigure}
+    \begin{subfigure}{.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/m23.png}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:mesh}
+\end{figure}
+
+\textcolor{red}{Verificar com malha mais grosseira}
