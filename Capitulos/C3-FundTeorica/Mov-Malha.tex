@@ -35,7 +35,7 @@ Assim, propõe-se um esquema de movimentação dado pelo problema de valor de co
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \Ny\cdot([1+\eta]\Ny)\BB{z}=0 & \text{ em }\Omega_F\text{,}  \\
+        \Nx\cdot([1+\eta]\Nx)\BB{z}=0 & \text{ em }\Omega_F\text{,}  \\
         \BB{z}=\BB{z}_m               & \text{ em }\Gamma_m\text{ e} \\
         \BB{z}=\BB{0}                 & \text{ em }\Gamma_f\text{,}
     \end{array}
@@ -54,25 +54,25 @@ Assim, propõe-se um esquema de movimentação dado pelo problema de valor de co
 Para a solução do problema \eqref{eq:LaplMov}, parte-se para o método dos resíduos ponderados, em que $\BB{\upsilon}$ é a função teste:
 
 \begin{equation}
-    \SintDom{[1+\eta^e]\BB{\upsilon}\cdot\Lapl\BB{z}}=0\text{.}
+    \SintDom{[1+\eta^e]\BB{\upsilon}\cdot\Laplx\BB{z}}=0\text{.}
 \end{equation}
 
 Integrando por partes e aplicando o teorema da divergência tem-se que:
 
 \begin{equation}
-    \SintFront{[1+\eta^e]\BB{\upsilon}\cdot(\Ny\BB{z}\cdot\BB{n})}-\SintDom{[1+\eta]\Ny\BB{\upsilon}:\Ny\BB{z}}=0\text{.}
+    \SintFront{[1+\eta^e]\BB{\upsilon}\cdot(\Nx\BB{z}\cdot\BB{n})}-\SintDom{[1+\eta]\Nx\BB{\upsilon}:\Nx\BB{z}}=0\text{.}
 \end{equation}
 
 Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nula, o que leva ao seguinte problema:
 
 \begin{equation}
-    \SintDom{[1+\eta^e]\Ny\BB{\upsilon}:\Ny\BB{z}}=0\text{.}
+    \SintDom{[1+\eta^e]\Nx\BB{\upsilon}:\Nx\BB{z}}=0\text{.}
 \end{equation}
 
 Fazendo a aproximação da função teste por funções de forma, tem-se:
 
 \begin{equation}
-    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e]\Ny N_a\cdot\Ny\BB{z}}}\text{,}
+    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e]\Nx N_a\cdot\Nx\BB{z}}}\text{,}
 \end{equation}
 
 \noindent sendo $\BB{\Upsilon}_a$ e $N_a$ o valor nodal da função teste e a função de forma sobre o nó $a$.
@@ -80,14 +80,14 @@ Fazendo a aproximação da função teste por funções de forma, tem-se:
 Devido à arbitrariedade da função teste, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
 
 \begin{equation}
-    \res_L^a=\intDome{[1+\eta^e]\Ny N_a\cdot\Ny\BB{z}}=0\text{.}
+    \res_L^a=\intDome{[1+\eta^e]\Nx N_a\cdot\Nx\BB{z}}=0\text{.}
     \label{eq:resLapl}
 \end{equation}
 
 Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
 
 \begin{equation}
-    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Ny N_a\cdot\Ny N_b}\BB{I}\text{.}
+    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\BB{I}\text{.}
     \label{eq:movMatriz}
 \end{equation}
 
@@ -152,6 +152,37 @@ Assim, o procedimento utilizado para a movimentação da malha é apresentado no
     Atualização dos valores passados\;
     }
 \end{algorithm}
+
+Uma outra possibilidade de movimentação pode ser obtida ao considerar o campo de acelerações da malha ao invés do campo de deslocamentos. Nesse caso, a equação que descreve a movimentação da malha é dada por:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \Nx\cdot([1+\eta]\Nx\ddBB{y})=\BB{0} & \text{ em }\Omega_F\text{,}  \\
+        \ddBB{y}=\ddBB{y}_m                  & \text{ em }\Gamma_m\text{ e} \\
+        \ddBB{y}=\BB{0}                      & \text{ em }\Gamma_f\text{,}
+    \end{array}
+    \right.
+    \label{eq:LaplMovAcc}
+\end{equation}
+
+\noindent em que $\ddBB{y}$ é o campo de acelerações da malha e $\ddBB{y}_m$ é o campo de acelerações prescrito em $\Gamma_f$.
+
+Seguindo o mesmo procedimento descrito anteriormente, se obtém a seguinte expressão para o vetor resíduo:
+
+\begin{equation}
+    \res_L^a=\intDome{[1+\eta^e]\Nx N_a\cdot\Nx\ddBB{y}}=0
+    \label{eq:resLaplAcc}
+\end{equation}
+
+\noindent e a matriz tangente do problema:
+
+\begin{equation}
+    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_m\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\BB{I}
+    \label{eq:movMatrizAcc}
+\end{equation}
+
+Portanto, se torna necessário apenas resolver o sistema \ref{eq:sistLapl} com essas novas expressões e aproximando o campo de deslocamentos via $\alpha$-generalizado.
 
 %==================================================================================================
 \section{Exemplos de verificação}
