@@ -198,6 +198,72 @@ Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamen
 
 Sendo assim, constata-se que a aplicação do modelo LES foi capaz de estabilizar a simulação para a malha m2, enquanto para a malha m1, a aplicação do modelo LES foi capaz de estabilizar a simulação apenas para o elemento quadrático. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS melhorou ligeiramente a solução obtida em relação à simulação estabilizada por SUPG/PSPG. A discrepância dos resultados obtidos com relação à referência se deve à baixa qualidade da malha, no entanto é possível observar que a aplicação do modelo LES foi capaz de manter certa representatividade nos resultados.
 
+Na sequência se realizou uma análise tridimensional da cavidade, onde se considerou um domínio cúbico $\Omega=[-1,1]^3$, onde as condições impostas na terceira direção são de simetria nas faces frontal e traseira. A malha utilizada nesse caso é feita a partir de 8154 elementos tetraédricos de aproximação quadrática dispostos de forma não-estruturada. Isso resulta em 12557 nós e 50228 graus de liberdade. A Figura \ref{fig:cavity-mesh3} apresenta a malha utilizada para a simulação.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Malha utilizada.}
+    \includegraphics[width=0.4\linewidth]{Figuras/cavity3D/malha.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity-mesh3}
+\end{figure}
+
+O problema foi estudado para as estabilizações SUPG/PSPG, com e sem a aplicação de LES, para $\Rey=100$, $400$ e $1000$. A Figura \ref{fig:cavity-results4} apresenta os valores do campo de velocidades sobre as linhas médias da face central da cavidade.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Valores do campo de velocidades sobre as linhas médias.}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/cavity3D/Re100.pdf}
+        \caption{$\Rey=100$}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/cavity3D/Re400.pdf}
+        \caption{$\Rey=400$}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/cavity3D/Re1000.pdf}
+        \caption{$\Rey=1000$}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.5\linewidth]{Figuras/cavity3D/legenda.pdf}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity-results4}
+\end{figure}
+
+Pode-se perceber, então, que para números de Reynolds baixos o resultado não difere muito entre as diferentes simulações. No entanto, à medida que o número de Reynolds aumenta, o aplicação dos demais termos estabilizadores da formulação VMS melhorou a solução obtida em relação à simulação estabilizada por SUPG/PSPG. Já com relação à aplicação do LES, verifica-se que houve uma pequena melhora nos resultados, no entanto o $\Rey$ ainda foi pequeno o suficiente para que sua aplicação não fosse tão significativa.
+
+Em seguida realizou-se uma simulação com uma malha ainda mais grosseira, com 2695 elementos tetraédricos de aproximação quadrática, contendo 4360 nós e 17440 graus de liberdade para $\Rey=10000$, utilizando estabilização SUPG/PSPG, com e sem aplicação de LES, e VMS. A Figura \ref{fig:cavity-results5} apresenta o campo de velocidades obtido na face de simetria do problema para as diferentes simulações no instante $t=450$.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Campo de velocidades na face de simetria.}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/cavity3D/DNS.png}
+        \caption{SUPG/PSPG}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/cavity3D/VMS.png}
+        \caption{VMS}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/cavity3D/LES.png}
+        \caption{LES}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity-results5}
+\end{figure}
+
+Analisando qualitativamente os resultados, observa-se que a aplicação do LES, mesmo para uma malha tão grosseira, foi capaz de melhorar a representação do campo de velocidades, enquanto a simulação sem aplicação do modelo de turbulência apresentou um resultado distante do esperado.
+
 \begin{comment}
 %==================================================================================================
 \subsection{\textit{Taylor-Green Vortex} tridimensional}

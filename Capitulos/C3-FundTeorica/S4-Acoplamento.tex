@@ -204,6 +204,7 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, ass
 \textcolor{red}{DISCUSSÃO DOS RESULTADOS}
 
 \newpage
+\begin{comment}
 %==================================================================================================
 \subsection{Cavidade tridimensional}
 %==================================================================================================
@@ -320,11 +321,12 @@ As Figuras \ref{fig:Cavity3D-press} e \ref{fig:Cavity3D-vel} apresentam, respect
 \end{figure}
 
 \newpage
+\end{comment}
 %==================================================================================================
 \subsection{\textit{Flutter} em painel flexível}
 %==================================================================================================
 
-Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid} e modificado por \citeonline{hubner2004monolithic}. Originalmente o problema proposto possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, enquanto no caso modificado a relação é menor, resultando em um problema fracamente acoplado. Ainda assim, tal exemplo apresenta certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressões de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm². O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty$ cm/s na direção 1. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na direção da espessura e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
+Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid}. Tal problema possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, além de apresentar certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressões de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema é nulo, uma vez que a cinemática utilizada nas referência foi a de Euler-Bernoulli para vigas, a quão não considera deformações por cisalhamento da estrutura. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
 
 \begin{figure}[h!]
     \centering
@@ -334,192 +336,44 @@ Outro problema comumente simulado trata-se de um painel engastado a um prisma qu
     \label{fig:FSI-prism}
 \end{figure}
 
-As propriedades físicas do painel para ambos os casos, assim como a velocidade de entrada e número de Reynolds (considerando o lado do prisma como o comprimento característico) são apresentadas na Tabela \ref{tab:panelProp}.
+% Segundo \citeonline{WARBURTON1976109}, o qual considera uma teoria clássica da dinâmica das estruturas, tem-se que os três primeiros modos de vibração de uma viga engastada com essas dimensões são $f_1=0,606$ Hz, $f_2=3,796$ Hz e $f_3=10,630$ Hz. Já a frequência de desprendimento de vórtices pode ser obtida ao manter toda a estrutura rígida, que segundo \citeonline{hubner2004monolithic}, resulta em $f_v=3,7$ Hz, o que se aproxima do segundo modo de vibração da estrutura, levando, portanto, à dominância desse modo.
 
-\begin{table}[h!]
-    \centering
-    \caption{\textit{Flutter} em painel - Propriedades físicas do painel flexível.}
-    \begin{tabular}{lcc}
-        \hline
-        Caso                   & Caso 1            & Caso 2            \\ \hline
-        $\rho_S$ (g/cm³)       & $2,0$             & $0,1$             \\
-        $E$ (g/(cm$\cdot$s²))  & $2,0\times10^{6}$ & $2,5\times10^{6}$ \\
-        $\BB{u}_\infty$ (cm/s) & $31,5$            & $51,3$            \\
-        $\Rey$                 & $204$             & $333$             \\\hline
-    \end{tabular}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{tab:panelProp}
-\end{table}
-
-Em ambos os casos considerou-se um coeficiente de Poisson nulo, uma vez que a cinemática utilizada nas referências foi a cinemática de Euler-Bernoulli para vigas, a qual não considera deformações por cisalhamento da estrutura.
-
-%==================================================================================================
-\subsubsection{Caso 1}
-%==================================================================================================
-
-Segundo \citeonline{WARBURTON1976109}, o qual considera uma teoria clássica da dinâmica das estruturas, tem-se que os três primeiros modos de vibração de uma viga engastada com essas dimensões são $f_1=0,606$ Hz, $f_2=3,796$ Hz e $f_3=10,630$ Hz. Já a frequência de desprendimento de vórtices pode ser obtida ao manter toda a estrutura rígida, que segundo \citeonline{hubner2004monolithic}, resulta em $f_v=3,7$ Hz, o que se aproxima do segundo modo de vibração da estrutura, levando, portanto, à dominância desse modo.
-
-O domínio computacional do fluido foi discretizado em 3423 elementos e 7088 nós, resultando em 28352 graus de liberdade. Já o domínio computacional da casca foi discretizado em 54 elementos e 165 nós, resultando em 1155 graus de liberdade. A Figura \ref{fig:meshPanel} apresenta as malhas utilizadas em ambos os domínios. O intervalo de tempo analisado foi $t\in[0,16]$, discretizado em passos de tempo $\Delta t=5\times10^{-3}$. O esquema de integração temporal foi dado considerando um raio espectral $\rho_\infty=0$ e os termos estabilizadores adotados foram somente o PSPG e SUPG.
+O domínio computacional do fluido foi discretizado em 3423 elementos tetraédricos de aproximação quadrática, possuindo 7088 nós e 28352 graus de liberdade. Já o domínio computacional da casca foi discretizado em 54 elementos e 165 nós, resultando em 1155 graus de liberdade. A Figura \ref{fig:meshPanel} apresenta as malhas utilizadas em ambos os domínios. O intervalo de tempo analisado foi $t\in[0,5]$, discretizado em passos de tempo $\Delta t=1,65\times10^{-3}$. O esquema de integração temporal foi dado considerando um raio espectral $\rho_\infty=0,0$ e os termos estabilizadores adotados foram da formulação SUPG/PSPG.
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Caso 1 - Malha utilizada para os domínios da simulação de painel.}
+    \caption{\textit{Flutter} em painel - Malha utilizada para os domínios da simulação de painel.}
     \begin{subfigure}[b]{\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/meshFluid.png}
+        \centering
+        \includegraphics[width=.8\linewidth]{Figuras/FSI-prism/meshFluid.png}
         \caption{Malha do fluido.}
     \end{subfigure}
     \begin{subfigure}[b]{\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/meshSolid.png}
+        \centering
+        \includegraphics[width=.8\linewidth]{Figuras/FSI-prism/meshSolid.png}
         \caption{Malha da casca.}
     \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:meshPanel}
 \end{figure}
 
-Pelo fato do problema apresentar grandes deslocamentos, principalmente na extremidade do painel, foi alterado o fator de rigidez da equação \ref{eq:movStiff} para o valor:
-
-\begin{equation}
-    \eta^e=\frac{V_\mathrm{máx}^2-V_\mathrm{mín}^2}{2(V^e)^2}\text{,}
-\end{equation}
-
-\noindent o que aumenta consideravelmente a rigidez dos elementos menores, mantendo sua forma, enquanto os elementos maiores absorvem mais os deslocamentos da malha.
-
-O gráfico apresentado na Figura \ref{fig:prismRes} indica o deslocamento vertical da extremidade do painel ao longo do tempo em comparação com a envoltória de deslocamentos obtido por \citeonline{hubner2004monolithic}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{\textit{Flutter} em painel - Caso 1 - Deslocamento vertical na extremidade do painel ao longo do tempo.}
-    \includegraphics[width=\linewidth]{Figuras/FSI-prism/resultados.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:prismRes}
-\end{figure}
-
-Assim, observa-se que a estrutura vibra com uma frequência de 2,941 Hz, o que se aproxima do segundo modo de vibração, como esperado. Também se aproxima dos resultados de \citeonline{hubner2004monolithic}, os quais determinaram um valor de 3,1 Hz em seus resultados. Já com relação à amplitude do deslocamento, esta esteve dentro das envoltórias da referência em todo o intervalo de análise, chegando próximo à amplitude máxima encontrada pelos autores, de 0,8 cm.
-
-Já os campos de velocidades, pressões e a configuração da malha são apresentadas em função de um período $T$ da oscilação. As Figuras \ref{fig:prismVel}, \ref{fig:prismPres} e \ref{fig:prismMesh} apresentam visualmente os campos de velocidades, pressões e a configuração da malha para frações $T/6$ do período, respectivamente. Em todos os casos, houve uma boa concordância com os campos obtidos por \citeonline{fernandes2020tecnica}.
-
-\begin{figure}[h!]
-    \centering
-    \caption{\textit{Flutter} em painel - Caso 1 - Campo de magnitude de velocidades obtidos no problema de \textit{Flutter} em painel.}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/vT1.png}
-        \caption{$t=nT$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/vT2.png}
-        \caption{$t=nT+T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/vT3.png}
-        \caption{$t=nT+2T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/vT4.png}
-        \caption{$t=nT+3T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/vT5.png}
-        \caption{$t=nT+4T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/vT6.png}
-        \caption{$t=nT+5T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/legendav.png}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:prismVel}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{\textit{Flutter} em painel - Caso 1 - Campo de pressões obtidos no problema de \textit{Flutter} em painel.}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/pT1.png}
-        \caption{$t=nT$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/pT2.png}
-        \caption{$t=nT+T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/pT3.png}
-        \caption{$t=nT+2T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/pT4.png}
-        \caption{$t=nT+3T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/pT5.png}
-        \caption{$t=nT+4T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/pT6.png}
-        \caption{$t=nT+5T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/legendap.png}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:prismPres}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{\textit{Flutter} em painel - Caso 1 - Configurações da malha obtidas no problema.}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/mT1.png}
-        \caption{$t=nT$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/mT2.png}
-        \caption{$t=nT+T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/mT3.png}
-        \caption{$t=nT+2T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/mT4.png}
-        \caption{$t=nT+3T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/mT5.png}
-        \caption{$t=nT+4T/6$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-prism/mT6.png}
-        \caption{$t=nT+5T/6$}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:prismMesh}
-\end{figure}
-
-%==================================================================================================
-\subsubsection{Caso 2}
-%==================================================================================================
-
-Para o segundo caso utilizou-se a mesma malha do primeiro caso para ambos os domínios computacionais, assim como o mesmo esquema de integração temporal e termos estabilizadores. Já o intervalo de tempo analisado foi $t\in[0,5]$, discretizado em passos de tempo $\Delta t=1,65\times10^{-3}$. O fator de rigidez elementar utilizado foi o mesmo do apresentado no item \ref{MovMalha}.
-
 O gráfico apresentado na Figura \ref{fig:prismRes} indica o deslocamento vertical da extremidade do painel ao longo do tempo em comparação com os resultados obtidos por \citeonline{wall1999fluid}.
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Caso 2 - Deslocamento vertical na extremidade do painel ao longo do tempo.}
+    \caption{\textit{Flutter} em painel - Deslocamento vertical na extremidade do painel ao longo do tempo.}
     \includegraphics[width=\linewidth]{Figuras/FSI-prism2/results.pdf}
     \\Fonte: Autoria Própria (\the\year).
-    \label{fig:prismRes2}
+    \label{fig:prismRes}
 \end{figure}
 
 Assim, obteve-se um comportamento oscilatório com amplitude de 1,26 cm e frequência de 3,03 Hz (Período de 0,33 s), o que se aproxima dos resultados de \citeonline{wall1999fluid}.
 
-Apesar de possuir uma amplitude maior de deslocamentos em relação ao primeiro caso, pelo fato do painel vibrar de acordo com seu primeiro modo de vibração, a malha não apresentou grandes distorções. As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de velocidades, pressões e a configuração da malha para frações $T/6$ do período, respectivamente.
+As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de velocidades, pressões e a configuração da malha para frações $T/6$ do período, respectivamente.
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Caso 2 - Campo de magnitude de velocidades obtidos no problema de \textit{Flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Campo de magnitude de velocidades obtidos no problema de \textit{Flutter} em painel.}
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT1.png}
         \caption{$t=nT$}
@@ -553,7 +407,7 @@ Apesar de possuir uma amplitude maior de deslocamentos em relação ao primeiro 
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Caso 2 - Campo de pressões obtidos no problema de \textit{Flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Campo de pressões obtidos no problema de \textit{Flutter} em painel.}
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT1.png}
         \caption{$t=nT$}
@@ -587,7 +441,7 @@ Apesar de possuir uma amplitude maior de deslocamentos em relação ao primeiro 
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Caso 2 - Configurações da malha obtidas no problema.}
+    \caption{\textit{Flutter} em painel - Configurações da malha obtidas no problema.}
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/mT1.png}
         \caption{$t=nT$}
@@ -615,5 +469,48 @@ Apesar de possuir uma amplitude maior de deslocamentos em relação ao primeiro 
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:prismMesh2}
 \end{figure}
+\newpage
 
-% \textcolor{red}{Quando mudar o exemplo, lembrar de atualizar o coeficiente de Poisson, o raio espectral e a rigidez do elemento}
+Na sequência estudou-se o comportamento do painel quando modelado por uma malha grosseira em um domínio de maior espessura. Assim, utilizou-se uma espessura $esp=4,0$, de forma que po painel possua uma geometria quadrada. Além disso também foi liberado o deslocamento do painel na terceira direção. Com isso, obtém-se uma malha de fluido contendo 6794 elementos quadráticos, com 11806 nós e 47224 graus de liberdade, enquanto a casca possui 200 elementos quadráticos, 441 nós e 3087 graus de liberdade. A Figura \ref{fig:meshPanel2} apresenta as malhas utilizadas em ambos os domínios.
+
+\begin{figure}[h!]
+    \centering
+    \caption{\textit{Flutter} em painel - Malha utilizada para os domínios da simulação de painel.}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/flutter-coarse/fluid.png}
+        \caption{Malha do fluido.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/flutter-coarse/shell.png}
+        \caption{Malha da casca.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:meshPanel2}
+\end{figure}
+
+O problema foi simulado com a aplicação das estabilizações SUPG/PSPG e VMS, com e sem aplicação do modelo LES. A Figura \ref{fig:prismRes2} apresenta o deslocamento vertical da extremidade do painel ao longo do tempo para as diferentes simulações em comparação com os resultados obtidos por \citeonline{wall1999fluid}. A Tabela \ref{tab:prismRes2} apresenta os valores de amplitude, período e frequência da oscilação após o problema atingir o equilíbrio dinâmico.
+
+\begin{figure}[h!]
+    \centering
+    \caption{\textit{Flutter} em painel - Deslocamento vertical na extremidade para malha grosseira.}
+    \includegraphics[width=\linewidth]{Figuras/flutter-coarse/disp_y.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:prismRes2}
+\end{figure}
+
+\begin{table}[h!]
+    \centering
+    \caption{\textit{Flutter} em painel - Propriedades da oscilação para malha grosseira.}
+    \begin{tabular}{lccc}
+        \hline
+        Modelo        & Amplitude (cm) & Período (s) & Frequência (Hz) \\\hline
+        SUPG/PSPG     & -              & -           & -               \\
+        SUPG/PSPG+LES & 1,379          & 0,330       & 3,028           \\
+        VMS           & 1,358          & 0,315       & 3,179           \\
+        VMS+LES       & 1,384          & 0,327       & 3,062           \\\hline
+    \end{tabular}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{tab:prismRes2}
+\end{table}
+
+Verifica-se que o problema simulado com SUPG/PSPG não atingiu o equilíbrio dinâmico, com uma taxa de aumento da amplitude de deslocamento muito baixa. Já a simulação utilizando a mesma estabilização e o modelo LES já foi capaz de capturar corretamente o comportamento da estrutura. Por fim, tanto a simulação utilizando estabilização VMS, com e sem o LES, foi capaz de descrever adequadamente o comportamento da estrutura.
