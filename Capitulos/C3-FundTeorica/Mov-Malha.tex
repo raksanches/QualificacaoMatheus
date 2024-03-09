@@ -72,7 +72,7 @@ Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nu
 Fazendo a aproximação da função teste por funções de forma, tem-se:
 
 \begin{equation}
-    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e]\Nx N_a\cdot\Nx\BB{z}}}\text{,}
+    \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e]\Nx\BB{z}\cdot\Nx N_a}}\text{,}
 \end{equation}
 
 \noindent sendo $\BB{\Upsilon}_a$ e $N_a$ o valor nodal da função teste e a função de forma sobre o nó $a$.
@@ -80,7 +80,7 @@ Fazendo a aproximação da função teste por funções de forma, tem-se:
 Devido à arbitrariedade da função teste, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
 
 \begin{equation}
-    \res_L^a=\intDome{[1+\eta^e]\Nx N_a\cdot\Nx\BB{z}}=0\text{.}
+    \res_L^a=\intDome{[1+\eta^e]\Nx\BB{z}\cdot\Nx N_a}=0\text{.}
     \label{eq:resLapl}
 \end{equation}
 
@@ -171,7 +171,7 @@ Uma outra possibilidade de movimentação pode ser obtida ao considerar o campo 
 Seguindo o mesmo procedimento descrito anteriormente, se obtém a seguinte expressão para o vetor resíduo:
 
 \begin{equation}
-    \res_L^a=\intDome{[1+\eta^e]\Nx N_a\cdot\Nx\ddBB{y}}=0
+    \res_L^a=\intDome{[1+\eta^e]\Nx\ddBB{y}\cdot\Nx N_a}=0
     \label{eq:resLaplAcc}
 \end{equation}
 
