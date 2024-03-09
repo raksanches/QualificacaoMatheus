@@ -288,40 +288,40 @@ As condições de contorno do problema são de entrada na face esquerda ($\BB{u}
 
 O número de Reynolds do problema, considerando o $C=1,0$ o comprimento característico do problema e baseado na velocidade de entrada $u_\infty=1,0$, é $\Rey=1000$. Para se obter a condição inicial do problema, realizou-se uma simulação estática para cada malha, mantendo-se fixo o ângulo de ataque inicial, até que se atingisse o regime permanente.
 
-Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A primeira malha foi simulada em DNS enquanto a segunda foi realizada tanto em DNS quanto em LES. As simulações foram estabilizadas por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. As Figuras \ref{fig:rotating-airfoil-m1} e \ref{fig:rotating-airfoil-m2} apresentam as configurações iniciais da malha utilizada para ambas as simulações.
+Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A malha m1 foi simulada em DNS (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto em DNS (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
 
 \begin{figure}[h!]
     \centering
-    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha m1.}
-    \includegraphics[width=.75\linewidth]{Figuras/rotating-airfoil/m1.png}
+    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha.}
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{Figuras/rotating-airfoil/m1.png}
+        \caption{Malha m1.}
+    \end{subfigure}
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{Figuras/rotating-airfoil/m2.png}
+        \caption{Malha m2.}
+    \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-m1}
+    \label{fig:rotating-airfoil}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha m2.}
-    \includegraphics[width=.75\linewidth]{Figuras/rotating-airfoil/m2.png}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-m2}
-\end{figure}
-
-Dessa maneira, observou-se os valores dos coeficientes de arrasto e de sustentação ao longo do tempo e comparou-se com os apresentados por \citeonline{mittal1992finite}. As Figuras \ref{fig:rotating-airfoil-Cd} e \ref{fig:rotating-airfoil-Cl} apresentam a comparação entre os resultados obtidos.
+Dessa maneira, observou-se os valores dos coeficientes de arrasto e de sustentação ao longo do tempo e comparou-se com os apresentados por \citeonline{mittal1992finite}. A Figura \ref{fig:rotating-airfoil-Coef} apresentam a comparação entre os resultados obtidos.
 
 \begin{figure}[h!]
     \centering
-    \caption{Aerofólio com movimento de arfagem - Coeficiente de arrasto ao longo do tempo.}
-    \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cd.pdf}
+    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$.}
+    \begin{subfigure}{\linewidth}
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cd.pdf}
+        \caption{Coeficiente de arrasto.}
+    \end{subfigure}
+    \begin{subfigure}{\linewidth}
+        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cl.pdf}
+        \caption{Coeficiente de sustentação.}
+    \end{subfigure}
     \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Cd}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Coeficiente de sustentação ao longo do tempo.}
-    \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cl.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Cl}
+    \label{fig:rotating-airfoil-Coef}
 \end{figure}
 
 Pode-se observar que em todas as simulações os resultados foram muito satisfatório, se aproximando dos valores de referência. A pequena variação entre os resultados deve-se ao nível de refinamento da malha ainda ser bem adequado ao problema.
@@ -426,5 +426,3 @@ Qualitativamente os resultados são muito semelhantes aos obtidos por \citeonlin
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:mesh}
 \end{figure}
-
-\textcolor{red}{Verificar com malha mais grosseira}

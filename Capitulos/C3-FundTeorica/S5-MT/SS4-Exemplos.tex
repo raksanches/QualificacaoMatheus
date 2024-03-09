@@ -150,10 +150,10 @@ Em seguida realizou-se uma análise da dependência da malha para a simulação 
     \caption{Cavidade bidimensional - Características das malhas utilizadas para a análise de dependência.}
     \begin{tabular}{lcccccc}
         \hline
-        Malha               & Elemento   & Subdivisões         & Elementos            & $n_u$ & $n_p$ & DOF  \\\hline
-        \multirow{2}{*}{m1} & Quadrático & \multirow{2}{*}{20} & \multirow{2}{*}{800} & 1681  & 1681  & 5043 \\
-                            & P2P1       &                     &                      & 1681  & 441   & 3803 \\\hline
-        m2                  & Quadrático & 8                   & 128                  & 289   & 289   & 867  \\\hline
+        Malha               & Elemento   & Subdivisões & Elementos & $n_u$ & $n_p$ & DOF  \\\hline
+        \multirow{2}{*}{m1} & Quadrático & 20          & 800       & 1681  & 1681  & 5043 \\
+                            & P2P1       & 20          & 800       & 1681  & 441   & 3803 \\\hline
+        m2                  & Quadrático & 8           & 128       & 289   & 289   & 867  \\\hline
     \end{tabular}
     \\Fonte: Autoria Própria (\the\year).
     \label{tab:cavity-mesh2}
@@ -176,7 +176,7 @@ Em seguida realizou-se uma análise da dependência da malha para a simulação 
     \label{fig:cavity-mesh2}
 \end{figure}
 
-Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamente na malha m1, mesmo aplicando o modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressões, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já na malha m2 se observou que a simulação DNS divergiu para todos os elementos, enquanto o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta os valores do campo de velocidades sobre as linhas médias da cavidade para a malha m1 e m2.
+Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamente na malha m1, mesmo aplicando o modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressões, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já na malha m2 se observou que a simulação DNS divergiu também para elementos quadráticos, enquanto o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta os valores do campo de velocidades sobre as linhas médias da cavidade para a malha m1 e m2.
 
 \begin{figure}[h!]
     \centering
@@ -196,7 +196,7 @@ Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamen
     \label{fig:cavity-results3}
 \end{figure}
 
-Sendo assim, constata-se que a aplicação do modelo LES foi capaz de estabilizar a simulação para a malha m2, enquanto para a malha m1, a aplicação do modelo LES foi capaz de estabilizar a simulação apenas para o elemento quadrático. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS melhorou ligeiramente a solução obtida em relação à simulação estabilizada por SUPG/PSPG. A discrepância dos resultados obtidos com relação à referência se deve à baixa qualidade da malha, no entanto é possível observar que a aplicação do modelo LES foi capaz de manter certa representatividade nos resultados.
+Sendo assim, constata-se que a aplicação do modelo LES foi capaz de estabilizar a simulação para a malha m2, enquanto para a malha m1, a aplicação do modelo LES foi capaz de estabilizar a simulação apenas para o elemento quadrático. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS melhorou ligeiramente a solução obtida em relação à simulação estabilizada por SUPG/PSPG. A discrepância dos resultados obtidos com relação à referência se deve à baixa qualidade da malha, no entanto é possível observar que a aplicação do modelo LES foi capaz de manter certa representatividade nos resultados. Uma possível explicação para esse efeito se dá pela melhora de estabilidade devido ao incremento de viscosidade, proveniente da viscosidade de vórtice do modelo, na região de maior gradiente de velocidade (próximo à face superior do domínio), que é uma região onde podem surgir instabilidades consideráveis devido ao baixo refinamento da malha.
 
 Na sequência se realizou uma análise tridimensional da cavidade, onde se considerou um domínio cúbico $\Omega=[-1,1]^3$, onde as condições impostas na terceira direção são de simetria nas faces frontal e traseira. A malha utilizada nesse caso é feita a partir de 8154 elementos tetraédricos de aproximação quadrática dispostos de forma não-estruturada. Isso resulta em 12557 nós e 50228 graus de liberdade. A Figura \ref{fig:cavity-mesh3} apresenta a malha utilizada para a simulação.
 

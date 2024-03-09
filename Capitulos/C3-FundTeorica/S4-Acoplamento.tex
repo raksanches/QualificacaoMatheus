@@ -201,7 +201,34 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, ass
     \label{fig:cavity2D-time}
 \end{figure}
 
-\textcolor{red}{DISCUSSÃO DOS RESULTADOS}
+Na sequência realizou-se uma simulação cuja espessura do domínio fora aumentada de forma a tornar o domínio do fluido uma cavidade cúbica de lado unitário, para se observar melhor quaisquer efeitos tridimensionais que possam ocorrer. Assim liberou-se o movimento da casca nas três direções para se obter uma melhor representatividade física. Além disso, tanto o domínio do fluido quanto da casca foram discretizados com malhas mais grosseiras, com a malha do fluido possuindo 2786 elementos de aproximação quadrática, 4963 nós e 19852 graus de liberdade, enquanto a malha do sólido possui 72 elementos, 169 nós e 1183 graus de liberdade. A Figura \ref{fig:cavity2D-coarse} apresenta a malha utilizada para cada um dos meios.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Malhas utilizadas para o segundo caso.}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/fluid-coarse.png}
+        \caption{Fluido.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/shell-coarse.png}
+        \caption{Casca.}
+    \end{subfigure}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity2D-coarse}
+\end{figure}
+
+Nesse caso observou-se a influência que cada tipo de estabilização causa na solução, onde simulou-se com as estabilizações SUPG/PSPG e VMS. Também foram simulados os problemas com e sem a aplicação do modelo LES, para analisar os efeitos que este causa na solução. A Figura \ref{fig:cavity2D-rescoarse} apresenta o deslocamento vertical do centro da casca (nó $A$) ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{gerbeau2003quasi}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade bidimensional - Deslocamento vertical do nó $A$ para o segundo caso.}
+    \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/results-coarse.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:cavity2D-rescoarse}
+\end{figure}
+
+É possível perceber que a aplicação dos demais termos estabilizadores presentes na formulação VMS levaram a uma melhora na solução obtida, em relação ao SUPG/PSPG. No entanto a aplicação do modelo LES não surtiu efeito na solução encontrada. Isso se deve ao fato do número de Reynolds do problema ser baixo, além de possuir gradientes de velocidade também muito pequenos. Outro motivo que pode ter contribuído com a baixa contribuição do LES se deve ao fato do problema requerer um refinamento maior nas faces de entrada e saída do fluido, fazendo com que a face superior, como um todo, tivesse elementos menores, e é exatamente nessa região onde o LES teria seu maior impacto. Com isso, todos esses fatores somados levaram a um problema onde não se necessita a aplicação do modelo LES.
 
 \newpage
 \begin{comment}
@@ -374,27 +401,27 @@ As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de ve
 \begin{figure}[h!]
     \centering
     \caption{\textit{Flutter} em painel - Campo de magnitude de velocidades obtidos no problema de \textit{Flutter} em painel.}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT1.png}
         \caption{$t=nT$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT2.png}
         \caption{$t=nT+T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT3.png}
         \caption{$t=nT+2T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT4.png}
         \caption{$t=nT+3T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT5.png}
         \caption{$t=nT+4T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT6.png}
         \caption{$t=nT+5T/6$}
     \end{subfigure}
@@ -408,27 +435,27 @@ As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de ve
 \begin{figure}[h!]
     \centering
     \caption{\textit{Flutter} em painel - Campo de pressões obtidos no problema de \textit{Flutter} em painel.}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT1.png}
         \caption{$t=nT$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT2.png}
         \caption{$t=nT+T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT3.png}
         \caption{$t=nT+2T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT4.png}
         \caption{$t=nT+3T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT5.png}
         \caption{$t=nT+4T/6$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT6.png}
         \caption{$t=nT+5T/6$}
     \end{subfigure}
@@ -514,3 +541,4 @@ O problema foi simulado com a aplicação das estabilizações SUPG/PSPG e VMS, 
 \end{table}
 
 Verifica-se que o problema simulado com SUPG/PSPG não atingiu o equilíbrio dinâmico, com uma taxa de aumento da amplitude de deslocamento muito baixa. Já a simulação utilizando a mesma estabilização e o modelo LES já foi capaz de capturar corretamente o comportamento da estrutura. Por fim, tanto a simulação utilizando estabilização VMS, com e sem o LES, foi capaz de descrever adequadamente o comportamento da estrutura.
+
