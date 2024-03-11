@@ -2,12 +2,10 @@
 \section{Exemplos de Verificação} \label{ExemplosMT}
 %==================================================================================================
 
-\textcolor{red}{REVISAR}
-
-Para verificação das formulações implementadas, realizaram-se algumas simulações de problemas bidimensionais bastante conhecidos. Utilizando-se o problema de escoamento em uma cavidade, proposto por \citeonline{ghia1982high}, foi possível observar-se os impactos na solução com o uso de diferentes elementos, seguido de uma análise da convergência para tais elementos, e, por fim, uma verificação dos efeitos da inclusão de modelos de turbulência frente a uma simulação direta. Para a verificação prévia das implementações tridimensionais, adotando-se a geometria de uma cavidade tridimensional, simulou-se o problema \textit{Taylor-Green Vortex} (TGV) \cite{shapiro1993use}. Por fim, simulou-se o escoamento sobre um cilindro proposto por \citeonline{tezduyar1992incompressible,codina2006numerical,najafi2012meshless,fernandes2020tecnica}, analisando-se o comportamento transiente dos coeficientes de arrasto e de sustentação para diferentes modelos e aproximações. Os resultados obtidos para cada uma das simulações são apresentados nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
+Para verificação das formulações implementadas, realizaram-se tanto algumas simulações de problemas bidimensionais quanto tridimensionais. Utilizando-se o problema de escoamento em uma cavidade (Seção \ref{ex:cavity}), proposto por \citeonline{ghia1982high}, foi possível observar-se os impactos na solução com o uso de diferentes elementos, estabilizações e utilização, ou não, de modelo LES. Na sequência verificou-se o impacto da utilização do LES no mesmo problema, porém com a consideração de malhas consideravelmente mais grosseiras, além da análise do problema em uma situação tridimensional do mesmo. Em seguida observou-se o problema de escoamento em degrau invertido (Seção \ref{ex:backwardFacingStep}), proposto por \citeonline{armaly1983experimental} e estendido numericamente por \citeonline{chiang1999numerical}, onde se verificou os efeitos da utilização de diferentes elementos na solução. Posteriormente estudou-se o problema de escoamento sobre um cilindro (Seção \ref{ex:cylinder}), no qual se observou o comportamento transiente dos coeficientes de arrasto e de sustentação para diferentes elementos, estabilizações e aplicação, ou não, de LES, sendo observadas as influências também em discretizações grosseiras. Por fim estudou-se, para escoamentos turbulentos, o problema de escoamento sobre um aerofólio NACA 0012 com $\Rey=5\times10^4$ (Seção \ref{ex:NACA0012}), tanto em simulação bidimensional, quanto tridimensional, utilizando elementos quadráticos com e sem a aplicação do modelo LES.
 
 %==================================================================================================
-\subsection{Cavidade bidimensional}
+\subsection{Cavidade bidimensional} \label{ex:cavity}
 %==================================================================================================
 
 Um problema comumente utilizado na literatura como \textit{benchmark}, trata-se de uma cavidade quadrada ($\Omega=[-1,1]^2$) com paredes aderentes, onde o fluido encontra-se confinado e sujeito a uma velocidade prescrita $\BB{u}_\infty$ ocasionada devido ao deslizamento de uma parede na face superior da cavidade. Assim são observados os efeitos provocados no escoamento devido à diferentes números de Reynolds, o qual é calculado por meio da equação \eqref{eq:Reynolds}:
@@ -358,7 +356,7 @@ Assim, observa-se que para o problema estudado, tanto as simulações VMS de apr
 
 \newpage
 %==================================================================================================
-\subsection{Escoamento em degrau invertido}
+\subsection{Escoamento em degrau invertido} \label{ex:backwardFacingStep}
 %==================================================================================================
 
 O problema de escoamento em degrau invertido é um problema clássico de escoamento em dutos, sendo bastante utilizado como \textit{benchmark} \cite{armaly1983experimental,chiang1999numerical}. O problema consiste em um escoamento advindo de um duto, cuja seção sofre um alargamento abrupto, conforme ilustrado na Figura \ref{fig:step}. Tal problema tem sua origem nos estudos experimentais de \citeonline{armaly1983experimental} e posteriormente estudado numericamente em problemas tridimensionais por \citeonline{chiang1999numerical}.
@@ -484,7 +482,7 @@ Outra simulação realizada trata-se do problema bidimensional com $S=1$ e $\Rey
 Assim, percebe-se que, em relação ao campo de velocidades, todas as simulações possuíram resultados satisfatórios em todos os números de Reynolds analisados, tanto em simulações bidimensionais quanto tridimensionais. No entanto, para o campo de pressões, observa-se que os elementos P2P1 apresentaram oscilações espúrias, principalmente próximo à face de entrada, o que não é observado na simulação estabilizada por PSPG.
 
 %==================================================================================================
-\subsection{Escoamento sobre cilindro}
+\subsection{Escoamento sobre cilindro} \label{ex:cylinder}
 %==================================================================================================
 
 Para o seguinte problema considerou-se um cilindro circular de raio $R=0,5$ em um domínio retangular $\Omega=[0,112R]\times[0,100R]$, sendo o centro do cilindro posicionado sobre o ponto $(36,50)R$. As condições de contorno consideradas foram de entrada na face esquerda ($x_1=0$) do domínio ($\BB{u}=\{u_\infty,0\}^T$) e condição de velocidade vertical nula nas faces inferior e superior ($u_2=0$ em $x_2=0$ e $x_2=100R$). Como condição inicial aplicou-se uma velocidade $\BB{u}=\{u_\infty,0\}^T$ em todo o domínio. A densidade do fluido foi de $\rho=1,0$ e a velocidade $u_\infty=1,0$. A viscosidade dinâmica do fluido foi de $\nu=0,01$, $\nu=6,6667\times10^{-3}$ e $\nu=5\times10^{-3}$, de forma a se obter $\Rey=100$, $\Rey=150$ e $\Rey=200$, respectivamente.
@@ -906,7 +904,7 @@ Como pode se observar, os valores obtidos a partir de elementos P2P1 tiveram val
 
 \newpage
 %==================================================================================================
-\subsection{Escoamento sobre um aerofólio NACA 0012}
+\subsection{Escoamento sobre um aerofólio NACA 0012} \label{ex:NACA0012}
 %==================================================================================================
 
 O seguinte exemplo trata-se de um escoamento em torno de um aerofólio NACA 0012, cujo comprimento da corda é unitário ($L=1,0$). O domínio considerado para a simulação é apresentado na Figura \ref{fig:NACA0012}, em que o ângulo de ataque $\alpha=5^{\circ}$. O fluido possui massa específica $\rho=1,0$, viscosidade dinâmica $\mu=2\times10^{-5}$ e a velocidade de entrada é de $\BB{u}_\infty=[1,0]\trans$, resultando em o número de Reynolds de $\Rey=5\times10^4$.
