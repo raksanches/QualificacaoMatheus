@@ -1,11 +1,11 @@
 %==================================================================================================
-\chapter{Estado Da Arte}
+\section{Estado Da Arte}
 %==================================================================================================
 
-No presente capítulo é apresentada uma breve revisão do estado da arte dos principais temas relacionados à simulação numérica de IFE, tendo como ênfase os problemas com escoamentos turbulentos. São destacados os desenvolvimentos básicos para a dinâmica das estruturas computacional com grandes deslocamentos (\ref{CSD}), para a dinâmica dos fluidos computacional (\ref{CFD}) com contornos móveis, onde abordam-se o modelo de turbulências baseado na decomposição de grandes vórtices (LES), assim como o modelo de estabilização variacional multiescala (VMS) (\ref{MT}).
+Na presente seção é apresentada uma breve revisão do estado da arte dos principais temas relacionados à simulação numérica de IFE, tendo como ênfase os problemas com escoamentos turbulentos. São destacados os desenvolvimentos básicos para a dinâmica das estruturas computacional com grandes deslocamentos (\ref{CSD}), para a dinâmica dos fluidos computacional (\ref{CFD}) com contornos móveis, onde abordam-se o modelo de turbulências baseado na decomposição de grandes vórtices (LES), assim como o modelo de estabilização variacional multiescala (VMS) (\ref{MT}).
 
 %==================================================================================================
-\section{Dinâmica Das Estruturas Computacional} \label{CSD}
+\subsection{Dinâmica Das Estruturas Computacional} \label{CSD}
 %==================================================================================================
 
 A mecânica dos sólidos busca descrever o comportamento de elementos estruturais quando sujeitos a solicitações externas, identificando os campos de tensão, deformação e deslocamento. A utilização de métodos computacionais para a solução desses problemas iniciou-se principalmente com o método das diferenças finitas, mas no decorrer do tempo, o Método dos Elementos Finitos (MEF), cujo nome foi cunhado por \citeonline{clough1960finite}, se destacou como uma ferramenta mais versátil, sendo atualmente a ferramenta mais difundida na mecânica dos sólidos.
@@ -31,7 +31,7 @@ No âmbito da IFE, destaca-se a necessidade de se utilizar metodologias que capt
 Já a utilização do MEF baseado em posições em problemas de IFE com escoamentos incompressíveis pode ser vista nos trabalhos de \citeonline{sanches2013unconstrained} e \citeonline{fernandes2019ale}, os quais aplicaram a formulação em elementos de casca e \citeonline{fernandes2020tecnica}, o qual aplicou a formulação em elementos reticulados. Assim, percebe-se a boa utilização dessa formulação nesse contexto. No entanto, a utilização dessa formulação em problemas de IFE com escoamentos turbulentos ainda não foi explorada.
 
 %==================================================================================================
-\section{Dinâmica Dos Fluidos Computacional} \label{CFD}
+\subsection{Dinâmica Dos Fluidos Computacional} \label{CFD}
 %==================================================================================================
 
 Ao contrário de problemas da mecânica dos sólidos, que possuem um estado inicial bem definido, os fluidos, em especial os newtonianos, não o possuem, uma vez que são incapazes de resistir a tensões desviadoras, deformando-se, assim, indefinidamente quando sujeitos à essas tensões. Dessa forma, torna-se apropriada a utilização de uma descrição Euleriana para descrever os fluidos, em que os DOF são principalmente as velocidades e pressões do mesmo \cite{fernandes2020tecnica}.
@@ -49,7 +49,7 @@ Outra possibilidade para contornar esses problemas de instabilidade empregando u
 Outro problema surge à medida que o número de Reynolds do escoamento aumenta, passando de um regime laminar de escoamento para um regime turbulento. Esses fenômenos podem se apresentar nas mais variadas escalas, podendo demandar a geração de uma malha muito refinada para capturar os vórtices e solucionar o problema de forma estável. Isso ocasiona um aumento radical no custo computacional da análise. Como espera-se que um método numérico seja capaz de apresentar soluções estáveis para os problemas, independentemente do nível de discretização, diversos trabalhos foram conduzidos a fim de desenvolverem formulações estáveis para escoamentos com elevados números de Reynolds, buscando minimizar os custos computacionais. Dentre esses métodos destacam-se os métodos de \RANS\ (RANS) \cite{speziale1991analytical,alfonsi2009reynolds,ling2015evaluation}, as Simulações de Grandes Vórtices (\LES\ - LES) \cite{germano1991dynamic,piomelli1999large,hughes2000large,vsekutkovski2021partitioned} e o método Variacional Multiescala (\VMS\ - VMS) \cite{hughes1995multiscale,hughes1998variational,hughes2002variational,bazilevs2010large,bazilevs2013computational}.
 
 %==================================================================================================
-\subsection{Modelos De Turbulência} \label{MT}
+\subsubsection{Modelos De Turbulência} \label{MT}
 %==================================================================================================
 
 Para se classificar um escoamento, é possível se utilizar de um coeficiente que relaciona as forças inerciais e viscosas, denominado de número de Reynolds. Assim, os escoamentos podem se comportar de três formas distintas em função do valor desse coeficiente. Primeiramente se observa o escoamento laminar, que ocorre quando o número de Reynolds é baixo, sendo caracterizado por um escoamento ordenado, tendo sua movimentação semelhante ao de lâminas deslizando independentemente entre si, sem mistura macroscópica entre as camadas de fluido \cite{popiolek2005analise,shaughnessy2005introduction}. Em seguida, conforme o número de Reynolds aumenta, o escoamento passa por um momento de transição, com a formação esporádica de vórtices. Já quando o número de Reynolds se torna elevado, o escoamento passa a ser classificado como turbulento, sendo caracterizado por uma mistura intensa entre as camadas de fluido, com vórtices de diferentes escalas e formados de maneira desordenada. As equações de Navier-Stokes são capazes de resolver esses escoamentos, no entanto sua solução passa a apresentar alto grau de complexidade, podendo demandar discretizações muito refinadas para a obtenção de uma resposta estável e consistente \cite{neto2002fundamentos}.
@@ -61,7 +61,7 @@ A aplicação direta do MEF sobre as equações de Navier-Stokes para a simulaç
 Outra forma de abordar tais problemas é com o emprego do modelo de \textit{Large-Eddy Simulation} (LES), introduzido por \citeonline{smagorinsky1963general}. Esse modelo considera a separação das grandezas em duas parcelas: uma parcela filtrada, a qual captura os grandes vórtices, possíveis de ser calculada diretamente por meio das equações de Navier-Stokes filtradas; e outra não-filtrada, a qual representa os pequenos vórtices, que apesar de não poder ser calculada diretamente, possui um comportamento isotrópico, viabilizando sua modelagem. Uma possível forma de se modelar os termos não-filtrado baseia-se no modelo de \textit{Sub-Grid Scale} (SGS), que faz a interação entre os campos de grandes e de pequenas escalas, sendo aprimorada de forma a capturar os efeitos turbulentos em função do tamanho dos elementos \cite{ghosal1995basic,hughes2000large,moeng2015large}.% \citeonline{olad2022towards} aponta que, em relação ao RANS, a formulação base do LES se mostra mais precisa na determinação dos campos de velocidades e de tensões desviadoras, porém com um custo computacional consideravelmente superior.
 
 %==================================================================================================
-\section{Interação Fluido-Estrutura} \label{IFE}
+\subsection{Interação Fluido-Estrutura} \label{IFE}
 %==================================================================================================
 
 %Segundo \citeonline{sanches2014fluid}
