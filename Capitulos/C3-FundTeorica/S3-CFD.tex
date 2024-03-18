@@ -2,13 +2,13 @@
 \chapter{Formulação numérica para mecânica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-No presente capítulo serão apresentadas as equações que governam os escoamentos isotérmicos incompressíveis. Inicialmente apresenta-se a formulação escrita em uma descrição Euleriana, onde se considera um domínio fixo com referência à condição atual do escoamento (Seção \ref{CFD-E}). Em seguida essa formulação será expandida para uma descrição Lagrangiana-Euleriana Arbitrária (ALE), onde será possível realizar a movimentação independente do domínio do fluido (Seção \ref{CFD-ALE}). Posteriormente essas equações acarretarão, a partir do método dos resíduos ponderados, na formulação semi-discreta do problema (Seção \ref{FSD}), sendo a forma estabilizada pelo método \VMS\ (VMS) apresentada na seção \ref{VMS}. Por fim, será apresentada a formulação do modelo de turbulência \LES\ (LES) (Seção \ref{LES}) e são apresentados exemplos numéricos para verificação da formulação (Seção \ref{ExemplosMT}).
+No presente capítulo serão apresentadas as equações que governam os escoamentos isotérmicos incompressíveis. Inicialmente apresenta-se a formulação em descrição Euleriana, onde se considera um domínio fixo na configuração atual do escoamento (Seção \ref{CFD-E}). Em seguida essa formulação é expandida para a descrição Lagrangiana-Euleriana Arbitrária (ALE), a qual permite a movimentação da malha, independentemente da movimentação das partículas do fluido (Seção \ref{CFD-ALE}). Posteriormente, por meio do método dos resíduos ponderados, obtém-se a forma fraca para a solução do problema com uso da técnica dos elementos finitos (Seção \ref{FSD}), sendo as técnicas de estabilização adotadas apresentas na seção \ref{STAB}.
 
 %==================================================================================================
 \section{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
-Em uma descrição Euleriana é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\BB{u}$ é o valor da velocidade na posição atual $\BB{y}$ e $\rho$ é a massa específica do fluido nesse ponto.
+Em descrição Euleriana, é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\BB{u}$ é o valor da velocidade na posição atual $\BB{y}$ e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h!]
     \centering
@@ -18,13 +18,13 @@ Em uma descrição Euleriana é possível se obter uma expressão que defina a c
     \label{fig:BalMas}
 \end{figure}
 
-Realizando-se o balanço de massa nesse elemento tem-se:
+A variação da massa contida neste elemento é dada por:
 
 \begin{equation}
     dm=dm_0+\apdery{dm}{t}dt\text{,}
 \end{equation}
 
-\noindent que resulta em uma expressão simplificada dada por \eqref{eq:BalMas}, que representa a conservação de massa em um elemento infinitesimal.
+\noindent a partir de onde expressa-se o balanço de massa no elemento por:
 
 \begin{equation}
     \frac{D\rho}{Dt}+\rho \Ny\cdot\BB{u}=\dot{\rho}+\Ny\cdot(\rho \BB{u})=0\text{,}
@@ -37,7 +37,7 @@ Realizando-se o balanço de massa nesse elemento tem-se:
     \frac{D\phi}{Dt}=\dot{\phi}+(\BB{u}\cdot\Ny)\phi\text{,}
 \end{equation}
 
-\noindent em que o ponto sobre a variável representa a derivada temporal da mesma, $\Ny\cdot(\cdot)$ é o operador divergente e $\Ny(\cdot)$ é o operador gradiente, que para uma função escalar $g$ é definido por \eqref{eq:grad1} e para uma função vetorial é definido por \eqref{eq:grad2}:
+\noindent em que o ponto sobre a variável representa a derivada temporal da mesma \textcolor{red}{(Ponto simboliza derivada temporal material! Torque por $\left.\frac{\partial}{\partial t}\right|_{\mathbf{y}}$)} , $\Ny\cdot(\cdot)$ é o operador divergente e $\Ny(\cdot)$ é o operador gradiente, que para uma função escalar $g$ é definido por \eqref{eq:grad1} e para uma função vetorial é definido por \eqref{eq:grad2}:
 
 \begin{subequations}
     \begin{align}
@@ -48,14 +48,15 @@ Realizando-se o balanço de massa nesse elemento tem-se:
 
 \noindent sendo $n_{sd}=2$ ou $3$ a dimensão do problema em análise.
 
-Para escoamentos incompressíveis a equação da continuidade pode ser reduzida a:
+Para escoamentos incompressíveis, Eq. \eqref{eq:BalMas} fica reduzida a:
 
 \begin{equation}
     \Ny\cdot\BB{u}=0\text{,}\label{eq:incomp}
 \end{equation}
 
-\noindent denominada como condição de incompressibilidade.
+\noindent denominada equação da continuidade ou condição de incompressibilidade.
 
+% \parei aquiiii
 Já a equação que expressa a Conservação da Quantidade de Movimento linear (ou de \textit{Momentum} Linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
 
 \begin{figure}[h!]
@@ -397,7 +398,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 \end{equation}
 Assim, o problema, fica definido como: dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\HBB{u}$, em que $\BB{h}=\tens\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
@@ -424,6 +425,14 @@ Como pode-se observar, a determinação de combinações de espaços de aproxima
 Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG.
 
 Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
+
+\section{Técnicas de estabilização}\label{STAB}
+\textcolor{red}{Descrever SUPG, PSPG e VMS (transformar VMS em subseção desta seção)}
+\subsection{Estabilização da convecção}
+\textcolor{red}{Descrever SUPG}
+\subsection{Estabilização do campo de pressão}
+\textcolor{red}{Descrever PSPG}
+\subsection{Formulação Multiescala Variacional}
 
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
 \input{Capitulos/C3-FundTeorica/S5-MT/SS1-LES}
