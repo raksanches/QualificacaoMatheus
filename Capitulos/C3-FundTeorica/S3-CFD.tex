@@ -8,6 +8,7 @@ No presente capítulo serão apresentadas as equações que governam os escoamen
 \section{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
+\subsection{Conservação da massa}
 Em descrição Euleriana, é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\BB{u}$ é o valor da velocidade na posição atual $\BB{y}$ e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h!]
@@ -56,25 +57,25 @@ Para escoamentos incompressíveis, Eq. \eqref{eq:BalMas} fica reduzida a:
 
 \noindent denominada equação da continuidade ou condição de incompressibilidade.
 
-\parei aquiiii
-Já a equação que expressa a Conservação da Quantidade de Movimento linear (ou de \textit{Momentum} Linear) pode ser obtida ao se considerar a taxa de fluxo de quantidade de movimento no elemento infinitesimal permeável, ilustrado na Figura \ref{fig:ConQtdMov}.
+\subsection{Conservação da quantidade de movimento}
+O fluxo da Quantidade de Movimento linear (ou de \textit{Momentum} Linear) no elemento infinitesimal permeável é ilustrado na Figura \ref{fig:ConQtdMov}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Taxa de fluxo de quantidade de movimento em um elemento infinitesimal permeável.}
+    \caption{Fluxo de quantidade de movimento em um elemento infinitesimal permeável.}
     \includegraphics[width=.55\linewidth]{Figuras/ConQtdMov.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:ConQtdMov}
 \end{figure}
 
-Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se uma resultante de forças externas atuante no elemento dado por $d\Fres$. Logo, após feitas as devidas simplificações, chega-se à equação:
+Realizando-se o balanço da quantidade de movimento sobre este elemento, e aplicando-se o princípio da conservação da quantidade de movimento, pode-se escrever:
 
 \begin{equation}
     \apdery{(\rho \BB{u})}{t}+\Ny\cdot(\rho \BB{u}\otimes\BB{u})-\BB{q}=\BB{0}\text{,}
     \label{eq:ConQtdMov}
 \end{equation}
 
-\noindent em que $\BB{q}$ representa a força resultante por unidade de volume, ou seja, $\BB{q}=d\Fres/dV$. Entretanto, não é de interesse escrever a equação \eqref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$) e forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $y_1$.
+\noindent onde $\BB{q}$ representa a força resultante por unidade de volume que atua no elemento, ou seja, $\BB{q}=d\Fres/dV$. Entretanto, não é de interesse escrever a equação \eqref{eq:ConQtdMov} em termos desse vetor $\BB{q}$, mas em termos do tensor de tensões de Cauchy ($\tens$) e das forças de volume. Para isso, considera-se o diagrama de corpo livre do elemento infinitesimal ilustrado na Figura \ref{fig:EqFor}, onde são representadas apenas as componentes de tensão e de forças de volume atuantes na direção $y_1$.
 
 \begin{figure}[h!]
     \centering
@@ -84,21 +85,22 @@ Assim, procede-se com o balanço da taxa de quantidade de movimento, tendo-se um
     \label{fig:EqFor}
 \end{figure}
 
-Fazendo o equilíbrio de forças nessa direção, obtém-se que:
+Fazendo o equilíbrio de forças na direção de $y_1$, obtém-se que:
 
 \begin{equation}
     q_1=\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1\text{,}
 \end{equation}
 
-\noindent a qual pode ser estendida analogamente para as demais direções, e sabendo-se da simetria de $\tens$, tem-se:
+\noindent procedendo-se analogamente para as demais direções, e sabendo-se da simetria de $\tens$, tem-se que:
 
 \begin{equation}
     \BB{q}=\Ny\cdot\tens+\BB{c}\text{.}
     \label{eq:RelQSig}
 \end{equation}
 
-Substituindo \eqref{eq:RelQSig} em \eqref{eq:ConQtdMov} e aplicando a condição de incompressibilidade obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
+Substituindo \eqref{eq:RelQSig} em \eqref{eq:ConQtdMov} e aplicando a condição de incompressibilidade, obtém-se a equação da conservação da quantidade de movimento escrita em termos de tensões:
 
+\textcolor{red}{trocar $\dot{\BB{u}}$ pela derivada parcial em y.}
 \begin{equation}
     \rho\bigpar{\dot{\BB{u}}+(\BB{u}\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{,}
     \label{eq:ConQtdMov-2}
@@ -111,17 +113,19 @@ Substituindo \eqref{eq:RelQSig} em \eqref{eq:ConQtdMov} e aplicando a condição
     \label{eq:ConQtdMov-3}
 \end{equation}
 
-Já o domínio em que essas equações são válidas pode ser definido como $\Omega\subset\mathbb{R}^{n_{sd}}$, tal que $\Omega$ possui uma fronteira $\Gamma=\partial\Omega$, em que a parte dessa fronteira onde se impõem condições cinemáticas é denominada como fronteira de Dirichlet ($\Gamma_D$) e a parte onde há prescrição de forças de superfície é denotado como fronteira de Neumann ($\Gamma_N$), conforme pode ser visualizado na Figura \ref{fig:Dom}.
+Já o domínio em que essas equações são válidas pode ser definido como $\Omega\subset\mathbb{R}^{n_{sd}}$, tal que $\Omega$ possui uma fronteira $\Gamma=\partial\Omega$, tal que a parte dessa fronteira onde se impõem condições de contorno essenciais é denominada como fronteira de Dirichlet ($\Gamma_D$) e a parte onde há prescrição de forças de superfície é denotada como fronteira de Neumann ($\Gamma_N$), conforme pode ser visualizado na Figura \ref{fig:Dom}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Domínio de análise e fronteiras consideradas para problemas de mecânica dos fluidos.}
+    \caption{Domínio e condições de contorno para os problemas de mecânica dos fluidos.}
     \includegraphics[width=.35\linewidth]{Figuras/Dom}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:Dom}
 \end{figure}
 
-Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações:
+Dessa forma, o problema a ser resolvido segue as equações:
+
+\textcolor{red}{trocar $\dot{\BB{u}}$ pela derivada parcial em y.}
 
 \begin{equation}
     \left\{
@@ -135,13 +139,13 @@ Dessa forma, o problema a ser resolvido pode ser escrito a partir das equações
     \label{eq:NS-Euler}
 \end{equation}
 
-\noindent as quais são chamadas de equações de Navier-Stokes para escoamentos incompressíveis em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
+\noindent que governam o os escoamentos incompressíveis de Navier-Stokes em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
 
 %==================================================================================================
 \section{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
 %==================================================================================================
 
-A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}. São considerados 3 domínios, $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam os domínios do contínuo em sua configuração inicial e atual e o domínio da malha respectivamente, como ilustrado na Figura \ref{Fig:ALE}. O domínio $\hat{\Omega}$ possui movimento arbitrário.
+A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eulerian} - ALE) originou-se do trabalho de \citeonline{donea1982arbitrary}. São considerados 3 domínios, $\Omega_0$, $\Omega$ e $\hat{\Omega}$, que representam, respectivamente, os domínios do contínuo em sua configuração inicial e atual e o domínio da malha, que desenvolve movimento independente do movimento do contínuo, como ilustrado na Figura \ref{Fig:ALE}. 
 
 \begin{figure}[h!]
     \centering
@@ -151,9 +155,9 @@ A descrição Lagrangiana-Euleriana Arbitrária (\textit{Arbitrary Lagrangian-Eu
     \\Fonte: Autoria Própria (\the\year).
 \end{figure}
 
-As coordenadas $\BB{x}$, $\BB{y}$ e $\HBB{x}$ representam as coordenadas de um ponto nos domínios $\Omega_0$, $\Omega$ e $\hat{\Omega}$, respectivamente. Já as funções $\fmc(\BB{x},t)=\BB{y}(\BB{x},t)$, $\tfmc(\BB{x},t)=\HBB{x}(\BB{x},t)$ e $\hfmc(\HBB{x},t)=\BB{y}(\HBB{x},t)$ são funções de mudança de configuração.
+As coordenadas $\BB{x}$, $\BB{y}$ e $\HBB{x}$ representam as coordenadas de um ponto nos domínios $\Omega_0$, $\Omega$ e $\hat{\Omega}$, respectivamente. Já as funções $\fmc(\BB{x},t)=\BB{y}(\BB{x},t)$, $\tfmc(\BB{x},t)=\HBB{x}(\BB{x},t)$ e $\hfmc(\HBB{x},t)=\BB{y}(\HBB{x},t)$ são funções que mapeiam o domínio inicial do fluido para o atual, o domínio inicial  do fluido para o domínio inicial da malha, e o domínio da malha para a configuração atual do fluido, que é coincidente com a configuração atual da malha.
 
-Com isso, pode-se obter o gradiente das funções de mudança de configuração:
+Com isso, podem-se escrever os gradientes dessas funções:
 
 \begin{subequations}
     \begin{equation}
@@ -174,7 +178,8 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
     \label{eq:GradFun}
 \end{subequations}
 
-\noindent nos quais $\BB{u}=\dBB{y}|_{\BB{x}}$, $\tilde{\BB{u}}=\dot{\HBB{x}}|_{\BB{x}}$ e $\uhat=\dBB{y}|_{\HBB{x}}$. Além disso, vale ressaltar que $\fmc=\hfmc(\tfmc,t)$, portanto $\FMC=\HFMC\cdot\TFMC$, ou seja:
+\textcolor{red}{trocar $\dot{\BB{u}}$ pela derivada parcial no tempo.}
+\noindent nos quais $\BB{u}=\dBB{y}|_{\BB{x}}$, $\tilde{\BB{u}}=\dot{\HBB{x}}|_{\BB{x}}$ e $\uhat=\dBB{y}|_{\HBB{x}}$. Além disso, vale ressaltar que $\fmc(\BB{x},t)=\hfmc(\tfmc(\BB{x},t),t)$, portanto $\FMC=\HFMC\cdot\TFMC$, ou seja:
 
 \begin{equation}
     \begin{bmatrix}\Nx\BB{y}&\BB{u}\\\BB{0}\trans&1\end{bmatrix}=
@@ -195,7 +200,8 @@ Com isso, pode-se obter o gradiente das funções de mudança de configuração:
     \label{w1}
 \end{equation}
 
-Assim é possível definir a derivada material em uma descrição ALE. Para isso considere uma propriedade $\phi(\BB{y},t)$ escrita em termos da configuração atual, $\phi^*(\HBB{x},t)$ escrita em termos da configuração de referência e $\phi^{**}(\BB{x},t)=\phi^*(\tfmc(\BB{x},t),t)$ escrita em termos da configuração inicial. Logo:
+Assim é possível definir a derivada material na descrição ALE. Para isso seja uma propriedade $\phi(\BB{y},t)$ escrita em termos da configuração atual, igual a $\phi^*(\HBB{x},t)$ quando escrita em termos da configuração de referência e igual a $\phi^{**}(\BB{x},t)=\phi^*(\tfmc(\BB{x},t),t)$ quando escrita em termos da configuração inicial. Logo:
+
 
 \begin{equation}
     \der{\phi^{**}(\BB{x},t)}{(\BB{x},t)}=\der{\phi^*(\HBB{x},t)}{(\HBB{x},t)}\cdot\der{\tfmc(\BB{x},t)}{(\BB{x},t)}\text{, ou}
@@ -211,6 +217,8 @@ Assim é possível definir a derivada material em uma descrição ALE. Para isso
 \end{equation}
 
 \noindent Portanto:
+
+\textcolor{red}{trocar $\dot{\phi}$ pela derivada parcial no tempo.}
 
 \begin{equation}
     \dot{\phi}^{**}=\Nxh\phi^{*}\cdot\tilde{\BB{u}}+\dot{\phi}^{*}\text{.}
@@ -230,53 +238,54 @@ Dessa maneira, remove-se os sobrescritos * e ** e define-se a derivada material 
     \label{eq:DerMat2}
 \end{equation}
 
-Com isso, substitui-se $\phi$ por $\rho$ e aplica-se a Equação \eqref{eq:DerMat2} em \eqref{eq:BalMas} para se obter a Equação da Continuidade na descrição ALE:
+\subsection{Equações governantes na descrição ALE}
+Substituindo-se $\phi$ por $\rho$ e aplicando-se a Eq. \eqref{eq:DerMat2} na Eq. \eqref{eq:BalMas}, a conservação da massa na descrição ALE é dada por:
 
 \begin{equation}
     \dot{\rho}+(\BB{u}-\uhat)\cdot\Ny\rho+\rho\Ny\cdot\BB{u}=0\text{,}
 \end{equation}
 
-\noindent que em escoamentos incompressíveis pode ser escrito como:
+\noindent que para escoamentos incompressíveis, onde $\frac{D \rho}{t}=0$, implica em:
 
 \begin{equation}
     \Ny\cdot\BB{u}=0\text{,}
     \label{eq:ALE-cont}
 \end{equation}
 
-Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida substituindo-se a Equação \eqref{eq:DerMat2} em \eqref{eq:ConQtdMov-3}, em que $\mathbf{\phi}=\BB{u}$, obtendo-se:
+Já a Equação da Conservação da Quantidade de Movimento na descrição ALE pode ser obtida fazendo $\mathbf{\phi}=\BB{u}$ na Eq. \eqref{eq:DerMat2} e substituindo em Eq. \eqref{eq:ConQtdMov-3}, resultando:
 
 \begin{equation}
     \rho\bigpar{\dot{\BB{u}}+((\BB{u}-\uhat)\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0}\text{.}
     \label{eq:ALE-mov}
 \end{equation}
 
-Assim, pode-se escrever o problema a ser resolvido a partir das equações:
+Assim, os escoamentos de Navier-Stokes incompressíveis em descrição ALE são governados pelas equações \cite{bazilevs2013computational}:
 
 \begin{equation}
     \left\{
     \begin{array}{ll}
         \rho\bigpar{\dot{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}-\Ny\cdot\tens=\BB{0} & \text{ em }\Omega\text{,}   \\
         \Ny\cdot\BB{u}=0                                                                       & \text{ em }\Omega\text{,}   \\
-        \tens\cdot\BB{n}=\BB{h}                                                                & \text{ em }\Gamma_N\text{,} \\
-        \BB{u}=\BB{g}                                                                          & \text{ em }\Gamma_D\text{,}
+        \tens\cdot\BB{n}=\BB{h}                                                                & \text{ em }\Gamma_N\text{ e} \\
+        \BB{u}=\BB{g}                                                                          & \text{ em }\Gamma_D\text{.}
     \end{array}
     \right.
     \label{eq:NS-ALE}
 \end{equation}
 
-\noindent que são denominadas como as equações de Navier-Stokes para escoamentos incompressíveis em descrição ALE \cite{bazilevs2013computational}.
+
 
 %==================================================================================================
 \section{Modelo Constitutivo} \label{MC}
 %==================================================================================================
 
-O modelo constitutivo que relaciona o tensor de tensões de Cauchy com os campos de velocidade e de pressão é expresso de acordo com a Equação \eqref{eq:const1}:
+O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos incompressíveis, o qual relaciona o tensor de tensões de Cauchy com a taxa de deformação e a pressão de acordo com:
 
 \begin{equation}
     \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
 \end{equation}
 
-\noindent no qual $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
+\noindent onde $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
 
 \begin{equation}
     \BB{\tau}=\BB{\mathfrak{D}}:\dDef\text{,}
@@ -324,7 +333,7 @@ Logo é possível substituir o modelo constitutivo na equação da conservação
 
 \noindent em que $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ é o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
 
-Essa equação pode ser interpretada como a segunda lei de Newton para um elemento de fluido, sendo o lado esquerdo referente às acelerações, onde $\dBB{u}$ representa a variação local de velocidade em um elemento ao longo do tempo e $((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}$ representa a aceleração convectiva, referente à variação de velocidade no espaço. Já o lado direito pode ser interpretado como as forças por unidade de massa, sendo $\BB{f}$ devida às forças de corpo, $\Ny p/\rho$ devida à pressão interna do fluido e $\nu\Lapl\BB{u}$ devido às forças viscosas (ou forças de difusão).
+Essa equação representa a primeira lei de Euler (generalização da a segunda lei de Newton para um meio contínuo), sendo o lado esquerdo referente às acelerações, onde $\dBB{u}$ \textcolor{red}{trocar $\dot{u}$ pela derivada parcial} representa a taxa de variação local de velocidade em um elemento ao longo do tempo e $((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}$ representa a aceleração convectiva, referente à variação de velocidade no espaço. Já o lado direito representa as forças por unidade de massa, sendo $\BB{f}$ devida às forças de corpo, $\Ny p/\rho$ devida à pressão interna do fluido e $\nu\Lapl\BB{u}$ devido às forças viscosas (ou forças de difusão).
 
 % Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
 % 
@@ -344,7 +353,7 @@ Essa equação pode ser interpretada como a segunda lei de Newton para um elemen
 \section{Formulação Semi-Discreta} \label{FSD}
 %==================================================================================================
 
-Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Para tal, consideram-se os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ , que contém as funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
+Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Assim, sejam os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ das funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
 
 \begin{equation}
     \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),\BB{u}=\BB{g}\text{ em }\Gamma_D\right\}\text{ e}
@@ -398,7 +407,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 \end{equation}
 Assim, o problema, fica definido como: dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\HBB{u}$, em que $\BB{h}=\tens\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias, como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline} em problemas de convecção dominante. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias em problemas de convecção dominante caso seja considerado o método clássico de Galerkin (Bubnov-Galerkin), como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
@@ -412,7 +421,7 @@ A escolha dos espaços de aproximação da velocidade e da pressão depende da s
 
 \noindent em que $\beta$ é uma constante independente do tamanho da malha.
 
-Como pode-se observar, a determinação de combinações de espaços de aproximações que atendam às condições LBB não é trivial. Sendo que elementos estáveis são identificados em diferentes trabalhos. \citeonline{donea2003finite} apresentam alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
+Como pode-se observar, a determinação de combinações de espaços de aproximações que atendam às condições LBB não é trivial, sendo que elementos estáveis são identificados em diferentes trabalhos. \citeonline{donea2003finite} apresentam alguns elementos finitos que atendem às condições LBB (denominados de Elementos Taylor-Hood), sendo alguns ilustrados na Figura \ref{fig:Taylor-Hood}.
 
 \begin{figure}[h!]
     \centering
@@ -422,9 +431,9 @@ Como pode-se observar, a determinação de combinações de espaços de aproxima
     \label{fig:Taylor-Hood}
 \end{figure}
 
-Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG.
+Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG \cite{tezduyar1991stabilized}.
 
-Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, englobando os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
+Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, e que engloba os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
 
 \section{Técnicas de estabilização}\label{STAB}
 \textcolor{red}{Descrever SUPG, PSPG e VMS (transformar VMS em subseção desta seção)}
