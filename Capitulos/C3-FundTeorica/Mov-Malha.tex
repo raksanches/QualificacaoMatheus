@@ -331,58 +331,58 @@ A Figura \ref{fig:vort} apresenta os campos de vorticidade e de velocidade no in
 \begin{figure}[h!]
     \centering
     \caption{Aerofólio com movimento de arfagem - Campos de vorticidade e de velocidade.}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \caption*{Campo de vorticidade.}
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort1.png}
     \end{subfigure}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \caption*{Campo de velocidade.}
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str1.png}
     \end{subfigure}
     \caption*{Instante $t=8,0$.}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort2.png}
     \end{subfigure}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str2.png}
     \end{subfigure}
     \caption*{Instante $t=8,2$.}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort3.png}
     \end{subfigure}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str3.png}
     \end{subfigure}
     \caption*{Instante $t=8,4$.}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort4.png}
     \end{subfigure}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str4.png}
     \end{subfigure}
     \caption*{Instante $t=8,6$.}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort5.png}
     \end{subfigure}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str5.png}
     \end{subfigure}
     \caption*{Instante $t=8,8$.}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lvort.png}
     \end{subfigure}
-    \begin{subfigure}{.49\linewidth}
+    \begin{subfigure}{.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lstr.png}
     \end{subfigure}
@@ -427,4 +427,21 @@ Observando qualitativamente os campos são muito semelhantes aos obtidos por \ci
     \label{fig:mesh}
 \end{figure}
 
-Na sequência o problema foi simulado com um domínio computacional menor, o qual é esquematizado na Figura \ref{fig:rotating-airfoil-coarse}. A malha utilizada para a simulação é apresentada na Figura \ref{fig:rotating-airfoil-small-mesh}, a qual possui 1228 elementos quadráticos, 2536 nós e 7608 graus de liberdade.
+\newpage
+Na sequência o problema foi simulado com um domínio computacional menor, o qual é esquematizado na Figura \ref{fig:rotating-airfoil-coarse}. A malha utilizada para a simulação é apresentada na Figura \ref{fig:mesh-coarse2}, a qual possui 1228 elementos quadráticos, 2536 nós e 7608 graus de liberdade. Assim, realizou-se simulações com estabilização SUPG/PSPG e VMS, com e sem aplicação de LES. A Figura \ref{fig:rotating-airfoil-Coef-coarse} apresenta a comparação entre os resultados obtidos.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Esquema do problema com domínio reduzido.}
+    \includegraphics[width=.8\linewidth]{Figuras/rotating-airfoil/NACA0012-Moving-Coarse.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:rotating-airfoil-coarse}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha com domínio reduzido.}
+    \includegraphics[width=.75\linewidth]{Figuras/rotating-airfoil/mesh-coarse2.png}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:mesh-coarse2}
+\end{figure}
