@@ -386,10 +386,7 @@ Dessa forma, ponderando-se as equações \eqref{eq:ALE-mov} e \eqref{eq:ALE-cont
 
 Separando-se a parcela que contém o tensor de tensões de Cauchy da primeira integral, tem-se que:
 
-\begin{equation}
-    \intDom{\BB{w}\cdot\rho\bigpar{\dTime{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}
-    \label{eq:WeakForm1}
-\end{equation}
+\[\intDom{\BB{w}\cdot\rho\bigpar{\dTime{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}-\intDom{\BB{w}\cdot(\Ny\cdot\tens)}+\intDom{q\Ny\cdot\BB{u}}=0\text{.}\]
 
 Fazendo a integração por partes da parcela que foi separada e considerando o Teorema da Divergência, chega-se a:
 
@@ -430,15 +427,44 @@ Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais fl
 
 Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, e que engloba os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
 
+%==================================================================================================
 \section{Técnicas de estabilização}\label{STAB}
+%==================================================================================================
+
 \textcolor{red}{Descrever SUPG, PSPG e VMS (transformar VMS em subseção desta seção)}
+
+%==================================================================================================
 \subsection{Estabilização da convecção}
-\textcolor{red}{Descrever SUPG}
+%==================================================================================================
+
+A utilização do método de Galerkin para obtenção de soluções baseadas em elementos finitos para problemas de convecção-difusão pode levar a resultados com oscilações espúrias, principalmente em problemas de convecção dominante. Isso se deve à natureza do termo convectivo, o qual possui características hiperbólicas. Assim, uma das primeiras formas de contornar este problemas consistia em refinar suficientemente a malha ao ponto dos efeitos convectivos não serem mais dominantes ao nível do elemento. Entretanto, esta abordagem é inviável em muitos casos, já que o refinamento da malha deveria ocorrer apenas nas regiões de interesse.
+
+Portanto, \citeonline{brooks1982streamline} propuseram um método de estabilização, o qual modifica as funções testes de Galerkin, as quais originalmente consideram igualmente as parcelas de derivadas tanto à montante quanto à jusante, de modo a adicionar perturbações que atuam principalmente na direção de fluxo, aumentando, assim, a difusividade nessa direção. Para isso as funções testes atribuirão um peso maior no elemento à montante do nó analisado em relação ao elemento à jusante. Essa modificação pode ser exemplificada na Figura \ref{fig:Supg}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Função teste de Galerkin e de SUPG.}
+    \includegraphics[width=.6\linewidth]{Figuras/SUPG.pdf}
+    \\Fonte: \citeonline{brooks1982streamline} - Adaptado.
+    \label{fig:Supg}
+\end{figure}
+
+Dessa forma surgirá um termo estabilizador que, multiplicado pelo resíduo da equação da conservação da quantidade de movimento, será capaz de reduzir as oscilações espúrias devido aos termos convectivos sem comprometer a previsão da solução.
+
+%==================================================================================================
 \subsection{Estabilização do campo de pressão}
-\textcolor{red}{Descrever PSPG}
-\subsection{Formulação Multiescala Variacional}
+%==================================================================================================
+
+Com o intuito de se flexibilizar a escolha dos espaços aproximadores para pressão e velocidades, \citeonline{tezduyar1991stabilized} propuseram um método de estabilização que, de forma muito semelhante ao SUPG, multiplica o resíduo da equação da conservação da quantidade de movimento por um termo estabilizador. Nesse sentido, a estabilização PSPG preenche o sub-bloco nulo da matriz do sistema algébrico,
+
+%==================================================================================================
+\subsection{Formulação Variacional Multiescala}
+%==================================================================================================
 
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
+
+%==================================================================================================
 \input{Capitulos/C3-FundTeorica/S5-MT/SS1-LES}
 % \input{Capitulos/C3-FundTeorica/S5-MT/S5-MT}
 \input{Capitulos/C3-FundTeorica/S5-MT/SS4-Exemplos}
+%==================================================================================================

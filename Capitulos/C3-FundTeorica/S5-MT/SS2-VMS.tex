@@ -1,5 +1,5 @@
 %==================================================================================================
-\section{\textit{Variational Multi-Scale}} \label{VMS}
+%\section{\textit{Variational Multi-Scale}} \label{VMS}
 %==================================================================================================
 
 O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas por uma barra sobrescrita, e subespaços que representam as escalas refinadas, que são subespaços de dimensão infinita e denotadas por $'$, ou seja:
@@ -185,7 +185,7 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 \noindent onde, segundo \citeonline{bazilevs2013computational}, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ com sucesso para uma boa variedade de problemas.
 
 %==================================================================================================
-\subsection{Integração temporal} \label{IT-VMS}
+\subsubsection{Integração temporal} \label{IT-VMS}
 %==================================================================================================
 
 Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço, porém contínua no tempo) (Equações \eqref{Eq:Residuos-Euler}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
@@ -249,7 +249,7 @@ Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos
 \end{subequations}
 
 %==================================================================================================
-\subsection{Procedimento iterativo} \label{Comp-VMS}
+\subsubsection{Procedimento iterativo} \label{Comp-VMS}
 %==================================================================================================
 
 O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os valores a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção dessas variáveis é:
