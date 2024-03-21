@@ -431,7 +431,7 @@ Outra formulação que é eficiente tanto para a estabilização da convecção 
 \section{Técnicas de estabilização}\label{STAB}
 %==================================================================================================
 
-\textcolor{red}{Descrever SUPG, PSPG e VMS (transformar VMS em subseção desta seção)}
+A utilização do MEF para descrever o comportamento de escoamentos incompressíveis possui duas fontes principais de instabilidades, que são associadas à convecção e à pressão \cite{tezduyar1991stabilized}. Nesse sentido se desenvolveram técnicas de estabilização que visam a minimizar ou eliminar essas instabilidades, como a técnica \SUPG\ (SUPG), capaz de estabilizar problemas de convecção dominante, onde termos hiperbólicos passam a ser predominantes, a térnica \PSPG\ (PSPG), capaz de estabilizar o campo de pressões, flexibilizando também a escolha dos espaços aproximadores dos campos de velocidade e pressão, e a técnica \VMS\ (VMS), a qual parte do princípio de decomposição das variáveis em grandes e pequenas escalas, resultando em uma técnica que engloba, além dos termos SUPG e PSPG, outros termos estabilizadores próprios da formulação. Na sequência serão tratados individualmente cada uma dessas técnicas de estabilização.
 
 %==================================================================================================
 \subsection{Estabilização da convecção}
@@ -455,7 +455,7 @@ Dessa forma surgirá um termo estabilizador que, multiplicado pelo resíduo da e
 \subsection{Estabilização do campo de pressão}
 %==================================================================================================
 
-Com o intuito de se flexibilizar a escolha dos espaços aproximadores para pressão e velocidades, \citeonline{tezduyar1991stabilized} propuseram um método de estabilização que, de forma muito semelhante ao SUPG, multiplica o resíduo da equação da conservação da quantidade de movimento por um termo estabilizador. Nesse sentido, a estabilização PSPG preenche o sub-bloco nulo da matriz do sistema algébrico,
+No intuito de se flexibilizar a escolha dos espaços aproximadores para pressão e velocidades, \citeonline{tezduyar1991stabilized} propuseram um método de estabilização que, de forma muito semelhante ao SUPG, multiplica o resíduo da equação da conservação da quantidade de movimento por um termo estabilizador. Nesse sentido, a estabilização PSPG preenche o sub-bloco nulo da matriz do sistema algébrico, melhorando tanto o condicionamento do sistema, como estabiliza o campo de pressões, permitindo também o uso de mesmos espaços aproximadores tanto para o campo de velocidades quanto de pressões.
 
 %==================================================================================================
 \subsection{Formulação Variacional Multiescala}
