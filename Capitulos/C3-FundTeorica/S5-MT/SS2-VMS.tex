@@ -2,7 +2,7 @@
 \section{\textit{Variational Multi-Scale}} \label{VMS}
 %==================================================================================================
 
-O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas por uma barra sobrescrita, e subespaços que representam as escalas refinadas, que são subespaços de dimensão infinita e denotadas por $'$, ou seja:
+O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo capaz de produzir solução estabilizada baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas neste texto por uma barra sobrescrita, e subespaços que representam as escalas refinadas, que são subespaços de dimensão infinita e denotadas neste testo por um apóstrofe ($'$), ou seja:
 
 \begin{subequations}
     \begin{align}
@@ -24,7 +24,7 @@ Assim, o sistema a ser resolvido parte do apresentado na Eq. \eqref{eq:NS-Euler}
     \end{align}
 \end{subequations}
 
-Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar{q}$ e assume-se que a parcela em escala fina $\BB{u}'$ e $p'$ são modeladas como:
+Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar{q}$ e assume-se que as parcelas em escala fina $\BB{u}'$ e $p'$ são modeladas como:
 
 \begin{subequations}
     \begin{equation}
@@ -38,6 +38,8 @@ Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar
 
 \noindent onde $\tau_{\sups}$ e $\nu_{\lsic}$ são termos estabilizadores, propostos por \citeonline{bazilevs2013computational} como:
 %página 80 do pdf de hughes2013 e 65 de fernandes2020
+
+\textcolor{red}{Lembre-se de substituir as derivadas temporais (trocar o ponto pela derivada parcial no tempo).}
 
 \begin{subequations}
     \begin{equation}
@@ -188,11 +190,12 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 \subsection{Integração temporal} \label{IT-VMS}
 %==================================================================================================
 
+\textcolor{red}{Retirar essa subseção daqui e colocar como seção. Pode ser após a descrição da estabilização ou após o LES}
 Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço, porém contínua no tempo) (Equações \eqref{Eq:Residuos-Euler}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
 
-O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, no contexto da mecânica dos sólidos, e expandido por \citeonline{jansen2000generalized} para análises da mecânica dos fluidos. Tal integrador possui vantagens, como a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
+O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, no contexto da mecânica dos sólidos, e expandido por \citeonline{jansen2000generalized} para a mecânica dos fluidos. Tal integrador possui vantagens, como a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica para as altas frequências de forma controlada \cite{fernandes2020tecnica}.
 
-Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dBB{U}^{n+\alpha_m}$ e $\BB{U}^{n+\alpha_f}$:
+Esse integrador parte da consideração de valores intermediários das variáveis do problema e de suas derivadas temporais em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\BB{U}^{n+\alpha_f}$ e $\dBB{U}^{n+\alpha_m}$:
 
 \begin{subequations}
     \begin{equation}
@@ -305,7 +308,7 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 
 Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
 
-Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
+Sendo assim, o algoritmo \ref{alg:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
 
 \begin{algorithm}[h!]
     \caption{Algoritmo para a solução de escoamento incompressíveis via VMS.}
