@@ -1,8 +1,8 @@
 %==================================================================================================
-%\section{\textit{Variational Multi-Scale}} \label{VMS}
+\section{Formulação Variacional Multiescala} \label{VMS}
 %==================================================================================================
 
-O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo de estabilização baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas por uma barra sobrescrita, e subespaços que representam as escalas refinadas, que são subespaços de dimensão infinita e denotadas por $'$, ou seja:
+O Método Variacional Multiescala, introduzido por \citeonline{hughes1995multiscale,hughes1998variational,hughes2000large}, é um modelo capaz de produzir solução estabilizada baseado na separação dos espaços tentativa e teste em subespaços que representam as escalas grosseiras, que se tratam de subespaços de dimensão finita, denotadas neste texto por uma barra sobrescrita, e subespaços que representam as escalas refinadas, que são subespaços de dimensão infinita e denotadas neste texto por um apóstrofe ($'$), ou seja:
 
 \begin{subequations}
     \begin{align}
@@ -24,7 +24,7 @@ Assim, o sistema a ser resolvido parte do apresentado na Eq. \eqref{eq:NS-Euler}
     \end{align}
 \end{subequations}
 
-Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar{q}$ e assume-se que a parcela em escala fina $\BB{u}'$ e $p'$ são modeladas como:
+Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar{q}$ e assume-se que as parcelas em escala fina $\BB{u}'$ e $p'$ são modeladas como:
 
 \begin{subequations}
     \begin{equation}
@@ -39,6 +39,8 @@ Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar
 \noindent onde $\tau_{\sups}$ e $\nu_{\lsic}$ são termos estabilizadores, propostos por \citeonline{bazilevs2013computational} como:
 %página 80 do pdf de hughes2013 e 65 de fernandes2020
 
+% \textcolor{red}{Lembre-se de substituir as derivadas temporais (trocar o ponto pela derivada parcial no tempo).}
+
 \begin{subequations}
     \begin{equation}
         \tau_{\sups}=\bigpar{\frac{4}{\Delta t^2}+(\BBB{u}-\HBB{u})\cdot\BB{G}(\BBB{u}-\HBB{u})+C_I\nu^2\BB{G}:\BB{G}}^{-1/2}\text{ e}
@@ -49,17 +51,11 @@ Seguindo \citeonline{bazilevs2007variational} adota-se $\BB{w}=\BBB{w}$, $q=\bar
     \label{eq:TermEstab}
 \end{subequations}
 
-\noindent onde $C_I$ é uma constante e:
-
-\begin{equation}
-    \BB{G}=\frac{\partial\BB{\xi}}{\partial\BB{y}}^T\frac{\partial\BB{\xi}}{\partial\BB{y}}\text{.}
-\end{equation}
-
 Já os termos $\rM$ e $\rC$ são os resíduos da equação de conservação da quantidade de movimento e da equação da continuidade, respectivamente, ou seja,
 
 \begin{subequations}
     \begin{equation}
-        \rM=\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
+        \rM=\rho\bigpar{\dTime{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}-\Ny\cdot\bar{\tens}\text{ e}
     \end{equation}
     \begin{equation}
         \rC=\Ny\cdot\BBB{u}\text{.}
@@ -73,28 +69,16 @@ Outra forma de se determinar $ \tau_{\sups}$ e $\nu_{\lsic}$, também apresentad
         \tau_{\sups}=\bigpar{\frac{1}{\tau_{\sugn 1}^2}+\frac{1}{\tau_{\sugn 2}^2}+\frac{1}{\tau_{\sugn 3}^2}}^{-1/2}\text{ e}
     \end{equation}
     \begin{equation}
-        \nu_{\lsic}=\tau_{\sups}\norm{\BBB{u}-\HBB{u}}^2\text{,}
+        \nu_{\lsic}=\tau_{\sups}\norm{\BBB{u}-\HBB{u}}^2\text{.}
     \end{equation}
     \label{eq:stabilizatingTerms}
-\end{subequations}
-
-\noindent sendo:
-
-\begin{subequations}
-    \begin{align}
-         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{(\BBB{u}-\HBB{u})\cdot\Ny N_a}}}^{-1}\text{,} \\
-         & \tau_{\sugn 2}=\frac{\Delta t}{2}\text{,}                                                     \\
-         & \tau_{\sugn 3}=\frac{h_{\rgn}^2}{4\nu}\text{,}                                                \\
-         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\Ny N_a}}}^{-1}\text{ e}                  \\
-         & \BB{r}=\frac{\Ny\norm{\BBB{u}-\HBB{u}}}{\norm{\Ny\norm{\BBB{u}-\HBB{u}}}}\text{.}
-    \end{align}
 \end{subequations}
 
 Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíduos (\textit{Residual-Based Variational Multi-Scale} - RBVMS) que consiste em: determinar $\BBB{u}\in\bar{\script{S}}_u$ e $\bar{p}\in\bar{\script{S}}_p$, tais que para todo $\BBB{w}\in\bar{\script{V}}_u$ e $\bar{q}\in\bar{\script{V}}_p$:
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dTime{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
         &\intDom{\bar{q}\Ny\cdot\BBB{u}}-\SintDom{\rho\bigpar{((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\cdot\BB{u}'}-\\
         &\SintDom{\Ny\cdot\BBB{w}p'}+\SintDom{\rho\BBB{w}\cdot((\BB{u}'\cdot\Ny)\BBB{u})}-\\
         &\SintDom{\rho\Ny\BBB{w}:(\BB{u}'\otimes\BB{u}')}=0
@@ -107,7 +91,7 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dTime{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
         &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\sups\bigpar{((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{w}+\frac{\Ny\bar{q}}{\rho}}\rM}+\\
         &\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}-\SintDom{\tau_\sups\BBB{w}\cdot((\rM\cdot\Ny)\BBB{u})}-\\
         &\SintDom{\frac{\Ny\BBB{w}}{\rho}:((\tau_\sups\rM)\otimes(\tau_\sups\rM))}=0
@@ -116,52 +100,26 @@ Assim, obtém-se o problema do Método Variacional Multiescala Baseado em Resíd
     \end{split}
 \end{equation}
 
-Para a discretização do problema em descrição Euleriana pode-se realizar a separação da dependência espacial e temporal para as funções tentativas e testes como:
-
-\begin{subequations}
-    \begin{align}
-         & \BBB{u}(\BB{y},t)=\sum_{\BB{\eta}^s}{\BB{U}^a(t)N_a^u(\BB{y})}\text{,}\label{eq:uh} \\
-         & \bar{p}(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a^p(\BB{y})}\text{,}                   \\
-         & \BBB{w}(\BB{y})=\sum_{\BB{\eta}^w}{\BB{W}^aN_a^u(\BB{y})}\text{ e}\label{eq:w-sep}  \\
-         & \bar{q}(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a^p(\BB{y})}\text{,}\label{eq:q-sep}
-    \end{align}
-\end{subequations}
-
-\noindent onde $N_a^u$ e $N_a^p$ são as funções de forma para aproximação do campo de velocidades e de pressões, respectivamente, associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
-
-Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
-
-\begin{equation}
-    N_a(\BB{y},t)=\hat{N}_a(\hfmc^{-1}(\BB{y},t))\text{,}
-\end{equation}
-
-\noindent onde $\hfmc(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
-
-\begin{equation}
-    \hfmc(\HBB{x},t)=\sum_{a\in\BB{\eta}^s}{(\HBB{x}_a+\Delta\HBB{x}_a(t))\hat{N}_a(\HBB{x})}\text{,}
-\end{equation}
-
-\noindent sendo $\HBB{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\HBB{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
-
-Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:RBVMS1}, e levando em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica:
+Fazendo a aproximação por função de forma e levando em conta a arbitrariedade das funções teste, obtém-se os seguintes vetores resíduo:
 
 \begin{subequations}
     \begin{equation}
         \begin{split}
             \NM^a=&
-            \intDom{N_a^u\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\bar{\tens}\cdot\Ny N_a^u}-\\
-            &\intNeumann{N_a^u\BBB{h}}-\SintDom{\rho\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny N_a^u}\BB{u}'}-\SintDom{\Ny N_a^up'}+\\
-            &\SintDom{\rho N_a^u((\BB{u}'\cdot\Ny)\BBB{u})}-\SintDom{\rho\Ny N_a^u\cdot(\BB{u}'\otimes\BB{u}')}
+            \intDom{N_a^u\rho\bigpar{\dTime{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\bar{\tens}\cdot\Ny N_a^u}-\\
+            &\intNeumann{N_a^u\BBB{h}}+\SintDom{\tau_\sups\bigpar{(\BBB{u}-\HBB{u})\cdot\Ny N_a^u}\rM}+\\
+            &\SintDom{\rho\nu_\lsic\Ny N_a^u\rC}-\SintDom{\tau_\sups N_a^u((\rM\cdot\Ny)\BBB{u})}-\\
+            &\SintDom{\frac{\Ny N_a^u}{\rho}\cdot((\tau_\sups\rM)\otimes(\tau_\sups\rM))}
             =\BB{0}\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        \NC^a=\intDom{N_a^p\Ny\cdot\BBB{u}}-\SintDom{\Ny N_a^p\cdot\BB{u}'}=0
+        \NC^a=\intDom{N_a^p\Ny\cdot\BBB{u}}+\SintDom{\tau_\sups\frac{\Ny N_a^p}{\rho}\cdot\rM}=0
     \end{equation}
     \label{Eq:Residuos-Euler}
 \end{subequations}
 
-Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os valores nodais de velocidade, sua primeira derivada temporal e os valores nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+Logo o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
 
 \begin{subequations}
     \begin{align}
@@ -170,11 +128,11 @@ Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=
     \end{align}
 \end{subequations}
 
-Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{tezduyar2000finite,tezduyar2003computation,catabriga2005compressible,catabriga2006compressible}, dada por:
+Note que omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se valores diferentes de $\tau$ para as equações de conservação da quantidade de movimento e da continuidade, chega-se à formulação estabilizada SUPG/PSPG \cite{tezduyar2000finite,tezduyar2003computation,catabriga2005compressible,catabriga2006compressible}, dada por:
 
 \begin{equation}
     \begin{split}
-        &\intDom{\BBB{w}\cdot\rho\bigpar{\dot{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
+        &\intDom{\BBB{w}\cdot\rho\bigpar{\dTime{\BBB{u}}+((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{u}-\BBB{f}}}+\intDom{\Ny\BBB{w}:\bar{\tens}}-\intNeumann{\BBB{w}\cdot\BBB{h}}+\\
         &\intDom{\bar{q}\Ny\cdot\BBB{u}}+\SintDom{\tau_\supg((\BBB{u}-\HBB{u})\cdot\Ny)\BBB{w}\cdot\rM}+\\
         &\SintDom{\tau_\pspg\frac{\Ny\bar{q}}{\rho}\cdot\rM}+\SintDom{\rho\nu_\lsic\Ny\cdot\BBB{w}\rC}=0
         \text{,}
@@ -185,71 +143,7 @@ Omitindo-se os dois últimos termos da equação \eqref{eq:RBVMS1} e adotando-se
 \noindent onde, segundo \citeonline{bazilevs2013computational}, adota-se $\tau_\pspg=\tau_\supg=\tau_\sups$ com sucesso para uma boa variedade de problemas.
 
 %==================================================================================================
-\subsubsection{Integração temporal} \label{IT-VMS}
-%==================================================================================================
-
-Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço, porém contínua no tempo) (Equações \eqref{Eq:Residuos-Euler}). Dessa forma torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
-
-O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, no contexto da mecânica dos sólidos, e expandido por \citeonline{jansen2000generalized} para análises da mecânica dos fluidos. Tal integrador possui vantagens, como a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica ao processo de forma controlada \cite{fernandes2020tecnica}.
-
-Esse integrador parte da consideração de valores intermediários de aceleração e velocidade em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\dBB{U}^{n+\alpha_m}$ e $\BB{U}^{n+\alpha_f}$:
-
-\begin{subequations}
-    \begin{equation}
-        \dBB{U}^{n+\alpha_m}=\dBB{U}^n+\alpha_m(\dBB{U}^{n+1}-\dBB{U}^n)\text{ e}
-    \end{equation}
-    \begin{equation}
-        \BB{U}^{n+\alpha_f}=\BB{U}^n+\alpha_f(\BB{U}^{n+1}-\BB{U}^n)\text{.}
-    \end{equation}
-\end{subequations}
-
-Já para se relacionar a velocidade à aceleração, emprega-se a aproximação de Newmark \cite{bazilevs2013computational}:
-
-\begin{equation}
-    \BB{U}^{n+1}=\BB{U}^n+\Delta t_n\bigpar{(1-\gamma)\dBB{U}^n+\gamma\dBB{U}^{n+1}}\text{,}
-\end{equation}
-
-\noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente, observando-se as necessidades de estabilidade e precisão do método.
-
-De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013computational}, a precisão de segunda ordem dessa aproximação pode ser atingida uma vez que:
-
-\begin{equation}
-    \gamma=\frac{1}{2}+\alpha_m-\alpha_f\text{,}
-\end{equation}
-
-\noindent enquanto a estabilidade incondicional é obtida caso:
-
-\begin{equation}
-    \alpha_m\geq\alpha_f\geq\frac{1}{2}\text{.}
-\end{equation}
-
-Ainda é possível escrever, a partir da Equação \eqref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral da matriz amplificação para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
-
-\begin{subequations}
-    \begin{equation}
-        \alpha_m=\frac{1}{2}\bigpar{\frac{3-\rho_\infty}{1+\rho_\infty}}\text{ e}
-    \end{equation}
-    \begin{equation}
-        \alpha_f=\frac{1}{1+\rho_\infty}\text{.}
-    \end{equation}
-    \label{eq:one-par-stable}
-\end{subequations}
-
-Para o caso de $\rho_\infty=1$ não ocorre a introdução de difusão numérica, enquanto para $\rho_\infty=0$ se tem a máxima dissipação de altas frequências \cite{fernandes2020tecnica}.
-
-Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos valores intermediários como:
-
-\begin{subequations}
-    \begin{equation}
-        \NM(\dot{\BB{U}}^{n+\alpha_m},\BB{U}^{n+\alpha_f},\BB{P}^{n+1})=\BB{0}
-    \end{equation}
-    \begin{equation}
-        \NC(\dot{\BB{U}}^{n+\alpha_m},\BB{U}^{n+\alpha_f},\BB{P}^{n+1})=\BB{0}
-    \end{equation}
-\end{subequations}
-
-%==================================================================================================
-\subsubsection{Procedimento iterativo} \label{Comp-VMS}
+\subsection{Procedimento iterativo} \label{Comp-VMS}
 %==================================================================================================
 
 O procedimento para minimizar os vetores resíduo obtido parte do método de Newton-Raphson, no qual os valores a serem corrigidos são os vetores de acelerações nodais ($\dot{\BB{U}}$) e de pressões nodais ($\BB{P}$). Dessa forma, o problema a ser resolvido para a correção dessas variáveis é:
@@ -305,7 +199,7 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 
 Para uma descrição Euleriana, considera-se a velocidade da malha como nula na formulação apresentada.
 
-Sendo assim, o pseudocódigo apresentado no algoritmo \ref{alg:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
+Sendo assim, o algoritmo \ref{alg:MEF-VMS} mostra o procedimento para obtenção da solução aproximada.
 
 \begin{algorithm}[h!]
     \caption{Algoritmo para a solução de escoamento incompressíveis via VMS.}

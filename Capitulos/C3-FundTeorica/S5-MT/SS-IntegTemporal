@@ -1,0 +1,66 @@
+
+%==================================================================================================
+\subsection{Integração temporal} \label{IT-VMS}
+%==================================================================================================
+
+% \textcolor{red}{Retirar essa subseção daqui e colocar como seção. Pode ser após a descrição da estabilização ou após o LES}
+% Até o momento, apresentou-se uma forma semi-discreta das equações governantes (discreta no espaço, porém contínua no tempo) (Equações \eqref{Eq:Residuos-Euler}).
+Para a completa discretização das equações governantes, ou seja, para que sejam discretas tanto no espaço quanto no tempo, torna-se necessária a devida discretização temporal das variáveis, que pode ocorrer de diferentes formas. Tal como apontado por \citeonline{reddy2010finite}, tem-se, por exemplo, integradores explícitos, como o integrador baseado em diferenças adiantadas, implícitos, como o baseado em diferenças finitas atrasadas, e os denominados semi-explícitos. Segundo o autor os integradores implícitos possuem vantagens sobre os explícitos, uma vez que se observa a implicidade natural da pressão em escoamentos incompressíveis e é possível obtenção de estabilidade incondicional do integrador temporal.
+
+O integrador temporal utilizado no presente trabalho é o denominado integrador $\alpha$-generalizado, desenvolvido por \citeonline{chung1993time}, no contexto da mecânica dos sólidos, e expandido por \citeonline{jansen2000generalized} para a mecânica dos fluidos. Tal integrador possui vantagens, como a capacidade de representar adequadamente problema de escoamentos incompressíveis, além de permitir a introdução de difusão numérica para as altas frequências de forma controlada \cite{fernandes2020tecnica}.
+
+Esse integrador parte da consideração de valores intermediários das variáveis do problema e de suas derivadas temporais em um intervalo $[t_n,t_{n+1}]$ no $n$-ésimo passo de tempo, representados respectivamente por $\BB{U}^{n+\alpha_f}$ e $\dBB{U}^{n+\alpha_m}$:
+
+\begin{subequations}
+    \begin{equation}
+        \dBB{U}^{n+\alpha_m}=\dBB{U}^n+\alpha_m(\dBB{U}^{n+1}-\dBB{U}^n)\text{ e}
+    \end{equation}
+    \begin{equation}
+        \BB{U}^{n+\alpha_f}=\BB{U}^n+\alpha_f(\BB{U}^{n+1}-\BB{U}^n)\text{.}
+    \end{equation}
+\end{subequations}
+
+Já para se relacionar a velocidade à aceleração, emprega-se a aproximação de Newmark \cite{bazilevs2013computational}:
+
+\begin{equation}
+    \BB{U}^{n+1}=\BB{U}^n+\Delta t_n\bigpar{(1-\gamma)\dBB{U}^n+\gamma\dBB{U}^{n+1}}\text{,}
+\end{equation}
+
+\noindent sendo $\alpha_m$, $\alpha_f$ e $\gamma$ valores escolhidos arbitrariamente, observando-se as necessidades de estabilidade e precisão do método.
+
+De acordo com \citeonline{chung1993time,jansen2000generalized,bazilevs2013computational}, a precisão de segunda ordem dessa aproximação pode ser atingida uma vez que:
+
+\begin{equation}
+    \gamma=\frac{1}{2}+\alpha_m-\alpha_f\text{,}
+\end{equation}
+
+\noindent enquanto a estabilidade incondicional é obtida caso:
+
+\begin{equation}
+    \alpha_m\geq\alpha_f\geq\frac{1}{2}\text{.}
+\end{equation}
+
+Ainda é possível escrever, a partir da Equação \eqref{eq:one-par-stable}, $\alpha_m$ e $\alpha_f$ em termos de um parâmetro arbitrário único  ($0\leq\rho_\infty\leq1$), que representa o raio espectral da matriz amplificação para $\Delta t\to\infty$, o qual é utilizado para controlar as dissipações de alta-frequência.
+
+\begin{subequations}
+    \begin{equation}
+        \alpha_m=\frac{1}{2}\bigpar{\frac{3-\rho_\infty}{1+\rho_\infty}}\text{ e}
+    \end{equation}
+    \begin{equation}
+        \alpha_f=\frac{1}{1+\rho_\infty}\text{.}
+    \end{equation}
+    \label{eq:one-par-stable}
+\end{subequations}
+
+Para o caso de $\rho_\infty=1$ não ocorre a introdução de difusão numérica, enquanto para $\rho_\infty=0$ se tem a máxima dissipação de altas frequências \cite{fernandes2020tecnica}.
+
+Sendo assim, os resíduos obtidos anteriormente podem ser escritos em termos dos valores intermediários como:
+
+\begin{subequations}
+    \begin{equation}
+        \NM(\dot{\BB{U}}^{n+\alpha_m},\BB{U}^{n+\alpha_f},\BB{P}^{n+1})=\BB{0}
+    \end{equation}
+    \begin{equation}
+        \NC(\dot{\BB{U}}^{n+\alpha_m},\BB{U}^{n+\alpha_f},\BB{P}^{n+1})=\BB{0}
+    \end{equation}
+\end{subequations}

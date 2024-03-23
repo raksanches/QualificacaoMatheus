@@ -1,12 +1,10 @@
 %==================================================================================================
-\section{\textit{Large Eddy Simulation}} \label{LES}
+\section{Modelo de turbulência - \textit{Large Eddy Simulation}} \label{LES}
 %==================================================================================================
 
-Em escoamentos com elevados números de Reynolds, observa-se a formação de vórtices em um amplo espectro de escalas, o que torna a simulação direta desses escoamentos computacionalmente inviável, uma vez que se exigem altas resoluções da malha do fluido para capturar todos os efeitos. Nesse sentido, a simulação de grandes vórtices (\textit{Large Eddy Simulation} - LES) surge como uma alternativa para se obter resultados próximos aos da simulação direta, porém com um custo computacional reduzido.
+Conforme já mencionado, em escoamentos com elevados números de Reynolds, observa-se a formação de vórtices em um amplo espectro de escalas, o que torna a simulação direta desses escoamentos computacionalmente inviável, uma vez que se exigem altas resoluções da malha do fluido para capturar todos os efeitos. Nesse sentido, a simulação de grandes vórtices (\textit{Large Eddy Simulation} - LES) surge como uma alternativa para se obter resultados próximos aos da simulação direta, porém com um custo computacional reduzido.
 
-O LES originou-se do trabalho de \citeonline{smagorinsky1963general} no intuito de se estudar simulações de camadas limite atmosféricas e tendo o coeficiente de Smagorinsky estimado por \citeonline{deardorff1971magnitude} ao estudar escoamentos em canais. A ideia central do modelo parte da consideração de que o escoamento pode ser bem caracterizado por meio de uma separação de escalas, na qual as grandes escalas são responsáveis pela transferência da energia cinética, sendo influenciadas diretamente pela natureza do escoamento, assim como pelas condições de contorno, enquanto as pequenas escalas são responsáveis pela dissipação de energia e possuem propriedades isotrópicas e homogêneas no escoamento. Assim, o modelo de Smagorinsky consiste em uma decomposição do campo de velocidades em duas parcelas, uma de grandes escalas e outra de pequenas escalas, sendo a parcela de pequenas escalas modelada por um termo viscoso, o qual é determinado a partir de um modelo de viscosidade de vórtice.
-
-Assim, a decomposição das variáveis do problema ($\phi$) se dá por $\phi=\bar{\phi}+\phi'$, em que $\bar{\phi}$ é a parcela de grandes escalas e $\phi'$ é a parcela de pequenas escalas. Tal separação é dada a partir da consideração de um filtro, definido como a convolução integral de uma função $\filter$, com a variável $\phi$ \cite{germano1991dynamic,hughes2000large,moeng2015large,katopodes2019free}:
+O método segue o modelo de Smagorinsky, decompondo o campo de velocidades em duas parcelas, uma de grandes escalas e outra de pequenas escalas, sendo a parcela de pequenas escalas modelada por um termo viscoso, o qual é determinado a partir de um modelo de viscosidade de vórtice. A decomposição das variáveis do problema ($\phi$) se dá por $\phi=\bar{\phi}+\phi'$, em que $\bar{\phi}$ é a parcela de grandes escalas e $\phi'$ é a parcela de pequenas escalas. Tal separação é dada a partir da consideração de um filtro, definido como a convolução integral de uma função $\filter$, com a variável $\phi$ \cite{germano1991dynamic,hughes2000large,moeng2015large,katopodes2019free}:
 
 \begin{equation}
     \bar{\phi}=\int_{\Dfil}{\filter(\BB{y}-\yfil,t)\phi(\yfil,t)d\yfil}\text{,}
@@ -106,18 +104,18 @@ Assim, em uma descrição Euleriana, pode-se obter as equações de Navier-Stoke
 
 \begin{subequations}
     \begin{align}
-         & \rho\bigpar{\dot{\BBB{u}}+\Ny\cdot(\overline{\BB{u}\otimes\BB{u}})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0} &  & \text{ em }\Omega\text{,} \\
-         & \Ny\cdot\BBB{u}=0                                                                                      &  & \text{ em }\Omega\text{.}
+         & \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\overline{\BB{u}\otimes\BB{u}})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0} &  & \text{ em }\Omega\text{,} \\
+         & \Ny\cdot\BBB{u}=0                                                                                        &  & \text{ em }\Omega\text{.}
     \end{align}
 \end{subequations}
 
 Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação da quantidade de movimento como:
 
 \begin{equation}
-    \rho\bigpar{\dot{\BBB{u}}+\Ny\cdot(\overline{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}
+    \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\overline{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}
 \end{equation}
 
-Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais serão condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
+Nesse sentido, surgem termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais são condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
 
 \begin{equation}
     \BB{T}=\BBB{u}\otimes\BBB{u}-\overline{\BB{u}\otimes\BB{u}}=-\bigpar{\BB{L}+\BB{C}+\BB{R}}\text{,}
@@ -126,19 +124,19 @@ Nesse sentido, surgirão termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais s
 \noindent no qual $\BB{L}=\overline{\BBB{u}\otimes\BBB{u}}-\BBB{u}\otimes\BBB{u}$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente e utilizado para análise de erros, $\BB{C}=\overline{\BBB{u}\otimes\BB{u}'}+\overline{\BB{u}'\otimes\BBB{u}}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $\BB{R}=\overline{\BB{u}'\otimes\BB{u}'}$ é o tensor de tensões SGS de Reynolds, que representa a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever:
 
 \begin{equation}
-    \rho\bigpar{\dot{\BBB{u}}+\Ny\cdot(\BBB{u}\otimes\BBB{u})-\Ny\cdot\BB{T}-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}\text{.}
+    \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\BBB{u}\otimes\BBB{u})-\Ny\cdot\BB{T}-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}\text{.}
 \end{equation}
 
 Aplicando a incompressibilidade e substituindo-se $\bar{\tens}$ pelo modelo constitutivo \eqref{eq:ModConst}, tem-se que:
 
 \begin{equation}
-    \rho\bigpar{\dot{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}-\Ny\cdot\BB{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
+    \rho\bigpar{\dTime{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}-\Ny\cdot\BB{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
 \end{equation}
 
-\noindent ou, dividindo-se por $\rho$ e fazendo algumas manipulações tem-se que:
+\noindent ou, dividindo-se por $\rho$, usando a definição de derivada material na descrição Euleriana e fazendo algumas manipulações tem-se que:
 
 \begin{equation}
-    \dot{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\BB{T}+\BBB{f}\text{.}
+    \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\BB{T}+\BBB{f}\text{.}
 \end{equation}
 
 %\noindent sendo $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
@@ -148,13 +146,24 @@ Assim, o problema fica governado por:
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \dot{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
-        \Ny\cdot\BBB{u}=0                                                                                & \text{ em }\Omega\text{,}
+        \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \Ny\cdot\BBB{u}=0                                                            & \text{ em }\Omega\text{.}
     \end{array}
     \right.
 \end{equation}
 
-\noindent havendo ainda a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
+Ao substituir a derivada material pela sua definição em descrição ALE, se obtém as equações governantes filtradas segundo essa descrição:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \dTime{\BB{u}}+(\BB{u}-\uhat)\cdot\Ny\BB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \Ny\cdot\BBB{u}=0                                                                                     & \text{ em }\Omega\text{.}
+    \end{array}
+    \right.
+\end{equation}
+
+Com isso, há ainda a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
 
 \begin{equation}
     \dev{\BB{T}}=\BB{T}-\frac{1}{3}\tr{(\BB{T})}\BB{I}\text{,}

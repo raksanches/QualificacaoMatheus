@@ -1,14 +1,17 @@
 %==================================================================================================
-\chapter{Formulação numérica para mecânica dos Fluidos} \label{EGDF}
+\chapter{Análise numérica para mecânica dos Fluidos} \label{EGDF}
 %==================================================================================================
 
-No presente capítulo serão apresentadas as equações que governam os escoamentos isotérmicos incompressíveis. Inicialmente apresenta-se a formulação em descrição Euleriana, onde se considera um domínio fixo na configuração atual do escoamento (Seção \ref{CFD-E}). Em seguida essa formulação é expandida para a descrição Lagrangiana-Euleriana Arbitrária (ALE), a qual permite a movimentação da malha, independentemente da movimentação das partículas do fluido (Seção \ref{CFD-ALE}). Posteriormente, por meio do método dos resíduos ponderados, obtém-se a forma fraca para a solução do problema com uso da técnica dos elementos finitos (Seção \ref{FSD}), sendo as técnicas de estabilização adotadas apresentas na seção \ref{STAB}.
+No presente capítulo serão apresentadas as equações que governam os escoamentos isotérmicos incompressíveis. Inicialmente apresenta-se a formulação em descrição Euleriana, onde se considera um domínio fixo na configuração atual do escoamento (Seção \ref{CFD-E}). Em seguida essa formulação é expandida para a descrição Lagrangiana-Euleriana Arbitrária (ALE), a qual permite a movimentação da malha, independentemente da movimentação das partículas do fluido (Seção \ref{CFD-ALE}). Posteriormente, por meio do método dos resíduos ponderados, obtém-se a forma fraca para a solução do problema com uso da técnica dos elementos finitos (Seção \ref{FSD}).%, sendo as técnicas de estabilização adotadas apresentas na seção \ref{STAB}.
 
 %==================================================================================================
 \section{Descrição Euleriana} \label{CFD-E}
 %==================================================================================================
 
+%==================================================================================================
 \subsection{Conservação da massa}
+%==================================================================================================
+
 Em descrição Euleriana, é possível se obter uma expressão que defina a conservação de massa (também denominada como Equação da Continuidade) do fluido, considerando um elemento infinitesimal permeável, que definirá o volume de controle, conforme ilustrado na Figura \ref{fig:BalMas}, em que $\BB{u}$ é o valor da velocidade na posição atual $\BB{y}$ e $\rho$ é a massa específica do fluido nesse ponto.
 
 \begin{figure}[h!]
@@ -57,7 +60,10 @@ Para escoamentos incompressíveis, Eq. \eqref{eq:BalMas} fica reduzida a:
 
 \noindent denominada equação da continuidade ou condição de incompressibilidade.
 
+%==================================================================================================
 \subsection{Conservação da quantidade de movimento}
+%==================================================================================================
+
 O fluxo da Quantidade de Movimento linear (ou de \textit{Momentum} Linear) no elemento infinitesimal permeável é ilustrado na Figura \ref{fig:ConQtdMov}.
 
 \begin{figure}[h!]
@@ -137,6 +143,66 @@ Dessa forma, o problema a ser resolvido segue as equações:
 \end{equation}
 
 \noindent que governam o os escoamentos incompressíveis de Navier-Stokes em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
+
+%==================================================================================================
+\subsection{Modelo Constitutivo} \label{MC}
+%==================================================================================================
+
+O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos incompressíveis, o qual relaciona o tensor de tensões de Cauchy com a taxa de deformação e a pressão de acordo com:
+
+\begin{equation}
+    \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
+\end{equation}
+
+\noindent onde $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
+
+\begin{equation}
+    \BB{\tau}=\BB{\mathfrak{D}}:\dDef\text{,}
+\end{equation}
+
+\noindent em que $\BB{\mathfrak{D}}$ é o tensor constitutivo de quarta ordem:
+
+\begin{equation}
+    \BB{\mathfrak{D}}=2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}\text{,}
+\end{equation}
+
+\noindent sendo $\BB{\mathbb{I}}$ o tensor identidade de quarta ordem, $\mu$ a viscosidade dinâmica do fluido e $\dDef$ o tensor de taxa de deformação, definido como:
+
+\begin{equation}
+    \dDef=\frac{1}{2}\bigpar{\Ny\BB{u}+\NyT\BB{u}}\text{.}\label{eq:deftax1}
+\end{equation}
+
+Assim, o tensor desviador pode ser escrito da seguinte maneira:
+
+\[
+    \BB{\tau}=(2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}):\dDef=2\mu\BB{\mathbb{I}}:\dDef+\lambda\BB{I}\otimes\BB{I}:\dDef
+\]
+
+\noindent resultando em:
+
+\begin{equation}
+    \BB{\tau}=2\mu\dDef+\lambda\tr{(\dDef)}\BB{I}\text{,}
+\end{equation}
+
+\noindent sendo $\tr{(\dDef)}$ o traço do tensor $\dDef$.
+
+Já para o caso de escoamentos incompressíveis, verifica-se que $\tr{(\dDef)}=0$, fazendo com que \eqref{eq:const1} possa ser escrita como:
+
+\begin{equation}
+    \tens=\mu(\Ny\BB{u}+\NyT\BB{u})-p\BB{I}\text{.}\label{eq:ModConst}
+\end{equation}
+
+%INTERPRETAÇÃO DA EQUAÇÃO DO MOVIMENTO
+Logo é possível substituir o modelo constitutivo na equação da conservação da quantidade de movimento apresentada em \eqref{eq:NS-Euler} e realizar algumas manipulações algébricas para se obter:
+
+\begin{equation}
+    \dTime{\BB{u}}+(\BB{u}\cdot\Ny)\BB{u}=\BB{f}-\frac{\Ny p}{\rho}+\nu\Lapl\BB{u}\text{.}
+    \label{eq:NS-ALE-2}
+\end{equation}
+
+\noindent em que $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ é o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
+
+Essa equação representa a primeira lei de Euler (generalização da a segunda lei de Newton para um meio contínuo), sendo o lado esquerdo referente às acelerações, onde $\left.\partial\BB{u}/\partial t\right|_{\BB{y}}$ representa a taxa de variação local de velocidade em um elemento ao longo do tempo e $(\BB{u}\cdot\Ny)\BB{u}$ representa a aceleração convectiva, referente à variação de velocidade no espaço. Já o lado direito representa as forças por unidade de massa, sendo $\BB{f}$ devida às forças de corpo, $\Ny p/\rho$ devida à pressão interna do fluido e $\nu\Lapl\BB{u}$ devido às forças viscosas (ou forças de difusão).
 
 %==================================================================================================
 \section{Descrição Lagrangiana-Euleriana Arbitrária} \label{CFD-ALE}
@@ -242,7 +308,7 @@ Substituindo-se $\phi$ por $\rho$ e aplicando-se a Eq. \eqref{eq:DerMat2} na Eq.
     \dTime{\rho}+(\BB{u}-\uhat)\cdot\Ny\rho+\rho\Ny\cdot\BB{u}=0\text{,}
 \end{equation}
 
-\noindent que para escoamentos incompressíveis, onde $\frac{D \rho}{t}=0$, implica em:
+\noindent que para escoamentos incompressíveis, onde $D\rho/Dt=0$, implica em:
 
 \begin{equation}
     \Ny\cdot\BB{u}=0\text{,}
@@ -271,81 +337,7 @@ Assim, os escoamentos de Navier-Stokes incompressíveis em descrição ALE são 
 \end{equation}
 
 %==================================================================================================
-\section{Modelo Constitutivo} \label{MC}
-%==================================================================================================
-
-O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos incompressíveis, o qual relaciona o tensor de tensões de Cauchy com a taxa de deformação e a pressão de acordo com:
-
-\begin{equation}
-    \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
-\end{equation}
-
-\noindent onde $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
-
-\begin{equation}
-    \BB{\tau}=\BB{\mathfrak{D}}:\dDef\text{,}
-\end{equation}
-
-\noindent em que $\BB{\mathfrak{D}}$ é o tensor constitutivo de quarta ordem:
-
-\begin{equation}
-    \BB{\mathfrak{D}}=2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}\text{,}
-\end{equation}
-
-\noindent sendo $\BB{\mathbb{I}}$ o tensor identidade de quarta ordem, $\mu$ a viscosidade dinâmica do fluido e $\dDef$ o tensor de taxa de deformação, definido como:
-
-\begin{equation}
-    \dDef=\frac{1}{2}\bigpar{\Ny\BB{u}+\NyT\BB{u}}\text{.}\label{eq:deftax1}
-\end{equation}
-
-Assim, o tensor desviador pode ser escrito da seguinte maneira:
-
-\[
-    \BB{\tau}=(2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}):\dDef=2\mu\BB{\mathbb{I}}:\dDef+\lambda\BB{I}\otimes\BB{I}:\dDef
-\]
-
-\noindent resultando em:
-
-\begin{equation}
-    \BB{\tau}=2\mu\dDef+\lambda\tr{(\dDef)}\BB{I}\text{,}
-\end{equation}
-
-\noindent sendo $\tr{(\dDef)}$ o traço do tensor $\dDef$.
-
-Já para o caso de escoamentos incompressíveis, verifica-se que $\tr{(\dDef)}=0$, fazendo com que \eqref{eq:const1} possa ser escrita como:
-
-\begin{equation}
-    \tens=\mu(\Ny\BB{u}+\NyT\BB{u})-p\BB{I}\text{.}\label{eq:ModConst}
-\end{equation}
-
-%INTERPRETAÇÃO DA EQUAÇÃO DO MOVIMENTO
-Logo é possível substituir o modelo constitutivo na equação da conservação da quantidade de movimento apresentada em \eqref{eq:NS-ALE} e realizar algumas manipulações algébricas para se obter:
-
-\begin{equation}
-    \dTime{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}=\BB{f}-\frac{\Ny p}{\rho}+\nu\Lapl\BB{u}\text{.}
-    \label{eq:NS-ALE-2}
-\end{equation}
-
-\noindent em que $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ é o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
-
-Essa equação representa a primeira lei de Euler (generalização da a segunda lei de Newton para um meio contínuo), sendo o lado esquerdo referente às acelerações, onde $\left.\partial\BB{u}/\partial t\right|_{\BB{y}}$ representa a taxa de variação local de velocidade em um elemento ao longo do tempo e $((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}$ representa a aceleração convectiva, referente à variação de velocidade no espaço. Já o lado direito representa as forças por unidade de massa, sendo $\BB{f}$ devida às forças de corpo, $\Ny p/\rho$ devida à pressão interna do fluido e $\nu\Lapl\BB{u}$ devido às forças viscosas (ou forças de difusão).
-
-% Os escoamentos isotérmicos incompressíveis são governados pelos princípios da conservação da massa e da conservação da quantidade de movimento, que na descrição ALE resultam respectivamente em (ver anexo \ref{Ap:CFD} para maiores detalhes):
-% 
-% \begin{subequations}
-%     \begin{align}
-%          & u_{i,i}=0                                                         &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS2} \\
-%          & \rho\bigpar{\dot{u}_i+(u_j-\hat{u}_j)u_{i,j}-f_i}-\sigma_{ji,j}=0 &  & \text{ em }\Omega\text{,}   \label{eq:CFD-NS1} %\\
-%         % & \sigma_{ij}n_i=h_j                                                &  & \text{ em }\Gamma_N\text{,} \label{eq:CFD-NS3} \\
-%         % & u_j=g_j                                                           &  & \text{ em }\Gamma_D\text{,} \label{eq:CFD-NS4}
-%     \end{align}
-%     \label{eq:CFD-NS}
-% \end{subequations}
-% 
-% Neste capítulo apresenta-se a formulação numérica para solução do problema de dinâmica dos fluidos no contexto da formulação estabilizada \ref{VMS} em descrição ALE. Por fim, são desenvolvidas as formulações dos modelos de turbulência RANS \ref{RANS} e LES \ref{LES}. Análises numéricas já realizadas empregando-se essas formulações são apresentas nos Apêndices \ref{Ap:Cavity} ao \ref{Ap:cylinder}.
-
-%==================================================================================================
-\section{Formulação Semi-Discreta} \label{FSD}
+\section{Forma Fraca Das Equações Governantes} \label{FSD}
 %==================================================================================================
 
 Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Assim, sejam os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ das funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
@@ -397,6 +389,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
     \end{split}
     \label{eq:WeakForm2}
 \end{equation}
+
 Assim, o problema, fica definido como: dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\HBB{u}$, em que $\BB{h}=\tens\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
 A solução desse problema, entretanto, pode levar à resultados com variações espúrias em problemas de convecção dominante caso seja considerado o método clássico de Galerkin (Bubnov-Galerkin), como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
@@ -428,10 +421,67 @@ Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais fl
 Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, e que engloba os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
 
 %==================================================================================================
-\section{Técnicas de estabilização}\label{STAB}
+\subsection{Formulação semi-discreta}
 %==================================================================================================
 
-A utilização do MEF para descrever o comportamento de escoamentos incompressíveis possui duas fontes principais de instabilidades, que são associadas à convecção e à pressão \cite{tezduyar1991stabilized}. Nesse sentido se desenvolveram técnicas de estabilização que visam a minimizar ou eliminar essas instabilidades, como a técnica \SUPG\ (SUPG), capaz de estabilizar problemas de convecção dominante, onde termos hiperbólicos passam a ser predominantes, a térnica \PSPG\ (PSPG), capaz de estabilizar o campo de pressões, flexibilizando também a escolha dos espaços aproximadores dos campos de velocidade e pressão, e a técnica \VMS\ (VMS), a qual parte do princípio de decomposição das variáveis em grandes e pequenas escalas, resultando em uma técnica que engloba, além dos termos SUPG e PSPG, outros termos estabilizadores próprios da formulação. Na sequência serão tratados individualmente cada uma dessas técnicas de estabilização.
+Para a discretização espacial do problema em descrição Euleriana pode-se realizar a separação da dependência espacial e temporal para as funções tentativas e testes como:
+
+\begin{subequations}
+    \begin{align}
+         & \BB{u}(\BB{y},t)=\sum_{\BB{\eta}^s}{\BB{U}^a(t)N_a^u(\BB{y})}\text{,}\label{eq:uh} \\
+         & p(\BB{y},t)=\sum_{\BB{\eta}^s}{P^a(t)N_a^p(\BB{y})}\text{,}                        \\
+         & \BB{w}(\BB{y})=\sum_{\BB{\eta}^w}{\BB{W}^aN_a^u(\BB{y})}\text{ e}\label{eq:w-sep}  \\
+         & q(\BB{y})=\sum_{\BB{\eta}^w}{Q^aN_a^p(\BB{y})}\text{,}\label{eq:q-sep}
+    \end{align}
+\end{subequations}
+
+\noindent onde $N_a^u$ e $N_a^p$ são as funções de forma para aproximação do campo de velocidades e de pressões, respectivamente, associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
+
+Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
+
+\begin{equation}
+    N_a(\BB{y},t)=\hat{N}_a(\hfmc^{-1}(\BB{y},t))\text{,}
+\end{equation}
+
+\noindent onde $\hfmc(\BB{y},t)$ é a função de mudança de configuração da configuração de referência da malha para a configuração atual $\hat{\Omega}\to\Omega$, conforme apresentado no item \ref{CFD-ALE}, dada em sua forma discreta por:
+
+\begin{equation}
+    \hfmc(\HBB{x},t)=\sum_{a\in\BB{\eta}^s}{(\HBB{x}_a+\Delta\HBB{x}_a(t))\hat{N}_a(\HBB{x})}\text{,}
+\end{equation}
+
+\noindent sendo $\HBB{x}_a$ as posições nodais em $\hat{\Omega}$, $\Delta\HBB{x}(t)$ o deslocamento nodal e $\hat{N}_a$ é a função de forma fixa da discretização de $\hat{\Omega}$. Nota-se, portanto, que as funções $N_a(\BB{y},t)$ possuem dependência temporal devido à movimentação da malha.
+
+Substituindo-se \eqref{eq:w-sep} e \eqref{eq:q-sep} em \eqref{eq:WeakForm2}, e levando em conta a arbitrariedade de $W^a$ e $Q^a$, a forma fraca espacialmente discreta fica:
+
+\begin{subequations}
+    \begin{equation}
+        \begin{split}
+            \NM^a=&\intDom{N_a^u\rho\bigpar{\dTime{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}+\intDom{\tens\cdot\Ny N_a^u}-\\
+            &\intNeumann{N_a^u\BB{h}}=\BB{0}\text{,}
+            \label{eq:Residuos-NM}
+        \end{split}
+    \end{equation}
+    \begin{equation}
+        \NC^a=\intDom{N_a^p\Ny\cdot\BB{u}}=0
+        \label{eq:Residuos-NC}
+    \end{equation}
+    \label{Eq:Residuos-Euler}
+\end{subequations}
+
+Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=[p_B]$, que representam, respectivamente, os valores nodais de velocidade, sua primeira derivada temporal e os valores nodais de pressão, então o problema a ser resolvido consiste em: encontrar $\BB{U}$, $\dot{\BB{U}}$ e $\BB{P}$, tais que:
+
+\begin{subequations}
+    \begin{align}
+         & \NM(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{ e} \\
+         & \NC(\BB{U},\dot{\BB{U}},\BB{P})=\BB{0}\text{.}
+    \end{align}
+\end{subequations}
+
+% %==================================================================================================
+% \section{Técnicas de estabilização}\label{STAB}
+% %==================================================================================================
+%
+% A utilização do MEF para descrever o comportamento de escoamentos incompressíveis possui duas fontes principais de instabilidades, que são associadas à convecção e à pressão \cite{tezduyar1991stabilized}. Nesse sentido se desenvolveram técnicas de estabilização que visam a minimizar ou eliminar essas instabilidades, como a técnica \SUPG\ (SUPG), capaz de estabilizar problemas de convecção dominante, onde termos hiperbólicos passam a ser predominantes, a térnica \PSPG\ (PSPG), capaz de estabilizar o campo de pressões, flexibilizando também a escolha dos espaços aproximadores dos campos de velocidade e pressão, e a técnica \VMS\ (VMS), a qual parte do princípio de decomposição das variáveis em grandes e pequenas escalas, resultando em uma técnica que engloba, além dos termos SUPG e PSPG, outros termos estabilizadores próprios da formulação. Na sequência serão tratados individualmente cada uma dessas técnicas de estabilização.
 
 %==================================================================================================
 \subsection{Estabilização da convecção}
@@ -439,7 +489,7 @@ A utilização do MEF para descrever o comportamento de escoamentos incompressí
 
 A utilização do método de Galerkin para obtenção de soluções baseadas em elementos finitos para problemas de convecção-difusão pode levar a resultados com oscilações espúrias, principalmente em problemas de convecção dominante. Isso se deve à natureza do termo convectivo, o qual possui características hiperbólicas. Assim, uma das primeiras formas de contornar este problemas consistia em refinar suficientemente a malha ao ponto dos efeitos convectivos não serem mais dominantes ao nível do elemento. Entretanto, esta abordagem é inviável em muitos casos, já que o refinamento da malha deveria ocorrer apenas nas regiões de interesse.
 
-Portanto, \citeonline{brooks1982streamline} propuseram um método de estabilização, o qual modifica as funções testes de Galerkin, as quais originalmente consideram igualmente as parcelas de derivadas tanto à montante quanto à jusante, de modo a adicionar perturbações que atuam principalmente na direção de fluxo, aumentando, assim, a difusividade nessa direção. Para isso as funções testes atribuirão um peso maior no elemento à montante do nó analisado em relação ao elemento à jusante. Essa modificação pode ser exemplificada na Figura \ref{fig:Supg}.
+Portanto, \citeonline{brooks1982streamline} propuseram um método de estabilização, denominado \SUPG\ (SUPG), o qual modifica as funções testes de Galerkin, as quais originalmente consideram igualmente as parcelas de derivadas tanto à montante quanto à jusante, de modo a adicionar perturbações que atuam principalmente na direção de fluxo, aumentando, assim, a difusividade nessa direção. Para isso as funções testes atribuirão um peso maior no elemento à montante do nó analisado em relação ao elemento à jusante. Essa modificação pode ser exemplificada na Figura \ref{fig:Supg}.
 
 \begin{figure}[h!]
     \centering
@@ -449,7 +499,47 @@ Portanto, \citeonline{brooks1982streamline} propuseram um método de estabiliza�
     \label{fig:Supg}
 \end{figure}
 
-Dessa forma surgirá um termo estabilizador que, multiplicado pelo resíduo da equação da conservação da quantidade de movimento, será capaz de reduzir as oscilações espúrias devido aos termos convectivos sem comprometer a previsão da solução.
+% Dessa forma surgirá um termo estabilizador que, multiplicado pelo resíduo da equação da conservação da quantidade de movimento, será capaz de reduzir as oscilações espúrias devido aos termos convectivos sem comprometer a previsão da solução.
+
+O parâmetro estabilizador $\tau_\supg$ da formulação pode ser calculado como \cite{bazilevs2013computational}:
+
+\begin{equation}
+    \tau_{\supg}=\bigpar{\frac{4}{\Delta t^2}+(\BB{u}-\HBB{u})\cdot\BB{G}(\BB{u}-\HBB{u})+C_I\nu^2\BB{G}:\BB{G}}^{-1/2}\text{,}
+    \label{eq:tauSUPG}
+\end{equation}
+
+\noindent onde $C_I$ é uma constante e:
+
+\begin{equation}
+    \BB{G}=\frac{\partial\BB{\xi}}{\partial\BB{y}}^T\frac{\partial\BB{\xi}}{\partial\BB{y}}\text{.}
+\end{equation}
+
+Uma outra possibilidade de se calcular o parâmetro $\tau_\supg$ é dada por:
+
+\begin{equation}
+    \tau_{\sups}=\bigpar{\frac{1}{\tau_{\sugn 1}^2}+\frac{1}{\tau_{\sugn 2}^2}+\frac{1}{\tau_{\sugn 3}^2}}^{-1/2}\text{ e}
+    \label{eq:tauSUPG2}
+\end{equation}
+
+\noindent sendo:
+
+\begin{subequations}
+    \begin{align}
+         & \tau_{\sugn 1}=\bigpar{\sum_{a=1}^{n_{en}}{\abs{(\BB{u}-\HBB{u})\cdot\Ny N_a}}}^{-1}\text{,} \\
+         & \tau_{\sugn 2}=\frac{\Delta t}{2}\text{,}                                                    \\
+         & \tau_{\sugn 3}=\frac{h_{\rgn}^2}{4\nu}\text{,}                                               \\
+         & h_\rgn=2\bigpar{\sum_{a=1}^{n_{en}}{\abs{\BB{r}\cdot\Ny N_a}}}^{-1}\text{ e}                 \\
+         & \BB{r}=\frac{\Ny\norm{\BB{u}-\HBB{u}}}{\norm{\Ny\norm{\BB{u}-\HBB{u}}}}\text{.}
+    \end{align}
+\end{subequations}
+
+Portanto a estabilização da convecção pode ser feita ao adicionar ao vetor resíduo da equação da conservação da quantidade de movimento \eqref{eq:Residuos-NM} o termo:
+
+\begin{equation}
+    +\SintDom{\tau_\supg\bigpar{(\BB{u}-\HBB{u})\cdot\Ny N_a^u}\rMm}\text{,}\label{eq:EstabConvec}
+\end{equation}
+
+\noindent sendo $\rMm$ o resíduo da equação da conservação da quantidade de movimento.
 
 %==================================================================================================
 \subsection{Estabilização do campo de pressão}
@@ -457,13 +547,19 @@ Dessa forma surgirá um termo estabilizador que, multiplicado pelo resíduo da e
 
 No intuito de se flexibilizar a escolha dos espaços aproximadores para pressão e velocidades, \citeonline{tezduyar1991stabilized} propuseram um método de estabilização que, de forma muito semelhante ao SUPG, multiplica o resíduo da equação da conservação da quantidade de movimento por um termo estabilizador. Nesse sentido, a estabilização PSPG preenche o sub-bloco nulo da matriz do sistema algébrico, melhorando tanto o condicionamento do sistema, como estabiliza o campo de pressões, permitindo também o uso de mesmos espaços aproximadores tanto para o campo de velocidades quanto de pressões.
 
+Assim, o parâmetro $\tau_\pspg$ pode ser calculado por meio do mesmo equacionamento apresentado anteriormente para o cálculo do parâmetro $\tau_\supg$. Dessa maneira a estabilização do campo de pressão pode ser feita ao adicionar ao vetor resíduo da equação da continuidade \eqref{eq:Residuos-NC} o termo:
+
+\begin{equation}
+    +\SintDom{\frac{\tau_\pspg}{\rho}\Ny N_a^p\cdot\rMm}\text{.}\label{eq:EstabPress}
+\end{equation}
+
 %==================================================================================================
-\subsection{Formulação Variacional Multiescala}
+\input{Capitulos/C3-FundTeorica/S5-MT/SS-IntegTemporal}
 %==================================================================================================
 
+%==================================================================================================
+\input{Capitulos/C3-FundTeorica/Mov-Malha}
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
-
-%==================================================================================================
 \input{Capitulos/C3-FundTeorica/S5-MT/SS1-LES}
 % \input{Capitulos/C3-FundTeorica/S5-MT/S5-MT}
 \input{Capitulos/C3-FundTeorica/S5-MT/SS4-Exemplos}

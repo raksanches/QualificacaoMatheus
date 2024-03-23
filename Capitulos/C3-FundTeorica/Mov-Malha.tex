@@ -1,5 +1,5 @@
 %==================================================================================================
-\chapter{Movimentação da malha via suavização de Laplace} \label{MovMalha}
+\section{Movimentação Da Malha Via Suavização De Laplace} \label{MovMalha}
 %==================================================================================================
 
 Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada mantendo-se a qualidade da malha utilizada para o cálculo dos passos de tempo posteriores, evitando, assim, distorções excessivas nos elementos. Como mencionado por \citeonline{kanchi20073d}, essa etapa deve produzir uma malha de boa qualidade ao longo do tempo, ao mesmo tempo que não deve ser custoso computacionalmente. Assim, uma possibilidade para se realizar a movimentação da malha parte da suavização de Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
@@ -184,6 +184,7 @@ Seguindo o mesmo procedimento descrito anteriormente, se obtém a seguinte expre
 
 Portanto, se torna necessário apenas resolver o sistema \ref{eq:sistLapl} com essas novas expressões e aproximando o campo de deslocamentos via $\alpha$-generalizado.
 
+\begin{comment}
 %==================================================================================================
 \section{Exemplos de verificação}
 %==================================================================================================
@@ -524,3 +525,10 @@ Todas as simulações foram realizadas com estabilização SUPG/PSPG e VMS, com 
 \end{figure}
 
 Para ambas as malhas, mesmo para uma discretização grosseira, os resultados ainda se aproximam dos valores de referência. Portanto a esse nível de número de Reynolds, o problema se mostra independente do refinamento da malha.
+
+\newpage
+%==================================================================================================
+\subsubsection{Problema em escoamento com $\Rey=10000$}
+%==================================================================================================
+
+\end{comment}
