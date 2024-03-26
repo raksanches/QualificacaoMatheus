@@ -2,7 +2,7 @@
 \chapter{Acoplamento Fluido-Estrutura} \label{AFE}
 %==================================================================================================
 
-Para se descrever o problema acoplado, denota-se $\Omega_F$ o domínio do fluido, $\Omega_S$ o domínio da estrutura, $\Omega_\mathrm{IFE}=\Omega_F\cup\Omega_S$ o domínio do problema e $\Gamma_\mathrm{IFE}=\Omega_F\cap\Omega_S$ a interface de IFE, conforme ilustrado na Figura \ref{fig:DomComp}.
+Para se descrever o problema acoplado, seja $\Omega_F$ o domínio do fluido, $\Omega_S$ o domínio da estrutura, $\Omega_\mathrm{IFE}=\Omega_F\cup\Omega_S$ o domínio do problema de IFE e $\Gamma_\mathrm{IFE}=\Omega_F\cap\Omega_S$ a interface de fluido/estrutura, conforme ilustrado na Figura \ref{fig:DomComp}.
 
 \begin{figure}[h!]
     \centering
@@ -22,7 +22,9 @@ Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de N
     \BB{H}^k=\frac{\partial^2\script{G}}{\partial\BB{\Psi}^k\otimes\partial\DOF^k}\text{,}
 \end{equation}
 
-\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}^k$ o vetor com todos os parâmetros nodais das funções teste e $\DOF^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis ($\Delta\DOF^k$) por meio da solução do sistema:
+\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}^k$ o vetor com todos os parâmetros nodais das funções teste e $\DOF^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis por meio da solução do sistema:
+
+\textcolor{red}{O que é $k$? Precisa desse índice?}
 
 \begin{equation}
     \BB{H}^k\Delta\DOF^k=-\res^k\text{,}
@@ -46,7 +48,7 @@ Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cada 
 
 \noindent sendo os subíndices $1$, $2$ e $3$ referentes às variáveis do fluido, da estrutura e da malha, respectivamente.
 
-Já o acoplamento particionado trata o sistema de forma a eliminar os termos cruzados da matriz tangente, resultando em blocos de sistema que podem ser resolvidos independentemente:
+Já o acoplamento particionado trata o sistema de forma a eliminar os termos cruzados da matriz tangente, resultando em blocos de sistema que podem ser resolvidos independentemente \cite{bazilevs2013computational}:
 
 \begin{equation}
     \begin{bmatrix}
@@ -61,7 +63,7 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
 \end{equation}
 
 Note que o método continua sendo consistente, uma vez que apenas a matriz tangente do método de Newton-Raphson foi modificada, no entanto, a convergência não é garantida.
-Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphson, pode-se resolver sequencialmente os blocos e atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no Algoritmo \ref{alg:acoplamentoForte}. Isso resulta em um acoplamento forte, onde, havendo convergência, a mesma resposta do problema fortemente acoplado deve ser alcançada.
+Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphson, pode-se resolver sequencialmente os blocos e atualizar os valores calculados em um bloco para o cálculo do próximo, sendo obtido pelo procedimento apresentado no Algoritmo \ref{alg:acoplamentoForte}, tornando o processo de solução análogo ao método de Gauss-Seidel. Essa forma de acoplamento é denominada acoplamento particionado forte, onde, havendo convergência, a mesma resposta do acoplamento monolítico deve ser alcançada.
 
 \begin{algorithm}[h!]
     \caption{Processo de acoplamento particionado forte}
@@ -86,7 +88,7 @@ Para aprimorar os resultados, em cada iteração $k$ do processo de Newton-Raphs
     }
 \end{algorithm}
 
-Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja atualização das variáveis de um problema para o outro dentro de cada processo iterativo, fazendo a atualização apenas ao final de cada passo no tempo, tem-se um modelo de acoplamento particionado fraco. Para construir um acoplamento particionado fraco, pode-se assumir que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente \cite{sanches2022metodos}. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em uma iteração.
+Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja atualização das variáveis de um problema para o outro dentro de cada processo iterativo, fazendo a atualização apenas ao final de cada passo no tempo, tem-se um modelo de acoplamento denominado acoplamento particionado fraco. Para construir um acoplamento particionado fraco, pode-se assumir que o problema do fluido depende das variáveis do sólido e da malha em um instante $t$ e das variáveis do fluido em um instante $t+1$, já o problema do sólido depende do valor das variáveis do fluido e do sólido em um tempo $t+1$ e, por fim, o problema da malha depende das variáveis do sólido e da malha em um instante $t+1$. Assim, o cálculo é realizado segundo o Algoritmo \ref{alg:PartFraco}, no qual $k_f$, $k_s$ e $k_m$ são as iterações das soluções dos problemas de fluido, estrutura e malha, respectivamente \cite{sanches2022metodos}. Ainda é observado que a movimentação da malha segue um problema linear, sendo seu resultado obtido diretamente em uma iteração.
 
 \begin{algorithm}[h!]
     \caption{Processo de acoplamento particionado fraco}
@@ -120,7 +122,7 @@ Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja 
 
 Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos e fica sujeito a problemas de instabilidades como mencionado em \citeonline{Felippaetal2001}. Nota-se que esse tipo de acoplamento é mais adequado a problemas com escoamento compressível, onde um passo de tempo pequeno é necessário para se capturar a propagação de ondas de choque ao mesmo tempo em que a massa específica do fluido costuma ser muito menor que a do sólido.
 
-Por outro lado, a convergência do processo de acoplamento particionado forte pode ficar prejudicada, especialmente à medida em que a massa específica do fluido e do sólido se aproximam, ou em problemas fortemente acoplados, onde uma pequena perturbação do fluido pode produzir grandes perturbações na estrutura e vice-versa. Como meios de garantir convergência nessa situação, mantendo o acoplamento particionado, pode-se adotar relaxações de Aitken, destinadas melhorar a convergência no método de Gauss-Seidel, na atualização das variáveis \cite{fernandes2019ale} ou aplicar um fator de escala sobre a matriz de massa do sólido (técnica \textit{Augmented $A_{22}$}) \cite{bazilevs2013computational}.
+Por outro lado, a convergência do processo de acoplamento particionado forte pode ficar prejudicada, especialmente à medida em que a massa específica do fluido e do sólido se aproximam, ou em outros problemas fortemente acoplados, onde uma pequena perturbação do fluido pode produzir grandes perturbações na estrutura e vice-versa. Como meios de garantir convergência nessa situação, mantendo o acoplamento particionado, pode-se adotar relaxações de Aitken, destinadas melhorar a convergência no método de Gauss-Seidel, na atualização das variáveis \cite{fernandes2019ale} ou aplicar um fator de escala sobre a matriz de massa do sólido (técnica \textit{Augmented $A_{22}$}) \cite{bazilevs2013computational}.
 
 %==================================================================================================
 \section{Exemplos de verificação}

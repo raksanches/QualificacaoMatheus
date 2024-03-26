@@ -169,20 +169,20 @@ O procedimento para minimizar os vetores resíduo obtido parte do método de New
 \begin{subequations}
     \begin{equation}
         \begin{split}
-            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDoma{\rho\kr{a}N_b}\BB{I}+\agdt\intDoma{\rho\kr{a}\dconv{b}}\BB{I}+\\
-            &\agdt\intDoma{\mu \Ny N_a\cdot\Ny N_b}\BB{I}+\agdt\intDoma{\rho\kr{a}N_b\Ny\BBB{u}}+\\
+            \der{\NM^a}{(\dBB{U}^b)^{n+1}}=&\am\intDoma{\rho\kr{a}N_b}\TS{I}+\agdt\intDoma{\rho\kr{a}\dconv{b}}\TS{I}+\\
+            &\agdt\intDoma{\mu \Ny N_a\cdot\Ny N_b}\TS{I}+\agdt\intDoma{\rho\kr{a}N_b\Ny\BBB{u}}+\\
             &\agdt\intDoma{(\mu(\Ny N_b\otimes\Ny N_a)+\rho\nlsic(\Ny N_a\otimes\Ny N_b))}-\\
             &\am\intDoma{\rho\tsups N_aN_b\Ny\BBB{u}}-\\
-            &\agdt\intDoma{\rho\tsups N_a(\dconv{b}\BB{I}+N_b\Ny\BBB{u})\cdot\Ny\BBB{u}}\text{,}
+            &\agdt\intDoma{\rho\tsups N_a(\dconv{b}\TS{I}+N_b\Ny\BBB{u})\cdot\Ny\BBB{u}}\text{,}
         \end{split}
     \end{equation}
     \begin{equation}
-        \der{\NM^a}{(P^b)^{n+1}}=-\intDoma{N_b\Ny N_a}+\intDoma{\tsups(\dconv{a}\BB{I}-N_a\Ny\BBB{u})\cdot\Ny N_b}\text{,}
+        \der{\NM^a}{(P^b)^{n+1}}=-\intDoma{N_b\Ny N_a}+\intDoma{\tsups(\dconv{a}\TS{I}-N_a\Ny\BBB{u})\cdot\Ny N_b}\text{,}
     \end{equation}
     \begin{equation}
         \begin{split}
             \der{\NC^a}{(\dBB{U}^b)^{n+1}}=&\agdt\intDoma{N_a\Ny N_b}+\am\intDoma{\tsups N_b\Ny N_a}+\\
-            &\agdt\intDoma{\tsups(\dconv{b}\BB{I}+N_b\NyT\BBB{u})\cdot\Ny N_a}\text{ e}
+            &\agdt\intDoma{\tsups(\dconv{b}\TS{I}+N_b\NyT\BBB{u})\cdot\Ny N_a}\text{ e}
         \end{split}
     \end{equation}
     \begin{equation}

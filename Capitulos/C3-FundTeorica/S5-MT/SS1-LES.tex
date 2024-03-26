@@ -115,28 +115,28 @@ Pode-se perceber que o termo convectivo impede a completa separação dos termos
     \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\overline{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}
 \end{equation}
 
-Nesse sentido, surgem termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais são condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\BB{T}$ dado por \cite{piomelli1999large,hughes2000large}:
+Nesse sentido, surgem termos cruzados entre $\BBB{u}$ e $\BB{u}'$, os quais são condensados em um tensor de subescala (\textit{Subgrid-Scale} - SGS) $\TS{T}$ dado por \cite{piomelli1999large,hughes2000large}:
 
 \begin{equation}
-    \BB{T}=\BBB{u}\otimes\BBB{u}-\overline{\BB{u}\otimes\BB{u}}=-\bigpar{\BB{L}+\BB{C}+\BB{R}}\text{,}
+    \TS{T}=\BBB{u}\otimes\BBB{u}-\overline{\BB{u}\otimes\BB{u}}=-\bigpar{\TS{L}+\TS{C}+\TS{R}}\text{,}
 \end{equation}
 
-\noindent no qual $\BB{L}=\overline{\BBB{u}\otimes\BBB{u}}-\BBB{u}\otimes\BBB{u}$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente e utilizado para análise de erros, $\BB{C}=\overline{\BBB{u}\otimes\BB{u}'}+\overline{\BB{u}'\otimes\BBB{u}}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $\BB{R}=\overline{\BB{u}'\otimes\BB{u}'}$ é o tensor de tensões SGS de Reynolds, que representa a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever:
+\noindent no qual $\TS{L}=\overline{\BBB{u}\otimes\BBB{u}}-\BBB{u}\otimes\BBB{u}$ é o tensor de Leonard, que representa as interações entre as grandes escalas, podendo ser determinado explicitamente e utilizado para análise de erros, $\TS{C}=\overline{\BBB{u}\otimes\BB{u}'}+\overline{\BB{u}'\otimes\BBB{u}}$ é o tensor de termos cruzados, representando a interação entre as grandes e pequenas escalas e $\TS{R}=\overline{\BB{u}'\otimes\BB{u}'}$ é o tensor de tensões SGS de Reynolds, que representa a interação entre as pequenas escalas \cite{piomelli1999large}. Assim pode-se escrever:
 
 \begin{equation}
-    \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\BBB{u}\otimes\BBB{u})-\Ny\cdot\BB{T}-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}\text{.}
+    \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\BBB{u}\otimes\BBB{u})-\Ny\cdot\TS{T}-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}\text{.}
 \end{equation}
 
 Aplicando a incompressibilidade e substituindo-se $\bar{\tens}$ pelo modelo constitutivo \eqref{eq:ModConst}, tem-se que:
 
 \begin{equation}
-    \rho\bigpar{\dTime{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}-\Ny\cdot\BB{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
+    \rho\bigpar{\dTime{\BBB{u}}+(\BBB{u}\cdot\Ny)\BBB{u}-\Ny\cdot\TS{T}-\BBB{f}}-\mu\Ny\cdot(\Ny\BBB{u}+\NyT\BBB{u})+\Ny p=\BB{0}\text{,}\label{eq:ConMasLES}
 \end{equation}
 
 \noindent ou, dividindo-se por $\rho$, usando a definição de derivada material na descrição Euleriana e fazendo algumas manipulações tem-se que:
 
 \begin{equation}
-    \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\BB{T}+\BBB{f}\text{.}
+    \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\TS{T}+\BBB{f}\text{.}
 \end{equation}
 
 %\noindent sendo $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
@@ -146,7 +146,7 @@ Assim, o problema fica governado por:
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\TS{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
         \Ny\cdot\BBB{u}=0                                                            & \text{ em }\Omega\text{.}
     \end{array}
     \right.
@@ -157,22 +157,22 @@ Ao substituir a derivada material pela sua definição em descrição ALE, se ob
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \dTime{\BB{u}}+(\BB{u}-\uhat)\cdot\Ny\BB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\BB{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \dTime{\BB{u}}+(\BB{u}-\uhat)\cdot\Ny\BB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\TS{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
         \Ny\cdot\BBB{u}=0                                                                                     & \text{ em }\Omega\text{.}
     \end{array}
     \right.
 \end{equation}
 
-Com isso, há ainda a necessidade de se determinar um tensor $\BB{T}$, em especial o seu tensor desviador:
+Com isso, há ainda a necessidade de se determinar um tensor $\TS{T}$, em especial o seu tensor desviador:
 
 \begin{equation}
-    \dev{\BB{T}}=\BB{T}-\frac{1}{3}\tr{(\BB{T})}\BB{I}\text{,}
+    \dev{\TS{T}}=\TS{T}-\frac{1}{3}\tr{(\TS{T})}\TS{I}\text{,}
 \end{equation}
 
 \noindent que descreva adequadamente as interações entre diferentes escalas. Isso pode se tornar problemático uma vez que não se possui solução para as pequenas escalas. Uma forma de se fazer isso é através do modelo de viscosidade de vórtice de Smagorinsky \cite{smagorinsky1963general}, resultando no tensor:
 
 \begin{equation}
-    \bigpar{\BB{T}_S}=2\nu_T\deffil\text{,}
+    \bigpar{\TS{T}_S}=2\nu_T\deffil\text{,}
 \end{equation}
 
 \noindent sendo $\nu_T$ a viscosidade de vórtice SGS, dada por \cite{germano1991dynamic,piomelli1999large,hughes2000large,bailly2015turbulence,katopodes2019free}:
@@ -187,7 +187,7 @@ Com isso, há ainda a necessidade de se determinar um tensor $\BB{T}$, em especi
     \norm{\deffil}=(2\deffil:\deffil)^{1/2}\text{.}
 \end{equation}
 
-Note que o tensor $\BB{T}_S$ é um tensor desviador, ou seja, $\BB{T}_S=\dev{\BB{T}_S}$.
+Note que o tensor $\TS{T}_S$ é um tensor desviador, ou seja, $\TS{T}_S=\dev{\TS{T}_S}$.
 
 %\citeonline{germano1991dynamic,hughes2000large} ainda fazem algumas constatações sobre o modelo de Smagorinsky, os quais destacam-se o fato de $\BB{T}_S$ não possuir um comportamento assintótico próximo às paredes, o que se esperaria de $\BB{T}$, os valores de $C_S$ na presença de cisalhamento médio causaram amortecimentos excessivos e o tensor $\BB{T}_S$ impede a energia de fluir entre diferentes escalas, podendo ser significante em alguns casos.
 %
@@ -226,7 +226,7 @@ Substituindo \eqref{eq:Ek1} em \eqref{eq:ndeffil1}, resolvendo a integral e faze
 Com isso, considerando também que a dissipação de energia cinética é igual àquela produzida, realiza-se o balanço da energia, obtendo-se:
 
 \begin{equation}
-    \varepsilon=\BB{T}_S:\deffil\text{.}
+    \varepsilon=\TS{T}_S:\deffil\text{.}
 \end{equation}
 
 \noindent Assim, fica possível obter expressões que relacionam os valores de $C_S$ $\Delta$ e $\nu_T$ com $k_c$:

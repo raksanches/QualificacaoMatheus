@@ -2,7 +2,13 @@
 \chapter{Análise numérica para dinâmica não linear dos sólidos} \label{EGDS}
 %==================================================================================================
 
-Inicialmente considere um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ para denotar as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear $\BB{y}$ em função de $\BB{x}$ existe uma função $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$, denominada como função de mudança de configuração.
+\textcolor{red}{Introduzir o capítulo}
+
+% =============================================================================
+\section{Cinemática para sólidos deformáveis}
+% =============================================================================
+
+Seja considerado um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial seu domínio é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ como sendo as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear as coordenadas atuais de cada ponto $\BB{y}$, em função da coordenada inicial $\BB{x}$, emprega-se a função mudança de configuração $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$.
 
 \begin{figure}[h!]
     \centering
@@ -18,7 +24,7 @@ Para um ponto $\BB{x}$ na vizinhança de $\BB{x}_0$, pode-se dizer que:
     \BB{y}(\BB{x})=\fmc(\BB{x}_0)+\Nx\fmc|_{\BB{x}_0}\cdot d\BB{x}\text{,}
 \end{equation}
 
-\noindent em que $\FMC=\Nx\fmc$ é o gradiente de mudança de configuração. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
+\noindent em que $\FMC=\Nx\fmc$ é o gradiente de mudança de configuração na referência Lagrangiana. Assim, pode-se obter uma expressão que transforme um vetor $d\BB{x}$ na configuração inicial em um vetor $d\BB{y}$ na atual:
 
 \begin{equation}
     d\BB{y}=\FMC\cdot d\BB{x}\text{,}\label{eq:dyAdx}
@@ -33,32 +39,31 @@ Para um ponto $\BB{x}$ na vizinhança de $\BB{x}_0$, pode-se dizer que:
 Subtraindo-se $dx^2=\norm{d\BB{x}}^2$ de ambos os lados da igualdade obtém-se:
 
 \begin{equation}
-    dy^2-dx^2=d\BB{x}\trans\cdot(\FMC\trans\cdot\FMC-\BB{I})\cdot d\BB{x}\text{,}
+    dy^2-dx^2=d\BB{x}\trans\cdot(\FMC\trans\cdot\FMC-\TS{I})\cdot d\BB{x}\text{,}
     \label{eq:difdxdy}
 \end{equation}
 
-\noindent em que $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{C}=\FMC\trans\cdot\FMC$ é o tensor de alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\BB{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
+\noindent em que $\TS{I}$ é o tensor identidade de segunda ordem e $\TS{C}=\FMC\trans\cdot\FMC$ é o tensor alongamento à direita de Cauchy-Green. Dessa maneira, pode-se substituir $\TS{C}$ em \eqref{eq:difdxdy} e dividir por $2dx^2$, obtendo-se:
 
 \[
-    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}\trans\cdot(\BB{C}-\BB{I})\cdot d\BB{x}}{dx^2}\text{.}
+    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\frac{1}{2}\frac{d\BB{x}\trans\cdot(\TS{C}-\TS{I})\cdot d\BB{x}}{dx^2}\text{.}
 \]
 
-\noindent Tomando um versor na direção de $d\BB{x}$ ($\BB{u}=d\BB{x}/\norm{d\BB{x}}$), tem-se que:
+\noindent Tomando um versor $\BB{u}$ na direção de $d\BB{x}$ ($\BB{u}=d\BB{x}/\norm{d\BB{x}}$), tem-se que:
 
-\begin{equation}
-    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\BB{u}\trans\cdot\left(\frac{1}{2}(\BB{C}-\BB{I})\right)\cdot\BB{u}\text{.}
+\begin{equation}\label{eq:defGreen1}
+    \frac{1}{2}\frac{dy^2-dx^2}{dx^2}=\BB{u}\trans\cdot\bigpar{\frac{1}{2}(\TS{C}-\TS{I})}\cdot\BB{u}\text{.}
 \end{equation}
 
-Assim, define-se o tensor de deformações de Green-Lagrange como:
+O termo entre parênteses na Eq. \eqref{eq:defGreen1} é uma medida de deformação Lagrangiana e objetiva, ou seja, que não registra deformações em situação de movimento de corpo rígido. Esse termo é conhecido como o tensor de deformação de Green-Lagrange:
+%\textcolor{red}{Padronize a notação para tensores de segunda ordem. Eu sugiro maiúsculo negrito não itálico. Troque $\mathbb{E}$ e $\mathbb{S}$!}
 
 \begin{equation}
-    \mathbb{E}=\frac{1}{2}(\BB{C}-\BB{I})\text{,}
+    \defGL=\frac{1}{2}(\TS{C}-\TS{I})\text{.}
     \label{eq:CSD-DefGreenLagr}
 \end{equation}
 
-\noindent que se trata de uma medida de deformação objetiva, ou seja, não registra deformações em situação de movimento de corpo rígido.
-
-Outra medida de deformação interessante é a medida de deformação volumétrica ($\varepsilon_V$). Para isso considere o elemento infinitesimal em suas configurações inicial e atual ilustrado na Figura \ref{fig:MudVol}.
+Também é interessante descrever a variação volumétrica durante a mudança de configuração. Para tal, considera-se o elemento infinitesimal em suas configurações inicial e atual ilustrado na Figura \ref{fig:MudVol}.
 
 \begin{figure}[h!]
     \centering
@@ -68,13 +73,7 @@ Outra medida de deformação interessante é a medida de deformação volumétri
     \label{fig:MudVol}
 \end{figure}
 
-Logo o valor de $\varepsilon_V$ pode ser obtido através da relação entre o volume inicial e atual desse elemento como:
-
-\begin{equation}
-    \varepsilon_V=\frac{dV-dV_0}{dV_0}\text{.}
-\end{equation}
-
-O volume do elemento em ambas as configurações pode ser obtido por meio do produto misto dos vetores que formam o mesmo, ou seja:
+O volume do elemento em ambas as configurações pode ser obtido por meio do produto misto dos vetores que definem o paralelepípedo, ou seja:
 
 \begin{subequations}
     \begin{equation}
@@ -85,7 +84,7 @@ O volume do elemento em ambas as configurações pode ser obtido por meio do pro
     \end{equation}
 \end{subequations}
 
-Conhecendo a transformação expressa em \eqref{eq:dyAdx} e fazendo as devidas simplificações pode-se obter que:
+Conhecendo a transformação expressa em \eqref{eq:dyAdx} e fazendo as devidas simplificações obtém-se que:
 
 \begin{equation}
     dV=\det{(\FMC)}dV_0=JdV_0\text{,}\label{eq:RelVol}
@@ -93,17 +92,17 @@ Conhecendo a transformação expressa em \eqref{eq:dyAdx} e fazendo as devidas s
 
 \noindent em que $J=\det{(\FMC)}$ é o Jacobiano da mudança de configuração.
 
-Na sequência procura-se obter uma expressão que indique a mudança de área nas diferentes configurações. Assim, considere um cilindro infinitesimal ilustrado na figura \ref{fig:Nanson}.
+Para completar a descrição cinemática, deve-se ainda descrever a variação das superfícies durante a mudança de configuração. Para tal, considera-se um prisma de base infinitesimal nas configurações inicial e atual, conforme ilustrado na figura \ref{fig:Nanson}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Mudança de configuração em um cilindro infinitesimal.}
+    \caption{Mudança de configuração em um prisma infinitesimal.}
     \includegraphics[width=.45\linewidth]{Figuras/Nanson.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:Nanson}
 \end{figure}
 
-Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na direção de sua normal ($d\BB{S}_0=dS_0\BB{n}_0$ e $d\BB{S}=dS\BB{n}$). Logo o volume do cilindro é dado pelo produto escalar da área vetorial com o vetor que define a altura do cilindro ($dV_0=d\BB{S}_0\cdot\BB{h}^S_0$ e $dV=\BB{S}\cdot\BB{h}^S$). Conhecendo as relações \eqref{eq:dyAdx} e \eqref{eq:RelVol}, pode-se obter que:
+A área vetorial da base, entendida como o valor absoluto da área na direção de sua normal, na configuração inicial é $d\BB{S}_0=dS_0\BB{n}_0$ e na configuração atual $d\BB{S}=dS\BB{n}$. Logo o volume do cilindro nas configurações inicial e atual é $dV_0=d\BB{S}_0\cdot\BB{h}^S_0$ e $dV=\BB{S}\cdot\BB{h}^S$. Dessa forma, conhecendo as relações \eqref{eq:dyAdx} e \eqref{eq:RelVol}, pode-se escrever:
 
 \begin{equation}
     \BB{n}dS=J\FMC\Ttrans\cdot\BB{n}_0dS_0\text{,}\label{eq:Nanson}
@@ -111,7 +110,11 @@ Nesse contexto, a área vetorial pode ser entendida como seu valor absoluto na d
 
 \noindent que é conhecida como a Equação de Nanson.
 
-Com esse embasamento é possível apresentar os conceitos de energia nas descrições Euleriana e Lagrangiana Total. Assim, para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considere um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as forças atuantes na direção $y_1$.
+%==================================================================================================
+\section{Equação da quantidade de movimento em descrição Lagrangiana}
+%==================================================================================================
+
+Para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considera-se um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as componebtes de forças atuantes na direção $y_1$.
 
 \begin{figure}[h!]
     \centering
@@ -121,7 +124,7 @@ Com esse embasamento é possível apresentar os conceitos de energia nas descri�
     \label{fig:CorpoLivreSolido}
 \end{figure}
 
-Fazendo o equilíbrio das forças nessa direção e realizando as devidas simplificações tem-se:
+Fazendo o equilíbrio das forças nessa direção, realizando as devidas simplificações e levando-se em conta a Segunda Lei de Newton, tem-se:
 
 \[\der{\sigma_{11}}{y_1}+\der{\sigma_{21}}{y_2}+\der{\sigma_{31}}{y_3}+c_1=\rho\ddot{y}_1\text{,}\]
 
@@ -132,7 +135,7 @@ Fazendo o equilíbrio das forças nessa direção e realizando as devidas simpli
     \label{eq:EqLocEu}
 \end{equation}
 
-\noindent a qual representa a equação do equilíbrio local na descrição Euleriana.
+\noindent a qual representa a equação do equilíbrio local  na descrição Euleriana.
 
 Integrando a equação \eqref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da divergência obtém-se:
 
@@ -144,39 +147,39 @@ Integrando a equação \eqref{eq:EqLocEu} em $\Omega$ e aplicando o teorema da d
 
 \noindent onde $\Gamma=\partial\Omega$ é a fronteira do domínio de análise. Essa equação representa o equilíbrio global na descrição Euleriana.
 
-Já em uma descrição Lagrangiana Total, será necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \eqref{eq:EqGlobEu} levando em consideração as Equações \eqref{eq:RelVol} e \eqref{eq:Nanson}:
+Já para se obter uma descrição Lagrangiana Total, é necessário transformar os termos dependentes da configuração atual para outros dependentes da configuração inicial. Assim, pode-se reescrever a Equação \eqref{eq:EqGlobEu} levando em consideração as Equações \eqref{eq:RelVol} e \eqref{eq:Nanson}:
 
 \begin{equation}
     \int_{\Gamma_0}{J\tens\trans\cdot\FMC\Ttrans\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{J\BB{c}d\Omega_0}=\int_{\Omega_0}{J\rho\ddot{\BB{y}}d\Omega_0}
     \text{.}
 \end{equation}
 
-\noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\BB{P}=J\FMC^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
+\noindent Sendo $\BB{c}^0=J\BB{c}$ as forças de corpo na configuração inicial, $\rho_0=J\rho$ a densidade inicial e $\TS{P}=J\FMC^{-1}\cdot\tens$ o primeiro tensor de tensões de Piola-Kirchhoff, tem-se que:
 
 \begin{equation}
-    \int_{\Gamma_0}{\BB{P}\trans\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
+    \int_{\Gamma_0}{\TS{P}\trans\cdot\BB{n}_0d\Gamma_0}+\int_{\Omega_0}{\BB{c}^0d\Omega_0}=\int_{\Omega_0}{\rho_0\ddot{\BB{y}}d\Omega_0}\text{,}
 \end{equation}
 
-\noindent que representa a equação do equilíbrio global na descrição Lagrangiana Total.
+\noindent que representa a equação global da quantidade de movimento na descrição Lagrangiana Total.
 
-Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teorema da Divergência e tomando um elemento infinitesimal de volume, pode-se obter a equação do equilíbrio local na descrição Lagrangiana Total:
+Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teorema da Divergência, considerando-se continuidade, escreve-se a forma local da equação da quantidade de movimento na descrição Lagrangiana Total:
 
 \begin{equation}
-    \Nx\cdot\BB{P}\trans+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{, ou}
+    \Nx\cdot\TS{P}\trans+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{, ou}
 \end{equation}
 
 %==================================================================================================
-\section{Abordagem energética para determinação do ponto de equilíbrio}
+\section{Princípio da estacionariedade da energia}
 %==================================================================================================
 
-Em se tratando de sólidos de comportamento hiperelástico, dada a natureza das leis constitutiva e à adequação da descrição Lagrangiana, é conveniente o uso de abordagens energéticas de modo a obter o equacionamento em forma fraca, seguido da aplicação da técnica de elementos finitos e de processos para solução numérica do sistema resultante. Para tal, deve-se primeiramente definir o conceito de energia total ($\Pi$) de um sistema, que pode ser entendido como a soma de todas as parcelas de energia relevantes ao problema. Nos casos mais comuns, tem-se uma parcela de energia potencial das forças externas atuantes no corpo ($\mathbb{P}$), uma parcela de energia de deformação elástica ($\mathbb{U}$) e parcela de energia cinética ($\mathbb{K}$). Dessa forma, o funcional de energia total é dado por:
+Em se tratando de sólidos de comportamento hiperelástico, dada a natureza das leis constitutivas e à adequação da descrição Lagrangiana, é conveniente o uso de abordagens energéticas de modo a obter o equacionamento em forma fraca, seguido da aplicação da técnica de elementos finitos e de processos para solução numérica do sistema resultante. Para tal, deve-se primeiramente definir a energia total ($\Pi$) de um sistema, que pode ser entendida como a soma de todas as parcelas de energia relevantes ao problema. Nos casos mais comuns da mecânica dos sólidos, tem-se uma parcela de energia potencial das forças externas atuantes no corpo ($\mathbb{P}$), uma parcela de energia de deformação elástica ($\mathbb{U}$) e uma parcela de energia cinética ($\mathbb{K}$). Dessa forma, o funcional de energia total é dado por:
 
 \begin{equation}
     \Pi=\mathbb{P}+\mathbb{U}+\mathbb{K}\text{.}
     \label{FuncionalEnergia}
 \end{equation}
 
-Busca-se encontrar a configuração de equilíbrio do sólido, e para tal, a conservação da energia deve ser respeitada. Dessa forma postula-se o primeiro teorema variacional, que aponta que, para se obter o equilíbrio em um sólido sujeito a forças externas conservativas, a primeira variação da energia total deve ser nula para qualquer variação admissível nas incógnitas do problema ($\DOF$), ou seja:
+Busca-se encontrar a configuração de equilíbrio do sólido, e para tal, a conservação da energia deve ser respeitada. Dessa forma postula-se o primeiro teorema variacional, que aponta que, para que haja equilíbrio em um sólido sujeito a forças externas conservativas, a primeira variação da energia total deve ser nula para qualquer variação admissível nas incógnitas do problema ($\DOF$), ou seja:
 
 \begin{equation}
     \delta^{(1)}\Pi=0\forall\delta\DOF|\delta\DOF=\BB{0}\text{ em }\Gamma_D\text{,}
@@ -194,23 +197,33 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     \delta\Pi=\delta\mathbb{P}+\delta\mathbb{U}+\delta\mathbb{K}=0\text{,}
 \end{equation}
 
-\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que permita, juntamente com as demais equações da cinemática do modelo estrutural, descrever a evolução da energia de deformação em função das variáveis principais do problema. Um possível modelo constitutivo é o de Saint-Venant-Kirchhoff, dado por:
+\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que permita, juntamente com as demais equações da cinemática do modelo estrutural, descrever a evolução da energia de deformação em função das variáveis principais do problema.
+
+Um modelo constitutivo capaz de representar diversos materiais elásticos em regime de deformações pequenas a moderadas é o de Saint-Venant-Kirchhoff, dado por, para o qual a energia de deformação específica (por unidade de volume) é dada por:
 
 \begin{equation}
-    u_e^{SVK}=\frac{\Stens:\mathbb{E}}{2}\text{,}
+    u_e^\mathrm{SVK}=\frac{\Stens:\defGL}{2}\text{,}
+    \label{eq:SVK}
 \end{equation}
 
 \noindent no qual $\Stens$ é o tensor de Piola-Kirchhoff de segunda espécie, calculado como:
 
 \begin{equation}
-    \Stens=\tensCon:\mathbb{E}\text{,}
+    \Stens=\FMC^{-1}\cdot\TS{P}=J\FMC^{-1}\cdot\tens\cdot\FMC^{-\mathrm{T}}\text{,}
+    \label{eq:CSD-S0}
+\end{equation}
+
+Ou ainda, da Eq. \eqref{eq:SVK}, nota-se que $\Stens$ é energeticamente conjugado da deformação de Green, tal que:
+
+\begin{equation}
+    \Stens=\frac{\partial u_e^\mathrm{SVK}}{\partial\defGL}=\tensCon:\defGL\text{,}
     \label{eq:CSD-S}
 \end{equation}
 
 \noindent sendo $\tensCon$ o tensor constitutivo de quarta ordem:
 
 \begin{equation}
-    \tensCon=2G\mathbb{I}+\frac{2G\nu}{1-2\nu}\BB{I}\otimes\BB{I}
+    \tensCon=2G\mathbb{I}+\frac{2G\nu}{1-2\nu}\TS{I}\otimes\TS{I}
 \end{equation}
 
 \noindent em que $\nu$ é o coeficiente de Poisson e $G$ é o módulo de elasticidade transversal, dado em função do módulo de elasticidade longitudinal (ou Módulo de Young) $E$ como:
@@ -219,17 +232,21 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     G=\frac{E}{2(1+\nu)}\text{.}
 \end{equation}
 
-Assim, as parcelas de energia ficam dadas por:
+Assim, a parcelas de energia de deformação fica:
 
 \begin{subequations}
     \begin{align}
-         & \mathbb{U}=\frac{1}{2}\intDomi{\Stens:\mathbb{E}}\text{,}                  \\
-         & \mathbb{P}=-\BB{F}^a\cdot\BB{Y}^a-\intFronti{\BB{t}\cdot\BB{y}^m}\text{ e} \\
-         & \mathbb{K}=\frac{1}{2}\intDomi{\rho_0\norm{\dBB{y}}^2}\text{,}
+         & \mathbb{U}=\frac{1}{2}\intDomi{\Stens:\defGL}\text{.}
     \end{align}
 \end{subequations}
 
-\noindent onde $\Omega_0$ é o domínio de análise em sua configuração inicial, cuja fronteira é $\Gamma_0=\partial\Omega_0$, $\BB{F}^a$ é uma força concentrada aplicada sobre um ponto $a$, cuja posição atual é $\BB{Y}^a$, $\BB{t}$ é uma força distribuída sobre uma superfície média da casca ($\BB{y}$) e $\rho_0$ é a massa específica inicial do contínuo.
+\noindent onde $\Omega_0$ é o domínio de análise em sua configuração inicial.
+
+\textcolor{red}{descreva a energia cinética e energia potencial das forças externas! Fica estranho só jogar a equação, especialmente se você descreveu a energia de deformação em detalhes}
+
+%& \mathbb{P}=-\BB{F}^a\cdot\BB{Y}^a-\intFronti{\BB{t}\cdot\BB{y}^m}\text{ e} \\
+%& \mathbb{K}=\frac{1}{2}\intDomi{\rho_0\norm{\dBB{y}}^2}\text
+%, cuja fronteira é $\Gamma_0=\partial\Omega_0$, $\BB{F}^a$ é uma força concentrada aplicada sobre um ponto $a$, cuja posição atual é $\BB{Y}^a$, $\BB{t}$ é uma força distribuída sobre uma superfície média da casca ($\BB{y}$) e $\rho_0$ é a massa específica inicial do contínuo.
 
 %\noindent O Apêndice \ref{Ap:CSD} trata de forma mais detalhada o comportamento para casos multiaxiais.
 
@@ -237,26 +254,26 @@ Assim, as parcelas de energia ficam dadas por:
 \section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
 %==================================================================================================
 
-Os elementos de casca podem ser entendidos como aqueles em que uma de suas dimensões é muito menor que as demais. Assim, é possível tomar como referência a superfície média do elemento para mapear os pontos que o compõem, facilitando a descrição.
+Os elementos de casca podem ser entendidos como elementos estruturais definidos por uma superfície média 3D, e cuja dimensão perpendicular a essa superfície é muito menor que as demais. Assim, é possível tomar como referência a superfície média do elemento para mapear os pontos que o compõem, facilitando a descrição.
 
-A formulação que será apresentada a seguir segue a cinemática de Reissner-Mindlin, levando em consideração as deformações causadas pelas tensões de cisalhamento nas direções transversais ao elemento, e foi proposta por \citeonline{coda2007alternative}, já tendo sido aplicada com sucesso ao contexto da interação fluido-estrutura por \citeonline{sanches2011acoplamento,sanches2013unconstrained} e \citeonline{fernandes2019ale}.
+A formulação apresentada a seguir segue a cinemática de Reissner-Mindlin, levando em consideração, de maneira aproximada, as deformações causadas pelas tensões de cisalhamento nas direções transversais ao elemento. Essa formulação de elementos finitos baseada em posições foi proposta por \citeonline{coda2007alternative}, já tendo sido aplicada com sucesso ao contexto da interação fluido-estrutura por \citeonline{sanches2011acoplamento,sanches2013unconstrained} e \citeonline{fernandes2019ale}.
 %\textcolor{red}{Deixe a parcela dissipativa de fora...}
 
 %==================================================================================================
 \subsection{Cinemática de Reissner-Mindlin}
 %==================================================================================================
 
-As configurações inicial a atual de um elemento de casca podem ser descritas mapeando-se um elemento plano e de dimensões unitárias, definido em um espaço de coordenadas paramétricas adimensionais ($\BB{\xi}$), empregando-se para tal, as funções de forma polinomiais definidas no espaço de coordenadas $\BB{\xi}$, como ilustrado na Figura \ref{fig:Mapeamento}.
+As configurações inicial a atual de um elemento de casca podem ser descritas mapeando-se um elemento definido em um espaço de coordenadas paramétricas adimensionais ($\BB{\xi}$), onde o mesmo encontra-se plano e com medidas adimensionais unitárias. Para tal, empregam-se as funções de forma polinomiais definidas no espaço de coordenadas $\BB{\xi}$, como ilustrado na Figura \ref{fig:Mapeamento}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Mudança de configuração.}
+    \caption{Mudança de configuração para um elemento de casca.}
     \includegraphics[width=.4\linewidth]{Figuras/Mapeamento.pdf}
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:Mapeamento}
 \end{figure}
 
-Para isso, realiza-se primeiramente o mapeamento dos pontos da superfície média do elemento para a configuração inicial de coordenadas $\BB{x}^m$ e para a configuração atual, de coordenadas $\BB{y}^m$:
+Realiza-se primeiramente o mapeamento dos pontos da superfície média do elemento na configuração auxiliar para a configuração inicial de coordenadas $\BB{x}^m$ e para a configuração atual, de coordenadas $\BB{y}^m$, por meio de:
 
 \begin{subequations}
     \begin{align}
@@ -299,15 +316,33 @@ Já os pontos fora da superfície média, são mapeados com auxílio de vetores 
 
 Sendo assim, o problema possui como graus de liberdade as posições nodais atuais da superfície média ($\BB{Y}_a$), os valores nodais do vetor generalizado adimensional na configuração atual ($\BB{V}^1_a$) e o valor nodal da taxa de variação linear de deformação na direção da espessura ($\Alpha_a$).
 
-Além disso, torna-se necessário determinar o gradiente da função de mudança de configuração. Para isso note que $\fmc(\BB{x},t)=\fmc^1((\fmc^0)^{-1},t)$, portanto é possível se obter o gradiente da função de mudança de configuração como $\FMC=\FMC^1\cdot(\FMC^0)^{-1}$, em que $\FMC^0=\Nxi\fmc^0$ e $\FMC^1=\Nxi\fmc^1$.
+Para se determinar o gradiente da função mudança de configuração $\fmc(\BB{x},t)=\fmc^1((\fmc^0)^{-1},t)$, inicia-se com o cálculo dos gradientes das funções de mapeamento $\fmc^0$ e $\fmc^1$, definidas nas Eqs. \eqref{eq:CSD-FMC}:
 
-Considerando-se o princípio da conservação da energia, tem-se:
+\begin{subequations}
+    \begin{equation}
+        \FMC^0=\Nxi\fmc^0\text{ e} \label{eq:CSD-FMC0}
+    \end{equation}
+    \begin{equation}
+        \FMC^1=\Nxi\fmc^1\text{,} \label{eq:CSD-FMC1}
+    \end{equation}
+    \label{eq:CSD-FMC}
+\end{subequations}
+
+\noindent de modo que o gradiente $\FMC$ é obtido por:
+
+\begin{equation}
+    \FMC=\FMC^1\cdot(\FMC^0)^{-1}.
+\end{equation}
+
+Deste ponto em diante, é possível calcular a deformação de Green em qualquer ponto da discretização por elementos de casca, bem como todos os termos do funcional de energia da Eq. \eqref{FuncionalEnergia}.
+
+Considerando-se o princípio da conservação da energia, tem-se que:
 
 \begin{equation}
     \delta\Pi=\der{\Pi_0}{\DOF}\cdot\delta\DOF=0\text{,}
 \end{equation}
 
-\noindent em que $\DOF$ representa o vetor que contém todos os graus de liberdade do problema. Dada a arbitrarieade de $\delta\DOF$, o princípio da estacionariedade da energia escrito em função das posições nodais e vetores generalizados fica:
+\noindent em que $\DOF$ representa o vetor que contém todas as finitas variáveis do problema espacialmente discreto. Dada a arbitrarieade de $\delta\DOF$, o princípio da estacionariedade da energia escrito em função das posições nodais e vetores generalizados fica:
 
 \begin{subequations}
     \begin{equation}
@@ -324,7 +359,7 @@ Considerando-se o princípio da conservação da energia, tem-se:
 \noindent sendo possível definir um vetor resíduo $\res$, que pode ser interpretado como um vetor de desbalanceamento mecânico, como:
 
 \begin{equation}
-    \res_a(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{F}_a^\mathrm{int}+\BB{F}_a^\mathrm{inerc}-\BB{F}_a^\mathrm{ext}=\BB{0}\text{,}
+    \res_a(\BB{Y}_b,\BB{V}^1_b,{\Alpha}_b)=\BB{F}_a^\mathrm{int}+\BB{F}_a^\mathrm{inerc}-\BB{F}_a^\mathrm{ext}=\BB{0}\text{,}
     \label{eq:CSD-g}
 \end{equation}
 
@@ -339,9 +374,13 @@ Considerando-se o princípio da conservação da energia, tem-se:
     \label{eq:CSD-F}
 \end{subequations}
 
-Portanto o problema a ser resolvido é descrito como: determinar $\BB{Y}$, $\BB{V}^1$ e $\BB{\Alpha}$ tais que $\res(\BB{Y},\BB{V}^1,\BB{\Alpha})=\BB{0}$.
+Portanto o problema a ser resolvido é descrito como: para todos os nós $a$ e $b$, determinar $\BB{Y}_b$, $\BB{V}^1_b$ e ${\Alpha}_b$ tais que $\res_a(\BB{Y}_b,\BB{V}^1_b,{\Alpha}_b)=\BB{0}$.
 
-Como é possível perceber, o cálculo de $\res$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de $\BB{y}$. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador $\alpha$-generalizado, conforme apresentado em \ref{IT-VMS}, sendo ainda possível aproximar em um instante $n+1$ o valor da variável ($\BB{y}^{n+1}$) e sua primeira derivada temporal ($\dBB{y}^{n+1}$) a partir da aproximação de Newmark:
+Como é possível perceber, o cálculo de $\res_a$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de $\BB{y}$. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador $\alpha$-generalizado, conforme apresentado em \ref{IT-VMS}.
+
+\textcolor{red}{Colocar aqui a forma discreta no tempo segundo o alfa generalizado, (definir os vetores de forças nodais equivalentes utilizando a aceleração em alfa m e o restante em alfaf...)}
+
+A aproximação para $\BB{y}$ e da primeira derivada temporal $\dBB{y}$  em um instante $n+1$ obtidas a partir da aproximação de Newmark:
 
 \begin{subequations}
     \begin{equation}
@@ -353,7 +392,7 @@ Como é possível perceber, o cálculo de $\res$ é dependente não somente dos 
     \label{eq:Newmark-alpha}
 \end{subequations}
 
-\noindent sendo $\Delta t$ o intervalo de tempo discretizado, $\beta$ e $\gamma$ parâmetros calculados de forma a garantir a precisão de segunda ordem e estabilidade incondicional do método como \cite{chung1993time}:
+\noindent sendo $\Delta t$ o passo de tempo discreto, e $\beta$ e $\gamma$ parâmetros calculados de forma a garantir a precisão de segunda ordem e estabilidade incondicional do método como \cite{chung1993time}:
 
 \begin{subequations}
     \begin{equation}
@@ -382,7 +421,7 @@ Substituindo-se as derivadas temporais do integrador $\alpha$-generalizado em $\
 
 \begin{equation}
     \begin{split}
-        H_{ij}^{ab}=&\intDoma{\bigpar{\der{\Stens^{n+\alpha_f}_{kl}}{\Phi_j^b}\der{\mathbb{E}^{n+\alpha_f}_{kl}}{\Phi_i^a}+\Stens^{n+\alpha_f}_{kl}\Dder{\mathbb{E}^{n+\alpha_f}_{kl}}{\Phi_i^a}{\Phi_j^b}}}+\\
+        H_{ij}^{ab}=&\intDoma{\bigpar{\der{\mathrm{S}^{n+\alpha_f}_{kl}}{\Phi_j^b}\der{\mathrm{E}^{n+\alpha_f}_{kl}}{\Phi_i^a}+\mathrm{S}^{n+\alpha_f}_{kl}\Dder{\mathrm{E}^{n+\alpha_f}_{kl}}{\Phi_i^a}{\Phi_j^b}}}+\\
         &\frac{\alpha_m\alpha_f}{\beta\Delta t}\intDoma{\rho_0\der{y_k^{n+1}}{\Phi_j^b}\der{y_k^{n+1}}{\Phi_i^a}}+\alpha_f\intDoma{\rho_0\Dder{y_k^{n+1}}{\Phi_i^a}{\Phi_j^b}\ddot{y}_k^{n+\alpha_m}}\text{.}
     \end{split}
     \label{eq:CSD-Hijab}
@@ -431,8 +470,8 @@ Assim, o algoritmo utilizado para solução do elemento de casca é dado pelo ps
                     Interpolar variáveis em $\Omega_a$\;
                     Calcular $\FMC^0$, $(\FMC^0)^{-1}$, $(\FMC^1)^{n+1}$ e $(\FMC^1)^{n+\alpha_f}$\;
                     Calcular $\FMC^{n+1}=(\FMC^1)^{n+1}\cdot(\FMC^0)^{-1}$ e $\FMC^{n+\alpha_f}=(\FMC^1)^{n+\alpha_f}\cdot(\FMC^0)^{-1}$\;
-                    Calcular $\BB{C}^{n+1}=(\FMC^{n+1})\trans\cdot\FMC^{n+1}$ e $\BB{C}^{n+\alpha_f}=(\FMC^{n+\alpha_f})\trans\cdot\FMC^{n+\alpha_f}$\;
-                    Calcular $\mathbb{E}^{n+\alpha_f}$ \eqref{eq:CSD-DefGreenLagr} e $\Stens^{n+\alpha_f}$ \eqref{eq:CSD-S}\;
+                    Calcular $\TS{C}^{n+1}=(\FMC^{n+1})\trans\cdot\FMC^{n+1}$ e $\TS{C}^{n+\alpha_f}=(\FMC^{n+\alpha_f})\trans\cdot\FMC^{n+\alpha_f}$\;
+                    Calcular $\defGL^{n+\alpha_f}$ \eqref{eq:CSD-DefGreenLagr} e $\Stens^{n+\alpha_f}$ \eqref{eq:CSD-S}\;
                     \ForEach{\textnormal{nó $a$ do elemento}}{
                         Calcular $\partial{\BB{y}^{n+1}}/\partial{\DOF_a}$, $\partial{\FMC^{n+1}}/\partial{\DOF_a}$, $\partial{\mathbb{E}^{n+\alpha_f}}/\partial{\DOF_a}$ e $\partial{\Stens^{n+\alpha_f}}/\partial{\DOF_a}$\;
                         Calcular $\res_a$ e somar a contribuição no vetor global\;
@@ -455,13 +494,14 @@ Assim, o algoritmo utilizado para solução do elemento de casca é dado pelo ps
 \section{Exemplos de Verificação} \label{MEFP-Ex}
 %==================================================================================================
 
-Para o melhor conhecimento e para verificação do código a ser utilizado para a dinâmica das estruturas, foram selecionados e simulados os problemas estáticos de \textit{Scordelis-Lo roof} e de um cilindro elástico biengastado, e os problemas dinâmicos de uma viga em balanço e de uma viga bi-engastada submetidas a carregamento de impacto. Tais simulações executadas, contendo os parâmetros de entrada, assim como a discretização de cada problema e os resultados obtidos.
+Para o melhor conhecimento e para verificação do código a ser utilizado para a dinâmica das estruturas, foram selecionados e simulados os problemas estáticos de \textit{Scordelis-Lo roof} e de um cilindro elástico biengastado, e os problemas dinâmicos de uma viga em balanço e de uma viga bi-engastada submetidas a carregamento de impacto.
 
+Deve-se notar que as análises não têm por finalidade validar o programa de casca, uma vez que este é apenas uma ferramenta utilizada neste trabalho e que já foi validado e testado em outros trabalhos do grupo.
 % =============================================================================
 \subsection{Problema de \textit{Scordelis-Lo roof}} \label{Ap:SLR}
 % =============================================================================
 
-O primeiro exemplo simulado trata-se de um problema comumente encontrado para problemas de cascas, denominado de \textit{Scordelis-Lo roof}, conforme ilustrado na Figura \ref{fig:scordelis}. Esse exemplo se caracteriza por uma cobertura curva sujeita a um carregamento gravitacional $q$, distribuído por unidade de área, na direção $x_3$ para baixo. Os parâmetros geométricos são dados por: comprimento $L=50$, raio de curvatura $R=25$, espessura $t=0,25$ e ângulo $\theta=40^\circ$. O valor da carga aplicada é $q=90$. O material que constitui a cobertura possui módulo de Young $E=4,32\times10^8$ e Poisson nulo. As extremidades estão presas por um diafragma rígido ($u_1=u_3=0$). Os resultados são comparados com os obtidos por \citeonline{BELYTSCHKO1985221,ZHOU2022108568,CHAUDINH2023110222}, os quais apontam que o deslocamento vertical do nó $A$ é de 0,3024.
+O primeiro exemplo simulado trata-se de um problema comumente empregado para validação de programas para análise de cascas, denominado de \textit{Scordelis-Lo roof}, conforme ilustrado na Figura \ref{fig:scordelis}. Esse exemplo se caracteriza por uma cobertura curva sujeita a um carregamento gravitacional $q$, distribuído por unidade de área, na direção $x_3$ para baixo. Os parâmetros geométricos adimensionais adotados são: comprimento $L=50$, raio de curvatura $R=25$, espessura $t=0,25$ e ângulo $\theta=40^\circ$. O valor da carga adimensional aplicada é $q=90$. O material que constitui a cobertura possui módulo de Young adimensional $E=4,32\times10^8$ e coeficiente de Poisson nulo. As extremidades estão presas por um diafragma rígido ($u_1=u_3=0$). Os resultados são comparados com os obtidos por \citeonline{BELYTSCHKO1985221,ZHOU2022108568,CHAUDINH2023110222}, os quais apontam que o deslocamento vertical do nó $A$ é de 0,3024.
 
 \begin{figure}[h!]
     \centering
@@ -471,7 +511,7 @@ O primeiro exemplo simulado trata-se de um problema comumente encontrado para pr
     \label{fig:scordelis}
 \end{figure}
 
-Para a simulação do problema aproveitou-se da simetria da cobertura, o que possibilitou a modelagem de apenas um quarto do problema. Assim utilizou-se uma malha estruturada com orientação à esquerda contendo 512 elementos triangulares de aproximação quadrática, resultando em 7623 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
+Para a simulação, aproveitou-se da simetria da cobertura, o que possibilita a modelagem de apenas um quarto do problema. Assim utiliza-se uma malha estruturada com orientação à esquerda contendo 512 elementos triangulares de aproximação quadrática, resultando em 7623 graus de liberdade. A malha é apresentada na Figura \ref{fig:scordelis-mesh}. O problema foi considerado em pequenos deslocamentos e deformações, ou seja, utilizou-se somente uma iteração de Newton-Raphson.
 
 \begin{figure}[h!]
     \centering
@@ -488,7 +528,7 @@ Para a simulação do problema aproveitou-se da simetria da cobertura, o que pos
     \label{fig:scordelis-mesh}
 \end{figure}
 
-Dessa forma, chegou-se a um deslocamento de 0,2997 nos cálculos realizados, representando um desvio de 0,8965\% em relação à referência. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
+O deslocamento máximo obtido na análise é de 0,2997, representando um desvio de 0,8965\% em relação à referência. A Figura \ref{fig:scordelis-displ} apresenta o campo de deslocamentos obtido para um quadrante da cobertura.
 
 \begin{figure}[h!]
     \centering
@@ -509,7 +549,7 @@ Dessa forma, chegou-se a um deslocamento de 0,2997 nos cálculos realizados, rep
     \label{fig:scordelis-displ}
 \end{figure}
 
-Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}, sendo satisfatoriamente verificada a análise realizada.
+Assim, observa-se que tais campos estão muito semelhantes aos apresentados por \citeonline{ZHOU2022108568}.
 
 Também realizou-se uma análise quanto à dependência da malha, onde dividiu-se as arestas do problema em $N$ partes. A Tabela \ref{tab:scordelis-sol} apresenta os resultados obtidos, sendo os valores do desvio relativo em função do tamanho do elemento ($h$) ilustrados na Figura \ref{fig:shell-static-sol}.
 
@@ -544,7 +584,7 @@ Também realizou-se uma análise quanto à dependência da malha, onde dividiu-s
     \label{fig:shell-static-sol}
 \end{figure}
 
-Igualmente realizou-se  uma análise por meio do \textit{software} ANSYS, onde se modelou o problema utilizando uma malha com 648 elementos de casca (\textit{Shell} 281) e 1357 nós, resultando em 8142 graus de liberdade. A Figura \ref{fig:scordelisANSYS} apresenta a malha utilizada na simulação. Assim obteve-se um deslocamento vertical de 0,3016, o que representa um desvio relativo de 0,6300\% em relação ao calculado pelo código implementado. Além disso, observou-se os deslocamentos verticais ao longo da aresta livre da cobertura, os quais são apresentados na Figura \ref{fig:scordelis-graph}.
+Uma análise realizada por meio do \textit{software} ANSYS, empregando-se uma malha com 648 elementos de casca (\textit{Shell} 281) e 1357 nós, resultando 8142 graus de liberdade (ver Fig. \ref{fig:scordelisANSYS}) resultou em deslocamento vertical máximo de 0,3016, o que representa um desvio relativo de 0,6300\% em relação ao calculado pelo código implementado. Além disso, os deslocamentos verticais ao longo da aresta livre da cobertura, obtidos por meio do \textit{software} ANSYS são comparados com os da formulação posicional na Figura \ref{fig:scordelis-graph}, mostrando-se muito próximos.
 
 \begin{figure}[h!]
     \centering
@@ -566,7 +606,7 @@ Igualmente realizou-se  uma análise por meio do \textit{software} ANSYS, onde s
 \subsection{Cilindro biengastado em problema estático} \label{Ap:Shell-cyl}
 % =============================================================================
 
-Outro problema comum considera um cilindro sujeito a duas cargas concentradas diametralmente opostas, conforme visto na Figura \ref{fig:cylinder-shell}. As dimensões do problema são: comprimento $L=600$, raio $R=300$ e espessura $t=3$. A carga aplicada é $P=1$. O material que constitui o cilindro possui módulo de elasticidade $E=3\times10^6$ e coeficiente de Poisson $\nu=0,3$. Ambas as extremidades do cilindro estão vinculadas a um diafragma rígido, ou seja, $u_1=u_3=\phi_2=0$. O resultado de referência adotado é de um deslocamento radial de $1,8248\times10^{-5}$ no ponto de aplicação da carga \cite{BELYTSCHKO1985221,CHAUDINH2023110222,ZHOU2022108568}.
+Este problema considera um cilindro sujeito a duas cargas concentradas diametralmente opostas, conforme visto na Figura \ref{fig:cylinder-shell}. Todas variáveis são consideradas adimensionais, sendo a geometria definida por: comprimento $L=600$, raio $R=300$ e espessura $t=3$. A carga aplicada é unitária ($P=1$) e o material que constitui o cilindro possui módulo de elasticidade $E=3\times10^6$ e coeficiente de Poisson $\nu=0,3$. Ambas as extremidades do cilindro estão vinculadas a um diafragma rígido, ou seja, $u_1=u_3=\phi_2=0$. O resultado de referência adotado é de um deslocamento radial de $1,8248\times10^{-5}$ no ponto de aplicação da carga \cite{BELYTSCHKO1985221,CHAUDINH2023110222,ZHOU2022108568}.
 
 \begin{figure}[h!]
     \centering
@@ -586,7 +626,7 @@ Pelo fato de o problema apresentar simetria, foi estudado somente um octante do 
     \label{fig:cylinder-shell-mesh}
 \end{figure}
 
-O resultado obtido foi de um deslocamento radial de $1,8135\times10^{-5}$, tendo, portanto, um desvio relativo de $0,6176\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}, os quais são muito próximos aos obtidos por \citeonline{ZHOU2022108568}.
+O resultado obtido para o deslocamento radial máximo é de $1,8135\times10^{-5}$, tendo, portanto, um desvio relativo de $0,6176\%$ em relação à referência. Os campos de deslocamentos obtidos são apresentados na Figura \ref{fig:cylinder-shell-disp}, os quais são muito próximos aos apresentados por \citeonline{ZHOU2022108568}.
 
 \begin{figure}[h!]
     \centering
@@ -607,7 +647,7 @@ O resultado obtido foi de um deslocamento radial de $1,8135\times10^{-5}$, tendo
     \label{fig:cylinder-shell-disp}
 \end{figure}
 
-Também se comparou o resultado obtido com relação à uma simulação feita no \textit{software} ANSYS, onde modelou-se uma malha contendo 2592 elementos \textit{Shell} 281, com um total de 5305 nós e 31830 graus de liberdade. A Figura \ref{fig:clampedCylinderANSYS} apresenta a malha utilizada. Assim obteve-se um deslocamento de $1,8142\times10^{-5}$, resultando em um desvio relativo de $0,03858\%$. Além disso, verificou-se o deslocamento radial ao longo das arestas compreendidas pela interseção do cilindro com o plano $x_1=0$ e com $x_2=L/2$. A Figura \ref{fig:cylinder-shell-deslradial} ilustra graficamente os resultados obtidos.
+Também se comparou o resultado obtido com uma simulação executada no \textit{software} ANSYS, empregando-se uma malha contendo 2592 elementos \textit{Shell} 281, com um total de 5305 nós e 31830 graus de liberdade. A Figura \ref{fig:clampedCylinderANSYS} apresenta a malha utilizada. Assim obteve-se pelo ANSYS, um deslocamento radial máximo de $1,8142\times10^{-5}$, resultando em um desvio relativo de $0,03858\%$ em relação à formulação posicional. Além disso, verificou-se o deslocamento radial ao longo das arestas compreendidas pela interseção do cilindro com o plano $x_1=0$ e com $x_2=L/2$. A Figura \ref{fig:cylinder-shell-deslradial} ilustra graficamente os resultados obtidos.
 
 \begin{figure}[h!]
     \centering
@@ -633,10 +673,12 @@ Também se comparou o resultado obtido com relação à uma simulação feita no
 \end{figure}
 
 % =============================================================================
-\subsection{Viga engastada em problema dinâmico} \label{Ap:DinBeam}
+\subsection{Viga engastada com carregamento de impacto} \label{Ap:DinBeam}
 % =============================================================================
 
-Para verificação do código implementado em problemas dinâmicos, estudou-se  primeiramente o comportamento de uma viga engastada em uma de suas extremidades e sujeita a uma carga $P$ aplicada na extremidade oposta, conforme ilustrado na Figura \ref{fig:viga1}. As dimensões da viga são: comprimento $L=60$ dm, altura $h=3$ dm e largura $b=1$ dm. A força aplicada possui intensidade $P=1,25\times10^{-4}$ Mg$\cdot$dm/(ms)² $\script{H}(t)$, sendo $\script{H}(t)$ a função de Heaviside. O material que compõe a viga possui módulo de Young $E=20$ Mg/[dm$\cdot$(ms)²], coeficiente de Poisson nulo e massa específica $\rho=7\times10^{-3}$ Mg/dm³. O intervalo de tempo analisado foi $t\in[0;675]$ ms discretizado em passos de tempo $\Delta t=0,3377$ ms, sendo utilizado um raio espectral $\rho_\infty=1,0$. A malha de elementos finitos utilizada conta com 32 elementos triangulares de aproximação quadrática, com um total de 99 nós e 693 graus de liberdade, a qual pode ser observada na Figura \ref{fig:viga1-mesh}.
+Para verificação do código implementado em problemas dinâmicos, estuda-se  primeiramente o comportamento de uma viga engastada em uma de suas extremidades e sujeita a uma carga $P$ subtamente aplicada na extremidade oposta, conforme ilustrado na Figura \ref{fig:viga1}. As dimensões da viga são: comprimento $L=60$ dm, altura $h=3$ dm e largura $b=1$ dm. A força aplicada possui intensidade $P=1,25\times10^{-4}$ Mg$\cdot$dm/(ms)², sendo subitamente aplicada no instante $t=0$.
+
+O material que compõe a viga possui módulo de Young $E=20$ Mg/[dm$\cdot$(ms)²], coeficiente de Poisson nulo e massa específica $\rho=7\times10^{-3}$ Mg/dm³. O intervalo analisado foi $t\in[0;675]$ ms discretizado em passos de tempo $\Delta t=0,3377$ ms, sendo utilizado um raio espectral $\rho_\infty=1,0$ para o integrador $\alpha$-generalizado. A malha de elementos finitos utilizada conta com 32 elementos triangulares de aproximação quadrática, com um total de 99 nós e 693 graus de liberdade, como pode ser observada na Figura \ref{fig:viga1-mesh}.
 
 \begin{figure}[h!]
     \centering
@@ -653,6 +695,8 @@ Para verificação do código implementado em problemas dinâmicos, estudou-se  
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:viga1-mesh}
 \end{figure}
+
+\textcolor{red}{Indicar os eixos nas figuras, tanto do modelo estrutural como da malha.}
 
 A modelagem realizada considerou a altura $H$ como a espessura do elemento de casca, sendo a força atuante nessa mesma direção. Assim, observou-se o deslocamento vertical no ponto de aplicação da força. Os resultados obtidos foram comparados com aqueles alcançados a partir de uma modelagem no \textit{software} ANSYS utilizando 346 elementos do tipo \textit{Shell} 281, totalizando 795 nós e 4770 graus de liberdade (Figura \ref{fig:beamANSYS1}). a Figura \ref{fig:res-viga1} apresenta os resultados calculados.
 
@@ -675,10 +719,10 @@ A modelagem realizada considerou a altura $H$ como a espessura do elemento de ca
 Observa-se nesse caso uma boa concordância entre os resultados apresentados pelo ANSYS e os obtidos pelo código desenvolvido, sendo verificada a eficácia nesse exemplo.
 
 % =============================================================================
-\subsection{Viga biengastada em problema dinâmico} \label{Ap:DinBeam2}
+\subsection{Viga biengastada com carregamento de impacto} \label{Ap:DinBeam2}
 % =============================================================================
 
-Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu centro, conforme mostrado na Figura \ref{fig:viga2}. Nesse exemplo considerou-se um comprimento $L=20$ in, com seção transversal de $b\times h=1,0\times0,125$ in². O material que constitui a viga possui módulo de Young $E=3\times10^{7}$ lb/in², coeficiente de Poisson nulo e massa específica de $\rho=2,6\times10^{-4}$ lb$\cdot$s²/in$^4$. A força aplicada foi de $P=640$ lb constante durante todo o período de análise, de $t\in[0;5]$ ms, o qual foi discretizado em passos de tempo de $\Delta t=25\ \mu$s. O esquema de integração temporal deu-se ao considerar $\rho_\infty=1,0$. A malha de elementos finitos (Figura \ref{fig:viga2-mesh}) possui 132 elementos triangulares de aproximação quadrática, totalizando 333 nós e 2331 graus de liberdade. A espessura do elemento de casca foi considerada como a direção da altura $H$ da viga.
+Neste exemplo considera-se de uma viga biengastada com uma carga concentrada aplicada no centro do vão, conforme mostrado na Figura \ref{fig:viga2}. Os dados da geometria da viga são: comprimento $L=20$ in, seção transversal de $b\times h=1,0\times0,125$ in². O material que constitui a viga possui módulo de Young $E=3\times10^{7}$ lbf/in², coeficiente de Poisson nulo e massa específica $\rho=2,6\times10^{-4}$ lb$\cdot$s²/in$^4$. A força aplicada é $P=640$ lbf, mantida constante durante todo o período de análise, de $t\in[0;5]$ ms, o qual é discretizado em passos de tempo $\Delta t=25\ \mu$s. Considerar $\rho_\infty=1,0$ para o integrador temporal $\alpha$ generalizado, sendo que a malha de elementos finitos empregada (Figura \ref{fig:viga2-mesh}) possui 132 elementos triangulares de aproximação quadrática, totalizando 333 nós e 2331 graus de liberdade. A espessura do elemento de casca é considerada como a direção da altura $H$ da viga.
 
 \begin{figure}[h!]
     \centering
@@ -695,6 +739,8 @@ Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu cen
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:viga2-mesh}
 \end{figure}
+
+\textcolor{red}{Os resultados do ANSYS são para casca de Reissner ou de Kirchhoff? É importante mencionar isso...}
 
 Os resultados calculados foram comparados com os apresentados pelo ANSYS, a partir de 234 elementos do tipo \textit{Shell} 281, resultando em 541 nós e 3246 graus de liberdade (Figura \ref{fig:beamANSYS2}), e por \cite{mondkar1977ansa}. A Figura \ref{fig:res-viga2} exibe os resultados obtidos.
 
@@ -714,4 +760,6 @@ Os resultados calculados foram comparados com os apresentados pelo ANSYS, a part
     \label{fig:res-viga2}
 \end{figure}
 
-Verifica-se uma boa concordância entre os resultados obtidos pela análise por ambos os valores de referência, sendo assim, averiguada a eficácia do código nesse exemplo.
+\textcolor{red}{Troque autor por presente trabalho nas legendas...}
+
+Verifica-se uma boa concordância entre os resultados obtidos pela análise por ambos os valores de referência.

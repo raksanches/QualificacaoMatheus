@@ -1,8 +1,8 @@
 %==================================================================================================
-\section{Movimentação Da Malha Via Suavização De Laplace} \label{MovMalha}
+\section{Movimentação da malha do fluido} \label{MovMalha}
 %==================================================================================================
 
-Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada mantendo-se a qualidade da malha utilizada para o cálculo dos passos de tempo posteriores, evitando, assim, distorções excessivas nos elementos. Como mencionado por \citeonline{kanchi20073d}, essa etapa deve produzir uma malha de boa qualidade ao longo do tempo, ao mesmo tempo que não deve ser custoso computacionalmente. Assim, uma possibilidade para se realizar a movimentação da malha parte da suavização de Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
+Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada buscando-se preservar a qualidade da malha para os passos de tempo posteriores, evitando distorções excessivas nos elementos, ao mesmo tempo que não deve ser um processo custoso computacionalmente \cite{kanchi20073d}. Assim, uma possibilidade para se realizar a movimentação da malha parte do emprego da equação Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
 
 Nesse esquema, considere o domínio limitado aberto do fluido $\Omega_F$, com uma fronteira suave por partes $\Gamma$. Logo, $\Gamma$ pode ser decomposta em partes de fronteira fixa $\Gamma_f$ e partes de fronteira móvel $\Gamma_m$, tais que:
 
@@ -28,7 +28,7 @@ Dessa forma, define-se as condições de contorno do problema como:
 
 \noindent em que $\BB{z}$ é o campo de deslocamentos da malha e $\BB{z}_m$ é o deslocamento prescrito em $\Gamma_f$.
 
-Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
+Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresente uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido demanda refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, pode-se adotar uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções \textcolor{red}{citar quem propôs, ou quem usa}.
 
 Assim, propõe-se um esquema de movimentação dado pelo problema de valor de contorno:
 
@@ -63,13 +63,13 @@ Integrando por partes e aplicando o teorema da divergência tem-se que:
     \SintFront{[1+\eta^e]\BB{\upsilon}\cdot(\Nx\BB{z}\cdot\BB{n})}-\SintDom{[1+\eta]\Nx\BB{\upsilon}:\Nx\BB{z}}=0\text{.}
 \end{equation}
 
-Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nula, o que leva ao seguinte problema:
+Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nula, o que reduz a:
 
 \begin{equation}
     \SintDom{[1+\eta^e]\Nx\BB{\upsilon}:\Nx\BB{z}}=0\text{.}
 \end{equation}
 
-Fazendo a aproximação da função teste por funções de forma, tem-se:
+Fazendo a aproximação da função teste pelas funções de forma da discretização por elementos finitos, tem-se:
 
 \begin{equation}
     \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e](\Nx N_a\cdot\Nx)\BB{z}}}\text{,}
@@ -77,17 +77,20 @@ Fazendo a aproximação da função teste por funções de forma, tem-se:
 
 \noindent sendo $\BB{\Upsilon}_a$ e $N_a$ o valor nodal da função teste e a função de forma sobre o nó $a$.
 
-Devido à arbitrariedade da função teste, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
+Devido à arbitrariedade de $\BB{\Upsilon}_a$, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
 
 \begin{equation}
     \res_L^a=\intDome{[1+\eta^e](\Nx N_a\cdot\Nx)\BB{z}}=0\text{.}
     \label{eq:resLapl}
 \end{equation}
 
-Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
+\textcolor{red}{1- O problema é linear, então não precisa usar Newton-Raphson; 2- Você está resolvendo a aceleração no programa? É mais adequado resolver o deslocamento, e posteriormente calcular a velocidade considerando o integrador temporal... Não faz sentido resolver a aceleração. Descreve apenas como está no programa, e arrume o restante do texto de acordo...}
+
+Para se determinar o vetor $\BB{Z}$, que contém os  deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
+
 
 \begin{equation}
-    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\BB{I}\text{.}
+    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\TS{I}\text{.}
     \label{eq:movMatriz}
 \end{equation}
 
@@ -178,7 +181,7 @@ Seguindo o mesmo procedimento descrito anteriormente, se obtém a seguinte expre
 \noindent e a matriz tangente do problema:
 
 \begin{equation}
-    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_m\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\BB{I}
+    \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_m\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\TS{I}
     \label{eq:movMatrizAcc}
 \end{equation}
 
@@ -205,7 +208,7 @@ O primeiro problema estudado é o cilindro com deslocamento prescrito, proposto 
     \label{fig:moving-cylinder}
 \end{figure}
 
-O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos triangulares de aproximação quadrática, totalizando 1664 nós e 4992 DOF. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
+O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos triangulares de aproximação quadrática, totalizando 1664 nós e 4992 graus de liberdade. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
 
 \begin{figure}[h!]
     \centering
@@ -289,7 +292,7 @@ As condições de contorno do problema são de entrada na face esquerda ($\BB{u}
 
 O número de Reynolds do problema, considerando o $C=1,0$ o comprimento característico do problema e baseado na velocidade de entrada $u_\infty=1,0$, é $\Rey=1000$. Para se obter a condição inicial do problema, realizou-se uma simulação estática para cada malha, mantendo-se fixo o ângulo de ataque inicial, até que se atingisse o regime permanente.
 
-Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 DOF, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 DOF. A malha m1 foi simulada em DNS (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto em DNS (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
+Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A malha m1 foi simulada em DNS (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto em DNS (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
 
 \begin{figure}[h!]
     \centering
@@ -332,58 +335,58 @@ A Figura \ref{fig:vort} apresenta os campos de vorticidade e de velocidade no in
 \begin{figure}[h!]
     \centering
     \caption{Aerofólio com movimento de arfagem - Campos de vorticidade e de velocidade.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \caption*{Campo de vorticidade.}
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort1.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \caption*{Campo de velocidade.}
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str1.png}
     \end{subfigure}
     \caption*{Instante $t=8,0$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort2.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str2.png}
     \end{subfigure}
     \caption*{Instante $t=8,2$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort3.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str3.png}
     \end{subfigure}
     \caption*{Instante $t=8,4$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort4.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str4.png}
     \end{subfigure}
     \caption*{Instante $t=8,6$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort5.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str5.png}
     \end{subfigure}
     \caption*{Instante $t=8,8$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lvort.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lstr.png}
     \end{subfigure}
@@ -427,108 +430,4 @@ Observando qualitativamente os campos são muito semelhantes aos obtidos por \ci
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:mesh}
 \end{figure}
-
-\newpage
-%==================================================================================================
-\subsubsection{Problema com domínio reduzido}
-%==================================================================================================
-
-Na sequência o problema foi simulado com um domínio computacional menor, o qual é esquematizado na Figura \ref{fig:rotating-airfoil-coarse}. A malha utilizada para a simulação é apresentada na Figura \ref{fig:mesh-coarse2}, a qual possui 1228 elementos quadráticos, 2536 nós e 7608 DOF. Assim, realizou-se simulações com estabilização SUPG/PSPG e VMS, com e sem aplicação de LES. A Figura \ref{fig:rotating-airfoil-Coef-coarse} apresenta a comparação entre os resultados obtidos.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Esquema do problema com domínio reduzido.}
-    \includegraphics[width=.8\linewidth]{Figuras/rotating-airfoil/NACA0012-Moving-Coarse.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-coarse}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha com domínio reduzido.}
-    \includegraphics[width=.75\linewidth]{Figuras/rotating-airfoil/mesh-coarse2.png}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:mesh-coarse2}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$ com domínio reduzido.}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cd-coarse2.pdf}
-        \caption{Coeficiente de arrasto.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cl-coarse2.pdf}
-        \caption{Coeficiente de sustentação.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Coef-coarse}
-\end{figure}
-
-Observa-se com os resultados obtidos que o problema ainda possui boa concordância com os valores de referência, mesmo com a redução do domínio computacional. Também verifica-se que houve pouca variação entre as simulações, mesmo com uma malha grosseira.
-
-\newpage
-%==================================================================================================
-\subsubsection{Problema em simulação tridimensional}
-%==================================================================================================
-
-Para a simulação tridimensional do problema, considerou-se o domínio do problema reduzido e aplicou-se uma espessura de $0,25$. Dessa forma foram construídas duas malhas, m3 e m4, em que a primeira possui 11051 elementos quadráticos, 19463 nós e 77852 DOF, e a segunda possui 4906 elementos quadráticos, 9256 nós e 37024 DOF. A Figura \ref{fig:rotating-airfoil-3d} apresenta a configuração inicial das malhas utilizadas para a simulação.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha tridimensional.}
-    \begin{subfigure}{\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/mesh-3d-m3.png}
-        \caption{Malha m3.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/mesh-3d-m4.png}
-        \caption{Malha m4.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-3d}
-\end{figure}
-
-Todas as simulações foram realizadas com estabilização SUPG/PSPG e VMS, com e sem aplicação de LES. As Figuras \ref{fig:rotating-airfoil-Coef-3d-m3} e \ref{fig:rotating-airfoil-Coef-3d-m4} apresentam a comparação entre os resultados obtidos.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$ com malha m3.}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cd-m3.pdf}
-        \caption{Coeficiente de arrasto.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cl-m3.pdf}
-        \caption{Coeficiente de sustentação.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Coef-3d-m3}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$ com malha m4.}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cd-m4.pdf}
-        \caption{Coeficiente de arrasto.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cl-m4.pdf}
-        \caption{Coeficiente de sustentação.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Coef-3d-m4}
-\end{figure}
-
-Para ambas as malhas, mesmo para uma discretização grosseira, os resultados ainda se aproximam dos valores de referência. Portanto a esse nível de número de Reynolds, o problema se mostra independente do refinamento da malha.
-
-\newpage
-%==================================================================================================
-\subsubsection{Problema em escoamento com $\Rey=10000$}
-%==================================================================================================
-
 \end{comment}

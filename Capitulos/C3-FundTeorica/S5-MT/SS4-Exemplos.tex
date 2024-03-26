@@ -1029,7 +1029,7 @@ O primeiro problema estudado é o cilindro com deslocamento prescrito, proposto 
     \label{fig:moving-cylinder}
 \end{figure}
 
-O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos triangulares de aproximação quadrática, totalizando 1664 nós e 4992 DOF. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
+O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos triangulares de aproximação quadrática, totalizando 1664 nós e 4992 graus de liberdade. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
 
 \begin{figure}[h!]
     \centering
@@ -1113,7 +1113,7 @@ As condições de contorno do problema são de entrada na face esquerda ($\BB{u}
 
 O número de Reynolds do problema, considerando o $C=1,0$ o comprimento característico do problema e baseado na velocidade de entrada $u_\infty=1,0$, é $\Rey=1000$. Para se obter a condição inicial do problema, realizou-se uma simulação estática para cada malha, mantendo-se fixo o ângulo de ataque inicial, até que se atingisse o regime permanente.
 
-Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 DOF, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 DOF. A malha m1 foi simulada em DNS (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto em DNS (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
+Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A malha m1 foi simulada em DNS (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto em DNS (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
 
 \begin{figure}[h!]
     \centering
@@ -1156,58 +1156,58 @@ A Figura \ref{fig:vort} apresenta os campos de vorticidade e de velocidade no in
 \begin{figure}[h!]
     \centering
     \caption{Aerofólio com movimento de arfagem - Campos de vorticidade e de velocidade.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \caption*{Campo de vorticidade.}
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort1.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \caption*{Campo de velocidade.}
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str1.png}
     \end{subfigure}
     \caption*{Instante $t=8,0$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort2.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str2.png}
     \end{subfigure}
     \caption*{Instante $t=8,2$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort3.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str3.png}
     \end{subfigure}
     \caption*{Instante $t=8,4$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort4.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str4.png}
     \end{subfigure}
     \caption*{Instante $t=8,6$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/vort5.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/str5.png}
     \end{subfigure}
     \caption*{Instante $t=8,8$.}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lvort.png}
     \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
+    \begin{subfigure}{.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/lstr.png}
     \end{subfigure}
@@ -1251,106 +1251,3 @@ Observando qualitativamente os campos são muito semelhantes aos obtidos por \ci
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:mesh}
 \end{figure}
-
-\newpage
-%==================================================================================================
-\subsubsection{Problema com domínio reduzido}
-%==================================================================================================
-
-Na sequência o problema foi simulado com um domínio computacional menor, o qual é esquematizado na Figura \ref{fig:rotating-airfoil-coarse}. A malha utilizada para a simulação é apresentada na Figura \ref{fig:mesh-coarse2}, a qual possui 1228 elementos quadráticos, 2536 nós e 7608 DOF. Assim, realizou-se simulações com estabilização SUPG/PSPG e VMS, com e sem aplicação de LES. A Figura \ref{fig:rotating-airfoil-Coef-coarse} apresenta a comparação entre os resultados obtidos.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Esquema do problema com domínio reduzido.}
-    \includegraphics[width=.8\linewidth]{Figuras/rotating-airfoil/NACA0012-Moving-Coarse.pdf}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-coarse}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha com domínio reduzido.}
-    \includegraphics[width=.75\linewidth]{Figuras/rotating-airfoil/mesh-coarse2.png}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:mesh-coarse2}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$ com domínio reduzido.}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cd-coarse2.pdf}
-        \caption{Coeficiente de arrasto.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/Cl-coarse2.pdf}
-        \caption{Coeficiente de sustentação.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Coef-coarse}
-\end{figure}
-
-Observa-se com os resultados obtidos que o problema ainda possui boa concordância com os valores de referência, mesmo com a redução do domínio computacional. Também verifica-se que houve pouca variação entre as simulações, mesmo com uma malha grosseira.
-
-\newpage
-%==================================================================================================
-\subsubsection{Problema em simulação tridimensional}
-%==================================================================================================
-
-Para a simulação tridimensional do problema, considerou-se o domínio do problema reduzido e aplicou-se uma espessura de $0,25$. Dessa forma foram construídas duas malhas, m3 e m4, em que a primeira possui 11051 elementos quadráticos, 19463 nós e 77852 DOF, e a segunda possui 4906 elementos quadráticos, 9256 nós e 37024 DOF. A Figura \ref{fig:rotating-airfoil-3d} apresenta a configuração inicial das malhas utilizadas para a simulação.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Configuração inicial da malha tridimensional.}
-    \begin{subfigure}{\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/mesh-3d-m3.png}
-        \caption{Malha m3.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/mesh-3d-m4.png}
-        \caption{Malha m4.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-3d}
-\end{figure}
-
-Todas as simulações foram realizadas com estabilização SUPG/PSPG e VMS, com e sem aplicação de LES. As Figuras \ref{fig:rotating-airfoil-Coef-3d-m3} e \ref{fig:rotating-airfoil-Coef-3d-m4} apresentam a comparação entre os resultados obtidos.
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$ com malha m3.}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cd-m3.pdf}
-        \caption{Coeficiente de arrasto.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cl-m3.pdf}
-        \caption{Coeficiente de sustentação.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Coef-3d-m3}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Aerofólio com movimento de arfagem - Evolução temporal de $C_D$ e $C_L$ com malha m4.}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cd-m4.pdf}
-        \caption{Coeficiente de arrasto.}
-    \end{subfigure}
-    \begin{subfigure}{\linewidth}
-        \includegraphics[width=\linewidth]{Figuras/rotating-airfoil/cl-m4.pdf}
-        \caption{Coeficiente de sustentação.}
-    \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
-    \label{fig:rotating-airfoil-Coef-3d-m4}
-\end{figure}
-
-Para ambas as malhas, mesmo para uma discretização grosseira, os resultados ainda se aproximam dos valores de referência. Portanto a esse nível de número de Reynolds, o problema se mostra independente do refinamento da malha.
-
-\newpage
-%==================================================================================================
-\subsubsection{Problema em escoamento com $\Rey=10000$}
-%==================================================================================================

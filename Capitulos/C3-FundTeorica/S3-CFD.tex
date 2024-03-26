@@ -151,10 +151,10 @@ Dessa forma, o problema a ser resolvido segue as equações:
 O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos incompressíveis, o qual relaciona o tensor de tensões de Cauchy com a taxa de deformação e a pressão de acordo com:
 
 \begin{equation}
-    \tens=\BB{\tau}-p\BB{I}\text{,}\label{eq:const1}
+    \tens=\BB{\tau}-p\TS{I}\text{,}\label{eq:const1}
 \end{equation}
 
-\noindent onde $\BB{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
+\noindent onde $\TS{I}$ é o tensor identidade de segunda ordem e $\BB{\tau}$ é o tensor de tensões viscosas (ou tensor desviador), que para fluidos Newtonianos é dado por:
 
 \begin{equation}
     \BB{\tau}=\BB{\mathfrak{D}}:\dDef\text{,}
@@ -163,7 +163,7 @@ O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos inco
 \noindent em que $\BB{\mathfrak{D}}$ é o tensor constitutivo de quarta ordem:
 
 \begin{equation}
-    \BB{\mathfrak{D}}=2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}\text{,}
+    \BB{\mathfrak{D}}=2\mu\BB{\mathbb{I}}+\lambda\TS{I}\otimes\TS{I}\text{,}
 \end{equation}
 
 \noindent sendo $\BB{\mathbb{I}}$ o tensor identidade de quarta ordem, $\mu$ a viscosidade dinâmica do fluido e $\dDef$ o tensor de taxa de deformação, definido como:
@@ -175,13 +175,13 @@ O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos inco
 Assim, o tensor desviador pode ser escrito da seguinte maneira:
 
 \[
-    \BB{\tau}=(2\mu\BB{\mathbb{I}}+\lambda\BB{I}\otimes\BB{I}):\dDef=2\mu\BB{\mathbb{I}}:\dDef+\lambda\BB{I}\otimes\BB{I}:\dDef
+    \BB{\tau}=(2\mu\BB{\mathbb{I}}+\lambda\TS{I}\otimes\TS{I}):\dDef=2\mu\BB{\mathbb{I}}:\dDef+\lambda\TS{I}\otimes\TS{I}:\dDef
 \]
 
 \noindent resultando em:
 
 \begin{equation}
-    \BB{\tau}=2\mu\dDef+\lambda\tr{(\dDef)}\BB{I}\text{,}
+    \BB{\tau}=2\mu\dDef+\lambda\tr{(\dDef)}\TS{I}\text{,}
 \end{equation}
 
 \noindent sendo $\tr{(\dDef)}$ o traço do tensor $\dDef$.
@@ -189,7 +189,7 @@ Assim, o tensor desviador pode ser escrito da seguinte maneira:
 Já para o caso de escoamentos incompressíveis, verifica-se que $\tr{(\dDef)}=0$, fazendo com que \eqref{eq:const1} possa ser escrita como:
 
 \begin{equation}
-    \tens=\mu(\Ny\BB{u}+\NyT\BB{u})-p\BB{I}\text{.}\label{eq:ModConst}
+    \tens=\mu(\Ny\BB{u}+\NyT\BB{u})-p\TS{I}\text{.}\label{eq:ModConst}
 \end{equation}
 
 %INTERPRETAÇÃO DA EQUAÇÃO DO MOVIMENTO
