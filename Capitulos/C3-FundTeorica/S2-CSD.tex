@@ -711,10 +711,10 @@ A modelagem realizada considerou a altura $H$ como a espessura do elemento de ca
 Observa-se nesse caso uma boa concordância entre os resultados apresentados pelo ANSYS e os obtidos pelo código desenvolvido, sendo verificada a eficácia nesse exemplo.
 
 % =============================================================================
-\subsection{Viga biengastada em problema dinâmico} \label{Ap:DinBeam2}
+\subsection{Viga biengastada com carregamento de impacto} \label{Ap:DinBeam2}
 % =============================================================================
 
-Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu centro, conforme mostrado na Figura \ref{fig:viga2}. Nesse exemplo considerou-se um comprimento $L=20$ in, com seção transversal de $b\times h=1,0\times0,125$ in². O material que constitui a viga possui módulo de Young $E=3\times10^{7}$ lb/in², coeficiente de Poisson nulo e massa específica de $\rho=2,6\times10^{-4}$ lb$\cdot$s²/in$^4$. A força aplicada foi de $P=640$ lb constante durante todo o período de análise, de $t\in[0;5]$ ms, o qual foi discretizado em passos de tempo de $\Delta t=25\ \mu$s. O esquema de integração temporal deu-se ao considerar $\rho_\infty=1,0$. A malha de elementos finitos (Figura \ref{fig:viga2-mesh}) possui 132 elementos triangulares de aproximação quadrática, totalizando 333 nós e 2331 graus de liberdade. A espessura do elemento de casca foi considerada como a direção da altura $H$ da viga.
+Neste exemplo considera-se de uma viga biengastada com uma carga concentrada aplicada no centro do vão, conforme mostrado na Figura \ref{fig:viga2}. Os dados da geometria da viga são: comprimento $L=20$ in, seção transversal de $b\times h=1,0\times0,125$ in². O material que constitui a viga possui módulo de Young $E=3\times10^{7}$ lbf/in², coeficiente de Poisson nulo e massa específica $\rho=2,6\times10^{-4}$ lb$\cdot$s²/in$^4$. A força aplicada é $P=640$ lbf, mantida constante durante todo o período de análise, de $t\in[0;5]$ ms, o qual é discretizado em passos de tempo $\Delta t=25\ \mu$s. Considerar $\rho_\infty=1,0$ para o integrador temporal $\alpha$ generalizado, sendo que a malha de elementos finitos empregada (Figura \ref{fig:viga2-mesh}) possui 132 elementos triangulares de aproximação quadrática, totalizando 333 nós e 2331 graus de liberdade. A espessura do elemento de casca é considerada como a direção da altura $H$ da viga.
 
 \begin{figure}[h!]
     \centering
@@ -731,6 +731,8 @@ Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu cen
     \\Fonte: Autoria Própria (\the\year).
     \label{fig:viga2-mesh}
 \end{figure}
+
+\textcolor{red}{Os resultados do ANSYS são para casca de Reissner ou de Kirchhoff? É importante mencionar isso...}
 
 Os resultados calculados foram comparados com os apresentados pelo ANSYS, a partir de 234 elementos do tipo \textit{Shell} 281, resultando em 541 nós e 3246 graus de liberdade (Figura \ref{fig:beamANSYS2}), e por \cite{mondkar1977ansa}. A Figura \ref{fig:res-viga2} exibe os resultados obtidos.
 
@@ -750,4 +752,6 @@ Os resultados calculados foram comparados com os apresentados pelo ANSYS, a part
     \label{fig:res-viga2}
 \end{figure}
 
-Verifica-se uma boa concordância entre os resultados obtidos pela análise por ambos os valores de referência, sendo assim, averiguada a eficácia do código nesse exemplo.
+\textcolor{red}{Troque autor por presente trabalho nas legendas...}
+
+Verifica-se uma boa concordância entre os resultados obtidos pela análise por ambos os valores de referência.
