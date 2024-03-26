@@ -1,8 +1,8 @@
 %==================================================================================================
-\chapter{Movimentação da malha via suavização de Laplace} \label{MovMalha}
+\chapter{Movimentação da malha do fluido} \label{MovMalha}
 %==================================================================================================
 
-Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada mantendo-se a qualidade da malha utilizada para o cálculo dos passos de tempo posteriores, evitando, assim, distorções excessivas nos elementos. Como mencionado por \citeonline{kanchi20073d}, essa etapa deve produzir uma malha de boa qualidade ao longo do tempo, ao mesmo tempo que não deve ser custoso computacionalmente. Assim, uma possibilidade para se realizar a movimentação da malha parte da suavização de Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
+Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada buscando-se preservar a qualidade da malha para os passos de tempo posteriores, evitando distorções excessivas nos elementos, ao mesmo tempo que não deve ser um processo custoso computacionalmente \cite{kanchi20073d}. Assim, uma possibilidade para se realizar a movimentação da malha parte do emprego da equação Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
 
 Nesse esquema, considere o domínio limitado aberto do fluido $\Omega_F$, com uma fronteira suave por partes $\Gamma$. Logo, $\Gamma$ pode ser decomposta em partes de fronteira fixa $\Gamma_f$ e partes de fronteira móvel $\Gamma_m$, tais que:
 
@@ -28,7 +28,7 @@ Dessa forma, define-se as condições de contorno do problema como:
 
 \noindent em que $\BB{z}$ é o campo de deslocamentos da malha e $\BB{z}_m$ é o deslocamento prescrito em $\Gamma_f$.
 
-Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresenta uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido possui um refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, se propõe uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.
+Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresente uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido demanda refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, pode-se adotar uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções \textcolor{red}{citar quem propôs, ou quem usa}.
 
 Assim, propõe-se um esquema de movimentação dado pelo problema de valor de contorno:
 
@@ -63,13 +63,13 @@ Integrando por partes e aplicando o teorema da divergência tem-se que:
     \SintFront{[1+\eta^e]\BB{\upsilon}\cdot(\Nx\BB{z}\cdot\BB{n})}-\SintDom{[1+\eta]\Nx\BB{\upsilon}:\Nx\BB{z}}=0\text{.}
 \end{equation}
 
-Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nula, o que leva ao seguinte problema:
+Por se tratar de um problema de fronteira de Dirichlet, a primeira parcela é nula, o que reduz a:
 
 \begin{equation}
     \SintDom{[1+\eta^e]\Nx\BB{\upsilon}:\Nx\BB{z}}=0\text{.}
 \end{equation}
 
-Fazendo a aproximação da função teste por funções de forma, tem-se:
+Fazendo a aproximação da função teste pelas funções de forma da discretização por elementos finitos, tem-se:
 
 \begin{equation}
     \sum_{e=1}^{n_{el}}{\BB{\Upsilon}_a\cdot\intDome{[1+\eta^e]\Nx\BB{z}\cdot\Nx N_a}}\text{,}
@@ -77,14 +77,17 @@ Fazendo a aproximação da função teste por funções de forma, tem-se:
 
 \noindent sendo $\BB{\Upsilon}_a$ e $N_a$ o valor nodal da função teste e a função de forma sobre o nó $a$.
 
-Devido à arbitrariedade da função teste, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
+Devido à arbitrariedade de $\BB{\Upsilon}_a$, tem-se, portanto, a definição do vetor resíduo do problema de Laplace:
 
 \begin{equation}
     \res_L^a=\intDome{[1+\eta^e]\Nx\BB{z}\cdot\Nx N_a}=0\text{.}
     \label{eq:resLapl}
 \end{equation}
 
-Para se determinar o vetor $\BB{Z}$, referente aos deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
+\textcolor{red}{1- O problema é linear, então não precisa usar Newton-Raphson; 2- Você está resolvendo a aceleração no programa? É mais adequado resolver o deslocamento, e posteriormente calcular a velocidade considerando o integrador temporal... Não faz sentido resolver a aceleração. Descreve apenas como está no programa, e arrume o restante do texto de acordo...}
+
+Para se determinar o vetor $\BB{Z}$, que contém os  deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
+
 
 \begin{equation}
     \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\BB{I}\text{.}
