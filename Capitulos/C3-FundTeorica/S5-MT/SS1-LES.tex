@@ -100,16 +100,13 @@ Dessa maneira, é possível separar os efeitos das grandes escalas e das pequena
     \label{fig:EfeitoFiltragem}
 \end{figure}
 
-Assim, em uma descrição Euleriana, pode-se obter as equações de Navier-Stokes filtradas:
+Assim, em uma descrição Euleriana, considerando a massa específica constante, pode-se obter a equação da conservação da quantidade de movimento filtrada:
 
-\begin{subequations}
-    \begin{align}
-         & \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\overline{\BB{u}\otimes\BB{u}})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0} &  & \text{ em }\Omega\text{,} \\
-         & \Ny\cdot\BBB{u}=0                                                                                        &  & \text{ em }\Omega\text{.}
-    \end{align}
-\end{subequations}
+\begin{equation}
+    \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\overline{\BB{u}\otimes\BB{u}})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}\text{ em }\Omega\text{.}
+\end{equation}
 
-Pode-se perceber que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação da quantidade de movimento como:
+Note que o termo convectivo impede a completa separação dos termos $\BBB{u}$ e $\BB{u}'$ devido à sua natureza altamente não-linear. Por conta disso a parcela não filtrada não pode ser ignorada nesse problema, sendo necessário realizar algumas manipulações algébricas. Sabendo-se que $\BB{u}=\BBB{u}+\BB{u}'$, pode-se reescrever a equação da conservação da quantidade de movimento como:
 
 \begin{equation}
     \rho\bigpar{\dTime{\BBB{u}}+\Ny\cdot(\overline{(\BBB{u}+\BB{u}')\otimes(\BBB{u}+\BB{u}')})-\BBB{f}}-\Ny\cdot\bar{\tens}=\BB{0}
