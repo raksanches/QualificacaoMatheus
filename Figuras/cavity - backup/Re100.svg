@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="152.39999mm"
+   height="150.01875mm"
+   viewBox="0 0 152.39999 150.01875"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="Re100.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74564394"
+     inkscape:cx="366.79705"
+     inkscape:cy="405.01905"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <clipPath
+       id="clip0">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="567"
+         id="rect132" />
+    </clipPath>
+    <clipPath
+       id="clip1">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect135" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect138" />
+    </clipPath>
+    <clipPath
+       id="clip3">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect141" />
+    </clipPath>
+    <clipPath
+       id="clip4">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect144" />
+    </clipPath>
+    <clipPath
+       id="clip5">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect147" />
+    </clipPath>
+    <clipPath
+       id="clip6">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect150" />
+    </clipPath>
+    <clipPath
+       id="clip7">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect153" />
+    </clipPath>
+    <clipPath
+       id="clip8">
+      <rect
+         x="909"
+         y="14"
+         width="539"
+         height="539"
+         id="rect156" />
+    </clipPath>
+    <clipPath
+       id="clip9">
+      <rect
+         x="909"
+         y="14"
+         width="539"
+         height="539"
+         id="rect159" />
+    </clipPath>
+    <clipPath
+       id="clip10">
+      <rect
+         x="909"
+         y="14"
+         width="539"
+         height="539"
+         id="rect162" />
+    </clipPath>
+    <clipPath
+       id="clip11">
+      <rect
+         x="909"
+         y="14"
+         width="539"
+         height="539"
+         id="rect165" />
+    </clipPath>
+    <clipPath
+       id="clip12">
+      <rect
+         x="909"
+         y="14"
+         width="539"
+         height="539"
+         id="rect168" />
+    </clipPath>
+    <clipPath
+       id="clip13">
+      <rect
+         x="909"
+         y="14"
+         width="539"
+         height="539"
+         id="rect171" />
+    </clipPath>
+    <clipPath
+       id="clip14">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect174" />
+    </clipPath>
+    <clipPath
+       id="clip15">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect177" />
+    </clipPath>
+    <clipPath
+       id="clip16">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect180" />
+    </clipPath>
+    <clipPath
+       id="clip17">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect183" />
+    </clipPath>
+    <clipPath
+       id="clip18">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect186" />
+    </clipPath>
+    <clipPath
+       id="clip19">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect189" />
+    </clipPath>
+    <clipPath
+       id="clip20">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect192" />
+    </clipPath>
+    <clipPath
+       id="clip21">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect195" />
+    </clipPath>
+    <clipPath
+       id="clip22">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect198" />
+    </clipPath>
+    <clipPath
+       id="clip23">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect201" />
+    </clipPath>
+    <clipPath
+       id="clip24">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect204" />
+    </clipPath>
+    <clipPath
+       id="clip25">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect207" />
+    </clipPath>
+    <clipPath
+       id="clip26">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect210" />
+    </clipPath>
+    <clipPath
+       id="clip27">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect213" />
+    </clipPath>
+    <clipPath
+       id="clip28">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect216" />
+    </clipPath>
+    <clipPath
+       id="clip29">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect219" />
+    </clipPath>
+    <clipPath
+       id="clip30">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect222" />
+    </clipPath>
+    <clipPath
+       id="clip31">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect225" />
+    </clipPath>
+    <clipPath
+       id="clip32">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect228" />
+    </clipPath>
+    <clipPath
+       id="clip33">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect231" />
+    </clipPath>
+    <clipPath
+       id="clip34">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect234" />
+    </clipPath>
+    <clipPath
+       id="clip35">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect237" />
+    </clipPath>
+    <clipPath
+       id="clip36">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect240" />
+    </clipPath>
+    <clipPath
+       id="clip37">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="566"
+         id="rect243" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.26451963,-41.732561)">
+    <g
+       clip-path="url(#clip0)"
+       transform="matrix(0.26458333,0,0,0.26458333,-235.4791,41.732561)"
+       id="g462">
+      <rect
+         x="889"
+         y="0"
+         width="576"
+         height="567"
+         fill="#ffffff"
+         id="rect248" />
+      <g
+         clip-path="url(#clip1)"
+         id="g252">
+        <path
+           d="m 909.5,552.5 h 538 m -538,-54 h 538 m -538,-54 h 538 m -538,-54 h 538 m -538,-53 h 538 m -538,-108 h 538 m -538,-54 h 538 m -538,-53 h 538 m -538,-53.9999 h 538 m -538,-54 h 538"
+           stroke="#d9d9d9"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path250" />
+      </g>
+      <g
+         clip-path="url(#clip2)"
+         id="g256">
+        <path
+           d="M 909.5,14.5001 V 552.5 m 53,-537.9999 V 552.5 m 54,-537.9999 V 552.5 m 54,-537.9999 V 552.5 m 54,-537.9999 V 552.5 m 108,-537.9999 V 552.5 m 53,-537.9999 V 552.5 m 54,-537.9999 V 552.5 m 54,-537.9999 V 552.5 m 54,-537.9999 V 552.5"
+           stroke="#d9d9d9"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path254" />
+      </g>
+      <g
+         clip-path="url(#clip3)"
+         id="g260">
+        <rect
+           x="909.5"
+           y="14.5001"
+           width="538"
+           height="538"
+           stroke="#000000"
+           stroke-width="1.33333"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="rect258" />
+      </g>
+      <g
+         clip-path="url(#clip4)"
+         id="g264">
+        <path
+           d="M 0,0 1.04987e-4,538"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           transform="matrix(1,0,0,-1,1178.5,552.5)"
+           id="path262" />
+      </g>
+      <g
+         clip-path="url(#clip5)"
+         id="g268">
+        <path
+           d="m 1178.5,552.5 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-10.9999 h 2 m -2,-10 h 2 m -2,-11 h 2 m -2,-11 h 2 m -2,-11.0001 h 2 m -2,-9.9999 h 2 m -2,-11 h 2 m -2,-11 h 2 m -6,537.9999 h 7 m -7,-54 h 7 m -7,-54 h 7 m -7,-54 h 7 m -7,-53 h 7 m -7,-54 h 7 m -7,-54 h 7 m -7,-54 h 7 m -7,-53 h 7 m -7,-53.9999 h 7 m -7,-54 h 7"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path266" />
+      </g>
+      <g
+         clip-path="url(#clip6)"
+         id="g272">
+        <path
+           d="m 909.5,283.5 h 538"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           fill-rule="evenodd"
+           id="path270" />
+      </g>
+      <g
+         clip-path="url(#clip7)"
+         id="g276">
+        <path
+           d="m 909.5,280.5 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m 10,-3 v 3 m 11,-3 v 3 m 11,-3 v 3 m -538,-4 v 8 m 53,-8 v 8 m 54,-8 v 8 m 54,-8 v 8 m 54,-8 v 8 m 54,-8 v 8 m 54,-8 v 8 m 53,-8 v 8 m 54,-8 v 8 m 54,-8 v 8 m 54,-8 v 8"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path274" />
+      </g>
+      <g
+         clip-path="url(#clip8)"
+         id="g280">
+        <path
+           d="m 1178,552 -2,-5 -1,-5 -2,-6 -2,-5 -1,-6 -2,-5 -1,-5 -2,-6 -1,-5 -2,-5 -1,-6 -1,-5 -2,-6 -1,-5 -1,-5 -2,-6 -1,-5 -1,-6 -1,-5 -2,-5 -1,-6 -1,-5 -1,-5 -2,-6 -1,-5 -1,-6 -1,-5 -2,-5 -1,-6 -1,-5 -1,-5 -1,-6 -2,-5 -1,-6 -1,-5 -1,-5 v -6 l -1,-5 -1,-5 -1,-6 v -5 l -1,-6 v -5 l -1,-5 v -6 -5 -5 -6 l 1,-5 v -6 l 1,-5 1,-5 1,-6 1,-5 1,-5 2,-6 1,-5 2,-6 2,-5 2,-5 2,-6 2,-5 3,-5 2,-6 3,-5 3,-6 3,-5 3,-5 3,-6 4,-5 3,-5 4,-6 3,-5 4,-6 4,-5 4,-5 5,-6 4,-5 5,-5 5,-6 5,-5 6,-6 6,-5 7,-5 7,-6 8,-5 8,-5 9,-6 10,-5 11,-6 12,-5 13,-5 15,-6 15,-5 16,-5 17,-6 18,-5 18,-6 19,-5 18,-5"
+           stroke="#70ad47"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path278" />
+      </g>
+      <g
+         clip-path="url(#clip9)"
+         id="g284">
+        <path
+           d="m 909,283 5,-4 6,-4 5,-4 6,-3 5,-4 5,-3 6,-3 5,-2 5,-2 6,-2 5,-2 6,-2 5,-2 5,-1 6,-1 5,-1 6,-1 5,-1 h 5 l 6,-1 h 5 5 l 6,-1 h 5 6 5 l 5,1 h 6 5 l 6,1 h 5 l 5,1 6,1 5,1 5,1 6,1 5,1 6,1 5,1 5,1 6,2 5,1 6,2 5,2 5,1 6,2 5,2 5,2 6,2 5,3 6,2 5,2 5,3 6,3 5,2 5,3 6,3 5,3 6,3 5,3 5,3 6,3 5,3 6,3 5,3 5,4 6,3 5,3 5,3 6,3 5,3 6,2 5,3 5,2 6,3 5,1 6,2 5,1 5,1 6,1 h 5 5 6 l 5,-1 6,-1 5,-2 5,-3 6,-2 5,-3 6,-4 5,-3 5,-5 6,-4 5,-5 5,-4 6,-5 5,-5 6,-5 5,-5 5,-6"
+           stroke="#70ad47"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path282" />
+      </g>
+      <g
+         clip-path="url(#clip10)"
+         id="g288">
+        <path
+           d="m 1178,552 -1,-2 -1,-3 -1,-3 -1,-2 -1,-3 -1,-3 v -3 l -1,-2 -1,-3 -1,-3 -1,-2 -1,-3 v -3 l -1,-2 -1,-3 -1,-3 v -2 l -1,-3 -1,-3 -1,-2 v -3 l -1,-3 -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 -1,-3 v -3 l -1,-2 -1,-3 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 v -3 l -1,-2 -1,-3 v -3 l -1,-3 v -2 l -1,-3 v -3 l -1,-2 v -3 l -1,-3 v -2 l -1,-3 v -3 l -1,-2 v -3 -3 l -1,-2 v -3 -3 -3 l -1,-2 v -3 -3 -2 -3 -3 -2 -3 -3 -2 -3 -3 -2 -3 l 1,-3 v -3 -2 l 1,-3 v -3 l 1,-2 v -3 l 1,-3 v -2 l 1,-3 v -3 l 1,-2 1,-3 1,-3 v -2 l 1,-3 1,-3 1,-3 1,-2 1,-3 1,-3 1,-2 2,-3 1,-3 1,-2 1,-3 2,-3 1,-2 1,-3 2,-3 1,-2 1,-3 2,-3 1,-3 2,-2 2,-3 1,-3 2,-2 1,-3 2,-3 2,-2 2,-3 1,-3 2,-2 2,-3 2,-3 2,-2 2,-3 2,-3 2,-3 2,-2 2,-3 2,-3 2,-2 2,-3 2,-3 3,-2 2,-3 3,-3 2,-2 3,-3 2,-3 3,-3 3,-2 2,-3 3,-3 3,-2 4,-3 3,-3 3,-2 4,-3 4,-3 4,-2 4,-3 4,-3 4,-2 5,-3 5,-3 5,-3 5,-2 5,-3 6,-3 6,-2 6,-3 7,-3 6,-2 7,-3 8,-3 7,-2 8,-3 8,-3 8,-2 8,-3 9,-3 9,-3 8,-2 9,-3 9,-3 9,-2 9,-3 9,-3 9,-2"
+           stroke="#ffc000"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path286" />
+      </g>
+      <g
+         clip-path="url(#clip11)"
+         id="g292">
+        <path
+           d="m 909,283 3,-2 2,-2 3,-3 3,-2 2,-2 3,-2 3,-2 3,-2 2,-2 3,-1 3,-2 2,-2 3,-1 3,-2 2,-1 3,-1 3,-2 2,-1 3,-1 3,-1 3,-1 2,-1 3,-1 3,-1 2,-1 3,-1 h 3 l 2,-1 3,-1 h 3 l 2,-1 h 3 l 3,-1 h 3 l 2,-1 h 3 3 l 2,-1 h 3 3 2 l 3,-1 h 3 2 3 3 3 2 3 3 2 3 3 l 2,1 h 3 3 2 3 l 3,1 h 3 2 l 3,1 h 3 2 l 3,1 h 3 l 2,1 h 3 3 l 2,1 h 3 l 3,1 3,1 h 2 l 3,1 h 3 l 2,1 3,1 3,1 h 2 l 3,1 3,1 2,1 h 3 l 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,2 2,1 3,1 3,1 3,2 2,1 3,1 3,2 2,1 3,1 3,2 2,1 3,2 3,1 2,2 3,1 3,2 3,1 2,2 3,1 3,2 2,2 3,1 3,2 2,1 3,2 3,2 2,2 3,1 3,2 3,2 2,1 3,2 3,2 2,1 3,2 3,2 2,1 3,2 3,2 2,1 3,2 3,1 3,2 2,1 3,2 3,1 2,2 3,1 3,1 2,1 3,2 3,1 2,1 3,1 3,1 h 3 l 2,1 3,1 h 3 l 2,1 h 3 3 l 2,1 h 3 3 2 l 3,-1 h 3 l 3,-1 h 2 l 3,-1 3,-1 2,-1 3,-1 3,-1 2,-1 3,-1 3,-2 2,-2 3,-1 3,-2 3,-2 2,-2 3,-2 3,-2 2,-2 3,-3 3,-2 2,-2 3,-3 3,-2 2,-3 3,-3 3,-2 3,-3 2,-3 3,-2 3,-3 2,-3 3,-2 3,-3 2,-3"
+           stroke="#ffc000"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path290" />
+      </g>
+      <g
+         clip-path="url(#clip12)"
+         id="g296">
+        <path
+           d="m 1178,552 -1,-2 -1,-3 -1,-3 v -2 l -1,-3 -1,-3 -1,-3 -1,-2 -1,-3 -1,-3 v -2 l -1,-3 -1,-3 -1,-2 v -3 l -1,-3 -1,-2 -1,-3 v -3 l -1,-2 -1,-3 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 -1,-2 -1,-3 v -3 l -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -2 l -1,-3 -1,-3 v -3 l -1,-2 -1,-3 v -3 l -1,-2 -1,-3 v -3 l -1,-2 -1,-3 v -3 l -1,-2 v -3 l -1,-3 -1,-2 v -3 l -1,-3 v -3 l -1,-2 v -3 l -1,-3 v -2 l -1,-3 v -3 l -1,-2 v -3 l -1,-3 v -2 -3 l -1,-3 v -2 -3 l -1,-3 v -3 -2 -3 l -1,-3 v -2 -3 -3 -2 -3 -3 -2 -3 -3 l 1,-2 v -3 -3 -3 l 1,-2 v -3 -3 l 1,-2 v -3 l 1,-3 v -2 l 1,-3 1,-3 v -2 l 1,-3 1,-3 1,-2 v -3 l 1,-3 1,-3 1,-2 1,-3 1,-3 1,-2 1,-3 2,-3 1,-2 1,-3 1,-3 2,-2 1,-3 1,-3 2,-2 1,-3 2,-3 1,-3 2,-2 1,-3 2,-3 1,-2 2,-3 2,-3 1,-2 2,-3 2,-3 2,-2 1,-3 2,-3 2,-2 2,-3 2,-3 2,-3 2,-2 2,-3 2,-3 2,-2 2,-3 3,-3 2,-2 2,-3 3,-3 2,-2 2,-3 3,-3 3,-3 2,-2 3,-3 3,-3 3,-2 3,-3 3,-3 4,-2 3,-3 4,-3 4,-2 4,-3 4,-3 4,-2 5,-3 4,-3 5,-3 5,-2 6,-3 5,-3 6,-2 6,-3 7,-3 6,-2 7,-3 7,-3 8,-2 8,-3 8,-3 8,-2 8,-3 9,-3 9,-3 9,-2 9,-3 9,-3 10,-2 9,-3 9,-3 9,-2"
+           stroke="#4472c4"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path294" />
+      </g>
+      <g
+         clip-path="url(#clip13)"
+         id="g300">
+        <path
+           d="m 909,283 3,-2 2,-2 3,-2 3,-2 2,-2 3,-2 3,-2 3,-2 2,-2 3,-2 3,-1 2,-2 3,-1 3,-2 2,-1 3,-1 3,-1 2,-2 3,-1 3,-1 3,-1 2,-1 3,-1 h 3 l 2,-1 3,-1 3,-1 h 2 l 3,-1 3,-1 h 2 l 3,-1 h 3 l 3,-1 h 2 3 l 3,-1 h 2 3 3 l 2,-1 h 3 3 2 3 3 3 2 3 3 2 3 3 2 3 l 3,1 h 2 3 3 3 l 2,1 h 3 3 l 2,1 h 3 l 3,1 h 2 3 l 3,1 h 2 l 3,1 h 3 l 3,1 2,1 h 3 l 3,1 h 2 l 3,1 3,1 h 2 l 3,1 3,1 2,1 h 3 l 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,1 2,1 3,1 3,2 3,1 2,1 3,1 3,2 2,1 3,1 3,2 2,1 3,1 3,2 2,1 3,2 3,1 3,2 2,1 3,2 3,1 2,2 3,2 3,1 2,2 3,1 3,2 2,2 3,1 3,2 3,1 2,2 3,2 3,1 2,2 3,2 3,1 2,2 3,1 3,2 2,2 3,1 3,2 3,1 2,2 3,1 3,1 2,2 3,1 3,1 2,1 3,2 3,1 2,1 3,1 h 3 l 3,1 2,1 3,1 h 3 l 2,1 h 3 3 2 3 3 2 3 3 l 3,-1 h 2 l 3,-1 3,-1 2,-1 3,-1 3,-1 2,-1 3,-1 3,-2 2,-1 3,-2 3,-2 3,-2 2,-2 3,-2 3,-2 2,-2 3,-2 3,-2 2,-3 3,-2 3,-2 2,-3 3,-2 3,-3 3,-3 2,-2 3,-3 3,-2 2,-3 3,-2 3,-3 2,-3"
+           stroke="#4472c4"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="none"
+           id="path298" />
+      </g>
+      <g
+         clip-path="url(#clip14)"
+         id="g336">
+        <path
+           d="m 1447.5,11.5001 3,2.9998 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path302" />
+        <path
+           d="m 1404.5,24.5001 3,2.9998 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path304" />
+        <path
+           d="m 1390.5,28.5001 3,2.9998 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path306" />
+        <path
+           d="m 1376.5,32.5001 3,2.9998 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path308" />
+        <path
+           d="m 1363.5,36.5001 3,2.9998 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path310" />
+        <path
+           d="m 1240.5,91.5001 3,2.9998 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path312" />
+        <path
+           d="m 1179.5,154.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path314" />
+        <path
+           d="m 1141.5,217.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path316" />
+        <path
+           d="m 1122.5,280.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path318" />
+        <path
+           d="m 1121.5,305.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path320" />
+        <path
+           d="m 1136.5,398.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path322" />
+        <path
+           d="m 1150.5,456.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path324" />
+        <path
+           d="m 1160.5,494.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path326" />
+        <path
+           d="m 1165.5,511.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path328" />
+        <path
+           d="m 1166.5,515.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path330" />
+        <path
+           d="m 1168.5,519.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path332" />
+        <path
+           d="m 1178.5,549.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path334" />
+      </g>
+      <g
+         clip-path="url(#clip15)"
+         id="g372">
+        <path
+           d="m 1447.5,280.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path338" />
+        <path
+           d="m 1430.5,296.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path340" />
+        <path
+           d="m 1426.5,300.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path342" />
+        <path
+           d="m 1422.5,304.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path344" />
+        <path
+           d="m 1417.5,308.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path346" />
+        <path
+           d="m 1396.5,325.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path348" />
+        <path
+           d="m 1371.5,340.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path350" />
+        <path
+           d="m 1342.5,346.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path352" />
+        <path
+           d="m 1178.5,265.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path354" />
+        <path
+           d="m 1035.5,233.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path356" />
+        <path
+           d="m 1030.5,233.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path358" />
+        <path
+           d="m 993.5,237.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path360" />
+        <path
+           d="m 959.5,247.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path362" />
+        <path
+           d="m 951.5,251.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path364" />
+        <path
+           d="m 946.5,253.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path366" />
+        <path
+           d="m 942.5,255.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path368" />
+        <path
+           d="m 909.5,280.5 3,3 -3,3 -3,-3 z"
+           stroke="#000000"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path370" />
+      </g>
+      <g
+         clip-path="url(#clip16)"
+         id="g376">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1157.2,556)"
+           id="text374">-1</text>
+      </g>
+      <g
+         clip-path="url(#clip17)"
+         id="g380">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1147.19,502)"
+           id="text378">-0.8</text>
+      </g>
+      <g
+         clip-path="url(#clip18)"
+         id="g384">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1147.19,449)"
+           id="text382">-0.6</text>
+      </g>
+      <g
+         clip-path="url(#clip19)"
+         id="g388">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1147.19,395)"
+           id="text386">-0.4</text>
+      </g>
+      <g
+         clip-path="url(#clip20)"
+         id="g392">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1147.19,341)"
+           id="text390">-0.2</text>
+      </g>
+      <g
+         clip-path="url(#clip21)"
+         id="g396">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1161.19,287)"
+           id="text394">0</text>
+      </g>
+      <g
+         clip-path="url(#clip22)"
+         id="g400">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1151.19,234)"
+           id="text398">0.2</text>
+      </g>
+      <g
+         clip-path="url(#clip23)"
+         id="g404">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1151.19,180)"
+           id="text402">0.4</text>
+      </g>
+      <g
+         clip-path="url(#clip24)"
+         id="g408">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1151.19,126)"
+           id="text406">0.6</text>
+      </g>
+      <g
+         clip-path="url(#clip25)"
+         id="g412">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1151.19,72)"
+           id="text410">0.8</text>
+      </g>
+      <g
+         clip-path="url(#clip26)"
+         id="g416">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1161.19,19)"
+           id="text414">1</text>
+      </g>
+      <g
+         clip-path="url(#clip27)"
+         id="g420">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(903.667,302)"
+           id="text418">-1</text>
+      </g>
+      <g
+         clip-path="url(#clip28)"
+         id="g424">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(952.501,302)"
+           id="text422">-0.8</text>
+      </g>
+      <g
+         clip-path="url(#clip29)"
+         id="g428">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1006.34,302)"
+           id="text426">-0.6</text>
+      </g>
+      <g
+         clip-path="url(#clip30)"
+         id="g432">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1060.18,302)"
+           id="text430">-0.4</text>
+      </g>
+      <g
+         clip-path="url(#clip31)"
+         id="g436">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1114.01,302)"
+           id="text434">-0.2</text>
+      </g>
+      <g
+         clip-path="url(#clip32)"
+         id="g440">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1174.85,302)"
+           id="text438">0</text>
+      </g>
+      <g
+         clip-path="url(#clip33)"
+         id="g444">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1223.68,302)"
+           id="text442">0.2</text>
+      </g>
+      <g
+         clip-path="url(#clip34)"
+         id="g448">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1277.52,302)"
+           id="text446">0.4</text>
+      </g>
+      <g
+         clip-path="url(#clip35)"
+         id="g452">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1331.36,302)"
+           id="text450">0.6</text>
+      </g>
+      <g
+         clip-path="url(#clip36)"
+         id="g456">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1385.2,302)"
+           id="text454">0.8</text>
+      </g>
+      <g
+         clip-path="url(#clip37)"
+         id="g460">
+        <text
+           font-family="Arial, Arial_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="12px"
+           transform="translate(1444.04,302)"
+           id="text458">1</text>
+      </g>
+    </g>
+  </g>
+</svg>
