@@ -44,7 +44,7 @@ A primeira medida de deformação que pode ser observada é a denominada medida 
     \centering
     \caption{Desenho esquemático de uma barra submetida a tração.}
     \includegraphics[width=0.45\linewidth]{Figuras/Barra.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Barra}
 \end{figure}
 
@@ -78,7 +78,7 @@ Assim, pode-se definir alguns modelos constitutivos que relacionarão a medida d
     \centering
     \caption{Esquema de diagrama de tensão $\times$ deformação.}
     \includegraphics[width=.45\linewidth]{Figuras/ue.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:ue}
 \end{figure}
 
@@ -114,7 +114,7 @@ Inicialmente considere um corpo deformável, idealizado como um meio contínuo q
     \centering
     \caption{Configurações inicial e atual de um corpo deformável.}
     \includegraphics[width=.4\linewidth]{Figuras/Cont.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Cont}
 \end{figure}
 
@@ -170,7 +170,7 @@ Outra medida de deformação interessante é a medida de deformação volumétri
     \centering
     \caption{Mudança de volume de um elemento infinitesimal.}
     \includegraphics[width=0.5\linewidth]{Figuras/MudVol.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:MudVol}
 \end{figure}
 
@@ -205,7 +205,7 @@ Na sequência procura-se obter uma expressão que indique a mudança de área na
     \centering
     \caption{Mudança de configuração em um cilindro infinitesimal.}
     \includegraphics[width=.45\linewidth]{Figuras/Nanson.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Nanson}
 \end{figure}
 
@@ -223,7 +223,7 @@ Com esse embasamento é possível apresentar os conceitos de energia nas descri�
     \centering
     \caption{Forças atuantes em um elemento infinitesimal na direção $\HBB{e}_1$.}
     \includegraphics[width=.5\linewidth]{Figuras/CorpoLivreSolido.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:CorpoLivreSolido}
 \end{figure}
 
@@ -351,7 +351,7 @@ Para se realizar o cálculo dessas propriedades, será considerada uma aproxima�
     \centering
     \caption{Mudança de configuração.}
     \includegraphics[width=.4\linewidth]{Figuras/Mapeamento.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Mapeamento}
 \end{figure}
 
@@ -584,7 +584,7 @@ O primeiro exemplo simulado trata-se de um problema dinâmico, onde se estuda o 
     \centering
     \caption{Desenho esquemático da viga simulada.}
     \includegraphics[width=0.5\linewidth]{Figuras/vigas/viga1.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga1}
 \end{figure}
 
@@ -592,7 +592,7 @@ O primeiro exemplo simulado trata-se de um problema dinâmico, onde se estuda o 
     \centering
     \caption{Malha utilizada na simulação da viga.}
     \includegraphics[width=\linewidth]{Figuras/vigas/mesh1.png}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga1-mesh}
 \end{figure}
 
@@ -602,7 +602,7 @@ A modelagem realizada considerou a altura $H$ como a espessura do elemento de ca
     \centering
     \caption{Deslocamento vertical no ponto de aplicação da força ao longo do tempo.}
     \includegraphics[width=\linewidth]{Figuras/vigas/res1.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:res-viga1}
 \end{figure}
 
@@ -614,7 +614,7 @@ Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu cen
     \centering
     \caption{Desenho esquemático da viga biengastada simulada.}
     \includegraphics[width=0.6\linewidth]{Figuras/vigas/viga2.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga2}
 \end{figure}
 
@@ -622,7 +622,7 @@ Outro exemplo trata-se de uma viga biengastada com uma carga aplicada em seu cen
     \centering
     \caption{Malha utilizada na simulação da viga biengastada.}
     \includegraphics[width=\linewidth]{Figuras/vigas/mesh2.png}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga2-mesh}
 \end{figure}
 
@@ -632,7 +632,7 @@ Os resultados calculados foram comparados com os apresentados pelo ANSYS, a part
     \centering
     \caption{Deslocamento vertical no centro da viga biengastada ao longo do tempo.}
     \includegraphics[width=\linewidth]{Figuras/vigas/res2.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:res-viga2}
 \end{figure}
 

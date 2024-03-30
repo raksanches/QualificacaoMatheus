@@ -2,10 +2,10 @@
 \chapter{Análise numérica para dinâmica não linear dos sólidos} \label{EGDS}
 %==================================================================================================
 
-\textcolor{red}{Introduzir o capítulo}
+O presente capítulo apresenta brevemente a formulação matemática e a análise numérica para a solução de problemas de dinâmica não linear dos sólidos. Para tal, são apresentados os conceitos fundamentais da mecânica dos sólidos deformáveis (Seção \ref{CinSolDef}), o equacionamento da quantidade de movimento segundo a descrição Lagrangiana Total, o que culmina na equação do equilíbrio local nessa descrição (Seção \ref{EqQuantMov}), o Princípio da Estacionariedade da Energia, onde são apresentadas as parcelas de energia consideradas nas análises, \ie\ a energia de deformação, a energia potencial devido às forças externas e a energia cinética (Seção \ref{PrincEstacEnergia}), e a formulação do método dos elementos finitos para a solução de problemas de dinâmica não linear dos sólidos utilizando elementos de casca a partir da cinemática de Reissner-Mindlin (Seção \ref{MEFP}). Por fim, são apresentados exemplos numéricos para ilustrar a aplicação dos conceitos apresentados (Seção \ref{MEFP-Ex}).
 
 % =============================================================================
-\section{Cinemática para sólidos deformáveis}
+\section{Cinemática para sólidos deformáveis} \label{CinSolDef}
 % =============================================================================
 
 Seja considerado um corpo deformável, idealizado como um meio contínuo que, em sua configuração inicial seu domínio é denotado por $\Omega_0$ e em sua configuração atual é denotado por $\Omega$, conforme ilustrado na Figura \ref{fig:Cont}. Para se mapear os pontos que compõem o corpo em relação a uma origem preestabelecida utiliza-se $\BB{x}$ e $\BB{y}$ como sendo as coordenadas de $\Omega_0$ e $\Omega$, respectivamente. Já para se mapear as coordenadas atuais de cada ponto $\BB{y}$, em função da coordenada inicial $\BB{x}$, emprega-se a função mudança de configuração $\BB{f}$ tal que $\BB{y}=\BB{f}(\BB{x})$.
@@ -14,7 +14,7 @@ Seja considerado um corpo deformável, idealizado como um meio contínuo que, em
     \centering
     \caption{Configurações inicial e atual de um corpo deformável.}
     \includegraphics[width=.4\linewidth]{Figuras/Cont.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Cont}
 \end{figure}
 
@@ -56,7 +56,6 @@ Subtraindo-se $dx^2=\norm{d\BB{x}}^2$ de ambos os lados da igualdade obtém-se:
 \end{equation}
 
 O termo entre parênteses na Eq. \eqref{eq:defGreen1} é uma medida de deformação Lagrangiana e objetiva, ou seja, que não registra deformações em situação de movimento de corpo rígido. Esse termo é conhecido como o tensor de deformação de Green-Lagrange:
-%\textcolor{red}{Padronize a notação para tensores de segunda ordem. Eu sugiro maiúsculo negrito não itálico. Troque $\mathbb{E}$ e $\mathbb{S}$!}
 
 \begin{equation}
     \defGL=\frac{1}{2}(\TS{C}-\TS{I})\text{.}
@@ -69,7 +68,7 @@ Também é interessante descrever a variação volumétrica durante a mudança d
     \centering
     \caption{Mudança de volume de um elemento infinitesimal.}
     \includegraphics[width=0.5\linewidth]{Figuras/MudVol.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:MudVol}
 \end{figure}
 
@@ -98,7 +97,7 @@ Para completar a descrição cinemática, deve-se ainda descrever a variação d
     \centering
     \caption{Mudança de configuração em um prisma infinitesimal.}
     \includegraphics[width=.45\linewidth]{Figuras/Nanson.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Nanson}
 \end{figure}
 
@@ -111,16 +110,16 @@ A área vetorial da base, entendida como o valor absoluto da área na direção 
 \noindent que é conhecida como a Equação de Nanson.
 
 %==================================================================================================
-\section{Equação da quantidade de movimento em descrição Lagrangiana}
+\section{Equação da quantidade de movimento em descrição Lagrangiana} \label{EqQuantMov}
 %==================================================================================================
 
-Para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considera-se um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as componebtes de forças atuantes na direção $y_1$.
+Para se obter a equação do equilíbrio local de um elemento na descrição Euleriana, considera-se um elemento infinitesimal sujeito à ação de uma força de corpo (ou de volume) $\BB{c}$, conforme ilustrado no diagrama de corpo livre da Figura \ref{fig:CorpoLivreSolido}, que apresenta somente as componentes de forças atuantes na direção $y_1$.
 
 \begin{figure}[h!]
     \centering
     \caption{Forças atuantes em um elemento infinitesimal na direção $y_1$.}
     \includegraphics[width=.5\linewidth]{Figuras/CorpoLivreSolido.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:CorpoLivreSolido}
 \end{figure}
 
@@ -169,7 +168,7 @@ Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teo
 \end{equation}
 
 %==================================================================================================
-\section{Princípio da estacionariedade da energia}
+\section{Princípio da estacionariedade da energia} \label{PrincEstacEnergia}
 %==================================================================================================
 
 Em se tratando de sólidos de comportamento hiperelástico, dada a natureza das leis constitutivas e à adequação da descrição Lagrangiana, é conveniente o uso de abordagens energéticas de modo a obter o equacionamento em forma fraca, seguido da aplicação da técnica de elementos finitos e de processos para solução numérica do sistema resultante. Para tal, deve-se primeiramente definir a energia total ($\Pi$) de um sistema, que pode ser entendida como a soma de todas as parcelas de energia relevantes ao problema. Nos casos mais comuns da mecânica dos sólidos, tem-se uma parcela de energia potencial das forças externas atuantes no corpo ($\mathbb{P}$), uma parcela de energia de deformação elástica ($\mathbb{U}$) e uma parcela de energia cinética ($\mathbb{K}$). Dessa forma, o funcional de energia total é dado por:
@@ -276,7 +275,7 @@ Seja um corpo deformável submetido a um campo de forças externas conservativas
     \centering
     \caption{Corpo submetido a forças conservativas concentradas e distribuídas.}
     \includegraphics[width=.75\linewidth]{Figuras/EnergForcExt.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:ForcasExt}
 \end{figure}
 
@@ -376,7 +375,7 @@ As configurações inicial a atual de um elemento de casca podem ser descritas m
     \centering
     \caption{Mudança de configuração para um elemento de casca.}
     \includegraphics[width=.4\linewidth]{Figuras/Mapeamento.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:Mapeamento}
 \end{figure}
 
@@ -470,11 +469,11 @@ Considerando-se o princípio da conservação da energia, tem-se que:
     \label{eq:CSD-g}
 \end{equation}
 
-\noindent sendo $\BB{F}_a^\mathrm{int}$ o vetor nodal equivalente de forças internas, $\BB{F}_a^\mathrm{inerc}$ o vetor nodal equivalente de forças inerciais e $\BB{F}_a^\mathrm{ext}$ o vetor nodal equivalente de forças externas, assumidas conservativas, tal que:
+\noindent em que $\BB{F}_a^\mathrm{int}$ o vetor nodal equivalente de forças internas, $\BB{F}_a^\mathrm{inerc}$ o vetor nodal equivalente de forças inerciais e $\BB{F}_a^\mathrm{ext}$ o vetor nodal equivalente de forças externas, assumidas conservativas, tal que:
 
 \begin{subequations}
     \begin{align}
-         & \BB{F}_a^\mathrm{int}=\intDomi{\der{u_e}{\DOF_a}}=\intDomi{\Stens:\der{\mathbb{E}}{\DOF_a}}\text{,}\label{eq:CSD-Fint}           \\
+         & \BB{F}_a^\mathrm{int}=\intDomi{\der{u_e}{\DOF_a}}=\intDomi{\Stens:\der{\defGL}{\DOF_a}}\text{,}\label{eq:CSD-Fint}               \\
          & \BB{F}_a^\mathrm{inerc}=\intDomi{\rho_0\ddBB{y}\cdot\der{\BB{y}}{\DOF_a}}\text{ e}\label{eq:CSD-Finerc}                          \\
          & \BB{F}_a^\mathrm{ext}=\BB{F}_b\cdot\der{\BB{Y}_b}{\DOF_a}+\intFronti{\BB{t}\cdot\der{\BB{y}^m}{\DOF_a}}\text{.}\label{eq:CSD-Fc}
     \end{align}
@@ -483,11 +482,21 @@ Considerando-se o princípio da conservação da energia, tem-se que:
 
 Portanto o problema a ser resolvido é descrito como: para todos os nós $a$ e $b$, determinar $\BB{Y}_b$, $\BB{V}^1_b$ e ${\Alpha}_b$ tais que $\res_a(\BB{Y}_b,\BB{V}^1_b,{\Alpha}_b)=\BB{0}$.
 
-Como é possível perceber, o cálculo de $\res_a$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de $\BB{y}$. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador $\alpha$-generalizado, conforme apresentado em \ref{IT-VMS}.
+Como é possível perceber, o cálculo de $\res_a$ é dependente não somente dos graus de liberdade, mas também das derivadas temporais de $\BB{y}$. Sendo assim, se faz necessária a consideração de um integrador temporal, o qual será utilizado o integrador $\alpha$-generalizado, conforme apresentado em \ref{IT-VMS}. Assim, se faz a aproximação das posições e suas temporadas temporais em um instante de tempo intermediário como:
 
-\textcolor{red}{Colocar aqui a forma discreta no tempo segundo o alfa generalizado, (definir os vetores de forças nodais equivalentes utilizando a aceleração em alfa m e o restante em alfaf...)}
+\begin{subequations}
+    \begin{equation}
+        \BB{y}^{n+\alpha_f}=\BB{y}^n+\alpha_f(\BB{y}^{n+1}-\BB{y}^n)\text{,}
+    \end{equation}
+    \begin{equation}
+        \dBB{y}^{n+\alpha_f}=\dBB{y}^n+\alpha_f(\dBB{y}^{n+1}-\dBB{y}^n)\text{ e}
+    \end{equation}
+    \begin{equation}
+        \ddBB{y}^{n+\alpha_m}=\ddBB{y}^n+\alpha_m(\ddBB{y}^{n+1}-\ddBB{y}^n)\text{,}
+    \end{equation}
+\end{subequations}
 
-A aproximação para $\BB{y}$ e da primeira derivada temporal $\dBB{y}$  em um instante $n+1$ obtidas a partir da aproximação de Newmark:
+A aproximação para $\BB{y}$ e sua primeira derivada temporal $\dBB{y}$  em um instante $n+1$ são obtidas a partir da aproximação de Newmark:
 
 \begin{subequations}
     \begin{equation}
@@ -499,7 +508,7 @@ A aproximação para $\BB{y}$ e da primeira derivada temporal $\dBB{y}$  em um i
     \label{eq:Newmark-alpha}
 \end{subequations}
 
-\noindent sendo $\Delta t$ o passo de tempo discreto, e $\beta$ e $\gamma$ parâmetros calculados de forma a garantir a precisão de segunda ordem e estabilidade incondicional do método como \cite{chung1993time}:
+\noindent na qual $\Delta t$ o passo de tempo discreto, e $\beta$ e $\gamma$ parâmetros calculados de forma a garantir a precisão de segunda ordem e estabilidade incondicional do método como \cite{chung1993time}:
 
 \begin{subequations}
     \begin{equation}
@@ -509,6 +518,22 @@ A aproximação para $\BB{y}$ e da primeira derivada temporal $\dBB{y}$  em um i
         \gamma=\frac{1}{2}-\alpha_f+\alpha_m\text{.}
     \end{equation}
 \end{subequations}
+
+Dessa forma, as forças nodais equivalentes são reescritas como:
+
+\begin{subequations}
+    \begin{align}
+         & \BB{F}_a^\mathrm{int}=\intDomi{\Stens^{n+\alpha_f}:\der{\defGL^{n+\alpha_f}}{\DOF_a}}\text{,}                                                 \\
+         & \BB{F}_a^\mathrm{inerc}=\alpha_f\intDomi{\rho_0\ddBB{y}^{n+\alpha_m}\cdot\der{\BB{y}^{n+1}}{\DOF_a}}\text{ e}                                 \\
+         & \BB{F}_a^\mathrm{ext}=\alpha_f\BB{F}_b\cdot\der{\BB{Y}^{n+1}_b}{\DOF_a}+\alpha_f\intFronti{\BB{t}\cdot\der{(\BB{y}^m)^{n+1}}{\DOF_a}}\text{,}
+    \end{align}
+\end{subequations}
+
+\noindent em que a derivada da medida de deformação $\defGL^{n+\alpha_f}$ em relação aos graus de liberdade é dada por:
+
+\begin{equation}
+    \der{\defGL^{n+\alpha_f}}{\DOF_a}=\frac{\alpha_f}{2}\bigpar{(\FMC^{n+\alpha_f})\trans\cdot\der{\FMC^{n+1}}{\DOF_a}+\der{(\FMC^{n+1})\trans}{\DOF_a}\cdot\FMC^{n+\alpha_f}}\text{.}
+\end{equation}
 
 Já para procurar valores de $\DOF$ que anulem $\res$, utiliza-se o Método de Newton-Raphson, o qual parte da aproximação por série de Taylor truncada no termo de primeira ordem:
 
@@ -614,7 +639,7 @@ O primeiro exemplo simulado trata-se de um problema comumente empregado para val
     \centering
     \caption{\textit{Scordelis-Lo roof} - Desenho esquemático.}
     \includegraphics[width=0.75\linewidth]{Figuras/scordelis/scordelis_lo.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:scordelis}
 \end{figure}
 
@@ -631,7 +656,7 @@ Para a simulação, aproveitou-se da simetria da cobertura, o que possibilita a 
         \includegraphics[width=\linewidth]{Figuras/scordelis/malha2.png}
         \caption{Vista superior.}
     \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:scordelis-mesh}
 \end{figure}
 
@@ -652,7 +677,7 @@ O deslocamento máximo obtido na análise é de 0,2997, representando um desvio 
     \begin{subfigure}{0.31\textwidth}
         \includegraphics[width=\linewidth]{Figuras/scordelis/uz.png}
     \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:scordelis-displ}
 \end{figure}
 
@@ -679,7 +704,7 @@ Também realizou-se uma análise quanto à dependência da malha, onde dividiu-s
         15  & 1,765 & 450                 & 6727               & 0,2993    & 1,0360\%        \\
         16  & 1,655 & 512                 & 7623               & 0,2997    & 0,8965\%        \\\hline
     \end{tabular}
-    \\Fonte:Autoria Própria (\the\year).
+    \\Fonte:Presente trabalho (\the\year).
     \label{tab:scordelis-sol}
 \end{table}
 
@@ -687,11 +712,11 @@ Também realizou-se uma análise quanto à dependência da malha, onde dividiu-s
     \centering
     \caption{\textit{Scordelis-Lo roof} - Desvio relativo do deslocamento vertical do ponto $A$ em função do tamanho do elemento.}
     \includegraphics[width=0.6\linewidth]{Figuras/scordelis/static-sol.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:shell-static-sol}
 \end{figure}
 
-Uma análise realizada por meio do \textit{software} ANSYS, empregando-se uma malha com 648 elementos de casca (\textit{Shell} 281) e 1357 nós, resultando 8142 graus de liberdade (ver Fig. \ref{fig:scordelisANSYS}) resultou em deslocamento vertical máximo de 0,3016, o que representa um desvio relativo de 0,6300\% em relação ao calculado pelo código implementado. Além disso, os deslocamentos verticais ao longo da aresta livre da cobertura, obtidos por meio do \textit{software} ANSYS são comparados com os da formulação posicional na Figura \ref{fig:scordelis-graph}, mostrando-se muito próximos.
+Uma análise realizada por meio do \textit{software} ANSYS, empregando-se uma malha com 648 elementos de casca do tipo \textit{Shell} 281, a qual utiliza a cinemática de Reissner-Mindlin, e 1357 nós, resultando 8142 graus de liberdade (ver Fig. \ref{fig:scordelisANSYS}) resultou em deslocamento vertical máximo de 0,3016, o que representa um desvio relativo de 0,6300\% em relação ao calculado pelo código implementado. Além disso, os deslocamentos verticais ao longo da aresta livre da cobertura, obtidos por meio do \textit{software} ANSYS são comparados com os da formulação posicional na Figura \ref{fig:scordelis-graph}, mostrando-se muito próximos.
 
 \begin{figure}[h!]
     \centering
@@ -705,7 +730,7 @@ Uma análise realizada por meio do \textit{software} ANSYS, empregando-se uma ma
     \centering
     \caption{\textit{Scordelis-Lo roof} - Deslocamento vertical ao longo da aresta livre.}
     \includegraphics[width=0.6\linewidth]{Figuras/scordelis/deslocamento.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:scordelis-graph}
 \end{figure}
 
@@ -719,7 +744,7 @@ Este problema considera um cilindro sujeito a duas cargas concentradas diametral
     \centering
     \caption{Cilindro biengastado em problema estático - Desenho esquemático.}
     \includegraphics[width=0.65\linewidth]{Figuras/cylinder-shell/cylinder.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:cylinder-shell}
 \end{figure}
 
@@ -729,7 +754,7 @@ Pelo fato de o problema apresentar simetria, foi estudado somente um octante do 
     \centering
     \caption{Cilindro biengastado em problema estático - Malha utilizada.}
     \includegraphics[width=0.3\linewidth]{Figuras/cylinder-shell/mesh1.png}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:cylinder-shell-mesh}
 \end{figure}
 
@@ -750,7 +775,7 @@ O resultado obtido para o deslocamento radial máximo é de $1,8135\times10^{-5}
     \begin{subfigure}{0.3\textwidth}
         \includegraphics[width=\linewidth]{Figuras/cylinder-shell/uz.png}
     \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:cylinder-shell-disp}
 \end{figure}
 
@@ -775,7 +800,7 @@ Também se comparou o resultado obtido com uma simulação executada no \textit{
         \includegraphics[width=\linewidth]{Figuras/cylinder-shell/deslocamento2.pdf}
         \caption{Interseção com o plano $x_2=L/2$}
     \end{subfigure}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:cylinder-shell-deslradial}
 \end{figure}
 
@@ -791,19 +816,22 @@ O material que compõe a viga possui módulo de Young $E=20$ Mg/[dm$\cdot$(ms)²
     \centering
     \caption{Viga engastada em problema dinâmico - Desenho esquemático.}
     \includegraphics[width=0.5\linewidth]{Figuras/vigas/viga1.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga1}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \caption{Viga engastada em problema dinâmico - Malha utilizada.}
-    \includegraphics[width=\linewidth]{Figuras/vigas/mesh1.png}
-    \\Fonte: Autoria Própria (\the\year).
+    \begin{subfigure}{0.05\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/vigas/eixos1.png}
+    \end{subfigure}
+    \begin{subfigure}{0.94\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/vigas/mesh1.png}
+    \end{subfigure}
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga1-mesh}
 \end{figure}
-
-\textcolor{red}{Indicar os eixos nas figuras, tanto do modelo estrutural como da malha.}
 
 A modelagem realizada considerou a altura $H$ como a espessura do elemento de casca, sendo a força atuante nessa mesma direção. Assim, observou-se o deslocamento vertical no ponto de aplicação da força. Os resultados obtidos foram comparados com aqueles alcançados a partir de uma modelagem no \textit{software} ANSYS utilizando 346 elementos do tipo \textit{Shell} 281, totalizando 795 nós e 4770 graus de liberdade (Figura \ref{fig:beamANSYS1}). a Figura \ref{fig:res-viga1} apresenta os resultados calculados.
 
@@ -819,7 +847,7 @@ A modelagem realizada considerou a altura $H$ como a espessura do elemento de ca
     \centering
     \caption{Viga engastada em problema dinâmico - Deslocamento vertical no ponto de aplicação da força ao longo do tempo.}
     \includegraphics[width=.8\linewidth]{Figuras/vigas/res1.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:res-viga1}
 \end{figure}
 
@@ -835,19 +863,22 @@ Neste exemplo considera-se de uma viga biengastada com uma carga concentrada apl
     \centering
     \caption{Viga biengastada em problema dinâmico - Desenho esquemático.}
     \includegraphics[width=0.6\linewidth]{Figuras/vigas/viga2.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga2}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \caption{Malha utilizada na simulação da viga biengastada.}
-    \includegraphics[width=\linewidth]{Figuras/vigas/mesh2.png}
-    \\Fonte: Autoria Própria (\the\year).
+    \begin{subfigure}{0.05\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/vigas/eixos1.png}
+    \end{subfigure}
+    \begin{subfigure}{0.94\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/vigas/mesh2.png}
+    \end{subfigure}
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:viga2-mesh}
 \end{figure}
-
-\textcolor{red}{Os resultados do ANSYS são para casca de Reissner ou de Kirchhoff? É importante mencionar isso...}
 
 Os resultados calculados foram comparados com os apresentados pelo ANSYS, a partir de 234 elementos do tipo \textit{Shell} 281, resultando em 541 nós e 3246 graus de liberdade (Figura \ref{fig:beamANSYS2}), e por \cite{mondkar1977ansa}. A Figura \ref{fig:res-viga2} exibe os resultados obtidos.
 
@@ -863,10 +894,8 @@ Os resultados calculados foram comparados com os apresentados pelo ANSYS, a part
     \centering
     \caption{Viga biengastada em problema dinâmico - Deslocamento vertical no centro da viga biengastada ao longo do tempo.}
     \includegraphics[width=\linewidth]{Figuras/vigas/res2.pdf}
-    \\Fonte: Autoria Própria (\the\year).
+    \\Fonte: Presente trabalho (\the\year).
     \label{fig:res-viga2}
 \end{figure}
-
-\textcolor{red}{Troque autor por presente trabalho nas legendas...}
 
 Verifica-se uma boa concordância entre os resultados obtidos pela análise por ambos os valores de referência.
