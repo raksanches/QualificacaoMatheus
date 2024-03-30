@@ -2,7 +2,7 @@
 \section{Movimentação da malha do fluido} \label{MovMalha}
 %==================================================================================================
 
-Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada buscando-se preservar a qualidade da malha para os passos de tempo posteriores, evitando distorções excessivas nos elementos, ao mesmo tempo que não deve ser um processo custoso computacionalmente \cite{kanchi20073d}. Assim, uma possibilidade para se realizar a movimentação da malha parte do emprego da equação Laplace, o qual foi estudado tanto em casos bidimensionais \cite{masud2007adaptive}, quanto tridimensionais \cite{kanchi20073d}.
+Para a solução de problemas de IFE por meio da descrição ALE, se faz necessária a movimentação do domínio computacional do fluido de forma a acomodar a movimentação de estrutura. Tal tarefa deve ser realizada buscando-se preservar a qualidade da malha para os passos de tempo posteriores, evitando distorções excessivas nos elementos, ao mesmo tempo que não deve ser um processo custoso computacionalmente \cite{kanchi20073d}. Assim, uma possibilidade para se realizar a movimentação da malha parte do emprego da equação Laplace, com algumas adequações para preservação da qualidade da malha, o qual foi proposto em casos bidimensionais por \citeonline{masud2007adaptive} e tridimensionais por \citeonline{kanchi20073d}.
 
 Nesse esquema, considere o domínio limitado aberto do fluido $\Omega_F$, com uma fronteira suave por partes $\Gamma$. Logo, $\Gamma$ pode ser decomposta em partes de fronteira fixa $\Gamma_f$ e partes de fronteira móvel $\Gamma_m$, tais que:
 
@@ -28,9 +28,9 @@ Dessa forma, define-se as condições de contorno do problema como:
 
 \noindent em que $\BB{z}$ é o campo de deslocamentos da malha e $\BB{z}_m$ é o deslocamento prescrito em $\Gamma_f$.
 
-Em seu trabalho, \citeonline{masud2007adaptive} aprontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresente uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido demanda refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, pode-se adotar uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções \textcolor{red}{citar quem propôs, ou quem usa}.
+Em seu trabalho, \citeonline{masud2007adaptive} apontam que a simples utilização de uma equação do tipo $\Lapl\BB{z}=\BB{0}$ em $\Omega_F$ apresenta uma boa movimentação da malha em situação onde os elementos possuem tamanhos semelhantes entre si, assim como $\BB{z}_m$ não apresente uma ordem de grandeza muito superior ao tamanho dos elementos na interface $\Gamma_m$. No entanto, como destacado pelos autores, a malha do fluido demanda refinamento maior em áreas de interesse da análise, o que coincide, em muitos casos, com a região próxima à $\Gamma_m$. Assim, pode-se adotar uma modificação na formulação para que os elementos menores não sofram grandes distorções e inversões, ao passo que os elementos maiores absorverão tais distorções.% \textcolor{red}{citar quem propôs, ou quem usa}.
 
-Assim, propõe-se um esquema de movimentação dado pelo problema de valor de contorno:
+Assim, o esquema de movimentação proposto pelos autores é dado pelo problema de valor de contorno:
 
 \begin{equation}
     \left\{
@@ -84,10 +84,30 @@ Devido à arbitrariedade de $\BB{\Upsilon}_a$, tem-se, portanto, a definição d
     \label{eq:resLapl}
 \end{equation}
 
+Dessa forma, verifica-se que o problema \eqref{eq:resLapl} é linear. Logo sua solução pode ser obtida de maneira discreta a partir da abordagem do MEF, em que o sistema algébrico é dado por:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \BB{B}\BB{Z}=\BB{0}     & \text{ em }\Omega_F\text{,}  \\
+        \BB{Z}=\BB{Z}_m\text{,} & \text{ em }\Gamma_m\text{ e} \\
+        \BB{Z}=\BB{0}           & \text{ em }\Gamma_f\text{,}
+    \end{array}
+    \right.\label{eq:LaplMov}
+\end{equation}
+
+\noindent no qual $\BB{Z}$ é o vetor que contém os deslocamentos nodais da malha e $\BB{B}$ é a matriz do problema, obtida pela combinação das matrizes $\BB{B}^{ab}$ elementares:
+
+\begin{equation}
+    \BB{B}^{ab}=\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\TS{I}\text{.}
+\end{equation}
+
+Por fim, torna-se necessário apenas determinar os valores das derivadas temporais via integrador $\alpha$-generalizado.
+
+\begin{comment}
 \textcolor{red}{1- O problema é linear, então não precisa usar Newton-Raphson; 2- Você está resolvendo a aceleração no programa? É mais adequado resolver o deslocamento, e posteriormente calcular a velocidade considerando o integrador temporal... Não faz sentido resolver a aceleração. Descreve apenas como está no programa, e arrume o restante do texto de acordo...}
 
 Para se determinar o vetor $\BB{Z}$, que contém os  deslocamentos nodais da malha, parte-se para o método de Newton-Raphson. Assim, toma-se como variáveis a serem corrigidas as acelerações nodais, que, a partir de uma aproximação por $\alpha$-generalizado tem-se a seguinte matriz do problema:
-
 
 \begin{equation}
     \BB{B}^{ab}=\der{\res_L^a}{\ddBB{Y}^b}=\alpha_f\beta\Delta t^2\intDome{[1+\eta^e]\Nx N_a\cdot\Nx N_b}\TS{I}\text{.}
@@ -186,6 +206,7 @@ Seguindo o mesmo procedimento descrito anteriormente, se obtém a seguinte expre
 \end{equation}
 
 Portanto, se torna necessário apenas resolver o sistema \ref{eq:sistLapl} com essas novas expressões e aproximando o campo de deslocamentos via $\alpha$-generalizado.
+\end{comment}
 
 \begin{comment}
 %==================================================================================================
