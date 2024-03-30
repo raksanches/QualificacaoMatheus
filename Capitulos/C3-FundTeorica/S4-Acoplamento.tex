@@ -19,30 +19,28 @@ Numericamente, há diversas possibilidades para que essas condições sejam impo
 Nas formulações adotadas para CFD e CSD, é comumente empregado o Método de Newton-Raphson para o cálculo das variáveis incógnitas. O mesmo pode ser aplicado quando do acoplamento direto, monolítico, entre os dois meios. Para isso a matriz tangente ($\BB{H}$) pode ser obtida por \cite{bazilevs2013computational,sanches2022metodos}:
 
 \begin{equation}
-    \BB{H}^k=\frac{\partial^2\script{G}}{\partial\BB{\Psi}^k\otimes\partial\DOF^k}\text{,}
+    \BB{H}=\frac{\partial^2\script{G}}{\partial\BB{\Psi}\otimes\partial\DOF}\text{,}
 \end{equation}
 
-\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}^k$ o vetor com todos os parâmetros nodais das funções teste e $\DOF^k$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis por meio da solução do sistema:
-
-\textcolor{red}{O que é $k$? Precisa desse índice?}
+\noindent sendo $\script{G}$ a soma de todas as equações diferenciais do problema em sua forma fraca, $\BB{\Psi}$ o vetor com todos os parâmetros nodais das funções teste e $\DOF$ o vetor com todos os parâmetros nodais incógnitas do problema. Assim, obtém-se a correção dos valores das variáveis por meio da solução do sistema:
 
 \begin{equation}
-    \BB{H}^k\Delta\DOF^k=-\res^k\text{,}
+    \BB{H}\Delta\DOF=-\res\text{,}
 \end{equation}
 
-\noindent em que $\res^k=\partial\script{G}/\partial\BB{\Psi}^k$ é o vetor resíduo.
+\noindent em que $\res=\partial\script{G}/\partial\BB{\Psi}$ é o vetor resíduo.
 
 Expandindo a matriz em submatrizes a fim de visualizar a contribuição de cada parcela no sistema global tem-se:
 
 \begin{equation}
     \begin{bmatrix}
-        \BB{H}_{11}^k & \BB{H}_{12}^k & \BB{H}_{13}^k \\
-        \BB{H}_{21}^k & \BB{H}_{22}^k & \BB{H}_{23}^k \\
-        \BB{H}_{31}^k & \BB{H}_{32}^k & \BB{H}_{33}^k
+        \BB{H}_{11} & \BB{H}_{12} & \BB{H}_{13} \\
+        \BB{H}_{21} & \BB{H}_{22} & \BB{H}_{23} \\
+        \BB{H}_{31} & \BB{H}_{32} & \BB{H}_{33}
     \end{bmatrix}\begin{bmatrix}
-        \Delta\DOF_1^k \\\Delta\DOF_2^k\\\Delta\DOF_3^k
+        \Delta\DOF_1 \\\Delta\DOF_2\\\Delta\DOF_3
     \end{bmatrix}=-\begin{bmatrix}
-        \res_1^k \\\res_2^k\\\res_3^k
+        \res_1 \\\res_2\\\res_3
     \end{bmatrix}\text{,}
 \end{equation}
 
@@ -52,13 +50,13 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
 
 \begin{equation}
     \begin{bmatrix}
-        \BB{H}_{11}^k & 0             & 0             \\
-        0             & \BB{H}_{22}^k & 0             \\
-        0             & 0             & \BB{H}_{33}^k
+        \BB{H}_{11} & 0           & 0           \\
+        0           & \BB{H}_{22} & 0           \\
+        0           & 0           & \BB{H}_{33}
     \end{bmatrix}\begin{bmatrix}
-        \Delta\DOF_1^k \\\Delta\DOF_2^k\\\Delta\DOF_3^k
+        \Delta\DOF_1 \\\Delta\DOF_2\\\Delta\DOF_3
     \end{bmatrix}=-\begin{bmatrix}
-        \res_1^k \\\res_2^k\\\res_3^k
+        \res_1 \\\res_2\\\res_3
     \end{bmatrix}\text{.}
 \end{equation}
 
