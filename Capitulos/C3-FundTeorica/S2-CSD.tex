@@ -165,7 +165,7 @@ Já para se obter uma descrição Lagrangiana Total, é necessário transformar 
 Retornando a integral sob a fronteira $\Gamma_0$ para $\Omega_0$ por meio do Teorema da Divergência, considerando-se continuidade, escreve-se a forma local da equação da quantidade de movimento na descrição Lagrangiana Total:
 
 \begin{equation}
-    \Nx\cdot\TS{P}\trans+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{, ou}
+    \Nx\cdot\TS{P}\trans+\BB{c}^0=\rho_0\ddot{\BB{y}}\text{.}\label{eq:EqLocLa}
 \end{equation}
 
 %==================================================================================================
@@ -197,7 +197,13 @@ Sendo assim, primeiramente procura-se anular a primeira variação da energia to
     \delta\Pi=\delta\mathbb{P}+\delta\mathbb{U}+\delta\mathbb{K}=0\text{,}
 \end{equation}
 
-\noindent o que leva à necessidade de se determinar a primeira variação de $\mathbb{U}$. Para isso, é necessária a consideração de um modelo constitutivo que permita, juntamente com as demais equações da cinemática do modelo estrutural, descrever a evolução da energia de deformação em função das variáveis principais do problema.
+\noindent o que leva à necessidade de se determinar a primeira variação das parcelas envolvidas.
+
+%==================================================================================================
+\subsection{Energia de deformação elástica}
+%==================================================================================================
+
+Para a determinação da energia de deformação elástica, é necessária a consideração de um modelo constitutivo que permita, juntamente com as demais equações da cinemática do modelo estrutural, descrever a evolução da energia de deformação em função das variáveis principais do problema.
 
 Um modelo constitutivo capaz de representar diversos materiais elásticos em regime de deformações pequenas a moderadas é o de Saint-Venant-Kirchhoff, dado por, para o qual a energia de deformação específica (por unidade de volume) é dada por:
 
@@ -234,21 +240,123 @@ Ou ainda, da Eq. \eqref{eq:SVK}, nota-se que $\Stens$ é energeticamente conjuga
 
 Assim, a parcelas de energia de deformação fica:
 
-\begin{subequations}
-    \begin{align}
-         & \mathbb{U}=\frac{1}{2}\intDomi{\Stens:\defGL}\text{.}
-    \end{align}
-\end{subequations}
+\begin{equation}
+    \mathbb{U}=\frac{1}{2}\intDomi{\Stens:\defGL}\text{.}
+\end{equation}
 
 \noindent onde $\Omega_0$ é o domínio de análise em sua configuração inicial.
 
-\textcolor{red}{descreva a energia cinética e energia potencial das forças externas! Fica estranho só jogar a equação, especialmente se você descreveu a energia de deformação em detalhes}
+A primeira variação da energia de deformação pode ser obtida como:
 
-%& \mathbb{P}=-\BB{F}^a\cdot\BB{Y}^a-\intFronti{\BB{t}\cdot\BB{y}^m}\text{ e} \\
-%& \mathbb{K}=\frac{1}{2}\intDomi{\rho_0\norm{\dBB{y}}^2}\text
-%, cuja fronteira é $\Gamma_0=\partial\Omega_0$, $\BB{F}^a$ é uma força concentrada aplicada sobre um ponto $a$, cuja posição atual é $\BB{Y}^a$, $\BB{t}$ é uma força distribuída sobre uma superfície média da casca ($\BB{y}$) e $\rho_0$ é a massa específica inicial do contínuo.
+\begin{equation}
+    \delta\mathbb{U}=\frac{1}{2}\intDomi{\delta[\Stens:\defGL]}=\frac{1}{2}\intDomi{(\Stens:\delta\defGL+\defGL:\delta\Stens)}\text{.}
+\end{equation}
 
-%\noindent O Apêndice \ref{Ap:CSD} trata de forma mais detalhada o comportamento para casos multiaxiais.
+Substituindo $\delta\Stens$ a partir modelo constitutivo apresentado em \eqref{eq:CSD-S} tem-se:
+
+\begin{equation}
+    \delta\mathbb{U}=\frac{1}{2}\intDomi{(\Stens:\delta\defGL+\defGL:\tensCon:\delta\defGL)}\text{.}
+\end{equation}
+
+Devido à simetria do tensor constitutivo, é possível reescrever a equação acima como:
+
+\begin{equation}
+    \delta\mathbb{U}=\intDomi{\Stens:\delta\defGL}\text{,}
+\end{equation}
+
+\noindent a qual representa a primeira variação da energia de deformação.
+
+%==================================================================================================
+\subsection{Energia potencial das forças externas}
+%==================================================================================================
+
+Seja um corpo deformável submetido a um campo de forças externas conservativas apresentado na Figura \ref{fig:ForcasExt}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Corpo submetido a forças conservativas concentradas e distribuídas.}
+    \includegraphics[width=.75\linewidth]{Figuras/EnergForcExt.pdf}
+    \\Fonte: Autoria Própria (\the\year).
+    \label{fig:ForcasExt}
+\end{figure}
+
+Nesse cenário a energia potencial de uma força externa concentrada é definida como a capacidade de realizar trabalho. Assim, a energia potencial de uma força concentrada $\BB{F}_a$ aplicada sobre um nó $a$, cuja posição atual é $\BB{Y}_a$, é dada por:
+
+\begin{equation}
+    \mathbb{P}_a=-\BB{F}_a\cdot\BB{Y}_a\text{.}
+\end{equation}
+
+No caso ilustrado pela figura \ref{fig:ForcasExt}, o corpo encontra-se em um espaço bidimensional, porém a formulação permanece válida para espaços tridimensionais. Além disso, caso haja a aplicação de duas ou mais forças concentradas, a energia potencial total é a soma das parcelas de cada força.
+
+Já para forças distribuídas, considera-se um elemento infinitesimal da superfície do corpo sujeito a uma força distribuída $\BB{t}$. Dessa forma se obtém um infinitesimal de força dado por:
+
+\begin{equation}
+    d\BB{F}=\BB{t}d\Gamma_0\text{,}
+\end{equation}
+
+\noindent em que $d\Gamma_0$ é a área do elemento na configuração inicial. Portanto a energia potencial de um infinitésimo de força é dada por:
+
+\begin{equation}
+    d\mathbb{P}=-\BB{t}\cdot\BB{y}d\Gamma_0\text{.}
+\end{equation}
+
+Assim, somando-se a contribuição de todos os infinitésimos de energia potencial, a energia potencial total das forças distribuídas é dada por:
+
+\begin{equation}
+    \mathbb{P}=-\int_{\Gamma_0}{\BB{t}\cdot\BB{y}d\Gamma_0}\text{.}
+\end{equation}
+
+Desprezando-se a contribuição de forças de corpo, a energia potencial total das forças externas é dada por:
+
+\begin{equation}
+    \mathbb{P}=-\BB{F}_a\cdot\BB{Y}_a-\int_{\Gamma_0}{\BB{t}\cdot\BB{y}d\Gamma_0}\text{.}
+\end{equation}
+
+A primeira variação da energia potencial das forças externas é obtida como:
+
+\begin{equation}
+    \delta\mathbb{P}=-\BB{F}_a\cdot\delta\BB{Y}_a-\int_{\Gamma_0}{\BB{t}\cdot\delta\BB{y}d\Gamma_0}\text{.}
+\end{equation}
+
+%==================================================================================================
+\subsection{Energia cinética}
+%==================================================================================================
+
+O termo à direita da Eq. \eqref{eq:EqLocLa} pode ser entendido como a parcela de forças de inércia por unidade de volume atuantes sobre um ponto do corpo. Logo, ao considerar um volume infinitesimal $d\Omega_0$ do corpo, as forças inerciais atuantes sobre esse volume são dadas por:
+
+\begin{equation}
+    d\BB{f}^\mathrm{inerc}=\rho_0\ddot{\BB{y}}d\Omega_0\text{.}
+\end{equation}
+
+Dessa maneira, após transcorrido um intervalo de tempo infinitesimal $dt$ esse elemento terá percorrido uma distância $d\BB{y}$. Assim, o trabalho realizado pelo elemento devido à força inercial nesse intervalo de tempo ($d\mathbb{W}$) é dado por:
+
+\begin{equation}
+    d\mathbb{W}=\rho_0\ddot{\BB{y}}\cdot d\BB{y}d\Omega_0=\rho_0\ddot{\BB{y}}\cdot\dot{\BB{y}}dtd\Omega_0=\rho_0d\dot{\BB{y}}\cdot\dot{\BB{y}}d\Omega_0\text{.}
+\end{equation}
+
+Note que $d\dot{\BB{y}}\cdot\dot{\BB{y}}=d(\dBB{y}\cdot\dBB{y})/2$, então:
+
+\begin{equation}
+    d\mathbb{W}=\rho_0\frac{d(\dBB{y}\cdot\dBB{y})}{2}d\Omega_0\text{.}
+\end{equation}
+
+Portanto, a partir do teorema do trabalho-energia, a energia cinética é obtida integrando $d\mathbb{W}$ resultando em:
+
+\begin{equation}
+    \mathbb{K}=\frac{1}{2}\int_{\Omega_0}{\rho_0\dBB{y}\cdot\dBB{y}d\Omega_0}\text{.}
+\end{equation}
+
+Com isso, pode-se obter a primeira variação da energia cinética como:
+
+\begin{equation}
+    \delta\mathbb{K}=\frac{1}{2}\int_{\Omega_0}{\rho_0\delta[\dBB{y}\cdot\dBB{y}]d\Omega_0}=\int_{\Omega_0}{\rho_0\dBB{y}\cdot\delta\dBB{y}d\Omega_0}\text{,}
+\end{equation}
+
+\noindent o que resulta em:
+
+\begin{equation}
+    \delta\mathbb{K}=\int_{\Omega_0}{\rho_0\ddBB{y}\cdot\delta\BB{y}d\Omega_0}\text{.}
+\end{equation}
 
 %==================================================================================================
 \section{Método dos Elementos Finitos Posicional Aplicado a Elementos de Casca} \label{MEFP}
@@ -257,7 +365,6 @@ Assim, a parcelas de energia de deformação fica:
 Os elementos de casca podem ser entendidos como elementos estruturais definidos por uma superfície média 3D, e cuja dimensão perpendicular a essa superfície é muito menor que as demais. Assim, é possível tomar como referência a superfície média do elemento para mapear os pontos que o compõem, facilitando a descrição.
 
 A formulação apresentada a seguir segue a cinemática de Reissner-Mindlin, levando em consideração, de maneira aproximada, as deformações causadas pelas tensões de cisalhamento nas direções transversais ao elemento. Essa formulação de elementos finitos baseada em posições foi proposta por \citeonline{coda2007alternative}, já tendo sido aplicada com sucesso ao contexto da interação fluido-estrutura por \citeonline{sanches2011acoplamento,sanches2013unconstrained} e \citeonline{fernandes2019ale}.
-%\textcolor{red}{Deixe a parcela dissipativa de fora...}
 
 %==================================================================================================
 \subsection{Cinemática de Reissner-Mindlin}
@@ -368,7 +475,7 @@ Considerando-se o princípio da conservação da energia, tem-se que:
 \begin{subequations}
     \begin{align}
          & \BB{F}_a^\mathrm{int}=\intDomi{\der{u_e}{\DOF_a}}=\intDomi{\Stens:\der{\mathbb{E}}{\DOF_a}}\text{,}\label{eq:CSD-Fint}           \\
-         & \BB{F}_a^\mathrm{inerc}=\intDomi{\rho_0\der{\BB{y}}{\DOF_a}\cdot\ddBB{y}}\text{ e}\label{eq:CSD-Finerc}                          \\
+         & \BB{F}_a^\mathrm{inerc}=\intDomi{\rho_0\ddBB{y}\cdot\der{\BB{y}}{\DOF_a}}\text{ e}\label{eq:CSD-Finerc}                          \\
          & \BB{F}_a^\mathrm{ext}=\BB{F}_b\cdot\der{\BB{Y}_b}{\DOF_a}+\intFronti{\BB{t}\cdot\der{\BB{y}^m}{\DOF_a}}\text{.}\label{eq:CSD-Fc}
     \end{align}
     \label{eq:CSD-F}
