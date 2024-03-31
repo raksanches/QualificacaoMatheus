@@ -1,0 +1,29 @@
+%==================================================================================================
+\chapter{Conclusão} \label{Conclusao}
+%==================================================================================================
+
+A proposta do presente estudo está no desenvolvimento de uma ferramenta computacional que seja eficiente e precisa para a simulação numérica de problemas de interação fluido-estrutura. Para tanto, foi realizado o estudo do modelo de turbulência LES, capaz de capturar estruturas turbulentas presentes na subescala do problema, bem como a implementação de um método numérico que fosse capaz de resolver as equações governantes do escoamento e da estrutura de maneira acoplada.
+
+Para isso, utilizou-se códigos já desenvolvidos pelo grupo de pesquisa do Departamento de Engenharia de Estruturas (SET) da Escola de Engenharia de São Carlos (EESC) da Universidade de São Paulo (USP), os quais são capazes de resolver isoladamente tanto problemas de escoamentos incompressíveis quanto da dinâmica das estruturas.
+
+Primeiramente observam-se as equações que governam os escoamentos isotérmicos incompressíveis em descrição Euleriana, para problemas de contornos fixos, tendo em vista os princípios da conservação de massa e quantidade de movimento, resultando, assim, nas equações de Navier-Stokes. Nesse cenário o modelo constitutivo adotado é o de fluido Newtoniano, caracterizado pela presença de viscosidade constante do fluido. Posteriormente a formulação é estendida para a descrição Lagrangiana-Euleriana Arbitrária (ALE), permitindo a movimentação independente do domínio de referência. Esse processo se torna interessante, uma vez que se torna possível a movimentação da malha computacional para se adequar aos deslocamentos sofridos pela estrutura submetida ao escoamento.
+
+A obtenção de uma solução numérica do escoamento adotada, baseia-se no Método dos Elementos Finitos (MEF), onde se partiu da forma fraca das equações governantes empregando o método dos resíduos ponderados. Com isso são apresentadas as possíveis fontes de instabilidades que podem ocorrer ao utilizar tal abordagem no contexto de escoamentos incompressíveis. Uma das fontes de instabilidades advém da escolha dos espaços aproximadores, a qual deve atender as condições de \LBB\ (LBB) para garantir a estabilidade do campo de pressão. No entanto, a satisfação dessas condições restringe consideravelmente a escolha dos espaços aproximadores, o que motiva o uso de elementos estabilizados, como a estabilização \PSPG\ (PSPG). Outra fonte de instabilidade provém da domínio do termo convectivo sobre o termo dissipativo, aumentando o caráter hiperbólico da equação, sendo necessário o uso de métodos de estabilização, como o \SUPG\ (SUPG).
+
+Uma outra possibilidade de se contornar essas instabilidades está no uso de modelos de estabilização, em que, no presente trabalho, foi adotado a formulação variacional multiescala (VMS). Esse modelo faz a separação das grandes escalas do problema das pequenas escalas. Uma característica interessante observada nesse modelo está na presença tanto dos termos SUPG/PSPG quanto termos adicionais próprios da formulação.
+
+Já a discretização temporal do problema é feita a partir do integrador $\alpha$-generalizado, o qual se torna interessante uma vez que é possível controlar facilmente as dissipações de alta-frequência, por meio de um parâmetro único fornecido pelo usuário.
+
+A movimentação da malha é feita a partir da solução do problema de Laplace, o qual foi modificado de maneira a tornar os elementos menores mais rígidos em comparação com os maiores. Essa consideração é feita para manter a qualidade da malha, uma vez que evita distorções elevadas nos pequenos elementos, fazendo com que os elementos grandes sejam os principais responsáveis por absorver as deformações.
+
+O modelo de turbulência LES faz a decomposição dos campos envolvidos em parcelas filtradas e não filtradas, a partir da consideração de um filtro, aplicado sobre as variáveis do problema como uma convolução integral. O modelo faz a consideração que as variáveis não filtradas do escoamento possuem características isotrópicas e homogêneas, permitindo, assim, sua modelagem. Dessa forma, o modelo adotado é o modelo de viscosidade de Smagorinsky, adicionando um termo de viscosidade de vórtice ao problema, calculado em função da taxa de deformação do campo filtrado.
+
+Em análises numéricas de escoamento com contornos fixos, verificou-se a influência da utilização do modelo VMS em comparação ao SUPG/PSPG, ambos com e sem a aplicação de LES, assim como a utilização de elementos Taylor-Hood P2P1. Notou-se que a aplicação do VMS melhorou ligeiramente os resultados em relação à estabilização SUPG/PSPG. Já a aplicação do LES melhorou significativamente a qualidade dos resultados, principalmente conforme o número de Reynolds aumenta. Além disso também constatou-se que o LES melhorou a estabilidade do método em problemas com malha grosseira. Além disso, também foi possível observar que a utilização de elementos P2P1 levou à resultados com oscilações espúrias no campo de pressões, além de uma perda considerável de qualidade ao observar os coeficientes de arrasto e de sustentação em simulações com malha grosseira.
+
+%COMENTAR SOBRE CSD
+
+%COMENTAR SOBRE O ACOPLAMENTO
+
+%==================================================================================================
+\section{Sugestões para trabalhos futuros} \label{Sugestoes}
+%==================================================================================================
