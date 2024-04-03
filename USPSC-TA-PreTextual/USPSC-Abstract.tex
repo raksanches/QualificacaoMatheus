@@ -1,0 +1,21 @@
+%% USPSC-Abstract.tex
+%\autor{Silva, M. J.}
+\begin{resumo}[Abstract]
+	\begin{otherlanguage*}{english}
+		\begin{flushleft}
+			\setlength{\absparsep}{0pt} % ajusta o espaçamento dos parágrafos do resumo		
+			\SingleSpacing  		\imprimirautorabr~~\textbf{\imprimirtitleabstract}.	\imprimirdata.  \pageref{LastPage} p.
+			%Substitua p. por f. quando utilizar oneside em \documentclass
+			%\pageref{LastPage} f.
+			\imprimirtipotrabalhoabs~-~\imprimirinstituicao, \imprimirlocal, 	\imprimirdata.
+		\end{flushleft}
+		\OnehalfSpacing
+
+		Fluid-Structure Interaction (FSI) problems occur when a flow affects the behavior of the structure immersed in it and vice versa. The analysis of this type of problem is important, since the effects of this interaction can lead to catastrophic failures, such as the collapse of a structure or loss of aircraft control. However, the numerical simulation of FSI has challenges to be overcome, such as the high computational cost involved in the analyses, especially in turbulent flow problems, resulting in the need to use more refined meshes to capture the occurrence of vortices. In this context, the present work seeks to study and implement the turbulence model Large Eddy Simulation (LES), observing its influence on poorly discretized analyses. To this end, the equations that govern incompressible isothermal flows are presented, focusing on the Arbitrary Lagrangian-Eulerian (ALE) description, which allows independent movement of the reference domain. The numerical solution of the flow is obtained using the Finite Element Method (FEM), which can be stabilized by the SUPG/PSPG formulation or by the variational multiscale model (VMS). The temporal integrator used is the generalized-$\alpha$, which allows easy control of the high-frequency dissipation of the problem. The movement of the mesh is performed by solving the modified Laplace problem, in order to preserve the quality of the mesh. On the other hand, the problems of computational solid dynamics are analyzed following a position-based FEM approach for shell elements using Reissner-Mindlin kinematics. Finally, the coupling between the different mediums is achieved through strong partitioned coupling, as it allows the use of independent codes that properly resolve each medium involved. In this way, the numerical examples are compared with those present in the literature, using different stabilization possibilities, whether or not the LES may be applied. Thus, it can be seen that VMS stabilization slightly improves the results compared to SUPG/PSPG stabilization. The application of LES significantly improves the quality of results, especially in problems with high Reynolds numbers. In FSI problems, LES did not have much effect on problems with refined meshes in the region with the highest velocity gradient, however it still improved the method's convergence on coarser meshes.
+
+		\vspace{\onelineskip}
+
+		\noindent
+		\textbf{Keywords}: Fluid-Structure Interaction. Turbulent Flow. Finite Element Method. Large Eddy Simulation. Variational Multi-Scale. Reynolds-Averaged Navier-Stokes.
+	\end{otherlanguage*}
+\end{resumo}

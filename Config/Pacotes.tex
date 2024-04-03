@@ -1,119 +1,83 @@
-%% pacotes para tabelas
-\usepackage{booktabs}  % table
-\usepackage{float} % Fixa tabelas e figuras no local exato
-\usepackage{multirow} % múltiplas linhas
-\usepackage[table]{xcolor}
-
-% Pacotes básicos - Fundamentais 
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-
+%\usepackage{lmodern}			% Usa a fonte Latin Modern
 % Para utilizar a fonte Times New Roman, inclua uma % no início do comando acima  "\usepackage{lmodern}"
-\usepackage{times}			% Usa a fonte Times New Roman	
-% Lembre-se de alterar a fonte no comando que imprime o preâmbulo no arquivo da Classe USPSC.cls	
-
-%Chamada de pacotes para tratamento de termos matemáticos
-%\usepackage{mtpro2}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
+% Abaixo, tire a % antes do comando  \usepackage{times}
+\usepackage{times}		    	% Usa a fonte Times New Roman	
+% Para usar a fonte , lembre-se de tirar a % do comando %\renewcommand{\ABNTEXchapterfont}{\rmfamily}, localizado mais abaixo, logo após "Outras opções para nota de rodapé no Sistema Numérico" 						
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
-%\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype}			% para melhorias de justificação
+\usepackage{float} 				% Fixa tabelas e figuras no local exato
+\usepackage{microtype} 			% para melhorias de justificação
 \usepackage{pdfpages}
-\usepackage{makeidx}		% para gerar índice remissimo
-\usepackage{subfiles}		% para controlar subarquivos
-\usepackage[ampersand]{easylist} % para defininar listas
-\usepackage{titlesec, blindtext}
-%\usepackage{mathptmx}
-%\renewcommand{\rmdefault}{ptm}
-\usepackage{nccmath}
-\usepackage{extarrows} % imply with text below
-%\usepackage{indentfirst}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{multicol,lipsum}
-\usepackage{fancybox}
-\usepackage{longtable}
-\usepackage{mathtools}
-\usepackage{enumitem}  % Enumerate, Itemize
-\usepackage{tabu}  % tabela adequada a fórmulas
-\usepackage{pbox} % caixa dentro de uma célula da tabela
-\usepackage[b]{esvect} % seta de vetor sobrescrita
-\usepackage{framed} % quadro ao redor de um texto
-\usepackage{verbatim}
-\usepackage[percent]{overpic}
-\usepackage{makecell} %\multirowcell
-\usepackage{vwcol}
-\usepackage{arydshln} % dashed line on matrix
-\usepackage[portuguese,onelanguage,ruled,linesnumbered]{algorithm2e}
-\usepackage{hhline}
-\usepackage{dblfloatfix}    % To enable figures at the bottom of page
-\usepackage[section]{placeins} % make floating elements don't switch from sections
-\usepackage{etoolbox}
+\usepackage{makeidx}            % para gerar índice remissivo
+\usepackage{hyphenat}           % Pacote para retirar a hifenizacao do texto
+\usepackage[absolute]{textpos}  % Pacote permite o posicionamento do texto
+\usepackage{eso-pic}            % Pacote para incluir imagem de fundo
+\usepackage{makebox}            % Pacote para criar caixa de texto
 
-% Pacotes de citações - Citações padrão ABNT - Sistema autor-data
-\usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both,
-	abnt-repeated-author-omit=yes, abnt-last-names=abnt,
-	abnt-etal-cite,abnt-etal-list=3, abnt-etal-text=default,
-	abnt-and-type=e,
-	abnt-doi=doi, abnt-url-package=none,
-	abnt-verbatim-entry=no]{abntex2cite}
+\usepackage[alf, abnt-emphasize=bf, abnt-thesis-year=both, abnt-repeated-author-omit=no, abnt-last-names=abnt, abnt-etal-cite=3, abnt-etal-list=3, abnt-etal-text=it, abnt-and-type=e, abnt-doi=doi, abnt-url-package=none, abnt-verbatim-entry=no]{abntex2cite}
+\bibliographystyle{USPSC-classe/abntex2-alf-USPSC}
 
-% Pacotes de Nota de rodape
-% O presente modelo adota o formato numérico para as notas de rodapés quando utiliza o sistema de chamada autor-data para citações e referências.
-%\renewcommand{\footnotesize}{\small} %Comando para diminuir a fonte das notas de rodapé	
+\renewcommand{\footnotesize}{\small}
+\renewcommand{\ABNTEXchapterfont}{\rmfamily}
+\usepackage{lipsum}				% para geração de dummy text
 
-% pacotes de tabelas
 \usepackage{multicol}	% Suporte a mesclagens em colunas
 \usepackage{multirow}	% Suporte a mesclagens em linhas
 \usepackage{longtable}	% Tabelas com várias páginas
-\usepackage{threeparttablex}	% notas no longtable
+\usepackage{threeparttablex}    % notas no longtable
 \usepackage{array}
 
+\usepackage{USPSC-classe/ABNT6023-10520}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
-\usepackage[brazil]{babel}
-\usepackage{times} %fonte Adobe Times Roman 
-\usepackage{lastpage} % usado pela ficha catalográfica
-\usepackage{color} % controle das cores		
-\usepackage{graphicx} % inclusão de gráficos
-\usepackage{float} % força as figuras a ficarem depois do texto que você colocou
-\usepackage{chemfig}
-%\usepackage{chemmacros}
-\usepackage{upgreek}
-\usepackage{microtype} % para melhorias de justificação	
-\usepackage{pdfpages}
-\usepackage{lastpage}
-\usepackage{makeidx}
-\usepackage{quoting}
-\usepackage{afterpage}
-\usepackage{indentfirst} % indenta todos os primeiros parágrafos
-\usepackage{setspace}
-\usepackage{titlesec}
-\renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize}
-\renewcommand{\ABNTEXsectionfontsize}{\bfseries\normalsize}
-\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
-\usepackage{hyperref} % para permitir a criação de links
-\usepackage[scaled]{helvet} % usa a fonte arial
-\usepackage{fancyhdr}
-\usepackage{verbatim}
-\usepackage{amsmath,amssymb,amsfonts,textcomp} % vários pacotes juntos, utilizados para usar funções e outros símbolos matemáticos
-\fancyhf{} % numeração no canto superior direito
-\fancyheadoffset{0cm}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancyhead[R]{\thepage}
-\fancypagestyle{plain}{%
-	\fancyhf{}%
-	\fancyhead[R]{\thepage}%
-}
-\usepackage[alf]{abntex2cite} % Citações padrão ABNT
-\usepackage{appendix}
-\usepackage{colortbl}
+\usepackage{amsmath,amssymb,amsfonts,textcomp}
+
+\usepackage[portuguese,onelanguage,ruled,linesnumbered]{algorithm2e}
+
+\usepackage{caption,subcaption}
+
+\usepackage{enumitem} % Enumerate, Itemize
 \usepackage{icomma}
-\usepackage{tablefootnote}
+
+%==============================================================================================================
+% 
+% \usepackage{booktabs}  % table
+% % \usepackage[table]{xcolor}
+% 
+% \usepackage{subfiles}	         % para controlar subarquivos
+% \usepackage[ampersand]{easylist} % para definir listas
+% \usepackage{titlesec, blindtext}
+% %\usepackage{mathptmx}
+% %\renewcommand{\rmdefault}{ptm}
+% \usepackage{nccmath}
+% \usepackage{extarrows} % imply with text below
+% \usepackage{fancybox}
+% \usepackage{mathtools}
+% \usepackage{tabu}      % tabela adequada a fórmulas
+% \usepackage{pbox}      % caixa dentro de uma célula da tabela
+% \usepackage[b]{esvect} % seta de vetor sobrescrita
+% \usepackage{framed}    % quadro ao redor de um texto
+% \usepackage{verbatim}
+% \usepackage[percent]{overpic}
+% \usepackage{makecell} %\multirowcell
+% \usepackage{vwcol}
+% \usepackage{arydshln} % dashed line on matrix
+% \usepackage{hhline}
+% \usepackage{dblfloatfix}       % To enable figures at the bottom of page
+% \usepackage[section]{placeins} % make floating elements don't switch from sections
+% \usepackage{etoolbox}
+% 
+% \usepackage[brazil]{babel}
+% \usepackage{upgreek}
+% %\usepackage{quoting}
+% \usepackage{afterpage}
+% \usepackage{setspace}
+% \usepackage{hyperref}       % para permitir a criação de links
+% \usepackage[scaled]{helvet} % usa a fonte arial
+% \usepackage{fancyhdr}
+% \usepackage{appendix}
+% \usepackage{colortbl}
+% \usepackage{tablefootnote}

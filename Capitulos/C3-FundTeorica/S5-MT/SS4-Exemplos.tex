@@ -1096,10 +1096,10 @@ Observa-se, portanto, que o esquema de movimentação da malha foi capaz de acom
 O exemplo seguinte se trata de um aerofólio NACA0012 com movimento de arfagem, proposto por \citeonline{mittal1992finite}, o qual aplica esse movimento como uma rotação prescrita do aerofólio em torno de um eixo. O domínio do problema é definido por $\Omega=[-9C, 21C]\times[-10C, 10C]$, com o centro geométrico do aerofólio posicionado em $(0,0)$. Inicialmente o aerofólio possui um ângulo de ataque ($\theta$) de $10,0^\circ$ e cujo valor varia ao longo do tempo por meio de:
 
 \begin{equation}
-    \theta(t)=\frac{\theta_\mathrm{máx}+\theta_\mathrm{mín}}{2}-\frac{\theta_\mathrm{máx}-\theta_\mathrm{mín}}{2}\cos{(\omega_f t)}\text{,}
+    \theta(t)=\frac{\theta_\mathrm{max}+\theta_\mathrm{min}}{2}-\frac{\theta_\mathrm{max}-\theta_\mathrm{min}}{2}\cos{(\omega_f t)}\text{,}
 \end{equation}
 
-\noindent em que $\theta_\mathrm{máx}=30,0^\circ$ e $\theta_\mathrm{mín}=10,0^\circ$ são os valores máximo e mínimo do ângulo de ataque e $\omega_f=2\pi f_f$, sendo $f_f=1,0$ a frequência de oscilação. O giro do aerofólio se dá em torno de seu centro geométrico.
+\noindent em que $\theta_\mathrm{max}=30,0^\circ$ e $\theta_\mathrm{min}=10,0^\circ$ são os valores máximo e mínimo do ângulo de ataque e $\omega_f=2\pi f_f$, sendo $f_f=1,0$ a frequência de oscilação. O giro do aerofólio se dá em torno de seu centro geométrico.
 
 As condições de contorno do problema são de entrada na face esquerda ($\BB{u}=\{u_\infty,0\}\trans$), saída à direita e condição de simetria nas faces superior e inferior. A Figura \ref{fig:rotating-airfoil} apresenta o esquema do problema estudado.
 
