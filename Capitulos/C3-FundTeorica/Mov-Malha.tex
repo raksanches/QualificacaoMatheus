@@ -93,7 +93,7 @@ Dessa forma, verifica-se que o problema \eqref{eq:resLapl} é linear. Logo sua s
         \BB{Z}=\BB{Z}_m\text{,} & \text{ em }\Gamma_m\text{ e} \\
         \BB{Z}=\BB{0}           & \text{ em }\Gamma_f\text{,}
     \end{array}
-    \right.\label{eq:LaplMov}
+    \right.\label{eq:LaplMovAlg}
 \end{equation}
 
 \noindent no qual $\BB{Z}$ é o vetor que contém os deslocamentos nodais da malha e $\BB{B}$ é a matriz do problema, obtida pela combinação das matrizes $\BB{B}^{ab}$ elementares:
@@ -103,6 +103,40 @@ Dessa forma, verifica-se que o problema \eqref{eq:resLapl} é linear. Logo sua s
 \end{equation}
 
 Por fim, torna-se necessário apenas determinar os valores das derivadas temporais via integrador $\alpha$-generalizado.
+
+No entanto, a utilização desse esquema de movimentação de malha em problemas de IFE pode levar à oscilações espúrias no campo de aceleração da malha, refletindo, consequentemente, em oscilações no campo de velocidade da malha. Assim, a Eq. \ref{eq:LaplMov} pode ser modificada para a movimentação da malha via campo de acelerações, o que pode ser obtido a partir da seguinte equação:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \Nx\cdot([1+\eta]\Nx\ddBB{y})=\BB{0} & \text{ em }\Omega_F\text{,}  \\
+        \ddBB{y}=\ddBB{y}_m                  & \text{ em }\Gamma_m\text{ e} \\
+        \ddBB{y}=\BB{0}                      & \text{ em }\Gamma_f\text{.}
+    \end{array}
+    \right.\label{eq:LaplMovAcc}
+\end{equation}
+
+Seguindo o procedimento análogo ao descrito anteriormente, obtém-se o seguinte sistema algébrico:
+
+\begin{equation}
+    \left\{
+    \begin{array}{ll}
+        \BB{B}\ddBB{Y}=\BB{0}\text{,} & \text{ em }\Omega_F\text{,}  \\
+        \ddBB{Y}=\ddBB{Y}_m\text{,}   & \text{ em }\Gamma_m\text{ e} \\
+        \ddBB{Y}=\BB{0}\text{,}       & \text{ em }\Gamma_f\text{,}
+    \end{array}
+    \right.\label{eq:sistLapl}
+\end{equation}
+
+\noindent em que $\BB{B}$ é calculada da mesma maneira que a matriz do problema \eqref{eq:LaplMovAlg}. Dessa forma o campo de aceleração da malha é estabilizada, assim basta determinar as velocidades e acelerações nodais via integrador $\alpha$-generalizado. Com isso o usuário possui a liberdade de escolher facilmente o esquema de movimentação da malha que melhor se adequa ao problema em questão.
+
+
+
+
+
+
+
+
 
 \begin{comment}
 \textcolor{red}{1- O problema é linear, então não precisa usar Newton-Raphson; 2- Você está resolvendo a aceleração no programa? É mais adequado resolver o deslocamento, e posteriormente calcular a velocidade considerando o integrador temporal... Não faz sentido resolver a aceleração. Descreve apenas como está no programa, e arrume o restante do texto de acordo...}
