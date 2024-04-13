@@ -231,7 +231,6 @@ Nesse caso observou-se a influência que cada tipo de estabilização causa na s
 É possível perceber que a aplicação dos demais termos estabilizadores presentes na formulação VMS levaram a uma melhora na solução obtida, em relação ao SUPG/PSPG. No entanto a aplicação do modelo LES não surtiu efeito na solução encontrada. Isso se deve ao fato do número de Reynolds do problema ser baixo, além de possuir gradientes de velocidade também muito pequenos. Outro motivo que pode ter contribuído com a baixa contribuição do LES se deve ao fato do problema requerer um refinamento maior nas faces de entrada e saída do fluido, fazendo com que a face superior, como um todo, tivesse elementos menores, e é exatamente nessa região onde o LES teria seu maior impacto. Com isso, todos esses fatores somados levaram a um problema onde não se necessita a aplicação do modelo LES.
 
 \newpage
-\begin{comment}
 %==================================================================================================
 \subsection{Cavidade tridimensional}
 %==================================================================================================
@@ -255,7 +254,7 @@ O problema discretizado contém 7306 elementos de aproximação quadrática para
     \label{fig:Cavity3D-mesh}
 \end{figure}
 
-A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}.
+A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}, enquanto a Figura \ref{fig:Cavity3D-time} apresenta a configuração deformada da casca, colorida pelo deslocamento vertical nos instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}. Por fim, as Figuras \ref{fig:Cavity3D-press} e \ref{fig:Cavity3D-vel} apresentam, respectivamente, o campo de pressões e de velocidades para os mesmos instantes de tempo.
 
 \begin{figure}[h!]
     \centering
@@ -264,8 +263,6 @@ A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da c
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:Cavity3D-res}
 \end{figure}
-
-A Figura \ref{fig:Cavity3D-time} apresenta o deslocamento vertical da casca para os instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}.
 
 \begin{figure}[h!]
     \centering
@@ -292,8 +289,6 @@ A Figura \ref{fig:Cavity3D-time} apresenta o deslocamento vertical da casca para
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:Cavity3D-time}
 \end{figure}
-
-As Figuras \ref{fig:Cavity3D-press} e \ref{fig:Cavity3D-vel} apresentam, respectivamente, o campo de pressões e de velocidades para os mesmos instantes de tempo.
 
 \begin{figure}[h!]
     \centering
@@ -347,8 +342,34 @@ As Figuras \ref{fig:Cavity3D-press} e \ref{fig:Cavity3D-vel} apresentam, respect
     \label{fig:Cavity3D-vel}
 \end{figure}
 
+Na sequência estudou-se o problema com uma discretização mais grosseira no domínio do fluido, a qual é apresentada na Figura \ref{fig:Cavity3D-coarse}. A nova malha do fluido possui 2460 elementos quadráticos, 4339 nós e 17356 graus de liberdade, enquanto a malha da casca foi mantida inalterada. O passo de tempo e integrador temporal foram mantidos os mesmos da simulação passada. Nesse novo caso, observou-se a influência que cada tipo de estabilização causa na solução, onde simulou-se com as estabilizações SUPG/PSPG e VMS. Também foram simulados os problemas com e sem a aplicação do modelo LES, para analisar os efeitos que este causa na solução. A Figura \ref{fig:Cavity3D-rescoarse} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear} e com a simulação com malha mais fina.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Malhas utilizadas para o segundo caso.}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/fm2.png}
+        \caption{Fluido.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/sm2.png}
+        \caption{Casca.}
+    \end{subfigure}
+    \\Fonte: Presente trabalho (\the\year).
+    \label{fig:Cavity3D-coarse}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Cavidade tridimensional - Deslocamento vertical do centro da casca ao longo do tempo para o segundo caso.}
+    \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/FSI-cavity3D.pdf}
+    \\Fonte: Presente trabalho (\the\year).
+    \label{fig:Cavity3D-rescoarse}
+\end{figure}
+
+Verifica-se que a aplicação dos demais termos estabilizadores presentes na formulação VMS levaram a uma solução mais amortecida em relação ao SUPG/PSPG.
+
 \newpage
-\end{comment}
 %==================================================================================================
 \subsection{\textit{Flutter} em painel flexível} \label{FSI-prism}
 %==================================================================================================
