@@ -292,54 +292,45 @@ A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da c
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade tridimensional - Campo de pressões na cavidade.}
-    \begin{subfigure}[b]{0.35\textwidth}
+    \caption{Cavidade tridimensional - Campo de pressão e de velocidade na cavidade.}
+    \begin{subfigure}[b]{0.23\textwidth}
+        \caption*{Campo de pressões}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p4.png}
-        \caption{$t=4,0$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[b]{0.23\textwidth}
+        \caption*{Campo de velocidade}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u4.png}
+    \end{subfigure}
+    \caption*{$t=4,0$}
+    \begin{subfigure}[b]{0.23\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p6.png}
-        \caption{$t=6,0$}
-    \end{subfigure}\\
-    \begin{subfigure}[b]{0.35\textwidth}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.23\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u6.png}
+    \end{subfigure}
+    \caption*{$t=6,0$}
+    \begin{subfigure}[b]{0.23\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p21-8.png}
-        \caption{$t=21,8$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[b]{0.23\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u21-8.png}
+    \end{subfigure}
+    \caption*{$t=21,8$}
+    \begin{subfigure}[b]{0.23\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p24-3.png}
-        \caption{$t=24,3$}
     \end{subfigure}
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.23\textwidth}
+        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u24-3.png}
+    \end{subfigure}
+    \caption*{$t=24,3$}
+    \begin{subfigure}[b]{0.35\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/lp.png}
     \end{subfigure}
-    \\Fonte: Presente trabalho (\the\year).
-    \label{fig:Cavity3D-press}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Cavidade tridimensional - Campo de velocidades na cavidade.}
     \begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u4.png}
-        \caption{$t=4,0$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u6.png}
-        \caption{$t=6,0$}
-    \end{subfigure}\\
-    \begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u21-8.png}
-        \caption{$t=21,8$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/u24-3.png}
-        \caption{$t=24,3$}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.5\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/lu.png}
     \end{subfigure}
     \\Fonte: Presente trabalho (\the\year).
-    \label{fig:Cavity3D-vel}
+    \label{fig:Cavity3D-press}
 \end{figure}
 
 Na sequência estudou-se o problema com uma discretização mais grosseira no domínio do fluido, a qual é apresentada na Figura \ref{fig:Cavity3D-coarse}. A nova malha do fluido possui 2460 elementos quadráticos, 4339 nós e 17356 graus de liberdade, enquanto a malha da casca foi mantida inalterada. O passo de tempo e integrador temporal foram mantidos os mesmos da simulação passada. Nesse novo caso, observou-se a influência que cada tipo de estabilização causa na solução, onde simulou-se com as estabilizações SUPG/PSPG e VMS. Também foram simulados os problemas com e sem a aplicação do modelo LES, para analisar os efeitos que este causa na solução. A Figura \ref{fig:Cavity3D-rescoarse} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear} e com a simulação com malha mais fina.
@@ -367,7 +358,7 @@ Na sequência estudou-se o problema com uma discretização mais grosseira no do
     \label{fig:Cavity3D-rescoarse}
 \end{figure}
 
-Verifica-se que a aplicação dos demais termos estabilizadores presentes na formulação VMS levaram a uma solução mais amortecida em relação ao SUPG/PSPG.
+Verifica-se que a aplicação dos demais termos estabilizadores presentes na formulação VMS levaram a uma solução mais amortecida em relação ao SUPG/PSPG, provavelmente devido à uma maior dissipação de energia que os termos adicionais podem causar. No entanto, a aplicação do modelo LES não surtiu efeito na solução encontrada, o que se deve ao fato do número de Reynolds do problema ser baixo, além de possuir gradientes de velocidade também muito pequenos.
 
 \newpage
 %==================================================================================================
