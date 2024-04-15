@@ -96,8 +96,56 @@ brazil				% o último idioma é o principal do documento
 
 \makeindex
 
+%---------------------------------------------------------------------
+% Imagem da capa para mestrado
+\newcommand\BackgroundPicMestrado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/CapaEESC_m.png}
+\vfill
+}}}
+
+% Imagem no final do arquivo para mestrado
+\newcommand\BackgroundLastPicMestrado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/ContraCapaEESC_m.png}
+}}}
+
+% Imagem da capa para doutorado
+\newcommand\BackgroundPicDoutorado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/CapaEESC_m.png}
+\vfill
+}}}
+
+% Imagem no final do arquivo para doutorado
+\newcommand\BackgroundLastPicDoutorado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/ContraCapaEESC_d.png}
+}}}
+
+% Página em branco
+\newcommand\BackgroundLimpo{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{USPSC-img/USPSC-PaginaEmBranco.jpg}
+\vfill
+}}}
+%---------------------------------------------------------------------
+
 \begin{document}
-\includepdf[pages=-]{USPSC-TA-PreTextual/Capa_mestrado.pdf}
+%\includepdf[pages=-]{USPSC-TA-PreTextual/Capa_mestrado.pdf}
 
 \selectlanguage{brazil}
 %\selectlanguage{english}
@@ -114,13 +162,48 @@ brazil				% o último idioma é o principal do documento
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
-\imprimircapa
+
+%---------------------------------------------------------------------
+%\imprimircapa
+\AddToShipoutPicture{\BackgroundPicMestrado}
+%\AddToShipoutPicture{\BackgroundPicDoutorado}
+
+%-------------
+\begin{minipage}[c]{144mm}
+	\centering
+	\begin{textblock*}{144mm}(61mm,65mm)
+		\vspace*{1,2cm}
+		\linespread{0.5}
+		\ABNTEXchapterfont\bfseries\Large
+		\textcolor{capa-azul}{\nohyphens{\imprimirtitulo}}
+	\end{textblock*}
+\end{minipage}
+\vfill
+\vspace*{5cm}
+\begin{minipage}[t][65mm][t]{125mm}
+	\begin{textblock*}{125mm}(81mm,123mm)
+		\ABNTEXchapterfont\bfseries\Large
+		\textcolor{capa-azul}{\nohyphens{\imprimirautor}}
+		\vfill
+		\vspace{9pt}
+		\ABNTEXsubsectionfontsize\small
+		\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{10}{6}\normalfont}
+		\ABNTEXsubsectionfontsize
+		\textcolor{capa-azul}{\nohyphens{Disserta\c{c}\~ao de Mestrado do Programa de P\'os-Gradua\c{c}\~ao em Engenharia Civil (Engenharia de Estruturas) da Escola de Engenharia de S\~ao Carlos, Universidade de S\~ao Paulo}}
+		%\textcolor{capa-azul}{\nohyphens{Tese de Doutorado do Programa de P\'os-Gradua\c{c}\~ao em Engenharia Civil (Engenharia de Estruturas) da Escola de Engenharia de S\~ao Carlos, Universidade de S\~ao Paulo}}
+		\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{12}{12}\normalfont}
+	\end{textblock*}
+\end{minipage}
+\newpage
+\AddToShipoutPicture{\BackgroundLimpo}
+%---------------------------------------------------------------------
+
 \imprimirfolhaderosto*
 %\imprimirfolhaderosto
 
 % A biblioteca da sua Unidade lhe fornecerá um PDF com a ficha catalográfica definitiva. Quando estiver com o documento, salve-o como PDF no diretório do seu projeto como fichacatalografica.pdf e inclua o arquivo utilizando o comando abaixo:
 
-%\includepdf{USPSC-TA-PreTextual/USPSC-fichacatalografica.pdf}
+\includepdf{USPSC-TA-PreTextual/fichacatalografica.pdf}
 
 % Se você optar por elaborar a ficha catalográfica, deverá incluir uma % antes da linha % antes do comando \include{USPSC-TA-PreTextual/USPSC-fichacatalografica} e retirar o % do comando abaixo \include{USPSC-TA-PreTextual/USPSC-fichacatalografica}
 % As informações que compõem a ficha catalográfica estão definidas no arquivo USPSC-pre-textual-UUUU.tex
@@ -205,5 +288,13 @@ brazil				% o último idioma é o principal do documento
 
 %---------------------------------------------------------------------
 
-\includepdf[pages=-]{USPSC-TA-PosTextual/Contracapa_mestrado.pdf}
+% \includepdf[pages=-]{USPSC-TA-PosTextual/Contracapa_mestrado.pdf}
+%---------------------------------------------------------------------
+\newpage
+\thispagestyle{empty}
+\AddToShipoutPicture{\BackgroundLastPicMestrado}
+%\AddToShipoutPicture{\BackgroundLastPicDoutorado}
+\phantom{ }
+%---------------------------------------------------------------------
+
 \end{document}
