@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="183.15814mm"
+   height="2.9114501mm"
+   viewBox="0 0 183.15814 2.9114501"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   sodipodi:docname="legenda2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.2828283"
+     inkscape:cx="371.83465"
+     inkscape:cy="-23.385827"
+     inkscape:window-width="1920"
+     inkscape:window-height="962"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(33.866676,-181.76875)">
+    <g
+       id="g41"
+       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
+      <path
+         d="m 855,435 h 34"
+         stroke="#70ad47"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path40" />
+    </g>
+    <text
+       font-family="Arial, Arial_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.175px"
+       id="text41"
+       x="-23.69133"
+       y="184.08023"
+       style="stroke-width:0.264583;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-family:Arial, Arial_MSFontService, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.175px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+         sodipodi:role="line"
+         id="tspan1">P2P1</tspan></text>
+    <g
+       id="g43"
+       transform="matrix(0.26458333,0,0,0.26458333,-269.7014,67.92815)">
+      <path
+         d="m 973,435 h 34"
+         stroke="#ed7d31"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path42" />
+    </g>
+    <text
+       font-family="Arial, Arial_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.175px"
+       id="text43"
+       x="-2.3267162"
+       y="184.08023"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:Arial, Arial_MSFontService, sans-serif;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="-2.3267162"
+         y="184.08023">SUPG/PSPG-Qua</tspan></text>
+    <g
+       id="g45"
+       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
+      <path
+         d="m 1085,435 h 33"
+         stroke="#a5a5a5"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path44" />
+    </g>
+    <g
+       id="g46"
+       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
+      <text
+         font-family="Arial, Arial_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="12px"
+         transform="translate(1121.95,439)"
+         id="text45">VMS-Qua</text>
+    </g>
+    <g
+       id="g47"
+       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
+      <path
+         d="m 1197,435 h 33"
+         stroke="#ffc000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path46" />
+    </g>
+    <text
+       font-family="Arial, Arial_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.175px"
+       id="text47"
+       x="66.68293"
+       y="184.08023"
+       style="stroke-width:0.264583">LES-P2P1</text>
+    <g
+       id="g49"
+       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
+      <path
+         d="m 1312,435 h 34"
+         stroke="#5b9bd5"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path48" />
+    </g>
+    <text
+       font-family="Arial, Arial_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.175px"
+       id="text49"
+       x="97.223778"
+       y="184.08023"
+       style="stroke-width:0.264583">LES-VMS-Qua</text>
+    <g
+       id="g51"
+       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
+      <path
+         d="m 1451,435 h 34"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         stroke-dasharray="4, 4"
+         fill="none"
+         fill-rule="evenodd"
+         id="path50" />
+    </g>
+    <text
+       font-family="Arial, Arial_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.175px"
+       id="text51"
+       x="133.93736"
+       y="184.08023"
+       style="stroke-width:0.264583">Referência</text>
+  </g>
+</svg>

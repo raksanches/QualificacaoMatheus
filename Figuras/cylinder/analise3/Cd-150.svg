@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="248.97292mm"
-   height="106.89166mm"
-   viewBox="0 0 248.97292 106.89166"
+   width="239.54996mm"
+   height="91.830696mm"
+   viewBox="0 0 239.54996 91.830694"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    sodipodi:docname="Cd-150.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,12 +24,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.73139029"
-     inkscape:cx="793.69388"
-     inkscape:cy="138.77679"
+     inkscape:cx="772.50137"
+     inkscape:cy="127.15509"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-height="962"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -192,18 +192,11 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(105.03959,-111.91875)">
+     transform="translate(99.558196,-114.72891)">
     <g
        clip-path="url(#clip0-1)"
        transform="matrix(0.26458333,0,0,0.26458333,-297.39167,111.91875)"
        id="g81">
-      <rect
-         x="727"
-         y="0"
-         width="941"
-         height="404"
-         fill="#ffffff"
-         id="rect12" />
       <g
          id="g12">
         <path
@@ -551,116 +544,6 @@
            font-size="13px"
            transform="translate(1199.6,355)"
            id="text45">Tempo</text>
-      </g>
-      <g
-         id="g47">
-        <path
-           d="m 942,385 h 26"
-           stroke="#70ad47"
-           stroke-width="2"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           fill-rule="evenodd"
-           id="path46" />
-      </g>
-      <g
-         id="g48">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="12px"
-           transform="translate(970.373,389)"
-           id="text47">DNS-P2P1</text>
-      </g>
-      <g
-         id="g49">
-        <path
-           d="m 1048,385 h 26"
-           stroke="#ed7d31"
-           stroke-width="2"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           fill-rule="evenodd"
-           id="path48" />
-      </g>
-      <g
-         id="g50">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="12px"
-           transform="translate(1076.36,389)"
-           id="text49">DNS-Qua</text>
-      </g>
-      <g
-         id="g51">
-        <path
-           d="m 1147,385 h 26"
-           stroke="#a5a5a5"
-           stroke-width="2"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           fill-rule="evenodd"
-           id="path50" />
-      </g>
-      <g
-         id="g52">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="12px"
-           transform="translate(1175.67,389)"
-           id="text51">VMS-Qua</text>
-      </g>
-      <g
-         id="g53">
-        <path
-           d="m 1247,385 h 26"
-           stroke="#ffc000"
-           stroke-width="2"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           fill-rule="evenodd"
-           id="path52" />
-      </g>
-      <g
-         id="g54">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="12px"
-           transform="translate(1275.64,389)"
-           id="text53">LES-P2P1</text>
-      </g>
-      <g
-         id="g55">
-        <path
-           d="m 1351,385 h 25"
-           stroke="#5b9bd5"
-           stroke-width="2"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-miterlimit="10"
-           fill="none"
-           fill-rule="evenodd"
-           id="path54" />
-      </g>
-      <g
-         id="g56">
-        <text
-           font-family="Arial, Arial_MSFontService, sans-serif"
-           font-weight="400"
-           font-size="12px"
-           transform="translate(1378.97,389)"
-           id="text55">LES-VMS-Qua</text>
       </g>
       <rect
          x="1191"

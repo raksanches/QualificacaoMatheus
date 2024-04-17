@@ -342,7 +342,7 @@ Assim, os escoamentos de Navier-Stokes incompressíveis em descrição ALE são 
 \section{Forma fraca das equações governantes} \label{FSD}
 %==================================================================================================
 
-Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Assim, sejam os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ das funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
+Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Assim, sejam os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ das funções tentativas para os campos de velocidade e pressão, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:
 
 \begin{equation}
     \script{S}_u=\left\{\BB{u}|\BB{u}(\cdot,t)\in H^1(\Omega),\BB{u}=\BB{g}\text{ em }\Gamma_D\right\}\text{ e}
@@ -394,7 +394,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 
 Assim, o problema, fica definido como: dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\HBB{u}$, em que $\BB{h}=\tens\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias em problemas de convecção dominante caso seja considerado o método clássico de Galerkin (Bubnov-Galerkin), como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidades e de pressões não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias em problemas de convecção dominante caso seja considerado o método clássico de Galerkin (Bubnov-Galerkin), como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidade e de pressão não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
@@ -437,7 +437,7 @@ Para a discretização espacial do problema em descrição Euleriana pode-se rea
     \end{align}
 \end{subequations}
 
-\noindent onde $N_a^u$ e $N_a^p$ são as funções de forma para aproximação do campo de velocidades e de pressões, respectivamente, associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
+\noindent onde $N_a^u$ e $N_a^p$ são as funções de forma para aproximação do campo de velocidade e de pressão, respectivamente, associadas ao nó $a$ da malha e $\BB{\eta}^s$ o respectivo índice desse nó, assim como $\BB{\eta}^w$ são os índices referentes aos nós da malha para as funções teste.
 
 Já para a descrição ALE as funções de forma $N_a(\BB{y},t)$ são definidas com base na configuração de referência da malha como:
 
