@@ -1,16 +1,14 @@
 %==================================================================================================
-\section{Estudo dos modelos numéricos para escoamentos incompressíveis} \label{ExemplosMT}
+\section{Estudo numéricos de escoamentos incompressíveis} \label{ExemplosMT}
 %==================================================================================================
 
-Para verificação das formulações implementadas em simulações de contornos fixos, realizaram-se tanto algumas simulações de problemas bidimensionais quanto tridimensionais. Utilizando-se o problema de escoamento em uma cavidade (Seção \ref{ex:cavity}), proposto por \citeonline{ghia1982high}, foi possível observar-se os impactos na solução com o uso de diferentes elementos, estabilizações e utilização, ou não, de modelo LES. Na sequência verificou-se o impacto da utilização do LES no mesmo problema, porém com a consideração de malhas consideravelmente mais grosseiras, além da análise do problema em uma situação tridimensional do mesmo. Em seguida observou-se o problema de escoamento em degrau invertido (Seção \ref{ex:backwardFacingStep}), proposto por \citeonline{armaly1983experimental} e estendido numericamente por \citeonline{chiang1999numerical}, onde se verificou os efeitos da utilização de diferentes elementos na solução. Posteriormente estudou-se o problema de escoamento sobre um cilindro (Seção \ref{ex:cylinder}), no qual se observou o comportamento transiente dos coeficientes de arrasto e de sustentação para diferentes elementos, estabilizações e aplicação, ou não, de LES, sendo observadas as influências também em discretizações grosseiras. Por fim estudou-se, para escoamentos turbulentos, o problema de escoamento sobre um aerofólio NACA 0012 com $\Rey=5\times10^4$ (Seção \ref{ex:NACA0012}), tanto em simulação bidimensional, quanto tridimensional, utilizando elementos quadráticos com e sem a aplicação do modelo LES.
-
-Na sequência, são apresentados exemplos de escoamentos em problemas de contornos móveis, aplicando o método de movimentação da malha por meio da suavização de Laplace. Para tanto, são estudados os problemas de cilindro com deslocamento prescrito, proposto por \citeonline{wan2007fictitious}, e o aerofólio com movimento de arfagem prescrito, proposto por \citeonline{mittal1992finite}.
+Para verificação e estudo das características numéricas das formulações implementadas para a mecânica dos fluidos, são realizadas simulações de problemas cuja solução é bem estabelecida na literatura, adotando tanto com discretizações bidimensionais quanto tridimensionais. Inicia-se com o estudo de problemas com contornos fixos (velocidade da malha nula em todo o domínio), e posteriormente, simula-se também dois exemplos com contornos móveis.
 
 %==================================================================================================
 \subsection{Cavidade bidimensional} \label{ex:cavity}
 %==================================================================================================
 
-Um problema comumente utilizado na literatura como \textit{benchmark}, trata-se de uma cavidade quadrada com paredes aderentes, onde o fluido encontra-se confinado e sujeito a uma velocidade prescrita $\BB{u}_\infty$ ocasionada devido ao deslizamento de uma parede na face superior da cavidade. Assim são observados os efeitos provocados no escoamento devido à diferentes números de Reynolds, determinado pela Eq. \eqref{eq:Reynolds}, em que o comprimento característico é igual ao lado da cavidade. Dessa forma considera-se uma velocidade constante para todas as análises de $\BB{u}_\infty=(1,0)\trans$, sendo os diferentes números de Reynolds obtidos pela variação da viscosidade do fluido. A Figura \ref{fig:cavity} apresenta esquematicamente o problema simulado.
+Este problema é comumente utilizado na literatura como \textit{benchmark} para verificação de formulações numéricas para escoamentos incompressíveis, tratando-se de uma cavidade quadrada com paredes aderentes, onde o fluido encontra-se confinado e sujeito a uma velocidade horizontal prescrita $\BB{u}_\infty$ no topo devida ao deslizamento da parede, como apresentado na Figura \ref{fig:cavity}. Devido ao fato do problema possuir apenas fronteiras de Dirichlet, o condicionamento da solução do campo de pressões é garantido pela aplicação de uma condição de pressão nula no centro da aresta inferior da cavidade. Também se observa que existe uma descontinuidade nas condições de contorno no encontro entre as paredes laterais da cavidade e o topo, podendo ser consideradas velocidades nulas ou igual à velocidade do topo. No problema em questão considerou-se que a velocidade nesse ponto é igual à $\BB{u}_\infty$.
 
 \begin{figure}[h!]
     \centering
@@ -18,11 +16,11 @@ Um problema comumente utilizado na literatura como \textit{benchmark}, trata-se 
     \includegraphics[width=.4\linewidth]{Figuras/Cavity/cavidade.pdf}
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cavity}
-\end{figure}
+\end{figure}.
 
-Pelo fato de o problema possuir apenas fronteiras de Dirichlet, o condicionamento da solução do campo de pressões é garantido pela aplicação de uma condição de pressão nula no centro da aresta inferior da cavidade, conforme visto na figura acima. Também se observa que existe uma descontinuidade nas condições de contorno no encontro entre as paredes da cavidade e seu topo, podendo ser consideradas velocidades nulas ou igual à velocidade do topo. No problema em questão considerou-se que a velocidade nesse ponto é igual à $\BB{u}_\infty$.
+Considera-se o fluido com densidade unitária $\rho=1,0$ e velocidade no topo também unitária para todas as análises, enquanto a viscosidade do fluido é modificada para obter-se diferentes números de Reynolds. São considerados os casos com número de Reynolds 100, 400, 1.000, 5.000, 7.500 e 10.000, tomando o lado da cavidade como comprimento característico. O problema parte do repouso em todas as simulações, sendo considerado o passo de tempo $\Delta t=0,1$ com $\rho_\infty=0,0$ para o integrador temporal, sendo a simulação mantida até que a estacionariedade fosse alcançada.
 
-A simulação foi conduzida considerando malhas estruturadas com orientação à esquerda para elementos triangulares. Assim observou-se a solução obtida para três casos: elementos de aproximação linear (estabilizado por SUPG/PSPG), quadrática (estabilizado por SUPG/PSPG e VMS) e P2P1 sem termos estabilizadores, sendo todos simulados tanto em DNS e com aplicação do modelo LES. A Tabela \ref{tab:cavity-mesh} apresenta as características das malhas utilizadas, sendo $n_u$ e $n_p$ o número de nós para interpolação do campo de velocidades e de pressões, respectivamente. A Figura \ref{fig:cavity-mesh} apresenta as malhas utilizadas para a simulação.
+Inicialmente são empregadas 3 diferentes discretizações bidimensionais, uma com elementos triangulares de aproximação quadrática tanto para velocidade quanto para pressão, outra com elementos triangulares Taylor-Hood de aproximação quadrática para velocidade e linear para pressão (P2P1), e uma terceira com elementos triangulares de aproximação linear tanto para velocidade como para pressão, conforme as características apresentadas na tabela \ref{tab:cavity-mesh}, onde $n_u$ e $n_p$ são os números de nós para interpolação dos campos de velocidade e de pressão, respectivamente. Essas malhas são ilustradas na figura \ref{fig:cavity-mesh}.
 
 \begin{table}[h!]
     \centering
@@ -55,13 +53,14 @@ A simulação foi conduzida considerando malhas estruturadas com orientação à
     \label{fig:cavity-mesh}
 \end{figure}
 
-O fluido possui massa específica $\rho=1$ para todas as análises e viscosidade dinâmica variando de forma a se obter diferentes números de Reynolds. Assim os valores da viscosidade serão de $\mu=0,02$, $\mu=5\times10^{-3}$, $\mu=2\times10^{-3}$, $\mu=4\times10^{-4}$, $\mu=2,6667\times10^{-4}$ e $\mu=2\times10^{-4}$, resultando em $\Rey=100$, $\Rey=400$, $\Rey=1000$, $\Rey=5000$, $\Rey=7500$ e $\Rey=10000$, respectivamente. O problema parte do repouso em todas as simulações, o passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rho_\infty=0,0$. O valor da constante de Smagorinsky foi de $C_S=0,10$.
+Assim, para cada número de Reynolds as simulações são realizadas considerando-se: 1) elementos finitos de aproximação linear para velocidade e pressão com estabilização SUPG/PSPG; 2) elementos de aproximação quadrática para velocidade e pressão com estabilização por SUPG/PSPG; 3) elementos de aproximação quadrática para velocidade e pressão com formulação VMS; 4) elementos Taylor-Hood P2P1 estabilizados por SUPG, e 4) a combinação de cada um dos casos anteriores com o modelo de turbulência LES, adotando-se constante de Smagorinsky $C_S=0,10$.
 
-Os resultados obtidos foram comparados com aqueles apresentados por \citeonline{ghia1982high}. A Figura \ref{fig:cavity-results} apresenta os valores do campo de velocidades sobre as linhas médias da cavidade ($x_1=0$ e $x_2=0$).
+
+A Figura \ref{fig:cavity-results} apresenta os valores obtidos para velocidades sobre as linhas médias da cavidade ($y_1=0$ e $y_2=0$) por cada uma das simulações, comparando-se os resultados obtidos com aqueles apresentados por \citeonline{ghia1982high}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Valores do campo de velocidades sobre as linhas médias.}
+    \caption{Cavidade bidimensional - distribuição de velocidade sobre as linhas médias.}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{Figuras/Cavity/Re100.pdf}
         \caption{$\Rey=100$}
@@ -94,7 +93,15 @@ Os resultados obtidos foram comparados com aqueles apresentados por \citeonline{
     \label{fig:cavity-results}
 \end{figure}
 
-A Figura \ref{fig:cavity-results2} apresenta o campo de velocidades na cavidade após o escoamento atingir seu estado estacionário segundo a simulação LES utilizando elementos quadráticos.
+Pelo fato de se utilizar um método diferente em relação à referência, o qual utiliza o método \textit{multi-grid} com 257$\times$257 e 129$\times$129 pontos, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos de aproximação linear, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos quadráticos, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos lineares.
+
+Para todos os casos, à medida que o número de Reynolds aumenta, é possível notar que a aplicação do modelo LES melhorou a representação do campo de velocidades, o que deve-se à boa capacidade do modelo de capturar os efeitos turbulentos em escalas menores que os elementos da malha. Já o uso da formulação VMS, embora tenha sido muito eficiente para garantir a estabilização, não apresentou diferenças significativas em relação à formulação estabilizada SUPG/PSPG.
+
+O emprego dos elementos Taylor-Hood P2P1 sem estabilização nem modelo de turbulência mostrou-se muito boa para representar o campo de velocidades, com resultados ligeiramente inferiores aos dos elementos de aproximação quadrática em formulação SUPG/PSPG observáveis apenas para os $Re=7.500$ e $Re=10.000$. É importante ainda notar que, embora o problema considerado atinja números de Reynolds elevados, os termos convectivos não atuam sobre fortes gradientes, de modo que foi possível obter solução estável com os elementos P2P1.
+
+Com relação ao tempo de processamento, para as simulações apenas com estabilização SUPG/PSPG, observa-se um tempo médio de 0,2285 segundos por iteração na solução do problema não linear para a simulação com elementos lineares, enquanto para a simulação com elementos quadráticos o tempo médio foi de 0,2032 segundos por iteração, o que resulta em um tempo 12,466\% maior para a simulação com elementos lineares, ainda conduzindo a resultados menos precisos. Todavia, para a simulação com o modelo LES, o tempo médio de processamento foi de 0,2134 segundos por iteração em elementos quadráticos, o que resulta em um tempo 5,028\% maior que o caso anterior, o que mostra que o modelo LES pode apresentar um certo impacto no tempo de processamento.
+
+A Figura \ref{fig:cavity-results2} apresenta as distribuições do módulo da velocidade após o escoamento atingir seu estado estacionário, obtidas por meio da simulação com elementos quadráticos com VMS+LES.
 
 \begin{figure}[h!]
     \centering
@@ -130,13 +137,8 @@ A Figura \ref{fig:cavity-results2} apresenta o campo de velocidades na cavidade 
     \label{fig:cavity-results2}
 \end{figure}
 
-Pelo fato da malha ser grosseira, percebe-se que os resultados divergem ligeiramente do esperado em relação à referência, principalmente para números de Reynolds elevados. No entanto, para esse nível de refinamento é possível observar que os elementos lineares, apesar de possuírem mesmo número de graus de liberdade, apresentaram resultados consideravelmente mais discrepantes que os elementos quadráticos. Isso se deve ao fato de que os elementos lineares não possuem a capacidade de representar adequadamente o campo de velocidades, principalmente nas regiões de maior gradiente, como é o caso das paredes da cavidade. Já, para ambos os elementos, verifica-se que a aplicação do modelo LES sobre o escoamento melhorou a representação do campo de velocidades, principalmente para números de Reynolds elevados, onde o escoamento apresenta maior turbulência. Isso deve-se ao fato do modelo ser capaz de capturar os efeitos turbulentos em escalas menores que os elementos da malha, o que não ocorre na simulação DNS.
 
-Para números de Reynolds elevados, no entanto, a aplicação dos demais termos estabilizadores da formulação VMS não afetou significativamente os resultados, em comparação com a simulação estabilizada por SUPG/PSPG. Outro ponto a ser observado é que a consideração de elementos P2P1 sem nenhuma estabilização ainda foi capaz de apresentar resultados muito semelhantes às demais simulações, em termos do campo de velocidades.
-
-Já com relação ao tempo de processamento, observou-se um tempo médio de 0,2285 segundos por iteração para a simulação de elementos lineares em DNS, enquanto para a simulação de elementos quadráticos o tempo médio foi de 0,2032 segundos por iteração, o que resulta em um tempo 12,466\% maior para a simulação de elementos lineares, o que mostra que mesmo possuindo um tempo de processamento maior, seus resultados são menos precisos que o elemento quadrático. Todavia, para a simulação LES, o tempo médio de processamento foi de 0,2134 segundos por iteração em elementos quadráticos, o que resulta em um tempo 5,028\% maior que a simulação DNS de elementos quadráticos, o que mostra que o modelo LES não possui um impacto significativo no tempo de processamento.
-
-Em seguida realizou-se uma análise da dependência da malha para a simulação de elementos quadráticos e P2P1 (estabilizados com SUPG) com $\Rey=10000$, tanto com em DNS quanto utilizando LES, onde se considerou outras duas discretizações, obtidas a partir da subdivisão das arestas do problema em 20 e 8 partes. A Tabela \ref{tab:cavity-mesh2} apresenta as características das malhas utilizadas. A Figura \ref{fig:cavity-mesh2} apresenta as malhas utilizadas para a simulação.
+Como todas as simulações anteriores se mostram estáveis e consistentes para atingir a solução estacionária, são propostas as discretizações menos refinadas conforme a tabela \ref{tab:cavity-mesh2}, ilustradas na figura \ref{fig:cavity-mesh2}, para simulações do problema com  com $\Rey=10.000$ empregando-se elementos quadráticos com estabilização SUPG/PSPG e elementos quadráticos P2P1 estabilizados com SUPG, bem como a combinação desses casos com o LES. Descartaram-se as outras combinações por terem apresentado resultados inferiores ou sem diferenças significativas em relação aos casos considerados agora.
 
 \begin{table}[h!]
     \centering
@@ -169,7 +171,7 @@ Em seguida realizou-se uma análise da dependência da malha para a simulação 
     \label{fig:cavity-mesh2}
 \end{figure}
 
-Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamente na malha m1, mesmo aplicando o modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressões, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já na malha m2 se observou que a simulação DNS divergiu também para elementos quadráticos, enquanto o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta os valores do campo de velocidades sobre as linhas médias da cavidade para a malha m1 e m2.
+Para essas simulações, o elemento P2P1 não apresentou convergência para a malha m1, mesmo com o emprego do modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressões, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já para a malha m2 se observou a não convergência também para o caso de elementos quadráticos com estabilização SUPG/PSPG, enquanto a sua combinação com o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta a distribuição de velocidade sobre as linhas médias da cavidade para as simulações que apresentaram convergência.
 
 \begin{figure}[h!]
     \centering
@@ -189,9 +191,9 @@ Para tais simulações, já se percebeu que o elemento P2P1 divergiu imediatamen
     \label{fig:cavity-results3}
 \end{figure}
 
-Sendo assim, constata-se que a aplicação do modelo LES foi capaz de estabilizar a simulação para a malha m2, enquanto para a malha m1, a aplicação do modelo LES foi capaz de estabilizar a simulação apenas para o elemento quadrático. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS melhorou ligeiramente a solução obtida em relação à simulação estabilizada por SUPG/PSPG. A discrepância dos resultados obtidos com relação à referência se deve à baixa qualidade da malha, no entanto é possível observar que a aplicação do modelo LES foi capaz de manter certa representatividade nos resultados. Uma possível explicação para esse efeito se dá pela melhora de estabilidade devido ao incremento de viscosidade, proveniente da viscosidade de vórtice do modelo, na região de maior gradiente de velocidade (próximo à face superior do domínio), que é uma região onde podem surgir instabilidades consideráveis devido ao baixo refinamento da malha.
+Com base nesses resultados, constata-se que a aplicação do modelo LES é capaz de garantir maior precisão e estabilidade mesmo para discretizações mais grosseiras. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS promoveu uma melhora pequena em relação à simulação estabilizada por SUPG/PSPG apenas nos casos de número de Reynolds mais elevados.
 
-Na sequência se realizou uma análise tridimensional da cavidade, onde se considerou um domínio cúbico $\Omega=[-1,1]^3$, onde as condições impostas na terceira direção são de simetria nas faces frontal e traseira. A malha utilizada nesse caso é feita a partir de 8154 elementos tetraédricos de aproximação quadrática dispostos de forma não-estruturada no interior do domínio. Isso resulta em 12557 nós e 50228 graus de liberdade. A Figura \ref{fig:cavity-mesh3} apresenta a malha utilizada para a simulação.
+Por fim, estuda-se o mesmo problema considerando um discretização tridimensional definida pelo domínio cúbico $\Omega=[-1,1]^3$, onde as condições impostas nas faces frontal e traseira são de paredes lisas. A malha utilizada nesse caso é estruturada apenas nas faces do cubo, como ilustrada na figura \ref{fig:cavity-mesh3}, sendo composta por 8154 elementos tetraédricos de aproximação quadrática, com 12557 nós e 50228 graus de liberdade .
 
 \begin{figure}[h!]
     \centering
@@ -201,7 +203,7 @@ Na sequência se realizou uma análise tridimensional da cavidade, onde se consi
     \label{fig:cavity-mesh3}
 \end{figure}
 
-O problema foi estudado para as estabilizações SUPG/PSPG, com e sem a aplicação de LES, para $\Rey=100$, $400$ e $1000$. A Figura \ref{fig:cavity-results4} apresenta os valores do campo de velocidades sobre as linhas médias da face central da cavidade.
+O problema foi estudado para as estabilizações SUPG/PSPG, com e sem a aplicação de LES, para $\Rey=100$, $400$ e $1000$. A Figura \ref{fig:cavity-results4} apresenta a distribuição de velocidade sobre as linhas médias verticais e horizontais da cavidade.
 
 \begin{figure}[h!]
     \centering
@@ -229,7 +231,7 @@ O problema foi estudado para as estabilizações SUPG/PSPG, com e sem a aplicaç
     \label{fig:cavity-results4}
 \end{figure}
 
-Pode-se perceber, então, que para números de Reynolds baixos o resultado não difere muito entre as diferentes simulações. No entanto, à medida que o número de Reynolds aumenta, o aplicação dos demais termos estabilizadores da formulação VMS melhorou a solução obtida em relação à simulação estabilizada por SUPG/PSPG. Já com relação à aplicação do LES, verifica-se que houve uma pequena melhora nos resultados, no entanto o $\Rey$ ainda foi pequeno o suficiente para que sua aplicação não fosse tão significativa.
+Pode-se perceber, então, que para números de Reynolds baixos o resultado não difere muito entre as diferentes simulações. No entanto, à medida que o número de Reynolds aumenta, a aplicação dos demais termos estabilizadores da formulação VMS melhorou a solução obtida em relação à simulação estabilizada por SUPG/PSPG. Já com relação à aplicação do LES, verifica-se que houve uma pequena melhora nos resultados, no entanto o $\Rey$ ainda foi pequeno o suficiente para que sua aplicação não fosse tão significativa.
 
 Em seguida realizou-se uma simulação com uma malha ainda mais grosseira, com 2695 elementos tetraédricos de aproximação quadrática, contendo 4360 nós e 17440 graus de liberdade para $\Rey=10000$, utilizando estabilização SUPG/PSPG, com e sem aplicação de LES, e VMS. A Figura \ref{fig:cavity-results5} apresenta o campo de velocidades obtido na face de simetria do problema para as diferentes simulações no instante $t=450$.
 
