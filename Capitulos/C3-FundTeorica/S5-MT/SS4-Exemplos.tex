@@ -93,15 +93,15 @@ A Figura \ref{fig:cavity-results} apresenta os valores obtidos para velocidades 
     \label{fig:cavity-results}
 \end{figure}
 
-Pelo fato de se utilizar um método diferente em relação à referência, o qual utiliza o método \textit{multi-grid} com 257$\times$257 e 129$\times$129 pontos, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos de aproximação linear, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos quadráticos, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos lineares.
+Pelo fato de se utilizar um método diferente em relação à referência, o qual utiliza o método \textit{multi-grid} com 257$\times$257 e 129$\times$129 pontos, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos P1P1, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos P2P2, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos P1P1.
 
 Para todos os casos, à medida que o número de Reynolds aumenta, é possível notar que a aplicação do modelo LES melhorou a representação do campo de velocidade, o que deve-se à boa capacidade do modelo de capturar os efeitos turbulentos em escalas menores que os elementos da malha. Já o uso da formulação VMS, embora tenha sido muito eficiente para garantir a estabilização, não apresentou diferenças significativas em relação à formulação estabilizada SUPG/PSPG.
 
-O emprego dos elementos Taylor-Hood P2P1 sem estabilização nem modelo de turbulência mostrou-se muito boa para representar o campo de velocidade, com resultados ligeiramente inferiores aos dos elementos de aproximação quadrática em formulação SUPG/PSPG observáveis apenas para os $Re=7.500$ e $Re=10.000$. É importante ainda notar que, embora o problema considerado atinja números de Reynolds elevados, os termos convectivos não atuam sobre fortes gradientes, de modo que foi possível obter solução estável com os elementos P2P1.
+O emprego dos elementos P2P1 sem modelo de turbulência mostrou-se muito boa para representar o campo de velocidade, com resultados ligeiramente inferiores aos dos elementos P2P2 em formulação SUPG/PSPG observáveis apenas para os $Re=7.500$ e $Re=10.000$. É importante ainda notar que, embora o problema considerado atinja números de Reynolds elevados, os termos convectivos não atuam sobre fortes gradientes, de modo que foi possível obter solução estável com os elementos P2P1.
 
-Com relação ao tempo de processamento, para as simulações apenas com estabilização SUPG/PSPG, observa-se um tempo médio de 0,2285 segundos por iteração na solução do problema não linear para a simulação com elementos lineares, enquanto para a simulação com elementos quadráticos o tempo médio foi de 0,2032 segundos por iteração, o que resulta em um tempo 12,466\% maior para a simulação com elementos lineares, ainda conduzindo a resultados menos precisos. Todavia, para a simulação com o modelo LES, o tempo médio de processamento foi de 0,2134 segundos por iteração em elementos quadráticos, o que resulta em um tempo 5,028\% maior que o caso anterior, o que mostra que o modelo LES pode apresentar um certo impacto no tempo de processamento.
+Com relação ao tempo de processamento, para as simulações apenas com estabilização SUPG/PSPG, observa-se um tempo médio de 0,2285 segundos por iteração na solução do problema não linear para a simulação com elementos P1P1, enquanto para a simulação com elementos P2P2 o tempo médio foi de 0,2032 segundos por iteração, o que resulta em um tempo 12,466\% maior para a simulação com elementos P1P1, ainda conduzindo a resultados menos precisos. Todavia, para a simulação com o modelo LES, o tempo médio de processamento foi de 0,2134 segundos por iteração em elementos P2P2, o que resulta em um tempo 5,028\% maior que o caso anterior, o que mostra que o modelo LES pode apresentar um certo impacto no tempo de processamento.
 
-A Figura \ref{fig:cavity-results2} apresenta as distribuições do módulo da velocidade após o escoamento atingir seu estado estacionário, obtidas por meio da simulação com elementos quadráticos com VMS+LES.
+A Figura \ref{fig:cavity-results2} apresenta as distribuições do módulo da velocidade após o escoamento atingir seu estado estacionário, obtidas por meio da simulação com elementos P2P2 com VMS+LES.
 
 \begin{figure}[h!]
     \centering
@@ -138,17 +138,17 @@ A Figura \ref{fig:cavity-results2} apresenta as distribuições do módulo da ve
 \end{figure}
 
 
-Como todas as simulações anteriores se mostram estáveis e consistentes para atingir a solução estacionária, são propostas as discretizações menos refinadas conforme a tabela \ref{tab:cavity-mesh2}, ilustradas na figura \ref{fig:cavity-mesh2}, para simulações do problema com  com $\Rey=10.000$ empregando-se elementos quadráticos com estabilização SUPG/PSPG e elementos quadráticos P2P1 estabilizados com SUPG, bem como a combinação desses casos com o LES. Descartaram-se as outras combinações por terem apresentado resultados inferiores ou sem diferenças significativas em relação aos casos considerados agora.
+Como todas as simulações anteriores se mostram estáveis e consistentes para atingir a solução estacionária, são propostas as discretizações menos refinadas conforme a tabela \ref{tab:cavity-mesh2}, ilustradas na figura \ref{fig:cavity-mesh2}, para simulações do problema com $\Rey=10.000$ empregando-se elementos P2P2 com estabilização SUPG/PSPG e elementos P2P1 estabilizados com SUPG, bem como a combinação desses casos com o LES. Descartaram-se as outras combinações por terem apresentado resultados inferiores ou sem diferenças significativas em relação aos casos considerados agora.
 
 \begin{table}[h!]
     \centering
     \caption{Cavidade bidimensional - Características das malhas utilizadas para a análise de dependência.}
     \begin{tabular}{lcccccc}
         \hline
-        Malha               & Elemento   & Subdivisões & Elementos & $n_u$ & $n_p$ & DOF  \\\hline
-        \multirow{2}{*}{m1} & Quadrático & 20          & 800       & 1681  & 1681  & 5043 \\
-                            & P2P1       & 20          & 800       & 1681  & 441   & 3803 \\\hline
-        m2                  & Quadrático & 8           & 128       & 289   & 289   & 867  \\\hline
+        Malha               & Elemento & Subdivisões & Elementos & $n_u$ & $n_p$ & DOF  \\\hline
+        \multirow{2}{*}{m1} & P2P2     & 20          & 800       & 1681  & 1681  & 5043 \\
+                            & P2P1     & 20          & 800       & 1681  & 441   & 3803 \\\hline
+        m2                  & P2P2     & 8           & 128       & 289   & 289   & 867  \\\hline
     \end{tabular}
     \\Fonte: Presente trabalho (\the\year).
     \label{tab:cavity-mesh2}
@@ -171,7 +171,7 @@ Como todas as simulações anteriores se mostram estáveis e consistentes para a
     \label{fig:cavity-mesh2}
 \end{figure}
 
-Para essas simulações, o elemento P2P1 não apresentou convergência para a malha m1, mesmo com o emprego do modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressão, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já para a malha m2 se observou a não convergência também para o caso de elementos quadráticos com estabilização SUPG/PSPG, enquanto a sua combinação com o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta a distribuição de velocidade sobre as linhas médias da cavidade para as simulações que apresentaram convergência.
+Para essas simulações, o elemento P2P1 não apresentou convergência para a malha m1, mesmo com o emprego do modelo LES, o que pode ser explicado pela baixa ordem de aproximação do campo de pressão, que conduz à resultados mais imprecisos conforme a malha se torna mais grosseira. Já para a malha m2 se observou a não convergência também para o caso de elementos P2P2 com estabilização SUPG/PSPG, enquanto a sua combinação com o LES se manteve estável durante toda a análise. A Figura \ref{fig:cavity-results3} apresenta a distribuição de velocidade sobre as linhas médias da cavidade para as simulações que apresentaram convergência.
 
 \begin{figure}[h!]
     \centering
@@ -193,7 +193,7 @@ Para essas simulações, o elemento P2P1 não apresentou convergência para a ma
 
 Com base nesses resultados, constata-se que a aplicação do modelo LES é capaz de garantir maior precisão e estabilidade mesmo para discretizações mais grosseiras. Também se observa que a consideração dos demais termos estabilizadores da formulação VMS promoveu uma melhora pequena em relação à simulação estabilizada por SUPG/PSPG apenas nos casos de número de Reynolds mais elevados.
 
-Por fim, estuda-se o mesmo problema considerando um discretização tridimensional definida pelo domínio cúbico $\Omega=[-1,1]^3$, onde as condições impostas nas faces frontal e traseira são de paredes lisas. A malha utilizada nesse caso é estruturada apenas nas faces do cubo, como ilustrada na figura \ref{fig:cavity-mesh3}, sendo composta por 8154 elementos tetraédricos de aproximação quadrática, com 12557 nós e 50228 graus de liberdade .
+Por fim, estuda-se o mesmo problema considerando um discretização tridimensional definida pelo domínio cúbico $\Omega=[-1,1]^3$, onde as condições impostas nas faces frontal e traseira são de paredes lisas. A malha utilizada nesse caso é estruturada apenas nas faces do cubo, como ilustrada na figura \ref{fig:cavity-mesh3}, sendo composta por 8154 elementos P2P2, com 12557 nós e 50228 graus de liberdade.
 
 \begin{figure}[h!]
     \centering
@@ -233,7 +233,7 @@ O problema foi estudado para as estabilizações SUPG/PSPG, com e sem a aplicaç
 
 Pode-se perceber, então, que para números de Reynolds baixos o resultado não difere muito entre as diferentes simulações. No entanto, à medida que o número de Reynolds aumenta, a aplicação dos demais termos estabilizadores da formulação VMS melhorou a solução obtida em relação à simulação estabilizada por SUPG/PSPG. Já com relação à aplicação do LES, verifica-se que houve uma pequena melhora nos resultados, no entanto o $\Rey$ ainda foi pequeno o suficiente para que sua aplicação não fosse tão significativa.
 
-Em seguida realizou-se uma simulação com uma malha ainda mais grosseira, com 2695 elementos tetraédricos de aproximação quadrática, contendo 4360 nós e 17440 graus de liberdade para $\Rey=10000$, utilizando estabilização SUPG/PSPG, com e sem aplicação de LES, e VMS. A Figura \ref{fig:cavity-results5} apresenta o campo de velocidade obtido na face de simetria do problema para as diferentes simulações no instante $t=450$.
+Em seguida realizou-se uma simulação com uma malha ainda mais grosseira, com 2695 elementos P2P2 contendo 4360 nós e 17440 graus de liberdade para $\Rey=10000$, utilizando estabilização SUPG/PSPG, com e sem aplicação de LES, e VMS. A Figura \ref{fig:cavity-results5} apresenta o campo de velocidade obtido na face de simetria do problema para as diferentes simulações no instante $t=450$.
 
 \begin{figure}[h!]
     \centering
@@ -384,7 +384,7 @@ Em seu estudo numérico, \citeonline{chiang1999numerical} considerou um duto de 
 
 Devido à simetria do problema, considerou-se somente metade da largura do duto, impondo-se uma condição de simetria ($u_3=0$) no plano $x_3=0$, o qual é utilizado para observar os resultados do problema.
 
-Para a simulação numérica, considerou-se um duto com largura $B=35h$, altura $h=1,0$, altura do degrau $S=0,9423$ e comprimento $L_u=0,0$ e $L_d=55,0$. A malha utilizada na discretização do domínio foi construída a partir de elementos tetraédicos de aproximação quadrática e P2P1 de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 57173 elementos finitos, tendo 95334 nós para elementos quadráticos e 95334 nós para o campo de velocidade e 14227 nós para pressões em elementos P2P1, resultando em 381336 e 300229 graus de liberdade, respectivamente (conforme ilustrado na Figura \ref{fig:step-mesh}).
+Para a simulação numérica, considerou-se um duto com largura $B=35h$, altura $h=1,0$, altura do degrau $S=0,9423$ e comprimento $L_u=0,0$ e $L_d=55,0$. A malha utilizada na discretização do domínio foi construída a partir de elementos P2P2 e P2P1 de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 57173 elementos finitos, tendo 95334 nós para elementos P2P2 e 95334 nós para o campo de velocidade e 14227 nós para pressões em elementos P2P1, resultando em 381336 e 300229 graus de liberdade, respectivamente (conforme ilustrado na Figura \ref{fig:step-mesh}).
 
 \begin{figure}
     \centering
@@ -408,11 +408,11 @@ O número de Reynolds do problema analisado é obtido a partir da equação \eqr
     \label{eq:ReyBFS}
 \end{equation}
 
-\noindent sendo $u_\mathrm{medio}=1,0$ a velocidade média na região de entrada do duto. Assim, sendo $\rho=1,0$, considera-se os valores de viscosidade dinâmica $\mu=0,02$, $5,1414\times10^{-3}$ e $2,0\times10^{-3}$, de modo a obter números de Reynolds de 100, 389 e 1000, respectivamente. O passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rho_\infty=0,0$. A simulação com elementos quadráticos foi estabilizada a partir da formulação SUPG/PSPG, enquanto a simulação P2P1 não foi estabilizada para $\Rey=100$ e $389$, uma vez que a simulação se tornou instável para $\Rey=1000$, sendo, portanto, necessária a aplicação de uma estabilização SUPG nesse caso.
+\noindent sendo $u_\mathrm{medio}=1,0$ a velocidade média na região de entrada do duto. Assim, sendo $\rho=1,0$, considera-se os valores de viscosidade dinâmica $\mu=0,02$, $5,1414\times10^{-3}$ e $2,0\times10^{-3}$, de modo a obter números de Reynolds de 100, 389 e 1000, respectivamente. O passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rho_\infty=0,0$. A simulação com elementos P2P2 foi estabilizada a partir da formulação SUPG/PSPG, enquanto a simulação P2P1 não foi estabilizada para $\Rey=100$ e $389$, uma vez que a simulação se tornou instável para $\Rey=1000$, sendo, portanto, necessária a aplicação de uma estabilização SUPG nesse caso.
 
 Além disso, uma simulação bidimensional foi conduzida para o $\Rey=1000$, uma vez que \citeonline{chiang1999numerical} observaram uma discrepância entre os valores de simulações bidimensionais e tridimensionais para esse número de Reynolds. Como mencionado pelos autores, essa diferença se dá pela influência da parede aderente nos resultados, o que não é capturada pela simulação bidimensional.
 
-A malha utilizada para a simulação bidimensional foi construída a partir de elementos triangulares de aproximação quadrática de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 836 elementos finitos e 1883 nós, resultando em 5649 graus de liberdade.
+A malha utilizada para a simulação bidimensional foi construída a partir de elementos P2P2 de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 836 elementos finitos e 1883 nós, resultando em 5649 graus de liberdade.
 
 A Figura \ref{fig:BFSvel} apresenta os perfis de velocidade para diferentes distâncias ao longo da linha de fluxo para as três simulações conduzidas. Já a Figura \ref{fig:BFSpre} apresenta as distribuições de pressão ao longo do fundo e do topo do duto para as três simulações.
 
@@ -498,12 +498,12 @@ Para a simulação numérica considerou-se a malha apresentada na Figura \ref{fi
     \caption{Simulações conduzidas para o problema de escoamento sobre um cilindro.}
     \begin{tabular}{llllc}
         \hline
-        Nome & Modelo & Elemento   & Estabilização & Número de DOF \\\hline
-        Sim1 & -      & P2P1       & -             & 21417         \\
-        Sim2 & -      & Quadrático & SUPG/PSPG     & 28494         \\
-        Sim3 & -      & Quadrático & VMS           & 28494         \\
-        Sim4 & LES    & P2P1       & -             & 21417         \\
-        Sim5 & LES    & Quadrático & VMS           & 28494         \\\hline
+        Nome & Modelo & Elemento & Estabilização & Número de DOF \\\hline
+        Sim1 & -      & P2P1     & -             & 21417         \\
+        Sim2 & -      & P2P2     & SUPG/PSPG     & 28494         \\
+        Sim3 & -      & P2P2     & VMS           & 28494         \\
+        Sim4 & LES    & P2P1     & -             & 21417         \\
+        Sim5 & LES    & P2P2     & VMS           & 28494         \\\hline
     \end{tabular}
     \\Fonte: Presente trabalho (\the\year).
     \label{tab:cyl-sim}
@@ -652,7 +652,7 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
 
 Assim, observa-se que todos os valores estão próximos aos valores de referência, sendo que as simulações baseadas em elementos P2P1 apresentaram valores ligeiramente inferiores aos demais conforme o número de Reynolds aumenta. A mínima diferença observada entre os valores calculados em uma simulação sem LES e aquela que em simulação com LES deve-se ao fato do número de Reynolds ser muito baixo, pois, como apontado por \citeonline{fernandes2020tecnica}, esse tipo de escoamento (com $\Rey$ entre 50 e 200) apresenta a formação de vórtices laminares, denominada de esteira de Von Kárman.
 
-Em seguida partiu-se para uma análise com a consideração de uma malha mais grosseira, a qual é apresentada na Figura \ref{fig:cyl-mesh2}. A malha utilizada para a simulação foi construída a partir de elementos triangulares, possuindo 5004 graus de liberdade para a simulação de elementos quadráticos e 3771 para a simulação de elementos P2P1. Os valores dos coeficientes de arrasto e de sustentação são apresentados nas Figuras \ref{fig:cyl-Cd2} e \ref{fig:cyl-Cl2}, respectivamente. A linha de referência é considerada como a obtida pela simulação LES-VMS da malha fina.
+Em seguida partiu-se para uma análise com a consideração de uma malha mais grosseira, a qual é apresentada na Figura \ref{fig:cyl-mesh2}. A malha utilizada para a simulação foi construída a partir de elementos triangulares, possuindo 5004 graus de liberdade para a simulação de elementos P2P2 e 3771 para a simulação de elementos P2P1. Os valores dos coeficientes de arrasto e de sustentação são apresentados nas Figuras \ref{fig:cyl-Cd2} e \ref{fig:cyl-Cl2}, respectivamente. A linha de referência é considerada como a obtida pela simulação LES-VMS da malha fina.
 
 \begin{figure}[h!]
     \centering
@@ -762,7 +762,7 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
     \label{tab:cyl-comp200}
 \end{table}
 
-Como pode se observar, os valores obtidos a partir de elementos P2P1 tiveram valores muito abaixo do esperado, principalmente para o coeficiente de arrasto, independentemente da aplicação do LES. Já os valores obtidos a partir de elementos quadráticos apresentaram valores mais próximos aos obtidos na simulação com malha mais fina, em que a aplicação do LES se mostrou eficiente para descrever os coeficientes de arrasto e sustentação a partir de $\Rey=150$. Já o número de Strouhal foi levemente amortecido devido à aplicação do modelo.
+Como pode se observar, os valores obtidos a partir de elementos P2P1 tiveram valores muito abaixo do esperado, principalmente para o coeficiente de arrasto, independentemente da aplicação do LES. Já os valores obtidos a partir de elementos P2P2 apresentaram valores mais próximos aos obtidos na simulação com malha mais fina, em que a aplicação do LES se mostrou eficiente para descrever os coeficientes de arrasto e sustentação a partir de $\Rey=150$. Já o número de Strouhal foi levemente amortecido devido à aplicação do modelo.
 
 %Comparando-se os números de Strouhal calculados com aqueles obtidos por \citeonline{fernandes2020tecnica}, que obteve, para a mesma geometria de domínio e mesmas condições de contorno, um $\Str=0,165$ e amplitude do coeficiente de sustentação de 0,3422, \citeonline{tezduyar1992incompressible}, os quais verificaram $\Str$ entre 0,166 e 0,170, \citeonline{najafi2012meshless}, com valor de 0,182, e \citeonline{codina2006numerical}, com valores entre 0,177 e 0,184. As variações observadas entre os números de Strouhal dos diferentes autores podem ser devidas às diferenças nas dimensões dos domínios utilizados, assim como as diferentes condições de contorno aplicadas por cada um. No entanto ainda observa-se que em todos os casos os valores calculados nas simulações ainda são bem próximos. A mínima diferença observada entre os valores calculados em uma simulação DNS e aquela que em simulação LES deve-se ao fato do número de Reynolds ser muito baixo, pois, como apontado por \citeonline{fernandes2020tecnica}, esse tipo de escoamento (com $\Rey$ entre 50 e 200) apresenta a formação de vórtices laminares, denominada de esteira de Von Kárman. Para uma verificação mais precisa dessa influência, deve-se partir para uma análise tridimensional com número de Reynolds superiores à 200.
 
@@ -926,7 +926,7 @@ O seguinte exemplo trata-se de um escoamento em torno de um aerofólio NACA 0012
 
 O problema foi estudado em situações bidimensionais e tridimensionais, sendo simulado tanto com e sem aplicação de LES. Em ambos os casos o problema foi estabilizado a partir da estabilização SUPG/PSPG.
 
-A malha utilizada para a simulação bidimensional foi construída a partir de elementos triangulares de aproximação quadrática, com tamanho 0,01 na superfície do aerofólio, 2,5 na região de entrada e 0,5 na região de saída. Assim obtém-se uma malha com 5247 elementos finitos, tendo 10817 nós, resultando em 32451 graus de liberdade (conforme ilustrado na Figura \ref{fig:NACA0012-mesh2D}). O intervalo de tempo utilizado foi de $t\in[0,100]$ com passos de $\Delta t=0,01$.
+A malha utilizada para a simulação bidimensional foi construída a partir de elementos P2P2, com tamanho 0,01 na superfície do aerofólio, 2,5 na região de entrada e 0,5 na região de saída. Assim obtém-se uma malha com 5247 elementos finitos, tendo 10817 nós, resultando em 32451 graus de liberdade (conforme ilustrado na Figura \ref{fig:NACA0012-mesh2D}). O intervalo de tempo utilizado foi de $t\in[0,100]$ com passos de $\Delta t=0,01$.
 
 \begin{figure}[h!]
     \centering
@@ -1036,7 +1036,7 @@ O primeiro problema estudado é o cilindro com deslocamento prescrito, proposto 
     \label{fig:moving-cylinder}
 \end{figure}
 
-O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos triangulares de aproximação quadrática, totalizando 1664 nós e 4992 graus de liberdade. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
+O fluido possui viscosidade cinemática $\nu=1\times10^{-3}$, densidade $\rho=1,0$ e parte do repouso. O problema discretizado consiste na utilização de uma malha contendo 768 elementos P2P2, totalizando 1664 nós e 4992 graus de liberdade. A simulação foi estabilizada por meio de SUPG/PSPG com esquema de integração temporal dado por $\rho_\infty=0,0$. O intervalo de tempo estudado é de $t\in[0,24]$ com passos de tempo $\Delta t=0,005$. A Figura \ref{fig:moving-cylinder-mesh} apresenta a configuração inicial da malha utilizada para a solução do problema.
 
 \begin{figure}[h!]
     \centering
@@ -1120,7 +1120,7 @@ As condições de contorno do problema são de entrada na face esquerda ($\BB{u}
 
 O número de Reynolds do problema, considerando o $C=1,0$ o comprimento característico do problema e baseado na velocidade de entrada $u_\infty=1,0$, é $\Rey=1000$. Para se obter a condição inicial do problema, realizou-se uma simulação estática para cada malha, mantendo-se fixo o ângulo de ataque inicial, até que se atingisse o regime permanente.
 
-Para esse estudo, considerou-se duas malhas distintas de elementos triangulares de aproximação quadrática, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A malha m1 foi simulada sem aplicação do LES (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto sem LES (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
+Para esse estudo, considerou-se duas malhas distintas de elementos P2P2, a primeira (m1) contendo 3271 elementos, 6691 nós e 20073 graus de liberdade, e a segunda (m2) contendo 2743 elementos, 5597 nós e 16791 graus de liberdade. A malha m1 foi simulada sem aplicação do LES (estabilizada por SUPG/PSPG), enquanto a m2 foi realizada tanto sem LES (estabilizada por SUPG/PSPG e VMS) quanto em LES (estabilizado por SUPG/PSPG). O esquema de integração temporal dado por $\rho_\infty=0,0$, o intervalo de tempo estudado é de $t\in[0,30]$ com passos de tempo $\Delta t=0,02$. A Figura \ref{fig:rotating-airfoil} apresenta as configurações iniciais da malha utilizada para ambas as simulações.
 
 \begin{figure}[h!]
     \centering
