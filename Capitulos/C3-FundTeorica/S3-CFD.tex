@@ -572,7 +572,7 @@ Para a resolução dos problemas serão empregados elementos finitos de Taylor-H
 
 Outras possibilidades de elementos finitos utilizados aproximam tanto o campo de velocidade quanto o campo de pressão de forma linear, denominados de elementos P1P1, ou de forma quadrática, denominados de elementos P2P2. Nesses casos é necessário o emprego de técnicas de estabilização para o campo de pressão.
 
-A Tabela \ref{tab:Elementos} apresenta a quantidade de nós necessários para a interpolação dos campos de velocidade e de pressão para os elementos finitos P1P1, P2P1 e P2P2 em problemas bidimensionais e tridimensionais.
+A Tabela \ref{tab:Elementos} apresenta a quantidade de nós necessários para a interpolação dos campos de velocidade e de pressão para os elementos finitos P1P1, P2P1 e P2P2 em problemas bidimensionais e tridimensionais e a Figura \ref{fig:Elementos} ilustra a disposição dos nós para esses elementos.
 
 \begin{table}[h!]
     \centering
@@ -588,6 +588,14 @@ A Tabela \ref{tab:Elementos} apresenta a quantidade de nós necessários para a 
     \\Fonte: Presente trabalho (\the\year).
     \label{tab:Elementos}
 \end{table}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Disposição dos nós para elementos finitos P2P1, P1P1 e P2P2.}
+    \includegraphics[width=.35\linewidth]{Figuras/Elementos.pdf}
+    \\Fonte: Presente trabalho (\the\year).
+    \label{fig:Elementos}
+\end{figure}
 
 %==================================================================================================
 \input{Capitulos/C3-FundTeorica/Mov-Malha}
