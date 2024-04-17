@@ -42,18 +42,18 @@ Inicialmente são empregadas 3 diferentes discretizações bidimensionais, uma c
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=.8\linewidth]{Figuras/Cavity/m1.png}
-        \caption{Malha de elementos quadráticos e P2P1.}
+        \caption{Malha de elementos P2P2 e P2P1.}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=.8\linewidth]{Figuras/Cavity/m1-Lin.png}
-        \caption{Malha de elementos lineares.}
+        \caption{Malha de elementos P1P1.}
     \end{subfigure}
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cavity-mesh}
 \end{figure}
 
-Assim, para cada número de Reynolds as simulações são realizadas considerando-se: 1) elementos finitos de aproximação linear para velocidade e pressão com estabilização SUPG/PSPG; 2) elementos de aproximação quadrática para velocidade e pressão com estabilização por SUPG/PSPG; 3) elementos de aproximação quadrática para velocidade e pressão com formulação VMS; 4) elementos Taylor-Hood P2P1 estabilizados por SUPG, e 4) a combinação de cada um dos casos anteriores com o modelo de turbulência LES, adotando-se constante de Smagorinsky $C_S=0,10$.
+Assim, para cada número de Reynolds as simulações são realizadas considerando-se: 1) elementos finitos P1P1 com estabilização SUPG/PSPG; 2) elementos P2P2 com estabilização por SUPG/PSPG; 3) elementos P2P2 com formulação VMS; 4) elementos P2P1 estabilizados por SUPG, e 4) a combinação de cada um dos casos anteriores com o modelo de turbulência LES, adotando-se constante de Smagorinsky $C_S=0,10$.
 
 
 A Figura \ref{fig:cavity-results} apresenta os valores obtidos para velocidades sobre as linhas médias da cavidade ($y_1=0$ e $y_2=0$) por cada uma das simulações, comparando-se os resultados obtidos com aqueles apresentados por \citeonline{ghia1982high}.
