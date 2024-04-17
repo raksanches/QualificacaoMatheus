@@ -120,33 +120,37 @@ Caso os blocos sejam resolvidos em processos iterativos separados, sem que haja 
 
 Por dispensar etapas de correção, esse método possui um custo computacional menor em relação ao particionado forte, no entanto exige a adoção de passos de tempo pequenos e fica sujeito a problemas de instabilidades como mencionado em \citeonline{Felippaetal2001}. Nota-se que esse tipo de acoplamento é mais adequado a problemas com escoamento compressível, onde um passo de tempo pequeno é necessário para se capturar a propagação de ondas de choque ao mesmo tempo em que a massa específica do fluido costuma ser muito menor que a do sólido.
 
-Por outro lado, a convergência do processo de acoplamento particionado forte pode ficar prejudicada, especialmente à medida em que a massa específica do fluido e do sólido se aproximam, ou em outros problemas fortemente acoplados, onde uma pequena perturbação do fluido pode produzir grandes perturbações na estrutura e vice-versa. Como meios de garantir convergência nessa situação, mantendo o acoplamento particionado, pode-se adotar relaxações de Aitken, destinadas melhorar a convergência no método de Gauss-Seidel, na atualização das variáveis \cite{fernandes2019ale} ou aplicar um fator de escala sobre a matriz de massa do sólido (técnica \textit{Augmented $A_{22}$}) \cite{bazilevs2013computational}.
+Por outro lado, a convergência do processo de acoplamento particionado forte pode ficar prejudicada, especialmente à medida em que a massa específica do fluido e do sólido se aproximam, ou em outros problemas fortemente acoplados, onde uma pequena perturbação do fluido pode produzir grandes perturbações na estrutura e vice-versa. Como meios de garantir convergência nessa situação, mantendo o acoplamento particionado, pode-se adotar relaxações de Aitken, destinadas melhorar a convergência no método de Gauss-Seidel, na atualização das variáveis \cite{fernandes2019ale} ou aplicar um fator de escala sobre a matriz de massa do sólido (técnica \textit{Augmented $A_{22}$}) \cite{tezduyar2005finite}. Por simplicidade, neste trabalho, em um exemplo onde foi necessário, adotou-se a segunda técnica.
 
 %==================================================================================================
-\section{Exemplos de verificação}
+\section{Exemplos para verificação}
 %==================================================================================================
 
-Na presente seção serão apresentados alguns exemplos para verificação do código implementado.
+Na presente as formulações implementadas são aplicadas à simulação de problemas de interação fluido-estruturas selecionados para a verificação do código computacional, bem como para o estudo das características das formulações implementadas quando aplicadas à análise de IFE.
 
 %==================================================================================================
-\subsection{Cavidade bidimensional} \label{FSI-Cavity2D}
+\subsection{Cavidade com fundo flexível} \label{FSI-Cavity2D}
 %==================================================================================================
 
-O primeiro exemplo utilizado para verificação do código utilizando o acoplamento forte tipo bloco-iterativo trata-se de uma cavidade com fundo flexível, conforme ilustrado na Figura \ref{fig:cavity2D}. Tal exemplo caracteriza-se pelo comportamento bidimensional do escoamento, no entanto pode ser satisfatoriamente transportado para uma análise tridimensional, sendo apenas necessário impedir o movimento da estrutura na terceira dimensão, assim como travar essa componente do vetor generalizado. Esse problema foi estudado por \citeonline{gerbeau2003quasi}, considerando as seguintes propriedades da casca: massa específica $\rho_S=500$, módulo de Young $E=250$, coeficiente de Poisson $\nu=0$ e espessura $h=0,002$; e do fluido: massa específica $\rho_F=1$ e viscosidade dinâmica $\mu=0,01$. Na face superior da cavidade é imposta uma velocidade prescrita variável ao longo do tempo, sendo $u_1(t)=1-\cos{(0,4\pi t)}$, logo, tomando-se o comprimento característico o tamanho do lado da cavidade, o número de Reynolds varia entre 0 a 200.
+O primeiro exemplo utilizado para verificação do acoplamento IFE forte tipo bloco-iterativo, trata-se de uma cavidade semelhante à do exemplo \ref{ex:cavity}, porém com velocidade tangencial oscilatória no topo e com fundo flexível, como ilustrado na Figura \ref{fig:cavity2D}. Tal exemplo, embora seja caracterizado pelo comportamento bidimensional, é simulado aqui por discretização 3D, sendo aplicadas condições de paredes lisas nas faces paralelas ao escoamento, e condição de simetria (componente do vetor generalizado na direção 3 restrita) para a casca. Esse problema foi estudado por \citeonline{gerbeau2003quasi}, sendo que a estrutura apresenta: massa específica $\rho_S=500$, módulo de Young $E=250$, coeficiente de Poisson $\nu=0$ e espessura $h=0,002$. Já o fluido apresenta: massa específica $\rho_F=1$ e viscosidade dinâmica $\mu=0,01$. A velocidade variável ao longo do tempo, imposta na direção horizontal da face superior, é dada por $u_1(t)=1-\cos{(0,4\pi t)}$, de forma que, tomando-se o comprimento característico o tamanho do lado da cavidade, o número de Reynolds varia dinamicamente de 0 a 200.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Problema de cavidade com fundo flexível.}
+    \caption{Cavidade com fundo flexível.}
     \includegraphics[width=0.5\linewidth]{Figuras/FSI-Cavity2D/FSI-Cavity2D.pdf}
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cavity2D}
 \end{figure}
 
-Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[0,60]$ discretizado em $\Delta t=0,1$, sendo o domínio computacional referente ao fluido construído das seguintes formas: uma malha contendo 1957 elementos tetraédricos de aproximação linear e quadrática, sendo que a malha linear possui 707 nós e a malha quadrática possui 4071 nós, o que resulta em 2828 e 16284 graus de liberdade, respectivamente. Uma outra malha utilizada é construída a partir de elementos P2P1, com 1957 elementos, 707 nós para interpolação do campo de pressão e 4071 nós para interpolação do campo de velocidade, resultando em 12920 graus de liberdade. Já o domínio computacional da casca foi realizada com uma malha contendo 64 elementos, 165 nós, resultando em 1155 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios. A integração temporal foi feita considerando-se $\rho_\infty=0$, pois, como relatado por \citeonline{forster2007artificial}, integradores temporais de segunda ordem levaram a instabilidades imediatas. Para as simulações linear e quadrática considerou-se a estabilização SUPG/PSPG e a P2P1 não foi estabilizada.
+Considerou-se o intervalo total $t\in[0,60]$ para a simulação, discretizado em passos $\Delta t=0,1$, e considerando-se $\rho_\infty=0$ A escolha por $\rho_\infty=0$ foi feita buscando-se melhor estabilidade, uma vez que, de acordo com o relato de \citeonline{forster2007artificial}, integradores temporais de segunda ordem clássicos levaram a instabilidades imediatas. No entanto, dadas as diferenças nas formulações, não se pode descartar que outros valores de raio espectral possam conduzir a resultados estáveis e precisos.
+
+O domínio computacional referente ao fluido foi construído das seguintes formas: 1) 1957 elementos P1P1 estabilizados por SUPG/PSPG contendo 707 nós e 2828 graus de liberdade; 2) 1957 elementos P2P2 estabilizados por SUPG/PSPG contendo 4071 nós e 16284 graus de liberdade; 3) 1957 elementos P2P1 contendo 707 nós para interpolação do campo de pressão e 4071 nós para interpolação do campo de velocidade, resultando em 12920 graus de liberdade.
+
+Já o domínio computacional da casca foi discretizado da mesma maneira para todos os casos, sendo formada por 64 elementos, 165 nós, resultando em 1155 graus de liberdade. A Figura \ref{fig:Cavity2D-mesh} apresenta a malha utilizada para cada um dos meios.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Malha utilizada para o domínio:}
+    \caption{Cavidade com fundo flexível - Malha utilizada para o domínio:}
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/fluid-mesh.png}
         \caption{do fluido.}
@@ -159,25 +163,27 @@ Para a solução do problema via MEF, considerou-se um intervalo de tempo $t\in[
     \label{fig:Cavity2D-mesh}
 \end{figure}
 
-Para a que fosse efetuada a transferência das condições de contorno entre os meios, utilizou-se malhas de tal forma que os nós do sólido e do fluido fossem coincidentes em $\Gamma_\mathrm{IFE}$, onde os valores das forças de superfície advindas do fluido fossem transferidas diretamente para os nós da casca, assim como as variáveis da movimentação da casca foram transferidas para o fluido e malha.
+Nota-se na figura \ref{fig:Cavity2D-mesh} que as malhas do estrutura e do fluido são coincidentes na interface fluido-estrutura $\Gamma_\mathrm{IFE}$, facilitando a transferência das condições de acoplamento, bem como das condições para a movimentação da malha.
 
-Nesse problema, observou-se instabilidades nos resultados, o que levou à necessidade de se multiplicar a parcela da matriz de massa da estrutura por uma valor de $2,0$, estabilizando, assim, os resultados.
+Este problema mostrou-se fortemente acoplado, apresentando dificuldade de convergência para a solução bloco-iterativa. Para garantir a convergência, seguindo a técnica \textit{Augmented A22} \cite{tezduyar2005finite}, multiplicou-se a parcela da matriz tangente referente à matriz de massa da estrutura por $2,0$, o que foi suficiente para garantir boa convergência de forma consistente.
 
-Observou-se, portanto o deslocamento vertical do nó $A$, referente ao centro da casca, e comparou-se os resultados obtidos por \citeonline{gerbeau2003quasi} (Figura \ref{fig:cavity2D-res}).
+O deslocamento vertical do ponto $A$, localizado no centro da casca como ilustrado na Fig. \ref{fig:Cavity2D-mesh}, foi monitorado em todas as análises, sendo a sua história apresentada na Figura \ref{fig:cavity2D-res}, onde também são comparadas com a solução obtida por \citeonline{gerbeau2003quasi}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Deslocamento vertical do nó $A$.}
+    \caption{Cavidade com fundo flexível - Deslocamento vertical do nó $A$.}
     \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/resultados.pdf}
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cavity2D-res}
 \end{figure}
 
-A Figura \ref{fig:cavity2D-time} apresenta o campo de pressão na cavidade, assim como as linhas de corrente, para a simulação quadrática os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
+%\textcolor{red}{Não é empregado LES nem VMS aqui? Adote a mesma nomenclatura das simulações da cavidade rígida na legenda da figura.}
+
+A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para a simulação quadrática os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Campo de pressão e linhas de corrente na cavidade.}
+    \caption{Cavidade bidimensional - Campo de pressões e linhas de corrente na cavidade.}
     \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/t3_5.png}
         \caption{$t=3,5$}
@@ -201,11 +207,11 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressão na cavidade, assi
     \label{fig:cavity2D-time}
 \end{figure}
 
-Na sequência realizou-se uma simulação cuja espessura do domínio fora aumentada de forma a tornar o domínio do fluido uma cavidade cúbica de lado unitário, para se observar melhor quaisquer efeitos tridimensionais que possam ocorrer. Assim liberou-se o movimento da casca nas três direções para se obter uma melhor representatividade física. Além disso, tanto o domínio do fluido quanto da casca foram discretizados com malhas mais grosseiras, com a malha do fluido possuindo 2786 elementos de aproximação quadrática, 4963 nós e 19852 graus de liberdade, enquanto a malha do sólido possui 72 elementos, 169 nós e 1183 graus de liberdade. A Figura \ref{fig:cavity2D-coarse} apresenta a malha utilizada para cada um dos meios.
+Buscando verificar a possível influencia de estruturas tridimensionais de vorticidade, realiza-se uma nova simulação considerando espessura do domínio aumentada de forma a tornar o domínio do fluido uma cavidade cúbica de lado unitário. Assim liberou-se o movimento da casca nas três direções para se obter uma melhor representatividade física. Além disso, tanto o domínio do fluido quanto da casca foram discretizados com malhas mais grosseiras, com a malha do fluido possuindo 2786 elementos de aproximação quadrática, 4963 nós e 19852 graus de liberdade, enquanto a malha do sólido possui 72 elementos, 169 nós e 1183 graus de liberdade. A Figura \ref{fig:cavity2D-coarse} apresenta a malha utilizada para cada um dos meios.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Malhas utilizadas para o segundo caso.}
+    \caption{Cavidade com fundo flexível - domínio espesso.}
     \begin{subfigure}[b]{0.4\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/fluid-coarse.png}
         \caption{Fluido.}
@@ -232,7 +238,7 @@ Nesse caso observou-se a influência que cada tipo de estabilização causa na s
 
 \newpage
 %==================================================================================================
-\subsection{Cavidade tridimensional}
+\subsection{Cavidade com tridimensional com fundo flexível}
 %==================================================================================================
 
 O próximo exemplo foi estudado por \citeonline{valdes2007nonlinear} e pode ser entendido como uma extensão do exemplo da cavidade bidimensional, em que o domínio de análise é um cubo de lado unitário cuja base é flexível. Todas as propriedades físicas, tanto do fluido quanto da casca são mantidas as mesmas. As condições de contorno no domínio do fluido se mantém as mesmas em relação ao exemplo anterior, enquanto as condições do sólido são alteradas de forma a este se movimentar livremente nas três direções e todas as suas arestas ficam apoiadas no fundo da cavidade.
@@ -254,7 +260,7 @@ O problema discretizado contém 7306 elementos de aproximação quadrática para
     \label{fig:Cavity3D-mesh}
 \end{figure}
 
-A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}, enquanto a Figura \ref{fig:Cavity3D-time} apresenta a configuração deformada da casca, colorida pelo deslocamento vertical nos instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}. A figura \ref{fig:Cavity3D-press} apresenta o campo de pressão e de velocidade para os mesmos instantes de tempo.
+A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}, enquanto a Figura \ref{fig:Cavity3D-time} apresenta a configuração deformada da casca, colorida pelo deslocamento vertical nos instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}. A figura \ref{fig:Cavity3D-press} apresenta o campo de pressões e de velocidades para os mesmos instantes de tempo.
 
 \begin{figure}[h!]
     \centering
@@ -294,7 +300,7 @@ A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da c
     \centering
     \caption{Cavidade tridimensional - Campo de pressão e de velocidade na cavidade.}
     \begin{subfigure}[b]{0.23\textwidth}
-        \caption*{Campo de pressão}
+        \caption*{Campo de pressões}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p4.png}
     \end{subfigure}
     \begin{subfigure}[b]{0.23\textwidth}
@@ -365,7 +371,7 @@ Verifica-se que a aplicação dos demais termos estabilizadores presentes na for
 \subsection{\textit{Flutter} em painel flexível} \label{FSI-prism}
 %==================================================================================================
 
-Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid}. Tal problema possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, além de apresentar certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressão de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema é nulo, uma vez que a cinemática utilizada nas referência foi a de Euler-Bernoulli para vigas, a quão não considera deformações por cisalhamento da estrutura. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
+Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid}. Tal problema possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, além de apresentar certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressões de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema é nulo, uma vez que a cinemática utilizada nas referência foi a de Euler-Bernoulli para vigas, a quão não considera deformações por cisalhamento da estrutura. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
 
 \begin{figure}[h!]
     \centering
@@ -408,11 +414,11 @@ O gráfico apresentado na Figura \ref{fig:prismRes} indica o deslocamento vertic
 
 Assim, obteve-se um comportamento oscilatório com amplitude de 1,26 cm e frequência de 3,03 Hz (Período de 0,33 s), o que se aproxima dos resultados de \citeonline{wall1999fluid}.
 
-As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de velocidade, pressão e a configuração da malha para frações $T/6$ do período, respectivamente.
+As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de velocidades, pressões e a configuração da malha para frações $T/6$ do período, respectivamente.
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Campo de magnitude de velocidade obtidos no problema de \textit{Flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Campo de magnitude de velocidades obtidos no problema de \textit{Flutter} em painel.}
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT1.png}
         \caption{$t=nT$}
@@ -446,7 +452,7 @@ As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de ve
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Campo de pressão obtidos no problema de \textit{Flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Campo de pressões obtidos no problema de \textit{Flutter} em painel.}
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT1.png}
         \caption{$t=nT$}
@@ -553,4 +559,3 @@ O problema foi simulado com a aplicação das estabilizações SUPG/PSPG e VMS, 
 \end{table}
 
 Verifica-se que o problema simulado com SUPG/PSPG não atingiu o equilíbrio dinâmico, com uma taxa de aumento da amplitude de deslocamento muito baixa. Já a simulação utilizando a mesma estabilização e o modelo LES já foi capaz de capturar corretamente o comportamento da estrutura. Por fim, tanto a simulação utilizando estabilização VMS, com e sem o LES, foi capaz de descrever adequadamente o comportamento da estrutura.
-

@@ -565,6 +565,31 @@ Dentre outros termos, a estabilização PSPG introduz na Equação \ref{eq:Resid
 %==================================================================================================
 
 %==================================================================================================
+\subsection{Elementos finitos utilizados}
+%==================================================================================================
+
+Para a resolução dos problemas serão empregados elementos finitos de Taylor-Hood que aproximam quadraticamente o campo de velocidade e linearmente o campo de pressão, denominados de elementos P2P1, permitindo simulações sem o emprego de estabilizações no campo de pressão.% Esses elementos possuem, em espaços bidimensionais, 6 nós para interpolação do campo de velocidade e 3 nós para a interpolação do campo de pressão. Já em espaços tridimensionais, esses elementos possuem 10 nós para interpolação do campo de velocidade e 4 nós para a interpolação do campo de pressão.
+
+Outras possibilidades de elementos finitos utilizados aproximam tanto o campo de velocidade quanto o campo de pressão de forma linear, denominados de elementos P1P1, ou de forma quadrática, denominados de elementos P2P2. Nesses casos é necessário o emprego de técnicas de estabilização para o campo de pressão.
+
+A Tabela \ref{tab:Elementos} apresenta a quantidade de nós necessários para a interpolação dos campos de velocidade e de pressão para os elementos finitos P1P1, P2P1 e P2P2 em problemas bidimensionais e tridimensionais.
+
+\begin{table}[h!]
+    \centering
+    \caption{Quantidade de nós para interpolação dos campos de velocidade e pressão para elementos finitos P1P1, P2P1 e P2P2.}
+    \begin{tabular}{lcccc}
+        \hline
+        \multirow{2}{*}{Elemento} & \multicolumn{2}{l}{Caso bidimensional} & \multicolumn{2}{l}{Caso tridimensional}                        \\\cline{2-5}
+                                  & Velocidade                             & Pressão                                 & Velocidade & Pressão \\\hline
+        P2P1                      & 6                                      & 3                                       & 10         & 4       \\
+        P1P1                      & 3                                      & 3                                       & 4          & 4       \\
+        P2P2                      & 6                                      & 6                                       & 10         & 10      \\\hline
+    \end{tabular}
+    \\Fonte: Presente trabalho (\the\year).
+    \label{tab:Elementos}
+\end{table}
+
+%==================================================================================================
 \input{Capitulos/C3-FundTeorica/Mov-Malha}
 \input{Capitulos/C3-FundTeorica/S5-MT/SS2-VMS}
 \input{Capitulos/C3-FundTeorica/S5-MT/SS1-LES}
