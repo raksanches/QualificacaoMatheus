@@ -489,9 +489,9 @@ Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=
 \subsection{Estabilização da convecção}
 %==================================================================================================
 
-A utilização do método de Galerkin para obtenção de soluções baseadas em elementos finitos para problemas de convecção-difusão pode levar a resultados com oscilações espúrias, principalmente em problemas de convecção dominante. Isso se deve à natureza do termo convectivo, o qual possui características hiperbólicas. Assim, uma das primeiras formas de contornar este problemas consistia em refinar suficientemente a malha ao ponto dos efeitos convectivos não serem mais dominantes ao nível do elemento. Entretanto, esta abordagem é inviável em muitos casos, já que o refinamento da malha deveria ocorrer apenas nas regiões de interesse.
+A utilização do método de Bubnov-Galerkin para obtenção de soluções baseadas em elementos finitos para problemas de convecção-difusão pode levar a resultados com oscilações espúrias, principalmente em problemas de convecção dominante. Isso se deve à natureza do termo convectivo, o qual possui características hiperbólicas \cite{brooks1982streamline,john2006computational,shilt2021stabilization}. Assim, soluções estáveis só são possíveis caso a malha seja refinada ao ponto em que os efeitos convectivos não sejam mais dominantes ao nível dos elemento. Entretanto, esta abordagem é inviável em muitos casos, já que o refinamento da malha deveria ocorrer apenas nas regiões de interesse.
 
-Portanto, \citeonline{brooks1982streamline} propuseram um método de estabilização, denominado \SUPG\ (SUPG), o qual modifica as funções testes de Galerkin, as quais originalmente consideram igualmente as parcelas de derivadas tanto à montante quanto à jusante, de modo a adicionar perturbações que atuam principalmente na direção de fluxo, aumentando, assim, a difusividade nessa direção. Para isso as funções testes atribuirão um peso maior no elemento à montante do nó analisado em relação ao elemento à jusante. Essa modificação pode ser exemplificada na Figura \ref{fig:Supg}.
+\citeonline{brooks1982streamline} propuseram um método de estabilização denominado \SUPG\ (SUPG), que consiste em adicionar à forma fraca da equação da quantidade de movimento, o resíduo da equação da quantidade de movimento ponderado por uma função escolhida de modo a promover estabilização na direção das linhas de corrente. Esse processo é consistente, uma vez que adiciona-se o resíduo ponderado da equação da quantidade de movimento, e é equivalente a modificar as funções testes do processo de resíduos ponderados, que originalmente consideram igualmente as parcelas de derivadas tanto à montante quanto à jusante de um nó, de modo a dar maior peso às derivadas à montate, como ilustrado na Figura \ref{fig:Supg}.
 
 \begin{figure}[h!]
     \centering
@@ -501,29 +501,23 @@ Portanto, \citeonline{brooks1982streamline} propuseram um método de estabiliza�
     \label{fig:Supg}
 \end{figure}
 
-% Dessa forma surgirá um termo estabilizador que, multiplicado pelo resíduo da equação da conservação da quantidade de movimento, será capaz de reduzir as oscilações espúrias devido aos termos convectivos sem comprometer a previsão da solução.
-
-O parâmetro estabilizador $\tau_\supg$ da formulação pode ser calculado como \cite{bazilevs2013computational}:
+Aplicando-se essa técnica na equação \eqref{eq:WeakForm2}, resulta:
 
 \begin{equation}
-    \tau_{\supg}=\bigpar{\frac{4}{\Delta t^2}+(\BB{u}-\HBB{u})\cdot\BB{G}(\BB{u}-\HBB{u})+C_I\nu^2\BB{G}:\BB{G}}^{-1/2}\text{,}
-    \label{eq:tauSUPG}
+    \begin{split}
+        &\intDom{\BB{w}\cdot\rho\bigpar{\dTime{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}+\intDom{\Ny\BB{w}:\tens}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
+        &\intDom{q\Ny\cdot\BB{u}}+\SintDom{\tau_\supg\bigpar{(\BB{u}-\HBB{u})\cdot\Ny}\BB{w}\cdot\rMm}=0\text{.}
+    \end{split}
 \end{equation}
 
-\noindent onde $C_I$ é uma constante e:
+\noindent onde $\tau_\supg$ é um parâmetro que tem como função garantir o bom condicionamento do sistema, e pode ser calculado como \cite{bazilevs2013computational}:
 
 \begin{equation}
-    \BB{G}=\frac{\partial\BB{\xi}}{\partial\BB{y}}^T\frac{\partial\BB{\xi}}{\partial\BB{y}}\text{.}
-\end{equation}
-
-Uma outra possibilidade de se calcular o parâmetro $\tau_\supg$ é dada por:
-
-\begin{equation}
-    \tau_{\sups}=\bigpar{\frac{1}{\tau_{\sugn 1}^2}+\frac{1}{\tau_{\sugn 2}^2}+\frac{1}{\tau_{\sugn 3}^2}}^{-1/2}\text{ e}
+    \tau_{\supg}=\bigpar{\frac{1}{\tau_{\sugn 1}^2}+\frac{1}{\tau_{\sugn 2}^2}+\frac{1}{\tau_{\sugn 3}^2}}^{-1/2}\text{ e}
     \label{eq:tauSUPG2}
 \end{equation}
 
-\noindent sendo:
+\noindent onde:
 
 \begin{subequations}
     \begin{align}
@@ -535,25 +529,36 @@ Uma outra possibilidade de se calcular o parâmetro $\tau_\supg$ é dada por:
     \end{align}
 \end{subequations}
 
-Portanto a estabilização da convecção pode ser feita ao adicionar ao vetor resíduo da equação da conservação da quantidade de movimento \eqref{eq:Residuos-NM} o termo:
+Essa técnica introduz, dentre outros termos, o termo:
 
 \begin{equation}
-    +\SintDom{\tau_\supg\bigpar{(\BB{u}-\HBB{u})\cdot\Ny N_a^u}\rMm}\text{,}\label{eq:EstabConvec}
+    \SintDom{\tau_\supg\bigpar{(\BB{u}-\HBB{u})\cdot\Ny N_a^u}\rMm}
 \end{equation}
 
-\noindent sendo $\rMm$ o resíduo da equação da conservação da quantidade de movimento.
+\noindent na equação \eqref{eq:Residuos-NM}, que estabiliza a convecção.
 
 %==================================================================================================
 \subsection{Estabilização do campo de pressão}
 %==================================================================================================
 
-No intuito de se flexibilizar a escolha dos espaços aproximadores para pressão e velocidades, \citeonline{tezduyar1991stabilized} propuseram um método de estabilização que, de forma muito semelhante ao SUPG, multiplica o resíduo da equação da conservação da quantidade de movimento por um termo estabilizador. Nesse sentido, a estabilização PSPG preenche o sub-bloco nulo da matriz do sistema algébrico, melhorando tanto o condicionamento do sistema, como estabiliza o campo de pressões, permitindo também o uso de mesmos espaços aproximadores tanto para o campo de velocidades quanto de pressões.
-
-Assim, o parâmetro $\tau_\pspg$ pode ser calculado por meio do mesmo equacionamento apresentado anteriormente para o cálculo do parâmetro $\tau_\supg$. Dessa maneira a estabilização do campo de pressão pode ser feita ao adicionar ao vetor resíduo da equação da continuidade \eqref{eq:Residuos-NC} o termo:
+No intuito de se flexibilizar a escolha dos espaços aproximadores para pressão e velocidades, \citeonline{tezduyar1991stabilized} propuseram um método de estabilização que semelhante ao SUPG, denominado \PSPG\ - PSPG, que consiste em adicionar à forma fraca da equação da continuidade, o resíduo da equação da da quantidade de movimento, ponderado por uma função desenvolvida para introduzir estabilização ao campo de pressão, resultando em:
 
 \begin{equation}
-    +\SintDom{\frac{\tau_\pspg}{\rho}\Ny N_a^p\cdot\rMm}\text{.}\label{eq:EstabPress}
+    \begin{split}
+        &\intDom{\BB{w}\cdot\rho\bigpar{\dTime{\BB{u}}+((\BB{u}-\HBB{u})\cdot\Ny)\BB{u}-\BB{f}}}+\intDom{\Ny\BB{w}:\tens}-\intNeumann{\BB{w}\cdot\BB{h}}+\\
+        &\intDom{q\Ny\cdot\BB{u}}+\SintDom{\tau_\pspg\frac{\Ny q}{\rho}\cdot\rMm}=0\text{.}
+    \end{split}
 \end{equation}
+
+\noindent onde, segundo \citeonline{bazilevs2013computational}, $\tau_\pspg$ pode adotado igual ao $\tau_\supg$ já definido.
+
+Dentre outros termos, a estabilização PSPG introduz na Equação \ref{eq:Residuos-NC} o termo:
+
+\begin{equation}
+    \SintDom{\frac{\tau_\pspg}{\rho}\Ny N_a^p\cdot\rMm}\text{,}
+\end{equation}
+
+\noindent que preenche o sub-bloco nulo do sistema de equações, e estabiliza o campo de pressão, permitindo o uso de mesmos espaços aproximadores para os campos de velocidade e de pressão.
 
 %==================================================================================================
 \input{Capitulos/C3-FundTeorica/S5-MT/SS-IntegTemporal}
