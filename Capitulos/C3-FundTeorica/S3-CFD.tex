@@ -1,11 +1,11 @@
 %==================================================================================================
-\chapter{Análise numérica para mecânica dos Fluidos} \label{EGDF}
+\chapter{Análise numérica para mecânica dos fluidos} \label{EGDF}
 %==================================================================================================
 
 No presente capítulo serão apresentadas as equações que governam os escoamentos isotérmicos incompressíveis. Inicialmente apresenta-se a formulação em descrição Euleriana, onde se considera um domínio fixo na configuração atual do escoamento (Seção \ref{CFD-E}). Em seguida essa formulação é expandida para a descrição Lagrangiana-Euleriana Arbitrária (ALE), a qual permite a movimentação da malha, independentemente da movimentação das partículas do fluido (Seção \ref{CFD-ALE}). Posteriormente, por meio do método dos resíduos ponderados, obtém-se a forma fraca para a solução do problema com uso da técnica dos elementos finitos (Seção \ref{FSD}).%, sendo as técnicas de estabilização adotadas apresentas na seção \ref{STAB}.
 
 %==================================================================================================
-\section{Descrição Euleriana} \label{CFD-E}
+\section{Descrição euleriana} \label{CFD-E}
 %==================================================================================================
 
 A descrição Euleriana toma como referência a configuração atual do contínuo, sendo apropriado para análises de domínios fixos. Na sequência serão apresentadas as equações da conservação da massa e da quantidade de movimento utilizando essa descrição, bem como o modelo constitutivo adotado para o fluido.
@@ -147,7 +147,7 @@ Dessa forma, o problema a ser resolvido segue as equações:
 \noindent que governam o os escoamentos incompressíveis de Navier-Stokes em descrição Euleriana \cite{bazilevs2013computational,bazilevs2010large,bazilevs2007variational,hughes2002variational,hughes2000large}.
 
 %==================================================================================================
-\subsection{Modelo Constitutivo} \label{MC}
+\subsection{Modelo constitutivo} \label{MC}
 %==================================================================================================
 
 O modelo constitutivo adotado para o fluido é o de escoamentos Newtonianos incompressíveis, o qual relaciona o tensor de tensões de Cauchy com a taxa de deformação e a pressão de acordo com:
@@ -339,7 +339,7 @@ Assim, os escoamentos de Navier-Stokes incompressíveis em descrição ALE são 
 \end{equation}
 
 %==================================================================================================
-\section{Forma Fraca Das Equações Governantes} \label{FSD}
+\section{Forma fraca das equações governantes} \label{FSD}
 %==================================================================================================
 
 Para a obtenção da forma fraca das equações \eqref{eq:NS-ALE}, parte-se do método dos resíduos ponderados. Assim, sejam os espaços de dimensões infinitas $\script{S}_u$ e $\script{S}_p$ das funções tentativas para os campos de velocidades e pressões, respectivamente, tal que \cite{bazilevs2013computational,fernandes2020tecnica}:

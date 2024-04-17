@@ -1,11 +1,11 @@
 %==================================================================================================
-\section{Estado Da Arte}
+\section{Estado da arte}
 %==================================================================================================
 
 Na presente seção é apresentada uma breve revisão do estado da arte dos principais temas relacionados à análise numérica de IFE, tendo como ênfase os problemas com escoamentos turbulentos. São destacados os desenvolvimentos básicos para a dinâmica das estruturas computacional com grandes deslocamentos (\ref{CSD}), para a dinâmica dos fluidos computacional (\ref{CFD}) com contornos móveis, onde aborda-se também as técnicas de estabilização, assim como o modelo de estabilização variacional multiescala (VMS) e os modelos de turbulência (\ref{MT}), e para a solução de problemas de interação fluido-estrutura (\ref{IFE}).
 
 %==================================================================================================
-\subsection{Dinâmica Das Estruturas Computacional} \label{CSD}
+\subsection{Dinâmica das estruturas computacional} \label{CSD}
 %==================================================================================================
 
 A mecânica dos sólidos busca descrever o comportamento de elementos estruturais quando sujeitos a solicitações externas, identificando os campos de tensão, deformação e deslocamento. A utilização de métodos computacionais para a solução desses problemas iniciou-se principalmente com o método das diferenças finitas, mas no decorrer do tempo, o Método dos Elementos Finitos (MEF), cujo nome foi cunhado por \citeonline{clough1960finite}, se destacou como uma ferramenta mais versátil, sendo atualmente a ferramenta mais difundida na mecânica dos sólidos.
@@ -34,7 +34,7 @@ Já a utilização do MEF baseado em posições em problemas de IFE pode ser vis
 
 
 %==================================================================================================
-\subsection{Dinâmica Dos Fluidos Computacional} \label{CFD}
+\subsection{Dinâmica dos fluidos computacional} \label{CFD}
 %==================================================================================================
 
 Ao contrário dos problemas da mecânica dos sólidos, que possuem um estado inicial bem definido, os fluidos, em especial os Newtonianos, não o possuem, uma vez que são incapazes de resistir a tensões desviadoras, deformando-se, assim, indefinidamente quando sujeitos à essas tensões. Dessa forma, torna-se apropriada a utilização de uma descrição Euleriana para seu equacionamento, os graus de liberdade são, em geral, velocidade e pressão \cite{fernandes2020tecnica}.
@@ -93,7 +93,7 @@ Outra forma de abordar tais problemas é com o emprego do modelo de \textit{Larg
 Outra possibilidade se baseia no modelo de Smagorinsky, o qual faz a consideração das estruturas formadas na subescala por meio da adição de um termo de viscosidade de vórtice, inserindo no problema uma constante, denominada de constante de Smagorinsky. Posteriormente, \citeonline{deardorff1971magnitude} estimou o coeficiente de Smagorinsky ao estudar escoamentos em canais. A ideia central do modelo parte da consideração de que o escoamento pode ser bem caracterizado por meio de uma separação de escalas, na qual as grandes escalas são responsáveis pela transferência da energia cinética, sendo influenciadas diretamente pela natureza do escoamento, assim como pelas condições de contorno, enquanto as pequenas escalas são responsáveis pela dissipação de energia e possuem propriedades isotrópicas e homogêneas no escoamento. Assim, o modelo de Smagorinsky consiste em uma decomposição do campo de velocidades em duas parcelas, uma de grandes escalas e outra de pequenas escalas, sendo a parcela de pequenas escalas modelada por um termo viscoso, o qual é determinado a partir de um modelo de viscosidade de vórtice.
 
 %==================================================================================================
-\subsection{Interação Fluido-Estrutura} \label{IFE}
+\subsection{Interação fluido-estrutura} \label{IFE}
 %==================================================================================================
 
 A solução numérica de problemas de IFE compreende a solução de 3 subproblemas, sendo esses a CFD, a CSD e o Problema de Interação (\textit{Interaction Problem} - IP). Fazer o acoplamento adequado entre CFD e CSD pode se tornar uma tarefa complexa, pois o problema se caracteriza pela multidisciplinaridade \cite{hou2012numerical}, onde pode ser necessário lidar com descrições e métodos diferentes para cada problema, por exemplo a utilização de uma descrição Lagrangiana para modelar o sólido e uma descrição Euleriana para o fluido. Além disso, as variáveis incógnitas em cada um dos dois problemas são, em geral, distintas, como deslocamentos ou posições em sólidos e velocidades e pressões no fluido.
