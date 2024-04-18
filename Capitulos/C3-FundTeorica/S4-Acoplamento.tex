@@ -207,6 +207,7 @@ A Figura \ref{fig:cavity2D-time} apresenta o campo de pressão na cavidade, assi
     \label{fig:cavity2D-time}
 \end{figure}
 
+\begin{comment}
 Buscando verificar a possível influencia de estruturas tridimensionais de vorticidade, realiza-se uma nova simulação considerando espessura do domínio aumentada de forma a tornar o domínio do fluido uma cavidade cúbica de lado unitário. Assim liberou-se o movimento da casca nas três direções para se obter uma melhor representatividade física. Além disso, tanto o domínio do fluido quanto da casca foram discretizados com malhas mais grosseiras, com a malha do fluido possuindo 2786 elementos de aproximação quadrática, 4963 nós e 19852 graus de liberdade, enquanto a malha do sólido possui 72 elementos, 169 nós e 1183 graus de liberdade. A Figura \ref{fig:cavity2D-coarse} apresenta a malha utilizada para cada um dos meios.
 
 \begin{figure}[h!]
@@ -235,6 +236,7 @@ Nesse caso observou-se a influência que cada tipo de estabilização causa na s
 \end{figure}
 
 É possível perceber que a aplicação dos demais termos estabilizadores presentes na formulação VMS levaram a uma melhora na solução obtida, em relação ao SUPG/PSPG. No entanto a aplicação do modelo LES não surtiu efeito na solução encontrada. Isso se deve ao fato do número de Reynolds do problema ser baixo, além de possuir gradientes de velocidade também muito pequenos. Outro motivo que pode ter contribuído com a baixa contribuição do LES se deve ao fato do problema requerer um refinamento maior nas faces de entrada e saída do fluido, fazendo com que a face superior, como um todo, tivesse elementos menores, e é exatamente nessa região onde o LES teria seu maior impacto. Com isso, todos esses fatores somados levaram a um problema onde não se necessita a aplicação do modelo LES.
+\end{comment}
 
 \newpage
 %==================================================================================================
@@ -339,7 +341,7 @@ A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da c
     \label{fig:Cavity3D-press}
 \end{figure}
 
-Na sequência estudou-se o problema com uma discretização mais grosseira no domínio do fluido, a qual é apresentada na Figura \ref{fig:Cavity3D-coarse}. A nova malha do fluido possui 2460 elementos quadráticos, 4339 nós e 17356 graus de liberdade, enquanto a malha da casca foi mantida inalterada. O passo de tempo e integrador temporal foram mantidos os mesmos da simulação passada. Nesse novo caso, observou-se a influência que cada tipo de estabilização causa na solução, onde simulou-se com as estabilizações SUPG/PSPG e VMS. Também foram simulados os problemas com e sem a aplicação do modelo LES, para analisar os efeitos que este causa na solução. A Figura \ref{fig:Cavity3D-rescoarse} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear} e com a simulação com malha mais fina.
+Na sequência estudou-se o problema com uma discretização mais pobre no domínio do fluido, a qual é apresentada na Figura \ref{fig:Cavity3D-coarse}. A nova malha do fluido possui 2460 elementos quadráticos, 4339 nós e 17356 graus de liberdade, enquanto a malha da casca foi mantida inalterada. O passo de tempo e integrador temporal foram mantidos os mesmos da simulação passada. Nesse novo caso, observou-se a influência que cada tipo de estabilização causa na solução, onde simulou-se com as estabilizações SUPG/PSPG e VMS. Também foram simulados os problemas com e sem a aplicação do modelo LES, para analisar os efeitos que este causa na solução. A Figura \ref{fig:Cavity3D-rescoarse} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear} e com a simulação com malha mais fina.
 
 \begin{figure}[h!]
     \centering
@@ -516,7 +518,7 @@ As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de ve
 \end{figure}
 \newpage
 
-Na sequência estudou-se o comportamento do painel quando modelado por uma malha grosseira em um domínio de maior espessura. Assim, utilizou-se uma espessura $esp=4,0$, de forma que po painel possua uma geometria quadrada. Além disso também foi liberado o deslocamento do painel na terceira direção. Com isso, obtém-se uma malha de fluido contendo 6794 elementos quadráticos, com 11806 nós e 47224 graus de liberdade, enquanto a casca possui 200 elementos quadráticos, 441 nós e 3087 graus de liberdade. A Figura \ref{fig:meshPanel2} apresenta as malhas utilizadas em ambos os domínios.
+Na sequência estudou-se o comportamento do painel quando modelado por uma malha pobre em um domínio de maior espessura. Assim, utilizou-se uma espessura $esp=4,0$, de forma que po painel possua uma geometria quadrada. Além disso também foi liberado o deslocamento do painel na terceira direção. Com isso, obtém-se uma malha de fluido contendo 6794 elementos quadráticos, com 11806 nós e 47224 graus de liberdade, enquanto a casca possui 200 elementos quadráticos, 441 nós e 3087 graus de liberdade. A Figura \ref{fig:meshPanel2} apresenta as malhas utilizadas em ambos os domínios.
 
 \begin{figure}[h!]
     \centering
