@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="136.87672mm"
-   height="2.8168824mm"
-   viewBox="0 0 136.87672 2.8168824"
+   width="138.48283mm"
+   height="2.3316405mm"
+   viewBox="0 0 138.48283 2.3316405"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
@@ -24,18 +24,18 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.8141932"
-     inkscape:cx="270.09252"
-     inkscape:cy="-6.0633015"
+     inkscape:cx="270.36812"
+     inkscape:cy="-5.5120921"
      inkscape:window-width="1920"
-     inkscape:window-height="962"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="970"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1" />
   <defs
      id="defs1" />
   <path
-     d="M 0.26458686,1.158582 H 7.1437534"
+     d="M 0.2645835,1.2423014 H 7.14375"
      stroke="#70ad47"
      stroke-width="0.529167"
      stroke-linecap="round"
@@ -49,13 +49,15 @@
      font-weight="400"
      font-size="3.175px"
      id="text44"
-     x="7.7716098"
-     y="2.2169154"
-     style="stroke-width:0.264583;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-family:Arial, Arial_MSFontService, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.175px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+     x="7.7716064"
+     y="2.3006346"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:Arial, Arial_MSFontService, sans-serif;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"><tspan
        sodipodi:role="line"
-       id="tspan1">P2P1</tspan></text>
+       id="tspan1"
+       x="7.7716064"
+       y="2.3006346">P2P1</tspan></text>
   <path
-     d="m 18.311459,1.158582 h 6.879166"
+     d="m 18.311456,1.2423014 h 6.879166"
      stroke="#ed7d31"
      stroke-width="0.529167"
      stroke-linecap="round"
@@ -69,15 +71,15 @@
      font-weight="400"
      font-size="3.175px"
      id="text46"
-     x="25.815042"
-     y="2.2169154"
+     x="25.815039"
+     y="2.3006346"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:Arial, Arial_MSFontService, sans-serif;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"><tspan
        sodipodi:role="line"
        id="tspan2"
-       x="25.815042"
-       y="2.2169154">SUPG/PSPG-Qua</tspan></text>
+       x="25.815039"
+       y="2.3006346">SUPG/PSPG-P2P2</tspan></text>
   <path
-     d="m 54.50417,1.158582 h 6.879166"
+     d="m 54.504167,1.2423014 h 6.879166"
      stroke="#a5a5a5"
      stroke-width="0.529167"
      stroke-linecap="round"
@@ -91,11 +93,15 @@
      font-weight="400"
      font-size="3.175px"
      id="text48"
-     x="62.089775"
-     y="2.2169154"
-     style="stroke-width:0.264583">VMS-Qua</text>
+     x="62.089771"
+     y="2.3006346"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:Arial, Arial_MSFontService, sans-serif;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"><tspan
+       sodipodi:role="line"
+       id="tspan3"
+       x="62.089771"
+       y="2.3006346">VMS-P2P2</tspan></text>
   <path
-     d="m 80.962503,1.158582 h 6.879166"
+     d="m 80.9625,1.2423014 h 6.879166"
      stroke="#ffc000"
      stroke-width="0.529167"
      stroke-linecap="round"
@@ -110,10 +116,10 @@
      font-size="3.175px"
      id="text50"
      x="88.540169"
-     y="2.2169154"
+     y="2.3006346"
      style="stroke-width:0.264583">LES-P2P1</text>
   <path
-     d="m 108.47917,1.158582 h 6.61458"
+     d="m 108.47917,1.2423014 h 6.61458"
      stroke="#5b9bd5"
      stroke-width="0.529167"
      stroke-linecap="round"
@@ -128,6 +134,10 @@
      font-size="3.175px"
      id="text52"
      x="115.87956"
-     y="2.2169154"
-     style="stroke-width:0.264583">LES-VMS-Qua</text>
+     y="2.3006346"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:Arial, Arial_MSFontService, sans-serif;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"><tspan
+       sodipodi:role="line"
+       id="tspan4"
+       x="115.87956"
+       y="2.3006346">LES-VMS-P2P2</tspan></text>
 </svg>

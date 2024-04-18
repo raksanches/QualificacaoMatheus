@@ -7,7 +7,7 @@
    viewBox="0 0 85.190911 16.66392"
    version="1.1"
    id="svg9112"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    sodipodi:docname="legenda.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,19 +26,23 @@
      showgrid="false"
      inkscape:lockguides="true"
      inkscape:zoom="2.1089995"
-     inkscape:cx="123.28121"
+     inkscape:cx="123.51828"
      inkscape:cy="22.759607"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-height="970"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
        id="grid10892"
        originx="2.3812497"
-       originy="6.6404213" />
+       originy="6.6404213"
+       spacingy="1"
+       spacingx="1"
+       units="mm"
+       visible="false" />
   </sodipodi:namedview>
   <defs
      id="defs9109">
@@ -1368,7 +1372,7 @@
        y="151.01059"
        id="text1448"><tspan
          sodipodi:role="line"
-         id="tspan10348">Qua - 3D</tspan></text>
+         id="tspan1">P2P2 - 3D</tspan></text>
     <g
        id="g563-8"
        transform="matrix(0.35277773,0,0,0.26458333,-425.77732,69.357693)"
@@ -1401,7 +1405,7 @@
        y="157.62517"
        id="text1448-1"><tspan
          sodipodi:role="line"
-         id="tspan10350">Qua - 2D</tspan></text>
+         id="tspan2">P2P2 - 2D</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.165"

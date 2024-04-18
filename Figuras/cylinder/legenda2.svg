@@ -24,12 +24,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.2828283"
-     inkscape:cx="371.83465"
-     inkscape:cy="-23.385827"
+     inkscape:cx="372.2244"
+     inkscape:cy="-23.385826"
      inkscape:window-width="1920"
-     inkscape:window-height="962"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="970"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -86,9 +86,7 @@
        y="184.08023"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:Arial, Arial_MSFontService, sans-serif;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"><tspan
          sodipodi:role="line"
-         id="tspan2"
-         x="-2.3267162"
-         y="184.08023">SUPG/PSPG-Qua</tspan></text>
+         id="tspan2">SUPG/PSPG-P2P2</tspan></text>
     <g
        id="g45"
        transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
@@ -103,16 +101,16 @@
          fill-rule="evenodd"
          id="path44" />
     </g>
-    <g
-       id="g46"
-       transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
-      <text
-         font-family="Arial, Arial_MSFontService, sans-serif"
-         font-weight="400"
-         font-size="12px"
-         transform="translate(1121.95,439)"
-         id="text45">VMS-Qua</text>
-    </g>
+    <text
+       font-family="Arial, Arial_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.175px"
+       id="text45"
+       x="37.028427"
+       y="184.08023"
+       style="stroke-width:0.264583;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-family:Arial, Arial_MSFontService, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.175px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+         sodipodi:role="line"
+         id="tspan3">VMS-P2P2</tspan></text>
     <g
        id="g47"
        transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">
@@ -156,7 +154,9 @@
        id="text49"
        x="97.223778"
        y="184.08023"
-       style="stroke-width:0.264583">LES-VMS-Qua</text>
+       style="stroke-width:0.264583;-inkscape-font-specification:'Arial, Arial_MSFontService, sans-serif, Normal';font-family:Arial, Arial_MSFontService, sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.175px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+         sodipodi:role="line"
+         id="tspan4">LES-VMS-P2P2</tspan></text>
     <g
        id="g51"
        transform="matrix(0.26458333,0,0,0.26458333,-259.82084,67.92815)">

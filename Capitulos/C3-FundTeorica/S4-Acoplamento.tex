@@ -179,11 +179,11 @@ O deslocamento vertical do ponto $A$, localizado no centro da casca como ilustra
 
 %\textcolor{red}{Não é empregado LES nem VMS aqui? Adote a mesma nomenclatura das simulações da cavidade rígida na legenda da figura.}
 
-A Figura \ref{fig:cavity2D-time} apresenta o campo de pressões na cavidade, assim como as linhas de corrente, para a simulação quadrática os instantes de tempo $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
+A Figura \ref{fig:cavity2D-time} apresenta o campo de pressão na cavidade, assim como as linhas de corrente, para a simulação quadrática os instantes $t=3,5$, $8,0$, $14,0$ e $21,0$, sendo próximos aos campos encontrados por \citeonline{fernandes2016interaccao}.
 
 \begin{figure}[h!]
     \centering
-    \caption{Cavidade bidimensional - Campo de pressões e linhas de corrente na cavidade.}
+    \caption{Cavidade bidimensional - Campo de pressão e linhas de corrente na cavidade.}
     \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity2D/t3_5.png}
         \caption{$t=3,5$}
@@ -260,7 +260,7 @@ O problema discretizado contém 7306 elementos de aproximação quadrática para
     \label{fig:Cavity3D-mesh}
 \end{figure}
 
-A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}, enquanto a Figura \ref{fig:Cavity3D-time} apresenta a configuração deformada da casca, colorida pelo deslocamento vertical nos instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}. A figura \ref{fig:Cavity3D-press} apresenta o campo de pressões e de velocidades para os mesmos instantes de tempo.
+A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da casca ao longo do tempo, comparando-se com os resultados obtidos por \citeonline{valdes2007nonlinear}, enquanto a Figura \ref{fig:Cavity3D-time} apresenta a configuração deformada da casca, colorida pelo deslocamento vertical nos instantes $t=4,0$, $6,0$, $21,8$ e $24,3$, os quais são bem próximos aos obtidos por \citeonline{valdes2007nonlinear}. A figura \ref{fig:Cavity3D-press} apresenta o campo de pressão e de velocidade para os mesmos instantes.
 
 \begin{figure}[h!]
     \centering
@@ -300,7 +300,7 @@ A Figura \ref{fig:Cavity3D-res} apresenta o deslocamento vertical do centro da c
     \centering
     \caption{Cavidade tridimensional - Campo de pressão e de velocidade na cavidade.}
     \begin{subfigure}[b]{0.23\textwidth}
-        \caption*{Campo de pressões}
+        \caption*{Campo de pressão}
         \includegraphics[width=\linewidth]{Figuras/FSI-Cavity3D/p4.png}
     \end{subfigure}
     \begin{subfigure}[b]{0.23\textwidth}
@@ -371,7 +371,7 @@ Verifica-se que a aplicação dos demais termos estabilizadores presentes na for
 \subsection{\textit{Flutter} em painel flexível} \label{FSI-prism}
 %==================================================================================================
 
-Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid}. Tal problema possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, além de apresentar certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressões de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema é nulo, uma vez que a cinemática utilizada nas referência foi a de Euler-Bernoulli para vigas, a quão não considera deformações por cisalhamento da estrutura. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
+Outro problema comumente simulado trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}, proposto por \citeonline{wall1998fluid}. Tal problema possui comportamento fortemente acoplado, em que a relação entre a massa específica do fluido e da estrutura é alta, além de apresentar certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma gera um campo de pressão de tal forma a induzir grandes deslocamentos na estrutura. O problema consiste em um painel flexível de comprimento $L=4$ cm e espessura $h_0=0,06$ cm engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema é nulo, uma vez que a cinemática utilizada nas referência foi a de Euler-Bernoulli para vigas, a quão não considera deformações por cisalhamento da estrutura. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
 
 \begin{figure}[h!]
     \centering
@@ -414,11 +414,11 @@ O gráfico apresentado na Figura \ref{fig:prismRes} indica o deslocamento vertic
 
 Assim, obteve-se um comportamento oscilatório com amplitude de 1,26 cm e frequência de 3,03 Hz (Período de 0,33 s), o que se aproxima dos resultados de \citeonline{wall1999fluid}.
 
-As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de velocidades, pressões e a configuração da malha para frações $T/6$ do período, respectivamente.
+As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de velocidade, pressões e a configuração da malha para frações $T/6$ do período, respectivamente.
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Campo de magnitude de velocidades obtidos no problema de \textit{Flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Campo de magnitude de velocidade obtidos no problema de \textit{Flutter} em painel.}
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/vT1.png}
         \caption{$t=nT$}
@@ -452,7 +452,7 @@ As Figuras \ref{fig:prismVel2} a \ref{fig:prismMesh2} apresentam os campos de ve
 
 \begin{figure}[h!]
     \centering
-    \caption{\textit{Flutter} em painel - Campo de pressões obtidos no problema de \textit{Flutter} em painel.}
+    \caption{\textit{Flutter} em painel - Campo de pressão obtidos no problema de \textit{Flutter} em painel.}
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\linewidth]{Figuras/FSI-prism2/pT1.png}
         \caption{$t=nT$}
