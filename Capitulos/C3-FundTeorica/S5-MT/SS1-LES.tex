@@ -140,7 +140,7 @@ Aplicando a incompressibilidade e substituindo-se $\bar{\tens}$ pelo modelo cons
 \noindent ou, dividindo-se por $\rho$, usando a definição de derivada material na descrição Euleriana e fazendo algumas manipulações tem-se que:
 
 \begin{equation}
-    \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\TS{T}+\BBB{f}\text{.}
+    \frac{D\BBB{u}}{Dt}+\frac{\Ny\bar{p}}{\rho}=\nu\Lapl\BBB{u}+\Ny\TS{T}+\BBB{f}\text{.}
 \end{equation}
 
 %\noindent sendo $\Lapl(\cdot)=\Ny\cdot\Ny(\cdot)$ o operador laplaciano e $\nu=\mu/\rho$ a viscosidade cinemática.
@@ -150,8 +150,8 @@ Assim, o problema fica governado por:
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \frac{D\BB{u}}{Dt}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\TS{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
-        \Ny\cdot\BBB{u}=0                                                            & \text{ em }\Omega\text{.}
+        \frac{D\BBB{u}}{Dt}+\frac{\Ny\bar{p}}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\TS{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \Ny\cdot\BBB{u}=0                                                                  & \text{ em }\Omega\text{.}
     \end{array}
     \right.
 \end{equation}
@@ -161,8 +161,8 @@ Ao substituir a derivada material pela sua definição em descrição ALE, se ob
 \begin{equation}
     \left\{
     \begin{array}{ll}
-        \dTime{\BB{u}}+(\BB{u}-\uhat)\cdot\Ny\BB{u}+\frac{\Ny p}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\TS{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
-        \Ny\cdot\BBB{u}=0                                                                                     & \text{ em }\Omega\text{.}
+        \dTime{\BBB{u}}+(\BBB{u}-\uhat)\cdot\Ny\BBB{u}+\frac{\Ny\bar{p}}{\rho}=\nu\Lapl\BBB{u}+\Ny\cdot\TS{T}+\BBB{f} & \text{ em }\Omega\text{,} \\
+        \Ny\cdot\BBB{u}=0                                                                                             & \text{ em }\Omega\text{.}
     \end{array}
     \right.
 \end{equation}
