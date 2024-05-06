@@ -11,6 +11,7 @@
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -25,8 +26,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.7412103"
-     inkscape:cx="284.85933"
-     inkscape:cy="91.028637"
+     inkscape:cx="296.34559"
+     inkscape:cy="78.96806"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -45,6 +46,18 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <linearGradient
+       id="linearGradient7"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop8" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0.30000001;"
+         offset="1"
+         id="stop7" />
+    </linearGradient>
     <marker
        style="overflow:visible"
        id="TriangleStart"
@@ -92,6 +105,17 @@
          d="m 234,7 h 9 v 12.128906 h -9 z m 0,0"
          id="path4724" />
     </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7"
+       id="radialGradient8"
+       cx="158.75"
+       cy="54.469688"
+       fx="158.75"
+       fy="54.469688"
+       r="59.73125"
+       gradientTransform="matrix(-1.9933033,-7.8049724e-8,2.2274442e-8,-0.2214782,475.18689,117.8972)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Camada 1"
@@ -334,5 +358,9 @@
         </g>
       </g>
     </g>
+    <path
+       style="fill:url(#radialGradient8);stroke:none;stroke-width:0.4;fill-opacity:1"
+       d="M 39.687501,105.83333 H 158.75 V 119.0625 H 39.6875 Z"
+       id="path7" />
   </g>
 </svg>

@@ -50,9 +50,9 @@ Já o acoplamento particionado trata o sistema de forma a eliminar os termos cru
 
 \begin{equation}
     \begin{bmatrix}
-        \BB{H}_{11} & 0           & 0           \\
-        0           & \BB{H}_{22} & 0           \\
-        0           & 0           & \BB{H}_{33}
+        \BB{H}_{11} & \BB{0}      & \BB{0}      \\
+        \BB{0}      & \BB{H}_{22} & \BB{0}      \\
+        \BB{0}      & \BB{0}      & \BB{H}_{33}
     \end{bmatrix}\begin{bmatrix}
         \Delta\DOF_1 \\\Delta\DOF_2\\\Delta\DOF_3
     \end{bmatrix}=-\begin{bmatrix}
@@ -362,7 +362,7 @@ A Figura \ref{fig:Cavity3D-time} apresenta a distribuição de deslocamentos ver
 
 Outro problema comumente simulado para a verificação de formulações para análise de interação fluido-estrutura, proposto por \citeonline{wall1998fluid}, trata-se de um painel engastado a um prisma quadrado rígido, como observado na Figura \ref{fig:FSI-prism}. Tal problema possui comportamento fortemente acoplado, além de apresentar certa complexidade, uma vez que o desprendimento de vórtices ocasionado pelo escoamento em torno do prisma que gera perturbações no escoamento de forma a induzir vibrações na estrutura, chegando a grandes deslocamentos.
 
-O painel possui comprimento $L=4$ cm e espessura $h_0=0,06$ cm, sendo engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e seu módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema foi considerado nulo, de forma a representar melhor a solução da referência que emprega simulação bidimensional dom elementos de biga de  Euler-Bernoulli. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
+O painel possui comprimento $L=4$ cm e espessura $h_0=0,06$ cm, sendo engastado em um bloco rígido de dimensões $1\times 1$ cm², sua massa específica é $\rho_S=0,1$ g/cm³ e seu módulo de Young $E=2,5\times 10^6$ g/(cm$\cdot$s²). O coeficiente de Poisson desse problema foi considerado nulo, de forma a representar melhor a solução da referência que emprega simulação bidimensional com elementos de biga de  Euler-Bernoulli. O fluido que envolve a estrutura possui massa específica $\rho_f=1,18\times10^{-3}$ g/cm³ e viscosidade dinâmica $\mu=1,82\times10^{-4}$ g/(cm$\cdot$s), modelado em um domínio $\Omega=[0,21]\times[0,12]$ cm², com uma velocidade de entrada constante $u_\infty=51,3$ cm/s na direção 1, o que resulta em um número de Reynolds de $333$, ao considerar o comprimento característico o lado do prisma. Esse problema é conhecido pelo comportamento bidimensional das variáveis envolvidas, no entanto a simulação foi realizada considerando um problema tridimensional, assim foi considerada uma espessura $esp=0,1$ cm para o domínio computacional, assim como imposição de deslocamento nulo do painel na terceira direção e do travamento dessa componente no vetor generalizado, enquanto no fluido foi considerada uma condição de simetria nas faces frontal e traseira do domínio.
 
 \begin{figure}[h!]
     \centering
