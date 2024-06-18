@@ -394,7 +394,7 @@ Fazendo a integração por partes da parcela que foi separada e considerando o T
 
 Assim, o problema, fica definido como: dados $\BB{f}$, $\BB{g}$, $\BB{h}$ e $\HBB{u}$, em que $\BB{h}=\tens\cdot\BB{n}$ é o valor prescrito de força de superfície em $\Gamma_N$, determinar $(\BB{u},p)\in\script{S}_u\times\script{S}_p$ tal que $\forall\BB{w}\in\script{V}_u$ e $\forall q\in\script{V}_p$ em um intervalo $t\in(0,T)$, a equação \eqref{eq:WeakForm2} seja satisfeita.
 
-A solução desse problema, entretanto, pode levar à resultados com variações espúrias em problemas de convecção dominante caso seja considerado o método clássico de Galerkin (Bubnov-Galerkin), como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidade e de pressão não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
+A solução desse problema, entretanto, pode levar à resultados com variações espúrias em problemas de termos convectivos dominantes caso seja considerado o método clássico de Galerkin (Bubnov-Galerkin), como mencionado em \cite{fernandes2020tecnica,donea2003finite,brooks1982streamline}. Uma solução eficiente e consistente para isso é o emprego da técnica SUPG, como mencionado anteriormente. Além disso, vale observar que a adoção do grau de aproximação dos campos de velocidade e de pressão não pode ser feita de maneira descuidada, uma vez que, para conduzir a uma sistema com unicidade de solução, os espaços de funções para velocidade e pressão devem observar as condições \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB), que, como uma condição necessária, porém não suficiente, aponta a necessidade de se adotar funções para pressão de ordem inferior às adotadas para velocidade, tal que \cite{donea2003finite}:
 
 \begin{equation}
     \dim{\script{V}_p^h}\leq\dim{\script{V}_u^h}\text{.}
@@ -420,7 +420,7 @@ Como pode-se observar, a determinação de combinações de espaços de aproxima
 
 Uma alternativa ao uso de Elementos Taylor-Hood, e que torna os métodos mais flexíveis, é o emprego de formulações estabilizadas, como a técnica PSPG \cite{tezduyar1991stabilized}.
 
-Outra formulação que é eficiente tanto para a estabilização da convecção quanto do campo de pressão, e que engloba os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
+Outra formulação que é eficiente tanto para a estabilização do campo de pressão quanto de problemas dominados por termos convectivos, e que engloba os mesmos termos da estabilização SUPG/PSPG e ainda introduzindo outros termos estabilizantes de forma consistente, é a formulação VMS \cite{bazilevs2013computational}.
 
 %==================================================================================================
 \subsection{Formulação semi-discreta}
@@ -486,10 +486,10 @@ Sendo os vetores $\BB{U}=[\BB{u}_B]$, $\dot{\BB{U}}=[\dot{\BB{u}}_B]$ e $\BB{P}=
 % A utilização do MEF para descrever o comportamento de escoamentos incompressíveis possui duas fontes principais de instabilidades, que são associadas à convecção e à pressão \cite{tezduyar1991stabilized}. Nesse sentido se desenvolveram técnicas de estabilização que visam a minimizar ou eliminar essas instabilidades, como a técnica \SUPG\ (SUPG), capaz de estabilizar problemas de convecção dominante, onde termos hiperbólicos passam a ser predominantes, a térnica \PSPG\ (PSPG), capaz de estabilizar o campo de pressões, flexibilizando também a escolha dos espaços aproximadores dos campos de velocidade e pressão, e a técnica \VMS\ (VMS), a qual parte do princípio de decomposição das variáveis em grandes e pequenas escalas, resultando em uma técnica que engloba, além dos termos SUPG e PSPG, outros termos estabilizadores próprios da formulação. Na sequência serão tratados individualmente cada uma dessas técnicas de estabilização.
 
 %==================================================================================================
-\subsection{Estabilização da convecção}
+\subsection{Estabilização de problemas com termos convectivos dominantes}
 %==================================================================================================
 
-A utilização do método de Bubnov-Galerkin para obtenção de soluções baseadas em elementos finitos para problemas de convecção-difusão pode levar a resultados com oscilações espúrias, principalmente em problemas de convecção dominante. Isso se deve à natureza do termo convectivo, o qual possui características hiperbólicas \cite{brooks1982streamline,john2006computational,shilt2021stabilization}. Assim, soluções estáveis só são possíveis caso a malha seja refinada ao ponto em que os efeitos convectivos não sejam mais dominantes ao nível dos elemento. Entretanto, esta abordagem é inviável em muitos casos, já que o refinamento da malha deveria ocorrer apenas nas regiões de interesse.
+A utilização do método de Bubnov-Galerkin para obtenção de soluções baseadas em elementos finitos para problemas de convecção-difusão pode levar a resultados com oscilações espúrias, principalmente em problemas de termos convectivos dominantes. Isso se deve à natureza do termo convectivo, o qual possui características hiperbólicas \cite{brooks1982streamline,john2006computational,shilt2021stabilization}. Assim, soluções estáveis só são possíveis caso a malha seja refinada ao ponto em que os efeitos convectivos não sejam mais dominantes ao nível dos elemento. Entretanto, esta abordagem é inviável em muitos casos, já que o refinamento da malha deveria ocorrer apenas nas regiões de interesse.
 
 \citeonline{brooks1982streamline} propuseram um método de estabilização denominado \SUPG\ (SUPG), que consiste em adicionar à forma fraca da equação da quantidade de movimento, o resíduo da equação da quantidade de movimento ponderado por uma função escolhida de modo a promover estabilização na direção das linhas de corrente. Esse processo é consistente, uma vez que adiciona-se o resíduo ponderado da equação da quantidade de movimento, e é equivalente a modificar as funções testes do processo de resíduos ponderados, que originalmente consideram igualmente as parcelas de derivadas tanto à montante quanto à jusante de um nó, de modo a dar maior peso às derivadas à montate, como ilustrado na Figura \ref{fig:Supg}.
 
@@ -535,7 +535,7 @@ Essa técnica introduz, dentre outros termos, o termo:
     \SintDom{\tau_\supg\bigpar{(\BB{u}-\HBB{u})\cdot\Ny N_a^u}\rMm}
 \end{equation}
 
-\noindent na equação \eqref{eq:Residuos-NM}, que estabiliza a convecção.
+\noindent na equação \eqref{eq:Residuos-NM}, que estabiliza problemas com termos convectivos dominantes.
 
 %==================================================================================================
 \subsection{Estabilização do campo de pressão}
