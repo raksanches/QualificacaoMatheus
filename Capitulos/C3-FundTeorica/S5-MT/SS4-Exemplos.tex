@@ -479,7 +479,7 @@ Assim, percebe-se que, em relação ao campo de velocidade, todas as simulaçõe
 \subsection{Escoamento sobre cilindro} \label{ex:cylinder}
 %==================================================================================================
 
-Para o seguinte problema considerou-se um cilindro circular de raio $R=0,5$ em um domínio retangular $\Omega=[0,112R]\times[0,100R]$, sendo o centro do cilindro posicionado sobre o ponto $(36,50)R$. As condições de contorno consideradas foram de entrada na face esquerda ($x_1=0$) do domínio ($\BB{u}=\{u_\infty,0\}^T$) e condição de velocidade vertical nula nas faces inferior e superior ($u_2=0$ em $x_2=0$ e $x_2=100R$). Como condição inicial aplicou-se uma velocidade $\BB{u}=\{u_\infty,0\}^T$ em todo o domínio. A densidade do fluido foi de $\rho=1,0$ e a velocidade $u_\infty=1,0$. A viscosidade dinâmica do fluido foi de $\nu=0,01$, $\nu=6,6667\times10^{-3}$ e $\nu=5\times10^{-3}$, de forma a se obter $\Rey=100$, $\Rey=150$ e $\Rey=200$, respectivamente.
+Para o seguinte problema considerou-se um cilindro circular de raio $R=0,5$ em um domínio retangular $\Omega=[0,112R]\times[0,100R]$, sendo o centro do cilindro posicionado sobre o ponto $(36,50)R$, sendo todas as medidas adimensionais. As condições de contorno consideradas foram de entrada na face esquerda ($x_1=0$) do domínio ($\BB{u}=\{u_\infty,0\}^T$) e condição de velocidade vertical nula nas faces inferior e superior ($u_2=0$ em $x_2=0$ e $x_2=100R$). Como condição inicial aplicou-se uma velocidade $\BB{u}=\{u_\infty,0\}^T$ em todo o domínio. A densidade do fluido foi de $\rho=1,0$ e a velocidade $u_\infty=1,0$. A viscosidade dinâmica do fluido foi de $\mu=0,01$, $\mu=6,6667\times10^{-3}$ e $\mu=5\times10^{-3}$, de forma a se obter $\Rey=100$, $\Rey=150$ e $\Rey=200$, respectivamente.
 
 Para a simulação numérica considerou-se a malha apresentada na Figura \ref{fig:cyl-mesh}, a qual possui 4656 elementos finitos. Assim, estudou-se o escoamento nas simulações apresentadas na Tabela \ref{tab:cyl-sim}. O intervalo de tempo foi de $t\in[0,200]$ com passos de $\Delta t=0,1$.
 
@@ -614,7 +614,7 @@ Os valores dos coeficientes de arrasto e de sustentação após o escoamento ati
     \caption{Escoamento sobre cilindro - Valores dos coeficientes e número de Strouhal para $\Rey=150$.}
     \begin{tabular}{lcccc}
         \hline
-        Simulação                          & $C_D$             & $C_D$       & $\Str$   \\\hline
+        Simulação                          & $C_D$             & $C_L$       & $\Str$   \\\hline
         Sim1                               & $1,3309\pm0,0262$ & $\pm0,5218$ & $0,1848$ \\
         Sim2                               & $1,3384\pm0,0263$ & $\pm0,5231$ & $0,1852$ \\
         Sim3                               & $1,3369\pm0,0265$ & $\pm0,5253$ & $0,1855$ \\
@@ -912,7 +912,7 @@ Como pode se observar, os valores obtidos a partir de elementos P2P1 tiveram val
 \subsection{Escoamento sobre um aerofólio NACA 0012} \label{ex:NACA0012}
 %==================================================================================================
 
-O seguinte exemplo trata-se de um escoamento em torno de um aerofólio NACA 0012, cujo comprimento da corda é unitário ($L=1,0$). O domínio considerado para a simulação é apresentado na Figura \ref{fig:NACA0012}, em que o ângulo de ataque $\alpha=5^{\circ}$. O fluido possui massa específica $\rho=1,0$, viscosidade dinâmica $\mu=2\times10^{-5}$ e a velocidade de entrada é de $\BB{u}_\infty=[1,0]\trans$, resultando em o número de Reynolds de $\Rey=5\times10^4$.
+O seguinte exemplo trata-se de um escoamento em torno de um aerofólio NACA 0012, cujo comprimento da corda é unitário ($L=1,0$). O domínio considerado para a simulação é apresentado na Figura \ref{fig:NACA0012}, em que o ângulo de ataque $\alpha=5^{\circ}$. O fluido possui densidade $\rho=1,0$, viscosidade dinâmica $\mu=2\times10^{-5}$ e a velocidade de entrada é de $\BB{u}_\infty=[1,0]\trans$, resultando em o número de Reynolds de $\Rey=5\times10^4$.
 
 \begin{figure}[h!]
     \centering
@@ -956,7 +956,7 @@ Para a simulação tridimensional, observou-se que a simulação sem aplicação
 
 Assim, verifica-se que todas as simulações se aproximaram dos valores de referência, sendo a simulação LES tridimensional a que resultou na distribuição mais satisfatória. Isso se deve ao fato dos vórtices se formarem tridimensionalmente no espaço, o que torna a simulação bidimensional inapropriada para tal magnitude de $\Rey$.
 
-Outros valores observados são referentes aos coeficientes médios de sustentação ($c_D$) e de arrasto ($c_L$), além da distância do ponto de desprendimento ($x_\mathrm{sep}$) e reanexação ($x_\mathrm{reat}$) do fluxo ao longo do aerofólio. Esses valores são apresentados na Tabela \ref{tab:NACA0012-sep-reat} em comparação com os obtidos por \citeonline{lehmkuhl2011direct} em simulação DNS.
+Outros valores observados são referentes aos coeficientes médios de sustentação ($C_L$) e de arrasto ($C_D$), além da distância do ponto de desprendimento ($x_\mathrm{sep}$) e reanexação ($x_\mathrm{reat}$) do fluxo ao longo do aerofólio. Esses valores são apresentados na Tabela \ref{tab:NACA0012-sep-reat} em comparação com os obtidos por \citeonline{lehmkuhl2011direct} em simulação DNS.
 
 \begin{table}[h!]
     \centering
@@ -964,8 +964,8 @@ Outros valores observados são referentes aos coeficientes médios de sustentaç
     \begin{tabular}{lccc}
         \hline
                           & Calculado & \citeonline{lehmkuhl2011direct} & Desvio \\\hline
-        $c_D$             & 0,0405    & 0,0291                          & 0,0114 \\
-        $c_L$             & 0,564     & 0,569                           & -0,005 \\
+        $C_D$             & 0,0405    & 0,0291                          & 0,0114 \\
+        $C_L$             & 0,564     & 0,569                           & -0,005 \\
         $x_\mathrm{sep}$  & 0,1258    & 0,0645                          & 0,061  \\
         $x_\mathrm{reat}$ & 0,553     & 0,566                           & -0,013 \\\hline
     \end{tabular}
