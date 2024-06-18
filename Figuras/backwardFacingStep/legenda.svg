@@ -26,12 +26,12 @@
      showgrid="false"
      inkscape:lockguides="true"
      inkscape:zoom="2.1089995"
-     inkscape:cx="123.51828"
-     inkscape:cy="22.759607"
-     inkscape:window-width="1920"
-     inkscape:window-height="970"
-     inkscape:window-x="1920"
-     inkscape:window-y="27"
+     inkscape:cx="123.75536"
+     inkscape:cy="22.996686"
+     inkscape:window-width="1680"
+     inkscape:window-height="1013"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -1437,7 +1437,8 @@
     <g
        id="g8790-3"
        transform="matrix(0.26458333,0,0,0.26458333,-775.00468,69.281904)"
-       clip-path="url(#clipPath10293-6)">
+       clip-path="url(#clipPath10293-6)"
+       style="stroke:#000000;stroke-opacity:1">
       <path
          d="m 3226.5,333.5 -7,-7 m 0,7 7,-7"
          stroke="#4472c4"
@@ -1445,7 +1446,8 @@
          stroke-linejoin="round"
          stroke-miterlimit="10"
          fill="none"
-         id="path8788-9" />
+         id="path8788-9"
+         style="stroke:#000000;stroke-opacity:1" />
     </g>
     <text
        xml:space="preserve"

@@ -363,7 +363,7 @@ O problema de escoamento em degrau invertido é um problema clássico de escoame
     \label{fig:step}
 \end{figure}
 
-Em seu estudo numérico, \citeonline{chiang1999numerical} considerou um duto de largura constante $B$, uma altura de seção transversal a montante de $h$ e comprimento $L_u$, e altura a jusante de $H=h+S$ com comprimento $L_d$. Nas laterais do duto considerou-se o efeito da viscosidade na parede, por meio da imposição de condição de paredes aderentes, ou seja, $\BB{u}=\BB{0}$, assim como nas faces do fundo e do topo do duto. Na face de entrada do duto considerou-se uma velocidade prescrita $\BB{u}_\infty=(u_1(x_2,x_3),0,0)\trans$, tal que:
+Em seu estudo numérico, \citeonline{chiang1999numerical} considerou um duto de largura constante $B$, uma altura de seção transversal a montante de $h$ e comprimento $L_u$, e altura a jusante de $H=h+S$ com comprimento $L_d$. Nas laterais do duto considerou-se o efeito da viscosidade na parede, por meio da imposição de condição de paredes aderentes, ou seja, $\BB{u}=\BB{0}$, assim como nas faces do fundo e do topo do duto. Na face de entrada do duto considerou-se uma velocidade prescrita $\BB{u}_\infty=(u_1(y_2,y_3),0,0)\trans$, tal que:
 
 \begin{subequations}
     \begin{equation}
@@ -382,7 +382,7 @@ Em seu estudo numérico, \citeonline{chiang1999numerical} considerou um duto de 
 
 Devido à simetria do problema, considerou-se somente metade da largura do duto, impondo-se uma condição de simetria ($u_3=0$) no plano $y_3=0$, o qual é utilizado para observar os resultados do problema.
 
-Para a simulação numérica, considerou-se um duto com largura $B=35h$, altura $h=1,0$, altura do degrau $S=0,9423$ e comprimento $L_u=0,0$ e $L_d=55,0$. A malha utilizada na discretização do domínio foi construída a partir de elementos P2P2 e P2P1 de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 57173 elementos finitos, tendo 95334 nós para elementos P2P2 e 95334 nós para o campo de velocidade e 14227 nós para pressões em elementos P2P1, resultando em 381336 e 300229 graus de liberdade, respectivamente (conforme ilustrado na Figura \ref{fig:step-mesh}).
+Para a simulação numérica, considerou-se valores adimensionais, conforme valores utilizados por \citeonline{chiang1999numerical}, sendo a largura do duto $B=35h$, altura $h=1,0$, altura do degrau $S=0,9423$ e comprimento $L_u=0,0$ e $L_d=55,0$. A malha utilizada na discretização do domínio foi construída a partir de elementos P2P2 e P2P1 de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 57173 elementos finitos, tendo 95334 nós para elementos P2P2 e 95334 nós para o campo de velocidade e 14227 nós para pressões em elementos P2P1, resultando em 381336 e 300229 graus de liberdade, respectivamente (conforme ilustrado na Figura \ref{fig:step-mesh}).
 
 \begin{figure}
     \centering
@@ -406,9 +406,9 @@ O número de Reynolds do problema analisado é obtido a partir da equação \eqr
     \label{eq:ReyBFS}
 \end{equation}
 
-\noindent sendo $u_\mathrm{medio}=1,0$ a velocidade média na região de entrada do duto. Assim, sendo $\rho=1,0$, considera-se os valores de viscosidade dinâmica $\mu=0,02$, $5,1414\times10^{-3}$ e $2,0\times10^{-3}$, de modo a obter números de Reynolds de 100, 389 e 1000, respectivamente. O passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rhoinf=0,0$. A simulação com elementos P2P2 foi estabilizada a partir da formulação SUPG/PSPG, enquanto a simulação P2P1 não foi estabilizada para $\Rey=100$ e $389$, uma vez que a simulação se tornou instável para $\Rey=1000$, sendo, portanto, necessária a aplicação de uma estabilização SUPG nesse caso.
+\noindent sendo $u_\mathrm{medio}=1,0$ a velocidade média na região de entrada do duto. Assim, sendo $\rho=1,0$, considera-se os valores de viscosidade dinâmica $\mu=0,02$, $5,1414\times10^{-3}$ e $2,0\times10^{-3}$, de modo a obter números de Reynolds de 100, 389 e 1000, respectivamente. O passo de tempo foi de $\Delta t=0,1$ e a simulação foi mantida até que a estacionariedade do fluxo fosse alcançada, sendo o esquema de integração temporal obtido a partir de $\rhoinf=0,0$. A simulação com elementos P2P2 foi estabilizada a partir da formulação SUPG/PSPG, enquanto a simulação P2P1 não foi estabilizada para $\Rey=100$ e $389$. Entretanto, para $\Rey=1.000$ a simulação utilizando P2P1 tornou-se instável, sendo necessária a aplicação da estabilização SUPG.
 
-Além disso, uma simulação bidimensional foi conduzida para o $\Rey=1000$, uma vez que \citeonline{chiang1999numerical} observaram uma discrepância entre os valores de simulações bidimensionais e tridimensionais para esse número de Reynolds. Como mencionado pelos autores, essa diferença se dá pela influência da parede aderente nos resultados, o que não é capturada pela simulação bidimensional.
+Além disso, uma simulação bidimensional foi conduzida para o $\Rey=1.000$, uma vez que \citeonline{chiang1999numerical} observaram uma discrepância entre os valores de simulações bidimensionais e tridimensionais para esse número de Reynolds. Como mencionado pelos autores, essa diferença se dá pela influência da viscosidade na parede do duto, o que não é capturada pela simulação bidimensional.
 
 A malha utilizada para a simulação bidimensional foi construída a partir de elementos P2P2 de tamanho 0,5 na região de entrada do duto e 0,6 na região de saída. Assim obtém-se uma malha com 836 elementos finitos e 1883 nós, resultando em 5649 graus de liberdade.
 
