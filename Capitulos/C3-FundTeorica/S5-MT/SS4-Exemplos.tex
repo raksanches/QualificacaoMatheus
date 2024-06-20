@@ -92,7 +92,7 @@ A Figura \ref{fig:cavity-results} apresenta os valores obtidos para velocidades 
     \label{fig:cavity-results}
 \end{figure}
 
-Pelo fato de se utilizar um método diferente em relação à referência, o qual utiliza o método \textit{multi-grid} com 257$\times$257 e 129$\times$129 pontos, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos P1P1, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos P2P2, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos P1P1.
+Pelo fato de se utilizar um método diferente em relação à referência, a qual utiliza uma discretização pré-condicionada via diferenças finitas, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos P1P1, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos P2P2, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos P1P1.
 
 Para todos os casos, à medida que o número de Reynolds aumenta, é possível notar que a aplicação do modelo LES melhorou a representação do campo de velocidade, o que deve-se à boa capacidade do modelo de capturar os efeitos turbulentos em escalas menores que os elementos da malha. Já o uso da formulação VMS, embora tenha sido muito eficiente para garantir a estabilização, não apresentou diferenças significativas em relação à formulação estabilizada SUPG/PSPG.
 
