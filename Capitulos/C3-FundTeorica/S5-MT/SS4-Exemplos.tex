@@ -251,6 +251,10 @@ Em seguida realizou-se uma simulação com uma malha ainda mais pobre, com 2695 
         \includegraphics[width=\linewidth]{Figuras/cavity3D/LES.png}
         \caption{LES}
     \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figuras/Cavity/legenda.png}
+    \end{subfigure}
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cavity-results5}
 \end{figure}
@@ -537,7 +541,7 @@ Outro parâmetro possível de se verificar é o número de Strouhal ($\Str$), qu
     \Str=\frac{f_vL}{\norm{\BB{u}_\infty}}\text{,}
 \end{equation}
 
-\noindent sendo $f_v$ a frequência de desprendimento de vórtices.
+\noindent sendo $f_v$ a frequência de desprendimento de vórtices, determinado a partir da transformação rápida de Fourier (FFT).
 
 As Figuras \ref{fig:cyl-Cd} e \ref{fig:cyl-Cl} apresentam os coeficientes de arrasto e de sustentação obtidos em todas as simulações, respectivamente.
 
@@ -562,7 +566,7 @@ As Figuras \ref{fig:cyl-Cd} e \ref{fig:cyl-Cl} apresentam os coeficientes de arr
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cyl-Cd}
 \end{figure}
-\newpage
+% \newpage
 
 \begin{figure}[h!]
     \centering
@@ -585,7 +589,7 @@ As Figuras \ref{fig:cyl-Cd} e \ref{fig:cyl-Cl} apresentam os coeficientes de arr
     \\Fonte: Presente trabalho (\the\year).
     \label{fig:cyl-Cl}
 \end{figure}
-\newpage
+% \newpage
 
 Os valores dos coeficientes de arrasto e de sustentação após o escoamento atingir o equilíbrio dinâmico, assim como o número de Strouhal e valores de referência, são apresentados nas Tabelas \ref{tab:cyl-res100} a \ref{tab:cyl-res200}.
 
