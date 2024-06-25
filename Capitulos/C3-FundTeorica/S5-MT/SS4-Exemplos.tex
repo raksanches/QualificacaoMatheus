@@ -92,7 +92,9 @@ A Figura \ref{fig:cavity-results} apresenta os valores obtidos para velocidades 
     \label{fig:cavity-results}
 \end{figure}
 
-Pelo fato de se utilizar um método diferente em relação à referência, a qual utiliza uma discretização pré-condicionada via diferenças finitas, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos P1P1, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos P2P2, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos P1P1.
+% Pelo fato de se utilizar um método diferente em relação à referência, a qual utiliza uma discretização pré-condicionada via diferenças finitas, percebe-se uma certa discrepância entre os resultados, especialmente à medida que o número de Reynolds aumenta. Nota-se ainda que a discretização com elementos P1P1, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos P2P2, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos P1P1.
+
+Nota-se que a discretização com elementos P1P1, mesmo possuindo o mesmo número de graus de liberdade da discretização com elementos P2P2, apresenta resultados menos precisos. Isso se deve à representação mais pobre dos campos mecânicos pelos elementos P1P1.
 
 Para todos os casos, à medida que o número de Reynolds aumenta, é possível notar que a aplicação do modelo LES melhorou a representação do campo de velocidade, o que deve-se à boa capacidade do modelo de capturar os efeitos turbulentos em escalas menores que os elementos da malha. Já o uso da formulação VMS, embora tenha sido muito eficiente para garantir a estabilização, não apresentou diferenças significativas em relação à formulação estabilizada SUPG/PSPG.
 
@@ -960,11 +962,11 @@ Para a simulação tridimensional, observou-se que a simulação sem aplicação
 
 Assim, verifica-se que todas as simulações se aproximaram dos valores de referência, sendo a simulação LES tridimensional a que resultou na distribuição mais satisfatória. Isso se deve ao fato dos vórtices se formarem tridimensionalmente no espaço, o que torna a simulação bidimensional inapropriada para tal magnitude de $\Rey$.
 
-Outros valores observados são referentes aos coeficientes médios de sustentação ($C_L$) e de arrasto ($C_D$), além da distância do ponto de desprendimento ($x_\mathrm{sep}$) e reanexação ($x_\mathrm{reat}$) do fluxo ao longo do aerofólio. Esses valores são apresentados na Tabela \ref{tab:NACA0012-sep-reat} em comparação com os obtidos por \citeonline{lehmkuhl2011direct} em simulação DNS.
+Outros valores observados são referentes aos coeficientes médios de sustentação ($C_L$) e de arrasto ($C_D$), além da distância do ponto de desprendimento ($x_\mathrm{sep}$) e recolamento ($x_\mathrm{reat}$) do fluxo ao longo do aerofólio. Esses valores são apresentados na Tabela \ref{tab:NACA0012-sep-reat} em comparação com os obtidos por \citeonline{lehmkuhl2011direct} em simulação DNS.
 
 \begin{table}[h!]
     \centering
-    \caption{Escoamento em torno de um aerofólio NACA 0012 - Distância do ponto de desprendimento e reanexação.}
+    \caption{Escoamento em torno de um aerofólio NACA 0012 - Distância do ponto de desprendimento e recolamento.}
     \begin{tabular}{lccc}
         \hline
                           & Calculado & \citeonline{lehmkuhl2011direct} & Desvio \\\hline
@@ -977,7 +979,7 @@ Outros valores observados são referentes aos coeficientes médios de sustentaç
     \label{tab:NACA0012-sep-reat}
 \end{table}
 
-Observa-se, portanto, que todos os valores estão muito próximos aos valores de referência, apontando a boa utilização do modelo. A boa estimativa dos pontos de desprendimento e de reanexação se torna importante, pois, como apontado pelo autor, esse desprendimento forma uma bolha sobre o aerofólio, o que pode causar uma perda de sustentação, além de aumentar o arrasto, impactando diretamente na eficiência do aerofólio.
+Observa-se, portanto, que todos os valores estão muito próximos aos valores de referência, apontando a boa utilização do modelo. A boa estimativa dos pontos de desprendimento e de recolamento se torna importante, pois, como apontado pelo autor, esse desprendimento forma uma bolha sobre o aerofólio, o que pode causar uma perda de sustentação, além de aumentar o arrasto, impactando diretamente na eficiência do aerofólio.
 
 A Figura \ref{fig:NACA0012-fields} apresenta os campos de pressão, velocidade e vorticidade ($\BB{\omega}=\Ny\times\BB{u}$) em torno do aerofólio no instante $t=5,0$, para a simulação tridimensional LES.
 
